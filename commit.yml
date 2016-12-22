@@ -3,27 +3,180 @@ branches: {
   }
 fileChange:
   /upload:
-    newFile: !uuid '319715a226b9ee8a697db8242e44ecd885f8b529'
-    oldFile: !uuid '003bcd53318fa27974158447e4e0ce3086e7ad19'
+    newFile: !uuid 'f7a80e071156bf7e3b8f6a2ada5f0cab48f038cc'
+    oldFile: !uuid '319715a226b9ee8a697db8242e44ecd885f8b529'
   /upload/install:
-    newFile: !uuid 'd46811235358cda94d50384c298088a1fb43bd7e'
-    oldFile: !uuid '8f45e8c40aba616b0031a0b748848a037fcb4489'
+    newFile: !uuid '460ec9535bb16eeea6e2ff538f23ac93cc312bab'
+    oldFile: !uuid 'd46811235358cda94d50384c298088a1fb43bd7e'
   /upload/install/include:
-    newFile: !uuid '2e73394f1b67efd3daced9142c4fa0d75b8e9e45'
-    oldFile: !uuid '3022f054dd735836bc2df09781fbe2abeeacd1d5'
+    newFile: !uuid 'd3cff15cdcd1593eab4474d12bde8a23ff6a8527'
+    oldFile: !uuid '2e73394f1b67efd3daced9142c4fa0d75b8e9e45'
   /upload/install/include/install_function.php:
-    newFile: !uuid 'e2b7300f4bdec27955fb677e1b3d94959e47a0b7'
-    oldFile: !uuid '6c4ff33420009e1c4ebfddb0443f514c6b173386'
+    newFile: !uuid 'bc685282578e220c28d4071f5e8a92ed2317b184'
+    oldFile: !uuid 'e2b7300f4bdec27955fb677e1b3d94959e47a0b7'
+  /upload/install/include/install_var.php:
+    newFile: !uuid 'bdae01b7838a4f77c8c529e68a85f0e19cb988cf'
+    oldFile: !uuid '14ebcceb3e6f2ceffe81f038e5c235404c852f71'
   /upload/source:
-    newFile: !uuid 'e25802e4061d898f00449048ec0213ed61d32a50'
-    oldFile: !uuid '0883cc34bd635b381f723161e4cf1e57e4d2ccc4'
+    newFile: !uuid '503e91fb108c633203ea3c8acf04ce86ea1aab0d'
+    oldFile: !uuid 'e25802e4061d898f00449048ec0213ed61d32a50'
+  /upload/source/admincp:
+    newFile: !uuid '649a3cc9346fb2e996f7c9ba17e3409fb0d5950b'
+    oldFile: !uuid '6ca63f631d7439fa1a41c2529524d6b493ab673c'
+  /upload/source/admincp/discuzfiles.md5:
+    newFile: !uuid 'ff8e00b067cfc9dc56d9fb202598ed210cc49298'
+    oldFile: !uuid '55cf7eabbc94598f7caa85f24ae1c2fdb5ed5882'
   /upload/source/function:
-    newFile: !uuid '56713559bab7921564d019f8af3029c3fdf866c3'
-    oldFile: !uuid '0d8d910ead39b8ad82e934f4d544066df5d56d7a'
+    newFile: !uuid 'ba939e5038037a04e42bd8a85152b06dcbd85315'
+    oldFile: !uuid '56713559bab7921564d019f8af3029c3fdf866c3'
   /upload/source/function/function_core.php:
-    newFile: !uuid '81bdbe0e80cecdb2e0e37f9084685ca5c0df81a1'
-    oldFile: !uuid 'c94f92af9a6dae0fcf4adc849dfe5282ed24cff7'
-gitCommitId: !uuid 'f845217e07fdab2138587b01745b4067b7062ca2'
+    newFile: !uuid 'c71d6b799068103166e075a9fa6831d168e4afa2'
+    oldFile: !uuid '81bdbe0e80cecdb2e0e37f9084685ca5c0df81a1'
+  /upload/source/module:
+    newFile: !uuid '2bcbf4ce3e849313eca9c3617219e14d872f5384'
+    oldFile: !uuid 'b5ee6dc70d49101073b47485222ff02bbef32ab8'
+  /upload/source/module/misc:
+    newFile: !uuid '747b86feaea3201d8c2d872b655c0490fc0b5b0b'
+    oldFile: !uuid '401b6358c8dfa1f50ea006da7d2f467dd8a0dacd'
+  /upload/source/module/misc/misc_initsys.php:
+    newFile: !uuid 'f73a4c43048fb6336e41560a6112eca5537bc406'
+    oldFile: !uuid 'fc14950ae3f92b48bd86b75b40a4f7b19fbf064b'
+  /upload/source/plugin:
+    newFile: !uuid '565b08c08b72d7704641f4b364c763468eb0c806'
+    oldFile: !uuid 'f437e5ec181a834bda2765f81cb8f585b66452ee'
+  /upload/source/plugin/cloudsearch:
+    newFile: null
+    oldFile: !uuid 'f41cfd7ea2ee05a6f4bab6cdb789e5e81f502fba'
+  /upload/source/plugin/cloudsearch/admincp.inc.php:
+    newFile: null
+    oldFile: !uuid 'cec273419b6d5da6e033ab53f3f5baa210d2463c'
+  /upload/source/plugin/cloudsearch/cloudsearch.inc.php:
+    newFile: null
+    oldFile: !uuid '756b467c213ce9f4c550c2b5d579f3a92205d56e'
+  /upload/source/plugin/cloudsearch/discuz_plugin_cloudsearch.xml:
+    newFile: null
+    oldFile: !uuid '9b667b13c72d84900bb2ae8c2976577456275bd8'
+  /upload/source/plugin/cloudsearch/forumdisplay.inc.php:
+    newFile: null
+    oldFile: !uuid '98c44ab6893d77e372a3eba5b927be97df581188'
+  /upload/source/plugin/cloudsearch/index.htm:
+    newFile: null
+    oldFile: !uuid 'e69de29bb2d1d6434b8b29ae775ad8c2e48c5391'
+  /upload/source/plugin/cloudsearch/install.php:
+    newFile: null
+    oldFile: !uuid '4a3653fdc2ce9a7311ce42e84c093a86e862746b'
+  /upload/source/plugin/cloudsearch/search.class.php:
+    newFile: null
+    oldFile: !uuid 'be7483b7a69ce6d1ad6860b5ab44a203f263277b'
+  /upload/source/plugin/cloudsearch/search_wap.class.php:
+    newFile: null
+    oldFile: !uuid '4380e8c95d548c29785f5ca21c44b4f6e1d6f06f'
+  /upload/source/plugin/cloudsearch/switch.php:
+    newFile: null
+    oldFile: !uuid '53168fe85f5da210b7cfc93625bfdfa55109c76e'
+  /upload/source/plugin/cloudsearch/table:
+    newFile: null
+    oldFile: !uuid '052a05fdc0e30511ba076312c461a4ae58f8589d'
+  /upload/source/plugin/cloudsearch/table/table_forum_forum_plugin.php:
+    newFile: null
+    oldFile: !uuid '645965c34382eb1624cc7099104b4926a88e5c3e'
+  /upload/source/plugin/cloudsearch/template:
+    newFile: null
+    oldFile: !uuid '53845ffa6c628dee5fa51459eade88951d998dcf'
+  /upload/source/plugin/cloudsearch/template/extend_module.css:
+    newFile: null
+    oldFile: !uuid '9785e89b4097563b5ac207aa3733d06a0951b79a'
+  /upload/source/plugin/cloudsearch/template/forumdisplay.htm:
+    newFile: null
+    oldFile: !uuid '54c81048c59d7b742c2e2fb3e6af764647460ea4'
+  /upload/source/plugin/cloudsearch/template/index.htm:
+    newFile: null
+    oldFile: !uuid 'e69de29bb2d1d6434b8b29ae775ad8c2e48c5391'
+  /upload/source/plugin/cloudsearch/template/keyword_hot.gif:
+    newFile: null
+    oldFile: !uuid '0fbbe793119ca002c556703080f892fcdf9aa83d'
+  /upload/source/plugin/cloudsearch/template/mobile:
+    newFile: null
+    oldFile: !uuid '2120ea5dbc0562536b6f6bed591e780e02297362'
+  /upload/source/plugin/cloudsearch/template/mobile/module.htm:
+    newFile: null
+    oldFile: !uuid '88f50525298091b30635ab8fb5dd2188d7dee5ac'
+  /upload/source/plugin/cloudsearch/template/module.htm:
+    newFile: null
+    oldFile: !uuid '01c25e4cc1db0094ceb39463aec6f77a619c6a90'
+  /upload/source/plugin/cloudsearch/template/touch:
+    newFile: null
+    oldFile: !uuid '8a40df5bc319ce36dfbf61b3f90765ad39ce872c'
+  /upload/source/plugin/cloudsearch/template/touch/module.htm:
+    newFile: null
+    oldFile: !uuid '6e03146e475ed250412338ae7d20d660169edc80'
+  /upload/source/plugin/cloudsearch/upgrade.php:
+    newFile: null
+    oldFile: !uuid 'b1142e4a822577f94c7b36b5f7a469352d5bd258'
+  /upload/source/plugin/cloudunion:
+    newFile: null
+    oldFile: !uuid '2b0cab281f5097c35e717d7afeecbb341442bc1b'
+  /upload/source/plugin/cloudunion/admincp.inc.php:
+    newFile: null
+    oldFile: !uuid '38cc5646cd3a93d5d32af35441f2780b4093f971'
+  /upload/source/plugin/cloudunion/discuz_plugin_cloudunion.xml:
+    newFile: null
+    oldFile: !uuid '9738acf8b36982560c294030f3132e967ea55258'
+  /upload/source/plugin/cloudunion/index.htm:
+    newFile: null
+    oldFile: !uuid '0519ecba6ea913e21689ec692e81e9e4973fbf73'
+  /upload/source/plugin/cloudunion/switch.php:
+    newFile: null
+    oldFile: !uuid '0d0303054deb5d44bcd88ed40cdd5d58d41e4767'
+  /upload/source/plugin/xf_storage:
+    newFile: null
+    oldFile: !uuid 'e7b8a1fe883eab63f300105d86d410baecacf48f'
+  /upload/source/plugin/xf_storage/discuz_plugin_xf_storage.xml:
+    newFile: null
+    oldFile: !uuid 'd5829ffa76a200eecb93c977905162a6d1d92644'
+  /upload/source/plugin/xf_storage/ftn_cross.inc.php:
+    newFile: null
+    oldFile: !uuid 'a357b9be0f31c974e173c42369358373cfcc0c78'
+  /upload/source/plugin/xf_storage/ftn_upload.inc.php:
+    newFile: null
+    oldFile: !uuid '7e4bca99093a7cf39c084217b51067c8b2c70f9b'
+  /upload/source/plugin/xf_storage/index.htm:
+    newFile: null
+    oldFile: !uuid 'e69de29bb2d1d6434b8b29ae775ad8c2e48c5391'
+  /upload/source/plugin/xf_storage/template:
+    newFile: null
+    oldFile: !uuid '5438245c916c7faccd9af136ab8e7ce1ad9ff958'
+  /upload/source/plugin/xf_storage/template/cross.htm:
+    newFile: null
+    oldFile: !uuid '64e05bf7fa26adf3df865d4e4263fcfac7b8090c'
+  /upload/source/plugin/xf_storage/template/css.htm:
+    newFile: null
+    oldFile: !uuid 'd4093ec6ab6f4ccf49d91c6b11322a943143e83b'
+  /upload/source/plugin/xf_storage/template/editor.htm:
+    newFile: null
+    oldFile: !uuid 'ec47c348197cb9e8f2c984239f49deae119156db'
+  /upload/source/plugin/xf_storage/template/ftn.png:
+    newFile: null
+    oldFile: !uuid '27cea33215d476b476297fa75d30251628055bbd'
+  /upload/source/plugin/xf_storage/template/ftnupload.htm:
+    newFile: null
+    oldFile: !uuid 'b8ee97cacb90d1dd64d63f39c417dc19d8de3485'
+  /upload/source/plugin/xf_storage/template/index.htm:
+    newFile: null
+    oldFile: !uuid 'e69de29bb2d1d6434b8b29ae775ad8c2e48c5391'
+  /upload/source/plugin/xf_storage/template/jscode.htm:
+    newFile: null
+    oldFile: !uuid 'c82e3b229b6938674f794e5ffb79bc5c2e79a7ea'
+  /upload/source/plugin/xf_storage/template/link.htm:
+    newFile: null
+    oldFile: !uuid 'fe17db551eab2d1163ac32079e8e02b6fa95a51c'
+  /upload/source/plugin/xf_storage/template/upload.htm:
+    newFile: null
+    oldFile: !uuid '9021bb0002c1be584c6a755a71355e87755c1b26'
+  /upload/source/plugin/xf_storage/xf_storage.class.php:
+    newFile: null
+    oldFile: !uuid '07c8d7dd395a2261b26e00e4024289036e5cf479'
+gitCommitId: !uuid '5928991d5112fb34fb9c6815440fb4241369a61a'
 renames: {
   }
-revisionId: 16
+revisionId: 17
