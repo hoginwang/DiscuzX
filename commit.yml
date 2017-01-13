@@ -3,27 +3,21 @@ branches: {
   }
 fileChange:
   /upload:
-    newFile: !uuid 'cc93b3018a0d1bb70019d597cfb27728ef83ba3e'
-    oldFile: !uuid 'de0d9915034ccd09fdd5e8f477a4bdb1f78415dd'
+    newFile: !uuid '399aee23be7f450b67750141dc490d3776b1483d'
+    oldFile: !uuid 'cc93b3018a0d1bb70019d597cfb27728ef83ba3e'
   /upload/template:
-    newFile: !uuid 'ae22b4b5ec6ec500e70491e5a11ad647f0fb1308'
-    oldFile: !uuid 'fb7a8f82b3c7f8e204d192906e1f6f45b579f453'
+    newFile: !uuid '8cdfb35729b4d747471ccd8b7cdbfa1c41d253b7'
+    oldFile: !uuid 'ae22b4b5ec6ec500e70491e5a11ad647f0fb1308'
   /upload/template/default:
-    newFile: !uuid '8b3f24b1e26bdb9d60f5eb9d4f3fb932945378ee'
-    oldFile: !uuid 'b5aa7a0e0f39760bdf9b10bbecb921efea3ef5ef'
-  /upload/template/default/forum:
-    newFile: !uuid '8275c0894e589bc29c333985bb0b59372119950b'
-    oldFile: !uuid 'dd2dcee226de1ae0003a11dd1a6b0917e82bbdca'
-  /upload/template/default/forum/comment.htm:
-    newFile: !uuid '02880553041f7f688a5e26d4ca904ff3450ef132'
-    oldFile: !uuid 'a41369a69a889dc277e880d4f3a0612262f61fec'
-  /upload/template/default/forum/post_infloat.htm:
-    newFile: !uuid 'b520723c9a38da26d401ba014909e7e036ba1290'
-    oldFile: !uuid '1b864fbb93abde971d90fb2f1968d2f36708b7a5'
-  /upload/template/default/forum/viewthread_fastpost.htm:
-    newFile: !uuid 'ac281e919369909ef29aacc25e55e848b57c758c'
-    oldFile: !uuid 'd2bdbbfc0197feec58c91fb0f535ebaa5ca5e299'
-gitCommitId: !uuid '4aaea9104bbe84b1e1297f2dbe9ab682abe45fe9'
+    newFile: !uuid 'bb583bc75d16b30d818aa702080f0a6f36eb6b76'
+    oldFile: !uuid '8b3f24b1e26bdb9d60f5eb9d4f3fb932945378ee'
+  /upload/template/default/common:
+    newFile: !uuid 'b33b95de294e01cbe06d9810063a60a33f336c75'
+    oldFile: !uuid '83514702f524db0fec7f7656e44183ec5003fa43'
+  /upload/template/default/common/report.htm:
+    newFile: !uuid 'e07196e071e07cc0e3c8c222fa51be9c5bcdcf40'
+    oldFile: !uuid '60899b712de1cc36815f8575bbc24d7be659767e'
+gitCommitId: !uuid 'd1b027db6c4264cdad080d9441995bf451d4983b'
 renames: {
   }
-revisionId: 46
+revisionId: 47
