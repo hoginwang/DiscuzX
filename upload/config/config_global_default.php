@@ -112,6 +112,7 @@ $_config['memory']['memcache']['pconnect'] = 1;			// memcache 是否长久连接
 $_config['memory']['memcache']['timeout'] = 1;			// memcache 服务器连接超时
 
 $_config['memory']['apc'] = 1;							// 启动对 apc 的支持
+$_config['memory']['apcu'] = 1;              // 启动对 apcu 的支持
 $_config['memory']['xcache'] = 1;						// 启动对 xcache 的支持
 $_config['memory']['eaccelerator'] = 1;					// 启动对 eaccelerator 的支持
 $_config['memory']['wincache'] = 1;						// 启动对 wincache 的支持

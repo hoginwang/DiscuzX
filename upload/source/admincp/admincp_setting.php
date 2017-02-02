@@ -2227,6 +2227,11 @@ EOT;
 			$cache_config['apc'] ? cplang('open') : cplang('closed'),
 			$cache_type == 'apc' ? $do_clear_link : '--'
 			);
+		$apcu = array('APCu',
+			$cache_extension['apcu'] ? cplang('setting_memory_php_enable') : cplang('setting_memory_php_disable'),
+			$cache_config['apcu'] ? cplang('open') : cplang('closed'),
+			$cache_type == 'apcu' ? $do_clear_link : '--'
+			);
 		$xcache = array('Xcache',
 			$cache_extension['xcache'] ? cplang('setting_memory_php_enable') : cplang('setting_memory_php_disable'),
 			$cache_config['xcache'] ? cplang('open') : cplang('closed'),
@@ -2246,6 +2251,7 @@ EOT;
 		showtablerow('', array('width="100"', 'width="120"', 'width="120"'), $redis);
 		showtablerow('', '', $memcache);
 		showtablerow('', '', $apc);
+		showtablerow('', '', $apcu);
 		showtablerow('', '', $xcache);
 		showtablerow('', '', $ea);
 		showtablerow('', '', $wincache);
