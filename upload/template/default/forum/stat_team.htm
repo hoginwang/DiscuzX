@@ -27,6 +27,7 @@
 						<th>{lang credits}</th>
 						<th>{lang posts}</th>
 						<th width="50">{lang stats_posts_thismonth}</th>
+						<th width="50">&#26368;&#36817;&#32;&#51;&#48;&#32;&#22825;&#20027;&#39064;</th>
 						<!--{if $_G[setting][modworkstatus]}--><th width="30">{lang stats_modworks_thismonth}</th><!--{/if}-->
 						<!--{if $_G[setting][oltimespan]}-->
 							<th width="50">{lang onlinetime_total}({lang hours})</th>
@@ -43,6 +44,7 @@
 							<td>$team[members][$uid][credits]</td>
 							<td>$team[members][$uid][posts]</td>
 							<td>$team[members][$uid][thismonthposts]</td>
+							<td>$team[members][$uid][thismonththreads]</td>
 							<!--{if $_G[setting][modworkstatus]}-->
 								<td><a href="misc.php?mod=stat&op=modworks&uid=$uid">$team[members][$uid][modactions]</a></td>
 							<!--{/if}-->
@@ -73,6 +75,7 @@
 						<th>{lang credits}</th>
 						<th>{lang posts}</th>
 						<th width="50">{lang stats_posts_thismonth}</th>
+						<th width="50">&#26368;&#36817;&#32;&#51;&#48;&#32;&#22825;&#20027;&#39064;</th>
 						<th width="30">{lang stats_modworks_thismonth}</th>
 						<!--{if $_G['setting']['oltimespan']}-->
 							<th width="50">{lang onlinetime_total}({lang hours})</th>
@@ -92,6 +95,7 @@
 							<td>$team[members][$uid][credits]</td>
 							<td>$team[members][$uid][posts]</td>
 							<td>$team[members][$uid][thismonthposts]</td>
+							<td>$team[members][$uid][thismonththreads]</td>
 							<td><!--{if $_G['setting']['modworkstatus']}--><a href="misc.php?mod=stat&op=modworks&uid=$uid">$team[members][$uid][modactions]</a><!--{else}-->N/A<!--{/if}--></td>
 							<!--{if $_G['setting']['oltimespan']}-->
 								<td>$team[members][$uid][totalol]</td>
