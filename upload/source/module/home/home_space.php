@@ -4,7 +4,7 @@
  *      [Discuz!] (C)2001-2099 Comsenz Inc.
  *      This is NOT a freeware, use is subject to license terms
  *
- *      $Id: home_space.php 36337 2017-01-05 06:34:27Z nemohou $
+ *      $Id: home_space.php 33660 2013-07-29 07:51:05Z nemohou $
  */
 
 if(!defined('IN_DISCUZ')) {
@@ -24,6 +24,9 @@ if(empty($_G['uid']) && in_array($_GET['do'], array('thread', 'trade', 'poll', '
 	showmessage('login_before_enter_home', null, array(), array('showmsg' => true, 'login' => 1));
 }
 $uid = empty($_GET['uid']) ? 0 : intval($_GET['uid']);
+if(in_array($_GET['do'], array('thread')) && $uid != $_G['uid'] && (empty($_G['uid']) || (!in_array($_G['adminid'], array(1, 2)) && !in_array($_G['groupid'], array(18, 16, 17, 19, 21, 22, 40))))) {
+	showmessage('login_before_enter_home', null, array(), array('showmsg' => true, 'login' => 1));
+}
 
 $member = array();
 if($_GET['username']) {

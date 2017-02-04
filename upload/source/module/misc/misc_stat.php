@@ -188,7 +188,7 @@ function getstatvars_team() {
 
 	$totaloffdays = $totalol = $totalthismonthol = 0;
 	$admins = array();
-	$members = C::t('common_member')->fetch_all($uids) + C::t('common_member')->fetch_all_by_adminid(array(1, 2));
+	$members = C::t('common_member')->fetch_all($uids) + C::t('common_member')->fetch_all_by_adminid(array(1, 2, 3));
 	$uids = array_keys($members);
 	$onlinetime = $_G['setting']['oltimespan'] ? C::t('common_onlinetime')->fetch_all($uids) : array();
 	$member_status = C::t('common_member_status')->fetch_all($uids);
@@ -197,7 +197,7 @@ function getstatvars_team() {
 		$member = array_merge($member, $member_status[$uid], $member_count[$uid], (array)$onlinetime[$uid]);
 		$member['thismonthol'] = $member['thismonth'];
 		$member['totalol'] = $member['total'];
-		if($member['adminid'] == 1 || $member['adminid'] == 2) {
+		if(in_array($member['adminid'], array(1, 2, 3)) && !in_array($member['groupid'], array(33, 34))) {
 			$admins[] = $member['uid'];
 		}
 
@@ -219,6 +219,19 @@ function getstatvars_team() {
 	foreach(C::t('forum_post')->fetch_all_author_posts_by_dateline(0, $uids, $_G['timestamp']-86400*30) as $post) {
 		$members[$post['authorid']]['thismonthposts'] = $post['posts'];
 		$totalthismonthposts += $post['posts'];
+	}
+	/*
+	$totalthismonththreads = 0;
+	foreach(C::t('forum_thread')->fetch_all_author_threads_by_dateline(0, $uids, (TIMESTAMP-86400*30)) as $thread) {
+		$members[$thread['authorid']]['thismonththreads'] = $thread['threads'];
+		$totalthismonththreads += $thread['threads'];
+	}
+	*/
+
+	$totalthismonththreads = 0;
+	foreach((DB::fetch_all('SELECT authorid, COUNT(*) AS threads FROM '. DB::table('forum_thread') .' WHERE dateline>=%d AND %i GROUP BY authorid', array(TIMESTAMP-86400*30, DB::field('authorid', $uids)))) as $thread) {
+		$members[$thread['authorid']]['thismonththreads'] = $thread['threads'];
+		$totalthismonththreads += $thread['threads'];
 	}
 
 	$totalmodposts = $totalmodactions = 0;
@@ -269,6 +282,7 @@ function getstatvars_team() {
 		'members' => $members,
 		'avgoffdays' => @($totaloffdays / count($members)),
 		'avgthismonthposts' => @($totalthismonthposts / count($members)),
+		'avgthismonththreads' => @($totalthismonththreads / count($members)),
 		'avgtotalol' => @($totalol / count($members)),
 		'avgthismonthol' => @($totalthismonthol / count($members)),
 		'avgmodactions' => @($totalmodactions / count($members)),
@@ -278,14 +292,17 @@ function getstatvars_team() {
 	if(is_array($team)) {
 		foreach($team['members'] as $uid => $member) {
 			@$member['thismonthposts'] = intval($member['thismonthposts']);
+			@$member['thismonththreads'] = intval($member['thismonththreads']);
 			@$team['members'][$uid]['offdays'] = $member['offdays'] > $team['avgoffdays'] ? '<b><i>'.$member['offdays'].'</i></b>' : $member['offdays'];
 			@$team['members'][$uid]['thismonthposts'] = $member['thismonthposts'] < $team['avgthismonthposts'] / 2 ? '<b><i>'.$member['thismonthposts'].'</i></b>' : $member['thismonthposts'];
+			@$team['members'][$uid]['thismonththreads'] = $member['thismonththreads'] < $team['avgthismonththreads'] / 2 ? '<b><i>'.$member['thismonththreads'].'</i></b>' : $member['thismonththreads'];
 			@$team['members'][$uid]['lastactivity'] = dgmdate($member['lastactivity'] + $timeoffset * 3600, 'd');
 			@$team['members'][$uid]['thismonthol'] = $member['thismonthol'] < $team['avgthismonthol'] / 2 ? '<b><i>'.$member['thismonthol'].'</i></b>' : $member['thismonthol'];
 			@$team['members'][$uid]['totalol'] = $member['totalol'] < $team['avgtotalol'] / 2 ? '<b><i>'.$member['totalol'].'</i></b>' : $member['totalol'];
 			@$team['members'][$uid]['modposts'] = $member['modposts'] < $team['avgmodposts'] / 2 ? '<b><i>'.intval($member['modposts']).'</i></b>' : intval($member['modposts']);
 			@$team['members'][$uid]['modactions'] = $member['modactions'] < $team['avgmodactions'] / 2 ? '<b><i>'.intval($member['modactions']).'</i></b>' : intval($member['modactions']);
-			@$team['members'][$uid]['grouptitle'] = $_G['cache']['usergroups'][$member['adminid']]['grouptitle'];
+			@$team['members'][$uid]['grouptitle'] = $_G['cache']['usergroups'][$member['groupid']]['grouptitle'];
+			//@$team['members'][$uid]['grouptitle'] = $_G['cache']['usergroups'][$member['adminid']]['grouptitle'];
 		}
 	}
 

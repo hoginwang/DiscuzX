@@ -14,7 +14,7 @@ if(!defined('IN_DISCUZ')) {
 $view = $_GET['view'];
 loadcache('forum_guide');
 if(!in_array($view, array('hot', 'digest', 'new', 'my', 'newthread', 'sofa'))) {
-	$view = 'hot';
+	$view = 'newthread';
 }
 $lang = lang('forum/template');
 $navtitle = $lang['guide'].'-'.$lang['guide_'.$view];

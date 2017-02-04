@@ -4,7 +4,7 @@
  *      [Discuz!] (C)2001-2099 Comsenz Inc.
  *      This is NOT a freeware, use is subject to license terms
  *
- *      $Id: forum_ajax.php 36278 2016-12-09 07:52:35Z nemohou $
+ *      $Id: forum_ajax.php 34303 2014-01-15 04:32:19Z hypowang $
  */
 
 if(!defined('IN_DISCUZ')) {
@@ -17,9 +17,12 @@ if($_GET['action'] == 'checkusername') {
 
 	$username = trim($_GET['username']);
 	$usernamelen = dstrlen($username);
+	if (!preg_match("/^([a-zA-Z0-9])+$/u",$username)) {
+		showmessage('profile_username_too2', '', array(), array('handle' => false));
+	}
 	if($usernamelen < 3) {
 		showmessage('profile_username_tooshort', '', array(), array('handle' => false));
-	} elseif($usernamelen > 15) {
+	} elseif($usernamelen > 10) {
 		showmessage('profile_username_toolong', '', array(), array('handle' => false));
 	}
 

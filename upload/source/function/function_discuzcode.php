@@ -52,6 +52,19 @@ function expirehide($expiration, $creditsrequire, $message, $dateline) {
 
 function codedisp($code) {
 	global $_G;
+	$key=array();
+	$key[0]= '/(115网盘礼包码)(：|:)\s*(\w*)/is';
+	$key[1]= '/((http|https)\:\/\/)?115\.com\/lb\/(\w*)/is';
+	$key[2]= '/((http|https)\:\/\/)?pan\.baidu.com\/(s|share|pcloud)\/([\w\/\?\=&_;]*)/is';
+	$key[3]= '/((http|https)\:\/\/)?(kuai\.xunlei\.com\/d\/)([\w-\.]*)/is';
+	$key[4]= '/((http|https)\:\/\/)?(yunpan\.cn\/)(\w*)/is';
+	$key[5]= '/((http|https)\:\/\/)?(caiyun\.feixin\.10086.cn\/dl\/)(\w*)/is';
+	$key[6]= '/((http|https)\:\/\/)?(cloud\.letv\.com\/s\/)(\w*)/is';
+	$key[7]= '/((http|https)\:\/\/)?(dl\.vmall\.com\/)(\w*)/is';
+	$key[8]= '/((http|https)\:\/\/)?(dl\.dbank\.com\/)(\w*)/is';
+	$key[9]= '/((http|https)\:\/\/)?(drive\.google\.com\/)([\w\/\?\=&_;]*)/is';
+	
+	$code = preg_replace_callback($key, create_function('$matches', 'return "";'), $code);
 	$_G['forum_discuzcode']['pcodecount']++;
 	$code = dhtmlspecialchars(str_replace('\\"', '"', $code));
 	$code = str_replace("\n", "<li>", $code);
@@ -126,6 +139,17 @@ function discuzcode($message, $smileyoff = false, $bbcodeoff = false, $htmlon = 
 		if(strpos($msglower, '[/url]') !== FALSE) {
 			$message = preg_replace_callback("/\[url(=((https?|ftp|gopher|news|telnet|rtsp|mms|callto|bctp|thunder|qqdl|synacast){1}:\/\/|www\.|mailto:)?([^\r\n\[\"']+?))?\](.+?)\[\/url\]/is", 'discuzcode_callback_parseurl_152', $message);
 		}
+
+		$message = preg_replace_callback('/(115网盘礼包码)(：|:)\s*(\w*)/is', create_function('$matches', 'return filterurl("http://115.com/lb/$matches[3]");'), $message);
+		$message = preg_replace_callback('/((http|https)\:\/\/)?115\.com\/lb\/(\w*)/is', create_function('$matches', 'return filterurl("http://115.com/lb/$matches[3]");'), $message);
+		$message = preg_replace_callback('/((http|https)\:\/\/)?pan\.baidu.com\/(s|share|pcloud)\/([\w\/\?\=&_;]*)/is', create_function('$matches', 'return filterurl(\'$matches[1]pan.baidu.com/$matches[3]/$matches[4]\');'), $message);
+		$message = preg_replace_callback('/((http|https)\:\/\/)?(kuai\.xunlei\.com\/d\/)([\w-\.]*)/is', create_function('$matches', 'return filterurl("$matches[1]kuai.xunlei.com/d/$matches[4]");'), $message);
+		$message = preg_replace_callback('/((http|https)\:\/\/)?(yunpan\.cn\/)(\w*)/is', create_function('$matches', 'return filterurl("$matches[1]yunpan.cn/$matches[4]");'), $message);
+		$message = preg_replace_callback('/((http|https)\:\/\/)?(caiyun\.feixin\.10086.cn\/dl\/)(\w*)/is', create_function('$matches', 'return filterurl("$matches[1]caiyun.feixin.10086.cn/dl/$matches[4]");'), $message);
+		$message = preg_replace_callback('/((http|https)\:\/\/)?(cloud\.letv\.com\/s\/)(\w*)/is', create_function('$matches', 'return filterurl("$matches[1]cloud.letv.com/s/$matches[4]");'), $message);
+		$message = preg_replace_callback('/((http|https)\:\/\/)?(dl\.vmall\.com\/)(\w*)/is', create_function('$matches', 'return filterurl("$matches[1]dl.vmall.com/$matches[4]");'), $message);
+		$message = preg_replace_callback('/((http|https)\:\/\/)?(dl\.dbank\.com\/)(\w*)/is', create_function('$matches', 'return filterurl("$matches[1]dl.dbank.com/$matches[4]");'), $message);
+		$message = preg_replace_callback('/((http|https)\:\/\/)?(drive\.google\.com\/)([\w\/\?\=&_;]*)/is', create_function('$matches', 'return filterurl("$matches[1]drive.google.com/$matches[4]");'), $message);
 		if(strpos($msglower, '[/email]') !== FALSE) {
 			$message = preg_replace_callback("/\[email(=([a-z0-9\-_.+]+)@([a-z0-9\-_]+[.][a-z0-9\-_.]+))?\](.+?)\[\/email\]/is", 'discuzcode_callback_parseemail_14', $message);
 		}
@@ -215,6 +239,10 @@ function discuzcode($message, $smileyoff = false, $bbcodeoff = false, $htmlon = 
 				$message = preg_replace("/\[hide[=]?(d\d+)?[,]?(\d+)?\]\s*(.*?)\s*\[\/hide\]/is", "\\3", $message);
 				$msglower = strtolower($message);
 			}
+			if(strpos($msglower, '[hide=p') !== FALSE) {
+				$message = preg_replace_callback("/\[hide=p(\d+)\]\s*(.+?)\s*\[\/hide\]/is", create_function('$matches', 'return hidepermit($matches[1], $matches[2], '.intval($pdateline).');'), $message);
+				$msglower = strtolower($message);
+			}
 			if(strpos($msglower, '[hide=d') !== FALSE) {
 				$message = preg_replace_callback("/\[hide=(d\d+)?[,]?(\d+)?\]\s*(.*?)\s*\[\/hide\]/is", create_function('$matches', 'return expirehide($matches[1], $matches[2], $matches[3], '.intval($pdateline).');'), $message);
 				$msglower = strtolower($message);
@@ -278,6 +306,17 @@ function discuzcode($message, $smileyoff = false, $bbcodeoff = false, $htmlon = 
 	return $htmlon ? $message : nl2br(str_replace(array("\t", '   ', '  '), array('&nbsp; &nbsp; &nbsp; &nbsp; ', '&nbsp; &nbsp;', '&nbsp;&nbsp;'), $message));
 }
 
+function hidepermit($permitrequire, $message, $pid) {
+	global $_G;
+	if( $_G['forum']['ismoderator'] || $_G['group']['readaccess'] >= $permitrequire){
+		$msg = "<div class='locked'>&#38544;&#34255;&#20869;&#23481;&#24050;&#26174;&#31034;</div>";
+		$msg .= str_replace('\\"', '"', $message);
+		$msg .= "<br/>";
+		return $msg;
+	}else{
+		return "<div class='locked'>&#20197;&#19979;&#20869;&#23481;&#38656;&#35201;&#38405;&#35835;&#26435;&#38480;&#39640;&#20110;{$permitrequire}&#25165;&#21487;&#38405;&#35835;</div>";
+	}
+}
 function discuzcode_callback_codedisp_1($matches) {
 	return codedisp($matches[1]);
 }
@@ -330,6 +369,7 @@ function discuzcode_callback_jammer($matches) {
 	return jammer();
 }
 
+/*
 function parseurl($url, $text, $scheme) {
 	global $_G;
 	if(!$url && preg_match("/((https?|ftp|gopher|news|telnet|rtsp|mms|callto|bctp|thunder|qqdl|synacast){1}:\/\/|www\.)[^\[\"']+/i", trim($text), $matches)) {
@@ -347,6 +387,65 @@ function parseurl($url, $text, $scheme) {
 		$url = !$scheme ? $_G['siteurl'].$url : $url;
 		return '<a href="'.$url.'" target="_blank">'.$text.'</a>';
 	}
+}
+*/
+
+function parseurl($url, $text, $scheme) {
+	global $_G;
+	if(!$url && preg_match("/((https?|ftp|gopher|news|telnet|rtsp|mms|callto|bctp|thunder|qqdl|synacast){1}:\/\/|www\.)[^\[\"']+/i", trim($text), $matches)) {
+		$url = $matches[0];
+		$length = 65;
+		if(strlen($url) > $length) {
+			$text = substr($url, 0, intval($length * 0.5)).' ... '.substr($url, - intval($length * 0.3));
+		}
+		return filterurl(substr(strtolower($url), 0, 4) == 'www.' ? '//'.$url : $url,$text);
+	} else {
+		$url = substr($url, 1);
+		if(substr(strtolower($url), 0, 4) == 'www.') {
+			$url = '//'.$url;
+		}
+		$url = !$scheme ? $_G['siteurl'].$url : $url;
+		return filterurl($url,$text);
+	}
+}
+
+function filterurl($url,$title = '&#38142;&#25509;&#60;&#60;',$onlytext){
+	$url = trim($url);
+	$disable = Array(
+		"400gb.com/",
+		"t00y.com/",
+		"ctdisk.com/",
+		"dd.ma/",
+		"colafile.com/"
+	);
+	foreach($disable as $d){
+		if(strpos($url,$d)){
+			$title = '&#38750;&#27861;&#38142;&#25509;';
+			$url = '#';
+			return "<a href='$url' target='_blank'>$title</a>";
+		}
+	}
+	$keys = array(
+		'pan.baidu.com/' => '&#30334;&#24230;&#20113;',
+		'115.com/lb' => '&#49;&#49;&#53;&#31036;&#21253;',
+		'kuai.xunlei.com/' => '&#36805;&#38647;&#24555;&#20256;',
+		'yunpan.cn/' => '&#51;&#54;&#48;&#20113;&#30424;',
+		'caiyun.feixin.10086.cn/' => '&#21644;&#24425;&#20113;&#20998;&#20139;',
+		'cloud.letv.com/' => '&#20048;&#35270;&#20113;&#30424;',
+		'.vmall.com/' => '&#21326;&#20026;&#32593;&#30424;',
+		'www.dbank.com/' => '&#21326;&#20026;&#32593;&#30424;',
+		'drive.google.com/' => '&#71;&#111;&#111;&#103;&#108;&#101;&#20113;&#31471;&#30828;&#30424;'
+	);
+
+	foreach($keys as $k => $v){
+		if(strpos($url, $k)){
+			$title = $v;
+			$url = '/plugin.php?id=zeroze007diy:linkFileter&code='.base64_encode(authcode($url, 'ENCODE'));
+			break;
+		}
+	}
+	$t = $onlytext ? $onlytext : $title;
+	return "<a href='$url' target='_blank'>$t</a>";
 }
 
 function parseflash($w, $h, $url) {

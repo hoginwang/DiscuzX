@@ -227,7 +227,8 @@ $lang = array (
   'location_logout_succeed_mobile' => '您已退出站点，现在将以游客身份转入退出前页面，请稍候……',
   'register_activation_invalid' => '抱歉，激活失败，请重新登录验证需要激活的用户',
   'profile_username_tooshort' => '抱歉，您输入的用户名小于 3 个字符，请输入一个较长的用户名',
-  'profile_username_toolong' => '抱歉，您的用户名超过 15 个字符，请输入一个较短的用户名',
+  'profile_username_toolong' => '抱歉，您的用户名超过 10 个字符，请输入一个较短的用户名',
+  'profile_username_too2' => '抱歉，用户名只能由字母、数字组成，请输入一个正确的用户名',
   'profile_passwd_notmatch' => '抱歉，两次输入的密码不一致',
   'profile_username_illegal' => '用户名包含敏感字符',
   'profile_username_duplicate' => '该用户名已被注册',
@@ -995,7 +996,7 @@ $lang = array (
   'comment_comment_noexist' => '抱歉，要评论的文章不存在',
   'comment_comment_notallowed' => '该文章不允许评论',
 
-  'post_subject_toolong' => '抱歉，您的标题超过 80 个字符修改标题长度',
+  'post_subject_toolong' => '抱歉，您的标题超过 120 个字符修改标题长度',
   'post_message_tooshort' => '抱歉，您的帖子小于 {minpostsize} 个字符的限制',
 
   'no_privilege_realname' => '抱歉，您需要填写真实姓名后才能进行当前操作，<a href="home.php?mod=spacecp&ac=profile">点击这里设置真实姓名</a>',

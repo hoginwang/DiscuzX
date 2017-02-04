@@ -43,8 +43,19 @@ if(!submitcheck('modsubmit')) {
 
 	$logarray = array();
 	foreach(C::t('common_credit_log')->fetch_all_by_uid_operation_relatedid(0, 'BTC', $_G['tid']) as $log) {
-		$totalamount += $log['amount'];
+		$amount = abs($log['extcredits'.$_G['setting']['creditstransextra'][1]]);
+		$totalamount += $amount;
+		$amountarray[$amount][] = $log['uid'];
+		/*
+		//vs 1
+		$amount = -$log['extcredits'.$_G['setting']['creditstransextra'][1]];
+		$totalamount += $amount;
+		$amountarray[$amount][] = $log['uid'];
+		
+		//vs 2
+		$totalamount += $log['extcredits'.$_G['setting']['creditstransextra'][1]];		
 		$amountarray[$log['amount']][] = $log['uid'];
+		*/
 	}
 
 	updatemembercount($thread['authorid'], array($_G['setting']['creditstransextra'][1] => -$totalamount));

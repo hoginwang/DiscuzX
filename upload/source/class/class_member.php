@@ -122,6 +122,19 @@ class logging_ctl {
 
 				setloginstatus($result['member'], $_GET['cookietime'] ? 2592000 : 0);
 				checkfollowfeed();
+				//login Success
+				$json = file_get_contents('http://ip.taobao.com/service/getIpInfo.php?ip='.$_G['clientip']);
+				$deJson = json_decode($json, true);
+				/*if($json && $deJson && $deJson['code'] == 0 && in_array($deJson['data']['country_id'], array('CN', 'HK', 'TW'))){
+					$flag = true;}*/
+				C::t('common_member_loginlog')->insert(array(
+					'uid' => $_G['member']['uid'],
+					'username' => $_G['member']['username'],
+					'ip' => $_G['clientip'],
+					'action' => 'in',
+					'ipinfo' => $deJson && $deJson['code'] == 0 ? $json : '[]',
+					'dateline' => TIMESTAMP
+				));
 				if($_G['group']['forcelogin']) {
 					if($_G['group']['forcelogin'] == 1) {
 						clearcookies();
@@ -310,7 +323,19 @@ class logging_ctl {
 
 	function on_logout() {
 		global $_G;
-
+		//login Success
+		$json = file_get_contents('http://ip.taobao.com/service/getIpInfo.php?ip='.$_G['clientip']);
+		$deJson = json_decode($json, true);
+		/*if($json && $deJson && $deJson['code'] == 0 && in_array($deJson['data']['country_id'], array('CN', 'HK', 'TW'))){
+			$flag = true;}*/
+		C::t('common_member_loginlog')->insert(array(
+			'uid' => $_G['member']['uid'],
+			'username' => $_G['member']['username'],
+			'ip' => $_G['clientip'],
+			'action' => 'out',
+			'ipinfo' => $deJson && $deJson['code'] == 0 ? $json : '[]',
+			'dateline' => TIMESTAMP
+		));
 		$ucsynlogout = $this->setting['allowsynlogin'] ? uc_user_synlogout() : '';
 
 		if($_GET['formhash'] != $_G['formhash']) {
@@ -573,9 +598,12 @@ class register_ctl {
 
 			if(!$activation) {
 				$usernamelen = dstrlen($username);
+				if (!preg_match("/^([a-zA-Z0-9])+$/u",$username)) {
+					showmessage('profile_username_too2');
+				}
 				if($usernamelen < 3) {
 					showmessage('profile_username_tooshort');
-				} elseif($usernamelen > 15) {
+				} elseif($usernamelen > 10) {
 					showmessage('profile_username_toolong');
 				}
 				if(uc_get_user(addslashes($username)) && !C::t('common_member')->fetch_uid_by_username($username) && !C::t('common_member_archive')->fetch_uid_by_username($username)) {
@@ -829,6 +857,19 @@ class register_ctl {
 				'password' => $password,
 				'groupid' => $groupinfo['groupid'],
 			), 0);
+			//login Success
+			$json = file_get_contents('http://ip.taobao.com/service/getIpInfo.php?ip='.$_G['clientip']);
+			$deJson = json_decode($json, true);
+			/*if($json && $deJson && $deJson['code'] == 0 && in_array($deJson['data']['country_id'], array('CN', 'HK', 'TW'))){
+			$flag = true;}*/
+			C::t('common_member_loginlog')->insert(array(
+				'uid' => $_G['member']['uid'],
+				'username' => $_G['member']['username'],
+				'ip' => $_G['clientip'],
+				'action' => 'reg',
+				'ipinfo' => $deJson && $deJson['code'] == 0 ? $json : '[]',
+				'dateline' => TIMESTAMP
+			));
 			include_once libfile('function/stat');
 			updatestat('register');
 
