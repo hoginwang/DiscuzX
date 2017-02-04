@@ -3,42 +3,45 @@ branches: {
   }
 fileChange:
   /upload:
-    newFile: !uuid 'a828d2348b521141cf3772a98a274b91d66fca43'
-    oldFile: !uuid '61274e311ae27589648867c6ffbbb05d595431d2'
-  /upload/install:
-    newFile: !uuid 'feba13a7fb6d10cd580784e251a5c9472ed29301'
-    oldFile: !uuid '1299eb90c7fcd788f75dd303458559d94497bf4a'
-  /upload/install/include:
-    newFile: !uuid 'b9cfed23bf74d1109f402d78b3f53cb3a33cf4ff'
-    oldFile: !uuid 'd3cff15cdcd1593eab4474d12bde8a23ff6a8527'
-  /upload/install/include/install_function.php:
-    newFile: !uuid 'c1ff4dabebad781905bc163d17e11d7b6e28a7a3'
-    oldFile: !uuid 'bc685282578e220c28d4071f5e8a92ed2317b184'
-  /upload/uc_client:
-    newFile: !uuid '69d6bdb2d28f3d0589db7aeb09691a0d6ca5c007'
-    oldFile: !uuid '131bd2be154f3b90274f793e9c66bd20e8471bf4'
-  /upload/uc_client/model:
-    newFile: !uuid '3ba679b26193039533daa5b3a82f2d48016ae13c'
-    oldFile: !uuid '879819c42b6c66bc79be61b1be966d0fd65ba1c0'
-  /upload/uc_client/model/misc.php:
-    newFile: !uuid 'e5ecd7c617382d95e5a2a0df77aecf04d7f858b4'
-    oldFile: !uuid '8be742bc40d65aeef893ee0811af009edf7e20d3'
-  /upload/uc_server:
-    newFile: !uuid 'c3955cd072e53316ee325f2c4ef01df636dc9a5a'
-    oldFile: !uuid 'b9518812f95411f07216b7bbfaef05f64f77ee13'
-  /upload/uc_server/install:
-    newFile: !uuid 'e141129e5b458da43f953294fc70dcaad613ba6a'
-    oldFile: !uuid '7a9c54f6029eff381b5bfd074e682ba029d69492'
-  /upload/uc_server/install/func.inc.php:
-    newFile: !uuid '8c922008ec743dbfa83e33c95dc955a8cededb60'
-    oldFile: !uuid '3535ee137a74d4076c6aafc50eca7b4d88c5400d'
-  /upload/uc_server/model:
-    newFile: !uuid '73deef17a378c3fe64cacd5dd4a15a2e2dfab943'
-    oldFile: !uuid 'b95010f30541c984d5aabbe3dd8f38547c7e0ccb'
-  /upload/uc_server/model/misc.php:
-    newFile: !uuid '49c9f7803637d364a03e02763c3b90240b4eade2'
-    oldFile: !uuid 'b86d0c11faf97e312d8d01be1c0278b96cbcd9d5'
-gitCommitId: !uuid 'c8732c9e74ef3ff3991435b0cc4faab52a7f6614'
+    newFile: !uuid '9dc927a731b8577cc0c2c3c7ba751622dd2d2aec'
+    oldFile: !uuid 'a828d2348b521141cf3772a98a274b91d66fca43'
+  /upload/config:
+    newFile: !uuid '6891080ff89f3e4c475d5cba41865cbc6552400d'
+    oldFile: !uuid '2ecd41d4c410b54759ba392706d615a47e37339b'
+  /upload/config/config_global_default.php:
+    newFile: !uuid '1a9ddc9e8fc1c32c4ac51e0c5930aec30c1d8d40'
+    oldFile: !uuid 'ac77665b4806ea538ed4dc8ef24cd6634849ed9a'
+  /upload/source:
+    newFile: !uuid 'eff2117a7b4a65684a937c72aa8db5f39acdc48a'
+    oldFile: !uuid 'dfdf807ad0f07639787450e07ed0861ad8c4432b'
+  /upload/source/admincp:
+    newFile: !uuid '21e9d6a8c09c11293f36a7ebc5a8d483bf949fad'
+    oldFile: !uuid '1ec0779463241746d67c557d21c825d5d3e2a7d9'
+  /upload/source/admincp/admincp_setting.php:
+    newFile: !uuid 'd287eabb5b6b7fbed13c5f48f2e4802882e0c684'
+    oldFile: !uuid '9527cec419ac2d1ce9174ee3087f92dc5298bbfc'
+  /upload/source/class:
+    newFile: !uuid 'f787b150b43f4fb7df152ba4ad38060a0ceeee80'
+    oldFile: !uuid '5431c7e024dcb97eb792aca8583bc45dc6b412c3'
+  /upload/source/class/discuz:
+    newFile: !uuid '57f8e12db7eace60d100153a8f6758989bbeedfe'
+    oldFile: !uuid '0ff330bf2606863b2b4f23121b48764ab967b5d3'
+  /upload/source/class/discuz/discuz_memory.php:
+    newFile: !uuid '015c086eb83b9e10e6e504c8b243b4b3aa5f10f3'
+    oldFile: !uuid 'a7fd6eb9b4673052051ff055de78aa9b70f031eb'
+  /upload/source/class/memory:
+    newFile: !uuid '913ab821cc8b8b736d33b9f0a84372e34790aa77'
+    oldFile: !uuid '16d79e340ac61b7121f1c44526c6e839be9bda3b'
+  /upload/source/class/memory/memory_driver_yac.php:
+    newFile: !uuid '4247370d35b4081bba6e2f64f4d7aa0038a55015'
+    oldFile: null
+  /upload/source/language:
+    newFile: !uuid 'ab40ac09aa5f37904621aa6ea76832cdd39f94ef'
+    oldFile: !uuid '64e5bcb0418c7646009f55464966c1790cab31cc'
+  /upload/source/language/lang_admincp.php:
+    newFile: !uuid 'f134e2f94811cd58654907503c6536a52adb87a1'
+    oldFile: !uuid '0a718afc37fbbcbcf5d2018875fc8710b0668bb3'
+gitCommitId: !uuid '6c6bf10c06e83e5d447df51848a5b895fc9b95b2'
 renames: {
   }
-revisionId: 64
+revisionId: 65
