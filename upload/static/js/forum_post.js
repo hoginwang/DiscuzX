@@ -75,8 +75,8 @@ function validate(theform) {
 	if(($('postsubmit').name != 'replysubmit' && !($('postsubmit').name == 'editsubmit' && !isfirstpost) && theform.subject.value == "") || !sortid && !special && trim(message) == "") {
 		showError('抱歉，您尚未输入标题或内容');
 		return false;
-	} else if(mb_strlen(theform.subject.value) > 80) {
-		showError('您的标题超过 80 个字符的限制');
+	} else if(mb_strlen(theform.subject.value) > 120) {
+		showError('您的标题超过 120 个字符的限制');
 		return false;
 	}
 	if(in_array($('postsubmit').name, ['topicsubmit', 'editsubmit'])) {
@@ -724,12 +724,14 @@ function insertText(str) {
 }
 
 function insertAllAttachTag() {
+	var attachArray = new Array();
 	var attachListObj = $('e_attachlist').getElementsByTagName("tbody");
 	for(var i in attachListObj) {
 		if(typeof attachListObj[i] == "object") {
 			var attach = attachListObj[i];
 			var ids = attach.id.split('_');
-			if(ids[0] == 'attach') {
+			if(ids[0] == 'attach' && !in_array(ids[1], attachArray)) {
+				attachArray[i] = ids[1];
 				if($('attachname'+ids[1]) && attach.style.display != 'none') {
 					if(parseInt($('attachname'+ids[1]).getAttribute('isimage'))) {
 						insertAttachimgTag(ids[1]);

@@ -83,7 +83,8 @@ class uc_note {
 		return xml_serialize($arr, $htmlon);
 	}
 
-	function _construct() {
+	function __construct() {
+
 	}
 
 	function test($get, $post) {

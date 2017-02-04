@@ -278,8 +278,8 @@ function checkusername(id) {
 		return;
 	}
 	var unlen = username.replace(/[^\x00-\xff]/g, "**").length;
-	if(unlen < 3 || unlen > 15) {
-		errormessage(id, unlen < 3 ? '用户名不得小于 3 个字符' : '用户名不得超过 15 个字符');
+	if(unlen < 3 || unlen > 10) {
+		errormessage(id, unlen < 3 ? '用户名不得小于 3 个字符' : '用户名不得超过 10 个字符');
 		return;
 	}
 	var x = new Ajax();
