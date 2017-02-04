@@ -1,17 +1,17 @@
 <?php
 
 /*
-	[UCenter] (C)2001-2099 Comsenz Inc.
+	[UCenter] (C)2001-2009 Comsenz Inc.
 	This is NOT a freeware, use is subject to license terms
 
-	$Id: avatar.php 1144 2013-01-31 06:47:43Z zhangjie $
+	$Id: avatar.php 910 2008-12-30 03:51:44Z monkey $
 */
 
 
 error_reporting(0);
 
 _get_script_url();
-define('UC_API', strtolower(($_SERVER['HTTPS'] == 'on' ? 'https' : 'http').'://'.$_SERVER['HTTP_HOST'].substr($_SERVER['PHP_SELF'], 0, strrpos($_SERVER['PHP_SELF'], '/'))));
+define('UC_API', strtolower(($_SERVER['HTTPS'] == 'on' || $_SERVER['SERVER_PORT'] == 443 ? 'https' : 'http').'://'.$_SERVER['HTTP_HOST'].substr($_SERVER['PHP_SELF'], 0, strrpos($_SERVER['PHP_SELF'], '/'))));
 
 $uid = isset($_GET['uid']) ? $_GET['uid'] : 0;
 $size = isset($_GET['size']) ? $_GET['size'] : '';
