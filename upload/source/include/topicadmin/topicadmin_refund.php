@@ -4,7 +4,7 @@
  *      [Discuz!] (C)2001-2099 Comsenz Inc.
  *      This is NOT a freeware, use is subject to license terms
  *
- *      $Id: topicadmin_refund.php 30872 2012-06-27 10:11:44Z liulanbo $
+ *      $Id: topicadmin_refund.php 30872 2017-02-06 10:11:44Z zerozs007 $
  */
 
 if(!defined('IN_DISCUZ')) {
@@ -46,16 +46,6 @@ if(!submitcheck('modsubmit')) {
 		$amount = abs($log['extcredits'.$_G['setting']['creditstransextra'][1]]);
 		$totalamount += $amount;
 		$amountarray[$amount][] = $log['uid'];
-		/*
-		//vs 1
-		$amount = -$log['extcredits'.$_G['setting']['creditstransextra'][1]];
-		$totalamount += $amount;
-		$amountarray[$amount][] = $log['uid'];
-		
-		//vs 2
-		$totalamount += $log['extcredits'.$_G['setting']['creditstransextra'][1]];		
-		$amountarray[$log['amount']][] = $log['uid'];
-		*/
 	}
 
 	updatemembercount($thread['authorid'], array($_G['setting']['creditstransextra'][1] => -$totalamount));
