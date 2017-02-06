@@ -27,7 +27,7 @@ if(!submitcheck('modsubmit')) {
 
 	$payment = C::t('common_credit_log')->count_stc_by_relatedid($_G['tid'], $_G['setting']['creditstransextra'][1]);
 	$payment['payers'] = intval($payment['payers']);
-	$payment['netincome'] = intval($payment['netincome']);
+	$payment['income'] = intval($payment['income']);
 
 	include template('forum/topicadmin_action');
 

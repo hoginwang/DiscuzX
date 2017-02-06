@@ -130,7 +130,7 @@ class table_common_credit_log extends discuz_table
 	public function count_stc_by_relatedid($relatedid, $creditid, $operation = 'STC') {
 		$creditid = intval($creditid);
 		if($creditid) {
-			return DB::fetch_first("SELECT COUNT(*) AS payers, SUM(extcredits%d) AS netincome FROM %t WHERE relatedid=%d AND operation=%s", array($creditid, $this->_table, $relatedid, $operation));
+			return DB::fetch_first("SELECT COUNT(*) AS payers, SUM(extcredits%d) AS income FROM %t WHERE relatedid=%d AND operation=%s", array($creditid, $this->_table, $relatedid, $operation));
 		}
 		return 0;
 	}
