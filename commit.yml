@@ -3,33 +3,21 @@ branches: {
   }
 fileChange:
   /upload:
-    newFile: !uuid '3dd7bc029e8621575c5a93a3b572b5e8afc60e8c'
-    oldFile: !uuid '8bb5b120cea898a6352a3e7efd8196d53c1b1201'
-  /upload/source:
-    newFile: !uuid '90f616f2fd293af245f3e52403dd9dee33dc32b4'
-    oldFile: !uuid 'e3a4de33c6b21d7b0460c8ffec071abf26c5e666'
-  /upload/source/include:
-    newFile: !uuid '0af764cf9d8a28bd7ca9f5b4a9ee0a3e6fac062c'
-    oldFile: !uuid '0ccc7e92530b2103bf37ba9c7932aa9db8df5e47'
-  /upload/source/include/spacecp:
-    newFile: !uuid '9d60f5178a90534f4727754c63066f840e6b81d5'
-    oldFile: !uuid '7e2bbc6879ec731f9d39171e3e25a523973eb363'
-  /upload/source/include/spacecp/spacecp_pm.php:
-    newFile: !uuid 'f9574d49aa50e00a4f830303fdf1fe40b672ff50'
-    oldFile: !uuid 'e619f5566f31d9ed8d19e87c00d95862565ccf13'
+    newFile: !uuid '5e8d35320a66b9a0be9084c6bc342d33f5881152'
+    oldFile: !uuid '3dd7bc029e8621575c5a93a3b572b5e8afc60e8c'
   /upload/template:
-    newFile: !uuid '03016be134667fd046d20daa6964ca34a515cd72'
-    oldFile: !uuid '2da47f46670e92dbd0f4cdb904611c02e354b7fc'
+    newFile: !uuid '6875e5c6de9d2069816df15671f0a228a3156603'
+    oldFile: !uuid '03016be134667fd046d20daa6964ca34a515cd72'
   /upload/template/default:
-    newFile: !uuid 'bf5e6ed7c8bd48e70f25e6fb5e7e83be94a719b8'
-    oldFile: !uuid '5da8ed428bbd4e76e459fccab3d52a3612ecbdb5'
-  /upload/template/default/home:
-    newFile: !uuid '475d2085de88e297e34eb1b2b117d4951e9e0767'
-    oldFile: !uuid 'fd44ef6c975adf18c060c7d8127e9e26fcb3aaca'
-  /upload/template/default/home/spacecp_pm.htm:
-    newFile: !uuid 'c1489bdb54bce4a458a7448d4f730c1f63ea92b3'
-    oldFile: !uuid '2834a7ad43291f15490c0ac7ae91a0d4f1a3f2d4'
-gitCommitId: !uuid 'a7974f1519946c966a69366ec14b91e0d3ed7640'
+    newFile: !uuid '325e65544edafe5b208f1cd3e41ddc9fe4c37523'
+    oldFile: !uuid 'bf5e6ed7c8bd48e70f25e6fb5e7e83be94a719b8'
+  /upload/template/default/common:
+    newFile: !uuid '456966947891797930fa24f551cd2c98eb17ef4d'
+    oldFile: !uuid '2e9ecf141591bd8f439e0357ffae0e0d8e82393f'
+  /upload/template/default/common/editor.htm:
+    newFile: !uuid 'cb118e68c913280f8d18c1a32f6f67fe97612826'
+    oldFile: !uuid '7f60cd964b19e33e3b1c21ae9301270ec5f7a4cc'
+gitCommitId: !uuid '0d0c711c22782671c5f04e908131070f1f1501b6'
 renames: {
   }
-revisionId: 72
+revisionId: 73
