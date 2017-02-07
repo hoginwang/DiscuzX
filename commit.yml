@@ -1,9 +1,65 @@
 !revision
 branches: {
   }
-fileChange: {
-  }
-gitCommitId: !uuid 'e4fcb91bad0bc4b08d1f0666cac59c69a26c3d2b'
+fileChange:
+  /upload:
+    newFile: !uuid '582fab061121833caf6bc45679cc3fdc776ae007'
+    oldFile: !uuid '04f52bce673de8a5a4d85928f3a147a445c1093a'
+  /upload/source:
+    newFile: !uuid '9ed89d29a7737b1186bca4ae36862c5036f65626'
+    oldFile: !uuid 'db462d7158df4679140c8d2346dc74de545f0c55'
+  /upload/source/plugin:
+    newFile: !uuid 'da326441c1b9462e339fcf7434b25af0b214091c'
+    oldFile: !uuid '697d1d5c928324c2aef7a4f2b62b28001ae5ad39'
+  /upload/source/plugin/wechat:
+    newFile: !uuid '8f432d0ce5db155861674c6e11f84b7622497f58'
+    oldFile: !uuid 'bdd6b868f13211879e70589ee37891bdc72b9a61'
+  /upload/source/plugin/wechat/template:
+    newFile: !uuid '57f8883342b6c7cc926e87b0df7923933955cde4'
+    oldFile: !uuid 'e54922eeecf685aa1eaeb2a1ffd4c1bb73562430'
+  /upload/source/plugin/wechat/template/mobile:
+    newFile: !uuid 'c0739246084642f574fb020f06578d313ce81856'
+    oldFile: !uuid '3c9225b038d1c58ac7c499402cf585d1f0f857a7'
+  /upload/source/plugin/wechat/template/mobile/wechat_header.htm:
+    newFile: !uuid '9aabfdaed816f431409943c6258b381f1b529890'
+    oldFile: !uuid 'b212ab0d7d50afccbdd6cef5f5bca3670d86c72c'
+  /upload/source/plugin/wechat/template/touch:
+    newFile: !uuid 'debdf1de35c047417b252b45cb9d9292d4781881'
+    oldFile: !uuid '0fd50d0e4f79a22006232459c8c94c3ec100db80'
+  /upload/source/plugin/wechat/template/touch/wechat_header.htm:
+    newFile: !uuid '9452d5539c159d799e7b344d302888ac4b0c2566'
+    oldFile: !uuid '17ee3a1a2882d4d74c0cb6a87d7522ab727804d7'
+  /upload/static:
+    newFile: !uuid 'be14e4352637da64a1aecdd9c6b76b60ddb4eafc'
+    oldFile: !uuid 'b037e6ad0207fefe760dfb6c4219d95050510d88'
+  /upload/static/js:
+    newFile: !uuid '7106bb082baf558f7250adbb402364e0c7ddbaaa'
+    oldFile: !uuid 'aa3b4dda8644ac092c7694a00ee5ca4e92be4887'
+  /upload/static/js/mobile:
+    newFile: !uuid '54b3199eee2d880f82f8f9b9807f1cc6fb05df34'
+    oldFile: !uuid '0d53341b4f2e6bc86e9416feba0e5873faabc3c6'
+  /upload/static/js/mobile/jquery-1.8.3.min.js:
+    newFile: null
+    oldFile: !uuid '83589daa707a25a1fb3e4112075d382e9a1611ab'
+  /upload/static/js/mobile/jquery.min.js:
+    newFile: !uuid 'f3644431eea2f04111468e57034018c341592f65'
+    oldFile: null
+  /upload/template:
+    newFile: !uuid '393dcddf56e0328e79468fd8c4fb5482306b6d71'
+    oldFile: !uuid '6875e5c6de9d2069816df15671f0a228a3156603'
+  /upload/template/default:
+    newFile: !uuid 'cb02fa79cf3ee4a522ef1f4faef291e7f98e9834'
+    oldFile: !uuid '325e65544edafe5b208f1cd3e41ddc9fe4c37523'
+  /upload/template/default/touch:
+    newFile: !uuid 'a9292e73789f55f13cafb2f9541ed271d9e9ea9b'
+    oldFile: !uuid '0f9982892c4a97eb96dc25ce4944f14ae31ba14c'
+  /upload/template/default/touch/common:
+    newFile: !uuid '11129c69032e2fdb501c569efb5b6aaba6d089f5'
+    oldFile: !uuid '39f7404dec46043aa453a636cf8f1f3f4fa5c5e1'
+  /upload/template/default/touch/common/header.htm:
+    newFile: !uuid '30a85b397a313aa8c31edc776179daf608c3706e'
+    oldFile: !uuid 'e021935395f74ebc81d2236d39fd1a34db22d4c2'
+gitCommitId: !uuid '384daa933522038c47231012d65689bc6f134dbf'
 renames: {
   }
-revisionId: 75
+revisionId: 76
