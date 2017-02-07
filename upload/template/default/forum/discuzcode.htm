@@ -96,12 +96,14 @@ function attachlist($attach) {
 					<div class="tip_c">
 						<p class="y">$attach[dateline] {lang upload}</p>
 						<p>{lang clicktodownload}</p>
+						{lang attachment_size}: $attach[attachsize]<br />
+						{lang downloads}: $attach[downloads]<br />
 						<!--{if !$attach['attachimg'] && $_G['getattachcredits']}-->{lang attachcredits}: $_G[getattachcredits]<br /><!--{/if}-->
 					</div>
 					<div class="tip_horn"></div>
 				</div>
 			</p>
-			<p>$attach[attachsize]<!--{if $attach['readperm']}-->, {lang readperm}: <strong>$attach[readperm]</strong><!--{/if}-->, {lang downloads}: $attach[downloads]<!--{if !$attach['attachimg'] && $_G['getattachcredits']}-->, {lang attachcredits}: $_G[getattachcredits]<!--{/if}--></p>
+			<p>$attach[attachsize]<!--{if $attach['readperm']}-->, {lang readperm}: <strong>$attach[readperm]</strong><!--{/if}--><!--{if !$attach['attachimg'] && $_G['getattachcredits']}-->, {lang attachcredits}: $_G[getattachcredits]<!--{/if}--></p>
 			<p>
 				<!--{if $attach['price']}-->
 					{lang price}: <strong>$attach[price] {$_G['setting']['extcredits'][$_G['setting']['creditstransextra'][1]][unit]}{$_G['setting']['extcredits'][$_G['setting']['creditstransextra'][1]][title]}</strong> &nbsp;[<a href="forum.php?mod=misc&action=viewattachpayments&aid=$attach[aid]" onclick="showWindow('attachpay', this.href)" target="_blank">{lang pay_view}</a>]
@@ -145,7 +147,7 @@ function imagelist($attach, $firstpost = 0) {
 					<!--{if !$guestviewthumb}-->
 						<p class="mbn">
 							<a href="forum.php?mod=attachment{$is_archive}&aid=$aidencode&nothumb=yes" {if $_GET['from'] != 'preview'}onmouseover="showMenu({'ctrlid':this.id,'pos':'12'})" id="aid$attach[aid]"{/if} class="xw1" target="_blank">$attach[filename]</a>
-							<em class="xg1">($attach[attachsize], {lang downloads}: $attach[downloads])</em>
+							<em class="xg1">($attach[attachsize])</em>
 						</p>
 						<div class="tip tip_4" id="aid$attach[aid]_menu" style="display: none" disautofocus="true">
 							<div>
@@ -289,12 +291,14 @@ function attachinpost($attach, $post) {
 			<!--{else}-->
 				<a href="forum.php?mod=misc&action=attachpay&aid=$attach[aid]&tid=$attach[tid]" onclick="showWindow('attachpay', this.href)">$attach[filename]</a>
 			<!--{/if}-->
-			<em class="xg1">($attach[attachsize], {lang downloads}: $attach[downloads]<!--{if $attach['price']}-->, {lang price}: $attach[price] {$_G['setting']['extcredits'][$_G['setting']['creditstransextra'][1]][unit]}{$_G['setting']['extcredits'][$_G['setting']['creditstransextra'][1]][title]}<!--{/if}-->)</em>
+			<em class="xg1">($attach[attachsize]<!--{if $attach['price']}-->, {lang price}: $attach[price] {$_G['setting']['extcredits'][$_G['setting']['creditstransextra'][1]][unit]}{$_G['setting']['extcredits'][$_G['setting']['creditstransextra'][1]][title]}<!--{/if}-->)</em>
 		</span>
 		<div class="tip tip_4" id="attach_$attach[aid]_menu" style="position: absolute; display: none" disautofocus="true">
 			<div class="tip_c xs0">
 				<div class="y">$attach[dateline] {lang upload}</div>
 				{lang clicktodownload}
+				<br />{lang attachment_size}: $attach[attachsize]
+				<br />{lang downloads}: $attach[downloads]
 				<!--{if $attach['description']}--><br />$attach[description]<!--{/if}-->
 				<!--{if $attach['readperm']}--><br />{lang readperm}: $attach[readperm]<!--{/if}-->
 	<!--{/if}-->

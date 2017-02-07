@@ -75,7 +75,7 @@ $is_archive = $_G['forum_thread']['is_archived'] ? "&fid=".$_G['fid']."&archivei
 			<!--{/if}-->
 			<span class="xg1">($attach[dateline] {lang upload})</span>
 		</p>
-		<p class="xg1">$attach[attachsize]<!--{if $attach['readperm']}-->, {lang readperm}: <strong>$attach[readperm]</strong><!--{/if}-->, {lang downloads}: $attach[downloads]<!--{if !$attach['attachimg'] && $_G['getattachcredits']}-->, {lang attachcredits}: $_G[getattachcredits]<!--{/if}--></p>
+		<p class="xg1">$attach[attachsize]<!--{if $attach['readperm']}-->, {lang readperm}: <strong>$attach[readperm]</strong><!--{/if}--><!--{if !$attach['attachimg'] && $_G['getattachcredits']}-->, {lang attachcredits}: $_G[getattachcredits]<!--{/if}--></p>
 		<!--{if $attach['description']}--><p class="xg2">{$attach[description]}</p><!--{/if}-->
 	</dd>
 </div>
@@ -132,8 +132,6 @@ $is_archive = $_G['forum_thread']['is_archived'] ? '&fid='.$_G['fid'].'&archivei
 				<a href="forum.php?mod=misc&action=attachpay&aid=$attach[aid]&tid=$attach[tid]" target="_blank">$attach[filename]</a>
 			<!--{/if}-->
 			<em class="xg1">($attach[attachsize])</em>
-			<em class="xg1"><br />({lang downloads}: $attach[downloads], $attach[dateline] {lang upload})
-			</em>
 			<!--{if !$attach['attachimg'] && $_G['getattachcredits']}--><p>{lang attachcredits}: $_G[getattachcredits]</p><!--{/if}-->
 		</div>
 		<!--{/if}-->
