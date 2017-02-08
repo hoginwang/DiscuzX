@@ -3,33 +3,21 @@ branches: {
   }
 fileChange:
   /upload:
-    newFile: !uuid 'fd7991d75d6d46b6cc2d70eae64af425e2bcff1b'
-    oldFile: !uuid '582fab061121833caf6bc45679cc3fdc776ae007'
-  /upload/source:
-    newFile: !uuid 'eef4e0a95499ec367a9598cea5eae9ded6cab0b5'
-    oldFile: !uuid '9ed89d29a7737b1186bca4ae36862c5036f65626'
-  /upload/source/include:
-    newFile: !uuid '708fc3ab4339b17e97cd53a01e6ec6d35206cab4'
-    oldFile: !uuid '0af764cf9d8a28bd7ca9f5b4a9ee0a3e6fac062c'
-  /upload/source/include/topicadmin:
-    newFile: !uuid 'a9d02e61dd638a4e6736833caf06f8a0f21566f0'
-    oldFile: !uuid 'c57affa98c4e98ce1d331d8b30f7621cfb010798'
-  /upload/source/include/topicadmin/topicadmin_refund.php:
-    newFile: !uuid '3e8a2bf6f06dbdd2b12fca99405aacb30944294e'
-    oldFile: !uuid '8035158637ee4e9537ac6a1698221fe9d43950fa'
-  /upload/template:
-    newFile: !uuid '9bb72211dbdbcc9840496af2db1b70067fd50fb3'
-    oldFile: !uuid '393dcddf56e0328e79468fd8c4fb5482306b6d71'
-  /upload/template/default:
-    newFile: !uuid '33fb308f424aa2bd6645896aae647d557e7e1b77'
-    oldFile: !uuid 'cb02fa79cf3ee4a522ef1f4faef291e7f98e9834'
-  /upload/template/default/forum:
-    newFile: !uuid '7f0dd803ef077763b16c59354d6e17f5ae803ad0'
-    oldFile: !uuid '8275c0894e589bc29c333985bb0b59372119950b'
-  /upload/template/default/forum/topicadmin_action.htm:
-    newFile: !uuid '75bcfb2470ff8ffeac92207de6efecb24e80ee5c'
-    oldFile: !uuid 'a3fbb22ce9a961d02841ccb310215a310f98593d'
-gitCommitId: !uuid 'fb2ebbce8d8f41b0376d71b459e80277c5dfa787'
+    newFile: !uuid '98633eda67bcdffdb311d95c9beffa9ea40e0f44'
+    oldFile: !uuid 'fd7991d75d6d46b6cc2d70eae64af425e2bcff1b'
+  /upload/static:
+    newFile: !uuid 'f35ec32d38fd43e813342a717666bd9e351094df'
+    oldFile: !uuid 'be14e4352637da64a1aecdd9c6b76b60ddb4eafc'
+  /upload/static/js:
+    newFile: !uuid 'c7d7af4071b1923d962355a6d66a56ef425a512b'
+    oldFile: !uuid '7106bb082baf558f7250adbb402364e0c7ddbaaa'
+  /upload/static/js/mobile:
+    newFile: !uuid 'c822b0d59e435f13239a70e1b76b7e4b26b99c4a'
+    oldFile: !uuid '54b3199eee2d880f82f8f9b9807f1cc6fb05df34'
+  /upload/static/js/mobile/jquery.min.js:
+    newFile: !uuid '38837795279c5eb281e98ce6017998b993026518'
+    oldFile: !uuid 'f3644431eea2f04111468e57034018c341592f65'
+gitCommitId: !uuid '98f6cc3a7487df7b167cc6865d95eb6186dd901b'
 renames: {
   }
-revisionId: 77
+revisionId: 78
