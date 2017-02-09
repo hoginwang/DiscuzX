@@ -3,33 +3,27 @@ branches: {
   }
 fileChange:
   /upload:
-    newFile: !uuid 'f18baa05e2e31846340591eea8d53759ec023274'
-    oldFile: !uuid '4930b39440e7d0471e7b56aed4f7bae50b900a86'
+    newFile: !uuid '671be4b6db60931fb8eeca9dbb83063b9f4fe76d'
+    oldFile: !uuid 'f18baa05e2e31846340591eea8d53759ec023274'
+  /upload/config:
+    newFile: !uuid '37b7839b028dfc6818f6c7056bb28daa48194e32'
+    oldFile: !uuid '28bf7611c19c50ce9d56cd6dbfbe9d7be51aa3da'
+  /upload/config/config_global_default.php:
+    newFile: !uuid '51ea51e0b34b364a03c6fa2ffc242fc408418c5d'
+    oldFile: !uuid 'c10b824a005ef918eb0930f793841291635ca427'
   /upload/source:
-    newFile: !uuid 'def474a2ce00e1023b84f8f0a440c71e88d0835f'
-    oldFile: !uuid 'a8a0895c243ddc1aa495676a1eabda4b2a5a6f71'
+    newFile: !uuid '37f0ad4a3bc33ea790bd367e64504fe95639b003'
+    oldFile: !uuid 'def474a2ce00e1023b84f8f0a440c71e88d0835f'
   /upload/source/class:
-    newFile: !uuid 'ba047647a022512d34d696cf04c6873ec1b2acc4'
-    oldFile: !uuid '4f2f693a3bea9b8cdbb918f0ebaad94ce9003899'
-  /upload/source/class/discuz:
-    newFile: !uuid 'bc16503edeaa1a2d6e48dcfc873067c4fb33a72f'
-    oldFile: !uuid 'b286544b5ead3cf2a03914118a1746d5d5b2c93f'
-  /upload/source/class/discuz/discuz_memory.php:
-    newFile: !uuid 'b67f283cdb529ef17edfa694d36e6b6d1daec479'
-    oldFile: !uuid '7fc0a91691eee497640c0e3cfeeeaf660b9f4b2d'
-  /upload/template:
-    newFile: !uuid '9c48b3ae1367b77713f27ca76e60d28f9b2b0594'
-    oldFile: !uuid '9bb72211dbdbcc9840496af2db1b70067fd50fb3'
-  /upload/template/default:
-    newFile: !uuid 'b4289ed34c19b3ff074f52433ae3dee00e72f909'
-    oldFile: !uuid '33fb308f424aa2bd6645896aae647d557e7e1b77'
-  /upload/template/default/common:
-    newFile: !uuid '9eece6a77e4e23ca7b28087652f117c3f317c28a'
-    oldFile: !uuid '456966947891797930fa24f551cd2c98eb17ef4d'
-  /upload/template/default/common/footer.htm:
-    newFile: !uuid '3a09d89454d38d05c0ba7d4f6152c1c32b028345'
-    oldFile: !uuid '745529ef7b67facf52541fac8d0b21816c8098a4'
-gitCommitId: !uuid '5afd87a52fbf73f9071107efb4bd5e80d8a0e500'
+    newFile: !uuid 'a82c619bec29fc669b98a17926302eede75b6dd9'
+    oldFile: !uuid 'ba047647a022512d34d696cf04c6873ec1b2acc4'
+  /upload/source/class/memory:
+    newFile: !uuid 'cc53e840687e0b5cbdb719bf2c5def9194e82f50'
+    oldFile: !uuid '91487513348218c2552e3a6d624b921842d065e5'
+  /upload/source/class/memory/memory_driver_file.php:
+    newFile: !uuid '04d710a1e98f3e507bae5f65ca4b5f9a1a8a755d'
+    oldFile: null
+gitCommitId: !uuid 'abdc492b9a7bc12836ca24a35363b02fbc84b6dc'
 renames: {
   }
-revisionId: 81
+revisionId: 82
