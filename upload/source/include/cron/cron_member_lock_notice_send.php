@@ -5,36 +5,18 @@
 if (!defined('IN_DISCUZ')) {
     exit('Access Denied');
 }
-function array_mage3($arr1 = array(),$arr2){
-	if($arr1 ==null){$arr1 = array();}
-	if ($arr2 == null){$arr2 = array();}
-	foreach($arr2 as $arr){
-		array_push($arr1,$arr);
-	}
-	return $arr1;
-}
-function assoc_unique($arr, $key) {
-    $tmp_arr = array();
-    foreach ($arr as $k => $v) {
-        if (in_array($v[$key], $tmp_arr)) {
-            unset($arr[$k]);
-        } else {
-            $tmp_arr[] = $v[$key];
-        }
-    }
-    sort($arr);
-    return $arr;
-}
 @set_time_limit(0);
+$superGroup = implode(',', array(1,2,3,16,17,18,19,21,22,33,34,35,36,37,40));
+$superUID = implode(',', array(89));
 $countPre = 'SELECT count(1) FROM ';
 $selPre = 'SELECT m.uid as uid FROM ';
 //超长不活跃
-$dateline = mktime(0, 0, 0, date('m', TIMESTAMP) - 2, date('d', TIMESTAMP) - 27, date('Y', TIMESTAMP));
+$dateline = strtotime('-3 months +3 day', TIMESTAMP);
 $bastSql = DB::table('common_member') . ' m 
 	LEFT JOIN ' . DB::table('common_member_status') . ' ms ON m.uid=ms.uid 
-	WHERE m.status !=-1 AND m.adminid <=0 AND m.groupid NOT IN (1,2,3,16,17,18,19,21,22,33,34,35,36,37) 
+	WHERE m.status !=-1 AND m.adminid <=0 AND m.groupid NOT IN (%s) AND m.uid NOT IN (%s) 
 	AND ms.lastpost !=0 AND ms.lastpost <= %d';
-if (DB::result_first($countPre . $bastSql, array($dateline))) {
+if (DB::result_first($countPre . $bastSql, array($superGroup, $superUID, $dateline))) {
     $resultTmp = DB::fetch_all($selPre . $bastSql, array($dateline));
     foreach ($resultTmp as $r) {
 		notification_add(
@@ -44,16 +26,13 @@ if (DB::result_first($countPre . $bastSql, array($dateline))) {
 		);
 	}
 }
-
-
-
 //超长不活跃存档表用户
 if (DB::fetch_first("SHOW TABLES LIKE 'common_member_archive'") && DB::fetch_first("SHOW TABLES LIKE 'common_member_status_archive'")) {
     $bastSql = DB::table('common_member_archive') . ' m 
 		LEFT JOIN ' . DB::table('common_member_status_archive') . ' ms ON m.uid=ms.uid 
-		WHERE m.status !=-1 AND m.adminid <=0 AND m.groupid NOT IN (1,2,3,16,17,18,19,21,22,33,34,35,36,37) 
+		WHERE m.status !=-1 AND m.adminid <=0 AND m.groupid NOT IN (%s) AND m.uid NOT IN (%s) 
 		AND ms.lastpost !=0 AND ms.lastpost <= %d';
-    if (DB::result_first($countPre . $bastSql, array($dateline))) {
+	if (DB::result_first($countPre . $bastSql, array($superGroup, $superUID, $dateline))) {
         $resultTmp = DB::fetch_all($selPre . $bastSql, array($dateline));
         foreach ($resultTmp as $r) {
 			notification_add(
@@ -65,11 +44,11 @@ if (DB::fetch_first("SHOW TABLES LIKE 'common_member_archive'") && DB::fetch_fir
     }
 }
 //7天未验证邮箱
-$dateline = mktime(0, 0, 0, date('m', TIMESTAMP) , date('d', TIMESTAMP) - 6, date('Y', TIMESTAMP));
+$dateline = strtotime('-3 day', TIMESTAMP);
 $bastSql = DB::table('common_member') . ' m 
-	WHERE m.status !=-1 AND m.adminid <=0 
+	WHERE m.status !=-1 AND m.adminid <=0 AND m.groupid NOT IN (%s) AND m.uid NOT IN (%s) 
 	AND m.emailstatus !=1 AND m.regdate <= %d';
-if (DB::result_first($countPre . $bastSql, array($dateline))) {
+if (DB::result_first($countPre . $bastSql, array($superGroup, $superUID, $dateline))) {
     $resultTmp = DB::fetch_all($selPre . $bastSql, array($dateline));
 	foreach ($resultTmp as $r) {
 		notification_add(
@@ -82,9 +61,9 @@ if (DB::result_first($countPre . $bastSql, array($dateline))) {
 //新用户7天未发表
 $bastSql = DB::table('common_member') . ' m 
 	LEFT JOIN ' . DB::table('common_member_status') . ' ms ON m.uid=ms.uid 
-	WHERE m.status !=-1 AND m.adminid <=0 AND m.groupid NOT IN (1,2,3,16,17,18,19,21,22,33,34,35,36,37) 
+	WHERE m.status !=-1 AND m.adminid <=0 AND m.groupid NOT IN (%s) AND m.uid NOT IN (%s) 
 	AND ms.lastpost = 0 AND m.regdate <= %d';
-if (DB::result_first($countPre . $bastSql, array($dateline))) {
+if (DB::result_first($countPre . $bastSql, array($superGroup, $superUID, $dateline))) {
     $resultTmp = DB::fetch_all($selPre . $bastSql, array($dateline));
 	foreach ($resultTmp as $r) {
 		notification_add(
@@ -95,4 +74,3 @@ if (DB::result_first($countPre . $bastSql, array($dateline))) {
 	}
 }
 ?>
-
