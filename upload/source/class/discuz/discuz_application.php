@@ -397,7 +397,7 @@ class discuz_application extends discuz_base{
 			if(getglobal('config/db/slave')) {
 				$driver = function_exists('mysql_connect') ? 'db_driver_mysql_slave' : 'db_driver_mysqli_slave';
 			}
-			DB::init($driver, $this->config['db']);
+			DB::init(empty($this->config['db']['driver'])?$driver:$this->config['db']['driver'],$this->config['db']);
 		}
 	}
 
