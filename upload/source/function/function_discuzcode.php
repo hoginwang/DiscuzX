@@ -477,7 +477,7 @@ function parseaudio($url, $width = 400) {
 	switch($ext) {
 		case 'mp3':
 			$randomid = 'mp3_'.random(3);
-			return '<span id="'.$randomid.'"></span><script type="text/javascript" reload="1">$(\''.$randomid.'\').innerHTML=AC_FL_RunContent(\'FlashVars\', \'soundFile='.urlencode($url).'\', \'width\', \'290\', \'height\', \'24\', \'allowNetworking\', \'internal\', \'allowScriptAccess\', \'never\', \'src\', \''.STATICURL.'image/common/player.swf\', \'quality\', \'high\', \'bgcolor\', \'#FFFFFF\', \'menu\', \'false\', \'wmode\', \'transparent\', \'allowNetworking\', \'internal\');</script>';
+			return '<span id="'.$randomid.'"></span><script type="text/javascript" reload="1">$(\''.$randomid.'\').innerHTML=AC_FL_RunContent(\'FlashVars\', \'bg=0xCDDFF3&leftbg=0x357DCE&lefticon=0xF2F2F2&rightbg=0x357DCE&rightbghover=0x4499EE&righticon=0xF2F2F2&righticonhover=0xFFFFFF&text=0x357DCE&slider=0x357DCE&track=0xFFFFFF&border=0xFFFFFF&loader=0x8EC2F4&autostart=no&loop=no&soundFile='.urlencode($url).'\', \'width\', \'290\', \'height\', \'24\', \'allowNetworking\', \'internal\', \'allowScriptAccess\', \'never\', \'src\', \''.STATICURL.'image/common/player.swf\', \'quality\', \'high\', \'wmode\', \'transparent\', \'allowNetworking\', \'internal\');</script>';
 		case 'wma':
 		case 'mid':
 		case 'wav':
@@ -669,11 +669,11 @@ function parseflv($url, $width = 0, $height = 0) {
 				}
 			}
 		}
-	} elseif(strpos($lowerurl, 'my.tv.sohu.com/u') !== FALSE) {
-		if(preg_match("/^https?:\/\/my.tv.sohu.com\/us?\/[^\/]+\/(\d+)/i", $url, $matches)) {
-			$flv = $_G['scheme'].'://share.vrs.sohu.com/my/v.swf&topBar=1&id='.$matches[1].'&autoplay=false&from=page';
+	} elseif(strpos($lowerurl, 'my.tv.sohu.com') !== FALSE) {
+		if(preg_match("/^https?:\/\/my.tv.sohu.com\/(us?|pl)\/[^\/]+\/(\d+)/i", $url, $matches)) {
+			$flv = $_G['scheme'].'://share.vrs.sohu.com/my/v.swf&topBar=1&id='.$matches[2].'&autoplay=false&from=page';
 			if(!$width && !$height) {
-				$api = 'http://v.blog.sohu.com/videinfo.jhtml?m=view&id='.$matches[1].'&outType=3';
+				$api = 'http://v.blog.sohu.com/videinfo.jhtml?m=view&id='.$matches[2].'&outType=3';
 				$str = file_get_contents($api, false, $ctx);
 				if(!empty($str) && preg_match("/\"cutCoverURL\":\"(.+?)\"/i", $str, $image)) {
 					$imgurl = str_replace(array('\u003a', '\u002e'), array(':', '.'), $image[1]);
