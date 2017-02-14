@@ -32,8 +32,8 @@ $lang = array
 	'db_config_db_not_found' => '数据库配置错误，请仔细检查 config_global.php 文件',
 	'system_init_ok' => '网站系统初始化完成，请<a href="index.php">点击这里</a>进入',
 	'backtrace' => '运行信息',
-	'error_end_message' => '<a href="http://{host}">{host}</a> 已经将此出错信息详细记录, 由此给您带来的访问不便我们深感歉意',
-	'mobile_error_end_message' => '<a href="http://{host}">{host}</a> 此错误给您带来的不便我们深感歉意',
+	'error_end_message' => '<a href="//{host}">{host}</a> 已经将此出错信息详细记录, 由此给您带来的访问不便我们深感歉意',
+	'mobile_error_end_message' => '<a href="//{host}">{host}</a> 此错误给您带来的不便我们深感歉意',
 
 	'file_upload_error_-101' => '上传失败！上传文件不存在或不合法，请返回。',
 	'file_upload_error_-102' => '上传失败！非图片类型文件，请返回。',

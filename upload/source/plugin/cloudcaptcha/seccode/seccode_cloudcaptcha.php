@@ -36,7 +36,7 @@ class seccode_cloudcaptcha {
 		$rand = random(10);
 		$src = 'plugin.php?id=cloudcaptcha:get&rand='.$rand.'&modid='.$modid;
 		$tips = lang('core', 'seccode_image_tips');
-		echo '<span id="seccode_js'.$idhash.'"></span><script type="text/javascript" src="http://discuz.gtimg.cn/cloud/scripts/captcha.js?version='.CLOUDCAPTCHA_VER.'"></script>'.
+		echo '<span id="seccode_js'.$idhash.'"></span><script type="text/javascript" src="//discuz.gtimg.cn/cloud/scripts/captcha.js?version='.CLOUDCAPTCHA_VER.'"></script>'.
 		    '<script type="text/javascript" reload="1">'.
 		    'var refresh = $(\'seccode_'.$idhash.'\').innerHTML ? 1 : 0;'.
 		    'var cloudCaptchaTimer = setInterval(function(){if(typeof cloudCaptcha != "undefined"){'.

@@ -1185,7 +1185,7 @@ $lang = array
 			动态类型的获取方法：<br>
 			在查看好友动态的时候，点击每条动态前面的小图标(例如 <img src="static/image/feed/blog.gif" align="absmiddle">)，<br>
 			浏览器的网址会变为类似如下的链接：<br>
-			http://xxx.com/home.php?mod=space&uid=&do=feed&view=we&appid=3&<b>icon=blog</b>，<br>
+			http(s)://xxx.com/home.php?mod=space&uid=&do=feed&view=we&appid=3&<b>icon=blog</b>，<br>
 			其中，icon=blog，就表示该动态类型为 blog<br>
 			MYOP应用的icon为 7位数字。您可以用英文单词 <b>myop</b> 来表示所有MYOP应用的动态类型',
 	'setting_home_base_feedhotnum' => '首页显示热点的数目',
@@ -1337,7 +1337,7 @@ $lang = array
 	'setting_domain_base_tips' => "<li>保留二级域名设置后所有人都无法申请或使用该域名</li><li>个人空间、群组的二级域名开启后需要到<strong>根域名设置</strong>中设置<strong>{$_G[setting][navs][3][navname]}、{$_G[setting][navs][4][navname]}</strong>的根域名</li>",
 	'setting_domain_app' => '应用域名',
 	'setting_domain_app_domain' => '域名',
-	'setting_domain_app_tips' => "<li>各自绑定的域名不能相同，域名不需要添加“<strong>http://</strong>”，也不要以“<strong>/</strong>”结尾，例如：portal.comsenz.com</li><li>任意开启一项域名，需要配置默认域名，否则会造成多入口问题</li><li>当开启多域名时，请在 config/config_global.php 中修改 cookiedomain 值来设置 cookie 作用域</li>",
+	'setting_domain_app_tips' => "<li>各自绑定的域名不能相同，域名不需要添加“<strong>http(s)://</strong>”，也不要以“<strong>/</strong>”结尾，例如：portal.comsenz.com</li><li>任意开启一项域名，需要配置默认域名，否则会造成多入口问题</li><li>当开启多域名时，请在 config/config_global.php 中修改 cookiedomain 值来设置 cookie 作用域</li>",
 	'setting_domain_app_mobile_tips' => '当配置手机域名后，非手机浏览器访问会自动跳转至默认域名',
 	'setting_domain_root' => '根域名设置',
 	'setting_domain_root_tips' => "<li>可以为<strong>个人空间、{$_G[setting][navs][3][navname]}、版块、专题、频道</strong>设置一个二级域名的根域名。例：用户申请XXX.comsenz.com,根域名填：comsenz.com</li><li><strong>个人空间、{$_G[setting][navs][3][navname]}</strong>设置完二级域名的根后，还需要在<strong>基本设置</strong>中开启相应的二级域名开关，用户才能在相应的地方申请绑定二级域名，同时受限于用户组的二级域名长度</li><li><strong>频道</strong>启用二级域名如果是绑定目录的，需要自已在环境中配置相关的绑定操作</li><li>不建议中途将不同的根域变更为相同的根域</li>",
@@ -2286,7 +2286,7 @@ $lang = array
 	'setting_attach_basic_dir' => '本地附件保存位置',
 	'setting_attach_basic_dir_comment' => '服务器路径，属性 777，必须为 web 可访问到的目录，结尾不加 "/"，相对目录务必以 "./" 开头',
 	'setting_attach_basic_url' => '本地附件 URL 地址',
-	'setting_attach_basic_url_comment' => '可为当前 URL 下的相对地址或 http:// 开头的绝对地址，结尾不加 "/"，不能把这个设为远程附件URL地址',
+	'setting_attach_basic_url_comment' => '可为当前 URL 下的相对地址或 http(s):// 开头的绝对地址，结尾不加 "/"，不能把这个设为远程附件URL地址',
 	'setting_attach_basic_imgpost' => '帖子中显示图片附件',
 	'setting_attach_basic_imgpost_comment' => '在帖子中直接将图片或动画附件显示出来，而不需要点击附件链接',
 	'setting_attach_basic_save' => '附件保存方式',
@@ -2310,7 +2310,7 @@ $lang = array
 	'setting_attach_image_thumb_preview_btn' => '<input type="button" class="btn" onclick="var oldaction = $(\'cpform\').action;var oldoperation = $(\'cpform\').operation.value;$(\'cpform\').operation.value = \'imagepreview\';$(\'cpform\').action=\''.ADMINSCRIPT.'?action=checktools&operation=imagepreview&previewthumb=yes&frame=no\';$(\'cpform\').target=\'_blank\';$(\'cpform\').submit();$(\'cpform\').action=oldaction;$(\'cpform\').operation.value=oldoperation;$(\'cpform\').target=\'\';return false;" value="预览缩略图效果" style="vertical-align: middle">',
 	'setting_attach_remote_preview_btn' => '<input type="button" class="btn" onclick="var oldaction = $(\'cpform\').action;var oldoperation = $(\'cpform\').operation.value;$(\'cpform\').operation.value = \'ftpcheck\';$(\'cpform\').action=\''.ADMINSCRIPT.'?action=checktools&operation=ftpcheck&frame=no\';this.form.target=\'ftpcheckiframe\';this.form.submit();$(\'cpform\').action=oldaction;$(\'cpform\').operation.value=oldoperation;$(\'cpform\').target=\'\';return false;" value="测试远程附件" style="vertical-align: middle"><iframe name="ftpcheckiframe" style="display: none"></iframe>',
 	'setting_attach_image_lib' => '图片处理库类型',
-	'setting_attach_image_lib_comment' => '请选择 Discuz! 用来处理缩略图和水印的图像处理库。GD 是最广泛的处理库但是使用的系统资源较多。ImageMagick 速度快系统资源占用少，但需要服务器安装 ImageMagick 扩展。如果您的服务器有条件安装此程序，请到 <a href="http://www.imagemagick.org" target="_blank">http://www.imagemagick.org</a> 下载',
+	'setting_attach_image_lib_comment' => '请选择 Discuz! 用来处理缩略图和水印的图像处理库。GD 是最广泛的处理库但是使用的系统资源较多。ImageMagick 速度快系统资源占用少，但需要服务器安装 ImageMagick 扩展。如果您的服务器有条件安装此程序，请到 <a href="https://www.imagemagick.org" target="_blank">https://www.imagemagick.org</a> 下载',
 	'setting_attach_image_watermarktype_GD' => 'GD',
 	'setting_attach_image_watermarktype_IM' => 'ImageMagick',
 	'setting_attach_image_impath' => 'ImageMagick 程序安装路径',
@@ -2603,7 +2603,7 @@ $lang = array
 	'setting_mobile_index_forumview' => '首页分区展示方式',
 	'setting_mobile_index_forumview_comment' => '如“收起”，论坛首页将默认只展示分区标题<br />用户需点击分区展开该分区下的版块列表',
 	'setting_mobile_come_from' => '手机发帖来源自定义',
-	'setting_mobile_come_from_comment' => '默认留空，如果填写，将在看帖页面"来自手机"处增加自定义文字或图标<br />如:&lt;a href=\'http://m.x.com\'&gt;手机频道&lt;/a&gt;<br />此处支持HTML标签有：&lt;a&gt;&lt;font&gt;&lt;span&gt;&lt;strong&gt;&lt;b&gt;&lt;img&gt;<br />如果使用图标，请保证图片高度在16px(像素)以内',
+	'setting_mobile_come_from_comment' => '默认留空，如果填写，将在看帖页面"来自手机"处增加自定义文字或图标<br />如:&lt;a href=\'http(s)://m.x.com\'&gt;手机频道&lt;/a&gt;<br />此处支持HTML标签有：&lt;a&gt;&lt;font&gt;&lt;span&gt;&lt;strong&gt;&lt;b&gt;&lt;img&gt;<br />如果使用图标，请保证图片高度在16px(像素)以内',
 	'setting_mobile_wml' => '是否启用极简版',
 	'setting_mobile_wml_comment' => '极简版为一些仅支持WML语言的较早期的设备浏览网站的内容',
 	'pack' => '收起',
@@ -2640,7 +2640,7 @@ $lang = array
 	'setting_uc_key' => 'UCenter 通信密钥',
 	'setting_uc_key_comment' => '通信密钥用于在 UCenter 和 Discuz! 之间传输信息的加密，可包含任何字母及数字，请在 UCenter 与 Discuz! 设置完全相同的通讯密钥，以确保两套系统能够正常通信',
 	'setting_uc_api' => 'UCenter 访问地址',
-	'setting_uc_api_comment' => '如果您的 UCenter 访问地址发生了改变，请修改此项。不正确的设置可能导致站点功能异常，请小心修改。<br />格式: http://www.sitename.com/uc_server (最后不要加\'/\')',
+	'setting_uc_api_comment' => '如果您的 UCenter 访问地址发生了改变，请修改此项。不正确的设置可能导致站点功能异常，请小心修改。<br />格式: http(s)://www.sitename.com/uc_server (最后不要加\'/\')',
 	'setting_uc_ip' => 'UCenter IP 地址',
 	'setting_uc_ip_comment' => '如果您的服务器无法通过域名访问 UCenter，可以输入 UCenter 服务器的 IP 地址',
 	'setting_uc_connect' => 'UCenter 连接方式',
@@ -4976,7 +4976,7 @@ $lang = array
 	'announce_time_comment' => '格式: yyyy-mm-dd',
 	'announce_end_time_comment' => '留空为不限制',
 	'announce_message' => '内容',
-	'announce_message_comment' => '<b>文字公告:</b> 直接输入公告内容，支持 Discuz! 代码<br /><b>网址链接:</b> 请输入公告的链接地址如某个主题地址: http://xxx.xxx.xxx',
+	'announce_message_comment' => '<b>文字公告:</b> 直接输入公告内容，支持 Discuz! 代码<br /><b>网址链接:</b> 请输入公告的链接地址如某个主题地址: http(s)://xxx.xxx.xxx',
 
 	'misc_onlinelist' => '在线列表图标',
 	'misc_onlinelist_tips' => '<li>本功能用于自定义首页及主题列表页显示的在线会员分组及图例，只在在线列表功能打开时有效。</li><li>用户组图例处空白为不区分该组用户，所有未区分的用户组将统一归入第一行的“普通用户”项。</li><li>用户组图例中请填写图片文件名，并将相应图片文件上传到 static/image/common/ 目录中。</li>',
@@ -5575,7 +5575,7 @@ $lang = array
 	'tasks_add_limit_forumid' => '版块限制',
 	'tasks_add_limit_forumid_comment' => '设置会员只能在某个版块完成任务',
 	'tasks_add_limit_threadid' => '回复指定主题',
-	'tasks_add_limit_threadid_comment' => '设置会员只有回复该主题才能完成任务，请填写主题的 tid(比如一个主题的地址是 http://localhost/forum.php?mod=viewthread&tid=8 那么该主题的 tid 就是 8)',
+	'tasks_add_limit_threadid_comment' => '设置会员只有回复该主题才能完成任务，请填写主题的 tid(比如一个主题的地址是 http(s)://localhost/forum.php?mod=viewthread&tid=8 那么该主题的 tid 就是 8)',
 	'tasks_add_limit_authorid' => '回复指定作者',
 	'tasks_add_limit_authorid_comment' => '设置会员只有回复该作者发表的主题才能完成任务，请填写作者的用户名',
 	'tasks_add_act_buddy' => '添加好友',
@@ -5589,9 +5589,9 @@ $lang = array
 	'ec' => '电子商务',
 
 	'ec_alipay' => '支付宝设置',
-	'ec_alipay_tips' => '<li>“支付宝”(<a href="http://www.alipay.com" target="_blank">http://www.alipay.com</a>)是中国领先的网上支付平台，由全球最佳 B2B 公司阿里巴巴公司创建，为 Discuz! 用户提供积分购买及论坛 B2C、C2C 交易平台。您只需进行简单的设置，即可使论坛内容和人气，真成为除广告收入外的重要利润来源，从而实现论坛的规模化经营。</li><li><b>由于涉及现金交易，为避免因操作不当而造成的资金损失，请在开始使用支付宝积分交易功能(不包含支付宝按钮功能)前，务必仔细阅读《用户使用说明书》中有关电子商务的部分，当确认完全理解和接受相关流程及使用方法后再进行相关设置。</b></li><li>您可以设置允许用户通过现金在线支付的方式，为其交易积分账户充值，用于购买帖子内容、购买用户组权限、积分转账或用户组升级等功能。支付宝积分交易功能，需在“<a href="'.$BASESCRIPT.'?action=setting&operation=credits" target="_blank">积分设置</a>”中启用交易积分，并同时设置相应的积分策略以满足不同场合的需要。请务必正确设置您的收款支付宝账号，否则将造成用户付款后积分无法实时到账，造成大量需要人工处理的订单信息。</li><li>除 Discuz! 官方网站或官方论坛另行通知以外，Discuz! 提供的支付宝支付服务每笔交易收取 1.5% 的手续费。请及时关注相关业务的最新通知，各项政策或流程的变更、调整，以 Discuz! 官方网站或官方论坛提供的信息为准。</li><li>您使用支付宝服务是建立在完全自愿的基础上，除 Discuz! 因主观恶意的因素造成的资金损失以外，北京康盛新创科技有限责任公司不对因使用此功能造成的任何损失承担责任。</li><li>支付宝业务咨询 Email 为 <a href="mailto:6688@taobao.com">6688@taobao.com</a>；支付宝客户服务电话为 +86-0571-88156688。</li>',
+	'ec_alipay_tips' => '<li>“支付宝”(<a href="https://www.alipay.com" target="_blank">https://www.alipay.com</a>)是中国领先的网上支付平台，由全球最佳 B2B 公司阿里巴巴公司创建，为 Discuz! 用户提供积分购买及论坛 B2C、C2C 交易平台。您只需进行简单的设置，即可使论坛内容和人气，真成为除广告收入外的重要利润来源，从而实现论坛的规模化经营。</li><li><b>由于涉及现金交易，为避免因操作不当而造成的资金损失，请在开始使用支付宝积分交易功能(不包含支付宝按钮功能)前，务必仔细阅读《用户使用说明书》中有关电子商务的部分，当确认完全理解和接受相关流程及使用方法后再进行相关设置。</b></li><li>您可以设置允许用户通过现金在线支付的方式，为其交易积分账户充值，用于购买帖子内容、购买用户组权限、积分转账或用户组升级等功能。支付宝积分交易功能，需在“<a href="'.$BASESCRIPT.'?action=setting&operation=credits" target="_blank">积分设置</a>”中启用交易积分，并同时设置相应的积分策略以满足不同场合的需要。请务必正确设置您的收款支付宝账号，否则将造成用户付款后积分无法实时到账，造成大量需要人工处理的订单信息。</li><li>除 Discuz! 官方网站或官方论坛另行通知以外，Discuz! 提供的支付宝支付服务每笔交易收取 1.5% 的手续费。请及时关注相关业务的最新通知，各项政策或流程的变更、调整，以 Discuz! 官方网站或官方论坛提供的信息为准。</li><li>您使用支付宝服务是建立在完全自愿的基础上，除 Discuz! 因主观恶意的因素造成的资金损失以外，北京康盛新创科技有限责任公司不对因使用此功能造成的任何损失承担责任。</li><li>支付宝业务咨询 Email 为 <a href="mailto:6688@taobao.com">6688@taobao.com</a>；支付宝客户服务电话为 +86-0571-88156688。</li>',
 	'ec_alipay_account' => '收款支付宝账号',
-	'ec_alipay_account_comment' => '如果开启兑换或交易功能，请填写真实有效的支付宝账号，用于收取用户以现金兑换交易积分的相关款项。如账号无效或安全码有误，将导致用户支付后无法正确对其积分账户自动充值，或进行正常的交易对其积分账户自动充值，或进行正常的交易。<br />如您没有支付宝帐号，<a href="http://www.alipay.com/redir.do?id=307&site=allbbs&target=https%3A%2F%2Fwww.alipay.com%2Fuser%2Fuser_register.htm" target="_blank">请点击这里注册</a>',
+	'ec_alipay_account_comment' => '如果开启兑换或交易功能，请填写真实有效的支付宝账号，用于收取用户以现金兑换交易积分的相关款项。如账号无效或安全码有误，将导致用户支付后无法正确对其积分账户自动充值，或进行正常的交易对其积分账户自动充值，或进行正常的交易。<br />如您没有支付宝帐号，<a href="https://www.alipay.com/redir.do?id=307&site=allbbs&target=https%3A%2F%2Fwww.alipay.com%2Fuser%2Fuser_register.htm" target="_blank">请点击这里注册</a>',
 	'ec_alipay_check' => '支付测试',
 	'ec_alipay_check_comment' => '本测试将模拟提交 0.01 元人民币的订单进行测试，如果提交后成功出现付款界面，说明您站点的支付宝功能可以正常使用',
 	'ec_alipay_check_virtualgoodssubject' => '测试虚拟商品',
@@ -5626,7 +5626,7 @@ $lang = array
 	'ec_tenpay_checklink_credit' => '积分充值订单测试',
 	'ec_tenpay_checklink_virtualgoods' => '虚拟商品订单测试',
 	'ec_tenpay_checklink_goods' => '实物商品订单测试',
-	'ec_tenpay_tips' => '<li>“财付通”(<a href="http://www.tenpay.com" target="_blank">http://www.tenpay.com</a>)是腾讯公司创办的中国领先的在线支付平台，为 Discuz! 用户提供积分购买交易平台。</li><li>如需启用积分充值即时到账，请使用财付通<b>企业版</b>并开通<b>即时到账交易</b>；否则，只需要开通“<b>中介担保交易</b>”即可。</li>
+	'ec_tenpay_tips' => '<li>“财付通”(<a href="https://www.tenpay.com" target="_blank">https://www.tenpay.com</a>)是腾讯公司创办的中国领先的在线支付平台，为 Discuz! 用户提供积分购买交易平台。</li><li>如需启用积分充值即时到账，请使用财付通<b>企业版</b>并开通<b>即时到账交易</b>；否则，只需要开通“<b>中介担保交易</b>”即可。</li>
 <li><b>由于涉及现金交易，为避免因操作不当而造成的资金损失，请在开始使用财付通积分交易功能(不包含财付通按钮功能)前，务必仔细阅读《用户使用说明书》中有关电子商务的部分，当确认完全理解和接受相关流程及使用方法后再进行相关设置。</b></li><li>您可以设置允许用户通过现金在线支付的方式，为其交易积分账户充值，用于购买帖子内容、购买用户组权限、积分转账或用户组升级等功能。财付通积分交易功能，需在“积分设置”中启用交易积分，并同时设置相应的积分策略以满足不同场合的需要。请务必正确设置您的收款财付通账号，否则将造成用户付款后积分无法实时到账，造成大量需要人工处理的订单信息。</li><li>除 Discuz! 官方网站或官方论坛另行通知以外，Discuz! 提供的财付通支付服务每笔交易收取 1% 的手续费。请及时关注相关业务的最新通知，各项政策或流程的变更、调整，以 Discuz! 官方网站或官方论坛提供的信息为准。</li><li>您使用财付通服务是建立在完全自愿的基础上，除 Discuz! 因主观恶意的因素造成的资金损失以外，北京康盛新创科技有限责任公司不对因使用此功能造成的任何损失承担责任。</li><li>财付通服务热线：0755-83762288-2(全天24小时服务热线)</li>',
 
 	'ec_orders' => '积分充值订单',
@@ -6257,7 +6257,7 @@ $lang = array
 	'adv_edit_style_text_title' => '文字内容(必填)',
 	'adv_edit_style_text_title_comment' => '请输入文字广告的显示内容',
 	'adv_edit_style_text_link' => '文字链接(必填)',
-	'adv_edit_style_text_link_comment' => '请输入文字广告指向的 URL 链接地址。<strong>注意：站外的地址必须以http://开头</strong>',
+	'adv_edit_style_text_link_comment' => '请输入文字广告指向的 URL 链接地址。<strong>注意：站外的地址必须以http(s)://开头</strong>',
 	'adv_edit_style_text_size' => '文字大小(选填)',
 	'adv_edit_style_text_size_comment' => '请输入文字广告的内容显示字体，可使用 pt、px、em 为单位',
 	'adv_edit_style_custom' => '自定义',

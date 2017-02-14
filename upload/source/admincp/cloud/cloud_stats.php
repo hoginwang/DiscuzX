@@ -77,7 +77,7 @@ if($_GET['anchor'] == 'base') {
 	shownav('navcloud', 'cloud_stats');
 	showsubmenu('cloud_stats', $statsnav);
 
-	$statsDomain = 'http://ta.qq.com';
+	$statsDomain = $_G['scheme'].'://ta.qq.com';
 	$utilService = Cloud::loadClass('Service_Util');
 	$signUrl = $utilService->generateSiteSignUrl(array('v' => 2));
 

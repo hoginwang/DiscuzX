@@ -1073,13 +1073,13 @@ function showEditorMenu(tag, params) {
 				str += '<div id="tbltips_msg" style="display: none">“[tr=颜色]” 定义行背景<br />“[td=宽度]” 定义列宽<br />“[td=列跨度,行跨度,宽度]” 定义行列跨度<br /><br />快速书写表格范例：<div class=\'xs0\' style=\'margin:0 5px\'>[table]<br />Name:|Discuz!<br />Version:|X1<br />[/table]</div>用“|”分隔每一列，表格中如有“|”用“\\|”代替，换行用“\\n”代替。</div>';
 				break;
 			case 'aud':
-				str = '<p class="pbn">请输入音乐文件地址:</p><p class="pbn"><input type="text" id="' + ctrlid + '_param_1" class="px" value="" style="width: 220px;" /></p><p class="xg2 pbn">支持 wma mp3 ra rm 等音乐格式<br />示例: http://server/audio.wma</p>';
+				str = '<p class="pbn">请输入音乐文件地址:</p><p class="pbn"><input type="text" id="' + ctrlid + '_param_1" class="px" value="" style="width: 220px;" /></p><p class="xg2 pbn">支持 wma mp3 ra rm 等音乐格式<br />示例: http(s)://server/audio.wma</p>';
 				break;
 			case 'vid':
-				str = '<p class="pbn">请输入视频地址:</p><p class="pbn"><input type="text" value="" id="' + ctrlid + '_param_1" style="width: 220px;" class="px" /></p><p class="pbn">宽: <input id="' + ctrlid + '_param_2" size="5" value="500" class="px" /> &nbsp; 高: <input id="' + ctrlid + '_param_3" size="5" value="375" class="px" /></p><p class="xg2 pbn">支持优酷、土豆、56、酷6等视频站的视频网址<br />支持 wmv avi rmvb mov swf flv 等视频格式<br />示例: http://server/movie.wmv</p>';
+				str = '<p class="pbn">请输入视频地址:</p><p class="pbn"><input type="text" value="" id="' + ctrlid + '_param_1" style="width: 220px;" class="px" /></p><p class="pbn">宽: <input id="' + ctrlid + '_param_2" size="5" value="500" class="px" /> &nbsp; 高: <input id="' + ctrlid + '_param_3" size="5" value="375" class="px" /></p><p class="xg2 pbn">支持优酷、土豆、56、酷6等视频站的视频网址<br />支持 wmv avi rmvb mov swf flv 等视频格式<br />示例: http(s)://server/movie.wmv</p>';
 				break;
 			case 'fls':
-				str = '<p class="pbn">请输入 Flash 文件地址:</p><p class="pbn"><input type="text" id="' + ctrlid + '_param_1" class="px" value="" style="width: 220px;" /></p><p class="pbn">宽: <input id="' + ctrlid + '_param_2" size="5" value="" class="px" /> &nbsp; 高: <input id="' + ctrlid + '_param_3" size="5" value="" class="px" /></p><p class="xg2 pbn">支持 swf flv 等 Flash 网址<br />示例: http://server/flash.swf</p>';
+				str = '<p class="pbn">请输入 Flash 文件地址:</p><p class="pbn"><input type="text" id="' + ctrlid + '_param_1" class="px" value="" style="width: 220px;" /></p><p class="pbn">宽: <input id="' + ctrlid + '_param_2" size="5" value="" class="px" /> &nbsp; 高: <input id="' + ctrlid + '_param_3" size="5" value="" class="px" /></p><p class="xg2 pbn">支持 swf flv 等 Flash 网址<br />示例: http(s)://server/flash.swf</p>';
 				break;
 			case 'beginning':
 				str = '<p class="pbn">请输入开头动画 Flash 或 图片 地址:</p><p class="pbn"><input type="text" id="' + ctrlid + '_param_1" class="px" value="" style="width: 220px;" /></p>';
@@ -1087,7 +1087,7 @@ function showEditorMenu(tag, params) {
 				str += '<p class="pbn">宽: <input id="' + ctrlid + '_param_3" size="5" value="" class="px" /> &nbsp; 高: <input id="' + ctrlid + '_param_4" size="5" value="" class="px" /></p>';
 				str += '<p class="pbn">停留秒数: <input id="' + ctrlid + '_param_8" size="5" value="" class="px" /></p>';
 				str += '<p class="pbn">载入、消失的效果: </p><p class="pbn"><input id="' + ctrlid + '_param_7" type="radio" name="effect" checked />无 &nbsp; <input id="' + ctrlid + '_param_5" type="radio" name="effect" />淡入淡出 &nbsp; <input id="' + ctrlid + '_param_6" type="radio" name="effect" />展开闭合</p>';
-				str += '<p class="xg2 pbn">支持 swf flv jpg gif png 网址<br />宽高范围: 宽400~1024 高300~640<br />示例: http://server/flash.swf</p>';
+				str += '<p class="xg2 pbn">支持 swf flv jpg gif png 网址<br />宽高范围: 宽400~1024 高300~640<br />示例: http(s)://server/flash.swf</p>';
 				break;
 			case 'pasteword':
 				stitle = '从 Word 粘贴内容';

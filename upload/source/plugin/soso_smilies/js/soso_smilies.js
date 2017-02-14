@@ -8,7 +8,7 @@
 var sosojs = document.createElement('script');
 	sosojs.type = 'text/javascript';
 	sosojs.charset = "utf-8";
-	sosojs.src = 'http://pic.sogou.com/discuz/sosoexp_platform.js';
+	sosojs.src = '//pic.sogou.com/discuz/sosoexp_platform.js';
 	var sosolo = document.getElementsByTagName('script')[0];
 	sosolo.parentNode.insertBefore(sosojs, sosolo);
 

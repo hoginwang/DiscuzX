@@ -17,7 +17,8 @@ function _dfsockopen($url, $limit = 0, $post = '', $cookie = '', $bysocket = FAL
 	$scheme = $matches['scheme'];
 	$host = $matches['host'];
 	$path = $matches['path'] ? $matches['path'].($matches['query'] ? '?'.$matches['query'] : '') : '/';
-	$port = !empty($matches['port']) ? $matches['port'] : ($scheme == 'http' ? '80' : '');
+	$schemeports = array('http' => '80', 'https' => '443');
+	$port = !empty($matches['port']) ? $matches['port'] : ($schemeports[$scheme] ? $schemeports[$scheme] : '');
 	$boundary = $encodetype == 'URLENCODE' ? '' : random(40);
 
 	if($post) {

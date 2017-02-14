@@ -225,7 +225,7 @@ function checkoption(identifier, required, checktype, checkmaxnum, checkminnum, 
 				return false;
 			}
 		} else if(checktype == 'url' && !(/(http[s]?|ftp):\/\/[^\/\.]+?\..+\w[\/]?$/i.test(checkvalue))) {
-			warning(ce, '请正确填写以http://开头的URL地址');
+			warning(ce, '请正确填写以http(s)://开头的URL地址');
 			return false;
 		}
 		ce.innerHTML = '<img src="' + IMGDIR + '/check_right.gif" width="16" height="16" class="vm" />';

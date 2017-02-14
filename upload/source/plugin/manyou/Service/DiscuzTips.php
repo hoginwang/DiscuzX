@@ -74,7 +74,7 @@ class Cloud_Service_DiscuzTips {
 			<script type="text/javascript">
 				var tipsinfo = '$sId|$version|$cloudApi|$isfounder|$adminId|$openId|$uid|$groupId|$ts|$sig|$clientVersion';
 			</script>
-			<script src="http://discuz.gtimg.cn/cloud/scripts/discuz_tips.js?v=1" type="text/javascript" charset="UTF-8"></script>
+			<script src="//discuz.gtimg.cn/cloud/scripts/discuz_tips.js?v=1" type="text/javascript" charset="UTF-8"></script>
 EOF;
 		echo $jsCode;
 	}
