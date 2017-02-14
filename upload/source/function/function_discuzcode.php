@@ -350,15 +350,39 @@ function parseurl($url, $text, $scheme) {
 }
 
 function parseflash($w, $h, $url) {
+	global $_G;
 	$w = !$w ? 550 : $w;
 	$h = !$h ? 400 : $h;
-	preg_match("/((https?){1}:\/\/|www\.)[^\r\n\[\"'\?]+(\.swf|\.flv)(\?[^\r\n\[\"'\?]+)?/i", $url, $matches);
-	$url = $matches[0];
+	preg_match("/((https?:)?\/\/|www\.)[^\r\n\[\"'\?]+(\.swf|\.flv)(\?[^\r\n\[\"'\?]+)?/i", $url, $matches);
+	$showaslink = $matches[0] ? FALSE : TRUE;
+	$validatedurl = $matches[0];
 	$randomid = 'swf_'.random(3);
-	if(fileext($url) != 'flv') {
-		return '<span id="'.$randomid.'"></span><script type="text/javascript" reload="1">$(\''.$randomid.'\').innerHTML=AC_FL_RunContent(\'width\', \''.$w.'\', \'height\', \''.$h.'\', \'allowNetworking\', \'internal\', \'allowScriptAccess\', \'never\', \'src\', encodeURI(\''.$url.'\'), \'quality\', \'high\', \'bgcolor\', \'#ffffff\', \'wmode\', \'transparent\', \'allowfullscreen\', \'true\');</script>';
+	if (!$showaslink && $_G['isHTTPS'] && $matches[2] != 'https:') {
+		$upgradehttps = false;
+		foreach (array(
+			'player.youku.com',
+			'share.vrs.sohu.com',
+			'www.youtube.com',
+			'static.hdslb.com' // bilibili
+		) as $test) {
+			if (strpos($validatedurl, $test) !== FALSE) {
+				$upgradehttps = true;
+				break;
+			}
+		}
+		if ($upgradehttps) {
+			$validatedurl = preg_replace('/^http:\/\//', 'https://', $validatedurl);
+		} else {
+			$showaslink = true;
+		}
+	}
+	if ($showaslink) {
+		return '<a href="'.$url.'" target="_blank">'.$url.'</a>';
+	}
+	if(fileext($validatedurl) != 'flv') {
+		return '<span id="'.$randomid.'"></span><script type="text/javascript" reload="1">$(\''.$randomid.'\').innerHTML=AC_FL_RunContent(\'width\', \''.$w.'\', \'height\', \''.$h.'\', \'allowNetworking\', \'internal\', \'allowScriptAccess\', \'never\', \'src\', encodeURI(\''.$validatedurl.'\'), \'quality\', \'high\', \'bgcolor\', \'#ffffff\', \'wmode\', \'transparent\', \'allowfullscreen\', \'true\');</script>';
 	} else {
-		return '<span id="'.$randomid.'"></span><script type="text/javascript" reload="1">$(\''.$randomid.'\').innerHTML=AC_FL_RunContent(\'width\', \''.$w.'\', \'height\', \''.$h.'\', \'allowNetworking\', \'internal\', \'allowScriptAccess\', \'never\', \'src\', \''.STATICURL.'image/common/flvplayer.swf\', \'flashvars\', \'file='.rawurlencode($url).'\', \'quality\', \'high\', \'wmode\', \'transparent\', \'allowfullscreen\', \'true\');</script>';
+		return '<span id="'.$randomid.'"></span><script type="text/javascript" reload="1">$(\''.$randomid.'\').innerHTML=AC_FL_RunContent(\'width\', \''.$w.'\', \'height\', \''.$h.'\', \'allowNetworking\', \'internal\', \'allowScriptAccess\', \'never\', \'src\', \''.STATICURL.'image/common/flvplayer.swf\', \'flashvars\', \'file='.rawurlencode($validatedurl).'\', \'quality\', \'high\', \'wmode\', \'transparent\', \'allowfullscreen\', \'true\');</script>';
 	}
 }
 
@@ -547,15 +571,16 @@ function highlightword($text, $words, $prepend) {
 }
 
 function parseflv($url, $width = 0, $height = 0) {
+	global $_G;
 	$lowerurl = strtolower($url);
 	$flv = $iframe = $imgurl = '';
 	if($lowerurl != str_replace(array('player.youku.com/player.php/sid/','tudou.com/v/','player.ku6.com/refer/'), '', $lowerurl)) {
 		$flv = $url;
 	} elseif(strpos($lowerurl, 'v.youku.com/v_show/') !== FALSE) {
 		$ctx = stream_context_create(array('http' => array('timeout' => 10)));
-		if(preg_match("/^https?:\/\/v.youku.com\/v_show\/id_([^\/]+)(.html|)/i", $url, $matches)) {
-			$flv = 'https://player.youku.com/player.php/sid/'.$matches[1].'/v.swf';
-			$iframe = 'https://player.youku.com/embed/'.$matches[1];
+		if(preg_match("/^https?:\/\/v.youku.com\/v_show\/id_([^\/]+==)/i", $url, $matches)) {
+			$flv = $_G['scheme'].'://player.youku.com/player.php/sid/'.$matches[1].'/v.swf';
+			$iframe = $_G['scheme'].'://player.youku.com/embed/'.$matches[1];
 			if(!$width && !$height) {
 				$api = 'http://v.youku.com/player/getPlayList/VideoIDS/'.$matches[1];
 				$str = stripslashes(file_get_contents($api, false, $ctx));
@@ -566,7 +591,13 @@ function parseflv($url, $width = 0, $height = 0) {
 				}
 			}
 		}
+	} elseif(strpos($lowerurl, 'www.bilibili.com/video') !== FALSE) {
+		$ctx = stream_context_create(array('http' => array('timeout' => 10)));
+		if(preg_match("/^https?:\/\/www.bilibili.com\/video\/av(\d+)(\/index_(\d+))?/i", $url, $matches)) {
+			$flv = $_G['scheme'].'://static.hdslb.com/miniloader.swf?aid='.$matches[1].'&page='.($matches[2] ? $matches[2] : 1);
+		}
 	} elseif(strpos($lowerurl, 'tudou.com/programs/view/') !== FALSE) {
+		if ($_G['isHTTPS']) return FALSE;
 		if(preg_match("/^http:\/\/(www.)?tudou.com\/programs\/view\/([^\/]+)/i", $url, $matches)) {
 			$flv = 'http://www.tudou.com/v/'.$matches[2];
 			$iframe = 'http://www.tudou.com/programs/view/html5embed.action?code='.$matches[2];
@@ -578,6 +609,7 @@ function parseflv($url, $width = 0, $height = 0) {
 			}
 		}
 	} elseif(strpos($lowerurl, 'v.ku6.com/show/') !== FALSE) {
+		if ($_G['isHTTPS']) return FALSE;
 		if(preg_match("/^http:\/\/v.ku6.com\/show\/([^\/]+).html/i", $url, $matches)) {
 			$flv = 'http://player.ku6.com/refer/'.$matches[1].'/v.swf';
 			if(!$width && !$height) {
@@ -589,6 +621,7 @@ function parseflv($url, $width = 0, $height = 0) {
 			}
 		}
 	} elseif(strpos($lowerurl, 'v.ku6.com/special/show_') !== FALSE) {
+		if ($_G['isHTTPS']) return FALSE;
 		if(preg_match("/^http:\/\/v.ku6.com\/special\/show_\d+\/([^\/]+).html/i", $url, $matches)) {
 			$flv = 'http://player.ku6.com/refer/'.$matches[1].'/v.swf';
 			if(!$width && !$height) {
@@ -613,6 +646,7 @@ function parseflv($url, $width = 0, $height = 0) {
 			}
 		}
 	} elseif(strpos($lowerurl, 'video.sina.com.cn/v/b/') !== FALSE) {
+		if ($_G['isHTTPS']) return FALSE;
 		if(preg_match("/^http:\/\/video.sina.com.cn\/v\/b\/(\d+)-(\d+).html/i", $url, $matches)) {
 			$flv = 'http://vhead.blog.sina.com.cn/player/outer_player.swf?vid='.$matches[1];
 			if(!$width && !$height) {
@@ -624,6 +658,7 @@ function parseflv($url, $width = 0, $height = 0) {
 			}
 		}
 	} elseif(strpos($lowerurl, 'you.video.sina.com.cn/b/') !== FALSE) {
+		if ($_G['isHTTPS']) return FALSE;
 		if(preg_match("/^http:\/\/you.video.sina.com.cn\/b\/(\d+)-(\d+).html/i", $url, $matches)) {
 			$flv = 'http://vhead.blog.sina.com.cn/player/outer_player.swf?vid='.$matches[1];
 			if(!$width && !$height) {
@@ -634,9 +669,9 @@ function parseflv($url, $width = 0, $height = 0) {
 				}
 			}
 		}
-	} elseif(strpos($lowerurl, 'http://my.tv.sohu.com/u/') !== FALSE) {
-		if(preg_match("/^http:\/\/my.tv.sohu.com\/u\/[^\/]+\/(\d+)/i", $url, $matches)) {
-			$flv = 'http://v.blog.sohu.com/fo/v4/'.$matches[1];
+	} elseif(strpos($lowerurl, 'my.tv.sohu.com/u') !== FALSE) {
+		if(preg_match("/^https?:\/\/my.tv.sohu.com\/us?\/[^\/]+\/(\d+)/i", $url, $matches)) {
+			$flv = $_G['scheme'].'://share.vrs.sohu.com/my/v.swf&topBar=1&id='.$matches[1].'&autoplay=false&from=page';
 			if(!$width && !$height) {
 				$api = 'http://v.blog.sohu.com/videinfo.jhtml?m=view&id='.$matches[1].'&outType=3';
 				$str = file_get_contents($api, false, $ctx);
@@ -647,7 +682,7 @@ function parseflv($url, $width = 0, $height = 0) {
 		}
 	} elseif(strpos($lowerurl, 'http://v.blog.sohu.com/u/') !== FALSE) {
 		if(preg_match("/^http:\/\/v.blog.sohu.com\/u\/[^\/]+\/(\d+)/i", $url, $matches)) {
-			$flv = 'http://v.blog.sohu.com/fo/v4/'.$matches[1];
+			$flv = $_G['scheme'].'://share.vrs.sohu.com/my/v.swf&topBar=1&id='.$matches[1].'&autoplay=false&from=page';
 			if(!$width && !$height) {
 				$api = 'http://v.blog.sohu.com/videinfo.jhtml?m=view&id='.$matches[1].'&outType=3';
 				$str = file_get_contents($api, false, $ctx);
@@ -657,7 +692,7 @@ function parseflv($url, $width = 0, $height = 0) {
 			}
 		}
 	} elseif(strpos($lowerurl, 'http://www.56.com') !== FALSE) {
-
+		if ($_G['isHTTPS']) return FALSE;
 		if(preg_match("/^http:\/\/www.56.com\/\S+\/play_album-aid-(\d+)_vid-(.+?).html/i", $url, $matches)) {
 			$flv = 'http://player.56.com/v_'.$matches[2].'.swf';
 			$matches[1] = $matches[2];

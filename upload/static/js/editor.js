@@ -1076,7 +1076,7 @@ function showEditorMenu(tag, params) {
 				str = '<p class="pbn">请输入音乐文件地址:</p><p class="pbn"><input type="text" id="' + ctrlid + '_param_1" class="px" value="" style="width: 220px;" /></p><p class="xg2 pbn">支持 wma mp3 ra rm 等音乐格式<br />示例: http(s)://server/audio.wma</p>';
 				break;
 			case 'vid':
-				str = '<p class="pbn">请输入视频地址:</p><p class="pbn"><input type="text" value="" id="' + ctrlid + '_param_1" style="width: 220px;" class="px" /></p><p class="pbn">宽: <input id="' + ctrlid + '_param_2" size="5" value="500" class="px" /> &nbsp; 高: <input id="' + ctrlid + '_param_3" size="5" value="375" class="px" /></p><p class="xg2 pbn">支持优酷、土豆、56、酷6等视频站的视频网址<br />支持 wmv avi rmvb mov swf flv 等视频格式<br />示例: http(s)://server/movie.wmv</p>';
+				str = '<p class="pbn">请输入视频地址:</p><p class="pbn"><input type="text" value="" id="' + ctrlid + '_param_1" style="width: 220px;" class="px" /></p><p class="pbn">宽: <input id="' + ctrlid + '_param_2" size="5" value="500" class="px" /> &nbsp; 高: <input id="' + ctrlid + '_param_3" size="5" value="375" class="px" /></p><p class="xg2 pbn">支持优酷、土豆、哔哩哔哩、搜狐视频自媒体等视频站的视频网址<br />支持 wmv avi rmvb mov swf flv 等视频格式<br />示例: http(s)://server/movie.wmv</p>';
 				break;
 			case 'fls':
 				str = '<p class="pbn">请输入 Flash 文件地址:</p><p class="pbn"><input type="text" id="' + ctrlid + '_param_1" class="px" value="" style="width: 220px;" /></p><p class="pbn">宽: <input id="' + ctrlid + '_param_2" size="5" value="" class="px" /> &nbsp; 高: <input id="' + ctrlid + '_param_3" size="5" value="" class="px" /></p><p class="xg2 pbn">支持 swf flv 等 Flash 网址<br />示例: http(s)://server/flash.swf</p>';
