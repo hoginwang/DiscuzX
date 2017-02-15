@@ -363,7 +363,8 @@ function parseflash($w, $h, $url) {
 			'player.youku.com',
 			'share.vrs.sohu.com',
 			'www.youtube.com',
-			'static.hdslb.com' // bilibili
+			'static.hdslb.com', // bilibili
+			'music.163.com'
 		) as $test) {
 			if (strpos($validatedurl, $test) !== FALSE) {
 				$upgradehttps = true;
