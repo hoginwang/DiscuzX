@@ -357,7 +357,7 @@ function parseflash($w, $h, $url) {
 	$showaslink = $matches[0] ? FALSE : TRUE;
 	$validatedurl = $matches[0];
 	$randomid = 'swf_'.random(3);
-	if (!$showaslink && $_G['isHTTPS'] && $matches[2] != 'https:') {
+	if (!$showaslink && $_G['isHTTPS'] && $matches[2] == 'http:') {
 		$upgradehttps = false;
 		foreach (array(
 			'player.youku.com',
