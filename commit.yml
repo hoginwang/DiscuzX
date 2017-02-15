@@ -2,34 +2,10 @@
 branches: {
   }
 fileChange:
-  /readme:
-    newFile: !uuid 'a890ce1e9eaf1e91710fec9e07c2670a63948e3e'
-    oldFile: !uuid '9084e026562101af29a895b2d0c743bf025f0826'
-  /readme/changelog.txt:
-    newFile: !uuid '73de9d03cf45b504bd6fa056d86dce38d18df2e6'
-    oldFile: !uuid 'f29bf981d66a7ffb89dd96428c9cc4823e0bdc1d'
-  /upload:
-    newFile: !uuid '9bd1305629deb8e136331d6a540ce326994bf855'
-    oldFile: !uuid '6dcbf73d0db4af98445df1436dbe77892aa859f5'
-  /upload/source:
-    newFile: !uuid '4f53303cd76f799fc02e725b9879c57fce0bca5c'
-    oldFile: !uuid 'a41956fd370c61e3a75934249dedc5e1f673a052'
-  /upload/source/admincp:
-    newFile: !uuid 'de7082c6ad538ce301c53b2333fccdd82fee0c4c'
-    oldFile: !uuid '7793316cd4bb7983930adf57a70905038c7d5e51'
-  /upload/source/admincp/discuzfiles.md5:
-    newFile: !uuid '3235c6bba6a556e8c852575760d46405dec2e2c0'
-    oldFile: !uuid '4afbade9f5f210ec4d2ea84448b3890ba905d7e4'
-  /upload/source/class:
-    newFile: !uuid '7f220b6e89d2d426f702841d6c634fb546e1f7f8'
-    oldFile: !uuid '0e5d64bd50b34b0f612c652434d8f38a4b26636f'
-  /upload/source/class/memory:
-    newFile: !uuid '650ea9b0b351b8746be536331cc61943c8733e58'
-    oldFile: !uuid 'd423edf7141e24a579c8ea59692467d6ed2b4e62'
-  /upload/source/class/memory/memory_driver_file.php:
-    newFile: !uuid '7b67cb73a5a9bd4a19aeefd8e2022f785ff53f5b'
-    oldFile: !uuid 'b8dd3d5a3cd7f6d7459216fbd80b4a11927fbf6f'
-gitCommitId: !uuid 'b1c9dd029bb017d095b947ceecbd102573f9d944'
+  /README.md:
+    newFile: !uuid 'af95df40b233c9b32fb99f0dbd3da63ce1bc7535'
+    oldFile: !uuid 'dbbb82ed68a7b3863ed7e31335fd5cf270457655'
+gitCommitId: !uuid '5277e4d1863eafed4625ed2e56c90e15641480a5'
 renames: {
   }
-revisionId: 93
+revisionId: 94
