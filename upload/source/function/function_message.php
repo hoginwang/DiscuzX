@@ -133,6 +133,10 @@ function dshowmessage($message, $url_forward = '', $values = array(), $extrapara
 		dexit();
 	}
 
+	if ($message == 'thread_nonexistence') {
+		header('HTTP/1.1 404 Not Found');
+	}
+
 	$_G['hookscriptmessage'] = $message;
 	$_G['hookscriptvalues'] = $values;
 	$vars = explode(':', $message);
