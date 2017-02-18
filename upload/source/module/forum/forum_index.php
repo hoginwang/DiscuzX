@@ -290,7 +290,6 @@ if(!$gid && (!defined('FORUM_INDEX_PAGE_MEMORY') || !FORUM_INDEX_PAGE_MEMORY)) {
 					$catlist[$catid]['endrows'] .= '<td width="'.$catlist[$catid]['forumcolwidth'].'">&nbsp;</td>';
 					$colspan ++;
 				}
-				$catlist[$catid]['endrows'] .= '</tr>';
 			}
 		} elseif(empty($category['forumscount'])) {
 			unset($catlist[$catid]);
@@ -467,6 +466,7 @@ function get_index_page_guest_cache() {
 				$('debuginfo').innerHTML = '. This page is cached  at $updatetime $gzip .';
 			}
 			</script>";
+		echo '</body></html>';
 		exit();
 	}
 }

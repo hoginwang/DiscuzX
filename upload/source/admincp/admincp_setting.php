@@ -2210,8 +2210,8 @@ EOT;
 		$cache_extension = C::memory()->extension;
 		$cache_config = C::memory()->config;
 		$cache_type = C::memory()->type;
-		
-		$dir = DISCUZ_ROOT.'./source/class/memory';		
+
+		$dir = DISCUZ_ROOT.'./source/class/memory';
 		$qaadir = dir($dir);
 		$cachelist = array();
 		while($entry = $qaadir->read()) {
@@ -2223,11 +2223,11 @@ EOT;
 				$cachelist[] = array($memory->cacheName,
 					$memory->env($config) ? cplang('setting_memory_php_enable') : cplang('setting_memory_php_disable'),
 					$available ? cplang('open') : cplang('closed'),
-					$cache_type == $cache ? $do_clear_link : '--'
+					$cache_type == $memory->cacheName ? $do_clear_link : '--'
 				);
 			}
 		}
-		
+
 		foreach($cachelist as $cache) {
 			showtablerow('', array('width="100"', 'width="120"', 'width="120"'), $cache);
 		}
