@@ -1205,6 +1205,7 @@ $lang = array (
   'more_images' => '更多图片',
   'pack' => '收起',
   'pay_threads' => '付费主题, 价格',
+  'pay_threads_content' => '付费内容',
   'published_in_floor' => '查看楼层',
   'rate_total' => '总评分',
   'replies_recommended' => '回帖推荐',

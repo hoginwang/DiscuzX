@@ -206,7 +206,9 @@ function discuzcode($message, $smileyoff = false, $bbcodeoff = false, $htmlon = 
 				$message = preg_replace("/\s?\[quote\][\n\r]*(.+?)[\n\r]*\[\/quote\]\s?/is", tpl_quote(), $message);
 			}
 			if(strpos($msglower, '[/free]') !== FALSE) {
+				$message = '<div class="showhide"><h4>'.lang('forum/template', 'pay_threads_content').'</h4>'.$message.'</div>';
 				$message = preg_replace("/\s*\[free\][\n\r]*(.+?)[\n\r]*\[\/free\]\s*/is", tpl_free(), $message);
+				$message = str_replace('<div class="showhide"><h4>'.lang('forum/template', 'pay_threads_content').'</h4></div>', '', $message);
 			}
 		}
 		if(!defined('IN_MOBILE')) {
