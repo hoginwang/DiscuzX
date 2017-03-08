@@ -3,24 +3,18 @@ branches: {
   }
 fileChange:
   /upload:
-    newFile: !uuid 'afd58133b8f9ce8b3becd72aabff46c176346ced'
-    oldFile: !uuid 'c300cb9fc6edd77b0029db5eccf36158a8d32c7f'
+    newFile: !uuid '102dd1c52c419ef8718b13e4e744db6ea35ec6db'
+    oldFile: !uuid 'afd58133b8f9ce8b3becd72aabff46c176346ced'
   /upload/source:
-    newFile: !uuid 'f8df2b9db58390309f99a4c0237fc4ee235e39a5'
-    oldFile: !uuid 'cb8b10b6e47a07b167718bbacd1a8ba4347c6576'
-  /upload/source/plugin:
-    newFile: !uuid '75cbc55fb4e4aef0f85ff08c307e876e1f9854cd'
-    oldFile: !uuid '6d75499eb6fd5534c15c866aa4cdedfe3a3e80b5'
-  /upload/source/plugin/manyou:
-    newFile: !uuid '67ca9c78fb3c628cc140e3347e8962f2a8e9bdb2'
-    oldFile: !uuid 'dac6f88c03823a424f73f1620616c79f6e1cf938'
-  /upload/source/plugin/manyou/Service:
-    newFile: !uuid 'ec31b774b2ad76eb59a1ee75fcabd9b4b74e0a98'
-    oldFile: !uuid '60b02f42f1eca4ea59b7aad204a3da4ef085ca77'
-  /upload/source/plugin/manyou/Service/Doctor.php:
-    newFile: !uuid '079e22079aa198d4662939438c2d63f651a3e018'
-    oldFile: !uuid 'a79a7da44bd36c66a6f10e0406d87f9bc4c3c751'
-gitCommitId: !uuid '96364cb1b15a0a6ade9c7bca420d26a0d7c1a5b2'
+    newFile: !uuid '135e0c0e16ca59ffc40c42eba11a5c681da7bbbd'
+    oldFile: !uuid 'f8df2b9db58390309f99a4c0237fc4ee235e39a5'
+  /upload/source/admincp:
+    newFile: !uuid '242c7e4a71d3e7500cb0228c0b07e052a00dbe6f'
+    oldFile: !uuid '89e6495638781cb16c6a2158dab184e5bf5b4b1a'
+  /upload/source/admincp/admincp_setting.php:
+    newFile: !uuid '57ee76b8c7aa90378d30d2da8d4bd4a68628102e'
+    oldFile: !uuid '68928daf8aca4966d07a7103b6f1eb48222738a6'
+gitCommitId: !uuid 'e2b498000bbd984465ba4283306cfc486beed535'
 renames: {
   }
-revisionId: 105
+revisionId: 106
