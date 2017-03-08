@@ -73,7 +73,7 @@ class Cloud_Service_Doctor {
 	public function showPlugins() {
 		global $_G;
 		$plugins = array();
-		$identifiers = array('qqconnect', 'cloudstat', 'soso_smilies', 'cloudsearch', 'security', 'cloudcaptcha', 'cloudunion', 'manyou');
+		$identifiers = array('qqconnect', 'cloudstat', 'soso_smilies', 'security', 'cloudcaptcha', 'manyou');
 		$plugins = C::t('common_plugin')->fetch_all_by_identifier($identifiers);
 
 		if ($plugins && count($plugins) == count($identifiers)) {
@@ -173,7 +173,7 @@ class Cloud_Service_Doctor {
 			var checkPosition = '$position';
 			var discuzTime = '$time';
 		</script>
-		<script type="text/javascript" src="http://discuz.gtimg.cn/cloud/scripts/doctor.js?v=$rand" charset="utf-8"></script>
+		<script type="text/javascript" src="//discuz.gtimg.cn/cloud/scripts/doctor.js?v=$rand" charset="utf-8"></script>
 EOF;
 		echo $output;
 	}
