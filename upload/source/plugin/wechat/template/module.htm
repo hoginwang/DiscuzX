@@ -26,7 +26,7 @@ function wechat_tpl_user_bar() {
 global $_G;
 }
 <!--{block return}-->
-	<span class="pipe">|</span><a {if $_G['wechat']['setting']['wechat_qrtype'] && $_G['cookie']['qrauth']}href="plugin.php?id=wechat:login"{else}href="javascript:;" onclick="showWindow('wechat_bind', 'plugin.php?id=wechat:bind')"{/if}><img src="source/plugin/wechat/image/wechat_bind.png" class="qq_bind" align="absmiddle" /></a>
+	<span class="pipe">|</span><a {if $_G['wechat']['setting']['wechat_qrtype'] && $_G['cookie']['qrauth']}href="plugin.php?id=wechat:login"{else}href="javascript:;" onclick="showWindow('wechat_bind', 'plugin.php?id=wechat:bind')"{/if}><img alt='微信账号绑定' src="source/plugin/wechat/image/wechat_bind.png" class="qq_bind" align="absmiddle" /></a>
 <!--{/block}-->
 <!--{eval return $return;}-->
 {eval
