@@ -503,8 +503,20 @@ function setUnselectable(obj) {
 	}
 }
 
+document.tab_counter = 0;
+
+document.hideFakePlaceholder = function() {
+	// 函数在主frame，body在iframe
+	if (editwin.document.body.innerHTML == '<p style="color:#888">帖子正文</p>') {
+		editwin.document.body.innerHTML = '<p></p>';
+	}
+}
+
 function writeEditorContents(text) {
 	if(wysiwyg) {
+		if (!text || text == '<p></p>') {
+			text = '<p style="color:#888">帖子正文</p>';
+		}
 		if(text == '' && (BROWSER.firefox || BROWSER.opera)) {
 			text = '<p></p>';
 		}
@@ -515,8 +527,8 @@ function writeEditorContents(text) {
 				'<html><head id="editorheader"><meta http-equiv="Content-Type" content="text/html; charset=' + charset + '" />' +
 				(BROWSER.ie && BROWSER.ie > 7 ? '<meta http-equiv="X-UA-Compatible" content="IE=7" />' : '' ) +
 				'<link rel="stylesheet" type="text/css" href="misc.php?css=' + STYLEID + '_wysiwyg&' + VERHASH + '" />' +
-				(BROWSER.ie ? '<script>window.onerror = function() { return true; }</script>' : '') +
-				'</head><body onkeyup="if (event.which == 9) { window.parent.document.getElementById(\'postsubmit\').focus(); }">' + text + '</body></html>';
+				(BROWSER.ie ? '<script>window.onerror = function() { return true; };</script>' : '') +
+				'</head><body onkeydown="if (event.which != 9) { window.parent.document.hideFakePlaceholder(); }" onkeyup="if (event.which == 9) { if (window.parent.document.tab_counter == 0) { window.parent.document.tab_counter++; } else { window.parent.document.tab_counter = 0; window.parent.document.getElementById(\'postsubmit\').focus(); }}">' + text + '</body></html>';
 			editdoc.designMode = allowhtml ? 'on' : 'off';
 			editdoc = editwin.document;
 			editdoc.open('text/html', 'replace');

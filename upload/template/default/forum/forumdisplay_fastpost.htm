@@ -28,7 +28,7 @@ var fid = parseInt('$_G[fid]');
 					</div>
 					<script type="text/javascript" reload="1">simulateSelect('typeid_fast');</script>
 				<!--{/if}-->
-				<input type="text" id="subject" name="subject" class="px" value="" onkeyup="strLenCalc(this, 'checklen', 80);" tabindex="11" style="width: 25em" />
+				<input type="text" id="subject" name="subject" placeholder="帖子标题" class="px" value="" onkeyup="strLenCalc(this, 'checklen', 80);" tabindex="11" style="width: 25em" />
 				<span>{lang comment_message1} <strong id="checklen">80</strong> {lang comment_message2}</span>
 			</div>
 
@@ -47,7 +47,7 @@ var fid = parseInt('$_G[fid]');
 						</div>
 						<div class="area">
 							<!--{if $allowfastpost}-->
-								<textarea rows="6" cols="80" name="message" id="fastpostmessage" onKeyDown="seditor_ctlent(event, '$(\'fastpostsubmit\').click()');" tabindex="12" class="pt"{eval echo getreplybg($_G['forum']['replybg']);}></textarea>
+								<textarea rows="6" cols="80" name="message" placeholder="帖子正文" id="fastpostmessage" onKeyDown="seditor_ctlent(event, '$(\'fastpostsubmit\').click()');" tabindex="12" class="pt"{eval echo getreplybg($_G['forum']['replybg']);}></textarea>
 							<!--{else}-->
 								<div class="pt hm">
 									<!--{if !$_G['uid']}-->
