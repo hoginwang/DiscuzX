@@ -23,7 +23,6 @@ $lang = array (
   'close' => '关闭',
   'faq' => '帮助',
   'login' => '登录',
-  'login_clearcookies' => '清除痕迹',
   'login_guestmessage' => '您需要先登录才能继续本操作',
   'login_seccheck2' => '请输入验证码后继续登录',
   'login_member' => '用户登录',
