@@ -872,7 +872,7 @@ function dfopen($url, $limit = 0, $post = '', $cookie = '', $bysocket = FALSE, $
 	if(function_exists('curl_init') && $allowcurl) {
 		$ch = curl_init();
 		$ip && curl_setopt($ch, CURLOPT_HTTPHEADER, array("Host: ".$host));
-		curl_setopt($ch, CURLOPT_URL, $scheme.'://'.($ip ? $ip : $host).':'.$port.$path);
+		curl_setopt($ch, CURLOPT_URL, $scheme.'://'.($scheme == 'https' ? $host : ($ip ? $ip : $host)).':'.$port.$path);
 		curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
 		if($post) {
 			curl_setopt($ch, CURLOPT_POST, 1);

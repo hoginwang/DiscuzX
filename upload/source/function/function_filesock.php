@@ -17,7 +17,7 @@ function _dfsockopen($url, $limit = 0, $post = '', $cookie = '', $bysocket = FAL
 	$scheme = $matches['scheme'];
 	$host = $matches['host'];
 	$path = $matches['path'] ? $matches['path'].($matches['query'] ? '?'.$matches['query'] : '') : '/';
-	$port = !empty($matches['port']) ? $matches['port'] : ($scheme == 'http' ? '80' : '');
+	$port = !empty($matches['port']) ? $matches['port'] : ($matches['scheme'] == 'https' ? 443 : 80);
 	$boundary = $encodetype == 'URLENCODE' ? '' : random(40);
 
 	if($post) {
@@ -36,7 +36,7 @@ function _dfsockopen($url, $limit = 0, $post = '', $cookie = '', $bysocket = FAL
 		if($httpheader) {
 			curl_setopt($ch, CURLOPT_HTTPHEADER, $httpheader);
 		}
-		curl_setopt($ch, CURLOPT_URL, $scheme.'://'.($ip ? $ip : $host).($port ? ':'.$port : '').$path);
+		curl_setopt($ch, CURLOPT_URL, $scheme.'://'.($scheme == 'https' ? $host : ($ip ? $ip : $host)).':'.$port.$path);
 		curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
 		curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, false);
 		curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
@@ -125,7 +125,7 @@ function _dfsockopen($url, $limit = 0, $post = '', $cookie = '', $bysocket = FAL
 	}
 
 	$fpflag = 0;
-	if(!$fp = @fsocketopen(($ip ? $ip : $host), $port, $errno, $errstr, $timeout)) {
+	if(!$fp = @fsocketopen(($scheme == 'https' ? 'ssl' : $scheme).'://'.($scheme == 'https' ? $host : ($ip ? $ip : $host)), $port, $errno, $errstr, $timeout)) {
 		$context = array(
 			'http' => array(
 				'method' => $post ? 'POST' : 'GET',
@@ -135,7 +135,7 @@ function _dfsockopen($url, $limit = 0, $post = '', $cookie = '', $bysocket = FAL
 			),
 		);
 		$context = stream_context_create($context);
-		$fp = @fopen($scheme.'://'.($ip ? $ip : $host).':'.$port.$path, 'b', false, $context);
+		$fp = @fopen($scheme.'://'.($scheme == 'https' ? $host : ($ip ? $ip : $host)).':'.$port.$path, 'b', false, $context);
 		$fpflag = 1;
 	}
 
