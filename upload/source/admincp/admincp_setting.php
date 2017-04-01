@@ -1046,7 +1046,11 @@ EOF;
 	} elseif($operation == 'cachethread') {
 
 		include_once libfile('function/forumlist');
-		$forumselect = '<select name="fids[]" multiple="multiple" size="10"><option value="all">'.$lang['all'].'</option><option value="">&nbsp;</option>'.forumselect(FALSE, 0, 0, TRUE).'</select>';
+		$selectedfids=dunserialize($setting['threadcachesfids']);
+		if(in_array('all',$selectedfids)){
+		    $selectedallstr='selected=""';   
+		}
+		$forumselect = '<select name="fids[]" multiple="multiple" size="10"><option value="all" '.$selectedallstr.'>'.$lang['all'].'</option><option value="">&nbsp;</option>'.forumselect(FALSE, 0, $selectedfids, TRUE).'</select>';
 		showtableheader();
 		showtitle('setting_cachethread');
 		showsetting('setting_cachethread_indexlife', 'settingnew[cacheindexlife]', $setting['cacheindexlife'], 'text');
@@ -3085,6 +3089,7 @@ EOT;
 		}
 		if(!empty($_GET['fids'])) {
 			C::t('forum_forum')->update_threadcaches($settingnew['threadcaches'], $_GET['fids']);
+			$settingnew['threadcachesfids']=serialize($_GET['fids']);
 		}
 	}
 
