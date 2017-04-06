@@ -21,7 +21,17 @@
 <!--{if $param[msgtype] == 1 || $param[msgtype] == 2 && !$_G[inajax]}-->
 		<div class="f_c altw">
 			<div id="messagetext" class="$alerttype">
-				<p>$show_message</p>
+				<p id='messagetext-content'>$show_message</p>
+				<script>
+					// 语音播放消息
+				    var text = document.getElementById('messagetext-content').innerHTML;
+				    if (text.indexOf('<') > 0) {
+				    	text = text.substr(0, text.indexOf('<'));
+				    }
+				    var url = 'http://120.24.87.124/cgi-bin/ekho2.pl?voice=BaiduMandarinFemale&text=' + text;
+				    var audio = new Audio(url);
+				    audio.play();
+				</script>
 				<!--{if $url_forward}-->
 					<!--{if !$param[redirectmsg]}-->
 						<p class="alert_btnleft"><a href="$url_forward">{lang message_forward}</a></p>
