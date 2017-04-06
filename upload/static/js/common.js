@@ -1089,6 +1089,11 @@ function showDialog(msg, mode, t, func, cover, funccancel, leftmsg, confirmtxt, 
 		hideMenu(menuid, 'dialog');
 	};
 	if(closetime) {
+		// 语音播放消息
+	    var url = 'http://120.24.87.124/cgi-bin/ekho2.pl?voice=BaiduMandarinFemale&text=' + msg;
+	    var audio = new Audio(url);
+	    audio.play();
+
 		showPrompt(null, null, '<i>' + msg + '</i>', closetime * 1000, 'popuptext');
 		return;
 	}
