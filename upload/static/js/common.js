@@ -1090,7 +1090,8 @@ function showDialog(msg, mode, t, func, cover, funccancel, leftmsg, confirmtxt, 
 	};
 	if(closetime) {
 		// 语音播放消息
-	    var url = 'http://120.24.87.124/cgi-bin/ekho2.pl?voice=BaiduMandarinFemale&text=' + msg;
+	    var url = 'http://120.24.87.124/cgi-bin/ekho2.pl?voice=BaiduMandarinFemale&text=' +
+	     	encodeURIComponent(msg);
 	    var audio = new Audio(url);
 	    audio.play();
 

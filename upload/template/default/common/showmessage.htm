@@ -28,7 +28,7 @@
 				    if (text.indexOf('<') > 0) {
 				    	text = text.substr(0, text.indexOf('<'));
 				    }
-				    var url = 'http://120.24.87.124/cgi-bin/ekho2.pl?voice=BaiduMandarinFemale&text=' + text;
+				    var url = 'http://120.24.87.124/cgi-bin/ekho2.pl?voice=BaiduMandarinFemale&text=' + encodeURIComponent(text);
 				    var audio = new Audio(url);
 				    audio.play();
 				</script>
