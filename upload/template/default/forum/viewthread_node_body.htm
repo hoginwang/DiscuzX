@@ -55,7 +55,7 @@
 	<!--{if $_G['forum_discuzcode']['passwordauthor'][$post[pid]]}-->
 		<div class="locked">{lang message_password_exists}</div>
 	<!--{/if}-->
-	<div accesskey="x" class="{if !$_G[forum_thread][special]}t_fsz{else}pcbs{/if}">
+	<div tabindex="0" accesskey="x" class="{if !$_G[forum_thread][special]}t_fsz{else}pcbs{/if}">
 		$_G['forum_posthtml']['header'][$post[pid]]
 		<!--{if $post['first']}-->
 			<!--{if !$_G[forum_thread][special]}-->
