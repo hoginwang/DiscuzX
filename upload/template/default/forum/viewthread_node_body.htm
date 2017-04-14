@@ -57,6 +57,7 @@
 	<!--{/if}-->
 	<div tabindex="0" accesskey="x" class="{if !$_G[forum_thread][special]}t_fsz{else}pcbs{/if}">
 		$_G['forum_posthtml']['header'][$post[pid]]
+		<div style='color:#fff;margin-top:-1em;'>{$post[number]}楼{$post[author]}说：</div>
 		<!--{if $post['first']}-->
 			<!--{if !$_G[forum_thread][special]}-->
 				<table cellspacing="0" cellpadding="0"><tr><td class="t_f" id="postmessage_$post[pid]">
