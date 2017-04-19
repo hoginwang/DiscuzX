@@ -333,6 +333,15 @@
 		<div id="hiddenposts"></div>
 	<!--{/if}-->
 </div>
+<script>
+	jQuery(document).ready(function() {
+		console.log('focus on first post');
+		var posts = document.querySelectorAll('[tabindex="0"]');
+		if (posts.length > 0) {
+			posts[0].focus();
+		}
+	})
+</script>
 
 <!--{if $modmenu['thread']}-->
 	<div class="xi2 mbm pbm bbs">
