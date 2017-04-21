@@ -335,9 +335,9 @@
 </div>
 <script>
 	jQuery(document).ready(function() {
-		console.log('focus on first post');
-		var posts = document.querySelectorAll('[tabindex="0"]');
+		var posts = jQuery('[tabindex="0"]');
 		if (posts.length > 0) {
+			console.log('focus on first post');
 			posts[0].focus();
 		}
 	})
