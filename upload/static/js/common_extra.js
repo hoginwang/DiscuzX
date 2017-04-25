@@ -1042,6 +1042,13 @@ function creditShow(creditinfo, notice, basev, bk, first, creditrule) {
 	} else {
 		$('creditpromptdiv').innerHTML = s;
 	}
+
+	// 语音播放消息
+    var url = 'http://120.24.87.124/cgi-bin/ekho2.pl?voice=BaiduMandarinFemale&text=' +
+     	encodeURIComponent($('creditpromptdiv').innerHTML.replace(/<[^>]*>/g, "").replace('+', '加'));
+    var audio = new Audio(url);
+    audio.play();
+
 	setTimeout(function () {hideMenu(1, 'prompt');$('append_parent').removeChild($('ntcwin'));}, 1500);
 }
 
