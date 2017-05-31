@@ -393,7 +393,7 @@
 								<!--{if $forum[icon]}-->
 									$forum[icon]
 								<!--{else}-->
-									<a href="$forumurl"{if $forum[redirect]} target="_blank"{/if}><img src="{IMGDIR}/forum{if $forum[folder]}_new{/if}.gif" alt="$forum[name]" /></a>
+									<a tabindex=-1 href="$forumurl"{if $forum[redirect]} target="_blank"{/if}><img src="{IMGDIR}/forum{if $forum[folder]}_new{/if}.gif" alt="$forum[name]" /></a>
 								<!--{/if}-->
 							</td>
 							<td>
