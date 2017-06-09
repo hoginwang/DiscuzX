@@ -180,8 +180,10 @@
 
 <script>
 	function playClick() {
-	    var audio = new Audio('http://bbs.zrwh.org/static/sound/click.mp3');
-	    audio.play();
+		if (!this.target) {
+		    var audio = new Audio('http://bbs.zrwh.org/static/sound/click.mp3');
+		    audio.play();
+		}
 	}
 
 	var elements = document.querySelectorAll('[onclick]');
