@@ -1,0 +1,3 @@
+<!--{block return}-->
+<div class="zeroze007_fold"><button title="{lang zeroze007_fold:show}" id="fold_button_{$id}" onclick="zeroze007_fold.main('{$id}', this)" type='button' tip='{lang zeroze007_fold:tip}'>+</button><script type="text/javascript">if (!getcookie('zeroze007_fold_cookie')) {showTip($('fold_button_{$id}'));}</script><span id="{$id_s}">{$subject}</span><div id="{$id}" style="display:none;"><button title="{lang zeroze007_fold:hidden}" onclick="zeroze007_fold.fold('{$id}', this)" type='button'>-</button>{$message}</div></div>
+<!--{/block}-->

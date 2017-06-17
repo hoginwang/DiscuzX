@@ -1,0 +1,76 @@
+<!--{block return}-->
+<div class="p_pof upf" id="e_fold_menu" style="display:none;width:330px;">
+	<div class="p_opt cl">
+		<span class="y" style="margin:-10px -10px 0 0">
+			<a onclick="hideMenu();return false;" class="flbc" href="javascript:;">{lang zeroze007_fold:close}</a>
+		</span>
+		<div>
+			<p class="pbn">{lang zeroze007_fold:subject}</p>
+			<p class="pbn">
+				<input type="text" id="e_fold_param_1" class="px" value="" style="width: 295px;">
+			</p>
+			<p class="pbn">{lang zeroze007_fold:message}</p>
+			<p class="pbn">
+			<textarea type="text" id="e_fold_param_2" class="txtarea" value="" style="width: 300px;height:150px;"></textarea>
+			</p>
+		</div>
+		<div class="pns mtn"><button type="submit" id="e_fold_submit" class="pn pnc"><strong>{lang zeroze007_fold:submit}</strong></button></div>
+	</div>
+</div>
+
+<script type="text/javascript">
+	<!--{if $_GET[mod] == 'post'}-->
+		try {
+			EXTRAFUNC['showEditorMenu']['fold'] = true;
+			_attachEvent($('e_fold_submit'), 'click', function(e) {
+					fold_subject = $('e_fold_param_1').value;
+					fold_message = $('e_fold_param_2').value;
+					$('e_fold_param_1').value = '';
+					$('e_fold_param_2').value = '';
+					fold_text = '';
+					if (fold_subject) {
+						fold_text = '[fold=' + fold_subject + ']';
+					} else {
+						fold_text = '[fold]';
+					}
+					fold_text = fold_text + fold_message + '[/fold]';
+					insertText(fold_text, fold_text.length);
+					});
+		} catch(e) {}
+	<!--{/if}-->
+
+	zeroze007_fold = new Object();
+	// 显示
+	zeroze007_fold.main = function(id, button) {
+		setcookie('zeroze007_fold_cookie', '1', '86400');
+		button.style.display = 'none';
+		id_s = id + '_s';
+		this.$(id_s).style.display = 'none';
+		this.$(id).style.display = 'block';
+	}
+	// 折叠
+	zeroze007_fold.fold = function(id, button) {
+		this.$('fold_button_' + id).style.display = '';
+		id_s = id + '_s';
+		this.$(id_s).style.display = '';
+		this.$(id).style.display = 'none';
+	}
+	// tips
+	zeroze007_fold.showTip = function(e) {
+		hasShow = getcookie('zeroze007_fold_cookie');
+		if (!hasShow) {
+			showTip(e);
+		}
+	}
+	// $
+	zeroze007_fold.$ = function(id) {
+		return !id ? null : document.getElementById(id);
+	}
+</script>
+<style type="text/css">
+	.zeroze007_fold {border-top:#EEE 1px solid; border-bottom:#DDD 1px solid; padding:0; margin:1px;overflow:auto;}
+	.zeroze007_fold button {padding:0; margin:2px; font-size:14px;line-height:normal;padding:0px 2px}
+	.edt .b1r .zeroze007_fold_menu {background:url('./source/plugin/zeroze007_fold/template/27icon.png') no-repeat 4px 2px;}
+	.edt .b2r .zeroze007_fold_menu {background:url('./source/plugin/zeroze007_fold/template/16icon.png') no-repeat 2px 2px;}
+</style>
+<!--{/block}-->
