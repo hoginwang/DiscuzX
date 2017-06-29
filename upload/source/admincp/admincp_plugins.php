@@ -58,7 +58,11 @@ if(!$operation) {
 			$checkresult = $_G['cache']['addoncheck_plugin'];
 		}
 		$splitavailable = array();
+		$existplugins = array('cloudcaptcha', 'cloudstat', 'manyou', 'myapp', 'qqconnect', 'qqgroup', 'security', 'xf_storage', 'soso_smilies', 'cloudunion', 'cloudsearch');
 		foreach($plugins as $plugin) {
+			if(in_array($plugin['identifier'], $existplugins)) {
+				continue;
+			}
 			$addonid = $plugin['identifier'].'.plugin';
 			$updateinfo = '';
 			list(, $newver, $sysver) = explode(':', $checkresult[$addonid]);
@@ -67,7 +71,7 @@ if(!$operation) {
 			} elseif($newver) {
 				$updateinfo = '<a href="'.ADMINSCRIPT.'?action=cloudaddons&id='.$addonid.'" title="'.$lang['plugins_online_update'].'"><font color="red">'.$lang['plugins_find_newversion'].' '.$newver.'</font></a>';
 			}
-			$plugins[] = $plugin['identifier'];
+			$existplugins[] = $plugin['identifier'];
 			$hookexists = FALSE;
 			$plugin['modules'] = dunserialize($plugin['modules']);
 			$submenuitem = array();
@@ -136,7 +140,7 @@ if(!$operation) {
 			showtableheader('', 'psetting');
 			$newlist = '';
 			while($entry = $pluginsdir->read()) {
-				if(!in_array($entry, array('.', '..')) && is_dir($plugindir.'/'.$entry) && !in_array($entry, $plugins)) {
+				if(!in_array($entry, array('.', '..')) && is_dir($plugindir.'/'.$entry) && !in_array($entry, $existplugins)) {
 					$entrydir = DISCUZ_ROOT.'./source/plugin/'.$entry;
 					$d = dir($entrydir);
 					$filemtime = filemtime($entrydir);

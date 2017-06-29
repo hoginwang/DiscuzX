@@ -167,7 +167,7 @@ $menu['group'] = array(
 
 $menu['safe'] = array(
 	array('menu_safe_setting', 'setting_sec'),
-	array('menu_safe_security', 'cloud_security'),
+	(!isset($_G['config']['cloud']['status']) || !empty($_G['config']['cloud']['status'])) ? array('menu_safe_security', 'cloud_security') : null,
 	array('menu_safe_seccheck', 'setting_seccheck'),
 	array('menu_security', 'optimizer_security'),
 	array('menu_safe_accountguard', 'setting_accountguard'),
@@ -236,7 +236,7 @@ $menu['tools'] = array(
 	$isfounder ? array('menu_tools_fileperms', 'tools_fileperms') : null,
 	$isfounder ? array('menu_tools_filecheck', 'checktools_filecheck') : null,
 	$isfounder ? array('menu_tools_hookcheck', 'checktools_hookcheck') : null,
-	$isfounder ? array('menu_cloud_doctor', 'cloud_doctor') : null,
+	$isfounder && (!isset($_G['config']['cloud']['status']) || !empty($_G['config']['cloud']['status'])) ? array('menu_cloud_doctor', 'cloud_doctor') : null,
 );
 if($isfounder) {
 	$topmenu['founder'] = '';

@@ -18,6 +18,10 @@ if(empty($admincp) || !is_object($admincp)) {
 	exit('Access Denied');
 }
 
+if(isset($_G['config']['cloud']['status']) && empty($_G['config']['cloud']['status'])) {
+	cpmsg_error('cloud_close');
+}
+
 $adminscript = ADMINSCRIPT;
 
 $cloudDomain = 'http://cp.discuz.qq.com';

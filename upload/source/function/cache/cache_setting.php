@@ -507,6 +507,9 @@ function get_cachedata_setting_plugin($method = '') {
 	$data['plugins']['func'] = $data['plugins']['available'] = array();
 	foreach(C::t('common_plugin')->fetch_all_data() as $plugin) {
 		$available = !$method && $plugin['available'] || $method && ($plugin['available'] || $method == $plugin['identifier']);
+		if(in_array($plugin['identifier'], array('cloudcaptcha', 'cloudstat', 'manyou', 'myapp', 'qqconnect', 'qqgroup', 'security', 'xf_storage', 'soso_smilies', 'cloudunion', 'cloudsearch'))){
+			continue;
+		}
 		$addadminmenu = $plugin['available'] && C::t('common_pluginvar')->count_by_pluginid($plugin['pluginid']) ? TRUE : FALSE;
 		$plugin['modules'] = dunserialize($plugin['modules']);
 		if($available) {

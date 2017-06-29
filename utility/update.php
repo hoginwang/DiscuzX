@@ -1772,6 +1772,9 @@ if($_GET['step'] == 'start') {
 		}
 		$configfile = DISCUZ_ROOT.'./config/config_global.php';
 		include $configfile;
+		if(!isset($_config['cloud']['status'])){
+			$_config['cloud']['status'] = 1;//升级的论坛默认显示云平台
+		}
 		DB::query("UPDATE ".DB::table('common_plugin')." SET available='0' WHERE modules NOT LIKE '%s:6:\"system\";i:2;%'");
 		if(save_config_file($configfile, $_config, $default_config, $deletevar)) {
 			show_msg("数据处理完成", "$theurl?step=delete");
@@ -1919,8 +1922,18 @@ if($_GET['step'] == 'start') {
 	dir_clear(ROOT_PATH.'./data/threadcache');
 	dir_clear(ROOT_PATH.'./uc_client/data');
 	dir_clear(ROOT_PATH.'./uc_client/data/cache');
-	savecache('setting', '');
-
+	//savecache('setting', '');
+	
+	require_once libfile('function/cache');
+	updatecache();
+	
+	require_once libfile('function/block');
+	blockclass_cache();
+	
+	if($_G['config']['output']['tplrefresh']) {
+		cleartemplatecache();
+	}
+	
 	if($_GET['from']) {
 		show_msg('<span id="finalmsg">缓存更新中，请稍候 ...</span><iframe src="../misc.php?mod=initsys" style="display:none;" onload="window.location.href=\''.$_GET['from'].'\'"></iframe>');
 	} else {

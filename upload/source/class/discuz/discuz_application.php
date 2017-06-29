@@ -691,7 +691,12 @@ class discuz_application extends discuz_base{
 		if(!is_array($this->var['setting'])) {
 			$this->var['setting'] = array();
 		}
-
+		
+		if(isset($this->var['config']['cloud']['status']) && empty($this->var['config']['cloud']['status'])) {
+			$this->var['setting']['cloud_status'] = 0;
+			$this->var['setting']['connect']['allow'] = 0;
+			$this->var['cookie']['con_auth_hash'] = '';
+		}
 	}
 
 	public function _init_style() {

@@ -634,6 +634,8 @@ $lang = array (
   'admincp_makehtml_cleanhtml_error' => '对不起，开启生成HTML静态文件时，不能清理HTML文件。',
   'admincp_makehtml_cleanhtml_succeed' => '清理HTML文件成功。',
   'admincp_makehtml_cleanhtml_choose_item' => '对不起，请选择需要清理HTML文件。',
+  
+	'cloud_close' => '云平台功能处于关闭状态，如需开启，请打开 config/config_global.php，修改 $_config[\'cloud\'][\'status\'] 的值为1',
 );
 
 ?>

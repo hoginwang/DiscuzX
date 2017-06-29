@@ -187,6 +187,9 @@ $_config['remote']['cron'] = 0;
 // $_GET|$_POST的兼容处理，0为关闭，1为开启；开启后即可使用$_G['gp_xx'](xx为变量名，$_GET和$_POST集合的所有变量名)，值为已经addslashes()处理过
 $_config['input']['compatible'] = 1;
 
+// 是否显示云平台相关功能、插件，0为关闭，1为开启
+$_config['cloud']['status']		= 0;
+
 // Addon Setting
 //$_config['addonsource'] = 'xx1';
 //$_config['addon'] = array(
