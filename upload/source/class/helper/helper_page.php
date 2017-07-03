@@ -110,7 +110,7 @@ class helper_page {
 			}
 
 			$multipage .= ($to < $pages ? '<a href="' . (self::mpurl($mpurl, $pagevar, $pages)) . $a_name . '" class="last"' . $ajaxtarget . '>' . $dot . ' ' . $realpages . '</a>' : '') .
-				($showpagejump && !$simple && !$ajaxtarget && !$wml ? '<label><input type="text" name="custompage" class="px" size="2" title="' . $lang['pagejumptip'] . '" value="' . $curpage . '" onkeydown="if(event.keyCode==13) {window.location=\'' . $jsurl . '}" /><span title="' . $lang['total'] . ' ' . $pages . ' ' . $lang['pageunit'] . '"> / ' . $pages . ' ' . $lang['pageunit'] . '</span></label>' : '') .
+				($showpagejump && !$simple && !$ajaxtarget && !$wml ? '<label><input accesskey="z" type="text" name="custompage" class="px" size="2" title="' . $lang['pagejumptip'] . '" value="' . $curpage . '" onkeydown="if(event.keyCode==13) {window.location=\'' . $jsurl . '}" /><span title="' . $lang['total'] . ' ' . $pages . ' ' . $lang['pageunit'] . '"> / ' . $pages . ' ' . $lang['pageunit'] . '</span></label>' : '') .
 				($curpage < $pages && !$simple ? '<a href="' . (self::mpurl($mpurl, $pagevar, $curpage + 1)) . $a_name . '" class="nxt"' . $ajaxtarget . '>' . $lang['next'] . '</a>' : '') .
 				($showkbd && !$simple && $pages > $page && !$ajaxtarget && !$wml ? '<kbd><input type="text" name="custompage" size="3" onkeydown="if(event.keyCode==13) {window.location=\'' . $jsurl . '}" /></kbd>' : '');
 
