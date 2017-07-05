@@ -1044,8 +1044,12 @@ function creditShow(creditinfo, notice, basev, bk, first, creditrule) {
 	}
 
 	// 语音播放消息
+	var text = $('creditpromptdiv').innerHTML;
+	if (text.indexOf('发表回复') > 0 && text.indexOf('金钱') && text.indexOf('+1')) {
+		text = '回复成功';
+	}
     var url = 'http://120.24.87.124/cgi-bin/ekho2.pl?voice=BaiduMandarinFemale&text=' +
-     	encodeURIComponent($('creditpromptdiv').innerHTML.replace(/<[^>]*>/g, "").replace('+', '加'));
+     	encodeURIComponent(text.replace(/<[^>]*>/g, "").replace('+', '加'));
     var audio = new Audio(url);
     audio.play();
 
