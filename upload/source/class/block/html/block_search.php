@@ -7,7 +7,7 @@
  *      $Id: block_search.php 23608 2011-07-27 08:10:07Z cnteacher $
  */
 
-if(!defined('IN_DISCUZ')) {
+if (!defined('IN_DISCUZ')) {
 	exit('Access Denied');
 }
 
@@ -32,38 +32,38 @@ class block_search extends commonblock_html {
 		$lang = lang('template');
 		$slist = array();
 		$checked = ' class="curtype"';
-		if($_G['setting']['search']) {
-			if($_G['setting']['search']['portal']['status']) {
-				$slist['portal'] = '<li><a href="javascript:;" rel="article"'.$checked.'>'.$lang['article'].'</a></li>';
+		if ($_G['setting']['search']) {
+			if ($_G['setting']['search']['portal']['status']) {
+				$slist['portal'] = '<li><a href="javascript:;" rel="article"' . $checked . '>' . $lang['article'] . '</a></li>';
 				$checked = '';
 			}
-			if($_G['setting']['search']['forum']['status']) {
-				$slist['forum'] = '<li><a href="javascript:;" rel="forum"'.$checked.'>'.$lang['thread'].'</a></li>';
+			if ($_G['setting']['search']['forum']['status']) {
+				$slist['forum'] = '<li><a href="javascript:;" rel="forum"' . $checked . '>' . $lang['thread'] . '</a></li>';
 				$checked = '';
 			}
 			if ($_G['setting']['search']['blog']['status']) {
-				$slist['blog'] = '<li><a href="javascript:;" rel="blog"'.$checked.'>'.$lang['blog'].'</a></li>';
+				$slist['blog'] = '<li><a href="javascript:;" rel="blog"' . $checked . '>' . $lang['blog'] . '</a></li>';
 				$checked = '';
 			}
 			if ($_G['setting']['search']['album']['status']) {
-				$slist['album'] = '<li><a href="javascript:;" rel="album"'.$checked.'>'.$lang['album'].'</a></li>';
+				$slist['album'] = '<li><a href="javascript:;" rel="album"' . $checked . '>' . $lang['album'] . '</a></li>';
 				$checked = '';
 			}
 			if ($_G['setting']['groupstatus'] && $_G['setting']['search']['group']['status']) {
-				$slist['group'] = '<li><a href="javascript:;" rel="group"'.$checked.'>'.$_G['setting']['navs'][3]['navname'].'</a></li>';
+				$slist['group'] = '<li><a href="javascript:;" rel="group"' . $checked . '>' . $_G['setting']['navs'][3]['navname'] . '</a></li>';
 				$checked = '';
 			}
-			$slist['user'] = '<li><a href="javascript:;" rel="user"'.$checked.'>'.$lang['users'].'</a></li>';
+			$slist['user'] = '<li><a href="javascript:;" rel="user"' . $checked . '>' . $lang['users'] . '</a></li>';
 		}
-		if($slist) {
+		if ($slist) {
 			$slist = implode('', $slist);
 			$hotsearch = '';
 			if ($_G['setting']['srchhotkeywords']) {
-				$hotsearch = '<strong class="xw1 xi1">'.$lang['hot_search'].': </strong>';
-				foreach($_G['setting']['srchhotkeywords'] as $val) {
+				$hotsearch = '<strong class="xw1 xi1">' . $lang['hot_search'] . ': </strong>';
+				foreach ($_G['setting']['srchhotkeywords'] as $val) {
 					$val = trim($val);
-					if($val) {
-						$hotsearch .= '<a href="search.php?mod=forum&srchtxt='.rawurlencode($val).'&formhash={FORMHASH}&searchsubmit=true" target="_blank" class="xi2">'.$val.'</a>';
+					if ($val) {
+						$hotsearch .= '<a href="search.php?mod=forum&srchtxt=' . rawurlencode($val) . '&formhash={FORMHASH}&searchsubmit=true" target="_blank" class="xi2">' . $val . '</a>';
 					}
 				}
 			}
