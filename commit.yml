@@ -3,561 +3,81 @@ branches: {
   }
 fileChange:
   /upload:
-    newFile: !uuid '533ad85dcb4ca1ec4ec74dd848e41517c20d2493'
-    oldFile: !uuid '64497e0c359d1dfe8682286c6f12a0d33877efbe'
-  /upload/connect.php:
-    newFile: !uuid '725a9afcd0523497321199817fb5b5596c68ff74'
-    oldFile: !uuid '0f1ab4004721df337499e83841efd0a9b2ee2cf3'
-  /upload/misc.php:
-    newFile: !uuid 'fe5a8c93398a83bdad471bd50399897a234d2230'
-    oldFile: !uuid 'a8a2f3da76569a8cd4c95f6972180ac689dbe01c'
-  /upload/search.php:
-    newFile: !uuid '5188ec8eb0a1add386d2d6c1f2986c9a32fe9b86'
-    oldFile: !uuid '399e95f1f1084ca731eb6e2db9bd717cf9800c47'
+    newFile: !uuid 'd7ed0f22bef65fbd0ba10b91ad55c47c51b697d1'
+    oldFile: !uuid '533ad85dcb4ca1ec4ec74dd848e41517c20d2493'
   /upload/source:
-    newFile: !uuid '9b8f86e7c8a142bbfac3ac3e741dccfa10d9bb55'
-    oldFile: !uuid 'e49962dcf24b158cfd59aaa7bacb5d53a3deacc2'
+    newFile: !uuid '19a107c3f9765ebcc4e12d643a2db9cc100ee1da'
+    oldFile: !uuid '9b8f86e7c8a142bbfac3ac3e741dccfa10d9bb55'
   /upload/source/admincp:
-    newFile: !uuid 'd4de531b1bf69bb62b845e8311c6a08501b5fb03'
-    oldFile: !uuid '0d19b13d54e8daea9f058bd812888bb1b592c4e7'
-  /upload/source/admincp/admincp_cloud.php:
-    newFile: !uuid 'cfc26891b300a7ecc5b3f12cde12e2efd9ff314a'
-    oldFile: !uuid '228e3610b04d886384e82eef25510132a538e7b2'
+    newFile: !uuid '9d7954324bc1917b69f55c4f4e6c03677465113d'
+    oldFile: !uuid 'd4de531b1bf69bb62b845e8311c6a08501b5fb03'
   /upload/source/admincp/admincp_menu.php:
-    newFile: !uuid '4e3b0c47ff0eca181e15f25d9814562e4e97f07f'
-    oldFile: !uuid 'f711805e3b9ba887a8f1db3708f2ffdc02908b23'
-  /upload/source/admincp/cloud:
+    newFile: !uuid '9270c00ff0011279e9acce7393b61305070338cf'
+    oldFile: !uuid '4e3b0c47ff0eca181e15f25d9814562e4e97f07f'
+  /upload/source/admincp/admincp_patch.php:
     newFile: null
-    oldFile: !uuid 'ec5d487165256eb0bb6974b51fbd9ef295f4c529'
-  /upload/source/admincp/cloud/cloud_connect.php:
+    oldFile: !uuid '596f23949187bfbd6cdd4e8507c2e9539b0b4b5d'
+  /upload/source/admincp/admincp_upgrade.php:
     newFile: null
-    oldFile: !uuid '93c18470829bd5e12fea1366e82bc158057fc2f9'
-  /upload/source/admincp/cloud/cloud_doctor.php:
-    newFile: null
-    oldFile: !uuid '540cb308286b6e030b715b55ef3a6c3dd2a0325b'
-  /upload/source/admincp/cloud/cloud_manyou.php:
-    newFile: null
-    oldFile: !uuid 'fe0b3400d28d243ea4bbc106cfbfa6cb11d46fdb'
-  /upload/source/admincp/cloud/cloud_qqgroup.php:
-    newFile: null
-    oldFile: !uuid '8025cadf5fba721e0b30d26ad6b7cce23cca9431'
-  /upload/source/admincp/cloud/cloud_search.php:
-    newFile: null
-    oldFile: !uuid 'b6e98c34246df44ca7ecb1baba5bb0465858f9c3'
-  /upload/source/admincp/cloud/cloud_security.php:
-    newFile: null
-    oldFile: !uuid '43588cf04392af8b8cc5f8b33ef668eecdc66bc0'
-  /upload/source/admincp/cloud/cloud_siteinfo.php:
-    newFile: null
-    oldFile: !uuid 'b3f431de3ffd3a0537bd255774f806f07e27ea7f'
-  /upload/source/admincp/cloud/cloud_smilies.php:
-    newFile: null
-    oldFile: !uuid 'df73fe8b8c9af5d1d1893ec6e0767e467dfb8d3f'
-  /upload/source/admincp/cloud/cloud_stats.php:
-    newFile: null
-    oldFile: !uuid '9e568de31924dc81537f065ea82517e758353c9f'
-  /upload/source/admincp/cloud/cloud_storage.php:
-    newFile: null
-    oldFile: !uuid 'c9c7ce9b4329bb6c1bb47b4ca16f196f1b7901a8'
-  /upload/source/admincp/cloud/cloud_union.php:
-    newFile: null
-    oldFile: !uuid '82be63d503e9be8bdb2f27dfc52735388341715c'
-  /upload/source/admincp/cloud/index.htm:
-    newFile: null
-    oldFile: !uuid '0519ecba6ea913e21689ec692e81e9e4973fbf73'
-  /upload/source/admincp/menu:
-    newFile: null
-    oldFile: !uuid '84cf18c5907b0c783b957b85cfeabbb9d7230629'
-  /upload/source/admincp/menu/index.htm:
-    newFile: null
-    oldFile: !uuid '0519ecba6ea913e21689ec692e81e9e4973fbf73'
-  /upload/source/admincp/menu/menu_cloud.php:
-    newFile: null
-    oldFile: !uuid '20aff2f119f81c18d261ce18f002c31ab736a9fb'
+    oldFile: !uuid '373f23a42a1772e2cf73b9afec9df850f53030ce'
   /upload/source/class:
-    newFile: !uuid 'acefa7395cf026067fe20aa59146ee8d58ee8279'
-    oldFile: !uuid 'f5ea7ee41d94dd735cb9b89e1381cfd207e54c44'
-  /upload/source/class/class_cloud.php:
+    newFile: !uuid 'bb068c3e0786dc9860d62d68158989281e3a4921'
+    oldFile: !uuid 'acefa7395cf026067fe20aa59146ee8d58ee8279'
+  /upload/source/class/discuz:
+    newFile: !uuid 'b0c5fa5d4d40e394ae450fc66cc02fb45994d0a1'
+    oldFile: !uuid '2c45dbf94ab24075789a55031ceb76fb9828948b'
+  /upload/source/class/discuz/discuz_patch.php:
     newFile: null
-    oldFile: !uuid 'b32643c261fd69998fcfeab40dbbf9a3405a321e'
-  /upload/source/class/class_cloudregister.php:
-    newFile: null
-    oldFile: !uuid '044bebdcb8488bd7d1bace8f8fb0ab563282ccbe'
-  /upload/source/class/helper:
-    newFile: !uuid '0610be87d6d348ec280d56bbdc49fa15568c0b0d'
-    oldFile: !uuid '020f7ef4213ec039db2800262eb82e821aeaf574'
-  /upload/source/class/helper/helper_notification.php:
-    newFile: !uuid '88cd8b4c4458cc0a7d29e5df815a8e60eb5ec1bd'
-    oldFile: !uuid 'b03457bd35c90eaf3d85335a03cb9fc1b36980c9'
-  /upload/source/class/helper/helper_pm.php:
-    newFile: !uuid 'b457359b6fab37c22697fb953c74b2ae41ff3f6e'
-    oldFile: !uuid 'c5c96a6ef5010e3d4b9eeb38c11e854e1566a15e'
+    oldFile: !uuid 'a3ad04c255ab2ce8bea378dd22978c450024f9c6'
   /upload/source/class/optimizer:
-    newFile: !uuid 'bbbe46449dbee2f8b5eaeb98ad349894cdf8a1d6'
-    oldFile: !uuid 'dba58b543c6a0b36424f2756775546614ee3ccbe'
-  /upload/source/class/optimizer/optimizer_cloudsecurity.php:
+    newFile: !uuid 'f8b69277e74016c601a1f182820db29eb87b13fd'
+    oldFile: !uuid 'bbbe46449dbee2f8b5eaeb98ad349894cdf8a1d6'
+  /upload/source/class/optimizer/optimizer_patch.php:
     newFile: null
-    oldFile: !uuid '6ddc9605146e55da6884c4e327e65c683840ed8e'
-  /upload/source/class/optimizer/optimizer_eviluser.php:
+    oldFile: !uuid '476eebf4fb946b6e0fa97c07ed60fd46aba154de'
+  /upload/source/class/optimizer/optimizer_upgrade.php:
     newFile: null
-    oldFile: !uuid '9c7f516f110109b055a8074e1bb59201088038b0'
-  /upload/source/class/optimizer/optimizer_white_list.php:
-    newFile: null
-    oldFile: !uuid '5b1b68d42d2d368ad57c551af2f56a5a3c3e49c4'
-  /upload/source/function:
-    newFile: !uuid 'a774eaa785448956b0155f1e4dc0b1493ad276d3'
-    oldFile: !uuid '1f534f8bb7cd29f1d691daf5db552b15cf7d0bf7'
-  /upload/source/function/function_core.php:
-    newFile: !uuid 'ec8c68996eac54f16d27eea55ea485c7ae6fcc2c'
-    oldFile: !uuid 'addb9a91010c5d51f093e80427ce349517cd989a'
-  /upload/source/function/function_forum.php:
-    newFile: !uuid 'df08efdd1d468d4cee8dcd6a46261a268f072ba4'
-    oldFile: !uuid '126edc1c60457874775945861606260e5150dfae'
+    oldFile: !uuid 'e061235cc2a8d0e6ed6c7bd8e9bdbb10abab8aa6'
   /upload/source/include:
-    newFile: !uuid '7d0387dc46394e8055c103bbf64ebb403862ddad'
-    oldFile: !uuid 'f2c4717c0b9572c4a6105155bf64455617b9e2d9'
-  /upload/source/include/collection:
-    newFile: !uuid '48bd94c63f33d1b3074f1a1409dd47382516031d'
-    oldFile: !uuid '25e3f9dd6a2698f205f90433d4723d0a5f8297b1'
-  /upload/source/include/collection/collection_view.php:
-    newFile: !uuid 'b217d0407cfaaa1ef28f835344e151937565bcdd'
-    oldFile: !uuid '4ac5e18ec9c415eb6e97faa44d4393d9a67f239b'
-  /upload/source/include/space:
-    newFile: !uuid 'af202b527c74eebd3812c4ef5ea84f59ba39004e'
-    oldFile: !uuid 'f8b0dcdf676df7a1168fdf336e8655fcd67c55bd'
-  /upload/source/include/space/space_notice.php:
-    newFile: !uuid '48587023dfdf03ec38154208ae581f1a7361ceb4'
-    oldFile: !uuid '6520782572fcec8e1946941169ebbff8846e3ee4'
-  /upload/source/include/space/space_pm.php:
-    newFile: !uuid 'beaa64dea28e98618c01dab0e74c41b23f2e6265'
-    oldFile: !uuid 'a102797bb3eac2c5ecbeb38a5de0df49c1b1b745'
-  /upload/source/include/spacecp:
-    newFile: !uuid '620cbd227754e823ab0e7fec3b210a17df5cedfa'
-    oldFile: !uuid '7b31c21ed2e2008797951a7e38a0e3aa1aa05968'
-  /upload/source/include/spacecp/spacecp_favorite.php:
-    newFile: !uuid '42ee5c31e483153a11be00ee26eae3981e512a9b'
-    oldFile: !uuid '43fa5b555fd769cda54033290bf2a8d66247b1f1'
+    newFile: !uuid '1b7da0f90448920b741db0321b2fbca70c06f8b4'
+    oldFile: !uuid '7d0387dc46394e8055c103bbf64ebb403862ddad'
+  /upload/source/include/cron:
+    newFile: !uuid '22d01a450f0c161021223bc531d9c2863bd8084c'
+    oldFile: !uuid '00c58ed22ceff2cc5552aedc6812fb2e54a6809e'
+  /upload/source/include/cron/cron_checkpatch_daily.php:
+    newFile: null
+    oldFile: !uuid 'b8bbadaa7012007da4a6754bd6a5a8ffa634cee1'
   /upload/source/module:
-    newFile: !uuid '8daa79e17a4f228eb20378c0d30cfe17161aa6be'
-    oldFile: !uuid '9471c902110d6085d02436eeae4fe15791199049'
-  /upload/source/module/member:
-    newFile: !uuid '84174fa5b4a8868f1b5e28455a93b7a82e16b5cc'
-    oldFile: !uuid '546e10158731a38f8d02f6ccbafe45803d50d6b6'
-  /upload/source/module/member/member_connect_register.php:
-    newFile: !uuid '8e52c10358d1f459901b8e18f12efa8d75dabe0b'
-    oldFile: !uuid '30d476c1c38019ceef5d1288668ec4502f681c1a'
+    newFile: !uuid '2e0efe422264fe8164c299885010da1dec00b5c1'
+    oldFile: !uuid '8daa79e17a4f228eb20378c0d30cfe17161aa6be'
   /upload/source/module/misc:
-    newFile: !uuid '854541ca2c5c4c071cb98b304f04cc87ca67f761'
-    oldFile: !uuid 'e2fa7be99ebb230bc4643c47a5e07a0b4a7a60b8'
-  /upload/source/module/misc/misc_initsys.php:
-    newFile: !uuid '45c72bcd4605f283026aeb68499e30ce66179524'
-    oldFile: !uuid 'e7df1fb170ae74fbaa0ab7f28467d19e2f5dfeec'
-  /upload/source/module/misc/misc_manyou.php:
-    newFile: null
-    oldFile: !uuid '02d4f3f0acbcd41bd77d42141d0bfa8d20810e04'
-  /upload/source/module/search:
-    newFile: !uuid '1117c6a6bbf34f75b9147f99476afa832c7a40c4'
-    oldFile: !uuid '5be3235f8e38fe23a6b8a7870bfbb1c7914c1c29'
-  /upload/source/module/search/search_forum.php:
-    newFile: !uuid '52ee36863738c0bea6bc87fcad60e22aa9be04e3'
-    oldFile: !uuid 'eab0f3fdf860fa5950312b7f232c1e6820e65739'
-  /upload/source/module/search/search_my.php:
-    newFile: null
-    oldFile: !uuid 'b743931dc40d31dcbe9ac20d15d3a392b82e893f'
-  /upload/source/plugin:
-    newFile: !uuid '6c66aeb609c90e995dff8be6884c35d920693d93'
-    oldFile: !uuid '75cbc55fb4e4aef0f85ff08c307e876e1f9854cd'
-  /upload/source/plugin/cloudcaptcha:
-    newFile: null
-    oldFile: !uuid '7477fe4743bcf441b0e86823446df8b2b39a5768'
-  /upload/source/plugin/cloudcaptcha/discuz_plugin_cloudcaptcha.xml:
-    newFile: null
-    oldFile: !uuid '508d2d97073f645178726e17a63ff8ba9ee364b9'
-  /upload/source/plugin/cloudcaptcha/get.inc.php:
-    newFile: null
-    oldFile: !uuid 'd977b03fb20776d77f91f447f0d8ae7be344ece3'
-  /upload/source/plugin/cloudcaptcha/seccode:
-    newFile: null
-    oldFile: !uuid 'b92ccf2bf58273282a2d37d3366f744a998f3997'
-  /upload/source/plugin/cloudcaptcha/seccode/seccode_cloudcaptcha.php:
-    newFile: null
-    oldFile: !uuid '7c707288b0b39a7f6681bb09ed6d02e059710d6c'
-  /upload/source/plugin/cloudcaptcha/switch.php:
-    newFile: null
-    oldFile: !uuid '64d557b5039842893e85e8f9b251c240ec73c260'
-  /upload/source/plugin/cloudstat:
-    newFile: null
-    oldFile: !uuid '24652b93cdb03845bdfa1dcc7076686043f8be05'
-  /upload/source/plugin/cloudstat/admincp.inc.php:
-    newFile: null
-    oldFile: !uuid '7b89cc50f5f05cccea338619d32de6b5bccf04a4'
-  /upload/source/plugin/cloudstat/cloudstat.class.php:
-    newFile: null
-    oldFile: !uuid '052c62c323992cf47f194f7a14a89540e027aaa4'
-  /upload/source/plugin/cloudstat/discuz_plugin_cloudstat.xml:
-    newFile: null
-    oldFile: !uuid '76008c32a60fa37a1d622f0ec14303b29785e73a'
-  /upload/source/plugin/cloudstat/index.htm:
-    newFile: null
-    oldFile: !uuid '0519ecba6ea913e21689ec692e81e9e4973fbf73'
-  /upload/source/plugin/cloudstat/switch.php:
-    newFile: null
-    oldFile: !uuid 'af860468038db3df7b6a60b2e1c66303d1cd4c12'
-  /upload/source/plugin/manyou:
-    newFile: null
-    oldFile: !uuid '67ca9c78fb3c628cc140e3347e8962f2a8e9bdb2'
-  /upload/source/plugin/manyou/Service:
-    newFile: null
-    oldFile: !uuid 'ec31b774b2ad76eb59a1ee75fcabd9b4b74e0a98'
-  /upload/source/plugin/manyou/Service/App.php:
-    newFile: null
-    oldFile: !uuid 'c54ad32d44212c41943a33bb043d45a99698be89'
-  /upload/source/plugin/manyou/Service/AppException.php:
-    newFile: null
-    oldFile: !uuid '41c4143af7e8c939dad3932cb1311cddc042f662'
-  /upload/source/plugin/manyou/Service/Client:
-    newFile: null
-    oldFile: !uuid 'e53b6c663849cfc4430a744ac9df62803b642412'
-  /upload/source/plugin/manyou/Service/Client/Cloud.php:
-    newFile: null
-    oldFile: !uuid 'ca804d64541fd3489f6df6ae71c71a74060c8f8e'
-  /upload/source/plugin/manyou/Service/Client/Connect.php:
-    newFile: null
-    oldFile: !uuid '45a479f52a843598cb25f1ff21c4e5a5c8053987'
-  /upload/source/plugin/manyou/Service/Client/ConnectOAuth.php:
-    newFile: null
-    oldFile: !uuid 'b0d4c0f3f664b3b206132c7741c356870540b43e'
-  /upload/source/plugin/manyou/Service/Client/Disk.php:
-    newFile: null
-    oldFile: !uuid '2f90437db37e5ae2d738844ef99bb6266840367b'
-  /upload/source/plugin/manyou/Service/Client/Favorite.php:
-    newFile: null
-    oldFile: !uuid 'a1628324147d04f42f0ffc0b1a56faae925b97bf'
-  /upload/source/plugin/manyou/Service/Client/Manyou.php:
-    newFile: null
-    oldFile: !uuid 'f8db87d8fadb7c0c810a788c5cc9559918fff8f2'
-  /upload/source/plugin/manyou/Service/Client/Message.php:
-    newFile: null
-    oldFile: !uuid '2b78f43655d6e6eddbd2b3cec1489b28db7d8ad4'
-  /upload/source/plugin/manyou/Service/Client/Notification.php:
-    newFile: null
-    oldFile: !uuid '9daee66f755c31056245445e9f4cf4542475f263'
-  /upload/source/plugin/manyou/Service/Client/OAuth.php:
-    newFile: null
-    oldFile: !uuid 'b929b7ae723d0e87682929f3b4f9750ae2f89bd9'
-  /upload/source/plugin/manyou/Service/Client/OEM.php:
-    newFile: null
-    oldFile: !uuid '032c8e9f46fd6a0c3de49e4091fab9472281aa47'
-  /upload/source/plugin/manyou/Service/Client/QQGroup.php:
-    newFile: null
-    oldFile: !uuid '3ea7d0c0f2136acf3d607291c7f41a8f43e6b672'
-  /upload/source/plugin/manyou/Service/Client/Restful.php:
-    newFile: null
-    oldFile: !uuid 'b9a491b4753798112976b8b060926a14eafe7810'
-  /upload/source/plugin/manyou/Service/Client/RestfulException.php:
-    newFile: null
-    oldFile: !uuid '79fc0f71e29e8f94592acf2af08f108e1c943f44'
-  /upload/source/plugin/manyou/Service/Client/Security.php:
-    newFile: null
-    oldFile: !uuid 'e34f35edfa48800edd8f726cb5a8e9438b85eb35'
-  /upload/source/plugin/manyou/Service/Client/index.htm:
-    newFile: null
-    oldFile: !uuid '0519ecba6ea913e21689ec692e81e9e4973fbf73'
-  /upload/source/plugin/manyou/Service/Connect.php:
-    newFile: null
-    oldFile: !uuid 'ccd7629a7e0a107ca949705265e18f02ea06d178'
-  /upload/source/plugin/manyou/Service/DiscuzTips.php:
-    newFile: null
-    oldFile: !uuid '8f9596aac0e83bee67383f066eabb5adb28ff7f3'
-  /upload/source/plugin/manyou/Service/Disk.php:
-    newFile: null
-    oldFile: !uuid 'b90a33de09c2a8b54be167c73c7536b0fd5c59a0'
-  /upload/source/plugin/manyou/Service/Doctor.php:
-    newFile: null
-    oldFile: !uuid '079e22079aa198d4662939438c2d63f651a3e018'
-  /upload/source/plugin/manyou/Service/ManyouHelper.php:
-    newFile: null
-    oldFile: !uuid 'f8c49a958e3337b1ad8581e4301805e43b37fc2a'
-  /upload/source/plugin/manyou/Service/QQGroup.php:
-    newFile: null
-    oldFile: !uuid 'a3bb992a5abbb72e58686e4fef77bd507da255ac'
-  /upload/source/plugin/manyou/Service/SearchHelper.php:
-    newFile: null
-    oldFile: !uuid '278929dd35ee0e6ae061539ce1f410bd33a5da12'
-  /upload/source/plugin/manyou/Service/Security.php:
-    newFile: null
-    oldFile: !uuid '5481606ed8699cbad1560fa57b8c89f47f91da1a'
-  /upload/source/plugin/manyou/Service/Server:
-    newFile: null
-    oldFile: !uuid 'de8b182879de31629b87f75bf8500086a692420b'
-  /upload/source/plugin/manyou/Service/Server/Application.php:
-    newFile: null
-    oldFile: !uuid 'a0f55341702b0b9f8a806fd4a64801461b61a6e1'
-  /upload/source/plugin/manyou/Service/Server/Cloud.php:
-    newFile: null
-    oldFile: !uuid '264131b9f5ab0c44eb662bd288ba7d549b557d04'
-  /upload/source/plugin/manyou/Service/Server/Common.php:
-    newFile: null
-    oldFile: !uuid 'f0d6491bf7378e2368d1cf3211f4572ab7b3af6c'
-  /upload/source/plugin/manyou/Service/Server/Connect.php:
-    newFile: null
-    oldFile: !uuid 'a25a2de3edcce19f266e7259b7fd5cf402f22774'
-  /upload/source/plugin/manyou/Service/Server/Credit.php:
-    newFile: null
-    oldFile: !uuid 'df839cccc784fa7acb4db5a5676113b940a09902'
-  /upload/source/plugin/manyou/Service/Server/ErrorResponse.php:
-    newFile: null
-    oldFile: !uuid '54d009b199df674aaf4f7ebbedb494ead466bcd6'
-  /upload/source/plugin/manyou/Service/Server/Feed.php:
-    newFile: null
-    oldFile: !uuid '9fcdc84f28592d0cdc54de2f38c625cb565f3593'
-  /upload/source/plugin/manyou/Service/Server/Friends.php:
-    newFile: null
-    oldFile: !uuid '05e3cd968a6df58632befaf62c7f729a9ae15c7c'
-  /upload/source/plugin/manyou/Service/Server/Mobile.php:
-    newFile: null
-    oldFile: !uuid 'c65cfc71590def739ac7092cc770bd6eac2b9cfe'
-  /upload/source/plugin/manyou/Service/Server/My.php:
-    newFile: null
-    oldFile: !uuid 'cdfe7d098604098aa3ca8893948a0bab3747a4da'
-  /upload/source/plugin/manyou/Service/Server/Notifications.php:
-    newFile: null
-    oldFile: !uuid '798fa1663e25ab2458c9ee8e0c30688f1576e4c9'
-  /upload/source/plugin/manyou/Service/Server/Request.php:
-    newFile: null
-    oldFile: !uuid '8e44679158c9ec16e33d4ae17473205e45b5606b'
-  /upload/source/plugin/manyou/Service/Server/Response.php:
-    newFile: null
-    oldFile: !uuid 'be8d8a1aeb08c65b108f24f8256f826a951b91e3'
-  /upload/source/plugin/manyou/Service/Server/Restful.php:
-    newFile: null
-    oldFile: !uuid 'b688266020ce3ad351cc15d0cde13d193abf65fa'
-  /upload/source/plugin/manyou/Service/Server/RestfulException.php:
-    newFile: null
-    oldFile: !uuid '3b1fd7f1eff5918091863c2c368e8eea4303c893'
-  /upload/source/plugin/manyou/Service/Server/Search.php:
-    newFile: null
-    oldFile: !uuid '909fbab65871ef7f81726727c7a3aa2264500828'
-  /upload/source/plugin/manyou/Service/Server/Security.php:
-    newFile: null
-    oldFile: !uuid 'd370688ee4dce421c58a584cc1c057e1fd3f9478'
-  /upload/source/plugin/manyou/Service/Server/Site.php:
-    newFile: null
-    oldFile: !uuid 'e9c9477a600f9089f7d8baef6b2091fb080e3e3c'
-  /upload/source/plugin/manyou/Service/Server/Storage.php:
-    newFile: null
-    oldFile: !uuid 'ae4f1dbebf9df7700ee104d11a02bbddf40734e0'
-  /upload/source/plugin/manyou/Service/Server/Union.php:
-    newFile: null
-    oldFile: !uuid 'b13dd32939dece8723d6dca66a8bcff3d676b13f'
-  /upload/source/plugin/manyou/Service/Server/UserApplication.php:
-    newFile: null
-    oldFile: !uuid '1fda8c9383f6afd9272741982f1879d8da42d93c'
-  /upload/source/plugin/manyou/Service/Server/Users.php:
-    newFile: null
-    oldFile: !uuid 'd99bdbf607fed049ac8ef80c54cdf8ee8425d7c3'
-  /upload/source/plugin/manyou/Service/Server/VideoAuth.php:
-    newFile: null
-    oldFile: !uuid '1c568f5bd38e5e11c6e097a9ec600332325b5a46'
-  /upload/source/plugin/manyou/Service/Server/index.htm:
-    newFile: null
-    oldFile: !uuid '0519ecba6ea913e21689ec692e81e9e4973fbf73'
-  /upload/source/plugin/manyou/Service/Storage.php:
-    newFile: null
-    oldFile: !uuid '8b2c5b9f183aeb2fbfed985819629663e24eee2f'
-  /upload/source/plugin/manyou/Service/Util.php:
-    newFile: null
-    oldFile: !uuid '82fdcac0839f2d8d2993d3b4b24d12c5f348aac3'
-  /upload/source/plugin/manyou/Service/index.htm:
-    newFile: null
-    oldFile: !uuid '0519ecba6ea913e21689ec692e81e9e4973fbf73'
-  /upload/source/plugin/manyou/admincp.inc.php:
-    newFile: null
-    oldFile: !uuid 'bea4a3a3ff80540c8e500f9c1a4660a7efc813c9'
-  /upload/source/plugin/manyou/discuz_plugin_manyou.xml:
-    newFile: null
-    oldFile: !uuid 'fcd12700432b542f61ef2c95a2c2caa37c5a1c3c'
-  /upload/source/plugin/manyou/switch.php:
-    newFile: null
-    oldFile: !uuid 'ac497114eb047fd914f529fd2c7a346132f95e0d'
-  /upload/source/plugin/myapp:
-    newFile: null
-    oldFile: !uuid 'fbde19a69bc23eeb9d3e5a9c0f07227020cf7f89'
-  /upload/source/plugin/myapp/discuz_plugin_myapp.xml:
-    newFile: null
-    oldFile: !uuid 'ce25bc3d0ba6a13f4fa6a4b9f2b421c6e9c33883'
-  /upload/source/plugin/myapp/index.htm:
-    newFile: null
-    oldFile: !uuid '0519ecba6ea913e21689ec692e81e9e4973fbf73'
-  /upload/source/plugin/myapp/install.php:
-    newFile: null
-    oldFile: !uuid '29d03482e4e362e743de25722d9beca41ed17267'
-  /upload/source/plugin/myapp/myapp.class.php:
-    newFile: null
-    oldFile: !uuid '3bd98455a6c722c0cfdbcc7abcf66cb8e412841d'
-  /upload/source/plugin/myapp/uninstall.php:
-    newFile: null
-    oldFile: !uuid 'b85cd1e31575218edd01286a2a980ad27077cbca'
-  /upload/source/plugin/pcmgr_url_safeguard:
-    newFile: null
-    oldFile: !uuid 'e1fe422a3542c55bb6ad7feb735681c526ec5157'
-  /upload/source/plugin/pcmgr_url_safeguard/discuz_plugin_pcmgr_url_safeguard.xml:
-    newFile: null
-    oldFile: !uuid '2153e31a7e6294b941a18d62bfed0e5d43a9c404'
-  /upload/source/plugin/pcmgr_url_safeguard/pcmgr_url_safeguard.class.php:
-    newFile: null
-    oldFile: !uuid '96abd7f1b6cabe9d26ba0a4fe55d0fd45017bb0c'
-  /upload/source/plugin/pcmgr_url_safeguard/report_api.inc.php:
-    newFile: null
-    oldFile: !uuid '30d0e587d3baab6eadfb2422cf48fa26503cf23f'
-  /upload/source/plugin/pcmgr_url_safeguard/url_api.inc.php:
-    newFile: null
-    oldFile: !uuid 'c353ab076e5f0a012df59e6575ceed68f7626e8c'
-  /upload/source/plugin/qqconnect:
-    newFile: !uuid '581295048afa68317a0aea19bdc8251dc72c896b'
-    oldFile: !uuid 'dc9a3aa224a0276be9113d1abc7853e9ce548193'
-  /upload/source/plugin/qqconnect/admincp.inc.php:
-    newFile: !uuid '69b8365f5b4079e833a73aeb9ac52d56c00e45f0'
-    oldFile: !uuid 'abf14b509450fe437ada81a5c9741a138db021fe'
-  /upload/source/plugin/qqconnect/connect:
-    newFile: !uuid '75f27c5a7f36f2df6e9dc76c3e9b7d2d850d6edf'
-    oldFile: !uuid '15c3594c59d54ce255ebc40e9621fb2a73da4e87'
-  /upload/source/plugin/qqconnect/connect.class.php:
-    newFile: !uuid '1a6c3b7d542f8e29d1c1876fbfeda91c3d792003'
-    oldFile: !uuid '719a42d9e13da753c644d2e30653461504e8e08c'
-  /upload/source/plugin/qqconnect/connect/connect_check.php:
-    newFile: !uuid '49f9c83efc87bd35e1b503886890b04995470f95'
-    oldFile: !uuid 'b6c3b697443150a44cf4fea10c8c97035b6b0c2f'
-  /upload/source/plugin/qqconnect/connect/connect_config.php:
-    newFile: !uuid 'eaaef31c0eb12df697a998fb2cd6dede19d8f9ea'
-    oldFile: !uuid 'c747ebb349ba640cbc0da43022fac7ad89401e5e'
-  /upload/source/plugin/qqconnect/connect/connect_feed.php:
-    newFile: !uuid 'badb596b75cedafe48f209894176913bac79ee89'
-    oldFile: !uuid '43e69d0455c3c0f15888073abe0c255fda259b45'
-  /upload/source/plugin/qqconnect/connect/connect_login.php:
-    newFile: !uuid '3dec30eef587ea7a515c4c267a58494a4d1eb291'
-    oldFile: !uuid 'c58023e854792fa52d34779bbe86e6418f639e69'
-  /upload/source/plugin/qqconnect/connect/connect_user.php:
-    newFile: !uuid 'fc316afb63f3a37e7bcf7a463bbf4572c2ff7db8'
-    oldFile: !uuid 'f0a227828f9a726fe5127de51f7e7ddaeddd8997'
-  /upload/source/plugin/qqconnect/discuz_plugin_qqconnect.xml:
-    newFile: !uuid '033706f00242af765ca31413adbb8263c453e0ae'
-    oldFile: !uuid 'ea4681e74a07c150cb762c08069408959c9c5397'
-  /upload/source/plugin/qqconnect/lib:
-    newFile: !uuid '77a0f5f5dee59fccd9d93bcb7c5ed4dc5563a073'
-    oldFile: null
-  /upload/source/plugin/qqconnect/lib/Connect.php:
-    newFile: !uuid '3dd8c4389c620ca174c0f90068b56ba78542cd16'
-    oldFile: null
-  /upload/source/plugin/qqconnect/lib/ConnectOAuth.php:
-    newFile: !uuid '09e97c5cd7f39b83af09e703250e0cd373b0c225'
-    oldFile: null
-  /upload/source/plugin/qqconnect/lib/OAuth.php:
-    newFile: !uuid 'ad4978b5882914d50436f72fd9a3ce9cbc7064ba'
-    oldFile: null
-  /upload/source/plugin/qqconnect/lib/Util.php:
-    newFile: !uuid 'e7a960fb9a648da83872c6d5e30b850fc1937655'
-    oldFile: null
-  /upload/source/plugin/qqconnect/spacecp.inc.php:
-    newFile: !uuid 'ca56884c0917d349545a90c4ae2f3e20f494371d'
-    oldFile: !uuid '71aabc8832aca8fbacd9c950def3279aefa4cb0b'
-  /upload/source/plugin/qqconnect/switch.php:
-    newFile: null
-    oldFile: !uuid 'e3de24188c5f8a5996bda590730ed2a0645854aa'
-  /upload/source/plugin/qqconnect/template:
-    newFile: !uuid 'b5d885da59e21664ce01a01903fa7c2e73d388bf'
-    oldFile: !uuid 'ae4c4c262fd3f4c29641e0da7db5f676c5650a63'
-  /upload/source/plugin/qqconnect/template/module.htm:
-    newFile: !uuid '5a4405d3834f64cd791492801d8980d8b4704743'
-    oldFile: !uuid 'b7542d3c32d971c236286a42ad8b5756538a1cf5'
-  /upload/source/plugin/qqconnect/template/spacecp.htm:
-    newFile: !uuid '79588546f9b116ddc8335c14a85ee5be47980285'
-    oldFile: !uuid 'ea559fb6bd7248c96b42d36778e1d41ea4972869'
-  /upload/source/plugin/security:
-    newFile: null
-    oldFile: !uuid '4dc0b8f23afc9c4c49da4ba6e6f960d9aa4a4916'
-  /upload/source/plugin/security/discuz_plugin_security.xml:
-    newFile: null
-    oldFile: !uuid 'd1c3cc6bdf00690551dafbee92c453d377b89103'
-  /upload/source/plugin/security/evilnotice.inc.php:
-    newFile: null
-    oldFile: !uuid 'aa427397c5fb7a90f33067fc3d7324299c04e030'
-  /upload/source/plugin/security/index.htm:
-    newFile: null
-    oldFile: !uuid 'e69de29bb2d1d6434b8b29ae775ad8c2e48c5391'
-  /upload/source/plugin/security/install.php:
-    newFile: null
-    oldFile: !uuid '44a2ed403d678a1111b07ff88f52943476ca52aa'
-  /upload/source/plugin/security/job.inc.php:
-    newFile: null
-    oldFile: !uuid '4bde626d98e9852e8495cd061207de5ba48d8f6c'
-  /upload/source/plugin/security/security.class.php:
-    newFile: null
-    oldFile: !uuid '9c15a9a2796fa16203953fce477e325ae5c2f270'
-  /upload/source/plugin/security/sitemaster.inc.php:
-    newFile: null
-    oldFile: !uuid 'c947cf4a699ad417c89aad731b189ec485f01c40'
-  /upload/source/plugin/security/switch.php:
-    newFile: null
-    oldFile: !uuid 'fce33805d8e8019ca3e283d2fc0bfa2949343e70'
-  /upload/source/plugin/security/table:
-    newFile: null
-    oldFile: !uuid 'c076922c22f42199a9b28b8cb820782d20a9d879'
-  /upload/source/plugin/security/table/index.htm:
-    newFile: null
-    oldFile: !uuid 'e69de29bb2d1d6434b8b29ae775ad8c2e48c5391'
-  /upload/source/plugin/security/table/table_security_evilpost.php:
-    newFile: null
-    oldFile: !uuid '367a4a7e74f714ba57e5b6d078ba765a9f366390'
-  /upload/source/plugin/security/table/table_security_eviluser.php:
-    newFile: null
-    oldFile: !uuid '75d15f9fc108c00a0913973693a586aa3b6fc4d1'
-  /upload/source/plugin/security/table/table_security_failedlog.php:
-    newFile: null
-    oldFile: !uuid '36d84627cfae328e3b1a83d51c5444773e971e9f'
-  /upload/source/plugin/security/template:
-    newFile: null
-    oldFile: !uuid '98a0bf904ed27a3e622206743190f8fe05ae3fde'
-  /upload/source/plugin/security/template/index.htm:
-    newFile: null
-    oldFile: !uuid 'e69de29bb2d1d6434b8b29ae775ad8c2e48c5391'
-  /upload/source/plugin/security/template/seccode.htm:
-    newFile: null
-    oldFile: !uuid 'd3f5a12faa99758192ecc4ed3fc22c9249232e86'
-  /upload/source/plugin/security/unlock.inc.php:
-    newFile: null
-    oldFile: !uuid '6308e080a703bb17f8203db34128f2a21604582c'
-  /upload/source/plugin/security/upgrade.php:
-    newFile: null
-    oldFile: !uuid 'c78e4dde4f009f27a26e085c6cf004c99a22d819'
-  /upload/source/plugin/soso_smilies:
-    newFile: null
-    oldFile: !uuid '166a5445e464732c38f0b389f8b52cb6a3fab78d'
-  /upload/source/plugin/soso_smilies/discuz_plugin_soso_smilies.xml:
-    newFile: null
-    oldFile: !uuid 'e9913b74bb58256061d32786772372b115f51455'
-  /upload/source/plugin/soso_smilies/index.htm:
-    newFile: null
-    oldFile: !uuid '0519ecba6ea913e21689ec692e81e9e4973fbf73'
-  /upload/source/plugin/soso_smilies/js:
-    newFile: null
-    oldFile: !uuid 'eddabe8a27930a9ac924af808e59e10fc024a2d5'
-  /upload/source/plugin/soso_smilies/js/index.htm:
-    newFile: null
-    oldFile: !uuid '0519ecba6ea913e21689ec692e81e9e4973fbf73'
-  /upload/source/plugin/soso_smilies/js/soso_smilies.js:
-    newFile: null
-    oldFile: !uuid 'ded54914499ff8d1fa1b850bde61850385de8fe1'
-  /upload/source/plugin/soso_smilies/soso.class.php:
-    newFile: null
-    oldFile: !uuid '97a46b72c5966f13f8ec110ea262bc1d2c5b9d48'
-  /upload/source/plugin/soso_smilies/switch.php:
-    newFile: null
-    oldFile: !uuid '5a02097f48e9ad11dbc03bc6ddba6814a28923eb'
-gitCommitId: !uuid 'd2555bd8c5cb6923a4ce605a6cd655b505e25694'
-renames:
-  /upload/source/plugin/qqconnect/lib/Connect.php: /upload/source/plugin/manyou/Service/Connect.php
-  /upload/source/plugin/qqconnect/lib/ConnectOAuth.php: /upload/source/plugin/manyou/Service/Client/ConnectOAuth.php
-  /upload/source/plugin/qqconnect/lib/OAuth.php: /upload/source/plugin/manyou/Service/Client/OAuth.php
-  /upload/source/plugin/qqconnect/lib/Util.php: /upload/source/plugin/manyou/Service/Util.php
-revisionId: 133
+    newFile: !uuid '92176a9772b4303dd691464b52399ff07d21e6b8'
+    oldFile: !uuid '854541ca2c5c4c071cb98b304f04cc87ca67f761'
+  /upload/source/module/misc/misc_patch.php:
+    newFile: !uuid '0fa51674c9eb49c630571243cd0fc1b82205ec79'
+    oldFile: !uuid '67bdede41e537717274c34cbde36cf62048762e5'
+  /upload/static:
+    newFile: !uuid 'a835a6a2b6728d04c93acb0bbbb53b5501beb6b0'
+    oldFile: !uuid '8e981c30c22703a4c6557cf39316c19332ba2265'
+  /upload/static/js:
+    newFile: !uuid 'f1dfefecf2394171b9f54e938212c3b2bf2e8867'
+    oldFile: !uuid 'f585145d079c3287285bb20ce41f2ec12bb65d76'
+  /upload/static/js/common.js:
+    newFile: !uuid '96d89a3611d1cbd318ed5c70c7a999b89f5fb3dc'
+    oldFile: !uuid 'eafc5f9c3a8ba2820ce3131fa2e93691ab02d9a7'
+  /upload/template:
+    newFile: !uuid 'fdc8d82943b9d481badf8368672a676db0e60185'
+    oldFile: !uuid 'f9c052a083aba68bfe65b48dd58bcf46e6ca5669'
+  /upload/template/default:
+    newFile: !uuid 'f11c3965d7022e69d5285fb66e7c34da41c9a2be'
+    oldFile: !uuid '094f7322f6dc0be724351a937900020cb3d21246'
+  /upload/template/default/common:
+    newFile: !uuid 'ccb5f37d4d2f699d688e99ec4aa9e6b9f3c2b183'
+    oldFile: !uuid 'fa590eb065f3f62b116ef7dc84e9887d83d2d155'
+  /upload/template/default/common/footer.htm:
+    newFile: !uuid '08586ce50269fef64a9305ee94c46efae49827b8'
+    oldFile: !uuid '3a09d89454d38d05c0ba7d4f6152c1c32b028345'
+gitCommitId: !uuid 'f5e19668aefad5c04b96e025e752410d7f4b96e8'
+renames: {
+  }
+revisionId: 134
