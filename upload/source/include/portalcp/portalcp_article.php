@@ -69,12 +69,12 @@ if(submitcheck("articlesubmit", 0, $seccodecheck, $secqaacheck)) {
 	$_GET['fromurl'] = str_replace('&amp;', '&', dhtmlspecialchars($_GET['fromurl']));
 	$_GET['dateline'] = !empty($_GET['dateline']) ? strtotime($_GET['dateline']) : TIMESTAMP;
 
-	if(substr($_GET['url'], 0, 7) !== 'http://') {
-		$_GET['url'] = '';
+	if(!empty($_GET['url'])&&!(strpos($_GET['url'], '://'))) {
+		$_GET['url'] = 'http://'.$_GET['url'];
 	}
 
-	if(substr($_GET['fromurl'], 0, 7) !== 'http://') {
-		$_GET['fromurl'] = '';
+	if(!empty($_GET['fromurl'])&&!(strpos($_GET['fromurl'], '://'))) {
+		$_GET['fromurl'] = 'http://'.$_GET['fromurl'];
 	}
 
 	if(censormod($_POST['title']) || $_G['group']['allowpostarticlemod']) {
