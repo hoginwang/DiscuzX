@@ -1,52 +1,407 @@
 <!--{template common/header}-->
-	<!--{subtemplate home/spacecp_header}-->
-			<!--{hook/spacecp_avatar_top}-->
-			<script type="text/javascript">
-				function updateavatar() {
-					window.location.href = document.location.href.replace('&reload=1', '') + '&reload=1';
-				}
-				<!--{if !$reload}-->
-				saveUserdata('avatar_redirect', document.referrer);
-				<!--{/if}-->
-			</script>
-			<form method="post" autocomplete="off" action="home.php?mod=spacecp&ac=avatar&ref">
-				<table cellspacing="0" cellpadding="0" class="tfm">
-					<caption>
-						<span id="retpre" class="y xi2"></span>
-						<h2 class="xs2">{lang current_my_space}</h2>
-						<p>{lang setting_avatar_message}</p>
-					</caption>
-					<tr>
-						<td>
-							<!--{avatar($space[uid],big)}-->
-						</td>
-					</tr>
-				</table>
+<!--{subtemplate home/spacecp_header}-->
+<!--{hook/spacecp_avatar_top}-->
+<script type="text/javascript">
+    function updateavatar() {
+        window.location.href = document.location.href.replace('&reload=1', '') + '&reload=1';
+    }
+    <!--{if !$reload}-->
+    saveUserdata('avatar_redirect', document.referrer);
+    <!--{/if}-->
+</script>
+<form id="avatarform" enctype="multipart/form-data" method="post" autocomplete="off" action="home.php?mod=spacecp&ac=avatar&ref">
+    <table cellspacing="0" cellpadding="0" class="tfm">
+        <caption>
+            <span id="retpre" class="y xi2"></span>
+            <h2 class="xs2">{lang current_my_space}</h2>
+            <p>{lang setting_avatar_message}</p>
+        </caption>
+        <tr>
+            <td>
+                <!--{avatar($space[uid],big)}-->
+            </td>
+        </tr>
+    </table>
 
-				<table cellspacing="0" cellpadding="0" class="tfm">
-					<caption>
-						<h2 class="xs2">{lang setting_my_new_avatar}</h2>
-						<p>{lang setting_my_new_avatar_message}</p>
-					</caption>
-					<tr>
-						<td>
-							<script type="text/javascript">document.write(AC_FL_RunContent('<!--{echo implode("','", $uc_avatarflash);}-->'));</script>
-						</td>
-					</tr>
-				</table>
-				<input type="hidden" name="formhash" value="{FORMHASH}" />
-			</form>
-			<!--{hook/spacecp_avatar_bottom}-->
+    <table cellspacing="0" cellpadding="0" class="tfm">
+        <caption>
+            <h2 class="xs2">{lang setting_my_new_avatar}</h2>
+            <p>{lang setting_my_new_avatar_message}</p>
+        </caption>
+        <tr>
+            <td>
+                <div id="avatardesigner" style="border: 1px solid grey; padding: 10px;">
+                    <div id="avatarfileselector">
+                        {lang select_pic}:
+                        <input type="file" name="Filedata" id="avatarfile" accept="image/*" onchange="this.form.submit();" />
+                    </div>
+                    <div id="avataradjuster" style="position: relative; display:none;">
+                        <img id="avatarimage" style="visibility: hidden;" onload="forceSelectorInsideAvatar();" />
+                        <canvas id="avatarcanvas" style="position: absolute; top: 0px; left: 0px;"></canvas>
+                        <div id="widgetparent" style="position: absolute; left: 0px; top: 0px;">
+                            <div id="selector" class='ui-widget-content' style="position: absolute; width: 120px; height: 120px; overflow:hidden; cursor: move; border: 1px solid lightgrey; background-color: transparent; background-image: none;">
+                            </div>
+                        </div>
+                        <input type="button" name="backfileselection" value="{lang back_file_selection}" style="padding: 2px; position: absolute; right: 20px; top: 20px; " onclick="showAvatarFileSelector();" />
+                        <div id="slider" style="height: 0px; position: absolute; right: 5px; top: 120px; width: 100px;"></div>
+                        <input type="submit" name="confirm" value="{lang confirms}" style="padding: 2px 30px; position: absolute; right: 20px; top: 220px; " onclick="saveAvatar();" />
+                        <input type="hidden" id="avatar1" name="avatar1" />
+                        <input type="hidden" id="avatar2" name="avatar2" />
+                        <input type="hidden" id="avatar3" name="avatar3" />
+                    </div>
+                    <div id="avatardisplayer" style="position: relative; display:none;">
+                        <canvas id="avatardisplaycanvas" style="position: absolute; top: 0px; left: 0px;"></canvas>
+                        <input type="button" value="{lang finished}" style="padding: 2px 30px; position: absolute; right: 60px; top: 220px; " onclick="location.reload(true);" />
+                    </div>
+                </div>
+            </td>
+        </tr>
+    </table>
+    <input type="hidden" name="formhash" value="{FORMHASH}" />
+</form>
+
+<link rel="stylesheet" href="https://code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css" />
+<style type="text/css">
+    #slider .ui-state-default {
+        background: white url(static/image/common/arrow_down_big.gif) no-repeat scroll 50% 50%;
+        margin-top: -8px;
+        border-width: 0px;
+    }
+</style>
+
+<script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
+<script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
+<script src="https://code.jquery.com/ui/1.11.4/jquery-ui.min.js"></script>
+
+<script>
+    var $1 = $;
+    jQuery.noConflict();;
+
+    var data = "{echo implode(",", $uc_avatarflash);}".split(',');
+    var dwidth = data[data.indexOf('width')+1];
+    var dheight = data[data.indexOf('height')+1];
+    $1('#avatardesigner').width(dwidth);
+    $1('#avatardesigner').height(dheight);
+    $1('#widgetparent').width(dwidth-150);
+    $1('#widgetparent').height(dheight);
+    $1('#selector').width(150);
+    $1('#selector').height(150);
+    // http://stackoverflow.com/questions/6908094/rectangle-on-html5-canvas-is-stretched
+    $1('#avatarcanvas').attr('width', (dwidth-150));
+    $1('#avatarcanvas').attr('height', dheight);
+    $1('#avatardisplaycanvas').attr('width', dwidth);
+    $1('#avatardisplaycanvas').attr('height', dheight);
+    var src = data[data.indexOf('src')+1].replace('images/camera.swf?inajax=1','index.php?m=user&a=uploadavatar');
+    document.getElementById('avatarform').action = src; 
+    document.getElementById('avatarform').target ='uploadframe'; 
+
+    $1(document).ready(function () {
+        $1("#selector")
+            .draggable({ containment: "parent", drag: function (event, ui) { refreshAvatarCanvas(ui.position); }, stop: function() { forceSelectorInsideAvatar(); } })
+            .resizable({ containment: "parent", resize: function (event, ui) { refreshAvatarCanvas(ui.position); }, stop: function() { forceSelectorInsideAvatar(); }  })
+            .hover(
+                function () { $1(this).css({ "border-color": "red" }); },
+                function () { $1(this).css({ "border-color": "rgba(255, 0, 0, 0.6)" }); }
+            );
+        $1("#slider").slider({
+            min: 0,
+            max: 100,
+            value: 50,
+            slide: function(event, ui) {
+                forceSelectorInsideAvatar();
+            }
+        });
+        $1("#slider").append("<div style='position: absolute; top: -2px; left: 0px; width: 3px; height: 6px; background-color: black;'>&nbsp;</div>" );
+        $1("#slider").append("<div style='position: absolute; top: -2px; left: 50px; width: 3px; height: 6px; background-color: black;'>&nbsp;</div>" );
+        $1("#slider").append("<div style='position: absolute; top: -2px; left: 100px; width: 3px; height: 6px; background-color: black;'>&nbsp;</div>" );
+    });
+
+    function uploadAvatarDone() {
+        var iframe = document.getElementById('uploadframe'); 
+        var iframeDocument = iframe.contentDocument || iframe.contentWindow.document;
+        if (!iframeDocument.body) return;
+        var imageSrc = iframeDocument.body.innerHTML;
+        if (!imageSrc) return;
+
+        if (imageSrc.indexOf('/')===-1) { // server returns error message
+            if (imageSrc!=-4) { // ie11 bug?: called twice, the value in the second time is -4
+                alert(imageSrc);
+            }
+            return;
+        }
+        // http://stackoverflow.com/questions/1703228/how-to-clear-file-input-with-javascript
+        try {
+            var av = document.getElementById('avatarfile');
+            av.value = '';
+            if(av.value){
+                av.type = "text";
+                av.type = "file";
+            }
+        } catch(e){}
+        $1('#avatarfileselector').hide();
+        $1('#avatardisplayer').hide();
+        $1('#avataradjuster').show();
+        $1('#selector').css('left', Math.floor((dwidth-300)/2));
+        $1('#selector').css('top', Math.floor((dheight-150)/2));
+        $1('#selector').width(150);
+        $1('#selector').height(150);
+        // http://stackoverflow.com/questions/1077041/refresh-image-with-a-new-one-at-the-same-url
+        imageSrc += "?" + (new Date());
+        document.getElementById('avatarimage').src = imageSrc;
+        $1("#slider").slider('value', 50);
+    }
+
+    function showAvatarFileSelector() {
+        document.getElementById('avatarimage').src = null;
+        clearAvatar();
+        document.getElementById('avataradjuster').style.display = 'none'; 
+        document.getElementById('avatarfileselector').style.display = 'block';
+    }
+
+    function getAvatarDimension() {
+        var factor = $1('#slider').slider('option', 'value');
+        var cw = $1('#widgetparent').width();
+        var ch = $1('#widgetparent').height();
+        var iw = $1('#avatarimage').width();
+        var ih = $1('#avatarimage').height();
+        var minw = 48;
+        var minh = 48;
+        var midw = Math.min(Math.max(iw, 48), cw);
+        var midh = Math.min(Math.max(ih, 48), ch);
+        var maxw = Math.max(Math.max(iw, 48), cw);
+        var maxh = Math.max(Math.max(ih, 48), ch);
+        var minr = Math.max(minw/iw, minh/ih);
+        var midr = Math.max(midw/iw, midh/ih);
+        var maxr = Math.max(maxw/iw, maxh/ih);
+        if (factor<=50) {
+            r = (minr * (50-factor) + midr * factor)/50;
+        }
+        else {
+            r = (midr * (100-factor) + maxr * (factor-50))/50;
+        }
+        var aw = r*iw;
+        var ah = r*ih;
+        var al = (cw-aw)/2;
+        var at = (ch-ah)/2;
+        var sd = getSelectorDimention();
+        if (aw>cw) al = (cw-aw)/(cw-sd.width)*sd.left;
+        if (ah>ch) at = (ch-ah)/(ch-sd.height)*sd.top;
+        return { left: Math.floor(al), top: Math.floor(at), width: Math.floor(aw), height: Math.floor(ah) };
+    }
+
+    function clearAvatar() {
+        var canvas = document.getElementById('avatarcanvas');
+        var cw = canvas.width;
+        var ch = canvas.height;
+        var ctx = canvas.getContext('2d');
+        ctx.clearRect(0, 0, cw, ch);
+    }
+
+    function refreshAvatarCanvas(uiposition) { 
+        var canvas = document.getElementById('avatarcanvas');
+        var cw = canvas.width;
+        var ch = canvas.height;
+        var ctx = canvas.getContext('2d');
+        ctx.clearRect(0, 0, cw, ch);
+        var ad = getAvatarDimension();
+        var iw = $1('#avatarimage').width();
+        var ih = $1('#avatarimage').height();
+        var img = document.getElementById('avatarimage');
+        ctx.drawImage(img, 0,0, iw, ih, ad.left, ad.top, ad.width, ad.height);
+        var sd = getSelectorDimention();
+        // http://stackoverflow.com/questions/6258834/jquery-ui-draggable-event-timing
+        if (uiposition) {
+            sd.left = uiposition.left;
+            sd.top = uiposition.top;
+        }
+        ctx.fillStyle="rgba(0,0,0,0.6)";
+        ctx.fillRect(0, 0, cw, sd.top);
+        ctx.fillRect(sd.left+sd.width, sd.top, cw-sd.left-sd.width, ch-sd.top);
+        ctx.fillRect(0, sd.top+sd.height, sd.left+sd.width, ch-sd.top-sd.height);
+        ctx.fillRect(0, sd.top, sd.left, sd.height);
+    }
+
+    function getSelectorDimention() {
+        var sl = Math.ceil($1('#selector').position().left);
+        var st = Math.ceil($1('#selector').position().top);
+        var sw = $1('#selector').width();
+        var sh = $1('#selector').height();
+        return { left: sl, top: st, width: sw, height: sh };
+    }
+
+    function forceSelectorInsideAvatar() {
+        var sd = getSelectorDimention();
+        var ad = getAvatarDimension();
+        if (sd.width>ad.width) $1('#selector').width(ad.width);
+        if (sd.height>ad.height) $1('#selector').height(ad.height);
+        sd = getSelectorDimention();
+        if (sd.left<ad.left) $1('#selector').css('left', ad.left);
+        if (sd.top<ad.top) $1('#selector').css('top', ad.top);
+        if (sd.left+sd.width>ad.left+ad.width) $1('#selector').css('left', ad.left+ad.width-sd.width);
+        if (sd.top+sd.height>ad.top+ad.height) $1('#selector').css('top', ad.top+ad.height-sd.height);     
+        refreshAvatarCanvas();
+    }
+
+    function saveAvatar() {
+        var img = document.getElementById('avatarimage');
+        var sd = getSelectorDimention();
+        var ad = getAvatarDimension();
+        var rl = (sd.left-ad.left)/ad.width;
+        var rt = (sd.top-ad.top)/ad.height;
+        var rw = sd.width/ad.width;
+        var rh = sd.height/ad.height;
+        var iw = $1('#avatarimage').width();
+        var ih = $1('#avatarimage').height();
+        var sl = rl*iw;
+        var st = rt*ih;
+        var sw = rw*iw;
+        var sh = rh*ih;
+        var tw = sw;
+        var th = sh;
+        if (sw>200 || sh>250) {
+            var r = Math.max(sw/200, sh/250);
+            tw = Math.floor(sw/r);
+            th = Math.floor(sh/r);
+        }          
+        var canvas = document.createElement('canvas');
+        canvas.width = tw;
+        canvas.height = th;
+        var ctx = canvas.getContext("2d");
+        ctx.drawImage(img, sl, st, sw, sh, 0, 0, tw, th);
+        var dataURL = canvas.toDataURL("image/jpeg");
+        $1('#avatar1').val(dataURL.substr(dataURL.indexOf(",") + 1));
+
+        var tw = sw;
+        var th = sh;
+        if (sw>120 || sh>120) {
+            var r = Math.max(sw/120, sh/120);
+            tw = Math.floor(sw/r);
+            th = Math.floor(sh/r);
+        }     
+        var canvas = document.createElement('canvas');
+        canvas.width = tw;
+        canvas.height = th;
+        var ctx = canvas.getContext("2d");
+        ctx.drawImage(img, sl, st, sw, sh, 0, 0, tw, th);
+        var dataURL = canvas.toDataURL("image/jpeg");
+        $1('#avatar2').val(dataURL.substr(dataURL.indexOf(",") + 1));
+
+        var mwh = Math.min(sw, sh);
+        if (sw>mwh) {
+            sl += Math.floor((sw-mwh)/2);
+            sw = mwh;
+        }
+        if (sh>mwh) {
+            st += Math.floor((sh-mwh)/2);
+            sh = mwh;
+        }
+        var tw = 48;
+        var th = 48;
+        var canvas = document.createElement('canvas');
+        canvas.width = tw;
+        canvas.height = th;
+        var ctx = canvas.getContext("2d");
+        ctx.drawImage(img, sl, st, sw, sh, 0, 0, tw, th);
+        var dataURL = canvas.toDataURL("image/jpeg");
+        $1('#avatar3').val(dataURL.substr(dataURL.indexOf(",") + 1));
+
+        var src = document.getElementById('avatarform').action;
+        document.getElementById('avatarform').action = src.replace('&a=uploadavatar', '&a=rectavatar');
+        document.getElementById('avatarform').target='rectframe'; 
+    }
+
+    function refreshAvatarCanvasForDisplay() {
+        var img = document.getElementById('avatarimage');
+        var canvas = document.getElementById('avatardisplaycanvas');
+        var ctx = canvas.getContext("2d");
+        var sd = getSelectorDimention();
+        var ad = getAvatarDimension();
+        var rl = (sd.left-ad.left)/ad.width;
+        var rt = (sd.top-ad.top)/ad.height;
+        var rw = sd.width/ad.width;
+        var rh = sd.height/ad.height;
+        var iw = $1('#avatarimage').width();
+        var ih = $1('#avatarimage').height();
+        var sl = rl*iw;
+        var st = rt*ih;
+        var sw = rw*iw;
+        var sh = rh*ih;
+        var tw = sw;
+        var th = sh;
+        if (sw>200 || sh>250) {
+            var r = Math.max(sw/200, sh/250);
+            tw = Math.floor(sw/r);
+            th = Math.floor(sh/r);
+        }  
+        var ctl = 10;
+        var ctt = 10;
+        ctx.drawImage(img, sl, st, sw, sh, ctl, ctt, tw, th);
+        ctl += 10 + tw;
+
+        var tw = sw;
+        var th = sh;
+        if (sw>120 || sh>120) {
+            var r = Math.max(sw/120, sh/120);
+            tw = Math.floor(sw/r);
+            th = Math.floor(sh/r);
+        }     
+        ctx.drawImage(img, sl, st, sw, sh, ctl, ctt, tw, th);
+        ctl += 10 + tw;
+
+        var tw = 48;
+        var th = 48;
+        var mwh = Math.min(sw, sh);
+        if (sw>mwh) {
+            sl += Math.floor((sw-mwh)/2);
+            sw = mwh;
+        }
+        if (sh>mwh) {
+            st += Math.floor((sh-mwh)/2);
+            sh = mwh;
+        }
+        ctx.drawImage(img, sl, st, sw, sh, ctl, ctt, tw, th);
+
+        ctx.fillStyle = "black";
+        ctx.font = "bold 16px Arial";
+        ctx.fillText('{lang upload_succeed}', dwidth - 140,180);
+        ctx.fillStyle = "grey";
+        ctx.font = "bold 14px Arial";
+        ctx.fillText('{lang three_avatars}', dwidth - 180, 205);        
+    }
+
+    function rectAvatarDone() {
+        var iframe = document.getElementById('rectframe'); 
+        var iframeDocument = iframe.contentDocument || iframe.contentWindow.document;
+        if (!iframeDocument.body) return;
+        var res = iframeDocument.body.innerHTML;
+        if (!res) return;
+        if (res=='success') {
+            $1('#avatardisplayer').show();
+            refreshAvatarCanvasForDisplay();
+            $1('#avataradjuster').hide();
+            $1('#avatarfileselector').hide();            
+        }
+        else {
+            alert('{lang upload_error}');
+        }
+    }
+
+</script>
+
+<iframe name="uploadframe" id="uploadframe" style="display: none;" onload="uploadAvatarDone();"></iframe>
+<iframe name="rectframe" id="rectframe" style="display: none;" onload="rectAvatarDone();"></iframe>
+
+<!--{hook/spacecp_avatar_bottom}-->
 		</div>
 	</div>
-	<script type="text/javascript">
-		var redirecturl = loadUserdata('avatar_redirect');
-		if(redirecturl) {
-			$('retpre').innerHTML = '<a href="' + redirecturl + '">{lang previous_page}</a>';
-		}
-	</script>
-	<div class="appl">
-		<!--{subtemplate home/spacecp_footer}-->
-	</div>
+<script type="text/javascript">
+    var redirecturl = loadUserdata('avatar_redirect');
+    if(redirecturl) {
+        $1('retpre').innerHTML = '<a href="' + redirecturl + '">{lang previous_page}</a>';
+    }
+</script>
+<div class="appl">
+    <!--{subtemplate home/spacecp_footer}-->
+</div>
 </div>
 <!--{template common/footer}-->
