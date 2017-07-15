@@ -340,11 +340,11 @@ class usercontrol extends base {
 		return $avatarurl;
 	}
 
-	function onrectavatar() {
+    function onrectavatar() {
 		@header("Expires: 0");
 		@header("Cache-Control: private, post-check=0, pre-check=0, max-age=0", FALSE);
 		@header("Pragma: no-cache");
-		header("Content-type: application/xml; charset=utf-8");
+		header("Content-type: text/html; charset=utf-8");
 		$this->init_input(getgpc('agent'));
 		$uid = $this->input('uid');
 		if(empty($uid)) {
@@ -358,9 +358,9 @@ class usercontrol extends base {
 		$bigavatarfile = UC_DATADIR.'./avatar/'.$this->get_avatar($uid, 'big', $avatartype);
 		$middleavatarfile = UC_DATADIR.'./avatar/'.$this->get_avatar($uid, 'middle', $avatartype);
 		$smallavatarfile = UC_DATADIR.'./avatar/'.$this->get_avatar($uid, 'small', $avatartype);
-		$bigavatar = $this->flashdata_decode(getgpc('avatar1', 'P'));
-		$middleavatar = $this->flashdata_decode(getgpc('avatar2', 'P'));
-		$smallavatar = $this->flashdata_decode(getgpc('avatar3', 'P'));
+		$bigavatar = base64_decode(getgpc('avatar1', 'P'));
+		$middleavatar = base64_decode(getgpc('avatar2', 'P'));
+		$smallavatar = base64_decode(getgpc('avatar3', 'P'));
 		if(!$bigavatar || !$middleavatar || !$smallavatar) {
 			return '<root><message type="error" value="-2" /></root>';
 		}
@@ -392,13 +392,12 @@ class usercontrol extends base {
 		$filetype = '.jpg';
 		@unlink(UC_DATADIR.'./tmp/upload'.$uid.$filetype);
 
-		if($success) {
-			return '<?xml version="1.0" ?><root><face success="1"/></root>';
+        if($success) {
+			return "success";
 		} else {
-			return '<?xml version="1.0" ?><root><face success="0"/></root>';
+			return "failure";
 		}
 	}
-
 
 	function flashdata_decode($s) {
 		$r = '';
