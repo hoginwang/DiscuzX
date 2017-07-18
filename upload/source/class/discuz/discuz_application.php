@@ -772,18 +772,19 @@ class discuz_application extends discuz_base{
 			}
 		}
 
-		if(strpos($this->var['setting']['domain']['defaultindex'], CURSCRIPT) !== false && CURSCRIPT != 'forum' && !$_GET['mod']) {
-			if($this->var['setting']['domain']['app']['mobile']) {
-				$mobileurl = 'http://'.$this->var['setting']['domain']['app']['mobile'];
-			} else {
-				if($this->var['setting']['domain']['app']['forum']) {
-					$mobileurl = 'http://'.$this->var['setting']['domain']['app']['forum'].'?mobile=yes';
-				} else {
-					$mobileurl = $this->var['siteurl'].'forum.php?mobile=yes';
-				}
+		if(CURSCRIPT == 'forum' && !$_GET['mod']) {
+			// 移动端不再限定网站首页必须是forum.php,否则会导致当设置其他页面为首页时，此页移动端无法打开，而始终被302到forum.php
+			// 当前页面如果是forum.php并且不存在mod参数时，再判断是否设置了论坛域名和mobile域名，论坛域名优先级大于mobile域名
+			if($this->var['setting']['domain']['app']['forum'] && $_SERVER['HTTP_HOST'] != $this->var['setting']['domain']['app']['forum']) {
+				// 如果设置了论坛域名，且当前域名非此论坛域名时跳转到论坛域名下forum.php				
+				$mobileurl = 'http://'.$this->var['setting']['domain']['app']['forum'].'/forum.php?mobile=yes';
+			}else if(!$this->var['setting']['domain']['app']['forum'] && $this->var['setting']['domain']['app']['mobile'] && $_SERVER['HTTP_HOST'] != $this->var['setting']['domain']['app']['mobile']) {
+				// 如果没有设置论坛域名但设置了mobile域名，且当前域名非此mobile域名时跳转到mobile域名下forum.php
+				$mobileurl = 'http://'.$this->var['setting']['domain']['app']['mobile'].'/forum.php?mobile=yes';
 			}
-			dheader("location:$mobileurl");
+		 	$mobileurl &&  dheader("location:$mobileurl");
 		}
+
 		if($mobile === '3' && empty($this->var['setting']['mobile']['wml'])) {
 			return false;
 		}
