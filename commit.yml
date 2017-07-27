@@ -2,10 +2,22 @@
 branches: {
   }
 fileChange:
-  /README.md:
-    newFile: !uuid 'a1882a3fd6a7068f09b5ddcb30c86a9b830792cd'
-    oldFile: !uuid '5961ca7ed2f48c6a748db573aa56c2900db20411'
-gitCommitId: !uuid '6397b7354485073a293766fb0a40ac8ca5f5d5ab'
+  /upload:
+    newFile: !uuid 'edd57c3260ad549c71cf0ef5bc31a43e5030e745'
+    oldFile: !uuid 'd694d15fee28e6fed51d3c1bc454a81043a61068'
+  /upload/template:
+    newFile: !uuid 'f9b977584736961918f02401ac8bf14ddfb52f55'
+    oldFile: !uuid 'fdc8d82943b9d481badf8368672a676db0e60185'
+  /upload/template/default:
+    newFile: !uuid 'b997869e0608274d146a603c018bae6e66e2fbc1'
+    oldFile: !uuid 'f11c3965d7022e69d5285fb66e7c34da41c9a2be'
+  /upload/template/default/home:
+    newFile: !uuid 'd0ab91bfbbd8a02d2503876a8b54803f25e943a4'
+    oldFile: !uuid 'c25f93816790a82ad265ce166608853c6512ecaa'
+  /upload/template/default/home/spacecp_invite.htm:
+    newFile: !uuid '2188c61a008c19a05e02aee7a6a1f1f91bce2535'
+    oldFile: !uuid 'c6521eada430a90589a881ab31f4a3d263866c5a'
+gitCommitId: !uuid '16f973fd237e93f8f0a4bda365a6db81757775c2'
 renames: {
   }
-revisionId: 146
+revisionId: 147
