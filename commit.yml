@@ -3,45 +3,18 @@ branches: {
   }
 fileChange:
   /upload:
-    newFile: !uuid '507ad8e9291f4d5b28aef9bde87f7239acc83c5e'
-    oldFile: !uuid 'b41914ee7244ba4031e201eda396a691f03b01ee'
-  /upload/install:
-    newFile: !uuid '7c71d68bf4c372d90e281f018349dc5dccbc9235'
-    oldFile: !uuid 'eaccf758a95a52acb3cee6a9d87c48f0691fe726'
-  /upload/install/index.php:
-    newFile: !uuid '23794383a2dc83c7798adf4532fd9e0b6095bf34'
-    oldFile: !uuid '38a8dbf4cb1d8e5e97f486f3d676f9259f344954'
+    newFile: !uuid 'd694d15fee28e6fed51d3c1bc454a81043a61068'
+    oldFile: !uuid '507ad8e9291f4d5b28aef9bde87f7239acc83c5e'
   /upload/source:
-    newFile: !uuid '6e22f1ce490deded2edef4ed5f8a913b9efc8917'
-    oldFile: !uuid '28ec5815a4356a1174df2cf7579174022c4804a9'
-  /upload/source/class:
-    newFile: !uuid '4e77b6a2d92902a1f44caf7909c7907217f59c84'
-    oldFile: !uuid 'd1ea192b90fa1a23ffb196546aaf005ca3553ce5'
-  /upload/source/class/table:
-    newFile: !uuid '5edd88531875bde5920e926e94ddfea2501ecd3c'
-    oldFile: !uuid '08b2b97f82bb409e6e03586c1fb82683797eab5b'
-  /upload/source/class/table/table_common_task.php:
-    newFile: !uuid '4788cb2012d6bb312875f91838a6cbe464f3c9ae'
-    oldFile: !uuid '12b225904f67882cf3958308ff1b5b22eba7a5b0'
-  /upload/source/function:
-    newFile: !uuid '52884f5c099d1ef3e5a846f341c7ea88f34197cf'
-    oldFile: !uuid 'a774eaa785448956b0155f1e4dc0b1493ad276d3'
-  /upload/source/function/function_discuzcode.php:
-    newFile: !uuid '3a58171fa5a86d42c21b4d20d27c8ea77f84b7b5'
-    oldFile: !uuid '33f4ffb76e12791a4a9e1efb3b47cc0537ab5a79'
-  /upload/static:
-    newFile: !uuid '6e37585d47931fb76dc58405fe6401d07f8492ef'
-    oldFile: !uuid 'a835a6a2b6728d04c93acb0bbbb53b5501beb6b0'
-  /upload/static/image:
-    newFile: !uuid '2ed965d04cffdcf6f835daae024cca791da8f16b'
-    oldFile: !uuid '529462b74ef71f054f34bbae52b127087b6a7409'
-  /upload/static/image/mobile:
-    newFile: !uuid '292ae56d18901242887929221db3371adaaa57c4'
-    oldFile: !uuid '6facc73efad41b14177158f09b9606518e667805'
-  /upload/static/image/mobile/style.css:
-    newFile: !uuid '2024a5c640ca75cf9deabac0cb7c5633ae7f56ae'
-    oldFile: !uuid 'fe9dcd08739f2bb281e6cf638716cba7c4ced12c'
-gitCommitId: !uuid '79d955f66951858e2890870e3ea7d81c75a7fd44'
+    newFile: !uuid '632705c737e97a93a3484f2006fb55f1bc78f42a'
+    oldFile: !uuid '6e22f1ce490deded2edef4ed5f8a913b9efc8917'
+  /upload/source/admincp:
+    newFile: !uuid '58f51b07b6f2fa1fc8f2fb45ba57249d308febff'
+    oldFile: !uuid 'cf2a3b9f26d0c17eb66d26f2a76b079fbb682b6f'
+  /upload/source/admincp/admincp_founder.php:
+    newFile: !uuid '4996c604a8732f04a5ed274d0e28df47f98650c6'
+    oldFile: !uuid '64bd1f869209f031541e92d9b8d61e62bf360b90'
+gitCommitId: !uuid '03d6ac66f9d7bcabb07ca03ebae5dde68b4fda08'
 renames: {
   }
-revisionId: 144
+revisionId: 145
