@@ -3,15 +3,18 @@ branches: {
   }
 fileChange:
   /upload:
-    newFile: !uuid '0021e1356fb555dca936152a47117600fdcd81c6'
-    oldFile: !uuid '55da7d4ad0c1416916fa02a36931da7d5b3253a1'
-  /upload/install:
-    newFile: !uuid 'f7c33bfe17cfea65ea11c8c25276b9ac7cf596bc'
-    oldFile: !uuid 'ea51da2e184dae9c1eb6ccc33835b86b6b27196a'
-  /upload/install/index.php:
-    newFile: !uuid '23794383a2dc83c7798adf4532fd9e0b6095bf34'
-    oldFile: null
-gitCommitId: !uuid '7c2b60942a3098ad0b3687c6f492b6b7b87c06c2'
+    newFile: !uuid 'f86bca09746602185659717485679f4d06ad555f'
+    oldFile: !uuid '0021e1356fb555dca936152a47117600fdcd81c6'
+  /upload/source:
+    newFile: !uuid '27d220b18168590c86062ac83aaaac6cb4673ae0'
+    oldFile: !uuid '4aacd9d869c46488b85f1a49c3e96c06e980f5a1'
+  /upload/source/admincp:
+    newFile: !uuid '892975d908414d517e44642b167d702645446636'
+    oldFile: !uuid 'f4e6f0316d89ad5f37f6bf1a04ff65600c29806a'
+  /upload/source/admincp/discuzhook.dat:
+    newFile: !uuid '4c645df6c780f327ec0ce29c2bfcb0b8828c48b4'
+    oldFile: !uuid '87e97611e73712636c6f4444cabf6a302c1a92e1'
+gitCommitId: !uuid 'ea2906abfe459805d87e6f30ec18991bb9bc0e2b'
 renames: {
   }
-revisionId: 176
+revisionId: 177
