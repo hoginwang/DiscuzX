@@ -55,6 +55,11 @@ if($_GET['from']) {
 }
 
 $lockfile = DISCUZ_ROOT.'./data/update.lock';
+if($_GET['lock']){
+    @touch($lockfile);
+    @unlink(DISCUZ_ROOT.'./install/update.php');
+    show_msg('<span id="finalmsg">恭喜，数据库结构升级完成！</span>');
+}
 if(file_exists($lockfile) && !$_GET['from']) {
 	show_msg('请您先登录服务器ftp，手工删除 ./data/update.lock 文件，再次运行本文件进行升级。');
 }
@@ -425,8 +430,8 @@ if($_GET['step'] == 'start') {
 		}
 
 		if(isset($settings['thumbsource']) && !$settings['sourcewidth'] && !$settings['sourceheight']) {
-			$newsettings['sourcewidth'] = $setting['thumbwidth'];
-			$newsettings['sourceheight'] = $setting['thumbheight'];
+			$newsettings['sourcewidth'] = $settings['thumbwidth'];
+			$newsettings['sourceheight'] = $settings['thumbheight'];
 		}
 
 		if(empty($settings['my_siteid']) && !empty($settings['connectsiteid'])) {
@@ -752,7 +757,7 @@ if($_GET['step'] == 'start') {
 				$newsettings['seccodestatus'] = $seccodecheck;
 			}
 		}
-		$seccodedata = dunserialize($setting['seccodedata']);
+		$seccodedata = dunserialize($settings['seccodedata']);
 		if(!$seccodedata['rule']) {
 			$seccodestatuss = sprintf('%05b', $seccodecheck);
 			$seccodedata['rule']['register']['allow'] = $seccodestatuss{4};
@@ -760,6 +765,7 @@ if($_GET['step'] == 'start') {
 			$seccodedata['rule']['post']['allow'] = $seccodestatuss{2};
 			$seccodedata['rule']['password']['allow'] = $seccodestatuss{1};
 			$seccodedata['rule']['card']['allow'] = $seccodestatuss{0};
+			$seccodedata['seccodedata']['type'] = intval($seccodedata['seccodedata']['type']);
 			$newsettings['seccodedata'] = serialize($seccodedata);
 		}
 		if(!isset($settings['collectionteamworkernum'])) {
@@ -1891,28 +1897,6 @@ if($_GET['step'] == 'start') {
 	show_msg("默认风格已恢复，进入下一步", "$theurl?step=cache");
 
 } elseif ($_GET['step'] == 'cache') {
-	$appService = Cloud::loadClass('Service_App');
-	try {
-		$cloudstatus = $appService->checkCloudStatus();
-	} catch (Exception $e) {
-	}
-	$result = false;
-	if($cloudstatus == 'cloud' && !$appService->getCloudAppStatus('search')) {
-		try{
-			$cloudAppService = Cloud::loadClass('Service_Client_Cloud');
-			$result = $cloudAppService->appOpen();
-		} catch(Exception $e) {
-		}
-	}
-
-
-	if($result == true) {
-		$opensoso = '<br><br>友情提示：<br>为更好的降低论坛搜索时的数据压力，本次升级已经帮本站开通纵横搜索服务。<br>你可以在 <a href=\\\'../admin.php?frames=yes&action=cloud&operation=search\\\' target=\\\'_blank\\\'>站点后台-&gt;应用-&gt;纵横搜索 进行管理</a>。';
-	}
-	if(!$devmode && @$fp = fopen($lockfile, 'w')) {
-		fwrite($fp, ' ');
-		fclose($fp);
-	}
 
 	dir_clear(ROOT_PATH.'./data/template');
 	dir_clear(ROOT_PATH.'./data/cache');
@@ -1921,11 +1905,7 @@ if($_GET['step'] == 'start') {
 	dir_clear(ROOT_PATH.'./uc_client/data/cache');
 	savecache('setting', '');
 
-	if($_GET['from']) {
-		show_msg('<span id="finalmsg">缓存更新中，请稍候 ...</span><iframe src="../misc.php?mod=initsys" style="display:none;" onload="window.location.href=\''.$_GET['from'].'\'"></iframe>');
-	} else {
-		show_msg('<span id="finalmsg">缓存更新中，请稍候 ...</span><iframe src="../misc.php?mod=initsys" style="display:none;" onload="document.getElementById(\'finalmsg\').innerHTML = \'恭喜，数据库结构升级完成！为了数据安全，请删除本文件。'.$opensoso.'\'"></iframe>');
-	}
+	show_msg('<span id="finalmsg">缓存更新中，请稍候 ...</span><iframe src="../misc.php?mod=initsys" style="display:none;" onload="window.location.href=\''.$theurl.'?lock=true\'"></iframe>');
 
 }
 

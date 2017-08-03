@@ -42,7 +42,7 @@ class plugin_zeroze007_fold {
 	function global_footer() {
 		$return = "";
 		// 仅论坛生效
-		if (CURSCRIPT == 'forum') {			
+		if (CURSCRIPT == 'forum') {
 			include template('zeroze007_fold:global_footer');
 		}
 		return $return;
