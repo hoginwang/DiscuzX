@@ -73,7 +73,7 @@ $_config['db']['map'] = array();
 $_config['db']['common'] = array();
 
 /**
- *  禁用从数据库的数据表, 表名字之间使用逗号分割
+ * 禁用从数据库的数据表, 表名字之间使用逗号分割
  *
  * @example common_session, common_member 这两个表仅从主服务器读写, 不使用从服务器
  * $_config['db']['common']['slave_except_table'] = 'common_session, common_member';
@@ -83,8 +83,8 @@ $_config['db']['common']['slave_except_table'] = '';
 
 /**
  * 内存服务器优化设置
- * 以下设置需要PHP扩展组件支持，其中 memcache 优先于其他设置，
- * 当 memcache 无法启用时，会自动开启另外的两种优化模式
+ * 以下设置需要PHP扩展组件支持，其中 memcache/memcached 优先于其他设置，
+ * 当 memcache/memcached 无法启用时，会自动开启另外的两种优化模式
  */
 
 //空值缓存有效期，默认30秒
@@ -113,6 +113,11 @@ $_config['memory']['memcache']['server'] = '';			// memcache 服务器地址
 $_config['memory']['memcache']['port'] = 11211;			// memcache 服务器端口
 $_config['memory']['memcache']['pconnect'] = 1;			// memcache 是否长久连接
 $_config['memory']['memcache']['timeout'] = 1;			// memcache 服务器连接超时
+/* 如果用memcached替代memcache，则使用下面的设置来激活管理中心的内存缓存开关 */
+$_config['memory']['memcached']['server'] = '';			// memcached 服务器地址
+$_config['memory']['memcached']['port'] = 11211;		// memcached 服务器端口
+$_config['memory']['memcached']['pconnect'] = 1;		// memcached 是否长久连接
+$_config['memory']['memcached']['timeout'] = 1;			// memcached 服务器连接超时
 
 $_config['memory']['apc'] = 0;							// 启动对 APC 的支持
 $_config['memory']['apcu'] = 0;							// 启动对 APCu 的支持
