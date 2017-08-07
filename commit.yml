@@ -3,18 +3,69 @@ branches: {
   }
 fileChange:
   /upload:
-    newFile: !uuid '590a6977141ccda600492bea4fc6c1e64593616a'
-    oldFile: !uuid 'dd70501afd058d7befc8031fe11ad50a691e3037'
-  /upload/uc_server:
-    newFile: !uuid 'bec9da880eda2fc2985fbe5402d7d259ecfc4190'
-    oldFile: !uuid '92a340af4635687b4a42e8cdb198b472f46c03fc'
-  /upload/uc_server/model:
-    newFile: !uuid 'e3c5ac343a66eb94d7cb47dc068f30aacf7ed42b'
-    oldFile: !uuid 'e66b8ce2ff37dd59aeb845744a6dcb03671a0e6e'
-  /upload/uc_server/model/base.php:
-    newFile: !uuid '6e7d4fae29e9deb639f7245105a965791e72715d'
-    oldFile: !uuid '3377be54ee3699607d454ad42e068a4d38c1faf5'
-gitCommitId: !uuid '932a5155633fc669a4d6f2c41e0229272e11c3bc'
+    newFile: !uuid 'aa60a2cab3efd1c78e734357025226a537347107'
+    oldFile: !uuid '590a6977141ccda600492bea4fc6c1e64593616a'
+  /upload/source:
+    newFile: !uuid 'b21fe191d83d87cbba82f59d6f6223c41b8db737'
+    oldFile: !uuid 'c8ad42458271a15ddbe73a719cdea4a93971dd81'
+  /upload/source/module:
+    newFile: !uuid '5b976728fa930bff47b9e84095344900d9b6dd23'
+    oldFile: !uuid '6939c8776658110f48e0a31f1f13184a59142155'
+  /upload/source/module/member:
+    newFile: !uuid '2c50c960240d89bcf16f004f87fbfec5a34b3dcd'
+    oldFile: !uuid '84174fa5b4a8868f1b5e28455a93b7a82e16b5cc'
+  /upload/source/module/member/member_connect_logging.php:
+    newFile: !uuid '07b9f30cbec4a77c01f9f4e9e5c17dc5dc439b01'
+    oldFile: !uuid 'b5ff1f679fc9675435eefede96cd1818a88cdd7b'
+  /upload/source/module/member/member_connect_register.php:
+    newFile: !uuid '6a087284aa8c52848945520eba384b895cb47d7e'
+    oldFile: !uuid '8e52c10358d1f459901b8e18f12efa8d75dabe0b'
+  /upload/source/plugin:
+    newFile: !uuid 'bb1bee737b95fd19948f29f1e57f693e5b214d0a'
+    oldFile: !uuid '8c3e6ea2250fe1e0231468afb8747d7c10c233a9'
+  /upload/source/plugin/mobile:
+    newFile: !uuid '0ecd1c064b666d875be78153966fc6c065a7afd7'
+    oldFile: !uuid '0681ae859eaa0e1b7a3f7773e5d34c4c866edd9e'
+  /upload/source/plugin/mobile/template:
+    newFile: !uuid 'c1a54bfb7a497dce361a87bdda7f0c0cacdf49ae'
+    oldFile: !uuid '01f6b86648329546b3c867a9e22a29b188049193'
+  /upload/source/plugin/mobile/template/mobile:
+    newFile: !uuid '7e4ba9fbd33bff56a659187b318d920b6a584a19'
+    oldFile: !uuid 'fce8c0d4b2a780a26d4ef3221189e07d43ece28f'
+  /upload/source/plugin/mobile/template/mobile/register.htm:
+    newFile: !uuid '63587ad63c6d9a18957fcde39580db9b40a95e8d'
+    oldFile: !uuid '5094f663592119db80d27ce28c610fea6b61519a'
+  /upload/source/plugin/mobile/template/register.htm:
+    newFile: !uuid '95bf465f576b7bbc41397ad4aa96c09c0e30668e'
+    oldFile: !uuid '5094f663592119db80d27ce28c610fea6b61519a'
+  /upload/source/plugin/qqconnect:
+    newFile: !uuid '1be3c190fcccd3e18618ded1dbd037bcf075e531'
+    oldFile: !uuid '142f41f5e8d937551ae694a4f60e1b99820c03ae'
+  /upload/source/plugin/qqconnect/connect:
+    newFile: !uuid '1e18420f31af14acf99ce0ae9bb2af79633dee34'
+    oldFile: !uuid '75f27c5a7f36f2df6e9dc76c3e9b7d2d850d6edf'
+  /upload/source/plugin/qqconnect/connect/connect_login.php:
+    newFile: !uuid 'dc7773b22dff3aee96612be3dacddef789a96b7e'
+    oldFile: !uuid '3dec30eef587ea7a515c4c267a58494a4d1eb291'
+  /upload/source/plugin/qqconnect/qqshow.inc.php:
+    newFile: null
+    oldFile: !uuid 'faf881cd4e5fa493856b2ec23f84aae9689a57e5'
+  /upload/source/plugin/qqconnect/template:
+    newFile: !uuid '656c405e67d84c6d81d276ac6855f0c4d8f1666f'
+    oldFile: !uuid 'b5d885da59e21664ce01a01903fa7c2e73d388bf'
+  /upload/source/plugin/qqconnect/template/module.htm:
+    newFile: !uuid '7db44a033549b8db59092dc9cb37c99196b0ff35'
+    oldFile: !uuid '5a4405d3834f64cd791492801d8980d8b4704743'
+  /upload/source/plugin/qqconnect/template/qqshow.htm:
+    newFile: null
+    oldFile: !uuid 'd942aa07f1ea16dafff5535e5b724b259a1f6a5c'
+  /upload/source/plugin/wechat:
+    newFile: !uuid '27593e7af199ed7227a3d976dc12839ac5c3317b'
+    oldFile: !uuid '5d4f54e2acbbf5dc4ace35552a7615e159a20645'
+  /upload/source/plugin/wechat/connect.inc.php:
+    newFile: !uuid 'f47b6f33401ae30f17d942c4c9cd23bbb1badf5a'
+    oldFile: !uuid 'b746f6f0ee4cd01ebcaa7fae5f3a49f088f2dc76'
+gitCommitId: !uuid 'a20435cc7638e701f337ea500bfd97e03be87b7e'
 renames: {
   }
-revisionId: 186
+revisionId: 187
