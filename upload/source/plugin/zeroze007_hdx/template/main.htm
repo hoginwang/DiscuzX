@@ -1,0 +1,55 @@
+{subtemplate common/header}
+
+{template zeroze007_hdx:header}
+
+<div class="yulegame-plugin"  style="width: {$_plugin_width};margin: 0 auto;">
+    <div class="ct2 wp cl">
+        <div class="mn hdx">
+            {if $_G['gp_op'] == 'rob'}
+            {template zeroze007_hdx:rob}
+            <script type='text/javascript' src='source/plugin/zeroze007_hdx/js/rob.js'></script>	
+            {elseif $_G['gp_op'] == 'jail'}
+            {template zeroze007_hdx:jail}
+            <script type='text/javascript' src='source/plugin/zeroze007_hdx/js/jail.js'></script>
+            {elseif $_G['gp_op'] == 'yule'}
+            {template zeroze007_hdx:yule}
+            <script type='text/javascript' src='source/plugin/zeroze007_hdx/js/yule.js'></script>
+            {elseif $_G['gp_op'] == 'shop'}
+            {template zeroze007_hdx:shop}
+            <script type='text/javascript' src='source/plugin/zeroze007_hdx/js/shop.js'></script>
+            {elseif $_G['gp_op'] == 'guard'}
+            {if $_GET['subop'] == 'join'}
+            {template zeroze007_hdx:join_guard}
+            {else}
+            {template zeroze007_hdx:guard}
+            {/if}
+            <script type='text/javascript' src='source/plugin/zeroze007_hdx/js/guard.js'></script>
+
+            {elseif $_G['gp_op'] == 'mybag'}
+            {template zeroze007_hdx:mybag}
+            <script type='text/javascript' src='source/plugin/zeroze007_hdx/js/mybag.js'></script>                        
+            {elseif $_G['gp_op'] == 'rank'}
+            {template zeroze007_hdx:rank}
+            {elseif $_G['gp_op'] == 'msg'}
+            {template zeroze007_hdx:msg}
+            <script type='text/javascript' src='source/plugin/zeroze007_hdx/js/msg.js'></script>
+            {elseif $_G['gp_op'] == 'setting'}
+            {template zeroze007_hdx:setting}
+            <script type='text/javascript' src='source/plugin/zeroze007_hdx/js/setting.js'></script>
+            {elseif $_G['gp_op'] == 'quit'}
+            {template zeroze007_hdx:quit}
+            <script type='text/javascript' src='source/plugin/zeroze007_hdx/js/quit.js'></script>
+            {elseif $_G['gp_op'] == 'away'}
+            {template zeroze007_hdx:away}
+            <script type='text/javascript' src='source/plugin/zeroze007_hdx/js/away.js'></script>	
+            {else}
+            {template zeroze007_hdx:index}
+            {/if}
+        </div>
+        <div class="sd hdx-sd">
+            {template zeroze007_hdx:sidebar}
+        </div>
+    </div>
+</div>
+
+{subtemplate common/footer}

@@ -1,0 +1,178 @@
+<div class="tb cl">
+    <ul>
+        <li {if $subop == 'level_rank'}class="a"{/if}>
+            <a href="plugin.php?id=zeroze007_hdx&op=rank">{lang zeroze007_hdx:level_rank}</a>
+        </li>
+        <li {if $subop == 'money_rank'}class="a"{/if}>
+            <a href="plugin.php?id=zeroze007_hdx&op=rank&subop=money_rank">{lang zeroze007_hdx:money_rank}</a>
+        </li>
+        <li {if $subop == 'rob_rank'}class="a"{/if}>
+            <a href="plugin.php?id=zeroze007_hdx&op=rank&subop=rob_rank">{lang zeroze007_hdx:mad_rank}</a>
+        </li>
+        <li {if $subop == 'bad_luck_rank'}class="a"{/if}>
+            <a href="plugin.php?id=zeroze007_hdx&op=rank&subop=bad_luck_rank">{lang zeroze007_hdx:bad_luck_rank}</a>
+        </li>        
+    </ul>
+</div>
+
+<div class="response-msg"></div>
+
+<div class=rank>
+
+    <h1 class="rank">{$rankTitle}</h1>
+    <table class="table" width="100%">
+        <colgroup>
+            <col class="a-center" width="50">
+            <col>
+            <col width="80">
+            <col width="80">
+            <col width="80">
+            <col width="80">
+            <col width="80">
+            <col width="80">
+            <col width="90">               
+        </colgroup>
+
+        {if $subop == 'level_rank'}
+        <thead>
+            <tr class="header bmn">
+                <th>{lang zeroze007_hdx:rank}</th>	
+                <th>{lang zeroze007_hdx:player}</th>
+                <th><b>{lang zeroze007_hdx:level}</b></th>
+                <th>{lang zeroze007_hdx:player_title}</th>
+                <th>{$_moneyTitle}</th>
+                <th>{lang zeroze007_hdx:rob_total_times}</th>
+                <th>{lang zeroze007_hdx:rob_total_amount}</th>
+                <th>{lang zeroze007_hdx:robbed_times}</th>
+                <th>{lang zeroze007_hdx:robbed_total_amount}</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            {loop $players $p}
+            <tr>
+                <td>{$p['rank']}</td>	
+                <td><a id="hdx_rob_user" title="{$_hdxLang['rob']}Ta"  onclick="showDialog('{lang zeroze007_hdx:rob_ta_confirm}', 'confirm', '','showWindow(this.id, \'plugin.php?id=zeroze007_hdx&op=ajax&subop=rob&pickType=2&memberUid={$p[uid]}&showmessage=1&redirect=1&robsubmit=yes&formhash={FORMHASH}&from_op=rank\', \'get\', 0);',0);" href="javascript:void(0)">{$p['username']}</a></td>
+
+                <td><b>{$p['level']}</b></td>
+                <td>$p['title']</td>
+                <td>$p['player_money']</td>
+                <td>$p['rob_times']</td>
+                <td>$p['rob_money_amount']</td>
+                <td>$p['robbed_times']</td>
+                <td>$p['robbed_money_amount']</td>
+            </tr>
+            {/loop}  
+
+
+        </tbody>			
+        {elseif $subop == 'money_rank'}
+        <thead>
+            <tr class="header bmn">
+                <th>{lang zeroze007_hdx:rank}</th>	
+                <th>{lang zeroze007_hdx:player}</th>
+                <th><b>{$_moneyTitle}</b></th>
+                <th>{lang zeroze007_hdx:level}</th>
+                <th>{lang zeroze007_hdx:player_title}</th>
+                <th>{lang zeroze007_hdx:rob_total_times}</th>
+                <th>{lang zeroze007_hdx:rob_total_amount}</th>
+                <th>{lang zeroze007_hdx:robbed_times}</th>
+                <th>{lang zeroze007_hdx:robbed_total_amount}</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            {loop $players $p}
+            <tr>
+                <td>{$p['rank']}</td>	
+                <td><a id="hdx_rob_user" title="{$_hdxLang['rob']}Ta"  onclick="showDialog('{lang zeroze007_hdx:rob_ta_confirm}', 'confirm', '','showWindow(this.id, \'plugin.php?id=zeroze007_hdx&op=ajax&subop=rob&pickType=2&memberUid={$p[uid]}&showmessage=1&redirect=1&robsubmit=yes&formhash={FORMHASH}&from_op=rank\', \'get\', 0);',0);" href="javascript:void(0)">{$p['username']}</a></td>
+                <td><b>{$p['player_money']}</b></td>
+                <td>$p['level']</td>
+                <td>$p['title']</td>
+                <td>$p['rob_times']</td>
+                <td>$p['rob_money_amount']</td>
+                <td>$p['robbed_times']</td>
+                <td>$p['robbed_money_amount']</td>
+            </tr>
+            {/loop}  
+
+
+        </tbody>
+        {elseif $subop == 'rob_rank'}
+        <thead>
+            <tr class="header bmn">
+                <th>{lang zeroze007_hdx:rank}</th>	
+                <th>{lang zeroze007_hdx:player}</th>
+                <th><b>{lang zeroze007_hdx:rob_total_times}</b></th> 
+                <th>{lang zeroze007_hdx:level}</th>
+                <th>{lang zeroze007_hdx:player_title}</th>
+                <th>{$_moneyTitle}</th>
+                <th>{lang zeroze007_hdx:rob_total_amount}</th>
+                <th>{lang zeroze007_hdx:robbed_times}</th>
+                <th>{lang zeroze007_hdx:robbed_total_amount}</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            {loop $players $p}
+            <tr>
+                <td>{$p['rank']}</td>	
+                <td><a id="hdx_rob_user" title="{$_hdxLang['rob']}Ta"  onclick="showDialog('{lang zeroze007_hdx:rob_ta_confirm}', 'confirm', '','showWindow(this.id, \'plugin.php?id=zeroze007_hdx&op=ajax&subop=rob&pickType=2&memberUid={$p[uid]}&showmessage=1&redirect=1&robsubmit=yes&formhash={FORMHASH}&from_op=rank\', \'get\', 0);',0);" href="javascript:void(0)">{$p['username']}</a></td>
+                <td><b>$p['rob_times']</b></td>
+                <td>$p['level']</td>
+                <td>$p['title']</td>
+                <td>{$p['player_money']}</td>
+                <td>$p['rob_money_amount']</td>
+                <td>$p['robbed_times']</td>
+                <td>$p['robbed_money_amount']</td>
+            </tr>
+            {/loop}  
+
+
+        </tbody>
+        
+        {elseif $subop == 'bad_luck_rank'}
+        <thead>
+            <tr class="header bmn">
+                <th>{lang zeroze007_hdx:rank}</th>	
+                <th>{lang zeroze007_hdx:player}</th>
+                <th><b>{lang zeroze007_hdx:robbed_times}</b></th> 
+                <th>{lang zeroze007_hdx:level}</th>
+                <th>{lang zeroze007_hdx:player_title}</th>
+                <th>{$_moneyTitle}</th>
+                <th>{lang zeroze007_hdx:rob_total_amount}</th>
+                <th>{lang zeroze007_hdx:rob_total_times}</th>
+                <th>{lang zeroze007_hdx:robbed_total_amount}</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            {loop $players $p}
+            <tr>
+                <td>{$p['rank']}</td>	
+                <td><a id="hdx_rob_user" title="{$_hdxLang['rob']}Ta"  onclick="showDialog('{lang zeroze007_hdx:rob_ta_confirm}', 'confirm', '','showWindow(this.id, \'plugin.php?id=zeroze007_hdx&op=ajax&subop=rob&pickType=2&memberUid={$p[uid]}&showmessage=1&redirect=1&robsubmit=yes&formhash={FORMHASH}&from_op=rank\', \'get\', 0);',0);" href="javascript:void(0)">{$p['username']}</a></td>
+                <td><b>$p['robbed_times']</b></td>
+                <td>$p['level']</td>
+                <td>$p['title']</td>
+                <td>{$p['player_money']}</td>
+                <td>$p['rob_money_amount']</td>
+                <td>$p['rob_times']</td>
+                <td>$p['robbed_money_amount']</td>
+            </tr>
+            {/loop}  
+
+
+        </tbody>
+        {/if}
+
+
+    </table>
+
+    {$multipage}
+
+</div>
+
+
+
+
+

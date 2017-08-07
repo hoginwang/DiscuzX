@@ -1,0 +1,41 @@
+<div class="tb cl">
+	<ul>
+		<li class="a">
+			<a href="javascript:void(0)">{lang zeroze007_hdx:quit_hd}</a>
+		</li>
+	</ul>
+</div>
+
+<div class="response-msg"></div>
+
+<div class=box>
+	<form id=quit-form method=post action="plugin.php?id=zeroze007_hdx&op=ajax&subop=quit">
+		<input type="hidden" name="formhash" value="{FORMHASH}" />
+        <h3>{lang zeroze007_hdx:quit_hd_confirm}</h3>
+        <ul class="quit">
+            <li class=submit><input type=submit value="{lang zeroze007_hdx:quit_hd_yes}" class="submit rob-btn" name="quitsubmit"></li>
+        </ul>
+	</form>
+</div>
+
+
+<div class=box>
+    <h3>{lang zeroze007_hdx:quit_hd_note}</h3>
+	<ul class=notes>
+		<li class=red>{lang zeroze007_hdx:quit_hd_note_1}</li>
+
+		{if $_hdx['quit_rate'] > 0}
+		<li>{lang zeroze007_hdx:quit_hd_note_2}</li>
+		{/if}
+		{if $_hdx['quit_rob_times'] > 0}
+		<li>{lang zeroze007_hdx:quit_hd_note_3}</li>
+		{/if}
+		{if $_hdx['quit_join_times'] > 0}
+		<li>{lang zeroze007_hdx:quit_hd_note_4}</li>
+		{/if}	    		
+
+	</ul>
+</div>
+
+
+

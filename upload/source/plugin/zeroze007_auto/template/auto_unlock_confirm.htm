@@ -1,0 +1,64 @@
+{subtemplate common/header}
+<div id="ct" class="wp cl w">
+    <div class="nfl">
+        <div class="f_c altw">
+            <div id="messagetext" class="alert_info">
+                <h1>自助解封平台-确认</h1>
+                <p class="alert_btnleft">
+                </p>
+                <form method="post" action="plugin.php?id=zeroze007_auto:index&op=account&subop=unlock">
+                    <input name="email" type="hidden" value="{$email}">
+                    <table>
+                        <tr>
+                            <td align="right" valign="top">解封规则：</td>
+                            <td>扣除一定额度的悦币用以抵消自己的不活跃时长
+                                <br>
+                                悦币按照(X-3)*10来算，X为不活跃的月数，不足月份往上取整
+                                <br><br/>
+                                温馨提示：<br/>
+                                <b>
+                                    1.仅适用于违反总版规第七大项第1条被系统自动锁定<br/>
+                                    2.解封后请在当天凌晨前回帖以解除账号违规<br/>
+                                    3.最低消耗10悦币，上不封顶<br/>
+                                    4.最终解释权归悦影天下所有<br/><br/>
+                                </b>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td align="right">账号邮箱：</td>
+                            <td>{$email}</td>
+                        </tr>
+                        <tr>
+                            <td align="right">违规时间：</td>
+                            <td>{eval echo date("Y年m月d日",$user['freezetime']);}</td>
+                        </tr>
+                        <tr>
+                            <td align="right">账号余额：</td>
+                            <td>{$user['extcredits2']}悦币</td>
+                        </tr>
+                        <tr>
+                            <td align="right">解封消耗：</td>
+                            <td><font color="green">{$needMoney}悦币</font></td>
+                        </tr>
+                        <tr>
+                            <td align="right">解封余额：</td>
+                            <td><font color="red">{eval echo $user['extcredits2'] - $needMoney}悦币</font></td>
+                        </tr>
+                        <tr>
+                            <td colspan="2">
+                                <br>
+                                <!--{if ($needMoney > $user['extcredits2'])}-->
+                                <font color="red">悦币不足，无法解封</font>
+                                <!--{else}-->
+                                <input type="submit" value="确认解封">
+                                <!--{/if}-->
+                            </td>
+                        </tr>
+                    </table>
+                </form>
+                <p></p>
+            </div>
+        </div>
+    </div>
+</div>
+{subtemplate common/footer}

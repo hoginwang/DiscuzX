@@ -1,0 +1,330 @@
+ul.menu li {
+    border-bottom: 1px dashed #CDCDCD;
+}
+
+ul.menu li label {
+    display: block;
+    height: 20px;
+    padding: 7px 0 7px 2px;
+    cursor: default;
+}
+
+div.box-content {
+    line-height: 20px;
+}
+
+/** 公共 **/
+div.response-msg {
+	display: none;
+	
+	border: solid 1px #ccc;
+	margin-top: 20px;
+	padding: 9px;
+	padding-left: 35px;
+}
+
+div.error-msg {
+    background: url("../images/common/error.png") no-repeat scroll 4px 6px transparent;
+	color: red;
+	
+}
+
+
+div.hdx-sd,div.hdx, div.hdx input, div.hdx button, div.hdx select, div.hdx textarea  {
+	font: 12px/1.5 微软雅黑,Tahoma,'Microsoft Yahei','Simsun';
+}
+
+div.hdx h3 {
+	margin-top:20px;
+}
+
+div.hdx .pg {
+    clear: left;
+    margin-top: 20px;
+}
+
+div.player-data {
+	line-height:25px;
+}
+
+
+div.hdx-img {
+	float: left;
+	width: 44%
+}
+
+
+/* log */
+div.hdx-log {
+	float: right;
+	width: 54%;
+	margin-right: 10px;
+}
+
+div.hdx-log .tb {
+	margin-top: 0px;
+}
+
+div.hdx ul.logs {
+	margin-top: 10px;
+}
+
+div.hdx ul.logs li {
+ 	height: 18px;
+    margin-bottom: 6px;
+    overflow: hidden;
+	width: 100%;
+}
+
+/* box */
+div.box h3 {
+	margin-bottom: 10px;
+}
+
+
+
+/* top 10 */
+div.top10 {
+	text-align: center;
+	width: 100%;
+	font-size: 20px;
+	margin-bottom: 20px;
+	margin-top: 30px;
+	font-weight: bold;
+	float: left;
+}
+
+
+/* notes */
+ul.notes {
+	margin-top: 10px;
+}
+ul.notes li {
+	margin-bottom: 8px;
+
+}
+
+
+
+/* 打劫部分 */
+div.rob {
+	clear:both;	
+}
+
+div.rob h3 {
+	margin-bottom: 20px;
+}
+
+div.rob li.or {
+	margin-top: 10px;
+	margin-bottom: 10px;
+}
+
+div.rob li.submit {
+	margin-top: 15px;
+}
+
+div.rob ul.suggest-member-list li {
+	float: left;
+    height: 85px;
+    margin-bottom: 10px;
+    margin-right: 10px;
+    overflow: hidden;
+    padding: 10px 5px 5px;
+    text-align: center;
+    width: 60px;
+}
+
+div.rob ul.suggest-member-list li img {
+	padding: 3px;
+    border: 1px solid white;
+	
+}
+
+div.rob ul.suggest-member-list li img.selected {
+    border: 1px solid red;
+	cursor: pointer;
+}
+
+
+/* 监狱 */
+div.jail {
+	clear:both;	
+}
+
+div.jail ul.crims {
+	margin-top: 20px;
+}
+
+div.jail ul.crims li {
+    border: 1px solid #CCCCCC;
+    float: left;
+    height: 100px;
+    line-height: 30px;
+    margin-bottom: 20px;
+    margin-right: 25px;
+    overflow: hidden;
+    padding: 22px 10px 15px;
+    text-align: center;
+    width: 95px;
+}
+
+div.jail ul.escape li {
+	margin-top: 20px;
+}
+
+
+/****************/
+/* ITEM 公用 */
+div.item-list{
+    clear:both;
+}
+
+div.item-list ul.items {
+	margin-top: 20px;
+        clear: both;
+}
+
+div.item-list ul.items li {
+    float: left;
+    margin-bottom: 10px;
+    padding: 15px 10px 10px;
+    width: 47%;
+}
+
+div.item-list ul.items li div {
+   -moz-border-radius: 6px 6px 6px 6px;
+    border: 1px solid #CCCCCC;
+    float: left;
+    padding: 10px;
+	margin-right: 15px;
+}
+
+div.item-list ul.items li.receiver-detail {
+	width: 60%;
+	text-align: left;
+	line-height: 35px;
+}
+
+#guard-form div.image {
+	width: 120px;
+	height: 120px;
+}
+
+ul.items li p {
+	margin-bottom: 2px;
+}
+ul.items li p.name {
+	font-weight: bold;
+}
+
+ul.items li p.description {
+    color: #999999;
+    height: 40px;
+    overflow: hidden;
+}
+
+ul.items li span.price {
+	color: #F26C4F;
+	font-weight: bold
+}
+
+
+/* 排名 */
+div.rank {
+	margin-top: 10px;
+	clear: both;
+}
+
+div.rank ul.player-item li {
+	/*height: 72px;*/
+}
+
+
+table.rank {
+    margin-top: 10px;
+}
+table.rank h2 {
+    font-size: 16px;
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+/* 消息 */
+div.msg {
+	margin-top: 10px;
+}
+
+div.msg ul.msg-item li {
+	/*height: 72px;*/
+}
+
+/* 个人设置 */
+div.box ul.setting {
+    border-bottom: 1px solid #EFEFEF;
+    float: left;
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+    width: 100%;
+}
+div.box ul.setting li {
+	float: left;
+}
+
+div.box ul.setting li.option {
+	width: 40%;
+}
+
+div.box ul.setting li.tips {
+	width: 55%;
+	color: #999
+}
+
+h1.rank {
+    font-size: 20px;
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+
+div.disp-type {
+    overflow: hidden;
+    margin-top: 20px;
+    padding-bottom: 5px;
+    border-bottom: solid 1px #efefef;
+}
+div.disp-type h3 {
+    float: left;
+    margin-top: 0px;
+    font-size: 16px;
+}
+
+div.disp-type span {
+    float: right;
+    margin-top: 5px;
+}
+
+ul.join-guard {
+    float: right;
+}
+
+ul.join-guard button {
+    cursor: pointer
+}
+
+div.guard ul {
+    margin-top: 20px;
+    
+}
+div.guard ul li{
+    margin-bottom: 10px;
+}
+
+div.guard ul li span.label {
+    float: left;
+    width: 70px;
+}
+
+div.already-join-guard {
+    margin-top: 20px;
+}

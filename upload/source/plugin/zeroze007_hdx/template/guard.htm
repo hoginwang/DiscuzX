@@ -1,0 +1,187 @@
+<div class="tb cl">
+    <ul>
+        <li class="a">
+            <a href="javascript:void(0)">{lang zeroze007_hdx:guard}</a>
+        </li>  
+        <li>
+            <a  href="plugin.php?id=zeroze007_hdx&op=yule">{lang zeroze007_hdx:yule}</a>
+        </li>  
+        <li >
+            <a href="plugin.php?id=zeroze007_hdx&op=shop">{lang zeroze007_hdx:shop}</a>
+        </li> 
+        <li>
+            <a href="plugin.php?id=zeroze007_hdx&op=mybag">{lang zeroze007_hdx:mybag}</a>
+        </li>
+
+
+    </ul>
+    {if !$guard['uid']}
+    <ul class="join-guard">
+        <li><button onclick="location.href='plugin.php?id=zeroze007_hdx&op=guard&subop=join&guardsubmit=yes&formhash={FORMHASH}'">{lang zeroze007_hdx:i_want_to_join_guard}</button></li></ul>
+    {/if}
+</div>
+
+<div class="response-msg"></div>
+{if $guard['uid'] > 0}
+<div class=item-list>	
+    <div class="already-join-guard">
+        {if $guard['available'] == 1}
+        {lang zeroze007_hdx:waiting_for_hire_note}
+
+        <form id=guard-form method=post action="plugin.php?id=zeroze007_hdx&op=ajax&subop=guard">
+            <input type="hidden" name="formhash" value="{FORMHASH}" />
+            <input type="hidden" name="guardsubmit" value="yes" />
+            <input type="hidden" name="do_quit" value="yes" />
+            <ul class=items>
+                <li>
+                    <div class=image><!--{avatar($guard['uid'],large)}-->
+                    </div>
+                    <p class=name>{$guard['username']}</p>
+                    <p class=description>{$guard['description']}</p>
+                    <p class=price>{lang zeroze007_hdx:salary} <span class=price>{$guard[price]}</span>
+                        {$_moneyTitle}/{lang zeroze007_hdx:hour}</p>
+                    <p class=sta>{lang zeroze007_hdx:reduce} {$guard[rate]} {lang zeroze007_hdx:success_rate}</p>
+                    <p class=sta>{lang zeroze007_hdx:protect} {$guard[protect_time]} {lang zeroze007_hdx:hour}</p>
+                    <p class=action>[<a href="javascript:void(0)" class=quit-link>{lang zeroze007_hdx:guard_quit}</a>]</p>
+                </li>
+
+
+            </ul>
+        </form>
+        {else}
+        {lang zeroze007_hdx:has_been_hired_note}
+
+
+
+        {/if}
+
+
+    </div>
+</div>
+{else}
+
+
+{if $playerGuard['uid'] > 0}
+
+ <div class="disp-type"><h3>{lang zeroze007_hdx:my_guard}</h3></div>
+
+ <div class=item-list>
+ 
+         <form id=guard-hired-form method=post action="plugin.php?id=zeroze007_hdx&op=ajax&subop=guard">
+            <input type="hidden" name="formhash" value="{FORMHASH}" />
+            <input type="hidden" name="guardsubmit" value="yes" />
+            <input type="hidden" name="do_fire" value="yes" />
+            <ul class=items>
+                <li style="width: 80%">
+                    <div class=image><!--{avatar($guard['uid'],large)}-->
+                    </div>
+                    <p class=name>{$playerGuard['guard_name']}</p>
+                    <p class=description>{$playerGuard['description']}</p>
+                    <p class=price>{lang zeroze007_hdx:salary} <span class=price>{$playerGuard[price]}</span>
+                        {$_moneyTitle}/{lang zeroze007_hdx:hour}</p>
+                    <p class=sta>{lang zeroze007_hdx:reduce} {$playerGuard[rate]} {lang zeroze007_hdx:success_rate}</p>
+                    <p class=sta>{lang zeroze007_hdx:protect} {$playerGuard[protect_time]} {lang zeroze007_hdx:hour}, {$playerGuard[protect_time_to]}</p>
+                    <p class=action>[<a href="javascript:void(0)" class=fire-link>{lang zeroze007_hdx:fire}</a>]</p>
+                </li>
+
+
+            </ul>
+        </form>
+ </div>
+ 
+{/if}
+
+
+<div class=item-list>	
+
+    <h3>{lang zeroze007_hdx:note}</h3>
+    <ul class=notes>
+        {lang zeroze007_hdx:guard_notes}
+    </ul>
+
+    <div class="disp-type"><h3>{lang zeroze007_hdx:available_guard_to_employ}</h3><span><a href="plugin.php?id=zeroze007_hdx&op=guard&disp_type=1">{lang zeroze007_hdx:text_list_type}</a> | <a href="plugin.php?id=zeroze007_hdx&op=guard&disp_type=2">{lang zeroze007_hdx:img_list_type}</a></span></div>
+
+    {if $guards}
+    <form id=guard-form method=post action="plugin.php?id=zeroze007_hdx&op=ajax&subop=guard">
+        <input type="hidden" name="formhash" value="{FORMHASH}" />
+        <input type="hidden" name="guardsubmit" value="yes" />
+        <input id=guard-uid type=hidden name=guard_uid value="">
+        <input  type=hidden name=do_hire value="yes">
+        
+        {if $dispType == 1}
+        
+        
+        
+        <table class="table" width="100%">
+        <colgroup>
+            <col />
+            <col width="300">
+            <col width="70">
+            <col width="80">
+            <col width="80">
+            <col width="50">
+        </colgroup>
+        <thead>
+            <tr class="header bmn">
+                <th>{lang zeroze007_hdx:guard_name}</th>	
+                <th>{lang zeroze007_hdx:guard_description}</th>	
+                <th>{lang zeroze007_hdx:guard_protect_time}</th>
+                <th>{lang zeroze007_hdx:guard_rate}</th>
+                <th>{lang zeroze007_hdx:guard_price}</th>
+                <th></th>
+                
+
+            </tr>
+        </thead>
+
+        <tbody>
+            {loop $guards $g} 
+            <tr>
+                <td>{$g['guard_name']}</td>
+                <td>{$g['description']}</td>
+                <td>{$g['protect_time']}{lang zeroze007_hdx:hour}</td>
+                <td>{$g['rate']}</td>
+                <td>{$g['price']}$_moneyTitle/{lang zeroze007_hdx:hour}</td>
+                <td><a href="javascript:void(0)" class=hire-link uid="{$g['uid']}">{lang zeroze007_hdx:employ}</a></td>
+ 
+            </tr>
+            {/loop}  
+
+
+        </tbody>
+        </table>
+          {else}  
+        
+        <ul class=items>
+            {loop $guards $g}        	
+            <li>
+                <div class=image><!--{avatar($g['uid'],large)}-->
+                </div>
+                <p class=name>{$g['guard_name']}</p>
+                <p class=description>{$g['description']}</p>
+                <p class=price>{lang zeroze007_hdx:fee} <span class=price>{$g[price]}</span>
+                    {$_moneyTitle}/{lang zeroze007_hdx:hour}</p>
+                <p class=sta>{lang zeroze007_hdx:reduce} {$g[rate]} {lang zeroze007_hdx:success_rate}</p>
+                <p class=sta>{lang zeroze007_hdx:protect} {$g[protect_time]} {lang zeroze007_hdx:hour}</p>
+                <p class=action>[<a href="javascript:void(0)" class=hire-link
+                                    uid="{$g['uid']}">{lang zeroze007_hdx:employ}</a>]</p>
+            </li>
+            {/loop}            
+
+
+        </ul>
+{/if}
+        {$multipage}
+    </form>
+    {else}
+    <h3>{lang zeroze007_hdx:no_guard_list}</h3>
+    {/if}
+
+
+</div>
+{/if}
+
+
+
+
+

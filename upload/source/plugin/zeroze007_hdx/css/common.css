@@ -1,0 +1,52 @@
+
+
+.op {
+	float: left;
+	margin-top: 12px;
+}
+
+
+
+
+
+/* 表单错误提示 */
+label.error {
+	color: red;
+	margin-left: 5px;
+	background: none;
+
+}
+
+select.error, input.error, textarea.error {
+	background: #FFEBE8;
+	border: dashed 1px #D63301;
+}
+
+.clear {
+	clear: both;
+}
+
+
+
+/* 颜色 */
+.red {
+	color: red
+}
+
+/* table */
+div.yulegame-plugin table tr.header {
+    background: none repeat scroll 0 0 #F3F3F3;
+}
+
+div.yulegame-plugin table.table {
+	border: solid 1px #ccc;
+}
+
+div.yulegame-plugin div.msg table.table {
+    width: 100%;
+}
+
+div.yulegame-plugin table.table th,div.yulegame-plugin table.table td {
+	border-bottom: solid 1px #ccc;
+	padding: 7px;
+}

@@ -1,0 +1,111 @@
+    <div class="tb cl">
+        <ul>
+                        <li class="a">
+                <a href="javascript:void(0)">{lang zeroze007_hdx:shop}</a>
+            </li> 
+
+
+            <li>
+                <a href="plugin.php?id=zeroze007_hdx&op=yule">{lang zeroze007_hdx:yule}</a>
+            </li>    
+            <li>
+                <a href="plugin.php?id=zeroze007_hdx&op=guard">{lang zeroze007_hdx:guard}</a>
+            </li>    
+            
+            <li>
+                <a href="plugin.php?id=zeroze007_hdx&op=mybag">{lang zeroze007_hdx:mybag}</a>
+            </li>     
+        </ul>
+    </div>
+	
+	<div class="response-msg"></div>
+   <div class=item-list>	
+   		<h3>{lang zeroze007_hdx:note}</h3>
+    	<ul class=notes>
+    		{lang zeroze007_hdx:shop_notes}
+    	</ul>
+
+{if $_GET['subop'] == 'gift'}
+    <form id=gift-form method=post action="plugin.php?id=zeroze007_hdx&op=ajax&subop=shop">
+         <input type="hidden" name="item_action" value="shop_gift" />
+          <input type="hidden" name="formhash" value="{FORMHASH}" />
+          <input type="hidden" name="formsubmit" value="yes" />
+    <input id=item-id type=hidden name=itemId value="{$_GET['item_id']}">
+        <h3>{lang zeroze007_hdx:type_receiver_info}</h3>
+        <ul class=items>
+			<li>
+				<div><img
+					src="{if $item[img_file]}{$item['img_file']}{else}source/plugin/zeroze007_hdx/images/yule_item.jpg{/if}"
+					width=100 height=100 alt="{$item['description']}"
+					title="{$item['description']}">
+				</div>
+				<p class=name>{$item['name']}</p>
+				<p class=description>{$item['description']}</p>
+				<p class=price>{lang zeroze007_hdx:price} <span class=price>{$item[price]}</span>
+				{$_moneyTitle}</p>
+                                {if $item['type'] == 'food'}
+                                <p class=sta>{$_staTitle}{$item[rate]}</p>
+                                {else}
+				<p class=sta>{lang zeroze007_hdx:success_rate}{$item[rate]}</p>
+                                <p class=sta>{lang zeroze007_hdx:durability}: {$item[durability]}; {lang zeroze007_hdx:loss_rate}: {$item[d_loss_rate]}</p>
+                                {/if}
+				
+			</li>
+			<li class=receiver-detail>
+                <input type=radio name=pickType value=1>{lang zeroze007_hdx:member_username}£º<input type=text name=memberName>
+                <p>{lang zeroze007_hdx:or}</p>
+                <input type=radio name=pickType value=2>{lang zeroze007_hdx:member_uid}£º<input type=text name=memberUid>
+				<input type=submit value="{lang zeroze007_hdx:give}" class="submit gift-btn" name="yulesubmit">
+            </li>                       
+            		
+        </ul>
+    </form>
+
+{else}	
+{if $items}
+    <form id=item-form method=post action="plugin.php?id=zeroze007_hdx&op=ajax&subop=shop">
+        <input type="hidden" name="formhash" value="{FORMHASH}" />
+        <input type="hidden" name="formsubmit" value="yes" />
+    <input id=item-id type=hidden name=itemId value="">
+        <h3>{lang zeroze007_hdx:current_item_for_sale}</h3>
+        <ul class=items>
+{loop $items $item}        	
+			<li>
+				<div class=image>{if $item[img_file]}<img
+					src="{$item['img_file']}"
+					width=100 height=100 alt="{$item['description']}"
+					title="{$item['description']}">{/if}
+				</div>
+				<p class=name>{$item['name']}</p>
+				<p class=description>{$item['description']}</p>
+				<p class=price>{lang zeroze007_hdx:price} <span class=price>{$item[price]}</span>
+				{$_moneyTitle}</p>
+                                {if $item['type'] == 'food'}
+                                <p class=sta>{$_staTitle}{$item[rate]}</p>
+                                {else}
+				<p class=sta>{lang zeroze007_hdx:success_rate}{$item[rate]}</p>
+                                <p class=sta>{lang zeroze007_hdx:durability}: {$item[durability]}; {lang zeroze007_hdx:loss_rate}: {$item[d_loss_rate]}</p>
+                                {/if}
+				<p class=action>[<a href="javascript:void(0)" class=buy-link
+					item="{$item['id']}">{lang zeroze007_hdx:buy}</a>] [<a
+					href="{$url}&subop=gift&item_id={$item['id']}">{lang zeroze007_hdx:give}</a>]</p>
+			</li>
+{/loop}            
+                       
+            		
+        </ul>
+        
+        {$multipage}
+    </form>
+{else}
+	<h3>{lang zeroze007_hdx:no_item_for_sale}</h3>
+{/if}    
+    {/if}
+
+    </div>
+    
+    
+    
+
+
+

@@ -1,0 +1,28 @@
+    <div class="tb cl">
+        <ul>
+            <li class="a">
+                <a href="javascript:void(0)">{lang zeroze007_hdx:personal_setting}</a>
+            </li>
+        </ul>
+    </div>
+	
+	<div class="response-msg"></div>
+	
+    <div class=box>
+    	<form id=setting-form method=post action="plugin.php?id=zeroze007_hdx&op=setting">
+    	<input type="hidden" name="formhash" value="{FORMHASH}">
+        <h3>{lang zeroze007_hdx:personal_setting_1}</h3>
+        <ul class="setting">
+            <li class=option><input type=radio value="1" class="" name="setting[robbed_alert]" {if $setting['robbed_alert'] == '1'}checked=true{/if}>{lang zeroze007_hdx:yes} &nbsp; <input type=radio value="0" class="" name="setting[robbed_alert]" {if $setting['robbed_alert'] == '0' || empty($setting['robbed_alert'])}checked=true{/if}>{lang zeroze007_hdx:no}</li>
+            <li class=tips>{lang zeroze007_hdx:personal_setting_1_desc}</li>
+        </ul>
+
+        <input type=submit value="{lang zeroze007_hdx:submit}" class="submit" name=settingsubmit>        
+		</form>
+    </div>
+    
+    
+
+
+
+

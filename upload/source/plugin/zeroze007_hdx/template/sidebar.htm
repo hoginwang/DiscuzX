@@ -1,0 +1,100 @@
+{if $_player}
+
+<div class="bm">
+    <div class="bm_h">
+        <span class="o">
+
+        </span>
+        <h3>
+            <strong><a href="javascript:void(0)">{lang zeroze007_hdx:personal_info}</a></strong>
+
+        </h3>
+    </div>
+    {if $_player}
+    <div class="bm_c box-content" >
+
+        {lang zeroze007_hdx:player_title}: {$_title}<br>
+        {lang zeroze007_hdx:level}: {$_level} {lang zeroze007_hdx:lv}<br>
+        {lang zeroze007_hdx:exp}: {$_exp} ({$_next_level_required_exp})<br>
+        {$_moneyExt['title']}: {$_money}<br>
+        {$_swTitle}: {$_sw}<br>
+        {$_staTitle}: {$_sta}<br>
+        {lang zeroze007_hdx:weapon}: {$_weapon['name']} {if $_weapon['id']}({$_weapon['durability']}/{$_weapon['original_durability']}){/if}<br>
+        {lang zeroze007_hdx:armor}: {$_armor['name']} {if $_armor['id']}({$_armor['durability']}/{$_armor['original_durability']}){/if}<br>
+        {if $playerGuard['uid']> 0}{lang zeroze007_hdx:guard}: {$playerGuard['guard_name']} <span style="color:#999">{$playerGuard['protect_until']}</span>{/if}
+
+
+
+
+    </div>
+    {/if}
+</div>
+
+
+{/if}
+
+
+
+<div class="bm">
+    <div class="bm_h">
+        <span class="o">
+
+        </span>
+        <h3>
+            <strong><a href="javascript:void(0)">{lang zeroze007_hdx:panel}</a></strong>
+
+        </h3>
+    </div>
+    <div class="bm_c box-content" >
+
+        <ul class="menu">
+
+            {if $_player}
+            <li><label><strong class="xi1"><a href="plugin.php?id=zeroze007_hdx&op=rob">{$_hdxLang['rob']}</a></strong> &nbsp;{lang zeroze007_hdx:rob_desc}</label></li>
+            <li><label><strong class="xi1"><a href="plugin.php?id=zeroze007_hdx&op=jail">{lang zeroze007_hdx:prison}</a></strong> &nbsp;[{lang zeroze007_hdx:prisoner_num}: {$crimsCount}]</label></li>
+            <li><label><strong class="xi1"><a href="plugin.php?id=zeroze007_hdx&op=rank">{lang zeroze007_hdx:rank}</a></strong> &nbsp;[{lang zeroze007_hdx:hd_rank}]</label></li>
+            <li><label><strong class="xi1"><a href="plugin.php?id=zeroze007_hdx&op=msg">{lang zeroze007_hdx:message}</a></strong> &nbsp;[{$msgCount}{lang zeroze007_hdx:hd_message_num}]</label></li>
+            <li><label><strong class="xi1"><a href="plugin.php?id=zeroze007_hdx&op=yule">{lang zeroze007_hdx:yule}</a></strong> &nbsp;[{lang zeroze007_hdx:yule_desc}]</label></li>
+            <li><label><strong class="xi1"><a href="plugin.php?id=zeroze007_hdx&op=shop">{lang zeroze007_hdx:shop}</a></strong> &nbsp;[{lang zeroze007_hdx:shop_desc}]</label></li>
+            <li><label><strong class="xi1"><a href="plugin.php?id=zeroze007_hdx&op=guard">{lang zeroze007_hdx:guard}</a></strong> &nbsp;[{lang zeroze007_hdx:guard_desc}]</label></li>
+            <li><label><strong class="xi1"><a href="plugin.php?id=zeroze007_hdx&op=mybag">{lang zeroze007_hdx:mybag}</a></strong> &nbsp;[{lang zeroze007_hdx:mybag_desc}]</label></li>
+            <li><label><strong class="xi1"><a href="plugin.php?id=zeroze007_hdx&op=setting">{lang zeroze007_hdx:personal_setting}</a></strong> &nbsp;[{lang zeroze007_hdx:personal_setting}]</label></li>
+            {if $_hdx['quit_allow_quit']}
+            <li><label><strong class="xi1"><a href="plugin.php?id=zeroze007_hdx&op=quit">{lang zeroze007_hdx:quit_hd}</a></strong> &nbsp;[{lang zeroze007_hdx:quit_hd_desc}]</label></li>
+            {/if}
+            {else}
+            <li><label><strong class="xi1"><a href="plugin.php?id=zeroze007_hdx&op=join&joinsubmit=true&formhash={FORMHASH}">{lang zeroze007_hdx:join_hd}</a></strong> &nbsp;[{lang zeroze007_hdx:join_hd_desc}]</label></li>
+            {/if}
+            {if $_hdx['allow_away']}
+            <li><label><strong class="xi1"><a href="plugin.php?id=zeroze007_hdx&op=away&joinsubmit=true&formhash={FORMHASH}">{lang zeroze007_hdx:away_hd}</a></strong> &nbsp;[{lang zeroze007_hdx:away_hd_desc}]</label></li>
+            {/if}
+
+        </ul>
+
+    </div>
+</div>
+
+
+
+
+
+<div class="bm">
+    <div class="bm_h">
+        <span class="o">
+
+        </span>
+        <h3>
+            <strong><a href="javascript:void(0)">{lang zeroze007_hdx:copyright}</a></strong>
+
+        </h3>
+    </div>
+    <div class="bm_c box-content" >
+        {lang zeroze007_hdx:name}: <a href="#" target="_blank">{PLUGIN_NAME}</a><br>
+        {lang zeroze007_hdx:author}: <a href="#" target=_blank>JiangYou</a><br>
+        {lang zeroze007_hdx:version}: {PLUGIN_VER}<br>
+        {lang zeroze007_hdx:official_site}: <a href="#" target=_blank>{lang zeroze007_hdx:yulegame}</a>
+    </div>
+</div>
+
+
+

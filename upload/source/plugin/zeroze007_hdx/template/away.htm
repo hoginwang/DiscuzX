@@ -1,0 +1,41 @@
+<div class="tb cl">
+	<ul>
+		<li class="a">
+			<a href="javascript:void(0)">{lang zeroze007_hdx:away_hd}</a>
+		</li>
+	</ul>
+</div>
+
+<div class="response-msg"></div>
+
+<div class=box>
+	<form id=away-form method=post action="plugin.php?id=zeroze007_hdx&op=ajax&subop=away">
+		<input type="hidden" name="formhash" value="{FORMHASH}" />
+        <br>
+        {lang zeroze007_hdx:how_many_days_away}<br><br><input type="text" name="days">{lang zeroze007_hdx:day}
+        
+        <h3>{lang zeroze007_hdx:away_hd_confirm}</h3>
+        <ul class="away">
+            <li class=submit><input type=submit value="{lang zeroze007_hdx:away_hd_yes}" class="submit rob-btn" name="awaysubmit"></li>
+        </ul>
+	</form>
+</div>
+
+
+<div class=box>
+    <h3>{lang zeroze007_hdx:away_hd_note}</h3>
+	<ul class=notes>
+		<li class=red>{lang zeroze007_hdx:away_hd_note_1}</li>
+<li>{lang zeroze007_hdx:away_hd_note_2}</li>
+		{if $_hdx['away_fee'] > 0}
+		<li>{lang zeroze007_hdx:away_hd_note_3}</li>
+		{/if}
+		{if $_hdx['away_max_days'] > 0}
+		<li>{lang zeroze007_hdx:away_hd_note_4}</li>
+		{/if}
+
+	</ul>
+</div>
+
+
+

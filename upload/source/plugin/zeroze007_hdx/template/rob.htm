@@ -1,0 +1,68 @@
+<div class="tb cl">
+    <ul>
+        <li class="a">
+            <a href="javascript:void(0)">{lang zeroze007_hdx:rob_member}</a>
+        </li>
+    </ul>
+</div>
+
+<div class="response-msg"></div>
+
+<div class=rob>
+    <form id=rob-member-form method=post action="plugin.php?id=zeroze007_hdx&op=ajax&subop=rob&from_op=rob">
+        <input type=hidden name=action value="do_rob">
+        <input type=hidden name=robsubmit value="true">
+        <input type=hidden name=redirect value="1">
+        <input type="hidden" name="formhash" value="{FORMHASH}" />
+
+        <h3>{lang zeroze007_hdx:type_robbed_member_info}</h3>
+        <ul>
+            <li>
+                <input type=radio name=pickType value=1 checked=true class=pick-type>{lang zeroze007_hdx:member_username}<input type=text name=memberName class=member-username>
+            </li>
+            <li class=or>
+                {lang zeroze007_hdx:or}
+            </li>
+            <li>
+                <input type=radio name=pickType value=2  class=pick-type>{lang zeroze007_hdx:member_uid}<input type=text name=memberUid class=member-uid>
+            </li>
+
+            <li class=submit><input type=submit value="{lang zeroze007_hdx:action_now}" class="submit rob-btn"></li>
+
+            {if $suggestMembers}
+            <li class=or>
+                {lang zeroze007_hdx:or_rob_suggested_member}
+            </li>
+            <li>
+                <ul class=suggest-member-list>
+                    {loop $suggestMembers $m}
+                    <li uid="{$m['uid']}">
+                        <!--{avatar($m['uid'],small)}--><br>
+                        {$m['username']}
+                    </li>
+                    {/loop}
+
+                </ul>
+
+            </li>
+
+            {/if}
+
+
+
+
+        </ul>
+    </form>
+</div>
+
+
+<div class=rob>
+    <h3>{lang zeroze007_hdx:note_before_rob}</h3>
+    <ul class=notes>
+        {lang zeroze007_hdx:rob_notes}	
+
+    </ul>
+</div>
+
+
+

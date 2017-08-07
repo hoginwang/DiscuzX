@@ -1,0 +1,57 @@
+    <div class="tb cl">
+        <ul>
+            <li class="a">
+                <a href="javascript:void(0)">{lang zeroze007_hdx:message}</a>
+            </li>
+        </ul>
+    </div>
+	
+	<div class="response-msg"></div>
+   	<form id=msg-form method=post action="plugin.php?id=zeroze007_hdx&op=ajax&subop=msg">	
+	
+	  <input type="hidden" name="formhash" value="{FORMHASH}" />
+
+	
+	
+	
+    <div class=msg>
+        
+        <table class="table">
+		<colgroup>
+			<col class="a-center" width="50">
+            <col width="100">
+			<col>
+			<col width="150">
+		</colgroup>
+		<thead>
+			<tr class="header">
+				<th><input type="checkbox" name="chkall"
+				onclick="checkall(this.form, 'ids')"></th>	
+				<th>{lang zeroze007_hdx:message_from}</th>
+				<th>{lang zeroze007_hdx:message_content}</th>
+				<th>{lang zeroze007_hdx:message_received_date}</th>
+			</tr>
+		</thead>
+
+		<tbody>
+           {loop $msgs $m} 
+           <tr>
+               <td><input type="checkbox" value="{$m['id']}" name="ids[]" class=ids></td>
+               <td>{$m['sender']}</td>
+               <td>$m['content']</td>
+               <td>$m['time']</td>
+               
+           </tr>
+        
+        {/loop} 
+        <tr><td colspan="4"><button class="submit" value="true" type="submit" name="msgsubmit">{lang zeroze007_hdx:delete}</button></td></tr>
+        </tbody>
+        </table>
+		{$multipage}
+	</div>
+	</form>
+
+    
+
+
+

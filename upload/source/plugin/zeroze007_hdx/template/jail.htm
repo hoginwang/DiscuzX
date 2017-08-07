@@ -1,0 +1,52 @@
+    <div class="tb cl">
+        <ul>
+            <li class="a">
+                <a href="javascript:void(0)">{lang zeroze007_hdx:prison}</a>
+            </li>
+        </ul>
+    </div>
+	
+	<div class="response-msg"></div>
+   	<form id=jail-form method=post action="plugin.php?id=zeroze007_hdx&op=ajax&subop=jail">	
+           <input type="hidden" name="formhash" value="{FORMHASH}" />
+           <input type="hidden" name="jailsubmit" value="yes" />
+   		<input id=action type=hidden name=action value="">
+	{if $_player['out_jail_time'] > $_timenow && $_player['out_jail_time'] > 0}
+	<div class=jail>
+        <h3>{lang zeroze007_hdx:jail_desc1}</h3>
+        <ul class=escape>
+            <li>
+                {lang zeroze007_hdx:jail_desc2}
+                
+            </li>
+			<li class=submit><input type=submit value="{lang zeroze007_hdx:out_jail_without_word}" class="submit escape-btn" action="escape"></li>
+        </ul>
+    </div>
+    {/if}
+{if $crims} 	
+    <div class=jail>
+   		<input id=crim-uid type=hidden name=crimUid value="">
+
+  		
+        <h3>{lang zeroze007_hdx:current_prisoner}</h3>
+        <ul class=crims>
+{loop $crims $c}        	
+            <li>
+                <a href="home.php?mod=space&uid={$c['uid']}" c="1"><!--{avatar($c['uid'],small)}--></a><br>{$c['username']}<br>[<a href="javascript:void(0)" item="{$c['uid']}" class=rob-jail-link action="rob">{$_hdxLang['rob_jail']}</a>] [<a href="javascript:void(0)" item="{$c['uid']}" class=bail-link action="bail">{lang zeroze007_hdx:bail}</a>]
+            </li>
+{/loop}            
+        </ul>
+	</div>
+	
+	{$multipage}
+	</form>
+
+    <div class=jail>
+		{lang zeroze007_hdx:rob_jail_action_notes}
+    </div>
+{else}
+	<h3>{lang zeroze007_hdx:no_prisoner_in_jail}</h3>
+{/if}    
+
+
+

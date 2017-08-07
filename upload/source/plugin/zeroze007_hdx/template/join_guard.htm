@@ -1,0 +1,47 @@
+<div class="tb cl">
+    <ul>
+        <li class="a">
+            <a href="javascript:void(0)">{lang zeroze007_hdx:join_guard}</a>
+        </li>
+    </ul>
+</div>
+
+
+
+
+<div class="response-msg"></div>
+
+<div class=guard>
+    <form id=guard-join-form method=post action="plugin.php?id=zeroze007_hdx&op=ajax&subop=guard">
+        <input type=hidden name=do_join value="yes">
+        <input type=hidden name=guardsubmit value="true">
+        <input type=hidden name=redirect value="1">
+        <input type="hidden" name="formhash" value="{FORMHASH}" />
+
+        <ul>
+            <li>
+                <span class="label">{lang zeroze007_hdx:hour_salary}:</span><input type=text name=hour_salary class="required digits" min="{$guardMinSalary}" max="{$guardMaxSalary}">{lang zeroze007_hdx:hour_salary_note}
+            </li>
+            <li>
+                <span class="label">{lang zeroze007_hdx:protect_time}:</span><input type=text name=protect_time class="required digits" min="1" max="{$guardMaxTime}">{lang zeroze007_hdx:protect_time_note}
+            </li>
+            <li>
+                <span class="label">{lang zeroze007_hdx:self_intro}:</span><input type=text name=description class="">{lang zeroze007_hdx:guard_description_note}
+            </li>
+            <li class=submit><input type=submit value="{lang zeroze007_hdx:join}" class="submit rob-btn"></li>
+
+        </ul>
+    </form>
+</div>
+
+
+<div class=rob>
+    <h3>{lang zeroze007_hdx:join_guard_note_header}</h3>
+    <ul class=notes>
+        {lang zeroze007_hdx:join_guard_notes}	
+
+    </ul>
+</div>
+
+
+
