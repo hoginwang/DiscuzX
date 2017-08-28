@@ -288,7 +288,6 @@ if(submitcheck('profilesubmit')) {
 		C::t('common_member_field_home')->update($space['uid'], array('privacy'=>serialize($space['privacy'])));
 	}
 
-	manyoulog('user', $_G['uid'], 'update');
 
 	include_once libfile('function/feed');
 	feed_add('profile', 'feed_profile_update_'.$operation, array('hash_data'=>'profile'));

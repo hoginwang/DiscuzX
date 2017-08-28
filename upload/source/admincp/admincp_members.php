@@ -2093,7 +2093,6 @@ EOF;
 		}
 
 
-		manyoulog('user', $uid, 'update');
 		cpmsg('members_edit_succeed', 'action=members&operation=edit&uid='.$uid, 'succeed');
 
 	}

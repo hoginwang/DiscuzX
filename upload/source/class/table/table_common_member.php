@@ -313,7 +313,6 @@ class table_common_member extends discuz_table_archive
 			C::t('common_member_profile')->insert($profile, false, true);
 			C::t('common_member_field_forum')->insert($ext, false, true);
 			C::t('common_member_field_home')->insert($ext, false, true);
-			manyoulog('user', $uid, 'add');
 		}
 	}
 

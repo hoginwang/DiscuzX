@@ -23,7 +23,6 @@ if(empty($space['avatarstatus']) && uc_check_avatar($_G['uid'], 'middle')) {
 
 	updatecreditbyaction('setavatar');
 
-	manyoulog('user', $_G['uid'], 'update');
 }
 $reload = intval($_GET['reload']);
 $actives = array('avatar' =>' class="a"');
