@@ -250,7 +250,7 @@ function cpmsg($message, $url = '', $type = '', $values = array(), $extra = '', 
 		default: $classname = 'marginbot normal';break;
 	}
 	if($url) {
-		$url = substr($url, 0, 5) == 'http:' ? $url : ADMINSCRIPT.'?'.$url;
+		$url = (substr($url, 0, 5) == 'http:' ||  substr($url, 0, 6) == 'https:')? $url : ADMINSCRIPT.'?'.$url;
 	}
 	$message = "<h4 class=\"$classname\">$message</h4>";
 	$url .= $url && !empty($_GET['scrolltop']) ? '&scrolltop='.intval($_GET['scrolltop']) : '';
@@ -747,7 +747,12 @@ function showsetting($setname, $varname, $value, $type = 'radio', $disabled = ''
 		return;
 	}
 	if(!isset($_G['showsetting_multi'])) {
-		showtablerow('', 'colspan="2" class="td27" s="1"', $name);
+		if(!$nofaq) {
+			$faqurl = 'http://faq.comsenz.com?type=admin&ver='.$_G['setting']['version'].'&action='.rawurlencode($_GET['action']).'&operation='.rawurlencode($_GET['operation']).'&key='.rawurlencode($setname);
+			showtablerow($noborder.'onmouseover="setfaq(this, \'faq'.$setid.'\')"', 'colspan="2" class="td27" s="1"', $name.'<a id="faq'.$setid.'" class="faq" title="'.cplang('setting_faq_title').'" href="'.$faqurl.'" target="_blank" style="display:none">&nbsp;&nbsp;&nbsp;</a>');
+		} else {
+			showtablerow('', 'colspan="2" class="td27" s="1"', $name);
+		}
 	} else {
 		if(empty($_G['showsetting_multijs'])) {
 			$_G['setting_JS'] .= 'var ss = new Array();';
