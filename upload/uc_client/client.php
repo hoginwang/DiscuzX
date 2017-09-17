@@ -233,7 +233,7 @@ function uc_fopen($url, $limit = 0, $post = '', $cookie = '', $bysocket = FALSE,
 	$scheme = $matches['scheme'];
 	$host = $matches['host'];
 	$path = $matches['path'] ? $matches['path'].($matches['query'] ? '?'.$matches['query'] : '') : '/';
-	$port = !empty($matches['port']) ? $matches['port'] : 80;
+	$port = !empty($matches['port']) ? $matches['port'] : $matches['scheme'] == 'https' ? 443 : 80;
 	if($post) {
 		$out = "POST $path HTTP/1.0\r\n";
 		$header = "Accept: */*\r\n";
@@ -257,8 +257,13 @@ function uc_fopen($url, $limit = 0, $post = '', $cookie = '', $bysocket = FALSE,
 		$out .= $header;
 	}
 
+	//修复在强制 https 下 uc_fopen 依然发送无效的 http 请求的问题
+	$fsocket_extra_scheme = '';
+	if($matches['scheme'] == 'https')
+		$fsocket_extra_scheme = 'ssl://';
+
 	$fpflag = 0;
-	if(!$fp = @fsocketopen(($ip ? $ip : $host), $port, $errno, $errstr, $timeout)) {
+	if(!$fp = @fsocketopen($fsocket_extra_scheme . ($ip ? $ip : $host), $port, $errno, $errstr, $timeout)) {
 		$context = array(
 			'http' => array(
 				'method' => $post ? 'POST' : 'GET',
