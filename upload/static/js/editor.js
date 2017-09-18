@@ -1334,6 +1334,7 @@ function showEditorMenu(tag, params) {
 			default:
 				for(i in EXTRAFUNC['showEditorMenu']) {
 					EXTRASELECTION= selection;
+					EXTRASEL = sel;
 					try {
 						eval('str = ' + EXTRAFUNC['showEditorMenu'][i] + '(\'' + tag + '\', 1)');
 					} catch(e) {}
