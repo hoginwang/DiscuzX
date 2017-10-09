@@ -2,16 +2,10 @@
 branches: {
   }
 fileChange:
-  /upload:
-    newFile: !uuid '1e2dbee680e73bf89a01d0a9e2d0d306a791d45d'
-    oldFile: !uuid '6d25c2e84aa289ee8c1f41755ec046ae28c7fa10'
-  /upload/source:
-    newFile: !uuid 'ad56176eeafc7a5caef6f7e92a67a653f9ce26a7'
-    oldFile: !uuid 'e48269c00d15dc6868a3ea940744b92c02e1ca27'
-  /upload/source/discuz_version.php:
-    newFile: !uuid '3fb5f1a43c53ed5db0189f9960cfd6761e22d03f'
-    oldFile: !uuid '78b84cab96bc05cb93a5f0f311f41aec22cd597b'
-gitCommitId: !uuid '64ac10b0bc0a3f6bf15bdcea496582cd94272cfd'
+  /README.md:
+    newFile: !uuid 'c2fa9f62fef320bc309b8fe0e6582f2b1f2d270e'
+    oldFile: !uuid 'd8efc1af5dfeaad006f239affd2deb65a9018c83'
+gitCommitId: !uuid '8aa129975a73428ad2108717c2d8cd96236849fb'
 renames: {
   }
-revisionId: 215
+revisionId: 216
