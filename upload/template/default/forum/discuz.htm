@@ -84,7 +84,7 @@
 					<!--{/if}-->
 					<td valign="top" class="category_l2">
 						<div class="subjectbox">
-							<h4 accesskey="z"><span class="tit_subject"></span>{lang collection_lastthread}</h4>
+							<a href='forum.php?mod=guide&view=newthread' accesskey="z"><h4><span class="tit_subject"></span>{lang collection_lastthread}</h4></a>
 					        <ul class="category_newlist">
 					        	<!--{loop $grids['newthread'] $thread}-->
 					        	<!--{if !$thread['forumstick'] && $thread['closed'] > 1 && ($thread['isgroup'] == 1 || $thread['fid'] != $_G['fid'])}-->
@@ -97,7 +97,7 @@
 					</td>
 					<td valign="top" class="category_l3">
 						<div class="replaybox">
-							<h4 accesskey="z"><span class="tit_replay"></span>{lang show_newthreads}</h4>
+							<a href='http://bbs.zrwh.org/forum.php?mod=guide&view=new' accesskey="z"><h4><span class="tit_replay"></span>{lang show_newthreads}</h4></a>
 					        <ul class="category_newlist">
 					        	<!--{loop $grids['newreply'] $thread}-->
 					        	<!--{if !$thread['forumstick'] && $thread['closed'] > 1 && ($thread['isgroup'] == 1 || $thread['fid'] != $_G['fid'])}-->
