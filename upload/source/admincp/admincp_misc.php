@@ -699,7 +699,7 @@ EOT;
 		if(is_array($_GET['find'])) {
 			foreach($_GET['find'] as $id => $val) {
 				$_GET['find'][$id]  = $val = trim(str_replace('=', '', $_GET['find'][$id]));
-				if(strlen($val) < 3) {
+				if(empty($val)) {
 					cpmsg('censor_keywords_tooshort', '', 'error');
 				}
 				$_GET['replace'][$id] = $_GET['replace'][$id] == '{REPLACE}' ? $_GET['replacecontent'][$id] : $_GET['replace'][$id];
@@ -723,9 +723,6 @@ EOT;
 			$newreplace  = trim($newreplace_array[$key]);
 
 			if($newfind != '') {
-				if(strlen($newfind) < 3) {
-					cpmsg('censor_keywords_tooshort', '', 'error');
-				}
 				if($newreplace == '{REPLACE}') {
 					$newreplace = daddslashes(str_replace("\\\'", '\'', $newreplacecontent_array[$key]), 1);
 				}
