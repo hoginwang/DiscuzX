@@ -196,6 +196,8 @@ function updatepluginlanguage($pluginarray) {
 			}
 			foreach($pluginarray['language']['systemlang'] as $file => $vars) {
 				foreach($vars as $key => $var) {
+					if(!$_G['cache']['pluginlanguage_system'])
+						$_G['cache']['pluginlanguage_system']=array();
 					$_G['cache']['pluginlanguage_system'][$file][$key] = $var;
 				}
 			}
