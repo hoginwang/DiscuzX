@@ -3,15 +3,21 @@ branches: {
   }
 fileChange:
   /upload:
-    newFile: !uuid '1e2dbee680e73bf89a01d0a9e2d0d306a791d45d'
-    oldFile: !uuid '6d25c2e84aa289ee8c1f41755ec046ae28c7fa10'
-  /upload/source:
-    newFile: !uuid 'ad56176eeafc7a5caef6f7e92a67a653f9ce26a7'
-    oldFile: !uuid 'e48269c00d15dc6868a3ea940744b92c02e1ca27'
-  /upload/source/discuz_version.php:
-    newFile: !uuid '3fb5f1a43c53ed5db0189f9960cfd6761e22d03f'
-    oldFile: !uuid '78b84cab96bc05cb93a5f0f311f41aec22cd597b'
-gitCommitId: !uuid '64ac10b0bc0a3f6bf15bdcea496582cd94272cfd'
+    newFile: !uuid '12adc2f21559b26bf83b6435aa40523ab5a86561'
+    oldFile: !uuid '1e2dbee680e73bf89a01d0a9e2d0d306a791d45d'
+  /upload/template:
+    newFile: !uuid 'e92f8253b0ad52daddd13eac41c7c7022bbaa5b4'
+    oldFile: !uuid 'bf6585b3ac59c98cb974c796418ba1dc76fd4b96'
+  /upload/template/default:
+    newFile: !uuid '7953407558d5046a2b33d5597c93194a780d342f'
+    oldFile: !uuid '90b67970b95b999d788b176cd28b1142b1387702'
+  /upload/template/default/ranklist:
+    newFile: !uuid '7cc0cf56f4df11156bb69f7f36923a774c0b2d35'
+    oldFile: !uuid '0f07dc1d899ed66c932253c2bf49e386226fe85a'
+  /upload/template/default/ranklist/ranklist.htm:
+    newFile: !uuid '75a16bbfe1d9e74c04b15cf9f38dce1b60399679'
+    oldFile: !uuid '3d304215125a073e609f8648c50f0014f42c579e'
+gitCommitId: !uuid 'f6b096a5b6fb9a6f7f6f8276567433488edaa597'
 renames: {
   }
-revisionId: 205
+revisionId: 206
