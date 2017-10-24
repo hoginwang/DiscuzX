@@ -1,9 +1,17 @@
 <div id="post_extra" class="ptm cl">
 	<div id="post_extra_tb" class="cl" onselectstart="return false">
-		<label id="extra_additional_b" onclick="showExtra('extra_additional')"><span id="extra_additional_chk">{lang post_additional_options}</span></label>
+		<label id="extra_additional_b" onclick="showExtra('extra_additional')">
+			<a tabindex="4" accesskey="x" href='javascript:void(0);' onclick="showExtra('extra_additional')">
+				<span id="extra_additional_chk">{lang post_additional_options}</span>
+			</a>
+		</label>
 		<!--{if $_GET[action] == 'newthread' || $_GET[action] == 'edit' && $isfirstpost}-->
 			<!--{if $_G['group']['allowsetreadperm']}-->
-				<label id="extra_readperm_b" onclick="showExtra('extra_readperm')"><span id="extra_readperm_chk">{lang readperm}</span></label>
+				<label id="extra_readperm_b" onclick="showExtra('extra_readperm')">
+					<a tabindex="4" accesskey="x" href='javascript:void(0);' onclick="showExtra('extra_readperm_chk')">
+						<span id="extra_readperm_chk">{lang readperm}</span>
+					</a>
+				</label>
 			<!--{/if}-->
 			<!--{if $_G['group']['allowreplycredit'] && !in_array($special, array(2, 3))}-->
 				<!--{if $_GET[action] == 'newthread'}-->
@@ -13,20 +21,37 @@
 				<!--{/if}-->
 				<!--{eval $userextcredit = getuserprofile('extcredits'.$extcreditstype);}-->
 				<!--{if ($_GET[action] == 'newthread' && $userextcredit > 0) || ($_GET[action] == 'edit' && $isorigauthor && isfirstpost)}-->
-					<label id="extra_replycredit_b" onclick="showExtra('extra_replycredit')"><span id="extra_replycredit_chk">{lang replycredit}</span></label>
+					<label id="extra_replycredit_b" onclick="showExtra('extra_replycredit')">
+					</label>
 				<!--{/if}-->
 			<!--{/if}-->
 			<!--{if ($_GET[action] == 'newthread' && $_G['group']['allowpostrushreply'] && $special != 2) || ($_GET[action] == 'edit' && getstatus($thread['status'], 3))}-->
-				<label id="extra_rushreplyset_b" onclick="showExtra('extra_rushreplyset')"><span id="extra_rushreplyset_chk">{lang rushreply_thread}</span></label>
+				<label id="extra_rushreplyset_b" onclick="showExtra('extra_rushreplyset')">
+					<a tabindex="4" accesskey="x" href='javascript:void(0);' onclick="showExtra('extra_rushreplyset_chk')">
+						<span id="extra_rushreplyset_chk">{lang rushreply_thread}</span>
+					</a>
+				</label>
 			<!--{/if}-->
 			<!--{if $_G['group']['maxprice'] && !$special}-->
-				<label id="extra_price_b" onclick="showExtra('extra_price')"><span id="extra_price_chk">{lang thread_pricepay}</span></label>
+				<label id="extra_price_b" onclick="showExtra('extra_price')">
+					<a tabindex="4" accesskey="x" href='javascript:void(0);' onclick="showExtra('extra_price_chk')">
+						<span id="extra_price_chk">{lang thread_pricepay}</span>
+					</a>
+				</label>
 			<!--{/if}-->
 			<!--{if $_G['group']['allowposttag']}-->
-				<label id="extra_tag_b" onclick="showExtra('extra_tag')"><span id="extra_tag_chk">{lang posttag}</span></label>
+				<label id="extra_tag_b" onclick="showExtra('extra_tag')">
+					<a tabindex="4" accesskey="x" href='javascript:void(0);' onclick="showExtra('extra_tag_chk')">
+						<span id="extra_tag_chk">{lang posttag}</span>
+					</a>
+				</label>
 			<!--{/if}-->
 			<!--{if $_G['group']['allowsetpublishdate'] && ($_GET[action] == 'newthread' || ($_GET[action] == 'edit' && $isfirstpost && $thread['displayorder'] == -4))}-->
-				<label id="extra_pubdate_b" onclick="showExtra('extra_pubdate')"><span id="extra_pubdate_chk">{lang post_timer}</span></label>
+				<label id="extra_pubdate_b" onclick="showExtra('extra_pubdate')">
+					<a tabindex="4" accesskey="x" href='javascript:void(0);' onclick="showExtra('extra_pubdate_chk')">
+						<span id="extra_pubdate_chk">{lang post_timer}</span>
+					</a>
+				</label>
 			<!--{/if}-->
 		<!--{/if}-->
 		<!--{hook/post_attribute_extra}-->
