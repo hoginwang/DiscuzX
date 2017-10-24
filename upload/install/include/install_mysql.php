@@ -126,7 +126,13 @@ class dbstuff {
 	}
 
 	function version() {
-		return mysql_get_server_info($this->link);
+                $info = mysql_get_server_info($this->link);
+                $rst = preg_match('/([^-]*)-MariaDB/', $info, $matches);
+                if($rst > 0) {
+                    return $matches[1];
+                } else {
+                    return $info;
+                }
 	}
 
 	function escape_string($str) {
