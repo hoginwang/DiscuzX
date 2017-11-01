@@ -136,40 +136,46 @@ function discuzcode($message, $smileyoff = false, $bbcodeoff = false, $htmlon = 
 			if(++$nest > 4) break;
 		}
 
-		$message = str_replace(array(
-			'[/color]', '[/backcolor]', '[/size]', '[/font]', '[/align]', '[b]', '[/b]', '[s]', '[/s]', '[hr]', '[/p]',
-			'[i=s]', '[i]', '[/i]', '[u]', '[/u]', '[list]', '[list=1]', '[list=a]',
-			'[list=A]', "\r\n[*]", '[*]', '[/list]', '[indent]', '[/indent]', '[/float]'
-			), array(
-			'</font>', '</font>', '</font>', '</font>', '</div>', '<strong>', '</strong>', '<strike>', '</strike>', '<hr class="l" />', '</p>', '<i class="pstatus">', '<i>',
-			'</i>', '<u>', '</u>', '<ul>', '<ul type="1" class="litype_1">', '<ul type="a" class="litype_2">',
-			'<ul type="A" class="litype_3">', '<li>', '<li>', '</ul>', '<blockquote>', '</blockquote>', '</span>'
-			), preg_replace(array(
-			"/\[color=([#\w]+?)\]/i",
-			"/\[color=((rgb|rgba)\([\d\s,]+?\))\]/i",
-			"/\[backcolor=([#\w]+?)\]/i",
-			"/\[backcolor=((rgb|rgba)\([\d\s,]+?\))\]/i",
-			"/\[size=(\d{1,2}?)\]/i",
-			"/\[size=(\d{1,2}(\.\d{1,2}+)?(px|pt)+?)\]/i",
-			"/\[font=([^\[\<]+?)\]/i",
-			"/\[align=(left|center|right)\]/i",
-			"/\[p=(\d{1,2}|null), (\d{1,2}|null), (left|center|right)\]/i",
-			"/\[float=left\]/i",
-			"/\[float=right\]/i"
-
-			), array(
-			"<font color=\"\\1\">",
-			"<font style=\"color:\\1\">",
-			"<font style=\"background-color:\\1\">",
-			"<font style=\"background-color:\\1\">",
-			"<font size=\"\\1\">",
-			"<font style=\"font-size:\\1\">",
-			"<font face=\"\\1\">",
-			"<div align=\"\\1\">",
-			"<p style=\"line-height:\\1px;text-indent:\\2em;text-align:\\3\">",
-			"<span style=\"float:left;margin-right:5px\">",
-			"<span style=\"float:right;margin-left:5px\">"
-			), $message));
+		$message = str_replace(
+            array(
+                '[/color]', '[/backcolor]', '[/size]', '[/font]', '[/align]', '[b]', '[/b]', '[s]', '[/s]', '[hr]', '[/p]',
+                '[i=s]', '[i]', '[/i]', '[u]', '[/u]', '[list]', '[list=1]', '[list=a]',
+                '[list=A]', "\r\n[*]", '[*]', '[/list]', '[indent]', '[/indent]', '[/float]'
+			),
+            array(
+                '</span>', '</span>', '</span>', '</font>', '</div>', '<strong>', '</strong>', '<s>', '</s>', '<hr class="l" />', '</p>',
+                '<i class="pstatus">', '<i>', '</i>', '<u>', '</u>', '<ul>', '<ul type="1" class="litype_1">', '<ul type="a" class="litype_2">',
+                '<ul type="A" class="litype_3">', '<li>', '<li>', '</ul>', '<blockquote>', '</blockquote>', '</span>'
+			),
+            preg_replace(
+			    array(
+                    "/\[color=([#\w]+?)\]/i",
+                    "/\[color=((rgb|rgba)\([\d\s,]+?\))\]/i",
+                    "/\[backcolor=([#\w]+?)\]/i",
+                    "/\[backcolor=((rgb|rgba)\([\d\s,]+?\))\]/i",
+                    "/\[size=(\d{1,2}?)\]/i",
+                    "/\[size=(\d{1,2}(\.\d{1,2}+)?(px|pt)+?)\]/i",
+                    "/\[font=([^\[\<]+?)\]/i",
+                    "/\[align=(left|center|right)\]/i",
+                    "/\[p=(\d{1,2}|null), (\d{1,2}|null), (left|center|right)\]/i",
+                    "/\[float=left\]/i",
+                    "/\[float=right\]/i"
+			    ),
+                array(
+                    "<span style=\"color:\\1\">",
+                    "<span style=\"color:\\1\">",
+                    "<span style=\"background-color:\\1\">",
+                    "<span style=\"background-color:\\1\">",
+                    "<span style=\"font-size:\\1\">",
+                    "<span style=\"font-size:\\1\">",
+                    "<span style=\"font-family:\\1\">",
+                    "<div style=\"text-align:\\1\">",
+                    "<p style=\"line-height:\\1px; text-indent:\\2em; text-align:\\3\">",
+                    "<span style=\"float:left; margin-right:5px\">",
+                    "<span style=\"float:right; margin-left:5px\">"
+                ), $message
+            )
+        );
 
 		if($pid && !defined('IN_MOBILE')) {
 			$message = preg_replace_callback("/\s?\[postbg\]\s*([^\[\<\r\n;'\"\?\(\)]+?)\s*\[\/postbg\]\s?/is", create_function('$matches', 'return parsepostbg($matches[1], '.intval($pid).');'), $message);
@@ -530,7 +536,7 @@ function jammer() {
 	for($i = 0; $i < mt_rand(5, 15); $i++) {
 		$randomstr .= chr(mt_rand(32, 59)).' '.chr(mt_rand(63, 126));
 	}
-	return mt_rand(0, 1) ? '<font class="jammer">'.$randomstr.'</font>'."\r\n" :
+	return mt_rand(0, 1) ? '<span class="jammer">'.$randomstr.'</span>'."\r\n" :
 		"\r\n".'<span style="display:none">'.$randomstr.'</span>';
 }
 
