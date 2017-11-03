@@ -176,7 +176,7 @@ EOF;
 		'birthprovince' => '', 'birthcity' => '', 'birthdist' => '', 'birthcommunity' => '', 'resideprovince' => '', 'residecity' => '', 'residedist' => '',
 		'residecommunity' => '', 'residesuite' => '', 'graduateschool' => '', 'education' => '', 'company' => '', 'occupation' => '',
 		'position' => '', 'revenue' => '', 'affectivestatus' => '', 'lookingfor' => '', 'bloodtype' => '', 'height' => '', 'weight' => '',
-		'alipay' => '', 'icq' => '', 'qq' => '', 'yahoo' => '', 'msn' => '', 'taobao' => '', 'site' => '', 'bio' => '', 'interest' => '',
+		'alipay' => '', 'qq' => '', 'msn' => '', 'taobao' => '', 'site' => '', 'bio' => '', 'interest' => '',
 		'field1' => '', 'field2' => '', 'field3' => '', 'field4' => '', 'field5' => '', 'field6' => '', 'field7' => '', 'field8' => '');
 	foreach(C::t('common_member_profile_setting')->range() as $value) {
 		if(isset($title[$value['fieldid']])) {

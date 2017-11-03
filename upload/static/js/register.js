@@ -173,7 +173,7 @@ function trim(str) {
 	return str.replace(/^\s*(.*?)[\s\n]*$/g, '$1');
 }
 
-var emailMenuST = null, emailMenui = 0, emaildomains = ['qq.com', '163.com', 'sina.com', 'sohu.com', 'yahoo.com', 'gmail.com', 'hotmail.com'];
+var emailMenuST = null, emailMenui = 0, emaildomains = ['qq.com', '163.com', 'sina.com', 'sohu.com', 'outlook.com', 'gmail.com', 'hotmail.com'];
 function emailMenuOp(op, e, id) {
 	if(op == 3 && BROWSER.ie && BROWSER.ie < 7) {
 		checkemail(id);

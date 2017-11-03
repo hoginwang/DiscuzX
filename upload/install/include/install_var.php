@@ -368,9 +368,7 @@ $serialize_sql_setting = array (
       array (
         'telephone' => 'telephone',
         'mobile' => 'mobile',
-        'icq' => 'icq',
         'qq' => 'qq',
-        'yahoo' => 'yahoo',
         'msn' => 'msn',
         'taobao' => 'taobao',
       ),

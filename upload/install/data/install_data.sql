@@ -113,9 +113,7 @@ INSERT INTO pre_common_member_profile_setting VALUES('bloodtype', 1, 1, 0, '血�
 INSERT INTO pre_common_member_profile_setting VALUES('height', 0, 1, 0, '身高', '单位 cm', 0, 0, 0, 0, 0, 0, 0, 'text', 0, '', '');
 INSERT INTO pre_common_member_profile_setting VALUES('weight', 0, 1, 0, '体重', '单位 kg', 0, 0, 0, 0, 0, 0, 0, 'text', 0, '', '');
 INSERT INTO pre_common_member_profile_setting VALUES('alipay', 1, 1, 0, '支付宝', '', 0, 0, 0, 0, 0, 0, 0, 'text', 0, '', '');
-INSERT INTO pre_common_member_profile_setting VALUES('icq', 0, 1, 0, 'ICQ', '', 0, 0, 0, 0, 0, 0, 0, 'text', 0, '', '');
 INSERT INTO pre_common_member_profile_setting VALUES('qq', 1, 1, 0, 'QQ', '', 0, 0, 0, 0, 0, 0, 0, 'text', 0, '', '');
-INSERT INTO pre_common_member_profile_setting VALUES('yahoo', 0, 1, 0, 'YAHOO帐号', '', 0, 0, 0, 0, 0, 0, 0, 'text', 0, '', '');
 INSERT INTO pre_common_member_profile_setting VALUES('msn', 1, 1, 0, 'MSN', '', 0, 0, 0, 0, 0, 0, 0, 'text', 0, '', '');
 INSERT INTO pre_common_member_profile_setting VALUES('taobao', 1, 1, 0, '阿里旺旺', '', 0, 0, 0, 0, 0, 0, 0, 'text', 0, '', '');
 INSERT INTO pre_common_member_profile_setting VALUES('site', 1, 0, 0, '个人主页', '', 0, 0, 0, 0, 0, 0, 0, 'text', 0, '', '');

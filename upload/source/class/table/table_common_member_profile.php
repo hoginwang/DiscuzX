@@ -23,8 +23,8 @@ class table_common_member_profile extends discuz_table_archive
 		$this->_fields = array('uid', 'realname', 'gender', 'birthyear', 'birthmonth', 'birthday', 'constellation',
 				'zodiac', 'telephone', 'mobile', 'idcardtype', 'idcard', 'address', 'zipcode', 'nationality', 'birthprovince', 'birthcity', 'birthdist',
 				'birthcommunity', 'resideprovince', 'residecity', 'residedist', 'residecommunity', 'residesuite', 'graduateschool', 'education', 'company',
-				'occupation', 'position', 'revenue', 'affectivestatus', 'lookingfor', 'bloodtype', 'height', 'weight', 'alipay', 'icq', 'qq',
-				'yahoo', 'msn', 'taobao', 'site', 'bio', 'interest', 'field1', 'field2', 'field3', 'field4', 'field5', 'field6', 'field7', 'field8');
+				'occupation', 'position', 'revenue', 'affectivestatus', 'lookingfor', 'bloodtype', 'height', 'weight', 'alipay', 'qq',
+				'msn', 'taobao', 'site', 'bio', 'interest', 'field1', 'field2', 'field3', 'field4', 'field5', 'field6', 'field7', 'field8');
 
 		parent::__construct();
 	}

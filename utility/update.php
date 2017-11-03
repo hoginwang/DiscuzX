@@ -582,9 +582,7 @@ if($_GET['step'] == 'start') {
 				  array (
 					'telephone' => 'telephone',
 					'mobile' => 'mobile',
-					'icq' => 'icq',
 					'qq' => 'qq',
-					'yahoo' => 'yahoo',
 					'msn' => 'msn',
 					'taobao' => 'taobao',
 				  ),
