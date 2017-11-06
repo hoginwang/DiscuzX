@@ -31,7 +31,7 @@ class table_common_tagitem extends discuz_table
 		if($orderfield) {
 			$ordersql = ' ORDER BY '.DB::order($orderfield, $ordertype);
 		}
-		if($limit) {
+		if($count) {
 			$limitsql = DB::limit($limit, $count);
 		}
 		if($data) {
