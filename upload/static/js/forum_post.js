@@ -783,6 +783,8 @@ function showExtra(id) {
 		}
 		$(id+'_b').className = 'a';
 		$(id+'_c').style.display = 'block';
+
+		$(id+'_c input').first().focus();
 	}
 }
 
