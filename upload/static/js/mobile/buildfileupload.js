@@ -326,8 +326,8 @@ jQuery.extend({
 				}
 			};
 
-			var maxheight = 500;
-			var maxwidth = 500;
+			var maxheight = 1200;
+			var maxwidth = 3000;
 			var canvas = document.createElement('canvas');
 			var ctx = canvas.getContext('2d');
 
@@ -369,7 +369,7 @@ jQuery.extend({
 				ctx.drawImage(this, 0, 0, imgwidth, imgheight, 0, 0, newwidth, newheight/vertsquashratio);
 				ctx.restore();
 
-				var newdataurl = canvas.toDataURL(s.files[0].type).replace(/data:.+;base64,/, '');
+				var newdataurl = canvas.toDataURL(s.files[0].type,1.0).replace(/data:.+;base64,/, '');
 
 				if(typeof atob == 'function') {
 					picupload(atob(newdataurl));
