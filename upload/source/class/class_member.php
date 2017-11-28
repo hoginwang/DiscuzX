@@ -608,6 +608,9 @@ class register_ctl {
 					}
 				}
 				$email = strtolower(trim($_GET['email']));
+						if(empty($email) && $_G['setting']['forgeemail']) {
+						$_GET['email'] = $email = strtolower(random(6)).'@'.$_SERVER['HTTP_HOST'];
+						}
 				if(empty($this->setting['ignorepassword'])) {
 					if($_GET['password'] !== $_GET['password2']) {
 						showmessage('profile_passwd_notmatch');

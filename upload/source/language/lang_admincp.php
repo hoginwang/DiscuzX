@@ -811,7 +811,8 @@ $lang = array
 	'setting_access_register_connect' => '开放QQ注册',
 	'setting_access_register_send_register_url' => '通过邮件发送注册链接',
 	'setting_access_register_send_register_url_comment' => '开启后系统会发一条注册的地址到用户的邮箱，从该地址链接过来的允许注册，同时建议UCenter中开启一个邮箱只允许注册一个帐户<br/>注意：只有在<a href="?action=setting&operation=mail">站长 - 邮件设置</a>中完成邮件设置，确保邮件能发送成功下可以开启该功能 ',
-
+	'setting_access_register_forge_email' => '取消注册邮箱必填',
+	'setting_access_register_forge_email_comment' => '开启后如果用不不填写注册邮箱，将自动生成一个邮箱地址',
 
 	'setting_access_register_invite_buy' => '允许充值购买邀请码',
 	'setting_access_register_invite_buy_comment' => '允许游客通过在线充值购买注册邀请码。仅限于关闭普通注册时有效。开启前请确认您的<a href="'.ADMINSCRIPT.'?frames=yes&action=setting&operation=ec" target="_blank"><strong>电子商务</strong></a>及<a href="'.ADMINSCRIPT.'?frames=yes&action=setting&operation=mail" target="_blank"><strong>发送邮件</strong></a>功能可正常使用',
