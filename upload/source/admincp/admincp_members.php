@@ -176,8 +176,8 @@ EOF;
 		'birthprovince' => '', 'birthcity' => '', 'birthdist' => '', 'birthcommunity' => '', 'resideprovince' => '', 'residecity' => '', 'residedist' => '',
 		'residecommunity' => '', 'residesuite' => '', 'graduateschool' => '', 'education' => '', 'company' => '', 'occupation' => '',
 		'position' => '', 'revenue' => '', 'affectivestatus' => '', 'lookingfor' => '', 'bloodtype' => '', 'height' => '', 'weight' => '',
-		'alipay' => '', 'icq' => '', 'qq' => '', 'yahoo' => '', 'msn' => '', 'taobao' => '', 'site' => '', 'bio' => '', 'interest' => '',
-		'field1' => '', 'field2' => '', 'field3' => '', 'field4' => '', 'field5' => '', 'field6' => '', 'field7' => '', 'field8' => '');
+		'alipay' => '', 'icq' => '', 'qq' => '', 'taobao' => '', 'site' => '', 'bio' => '', 'interest' => '',
+		'field1' => '', 'field2' => '', 'field3' => '', 'field4' => '', 'field5' => '', 'field6' => '', 'field7' => '', 'field8' => '', 'field9' => '', 'field10' => '', 'field11' => '', 'field12' => '', 'field13' => '', 'field14' => '', 'field15' => '', 'field16' => '', 'field17' => '', 'field18' => '', 'field19' => '', 'field20' => '');
 	foreach(C::t('common_member_profile_setting')->range() as $value) {
 		if(isset($title[$value['fieldid']])) {
 			$title[$value['fieldid']] = $value['title'];
@@ -2314,7 +2314,8 @@ EOF;
 		$fixedfields2 = array('gender', 'birthday', 'birthcity', 'residecity');
 		$field['isfixed1'] = in_array($fieldid, $fixedfields1);
 		$field['isfixed2'] = $field['isfixed1'] || in_array($fieldid, $fixedfields2);
-		$field['customable'] = preg_match('/^field[1-8]$/i', $fieldid);
+		$field['customable'] = preg_match('/^[\-+]?[a-z0-9]*\.*\,?[a-z0-9]+$/i', $fieldid);
+		$field['customable'] = preg_match('/^[\-+]?[a-z0-9]?[a-z0-9]+$/i', $fieldid);
 		$profilegroup = C::t('common_setting')->fetch('profilegroup', true);
 		$profilevalidate = array();
 		include libfile('spacecp/profilevalidate', 'include');
@@ -2468,8 +2469,6 @@ EOF;
 				$setarr['required'] = 0;
 				C::t('common_member_profile_setting')->update('residedist', $setarr);
 				C::t('common_member_profile_setting')->update('residecommunity', $setarr);
-			} elseif($_GET['fieldid'] == 'idcard') {
-				C::t('common_member_profile_setting')->update('idcardtype', $setarr);
 			}
 
 			foreach($profilegroup as $type => $pgroup) {
@@ -2512,7 +2511,6 @@ EOF;
 		unset($list['resideprovince']);
 		unset($list['residedist']);
 		unset($list['residecommunity']);
-		unset($list['idcardtype']);
 
 		if(!submitcheck('ordersubmit')) {
 			$_GET['anchor'] = in_array($_GET['action'], array('members', 'setting')) ? $_GET['action'] : 'members';
@@ -2567,8 +2565,6 @@ EOF;
 					$setarr['required'] = 0;
 					C::t('common_member_profile_setting')->update('residedist', $setarr);
 					C::t('common_member_profile_setting')->update('residecommunity', $setarr);
-				} elseif($fieldid == 'idcard') {
-					C::t('common_member_profile_setting')->update('idcardtype', $setarr);
 				}
 
 			}

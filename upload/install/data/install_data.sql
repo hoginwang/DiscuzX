@@ -77,10 +77,8 @@ INSERT INTO pre_common_member_profile_setting VALUES('idcard', 1, 1, 0, '证件�
 INSERT INTO pre_common_member_profile_setting VALUES('mobile', 1, 1, 0, '手机号码', '', 0, 0, 0, 0, 0, 0, 0, 'text', 0, '', '');
 INSERT INTO pre_common_member_profile_setting VALUES('qq', 1, 0, 0, 'QQ', '', 0, 0, 0, 0, 0, 0, 0, 'text', 0, '', '');
 INSERT INTO pre_common_member_profile_setting VALUES('icq', 1, 0, 0, 'ICQ', '', 0, 0, 0, 0, 0, 0, 0, 'text', 0, '', '');
-INSERT INTO pre_common_member_profile_setting VALUES('msn', 1, 0, 0, 'MSN', '', 0, 0, 0, 0, 0, 0, 0, 'text', 0, '', '');
 INSERT INTO pre_common_member_profile_setting VALUES('alipay', 1, 0, 0, '支付宝', '', 0, 0, 0, 0, 0, 0, 0, 'text', 0, '', '');
 INSERT INTO pre_common_member_profile_setting VALUES('taobao', 1, 0, 0, '阿里旺旺', '', 0, 0, 0, 0, 0, 0, 0, 'text', 0, '', '');
-INSERT INTO pre_common_member_profile_setting VALUES('yahoo', 0, 1, 0, 'YAHOO帐号', '', 0, 0, 0, 0, 0, 0, 0, 'text', 0, '', '');
 INSERT INTO pre_common_member_profile_setting VALUES('site', 1, 0, 0, '个人主页', '', 0, 0, 0, 0, 0, 0, 0, 'text', 0, '', '');
 INSERT INTO pre_common_member_profile_setting VALUES('nationality', 1, 0, 0, '国籍', '', 0, 0, 0, 0, 0, 0, 0, 'text', 0, '', '');
 INSERT INTO pre_common_member_profile_setting VALUES('birthcity', 1, 0, 0, '出生地', '', 0, 0, 0, 0, 0, 0, 0, 'select', 0, '', '');
@@ -118,6 +116,18 @@ INSERT INTO pre_common_member_profile_setting VALUES('field5', 0, 1, 0, '自定�
 INSERT INTO pre_common_member_profile_setting VALUES('field6', 0, 1, 0, '自定义字段6', '', 0, 0, 0, 0, 0, 0, 0, 'text', 0, '', '');
 INSERT INTO pre_common_member_profile_setting VALUES('field7', 0, 1, 0, '自定义字段7', '', 0, 0, 0, 0, 0, 0, 0, 'text', 0, '', '');
 INSERT INTO pre_common_member_profile_setting VALUES('field8', 0, 1, 0, '自定义字段8', '', 0, 0, 0, 0, 0, 0, 0, 'text', 0, '', '');
+INSERT INTO pre_common_member_profile_setting VALUES('field9', 0, 1, 0, '自定义字段9', '', 0, 0, 0, 0, 0, 0, 0, 'text', 0, '', '');
+INSERT INTO pre_common_member_profile_setting VALUES('field10', 0, 1, 0, '自定义字段10', '', 0, 0, 0, 0, 0, 0, 0, 'text', 0, '', '');
+INSERT INTO pre_common_member_profile_setting VALUES('field11', 0, 1, 0, '自定义字段11', '', 0, 0, 0, 0, 0, 0, 0, 'text', 0, '', '');
+INSERT INTO pre_common_member_profile_setting VALUES('field12', 0, 1, 0, '自定义字段12', '', 0, 0, 0, 0, 0, 0, 0, 'text', 0, '', '');
+INSERT INTO pre_common_member_profile_setting VALUES('field13', 0, 1, 0, '自定义字段13', '', 0, 0, 0, 0, 0, 0, 0, 'text', 0, '', '');
+INSERT INTO pre_common_member_profile_setting VALUES('field14', 0, 1, 0, '自定义字段14', '', 0, 0, 0, 0, 0, 0, 0, 'text', 0, '', '');
+INSERT INTO pre_common_member_profile_setting VALUES('field15', 0, 1, 0, '自定义字段15', '', 0, 0, 0, 0, 0, 0, 0, 'text', 0, '', '');
+INSERT INTO pre_common_member_profile_setting VALUES('field16', 0, 1, 0, '自定义字段16', '', 0, 0, 0, 0, 0, 0, 0, 'text', 0, '', '');
+INSERT INTO pre_common_member_profile_setting VALUES('field17', 0, 1, 0, '自定义字段17', '', 0, 0, 0, 0, 0, 0, 0, 'text', 0, '', '');
+INSERT INTO pre_common_member_profile_setting VALUES('field18', 0, 1, 0, '自定义字段18', '', 0, 0, 0, 0, 0, 0, 0, 'text', 0, '', '');
+INSERT INTO pre_common_member_profile_setting VALUES('field19', 0, 1, 0, '自定义字段19', '', 0, 0, 0, 0, 0, 0, 0, 'text', 0, '', '');
+INSERT INTO pre_common_member_profile_setting VALUES('field20', 0, 1, 0, '自定义字段20', '', 0, 0, 0, 0, 0, 0, 0, 'text', 0, '', '');
 
 -- INSERT INTO `pre_portal_category` VALUES (1, 0, '产品动态', 0, 0);
 -- INSERT INTO `pre_portal_category` VALUES (2, 0, '公司新闻', 0, 0);

@@ -344,10 +344,10 @@ EOT;
 			}
 		}
 
-		foreach(C::t('common_member_profile_setting')->fetch_all_by_available_formtype(1, 'text') as $result) {
-			$threadtype_profile = !$threadtype_profile ? "<select id='rules[text][profile]' name='rules[text][profile]'><option value=''></option>" : $threadtype_profile."<option value='{$result[fieldid]}' ".($option['rules']['profile'] == $result['fieldid'] ? "selected='selected'" : '').">{$result[title]}</option>";
+		foreach(C::t('common_member_profile_setting')->fetch_all_by_available(1, 'profile') as $result) {
+ 				$threadtype_profile = !$threadtype_profile ? "<select id='rules[text][profile]' name='rules[text][profile]'><option value=''></option><option value='{$result[fieldid]}' ".($option['rules']['profile'] == $result['fieldid'] ? "selected='selected'" : '').">{$result[title]}</option>" : $threadtype_profile."<option value='{$result[fieldid]}' ".($option['rules']['profile'] == $result['fieldid'] ? "selected='selected'" : '').">{$result[title]}</option>";
 		}
-		$threadtype_profile .= "</select>";
+				$threadtype_profile .= "</select>";
 
 		showformheader("threadtypes&operation=optiondetail&optionid=$_GET[optionid]");
 		showtableheader();

@@ -342,7 +342,7 @@ if(!submitcheck('settingsubmit')) {
 	} elseif($operation == 'profile') {
 
 		$profilegroup = dunserialize($setting['profilegroup']);
-		if($_GET['anchor'] == 'edit' && in_array($_GET['type'], array('base', 'contact', 'edu', 'work', 'info'))) {
+		if($_GET['anchor'] == 'edit' && in_array($_GET['type'], array('base', 'contact', 'edu', 'work', 'info', 'profile1', 'profile2', 'profile3', 'profile4', 'profile5', 'profile6', 'profile7', 'profile8', 'profile9', 'profile10'))) {
 			shownav('user', 'nav_members_profile_group');
 			$groupinfo = $profilegroup[$_GET['type']];
 			showsubmenu($lang['setting_profile_group_name'].'-'.$groupinfo['title'], array(
@@ -3369,7 +3369,7 @@ EOT;
 		$enabledgroup = true;
 		if(!empty($settingnew['profilegroupnew'])) {
 			foreach($settingnew['profilegroupnew'] as $key => $value) {
-				if(!in_array($key, array('base', 'contact', 'edu', 'work', 'info'))) {
+				if(!in_array($key, array('base', 'contact', 'edu', 'work', 'info', 'profile1', 'profile2', 'profile3', 'profile4', 'profile5', 'profile6', 'profile7', 'profile8', 'profile9', 'profile10'))) {
 					unset($profilegroup[$key]);
 					continue;
 				}
@@ -3389,7 +3389,7 @@ EOT;
 				$profilegroup[$prokey] = $settingnew['profile'];
 			}
 			foreach($profilegroup as $key => $value) {
-				if(!in_array($key, array('base', 'contact', 'edu', 'work', 'info'))) {
+				if(!in_array($key, array('base', 'contact', 'edu', 'work', 'info', 'profile1', 'profile2', 'profile3', 'profile4', 'profile5', 'profile6', 'profile7', 'profile8', 'profile9', 'profile10'))) {
 					unset($profilegroup[$key]);
 					continue;
 				}

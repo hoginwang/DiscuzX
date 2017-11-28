@@ -893,6 +893,18 @@ CREATE TABLE pre_common_member_profile (
   field6 text NOT NULL,
   field7 text NOT NULL,
   field8 text NOT NULL,
+  field9 text NOT NULL,
+  field10 text NOT NULL,
+  field11 text NOT NULL,
+  field12 text NOT NULL,
+  field13 text NOT NULL,
+  field14 text NOT NULL,
+  field15 text NOT NULL,
+  field16 text NOT NULL,
+  field17 text NOT NULL,
+  field18 text NOT NULL,
+  field19 text NOT NULL,
+  field20 text NOT NULL,
   PRIMARY KEY (uid)
 ) TYPE=MyISAM;
 

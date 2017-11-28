@@ -346,17 +346,8 @@ $serialize_sql_setting = array (
         'birthcity' => 'birthcity',
         'residecity' => 'residecity',
         'residedist' => 'residedist',
-        'affectivestatus' => 'affectivestatus',
         'lookingfor' => 'lookingfor',
         'bloodtype' => 'bloodtype',
-        'field1' => 'field1',
-        'field2' => 'field2',
-        'field3' => 'field3',
-        'field4' => 'field4',
-        'field5' => 'field5',
-        'field6' => 'field6',
-        'field7' => 'field7',
-        'field8' => 'field8',
       ),
     ),
     'contact' =>
@@ -366,13 +357,12 @@ $serialize_sql_setting = array (
       'displayorder' => '1',
       'field' =>
       array (
-        'telephone' => 'telephone',
+        'nationality' => 'nationality',
         'mobile' => 'mobile',
         'icq' => 'icq',
         'qq' => 'qq',
-        'yahoo' => 'yahoo',
-        'msn' => 'msn',
         'taobao' => 'taobao',
+        'site' => 'site',
       ),
     ),
     'edu' =>
@@ -397,6 +387,7 @@ $serialize_sql_setting = array (
         'company' => 'company',
         'position' => 'position',
         'revenue' => 'revenue',
+        'telephone' => 'telephone',
       ),
     ),
     'info' =>
@@ -412,10 +403,101 @@ $serialize_sql_setting = array (
         'zipcode' => 'zipcode',
         'site' => 'site',
         'bio' => 'bio',
+        'affectivestatus' => 'affectivestatus',
         'interest' => 'interest',
         'sightml' => 'sightml',
         'customstatus' => 'customstatus',
         'timeoffset' => 'timeoffset',
+      ),
+    ),
+    'profile1' =>
+    array (
+      'title' => '',
+      'available' => '0',
+      'displayorder' => '5',
+      'field' =>
+      array (
+      ),
+    ),
+    'profile2' =>
+    array (
+      'title' => '',
+      'available' => '0',
+      'displayorder' => '6',
+      'field' =>
+      array (
+      ),
+    ),
+    'profile3' =>
+    array (
+      'title' => '',
+      'available' => '0',
+      'displayorder' => '7',
+      'field' =>
+      array (
+      ),
+    ),
+    'profile4' =>
+    array (
+      'title' => '',
+      'available' => '0',
+      'displayorder' => '8',
+      'field' =>
+      array (
+      ),
+    ),
+    'profile5' =>
+    array (
+      'title' => '',
+      'available' => '0',
+      'displayorder' => '9',
+      'field' =>
+      array (
+      ),
+    ),
+    'profile6' =>
+    array (
+      'title' => '',
+      'available' => '0',
+      'displayorder' => '10',
+      'field' =>
+      array (
+      ),
+    ),
+    'profile7' =>
+    array (
+      'title' => '',
+      'available' => '0',
+      'displayorder' => '11',
+      'field' =>
+      array (
+      ),
+    ),
+    'profile8' =>
+    array (
+      'title' => '',
+      'available' => '0',
+      'displayorder' => '12',
+      'field' =>
+      array (
+      ),
+    ),
+    'profile9' =>
+    array (
+      'title' => '',
+      'available' => '0',
+      'displayorder' => '13',
+      'field' =>
+      array (
+      ),
+    ),
+    'profile10' =>
+    array (
+      'title' => '',
+      'available' => '0',
+      'displayorder' => '14',
+      'field' =>
+      array (
       ),
     ),
   ),

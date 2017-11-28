@@ -19,7 +19,7 @@ $defaultop = '';
 		}
 	}
 
-$operation = in_array($_GET['op'], array('base', 'contact', 'edu', 'work', 'info', 'password', 'verify')) ? trim($_GET['op']) : $defaultop;
+$operation = in_array($_GET['op'], array('base', 'contact', 'edu', 'work', 'info', 'profile1', 'profile2', 'profile3', 'profile4', 'profile5', 'profile6', 'profile7', 'profile8', 'profile9', 'profile10', 'password', 'verify')) ? trim($_GET['op']) : $defaultop;
 $space = getuserbyuid($_G['uid']);
 space_merge($space, 'field_home');
 space_merge($space, 'profile');
@@ -446,7 +446,7 @@ if($operation == 'password') {
 	$actives = array('profile' =>' class="a"');
 	$opactives = array($operation =>' class="a"');
 	$allowitems = array();
-	if(in_array($operation, array('base', 'contact', 'edu', 'work', 'info'))) {
+	if(in_array($operation, array('base', 'contact', 'edu', 'work', 'info', 'profile1', 'profile2', 'profile3', 'profile4', 'profile5', 'profile6', 'profile7', 'profile8', 'profile9', 'profile10'))) {
 		$allowitems = $profilegroup[$operation]['field'];
 	} elseif($operation == 'verify') {
 		if($vid == 0) {

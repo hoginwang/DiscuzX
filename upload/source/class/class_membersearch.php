@@ -36,10 +36,13 @@ class membersearch {
 			'occupation'=>'profile', 'company'=>'profile', 'position'=>'profile', 'revenue'=>'profile',
 			'affectivestatus'=>'profile', 'lookingfor'=>'profile', 'bloodtype'=>'profile',
 			'height'=>'profile', 'weight'=>'profile', 'alipay'=>'profile', 'icq'=>'profile',
-			'qq'=>'profile', 'yahoo'=>'profile', 'msn'=>'profile', 'taobao'=>'profile', 'site'=>'profile',
+			'qq'=>'profile', 'taobao'=>'profile', 'site'=>'profile',
 			'bio'=>'profile', 'interest'=>'profile', 'field1'=>'profile', 'field2'=>'profile',
 			'field3'=>'profile', 'field4'=>'profile', 'field5'=>'profile', 'field6'=>'profile',
-			'field7'=>'profile', 'field8'=>'profile', 'token' => 'token');
+			'field7'=>'profile', 'field8'=>'profile', 'field9'=>'profile', 'field10'=>'profile', 
+			'field11'=>'profile', 'field12'=>'profile', 'field13'=>'profile', 'field14'=>'profile', 
+			'field15'=>'profile', 'field16'=>'profile', 'field17'=>'profile', 'field18'=>'profile', 
+			'field19'=>'profile', 'field20'=>'profile', 'token' => 'token');
 		return $fieldid ? $fields[$fieldid] : $fields;
 	}
 
