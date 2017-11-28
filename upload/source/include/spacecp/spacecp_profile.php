@@ -467,7 +467,7 @@ if($operation == 'password') {
 	$showbtn = ($vid && $verify['verify'.$vid] != 1) || empty($vid);
 	if(!empty($verify) && is_array($verify)) {
 		foreach($verify as $key => $flag) {
-			if(in_array($key, array('verify1', 'verify2', 'verify3', 'verify4', 'verify5', 'verify6', 'verify7')) && $flag == 1) {
+			if(in_array($key, array('verify1', 'verify2', 'verify3', 'verify4', 'verify5', 'verify6', 'verify7', 'verify8', 'verify9', 'verify10', 'verify11', 'verify12', 'verify13', 'verify14', 'verify15', 'verify16', 'verify17', 'verify18', 'verify19', 'verify20')) && $flag == 1) {
 				$verifyid = intval(substr($key, -1, 1));
 				if($_G['setting']['verify'][$verifyid]['available']) {
 					foreach($_G['setting']['verify'][$verifyid]['field'] as $field) {

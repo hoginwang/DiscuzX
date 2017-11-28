@@ -12,7 +12,7 @@ if(!defined('IN_DISCUZ') || !defined('IN_ADMINCP')) {
 cpheader();
 $operation = $operation ? $operation : '';
 
-$anchor = in_array($_GET['anchor'], array('base', 'edit', 'verify', 'verify1', 'verify2', 'verify3', 'verify4', 'verify5', 'verify6', 'authstr', 'refusal', 'pass')) ? $_GET['anchor'] : 'base';
+$anchor = in_array($_GET['anchor'], array('base', 'edit', 'verify', 'verify1', 'verify2', 'verify3', 'verify4', 'verify5', 'verify6', 'verify7', 'verify8', 'verify9', 'verify10', 'verify11', 'verify12', 'verify13', 'verify14', 'verify15', 'verify16', 'verify17', 'verify18', 'verify19', 'verify20', 'authstr', 'refusal', 'pass')) ? $_GET['anchor'] : 'base';
 $current = array($anchor => 1);
 $navmenu = array();
 
@@ -22,7 +22,7 @@ if($operation == 'verify') {
 	$anchor = in_array($_GET['anchor'], array('authstr', 'refusal', 'pass', 'add')) ? $_GET['anchor'] : 'authstr';
 	$current = array($anchor => 1);
 	if($anchor == 'add') {
-		if(!submitcheck('addverifysubmit') || $vid < 0 || $vid > 6) {
+		if(!submitcheck('addverifysubmit') || $vid < 0 || $vid > 21) {
 			$navmenu[0] = array('members_verify_nav_authstr', 'verify&operation=verify&anchor=authstr&do='.$vid, 0);
 			$navmenu[1] = array('members_verify_nav_refusal', 'verify&operation=verify&anchor=refusal&do='.$vid, 0);
 			$navmenu[2] = array('members_verify_nav_pass', 'verify&operation=verify&anchor=pass&do='.$vid, 0);
@@ -204,7 +204,7 @@ EOF;
 			} elseif ($anchor == 'authstr') {
 				$_GET['flag'] = 0;
 			}
-			$intkeys = array('uid', 'verifytype', 'flag', 'verify1', 'verify2', 'verify3', 'verify4', 'verify5', 'verify6');
+			$intkeys = array('uid', 'verifytype', 'flag', 'verify1', 'verify2', 'verify3', 'verify4', 'verify5', 'verify6', 'verify7', 'verify8', 'verify9', 'verify10', 'verify11', 'verify12', 'verify13', 'verify14', 'verify15', 'verify16', 'verify17', 'verify18', 'verify19', 'verify20');
 			$strkeys = array();
 			$randkeys = array();
 			$likekeys = array('username');
@@ -506,15 +506,15 @@ EOF;
 } elseif($operation == 'edit') {
 
 	shownav('user', 'nav_members_verify');
-	$vid = $_GET['vid'] < 8 ? intval($_GET['vid']) : 0;
+	$vid = $_GET['vid'] < 21 ? intval($_GET['vid']) : 0;
 	$verifyarr = $_G['setting']['verify'][$vid];
 	if(!submitcheck('verifysubmit')) {
-		if($vid == 7) {
+		if($vid == 0) {
 			showtips('members_verify_setting_tips');
 		}
 		showformheader("verify&operation=edit&vid=$vid", 'enctype');
 		showtableheader();
-		$readonly = $vid == 6 || $vid == 7 ? 'readonly' : '';
+		$readonly = $vid == 1 || $vid == 0 ? 'readonly' : '';
 		showsetting('members_verify_title', "verify[title]", $verifyarr['title'], 'text', $readonly);
 		showsetting('members_verify_enable', "verify[available]", $verifyarr['available'], 'radio');
 		$verificonhtml = '';
@@ -535,12 +535,12 @@ EOF;
 		showsetting('members_verify_icon', 'iconnew', (!$icon_url['host'] ? str_replace($_G['setting']['attachurl'].'common/', '', $verifyarr['icon']) : $verifyarr['icon']), 'filetext', '', 0, $verificonhtml);
 		showtagfooter('tbody');
 
-		if($vid == 6) {
+		if($vid == 1) {
 			showsetting('members_verify_view_real_name', "verify[viewrealname]", $verifyarr['viewrealname'], 'radio');
-		} elseif($vid == 7) {
+		} elseif($vid == 0) {
 			showsetting('members_verify_view_video_photo', "verify[viewvideophoto]", $verifyarr['viewvideophoto'], 'radio');
 		}
-		if($vid != 7) {
+		if($vid != 0) {
 			$varname = array('verify[field]', array(), 'isfloat');
 			foreach(C::t('common_member_profile_setting')->fetch_all_by_available(1) as $value) {
 				if(!in_array($value['fieldid'], array('constellation', 'zodiac', 'birthyear', 'birthmonth', 'birthprovince', 'birthdist', 'birthcommunity', 'resideprovince', 'residedist', 'residecommunity'))) {
@@ -570,7 +570,7 @@ EOF;
 			$_G['setting']['verify'][$key]['unverifyicon'] = str_replace($_G['setting']['attachurl'].'common/', '', $value['unverifyicon']);
 		}
 		$verifynew = getgpc('verify');
-		if($vid == 6 || $vid == 7) {
+		if($vid == 1 || $vid == 0) {
 			$verifynew['title'] = $_G['setting']['verify'][$vid]['title'];
 		}
 		if($verifynew['available'] == 1 && !trim($verifynew['title'])) {
@@ -634,8 +634,8 @@ EOF;
 		showformheader("verify");
 		showtableheader('members_verify_setting', 'fixpadding');
 		showsubtitle(array('members_verify_available', 'members_verify_id', 'members_verify_title', ''), 'header');
-		for($i = 1; $i < 7; $i++) {
-			$readonly = $i == 6 ? true : false;
+		for($i = 1; $i < 21; $i++) {
+			$readonly = $i == 1 ? true : false;
 			$url = parse_url($_G['setting']['verify'][$i]['icon']);
 			if(!$url['host'] && $_G['setting']['verify'][$i]['icon'] && strpos($_G['setting']['verify'][$i]['icon'], $_G['setting']['attachurl'].'common/') === false) {
 				$_G['setting']['verify'][$i]['icon'] = $_G['setting']['attachurl'].'common/'.$_G['setting']['verify'][$i]['icon'];

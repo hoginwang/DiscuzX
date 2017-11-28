@@ -56,7 +56,7 @@ class table_common_member_verify_info extends discuz_table
 			$parameter[] = $uid;
 			$wherearr[] = 'uid=%d';
 		}
-		if($vid >= 0 && $vid < 8) {
+		if($vid >= 0 && $vid < 21) {
 			$parameter[] = $vid;
 			$wherearr[] = 'verifytype=%d';
 		}

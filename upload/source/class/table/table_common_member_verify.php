@@ -24,7 +24,7 @@ class table_common_member_verify extends discuz_table
 
 	public function fetch_all_by_vid($vid, $flag, $uids = array()) {
 		$parameter = array($this->_table);
-		if($vid > 0 && $vid < 8) {
+		if($vid > 0 && $vid < 21) {
 			$wherearr = array();
 			if($uids) {
 				$wherearr[] = is_array($uids) ? 'uid IN(%n)' : 'uid=%d';
@@ -60,7 +60,7 @@ class table_common_member_verify extends discuz_table
 			$parameter[] = $uid;
 			$wherearr[] = 'v.uid=%d';
 		}
-		if($vid > 0 && $vid < 8) {
+		if($vid > 0 && $vid < 21) {
 			$parameter[] = $vid;
 			$wherearr[] = 'v.verify%d=1';
 		}

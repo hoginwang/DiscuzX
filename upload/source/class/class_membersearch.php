@@ -25,7 +25,7 @@ class membersearch {
 			'extcredits5'=>'count',	'extcredits6'=>'count', 'extcredits7'=>'count', 'extcredits8'=>'count',
 			'posts'=>'count','friends'=>'count','oltime'=>'count',
 			'fid' => 'groupuser', 'level' => 'groupuser',
-			'verify1' => 'verify', 'verify2' => 'verify', 'verify3' => 'verify', 'verify4' => 'verify', 'verify5' => 'verify', 'verify6' => 'verify', 'verify7' => 'verify',
+			'verify1' => 'verify', 'verify2' => 'verify', 'verify3' => 'verify', 'verify4' => 'verify', 'verify5' => 'verify', 'verify6' => 'verify', 'verify7' => 'verify', 'verify8' => 'verify', 'verify9' => 'verify', 'verify10' => 'verify', 'verify11' => 'verify', 'verify12' => 'verify', 'verify13' => 'verify', 'verify14' => 'verify', 'verify15' => 'verify', 'verify16' => 'verify', 'verify17' => 'verify', 'verify18' => 'verify', 'verify19' => 'verify', 'verify20' => 'verify',
 			'regip'=>'status', 'lastip'=>'status', 'lastvisit'=>'status', 'lastpost' => 'status', 'realname'=>'profile',
 			'birthyear'=>'profile', 'birthmonth'=>'profile', 'birthday'=>'profile', 'gender'=>'profile',
 			'constellation'=>'profile', 'zodiac'=>'profile', 'telephone'=>'profile', 'mobile'=>'profile',

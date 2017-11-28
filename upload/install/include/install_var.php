@@ -281,7 +281,7 @@ $serialize_sql_setting = array (
   ),
   'verify' =>
   array (
-    6 =>
+    1 =>
     array (
       'title' => '实名认证',
       'available' => '0',
@@ -294,10 +294,6 @@ $serialize_sql_setting = array (
       'icon' => false,
     ),
     'enabled' => false,
-    1 =>
-    array (
-      'icon' => '',
-    ),
     2 =>
     array (
       'icon' => '',
@@ -314,12 +310,64 @@ $serialize_sql_setting = array (
     array (
       'icon' => '',
     ),
+    6 =>
+    array (
+      'icon' => '',
+    ),
     7 =>
     array (
-      'title' => '视频认证',
-      'available' => '0',
-      'showicon' => '0',
-      'viewvideophoto' => '0',
+      'icon' => '',
+    ),
+    8 =>
+    array (
+      'icon' => '',
+    ),
+    9 =>
+    array (
+      'icon' => '',
+    ),
+    10 =>
+    array (
+      'icon' => '',
+    ),
+    11 =>
+    array (
+      'icon' => '',
+    ),
+    12 =>
+    array (
+      'icon' => '',
+    ),
+    13 =>
+    array (
+      'icon' => '',
+    ),
+    14 =>
+    array (
+      'icon' => '',
+    ),
+    15 =>
+    array (
+      'icon' => '',
+    ),
+    16 =>
+    array (
+      'icon' => '',
+    ),
+    17 =>
+    array (
+      'icon' => '',
+    ),
+    18 =>
+    array (
+      'icon' => '',
+    ),
+    19 =>
+    array (
+      'icon' => '',
+    ),
+    20 =>
+    array (
       'icon' => '',
     ),
   ),

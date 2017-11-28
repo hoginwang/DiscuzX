@@ -533,10 +533,10 @@ function ckrealname($return=0) {
 	global $_G;
 
 	$result = true;
-	if($_G['adminid'] != 1 && $_G['setting']['verify'][6]['available'] && empty($_G['setting']['verify'][6]['viewrealname'])) {
+	if($_G['adminid'] != 1 && $_G['setting']['verify'][1]['available'] && empty($_G['setting']['verify'][1]['viewrealname'])) {
 		space_merge($_G['member'], 'profile');
 		space_merge($_G['member'], 'verify');
-		if(empty($_G['member']['realname']) || !$_G['member']['verify6']) {
+		if(empty($_G['member']['realname']) || !$_G['member']['verify1']) {
 			if(empty($return)) showmessage('no_privilege_realname', '', array(), array('return' => true));
 			$result = false;
 		}
@@ -547,7 +547,7 @@ function ckrealname($return=0) {
 function ckvideophoto($tospace=array(), $return=0) {
 	global $_G;
 
-	if($_G['adminid'] != 1 && empty($_G['setting']['verify'][7]['available']) || $_G['member']['videophotostatus']) {
+	if($_G['adminid'] != 1 && empty($_G['setting']['verify'][0]['available']) || $_G['member']['videophotostatus']) {
 		return true;
 	}
 
@@ -555,7 +555,7 @@ function ckvideophoto($tospace=array(), $return=0) {
 
 	$result = true;
 	if(empty($tospace) || empty($tospace['privacy']['view']['videoviewphoto'])) {
-		if(!checkperm('videophotoignore') && empty($_G['setting']['verify'][7]['viewvideophoto']) && !checkperm('allowviewvideophoto')) {
+		if(!checkperm('videophotoignore') && empty($_G['setting']['verify'][0]['viewvideophoto']) && !checkperm('allowviewvideophoto')) {
 			$result = false;
 		}
 	} elseif ($tospace['privacy']['view']['videoviewphoto'] == 2) {
@@ -717,7 +717,7 @@ function allowverify($vid = 0) {
 		loadcache('setting');
 	}
 	$allow = false;
-	$vid = 0 < $vid && $vid < 8 ? intval($vid) : 0;
+	$vid = 0 < $vid && $vid < 21 ? intval($vid) : 0;
 	if($vid) {
 		$setting = $_G['setting']['verify'][$vid];
 		if($setting['available'] && (empty($setting['groupid']) || in_array($_G['groupid'], $setting['groupid']))) {

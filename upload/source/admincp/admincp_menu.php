@@ -129,7 +129,7 @@ $menu['user'] = array(
 
 if(is_array($_G['setting']['verify'])) {
 	foreach($_G['setting']['verify'] as $vid => $verify) {
-		if($vid != 7 && $verify['available']) {
+		if($vid != 0 && $verify['available']) {
 			$menu['user'][] = array($verify['title'], "verify_verify_$vid");
 		}
 	}
