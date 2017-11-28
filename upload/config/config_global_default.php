@@ -15,25 +15,27 @@ $_config = array();
 /**
  * 数据库主服务器设置, 支持多组服务器设置, 当设置多组服务器时, 则会根据分布式策略使用某个服务器
  * @example
- * $_config['db']['1']['dbhost'] = 'localhost'; // 服务器地址
- * $_config['db']['1']['dbuser'] = 'root'; // 用户
- * $_config['db']['1']['dbpw'] = 'root';// 密码
- * $_config['db']['1']['dbcharset'] = 'gbk';// 字符集
- * $_config['db']['1']['pconnect'] = '0';// 是否持续连接
- * $_config['db']['1']['dbname'] = 'x1';// 数据库
- * $_config['db']['1']['tablepre'] = 'pre_';// 表名前缀
- *
- * $_config['db']['2']['dbhost'] = 'localhost';
- * ...
- *
  */
-$_config['db'][1]['dbhost']  		= 'localhost';
-$_config['db'][1]['dbuser']  		= 'root';
-$_config['db'][1]['dbpw'] 	 	= 'root';
-$_config['db'][1]['dbcharset'] 		= 'utf8';
-$_config['db'][1]['pconnect'] 		= 0;
-$_config['db'][1]['dbname']  		= 'ultrax';
-$_config['db'][1]['tablepre'] 		= 'pre_';
+
+$_config['db'][1]['dbhost']  		= 'localhost';	// 数据库服务器地址
+$_config['db'][1]['dbname']  		= 'ultrax';	// 数据库名称
+$_config['db'][1]['dbuser']  		= 'root';	// 数据库用户名
+$_config['db'][1]['dbpw'] 	 		= 'root';	// 数据库密码
+$_config['db'][1]['dbcharset'] 		= 'utf8';	// 数据库字符集
+$_config['db'][1]['tablepre'] 		= 'pre_';	// 数据库表名前缀
+$_config['db'][1]['pconnect'] 		= 0;		// 是否持续连接
+
+/**
+ * $_config['db']['2']['dbhost'] = 'localhost';	// 数据库从服务器地址
+ * ...
+ */
+
+// ----------------------------  Admininfo DB  ----------------------------- //
+// ----------------------管理员(创始人)初始化相关设置----------------------- //
+
+$_config['db'][1]['username'] 		= 'admin';	// 管理员(创始人)账号
+$_config['db'][1]['password'] 		= 'admin';	// 管理员(创始人)密码
+$_config['db'][1]['adminemail'] 	= 'admin@admin.com';	// 管理员(创始人)邮箱
 
 /**
  * 数据库从服务器设置( slave, 只读 ), 支持多组服务器设置, 当设置多组服务器时, 系统根据每次随机使用
@@ -54,7 +56,7 @@ $_config['db'][1]['tablepre'] 		= 'pre_';
 $_config['db']['1']['slave'] = array();
 
 //启用从服务器的开关
-$_config['db']['slave'] = false;
+$_config['db']['slave'] = false;	// false=关闭，true=开启
 /**
  * 数据库 分布部署策略设置
  *
@@ -169,6 +171,7 @@ $_config['admincp']['forcesecques']		= 0;		// 管理人员必须设置安全提�
 $_config['admincp']['checkip']			= 1;		// 后台管理操作是否验证管理员的 IP, 1=是[安全], 0=否。仅在管理员无法登陆后台时设置 0。
 $_config['admincp']['runquery']			= 0;		// 是否允许后台运行 SQL 语句 1=是 0=否[安全]
 $_config['admincp']['dbimport']			= 1;		// 是否允许后台恢复论坛数据  1=是 0=否[安全]
+$_config['plugindeveloper'] 			= 0;		// 0=关闭插件设计者模式，1=开启插件设计者模式，2=开启插件嵌入点
 
 /**
  * 系统远程调用功能模块

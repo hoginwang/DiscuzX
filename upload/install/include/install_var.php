@@ -138,9 +138,9 @@ $form_db_init_items = array
 	),
 	'admininfo' => array
 	(
-		'username' => array('type' => 'text', 'required' => 1, 'reg' => '/^.*$/', 'value' => array('type' => 'constant', 'var' => 'admin')),
-		'password' => array('type' => 'password', 'required' => 1, 'reg' => '/^.*$/'),
-		'password2' => array('type' => 'password', 'required' => 1, 'reg' => '/^.*$/'),
+		'username' => array('type' => 'text', 'required' => 1, 'reg' => '/^.*$/', 'value' => array('type' => 'var', 'var' => 'username')),
+		'password' => array('type' => 'text', 'required' => 1, 'reg' => '/^.*$/', 'value' => array('type' => 'var', 'var' => 'password')),
+		'password2' => array('type' => 'password', 'required' => 1, 'reg' => '/^.*$/', 'value' => array('type' => 'var', 'var' => 'password')),
 		'email' => array('type' => 'text', 'required' => 1, 'reg' => '/@/', 'value' => array('type' => 'var', 'var' => 'adminemail')),
 	)
 );

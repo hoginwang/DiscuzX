@@ -232,7 +232,9 @@ if($method == 'show_license') {
 	$dbuser = $_config['db'][1]['dbuser'];
 	$tablepre = $_config['db'][1]['tablepre'];
 
-	$adminemail = 'admin@admin.com';
+	$username = $_config['db'][1]['username'];
+	$password = $_config['db'][1]['password'];
+	$adminemail = $_config['db'][1]['adminemail'];
 
 	$error_msg = array();
 	if(isset($form_db_init_items) && is_array($form_db_init_items)) {
