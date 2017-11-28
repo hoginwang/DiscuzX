@@ -1,4 +1,4 @@
-<!--{eval $threadsort = $threadsorts = null;}-->
+<!--{eval $threadsort = $threadsorts = true;}-->
 <!--{template common/header}-->
 <!-- header start -->
 <header class="header">
@@ -133,7 +133,7 @@
                                         <h4>$_G[forum][threadsorts][types][$_G[forum_thread][sortid]]</h4>
                                     <!--{loop $threadsortshow['optionlist'] $option}-->
                                         <!--{if $option['type'] != 'info'}-->
-                                            $option[title]: <!--{if $option['value']}-->$option[value] $option[unit]<!--{else}--><span class="grey">--</span><!--{/if}--><br />
+                                            <p style="margin-bottom:5px;"><span class="grey"><em>  $option[title]：</em></span> <!--{if $option['value']}--><!--{eval preg_match("/(".str_replace("/",'\/',$_G['setting']['attachurl']).")(.*?)((.gif)|(.jpg)|(.jpeg)|(.bmp)|(.png))/",strtolower($option['value']),$dzlab_match);}--><!--{if count($dzlab_match)}--><a href="$dzlab_match[0]"><img src='$dzlab_match[0]' /></a><!--{else}-->$option[value]<!--{/if}--> $option[unit]<!--{else}--><span class="grey">--</span><!--{/if}--></p>
                                         <!--{/if}-->
                                     <!--{/loop}-->
                                     </div>
