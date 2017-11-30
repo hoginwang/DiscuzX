@@ -1,5 +1,5 @@
 +======================================+
-   Discuz! X3.3 Release 20170401
+   Discuz! X3.4 Release 20171001
 +======================================+
 兼容 PHP7
 优化 SQL查询
@@ -22,3 +22,4 @@ Discuz! X2.5
 Discuz! X3
 Discuz! X3.1
 Discuz! X3.2
+Discuz! X3.3
