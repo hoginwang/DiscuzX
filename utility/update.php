@@ -2015,8 +2015,7 @@ function show_header() {
 	if(in_array($_GET['step'], array('waitingdb','prepare'))) {
 		$nowarr = array('sql' => ' class="current"');
 	}
-	print<<<END
-	<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+https://www.w3.org!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitionalhttps://www.w3.org.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 	<html xmlns="http://www.w3.org/1999/xhtml">
 	<head>
 	<meta http-equiv="Content-Type" content="text/html; charset=$config[charset]" />

@@ -246,8 +246,8 @@ function showheader($action = '', $setting = array()) {
 	$titleadd = !empty($setting['program']['source']) ? " (<span style=\"color: #888888; padding: 4px\">{$setting['program']['source']} --&gt; {$setting['program']['target']}</span>)" : '';
 
 echo <<<EOT
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//ENhttps://www.w3.orgorg/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlnhttps://www.w3.orgorg/1999/xhtml">
 <head>
 <title>Discuz! X 系列产品升级转换</title>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
