@@ -9,7 +9,6 @@ $checkurl = array('v.youku.com/v_show/');
 function media_youku($url, $width, $height) { 
 	$ctx = stream_context_create(array('http' => array('timeout' => 10)));
 	if(preg_match("/^https?:\/\/v.youku.com\/v_show\/id_([^\/]+)(.html|)/i", $url, $matches)) {
-	   	//fix URL中包含多余参数的情况
 		$params = explode('.', $matches[1]);
 		$flv = 'https://player.youku.com/player.php/sid/'.$params[0].'/v.swf';
 		$iframe = 'https://player.youku.com/embed/'.$params[0];
