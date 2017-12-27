@@ -287,7 +287,7 @@ function addAttach(prefix) {
 	newnode = $(prefix + 'attachbtnhidden').firstChild.cloneNode(true);
 	tags = newnode.getElementsByTagName('input');
 	for(i = 0;i < tags.length;i++) {
-		if(tags[i].name == 'Filedata') {
+		if(tags[i].name == 'Filedata[]') {
 			tags[i].id = prefix + 'attachnew_' + id;
 			tags[i].onchange = function() {insertAttach(prefix, id);};
 			tags[i].unselectable = 'on';
@@ -323,25 +323,29 @@ function addAttach(prefix) {
 }
 
 function insertAttach(prefix, id) {
-	var path = $(prefix + 'attachnew_' + id).value;
-	var extpos = path.lastIndexOf('.');
-	var ext = extpos == -1 ? '' : path.substr(extpos + 1, path.length).toLowerCase();
-	var re = new RegExp("(^|\\s|,)" + ext + "($|\\s|,)", "ig");
-	var localfile = $(prefix + 'attachnew_' + id).value.substr($(prefix + 'attachnew_' + id).value.replace(/\\/g, '/').lastIndexOf('/') + 1);
-	var filename = mb_cutstr(localfile, 30);
-
-	if(path == '') {
-		return;
-	}
-	if(extensions != '' && (re.exec(extensions) == null || ext == '')) {
-		reAddAttach(prefix, id);
-		showError('对不起，不支持上传此类扩展名的附件。');
-		return;
-	}
-	if(prefix == 'img' && imgexts.indexOf(ext) == -1) {
-		reAddAttach(prefix, id);
-		showError('请选择图片文件(' + imgexts + ')');
-		return;
+	var files = $(prefix + 'attachnew_' + id).files;
+	if (!files) return;
+	var filename = '';
+	var localfile = '';
+	for (var i = 0; i < files.length; i++) {
+	    var path = files[i].name;
+	    var extpos = path.lastIndexOf('.');
+	    var ext = extpos == -1 ? '' : path.substr(extpos + 1, path.length).toLowerCase();
+	    var re = new RegExp("(^|\\s|,)" + ext + "($|\\s|,)", "ig");
+	    if (extensions != '' && (re.exec(extensions) == null || ext == '')) {
+	        reAddAttach(prefix, id);
+	        showError('对不起，不支持上传此类扩展名的附件。');
+	        return;
+	    }
+	    if (prefix == 'img' && imgexts.indexOf(ext) == -1) {
+	        reAddAttach(prefix, id);
+	        showError('请选择图片文件(' + imgexts + ')');
+	        return;
+	    }
+	    if (i > 0) filename += '; ';
+	    filename += path;
+	    if (i > 0) localfile += '; ';
+	    localfile += path.substr(path.replace(/\\/g, '/').lastIndexOf('/') + 1);
 	}
 
 	$(prefix + 'cpdel_' + id).innerHTML = '<a href="javascript:;" class="d" onclick="reAddAttach(\'' + prefix + '\', ' + id + ')">删除</a>';
