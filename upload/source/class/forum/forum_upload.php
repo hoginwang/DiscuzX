@@ -21,7 +21,7 @@ class forum_upload {
 	var $error_sizelimit;
 	var $getaid;
 
-	function forum_upload($getaid = 0) {
+	function forum_upload($getaid = 0, $filedata) {
 		global $_G;
 
 		$_G['uid'] = $this->uid = intval($_GET['uid']);
@@ -35,8 +35,9 @@ class forum_upload {
 		}
 
 
+		if (empty($filedata)) $filedata = $_FILES['Filedata'];
 		$upload = new discuz_upload();
-		$upload->init($_FILES['Filedata'], 'forum');
+		$upload->init($filedata, 'forum');
 		$this->attach = &$upload->attach;
 
 		if($upload->error()) {
@@ -157,7 +158,7 @@ class forum_upload {
 		} else {
 			echo $statusid ? -$statusid : $this->aid;
 		}
-		exit;
+		if ($statusid) exit;
 	}
 }
 
