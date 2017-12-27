@@ -47,7 +47,21 @@ if($_GET['operation'] == 'upload') {
 			$_G['group']['attachextensions'] = $forumattachextensions;
 		}
 	}
-	$upload = new forum_upload();
+	if (is_array($_FILES['Filedata']['name'])) {
+	    $count = count($_FILES['Filedata']['name']);
+	    $file_keys = array_keys($_FILES['Filedata']);
+	    for($i=0; $i<$count; $i++) {
+	        $fd = array();
+	        foreach ($file_keys as $key) {
+	            $fd[$key] = $_FILES['Filedata'][$key][$i];
+	        }
+	        $upload = new forum_upload(0, $fd);
+	    }
+	}
+	else {
+	    $upload = new forum_upload();
+	}
+	exit;
 
 } elseif($_GET['operation'] == 'poll') {
 
