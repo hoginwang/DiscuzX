@@ -82,7 +82,7 @@ class table_forum_attachment extends discuz_table
 			$wherearr[] = "af.dateline>%d";
 		}
 		$wheresql = !empty($wherearr) && is_array($wherearr) ? ' WHERE '.implode(' AND ', $wherearr) : '';
-		return DB::fetch_all("SELECT a.*, af.* FROM %t a INNER JOIN ".DB::table('forum_attachment_unused')." af USING(aid) $wheresql ORDER BY a.aid DESC", $parameter);
+		return DB::fetch_all("SELECT a.*, af.* FROM %t a INNER JOIN ".DB::table('forum_attachment_unused')." af USING(aid) $wheresql ORDER BY a.aid ASC", $parameter);
 	}
 
 	public function get_tableids() {
@@ -130,7 +130,7 @@ class table_forum_attachment extends discuz_table
 				INNER JOIN ".DB::table('forum_attachment')." ai USING(aid)
 				INNER JOIN ".DB::table('forum_thread')." t
 				INNER JOIN ".DB::table('forum_forum')." f
-				WHERE t.tid=a.tid AND f.fid=t.fid AND t.displayorder>='0' AND $sql ORDER BY a.aid DESC ".DB::limit($start, $limit));
+				WHERE t.tid=a.tid AND f.fid=t.fid AND t.displayorder>='0' AND $sql ORDER BY a.aid ASC ".DB::limit($start, $limit));
 	}
 
 }
