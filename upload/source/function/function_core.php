@@ -209,9 +209,6 @@ function dhtmlspecialchars($string, $flags = null) {
 	} else {
 		if($flags === null) {
 			$string = str_replace(array('&', '"', '<', '>'), array('&amp;', '&quot;', '&lt;', '&gt;'), $string);
-			if(strpos($string, '&amp;#') !== false) {
-				$string = preg_replace('/&amp;((#(\d{3,5}|x[a-fA-F0-9]{4}));)/', '&\\1', $string);
-			}
 		} else {
 			if(PHP_VERSION < '5.4.0') {
 				$string = htmlspecialchars($string, $flags);
@@ -310,8 +307,8 @@ function checkrobot($useragent = '') {
 	static $kw_browsers = array('msie', 'netscape', 'opera', 'konqueror', 'mozilla');
 
 	$useragent = strtolower(empty($useragent) ? $_SERVER['HTTP_USER_AGENT'] : $useragent);
-	if(strpos($useragent, 'http://') === false && dstrpos($useragent, $kw_browsers)) return false;
 	if(dstrpos($useragent, $kw_spiders)) return true;
+	if(strpos($useragent, 'http://') === false && dstrpos($useragent, $kw_browsers)) return false;
 	return false;
 }
 function checkmobile() {
