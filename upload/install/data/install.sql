@@ -1478,6 +1478,7 @@ CREATE TABLE pre_common_usergroup (
   allowinvite tinyint(1) NOT NULL DEFAULT '0',
   allowmailinvite tinyint(1) NOT NULL DEFAULT '0',
   maxinvitenum tinyint(3) unsigned NOT NULL DEFAULT '0',
+  maxinvitemonthnum tinyint(3) unsigned NOT NULL DEFAULT '0',
   inviteprice smallint(6) unsigned NOT NULL DEFAULT '0',
   maxinviteday smallint(6) unsigned NOT NULL DEFAULT '0',
   PRIMARY KEY (groupid),

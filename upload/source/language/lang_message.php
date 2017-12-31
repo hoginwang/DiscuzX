@@ -784,6 +784,7 @@ $lang = array (
   'mail_invite_not_allow' => '抱歉，您没有权限使用邮件邀请',
   'mail_can_not_be_empty' => '抱歉，邮件列表不能为空',
   'max_invitenum_error' => '抱歉，24小时内您只能获得 {maxnum} 个邀请码',
+  'max_invitemonthnum_error' => '抱歉，每个月您只能获得 {maxnum} 个邀请码',
 
   'no_flicker_yet' => '抱歉，您尚未对此信息使用彩虹炫',
   'haved_red_bag' => '您已领取此次红包',

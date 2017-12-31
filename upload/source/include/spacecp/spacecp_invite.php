@@ -88,6 +88,20 @@ if(submitcheck('emailinvite')) {
 		showmessage('mail_can_not_be_empty', $baseurl);
 	}
 
+    if($_G['group']['maxinvitemonthnum']) {
+        $daytime = mktime(0, 0, 0, date("m", $_G['timestamp']), 1, date("Y", $_G['timestamp']));;
+        $invitemonthcount = C::t('common_invite')->count_by_uid_dateline($_G['uid'], $daytime);
+        if($invitemonthcount + $invitenum > $_G['group']['maxinvitemonthnum']) {
+            showmessage('max_invitemonthnum_error', NULL, array('maxnum'=>$_G['group']['maxinvitemonthnum']), array('showdialog'=>1, 'showmsg' => true, 'closetime' => true));
+        }
+    }elseif($_G['group']['maxinvitenum']) {
+        $daytime = $_G['timestamp'] - 24*3600;
+        $invitecount = C::t('common_invite')->count_by_uid_dateline($_G['uid'], $daytime);
+        if($invitecount + $invitenum > $_G['group']['maxinvitenum']) {
+            showmessage('max_invitenum_error', NULL, array('maxnum'=>$_G['group']['maxinvitenum']), array('showdialog'=>1, 'showmsg' => true, 'closetime' => true));
+        }
+    }
+
 	$msetarr = array();
 	if($creditnum) {
 		$allcredit = $invitenum * $creditnum;
@@ -132,7 +146,13 @@ if(submitcheck('emailinvite')) {
 	$invitenum = intval($_POST['invitenum']);
 	if($invitenum < 1) $invitenum = 1;
 
-	if($_G['group']['maxinvitenum']) {
+    if($_G['group']['maxinvitemonthnum']) {
+        $daytime = mktime(0, 0, 0, date("m", $_G['timestamp']), 1, date("Y", $_G['timestamp']));;
+        $invitemonthcount = C::t('common_invite')->count_by_uid_dateline($_G['uid'], $daytime);
+        if($invitemonthcount + $invitenum > $_G['group']['maxinvitemonthnum']) {
+            showmessage('max_invitemonthnum_error', NULL, array('maxnum'=>$_G['group']['maxinvitemonthnum']), array('showdialog'=>1, 'showmsg' => true, 'closetime' => true));
+        }
+    }elseif($_G['group']['maxinvitenum']) {
 		$daytime = $_G['timestamp'] - 24*3600;
 		$invitecount = C::t('common_invite')->count_by_uid_dateline($_G['uid'], $daytime);
 		if($invitecount + $invitenum > $_G['group']['maxinvitenum']) {

@@ -741,6 +741,7 @@ EOT;
 		showsetting('usergroups_edit_invite_send_permission', 'allowmailinvitenew', $group['allowmailinvite'], 'radio');
 		showsetting('usergroups_edit_invite_price', 'invitepricenew', $group['inviteprice'], 'text');
 		showsetting('usergroups_edit_invite_buynum', 'maxinvitenumnew', $group['maxinvitenum'], 'text');
+        showsetting('usergroups_edit_invite_monthbuynum', 'maxinvitemonthnumnew', $group['maxinvitemonthnum'], 'text');
 		showsetting('usergroups_edit_invite_maxinviteday', 'maxinvitedaynew', $group['maxinviteday'], 'text');
 		showtablefooter();
 		showtagfooter('div');
@@ -1031,6 +1032,7 @@ EOT;
 			'allowvisit' => $_GET['allowvisitnew'],
 			'allowsendpm' => $_GET['allowsendpmnew'],
 			'maxinvitenum' => $_GET['maxinvitenumnew'],
+            'maxinvitemonthnum' => $_GET['maxinvitemonthnumnew'],
 			'maxinviteday' => $maxinvitedaynew,
 			'allowinvite' => $_GET['allowinvitenew'],
 			'allowmailinvite' => $_GET['allowmailinvitenew'],
