@@ -235,6 +235,10 @@ if($attach['remote'] && !$_G['setting']['ftp']['hideurl'] && $isimage) {
 }
 
 $filesize = !$attach['remote'] ? filesize($filename) : $attach['filesize'];
+
+//@dly START
+$attach['filename'] = '[YUEING.ORG]' . $attach['filename'];
+//@dly END
 $attach['filename'] = '"'.(strtolower(CHARSET) == 'utf-8' && strexists($_SERVER['HTTP_USER_AGENT'], 'MSIE') ? urlencode($attach['filename']) : $attach['filename']).'"';
 
 dheader('Date: '.gmdate('D, d M Y H:i:s', $attach['dateline']).' GMT');
