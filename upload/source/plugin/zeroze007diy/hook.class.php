@@ -57,6 +57,7 @@ class plugin_zeroze007diy
 
     function _filterurl($url, $title = '&#38142;&#25509;&#60;&#60;', $onlytext)
     {
+        global $_G;
         $url = htmlspecialchars_decode(trim($url));
         $disable = Array(
             "400gb.com/",
@@ -87,7 +88,7 @@ class plugin_zeroze007diy
         foreach ($keys as $k => $v) {
             if (strpos($url, $k)) {
                 $title = $v;
-                $url = 'plugin.php?id=zeroze007diy:linkFileter&code=' . base64_encode(authcode($url, 'ENCODE'));
+                $url = $_G['siteurl'] . 'plugin.php?id=zeroze007diy:linkFileter&code=' . base64_encode(authcode($url, 'ENCODE'));
                 break;
             }
         }
