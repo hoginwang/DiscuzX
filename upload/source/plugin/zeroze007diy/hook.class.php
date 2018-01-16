@@ -9,6 +9,12 @@ if (!defined('IN_DISCUZ')) {
     exit('Access Denied');
 }
 
+function tpl_hide_reply2()
+{
+    $return = "<div class=\"showhide\"><h4>本帖隐藏的内容</h4>\\1</div>";
+    return $return;
+}
+
 class plugin_zeroze007diy
 {
 
@@ -147,10 +153,10 @@ class plugin_zeroze007diy
                 $message = preg_replace_callback("/\[hide=p(\d+)\]\s*(.+?)\s*\[\/hide\]/is", create_function('$matches', 'return plugin_zeroze007diy::_hidepermit($matches[1], $matches[2]);'), $message);
             }
             if (strpos($msglower, '[hide=d') !== FALSE && in_array($_G['member']['groupid'], $exemptHideGroups) || ($_G['uid'] && in_array($_G['uid'], $exemptHideUids))) {
-                $message = preg_replace("/\[hide=(d\d+)?[,]?(\d+)?\]\s*(.*?)\s*\[\/hide\]/", tpl_hide_reply(), $message);
+                $message = preg_replace("/\[hide=(d\d+)?[,]?(\d+)?\]\s*(.*?)\s*\[\/hide\]/", tpl_hide_reply2(), $message);
             }
             if (strpos($msglower, '[hide]') !== false && in_array($_G['member']['groupid'], $exemptHideGroups) || ($_G['uid'] && in_array($_G['uid'], $exemptHideUids))) {
-                $message = preg_replace("/\[hide\]\s*(.*?)\s*\[\/hide\]/is", tpl_hide_reply(), $message);
+                $message = preg_replace("/\[hide\]\s*(.*?)\s*\[\/hide\]/is", tpl_hide_reply2(), $message);
             }
             if (strpos($msglower, '[/hide]') !== false && strpos($msglower, '[hide') === false) {
                 $message = preg_replace("/\[\/hide\]/is", "", $message);
