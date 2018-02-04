@@ -3,39 +3,18 @@ branches: {
   }
 fileChange:
   /upload:
-    newFile: !uuid '3c0325c01caaf1c191ce3d34ccbd24ba42106130'
-    oldFile: !uuid '4a917ea8554998542ada4c5b9cb48000a752e5ff'
-  /upload/static:
-    newFile: !uuid '7eecf105a9bcda47b57d651a0d30360a30a05e78'
-    oldFile: !uuid 'b7bdeb5e13b69caaaf8198de6fa4d437473037bd'
-  /upload/static/avatar:
-    newFile: !uuid '2a339f4775c79853e4f95d3cfb069fc535dd4ce5'
-    oldFile: !uuid 'de17c25793dfe3a3f590ed6b8e6d3dbd3779acb1'
-  /upload/static/avatar/avatar.js:
-    newFile: !uuid '949a68e78990e91d7d824594d55796d11254d5d5'
-    oldFile: !uuid '04958e3e8aaef7fc268c9d6ad9e4e5cd9913b223'
-  /upload/template:
-    newFile: !uuid '6aa3d6d7dd5ac2ca6a799b1478fb1051a98d5583'
-    oldFile: !uuid 'd3a822db68364c731e3720069111c30e7d8a33a6'
-  /upload/template/default:
-    newFile: !uuid 'f15a94f930bcd9fd47c0da67713cdd8c731ba030'
-    oldFile: !uuid 'b2d0f970056be3b188ebd12f976d6b1e9ffbdf8f'
-  /upload/template/default/home:
-    newFile: !uuid 'b3ed259e7cbc04eceec75a17c7f384279e6f04bf'
-    oldFile: !uuid '1e5933cf7b68fd5776d97aea4bea51368dfdd3ff'
-  /upload/template/default/home/spacecp_avatar_body.htm:
-    newFile: !uuid '07e15399a50fde4e21122aa7f461dfd932644dd8'
-    oldFile: !uuid 'a1c2162e818cdc7e39cdb367818172748eeda008'
-  /upload/uc_server:
-    newFile: !uuid '26fee15f77073aaef4ba43a2430541435bb0a09a'
-    oldFile: !uuid '834dbc867936df50f8d3d19ff11245255b8cb3ff'
-  /upload/uc_server/control:
-    newFile: !uuid 'd1f524d165636496ca651def261eb8f3ee7670fc'
-    oldFile: !uuid '3d5e367b80bf198450ba1c55dbf4086893e2aeb5'
-  /upload/uc_server/control/user.php:
-    newFile: !uuid 'b16c214d4f530443d68db28b209ff5d42642fd0e'
-    oldFile: !uuid 'ce6d28225ff053de69f0fd21b441ef4325cc20f1'
-gitCommitId: !uuid '3617dc0d4260f194450e3c3cb640bbb7cd743f76'
+    newFile: !uuid 'fafecda63e796f8bd5d49941e93be9ba9375ab67'
+    oldFile: !uuid '3c0325c01caaf1c191ce3d34ccbd24ba42106130'
+  /upload/source:
+    newFile: !uuid '0c59a937d45c6d91cf7b19f46b891f6f0b82c5b8'
+    oldFile: !uuid '683e181031e2c00cc0f29c8f2199a480a30e7165'
+  /upload/source/class:
+    newFile: !uuid '8455b470bdd8c18c015becf1966e32c0f14cd00f'
+    oldFile: !uuid '086d4deb579006faf7f259010e83253bf6b07588'
+  /upload/source/class/class_task.php:
+    newFile: !uuid 'e5f06622b148d69556e56a31fcb5a739068c431a'
+    oldFile: !uuid '3c0e0223b2b2b4a3d4e6ba518bf1c8ace7b5038e'
+gitCommitId: !uuid 'f14b6f8bbe4471c429233124fcd42a0eeac7e155'
 renames: {
   }
-revisionId: 268
+revisionId: 269
