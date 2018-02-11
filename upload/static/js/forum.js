@@ -187,6 +187,10 @@ function announcement() {
     ann.announcementScroll();
 }
 
+function removeindexheats() {
+	return confirm('您确认要把此主题从热点主题中移除么？');
+}
+
 function showTypes(id, mod) {
 	var o = $(id);
 	if(!o) return false;
