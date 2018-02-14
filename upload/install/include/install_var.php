@@ -96,6 +96,7 @@ $dirfile_items = array
 	'attach_album' => array('type' => 'dir', 'path' => './data/attachment/album'),
 	'attach_forum' => array('type' => 'dir', 'path' => './data/attachment/forum'),
 	'attach_group' => array('type' => 'dir', 'path' => './data/attachment/group'),
+	'attach_temp' => array('type' => 'dir', 'path' => './data/attachment/temp'),
 
 	'logs' => array('type' => 'dir', 'path' => './data/log'),
 	'uccache' => array('type' => 'dir', 'path' => './uc_client/data/cache'),
