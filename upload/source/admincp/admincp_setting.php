@@ -1210,6 +1210,7 @@ EOF;
 			$lang['setting_functions_mod_bannedmessages_thread'],
 			$lang['setting_functions_mod_bannedmessages_avatar'],
 			$lang['setting_functions_mod_bannedmessages_signature'])), $setting['bannedmessages'], 'binmcheckbox');
+        showsetting('setting_functions_mod_warningrange', 'settingnew[warningrange]', $setting['warningrange'], 'text');
 		showsetting('setting_functions_mod_warninglimit', 'settingnew[warninglimit]', $setting['warninglimit'], 'text');
 		showsetting('setting_functions_mod_warningexpiration', 'settingnew[warningexpiration]', $setting['warningexpiration'], 'text');
 		showsetting('setting_functions_mod_rewardexpiration', 'settingnew[rewardexpiration]', $setting['rewardexpiration'], 'text');
