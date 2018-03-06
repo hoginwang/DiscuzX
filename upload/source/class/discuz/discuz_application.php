@@ -484,7 +484,7 @@ class discuz_application extends discuz_base{
 				}
 			}
 
-			if($user && $user['freeze'] && (getgpc('mod') != 'spacecp' && getgpc('mod') != 'misc'  || CURSCRIPT != 'home') && CURSCRIPT != 'member' && CURSCRIPT != 'misc') {
+            if ($user && $user['freeze'] > 0 && ((getgpc('mod') != 'spacecp' && getgpc('mod') != 'misc' || CURSCRIPT != 'home') && CURSCRIPT != 'member' && CURSCRIPT != 'misc')) {
 				if (CURSCRIPT == 'plugin' && !empty($_GET['id'])) {
                     list($identifier, $module) = explode(':', $_GET['id']);
                     if ($identifier != 'zeroze007_auto') {

@@ -55,17 +55,16 @@ function expirehide($expiration, $creditsrequire, $message, $dateline)
 function codedisp($code)
 {
     global $_G;
-    $key = array();
-    $key[0] = '/(115网盘礼包码)(：|:)\s*(\w*)/is';
-    $key[1] = '/((http|https)\:\/\/)?115\.com\/lb\/(\w*)/is';
-    $key[2] = '/((http|https)\:\/\/)?pan\.baidu.com\/(s|share|pcloud)\/([\w\/\?\=&_;]*)/is';
-    $key[3] = '/((http|https)\:\/\/)?(kuai\.xunlei\.com\/d\/)([\w-\.]*)/is';
-    $key[4] = '/((http|https)\:\/\/)?(yunpan\.cn\/)(\w*)/is';
-    $key[5] = '/((http|https)\:\/\/)?(caiyun\.feixin\.10086.cn\/dl\/)(\w*)/is';
-    $key[6] = '/((http|https)\:\/\/)?(cloud\.letv\.com\/s\/)(\w*)/is';
-    $key[7] = '/((http|https)\:\/\/)?(dl\.vmall\.com\/)(\w*)/is';
-    $key[8] = '/((http|https)\:\/\/)?(dl\.dbank\.com\/)(\w*)/is';
-    $key[9] = '/((http|https)\:\/\/)?(drive\.google\.com\/)([\w\/\?\=&_;]*)/is';
+    $key = array(
+        '/((http|https)\:\/\/)?pan\.baidu.com\/(s|share|pcloud)\/([\w\/\?\=&_;\-]*)/is',
+        '/((http|https)\:\/\/)?(kuai\.xunlei\.com\/d\/)([\w-\.]*)/is',
+        '/((http|https)\:\/\/)?(yunpan\.cn\/)(\w*)/is',
+        '/((http|https)\:\/\/)?(caiyun\.feixin\.10086.cn\/dl\/)(\w*)/is',
+        '/((http|https)\:\/\/)?(cloud\.letv\.com\/s\/)(\w*)/is',
+        '/((http|https)\:\/\/)?(dl\.vmall\.com\/)(\w*)/is',
+        '/((http|https)\:\/\/)?(dl\.dbank\.com\/)(\w*)/is',
+        '/((http|https)\:\/\/)?(drive\.google\.com\/)([\w\/\?\=&_;]*)/is'
+    );
 
     $code = preg_replace_callback($key, create_function('$matches', 'return "";'), $code);
     $_G['forum_discuzcode']['pcodecount']++;
@@ -78,6 +77,7 @@ function codedisp($code)
 
 function karmaimg($rate, $ratetimes)
 {
+    global $_G;
     $karmaimg = '';
     if ($rate && $ratetimes) {
         $image = $rate > 0 ? 'agree.gif' : 'disagree.gif';

@@ -136,10 +136,7 @@ class plugin_zeroze007diy
         if (strpos($msglower, '[validatecode/]') !== false) {
             $message = preg_replace_callback("/\[validateCode\/\]/is", 'self::_createValidateCode', $message);
         }
-        $message = preg_replace_callback('/(115网盘礼包码)(：|:)\s*(\w*)/is', create_function('$matches', 'return plugin_zeroze007diy::_filterurl("http://115.com/lb/$matches[3]");'), $message);
-        $message = preg_replace_callback('/((http|https)\:\/\/)?115\.com\/lb\/(\w*)/is', create_function('$matches', 'return plugin_zeroze007diy::_filterurl("http://115.com/lb/$matches[3]");'), $message);
-        $message = preg_replace_callback('/((http|https)\:\/\/)?pan\.baidu.com\/(s|share|pcloud)\/([\w\/\?\=&_;]*)/is', create_function('$matches', 'return plugin_zeroze007diy::_filterurl("$matches[1]pan.baidu.com/$matches[3]/$matches[4]");'), $message);
-        $message = preg_replace_callback('/((http|https)\:\/\/)?(kuai\.xunlei\.com\/d\/)([\w-\.]*)/is', create_function('$matches', 'return plugin_zeroze007diy::_filterurl("$matches[1]kuai.xunlei.com/d/$matches[4]");'), $message);
+        $message = preg_replace_callback('/((http|https)\:\/\/)?pan\.baidu.com\/(s|share|pcloud)\/([\w\/\?\=&_;\-]*)/is', create_function('$matches', 'return plugin_zeroze007diy::_filterurl("$matches[1]pan.baidu.com/$matches[3]/$matches[4]");'), $message);
         $message = preg_replace_callback('/((http|https)\:\/\/)?(yunpan\.cn\/)(\w*)/is', create_function('$matches', 'return plugin_zeroze007diy::_filterurl("$matches[1]yunpan.cn/$matches[4]");'), $message);
         $message = preg_replace_callback('/((http|https)\:\/\/)?(caiyun\.feixin\.10086.cn\/dl\/)(\w*)/is', create_function('$matches', 'return plugin_zeroze007diy::_filterurl("$matches[1]caiyun.feixin.10086.cn/dl/$matches[4]");'), $message);
         $message = preg_replace_callback('/((http|https)\:\/\/)?(cloud\.letv\.com\/s\/)(\w*)/is', create_function('$matches', 'return plugin_zeroze007diy::_filterurl("$matches[1]cloud.letv.com/s/$matches[4]");'), $message);
