@@ -35,7 +35,7 @@ $encodeusername = rawurlencode($space['username']);
 
 if($space['extgroupids']) {
 	$newgroup = array();
-	$e_ids = explode(',', $space['extgroupids']);
+	$e_ids = explode("\t", $space['extgroupids']);
 	foreach ($e_ids as $e_id) {
 		$newgroup[] = $_G['cache']['usergroups'][$e_id]['grouptitle'];
 	}
