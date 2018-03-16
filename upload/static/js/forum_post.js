@@ -616,12 +616,17 @@ function addpolloption() {
 		addUploadEvent(imgid, proid)
 
 	} else {
-		$('polloption_new').outerHTML = '<span>已达到最大投票数'+maxoptions+'</span>';
+		if($('polloption_new').previousElementSibling.nodeName != "SPAN") {
+			$('polloption_new').outerHTML = '<span>已达到最大投票数'+maxoptions+'</span>' + $('polloption_new').outerHTML;
+		}
 	}
 }
 
 function delpolloption(obj) {
 	obj.parentNode.parentNode.removeChild(obj.parentNode);
+	if($('polloption_new').previousElementSibling.nodeName == "SPAN") {
+		$('polloption_new').previousElementSibling.remove();
+	}
 	curoptions--;
 }
 
