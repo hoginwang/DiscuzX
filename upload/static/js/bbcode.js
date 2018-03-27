@@ -676,6 +676,10 @@ function simpletag(options, text, tagname, parseto) {
 		return '';
 	}
 	text = recursion(tagname, text, 'simpletag', parseto);
+
+	var pend = parsestyle(options, '', '');
+	text = pend['prepend'] + recursion('span', text, 'fonttag') + pend['append'];
+	
 	return '[' + parseto + ']' + text + '[/' + parseto + ']';
 }
 
