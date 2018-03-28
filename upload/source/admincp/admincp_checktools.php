@@ -5,7 +5,7 @@
  *      This is NOT a freeware, use is subject to license terms
  *
  *      $Id: admincp_checktools.php 36334 2017-01-03 01:32:35Z nemohou $
- */ 
+ */
 
 if(!defined('IN_DISCUZ') || !defined('IN_ADMINCP')) {
 	exit('Access Denied');
@@ -67,6 +67,7 @@ if($operation == 'filecheck') {
 		checkfiles('source/', '', 1, 'discuzfiles.md5,plugin');
 		checkfiles('static/', '');
 		checkfiles('archiver/', '');
+		checkfiles('m/', '');
 		checkfiles('uc_client/', '\.php|\.htm', 0);
 		checkfiles('uc_client/data/', '\.htm');
 		checkfiles('uc_client/control/', '\.php|\.htm');
