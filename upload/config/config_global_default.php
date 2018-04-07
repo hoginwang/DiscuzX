@@ -111,6 +111,10 @@ $_config['memory']['memcache']['port'] = 11211;			// memcache 服务器端口
 $_config['memory']['memcache']['pconnect'] = 1;			// memcache 是否长久连接
 $_config['memory']['memcache']['timeout'] = 1;			// memcache 服务器连接超时
 
+$_config['memory']['memcached']['server'] = '';			// memcached 服务器地址
+$_config['memory']['memcached']['port'] = 11211;		// memcached 服务器端口
+$_config['memory']['memcached']['timeout'] = 1;			// memcached 服务器连接超时
+
 $_config['memory']['apc'] = 0;							// 启动对 APC 的支持
 $_config['memory']['apcu'] = 0;							// 启动对 APCu 的支持
 $_config['memory']['xcache'] = 0;						// 启动对 xcache 的支持
