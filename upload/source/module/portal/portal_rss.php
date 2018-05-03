@@ -82,7 +82,7 @@ if($catarray) {
 					if($attachremote) {
 						$filename = $_G['setting']['ftp']['attachurl'].'portal/'.$attachfile;
 					} else {
-						$filename = $_G['siteurl'].$_G['setting']['attachurl'].'portal/'.$attachfile;
+						$filename = (!strstr($_G['setting']['attachurl'], '://') ? $_G['siteurl'] : '').$_G['setting']['attachurl'].'portal/'.$attachfile;
 					}
 				}
 				echo 	"    <item>\n".
