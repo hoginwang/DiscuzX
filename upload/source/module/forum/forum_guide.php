@@ -54,7 +54,7 @@ if($_GET['rss'] == 1) {
 			if($attachremote) {
 				$filename = $_G['setting']['ftp']['attachurl'].'forum/'.$attachfile;
 			} else {
-				$filename = $_G['siteurl'].$_G['setting']['attachurl'].'forum/'.$attachfile;
+				$filename = (!strstr($_G['setting']['attachurl'], '://') ? $_G['siteurl'] : '').$_G['setting']['attachurl'].'forum/'.$attachfile;
 			}
 		}
 		echo 	"    <item>\n".
