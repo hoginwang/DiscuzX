@@ -40,7 +40,6 @@ $message = <<<EOT
 <title>$subject</title>
 </head>
 <body>
-$subject<br />
 $message
 </body>
 </html>

@@ -44,29 +44,73 @@ $lang = array
 <p>{bbname} 管理团队.
 {siteurl}</p>',
 
+    'email_verify_subject' => '请激活你的帐号',
+    'email_verify_message' => '
 
-    'email_verify_subject' => 'Email 地址验证',
-    'email_verify_message' => '<br />
-<p>{username}，您好：</p>
-<p>
-----------------------------------------------------------------------<br />
-<strong>帐号激活说明</strong><br />
-----------------------------------------------------------------------</p>
-<p>我们需要对您的地址有效性进行验证以避免垃圾邮件或地址被滥用。</p>
-<p>如果您没有在 {bbname} 注册过，或在修改您的注册 Email 时使用了本地址，请忽略此邮件；否则，您只需点击下面的链接即可激活您的帐号：</p>
-
-<a href="{url}" target="_blank">{url}</a>
-<br />
-(如果上面不是链接形式，请将该地址手工粘贴到浏览器地址栏再访问)</p>
-
-<p>感谢您的访问，祝您使用愉快！</p>
-
-
-<p>
-此致<br />
-
-{bbname} 管理团队.<br />
-{siteurl}</p>',
+<style>
+    .mmsgLetter {
+        width: 580px;
+        margin: 0 auto;
+        padding: 10px;
+        color: #333;
+        background-color: #fff;
+        border: 0px solid #aaa;
+        border-radius: 5px;
+        -webkit-box-shadow: 3px 3px 10px #999;
+        -moz-box-shadow: 3px 3px 10px #999;
+        box-shadow: 3px 3px 10px #999;
+        font-family: Verdana, sans-serif;
+    }
+    .mmsgLetter a:link,
+    .mmsgLetter a:visited {
+        color: #407700;
+    }
+    .mmsgLetterContent {
+        text-align: left;
+        padding: 30px;
+        font-size: 14px;
+        line-height: 1.5;
+        background: url({siteurl}static/image/common/logo_main002.png) no-repeat top right;
+        background-size: 180px;
+    }
+    .mmsgLetterContent h3 {
+        color: #000;
+        font-size: 20px;
+        font-weight: bold;
+        margin: 20px 0 20px;
+        border-top: 2px solid #eee;
+        padding: 20px 0 0 0;
+        font-family: "微软雅黑", "黑体", "Lucida Grande", Verdana, sans-serif;
+    }
+    .mmsgLetterContent p {
+        margin: 20px 0;
+        padding: 0;
+    }
+    .mmsgLetterHeader {
+        height: 23px;
+        background: url({siteurl}static/image/mail/mmsgletter_2_bg_topline.png) repeat-x 0 0;
+    }
+</style>
+<div style="background-color:#d0d0d0;background-image:url({siteurl}static/image/mail/mmsgletter_2_bg.png);text-align:center;padding:40px;">
+    <div class="mmsgLetter" style="width: 580px;margin: 0 auto;padding: 10px;color: #333;background-color: #fff;border: 0px solid #aaa;border-radius: 5px;-webkit-box-shadow: 3px 3px 10px #999;-moz-box-shadow: 3px 3px 10px #999;box-shadow: 3px 3px 10px #999;font-family: Verdana, sans-serif;">
+        <div class="mmsgLetterHeader" style="height: 23px;background: url({siteurl}static/image/mail/mmsgletter_2_bg_topline.png) repeat-x 0 0;"></div>
+        <div class="mmsgLetterContent" style="text-align: left;padding: 30px;font-size: 14px;line-height: 1.5;background: url({siteurl}static/image/common/logo_main002.png) no-repeat top right;background-size: 180px;">
+            <div>
+                <p>你好!</p>
+                <p>
+                    感谢你注册悦影天下。 <br/>
+                    请点击以下链接激活帐号：
+                </p>
+                <p style="word-wrap:break-word;word-break:break-all;">
+                    <a href="{url}" target="_blank">{url}</a>
+                </p>
+                <p>
+                    如果以上链接无法点击，请将上面的地址复制到你的浏览器(如IE)的地址栏再访问。
+                </p>
+            </div>
+        </div>
+    </div>
+</div>',
 
     'email_register_subject' => '论坛注册地址',
     'email_register_message' => '<br />
