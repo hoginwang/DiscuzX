@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<root>
+	<item id="Title"><![CDATA[Discuz! Plugin]]></item>
+	<item id="Version"><![CDATA[]]></item>
+	<item id="Time"><![CDATA[2015-04-16 22:58]]></item>
+	<item id="From"><![CDATA[ ()]]></item>
+	<item id="Data">
+		<item id="plugin">
+			<item id="available"><![CDATA[1]]></item>
+			<item id="adminid"><![CDATA[0]]></item>
+			<item id="name"><![CDATA[本地化远程图片]]></item>
+			<item id="identifier"><![CDATA[zeroze007_pic]]></item>
+			<item id="description"><![CDATA[]]></item>
+			<item id="datatables"><![CDATA[]]></item>
+			<item id="directory"><![CDATA[zeroze007_pic/]]></item>
+			<item id="copyright"><![CDATA[零零七工作室]]></item>
+			<item id="version"><![CDATA[1.0.0]]></item>
+			<item id="__modules">
+				<item id="0">
+					<item id="name"><![CDATA[zeroze007_pic]]></item>
+					<item id="param"><![CDATA[]]></item>
+					<item id="menu"><![CDATA[]]></item>
+					<item id="url"><![CDATA[]]></item>
+					<item id="type"><![CDATA[11]]></item>
+					<item id="adminid"><![CDATA[0]]></item>
+					<item id="displayorder"><![CDATA[0]]></item>
+					<item id="navtitle"><![CDATA[]]></item>
+					<item id="navicon"><![CDATA[]]></item>
+					<item id="navsubname"><![CDATA[]]></item>
+					<item id="navsuburl"><![CDATA[]]></item>
+				</item>
+			</item>
+		</item>
+		<item id="version"><![CDATA[X3.4]]></item>
+		<item id="var">
+			<item id="0">
+				<item id="displayorder"><![CDATA[0]]></item>
+				<item id="title"><![CDATA[启用插件]]></item>
+				<item id="description"><![CDATA[插件总开关，选择开启与否]]></item>
+				<item id="variable"><![CDATA[open]]></item>
+				<item id="type"><![CDATA[radio]]></item>
+				<item id="value"><![CDATA[1]]></item>
+				<item id="extra"><![CDATA[]]></item>
+			</item>
+			<item id="1">
+				<item id="displayorder"><![CDATA[1]]></item>
+				<item id="title"><![CDATA[本站域名]]></item>
+				<item id="description"><![CDATA[填写本站网址，不需要加“http://”和结尾的“/”]]></item>
+				<item id="variable"><![CDATA[domain]]></item>
+				<item id="type"><![CDATA[text]]></item>
+				<item id="value"><![CDATA[]]></item>
+				<item id="extra"><![CDATA[]]></item>
+			</item>
+			<item id="2">
+				<item id="displayorder"><![CDATA[2]]></item>
+				<item id="title"><![CDATA[默认勾选本地化]]></item>
+				<item id="description"><![CDATA[这是是否默认执行“本地化远程图片”]]></item>
+				<item id="variable"><![CDATA[selection]]></item>
+				<item id="type"><![CDATA[radio]]></item>
+				<item id="value"><![CDATA[0]]></item>
+				<item id="extra"><![CDATA[]]></item>
+			</item>
+			<item id="3">
+				<item id="displayorder"><![CDATA[3]]></item>
+				<item id="title"><![CDATA[允许使用的用户组]]></item>
+				<item id="description"><![CDATA[允许使用自动下载远程附件的用户组，由于大量将远程图片本地化会很快消耗服务器资源，建议慎重选择！]]></item>
+				<item id="variable"><![CDATA[groups]]></item>
+				<item id="type"><![CDATA[groups]]></item>
+				<item id="extra"><![CDATA[]]></item>
+				<item id="value"><![CDATA[]]></item>
+			</item>
+			<item id="4">
+				<item id="displayorder"><![CDATA[4]]></item>
+				<item id="title"><![CDATA[允许使用的板块]]></item>
+				<item id="description"><![CDATA[允许使用自动下载远程图片的版块，由于大量将远程图片本地化会很快消耗服务器资源，建议慎重选择！]]></item>
+				<item id="variable"><![CDATA[forums]]></item>
+				<item id="type"><![CDATA[forums]]></item>
+				<item id="extra"><![CDATA[]]></item>
+				<item id="value"><![CDATA[]]></item>
+			</item>
+		</item>
+		<item id="language">
+			<item id="templatelang">
+				<item id="open_tips"><![CDATA[本地化远程图片]]></item>
+			</item>
+		</item>
+	</item>
+</root>
