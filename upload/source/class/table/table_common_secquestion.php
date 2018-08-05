@@ -26,7 +26,7 @@ class table_common_secquestion extends discuz_table
 	}
 
 	public function delete_by_type($type) {
-		DB::query('DELETE FROM %t WHERE type=%d', array($this->_table, $type));
+		DB::query('DELETE FROM %t WHERE `type`=%d', array($this->_table, $type));
 	}
 
 }

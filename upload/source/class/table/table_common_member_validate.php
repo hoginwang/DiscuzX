@@ -32,19 +32,19 @@ class table_common_member_validate extends discuz_table
 	}
 
 	public function fetch_all_invalidate($start, $limit) {
-		return DB::fetch_all('SELECT mvi.field, v.message, v.submittimes, v.submitdate, v.moddate, v.admin, v.remark, v.uid as vuid
+		return DB::fetch_all('SELECT mvi.`field`, v.message, v.submittimes, v.submitdate, v.moddate, v.`admin`, v.remark, v.uid as vuid
 			FROM '.DB::table('common_member_validate').' v
 			LEFT JOIN '.DB::table('common_member_verify_info').' mvi ON mvi.uid=v.uid AND mvi.verifytype=0
-			WHERE v.status=0 ORDER BY v.submitdate DESC '.DB::limit($start, $limit), '', 'vuid');
+			WHERE v.`status`=0 ORDER BY v.submitdate DESC '.DB::limit($start, $limit), '', 'vuid');
 	}
 
 	public function count_by_status($status) {
-		return DB::result_first('SELECT COUNT(*) FROM %t WHERE status=%d', array($this->_table, $status));
+		return DB::result_first('SELECT COUNT(*) FROM %t WHERE `status`=%d', array($this->_table, $status));
 	}
 
 	public function fetch_all_status_by_count() {
 		$count = array();
-		$query = DB::query("SELECT status, COUNT(*) AS count FROM ".DB::table('common_member_validate')." GROUP BY status");
+		$query = DB::query("SELECT `status`, COUNT(*) AS `count` FROM ".DB::table('common_member_validate')." GROUP BY `status`");
 		while($num = DB::fetch($query)) {
 			$count[$num['status']] = $num['count'];
 		}
@@ -52,7 +52,7 @@ class table_common_member_validate extends discuz_table
 	}
 
 	public function fetch_all_by_status($status, $start = 0, $limit = 0) {
-		return DB::fetch_all('SELECT * FROM %t WHERE status=%d  ORDER BY submitdate DESC'.DB::limit($start, $limit), array($this->_table, $status), $this->_pk);
+		return DB::fetch_all('SELECT * FROM %t WHERE `status`=%d  ORDER BY submitdate DESC'.DB::limit($start, $limit), array($this->_table, $status), $this->_pk);
 	}
 }
 

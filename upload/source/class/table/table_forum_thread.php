@@ -439,7 +439,7 @@ class table_forum_thread extends discuz_table
 
 	public function fetch_all_by_recyclebine($fid = 0, $isgroup = 0, $author = array(), $username = array(), $pstarttime = 0, $pendtime = 0, $mstarttime = 0, $mendtime = 0, $keywords = '', $start = 0, $limit = 0) {
 		$sql = $this->recyclebine_where($fid, $isgroup, $author, $username, $pstarttime, $pendtime, $mstarttime, $mendtime, $keywords);
-		return DB::fetch_all('SELECT f.name AS forumname, f.allowsmilies, f.allowhtml, f.allowbbcode, f.allowimgcode,
+		return DB::fetch_all('SELECT f.`name` AS forumname, f.allowsmilies, f.allowhtml, f.allowbbcode, f.allowimgcode,
 				t.tid, t.fid, t.authorid, t.author, t.subject, t.views, t.replies, t.dateline, t.posttableid,
 				tm.uid AS moduid, tm.username AS modusername, tm.dateline AS moddateline, tm.action AS modaction, tm.reason
 				FROM '.DB::table('forum_thread').' t LEFT JOIN '.DB::table('forum_threadmod').' tm ON tm.tid=t.tid
@@ -452,7 +452,7 @@ class table_forum_thread extends discuz_table
 	}
 
 	public function fetch_all_movedthread($start = 0, $limit = 0) {
-		return DB::fetch_all('SELECT t1.tid, t2.tid AS threadexists, f.status, t1.isgroup FROM %t t1
+		return DB::fetch_all('SELECT t1.tid, t2.tid AS threadexists, f.`status`, t1.isgroup FROM %t t1
 				LEFT JOIN %t t2 ON t2.tid=t1.closed AND t2.displayorder>=0 LEFT JOIN %t f ON f.fid=t1.fid
 				WHERE t1.closed>1'.DB::limit($start, $limit), array($this->get_table_name(), $this->get_table_name(), 'forum_forum'));
 	}
@@ -537,7 +537,7 @@ class table_forum_thread extends discuz_table
 		$addtablesql = $addsql = '';
 		if(!helper_access::check_module('group')) {
 			$addtablesql = " LEFT JOIN ".DB::table('forum_forum')." f ON f.fid = t.fid ";
-			$addsql = " AND f.status IN ('0', '1') ";
+			$addsql = " AND f.`status` IN ('0', '1') ";
 		}
 		return DB::fetch_all("SELECT t.tid,t.posttableid,t.views,t.dateline,t.replies,t.author,t.authorid,t.subject,t.price
 				FROM ".DB::table('forum_thread')." t $addtablesql
@@ -893,7 +893,7 @@ class table_forum_thread extends discuz_table
 		if($tids) {
 			$this->clear_cache((array)$tids);
 			$glue = helper_util::check_glue($glue);
-			return DB::query("UPDATE %t SET status=status{$glue}%s WHERE tid IN(%n)", array($this->get_table_name(), $value, (array)$tids));
+			return DB::query("UPDATE %t SET `status`=`status`{$glue}%s WHERE tid IN(%n)", array($this->get_table_name(), $value, (array)$tids));
 		}
 		return 0;
 	}

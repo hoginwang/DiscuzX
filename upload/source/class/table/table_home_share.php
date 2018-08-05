@@ -35,7 +35,7 @@ class table_home_share extends discuz_table
 		return DB::update($this->_table, array('dateline' => $dateline), DB::field($idtype, $id).' AND '.DB::field('uid', $uid));
 	}
 	public function fetch_by_type($type) {
-		return DB::fetch_first('SELECT * FROM %t WHERE type=%s', array($this->_table, $type));
+		return DB::fetch_first('SELECT * FROM %t WHERE `type`=%s', array($this->_table, $type));
 	}
 
 	public function fetch_by_sid_uid($sid, $uid) {
@@ -63,7 +63,7 @@ class table_home_share extends discuz_table
 		}
 		if(!empty($type)) {
 			$parameter[] = $type;
-			$wherearr[] = 'type=%s';
+			$wherearr[] = '`type`=%s';
 		}
 		$wheresql = !empty($wherearr) && is_array($wherearr) ? ' WHERE '.implode(' AND ', $wherearr) : '';
 
@@ -92,7 +92,7 @@ class table_home_share extends discuz_table
 		}
 		if(!empty($type)) {
 			$parameter[] = $type;
-			$wherearr[] = 'type=%s';
+			$wherearr[] = '`type`=%s';
 		}
 		if($starttime) {
 			$parameter[] = $starttime;
@@ -115,7 +115,7 @@ class table_home_share extends discuz_table
 	}
 
 	public function count_by_type($type) {
-		return DB::result_first('SELECT COUNT(*) FROM %t WHERE type=%s', array($this->_table, $type));
+		return DB::result_first('SELECT COUNT(*) FROM %t WHERE `type`=%s', array($this->_table, $type));
 	}
 
 	public function count_by_uid_itemid_type($uid = null, $itemid = null, $type = null) {
@@ -131,7 +131,7 @@ class table_home_share extends discuz_table
 		}
 		if($type !== null) {
 			$parameter[] = $type;
-			$wherearr[] = 'type=%s';
+			$wherearr[] = '`type`=%s';
 		}
 		$wheresql = !empty($wherearr) && is_array($wherearr) ? ' WHERE '.implode(' AND ', $wherearr) : '';
 		return DB::result_first('SELECT COUNT(*) FROM %t '.$wheresql, $parameter);
@@ -151,7 +151,7 @@ class table_home_share extends discuz_table
 		}
 		if(!empty($type)) {
 			$parameter[] = $type;
-			$wherearr[] = 'type=%s';
+			$wherearr[] = '`type`=%s';
 		}
 		$wheresql = !empty($wherearr) && is_array($wherearr) ? ' WHERE '.implode(' AND ', $wherearr) : '';
 
@@ -173,7 +173,7 @@ class table_home_share extends discuz_table
 		}
 		if(!empty($type)) {
 			$parameter[] = $type;
-			$wherearr[] = 'type=%s';
+			$wherearr[] = '`type`=%s';
 		}
 		if($starttime) {
 			$parameter[] = $starttime;

@@ -26,7 +26,7 @@ class table_common_advertisement_custom extends discuz_table
 	}
 
 	public function fetch_by_name($name) {
-		return DB::fetch_first("SELECT * FROM %t WHERE name=%s", array($this->_table, $name));
+		return DB::fetch_first("SELECT * FROM %t WHERE `name`=%s", array($this->_table, $name));
 	}
 
 	public function get_id_by_name($name) {

@@ -22,7 +22,7 @@ class table_forum_threadtype extends discuz_table
 	}
 
 	public function fetch_all_for_cache() {
-		return DB::fetch_all("SELECT t.typeid AS sortid, tt.optionid, tt.title, tt.type, tt.unit, tt.rules, tt.identifier, tt.description, tt.permprompt, tv.required, tv.unchangeable, tv.search, tv.subjectshow, tt.expiration, tt.protect
+		return DB::fetch_all("SELECT t.typeid AS sortid, tt.optionid, tt.title, tt.`type`, tt.unit, tt.rules, tt.identifier, tt.description, tt.permprompt, tv.required, tv.unchangeable, tv.search, tv.subjectshow, tt.expiration, tt.protect
 			FROM ".DB::table('forum_threadtype')." t
 			LEFT JOIN ".DB::table('forum_typevar')." tv ON t.typeid=tv.sortid
 			LEFT JOIN ".DB::table('forum_typeoption')." tt ON tv.optionid=tt.optionid
@@ -36,7 +36,7 @@ class table_forum_threadtype extends discuz_table
 		return DB::fetch_all("SELECT * FROM ".DB::table('forum_threadtype')." $where ORDER BY displayorder");
 	}
 	public function checkname($name) {
-		return DB::result_first("SELECT typeid FROM %t WHERE name=%s", array($this->_table, $name));
+		return DB::result_first("SELECT typeid FROM %t WHERE `name`=%s", array($this->_table, $name));
 	}
 }
 

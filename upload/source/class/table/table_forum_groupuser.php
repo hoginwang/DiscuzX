@@ -25,7 +25,7 @@ class table_forum_groupuser extends discuz_table
 			return array();
 		}
 		$data = array();
-		$query = DB::query("SELECT fid FROM %t WHERE %i AND level>0 ORDER BY lastupdate DESC", array($this->_table, DB::field('uid', $uids)));
+		$query = DB::query("SELECT fid FROM %t WHERE %i AND `level`>0 ORDER BY lastupdate DESC", array($this->_table, DB::field('uid', $uids)));
 		while($row = DB::fetch($query)) {
 			$data[] = $row['fid'];
 		}
@@ -47,25 +47,25 @@ class table_forum_groupuser extends discuz_table
 		if(empty($fid)) {
 			return array();
 		}
-		$levelsql = ' AND level>0';
+		$levelsql = ' AND `level`>0';
 		if($level == 1) {
-			$levelsql = ' AND level=0';
+			$levelsql = ' AND `level`=0';
 		} elseif($level == -1) {
 			$levelsql = '';
 		}
 		return DB::fetch_all("SELECT * FROM %t WHERE fid=%d".$levelsql, array($this->_table, $fid));
 	}
 	public function fetch_count_by_fid($fid, $level = 0) {
-		$levelsql = ' AND level>0';
+		$levelsql = ' AND `level`>0';
 		if($level == 1) {
-			$levelsql = ' AND level=0';
+			$levelsql = ' AND `level`=0';
 		} elseif($level == -1) {
 			$levelsql = '';
 		}
 		return DB::result_first("SELECT COUNT(*) FROM %t WHERE fid=%d".$levelsql, array($this->_table, $fid));
 	}
 	public function insert($fid, $uid, $username, $level, $joindateline, $lastupdate = 0) {
-		DB::query("INSERT INTO %t (fid, uid, username, level, joindateline, lastupdate) VALUES (%d,%d,%s,%d,%d,%d)", array($this->_table, $fid, $uid, addslashes($username), $level, $joindateline, $lastupdate));
+		DB::query("INSERT INTO %t (fid, uid, username, `level`, joindateline, lastupdate) VALUES (%d,%d,%s,%d,%d,%d)", array($this->_table, $fid, $uid, addslashes($username), $level, $joindateline, $lastupdate));
 	}
 	public function update_counter_for_user($uid, $fid, $threads = 0, $replies = 0) {
 		if(empty($uid) || empty($fid)) {
@@ -98,7 +98,7 @@ class table_forum_groupuser extends discuz_table
 			$sqladd .= ($sqladd ? ', ' : '').'replies='.intval($replies);
 		}
 		if($level !== null) {
-			$sqladd .= ($sqladd ? ', ' : '').'level='.intval($level);
+			$sqladd .= ($sqladd ? ', ' : '').'`level`='.intval($level);
 		}
 		DB::query("UPDATE %t SET $sqladd WHERE fid=%d AND ".DB::field('uid', $uid), array($this->_table, $fid));
 	}
@@ -119,7 +119,7 @@ class table_forum_groupuser extends discuz_table
 			if(is_array($addwhere)) {
 				foreach($addwhere as $field => $value) {
 					if(is_array($value)) {
-						$levelwhere = "AND level>'0' ";
+						$levelwhere = "AND `level`>'0' ";
 						$sqladd .= "AND $field IN (".dimplode($value).") ";
 					} else {
 						$sqladd .= is_numeric($field) ? "AND $value " : "AND $field='$value' ";
@@ -131,7 +131,7 @@ class table_forum_groupuser extends discuz_table
 			}
 		}
 
-		$orderbyarray = array('level_join' => 'level ASC, joindateline ASC', 'joindateline' => 'joindateline DESC', 'lastupdate' => 'lastupdate DESC', 'threads' => 'threads DESC', 'replies' => 'replies DESC');
+		$orderbyarray = array('level_join' => '`level` ASC, joindateline ASC', 'joindateline' => 'joindateline DESC', 'lastupdate' => 'lastupdate DESC', 'threads' => 'threads DESC', 'replies' => 'replies DESC');
 		$orderby = !empty($orderbyarray[$orderby]) ? "ORDER BY $orderbyarray[$orderby]" : '';
 		$limitsql = $num ? DB::limit($start, $num) : '';
 
@@ -152,16 +152,16 @@ class table_forum_groupuser extends discuz_table
 		if(empty($ismanager)) {
 			$levelsql = '';
 		} elseif($ismanager == 1) {
-			$levelsql = ' AND level IN(1,2)';
+			$levelsql = ' AND `level` IN(1,2)';
 		} elseif($ismanager == 2) {
-			$levelsql = ' AND level IN(3,4)';
+			$levelsql = ' AND `level` IN(3,4)';
 		}
 		if($count == 1) {
 			return DB::result_first("SELECT count(*) FROM ".DB::table('forum_groupuser')." WHERE uid='$uid' $levelsql");
 		}
 		empty($start) && $start = 0;
 		empty($num) && $num = 100;
-		return DB::fetch_all("SELECT fid, level FROM ".DB::table('forum_groupuser')." WHERE uid='$uid' $levelsql ORDER BY lastupdate DESC ".DB::limit($start, $num));
+		return DB::fetch_all("SELECT fid, `level` FROM ".DB::table('forum_groupuser')." WHERE uid='$uid' $levelsql ORDER BY lastupdate DESC ".DB::limit($start, $num));
 	}
 }
 

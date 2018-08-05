@@ -22,11 +22,11 @@ class table_common_advertisement extends discuz_table
 	}
 
 	public function fetch_all_type() {
-		return DB::fetch_all("SELECT type, COUNT(type) AS count FROM %t GROUP BY type", array($this->_table));
+		return DB::fetch_all("SELECT `type`, COUNT(`type`) AS `count` FROM %t GROUP BY `type`", array($this->_table));
 	}
 
 	public function fetch_all_by_type($type) {
-		return DB::fetch_all("SELECT * FROM %t WHERE type=%s", array($this->_table, $type));
+		return DB::fetch_all("SELECT * FROM %t WHERE `type`=%s", array($this->_table, $type));
 	}
 
 	public function fetch_all_old() {

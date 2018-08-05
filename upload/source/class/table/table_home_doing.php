@@ -46,7 +46,7 @@ class table_home_doing extends discuz_table
 			$wheres[] = 'doid NOT IN (%n)';
 		}
 		if($status) {
-			$wheres[] = ' status = 0';
+			$wheres[] = ' `status` = 0';
 		}
 
 		$wheresql = !empty($wheres) && is_array($wheres) ? ' WHERE '.implode(' AND ', $wheres) : '';

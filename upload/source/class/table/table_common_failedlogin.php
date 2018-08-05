@@ -33,7 +33,7 @@ class table_common_failedlogin extends discuz_table
 	}
 
 	public function update_failed($ip) {
-		DB::query("UPDATE %t SET count=count+1, lastupdate=%d WHERE ip=%s", array($this->_table, TIMESTAMP, $ip));
+		DB::query("UPDATE %t SET `count`=`count`+1, lastupdate=%d WHERE ip=%s", array($this->_table, TIMESTAMP, $ip));
 	}
 
 }

@@ -34,7 +34,7 @@ class table_common_patch extends discuz_table
 	}
 
 	public function fetch_needfix_patch($serials) {
-		return DB::fetch_all("SELECT * FROM ".DB::table($this->_table)." WHERE ".DB::field('serial', $serials)." AND status<=0");
+		return DB::fetch_all("SELECT * FROM ".DB::table($this->_table)." WHERE ".DB::field('serial', $serials)." AND `status`<=0");
 	}
 
 	public function fetch_patch_by_status($status) {

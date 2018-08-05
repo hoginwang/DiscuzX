@@ -32,7 +32,7 @@ class table_portal_topic extends discuz_table
 	}
 
 	public function fetch_by_name($name) {
-		return $name ? DB::fetch_first('SELECT * FROM %t WHERE name=%s LIMIT 1', array($this->_table, $name)) : false;
+		return $name ? DB::fetch_first('SELECT * FROM %t WHERE `name`=%s LIMIT 1', array($this->_table, $name)) : false;
 	}
 
 	public function increase($ids, $data) {

@@ -70,7 +70,7 @@ class table_common_block extends discuz_table
 		$data = array();
 		if(($id = dintval($id)) && $idtype) {
 			$where = $wherearr ? ' AND '.implode(' AND ', $wherearr) : '';
-			$data = DB::fetch_all("SELECT bi.dataid,bi.uid,bi.username,bi.dateline,bi.isverified,bi.verifiedtime,b.bid,b.blockclass,b.name,b.script$fields FROM ".DB::table('common_block').' b
+			$data = DB::fetch_all("SELECT bi.dataid,bi.uid,bi.username,bi.dateline,bi.isverified,bi.verifiedtime,b.bid,b.blockclass,b.`name`,b.script$fields FROM ".DB::table('common_block').' b
 				LEFT JOIN '.DB::table('common_block_item_data')." bi ON b.bid=bi.bid $leftjoin WHERE bi.id='$id' AND bi.idtype='$idtype'$where ORDER BY b.bid DESC", null, 'bid');
 		}
 		return $data;
@@ -82,7 +82,7 @@ class table_common_block extends discuz_table
 	}
 
 	public function fetch_all_by_where($wheresql, $start = 0, $limit = 0, $leftjoin = '', $fields = '') {
-		return DB::fetch_all("SELECT b.bid,b.blockclass,b.name,b.script,b.param$fields FROM ".DB::table($this->_table).' b'." $leftjoin $wheresql ORDER BY b.bid DESC ".DB::limit($start, $limit));
+		return DB::fetch_all("SELECT b.bid,b.blockclass,b.`name`,b.script,b.param$fields FROM ".DB::table($this->_table).' b'." $leftjoin $wheresql ORDER BY b.bid DESC ".DB::limit($start, $limit));
 	}
 
 	public function update($val, $data, $unbuffered = false, $low_priority = false) {

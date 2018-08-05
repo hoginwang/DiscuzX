@@ -48,12 +48,12 @@ class table_common_mytask extends discuz_table
 
 	public function count($uid, $taskid = false, $status = false) {
 		$taskid = $taskid !== false ? 'AND taskid='.intval($taskid) : '';
-		$status = $status !== false ? 'AND status='.intval($status) : '';
+		$status = $status !== false ? 'AND `status`='.intval($status) : '';
 		return DB::result_first("SELECT COUNT(*) FROM %t WHERE uid=%d %i %i", array($this->_table, $uid, $taskid, $status));
 	}
 
 	public function delete_exceed($exceedtime) {
-		DB::query("DELETE FROM %t WHERE status='-1' AND dateline<%d", array($this->_table, TIMESTAMP - intval($exceedtime)), false, true);
+		DB::query("DELETE FROM %t WHERE `status`='-1' AND dateline<%d", array($this->_table, TIMESTAMP - intval($exceedtime)), false, true);
 	}
 
 	public function fetch_all_by_taskid($taskid, $limit) {

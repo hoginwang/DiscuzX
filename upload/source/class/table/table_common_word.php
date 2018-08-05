@@ -25,7 +25,7 @@ class table_common_word extends discuz_table
 		return DB::fetch_first("SELECT * FROM %t WHERE find=%s", array($this->_table, $find));
 	}
 	public function fetch_all_order_type_find() {
-		return DB::fetch_all('SELECT * FROM %t ORDER BY type ASC, find ASC', array($this->_table), $this->_pk);
+		return DB::fetch_all('SELECT * FROM %t ORDER BY `type` ASC, find ASC', array($this->_table), $this->_pk);
 	}
 
 	public function fetch_all() {
@@ -51,7 +51,7 @@ class table_common_word extends discuz_table
 	public function update_by_type($types, $data) {
 		if(!empty($types) && !empty($data) && is_array($data)) {
 			$types = array_map('intval', (array)$types);
-			return DB::update($this->_table, $data, "type IN (".dimplode($types).")");
+			return DB::update($this->_table, $data, "`type` IN (".dimplode($types).")");
 		}
 		return 0;
 	}

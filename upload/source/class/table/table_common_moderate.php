@@ -87,13 +87,13 @@ class table_common_moderate extends discuz_table
 			return DB::result_first("SELECT COUNT(*)
 			FROM ".DB::table('portal_article_moderate')." m
 			LEFT JOIN ".DB::table('portal_article_title')." a ON a.aid=m.id
-			WHERE m.status='$status' $sqlwhere");
+			WHERE m.`status`='$status' $sqlwhere");
 		}
 		return DB::fetch_all("SELECT a.aid, a.catid, a.uid, a.username, a.title, a.summary, a.dateline, cat.catname
 			FROM ".DB::table('portal_article_moderate')." m
 			LEFT JOIN ".DB::table('portal_article_title')." a ON a.aid=m.id
 			LEFT JOIN ".DB::table('portal_category')." cat ON cat.catid=a.catid
-			WHERE m.status='$status' $sqlwhere
+			WHERE m.`status`='$status' $sqlwhere
 			ORDER BY m.dateline DESC".DB::limit($start, $limit));
 	}
 
@@ -119,13 +119,13 @@ class table_common_moderate extends discuz_table
 			FROM ".DB::table($this->_get_table($idtype.'_cid'))." m
 			LEFT JOIN ".DB::table('portal_comment')." c ON c.cid=m.id
 			LEFT JOIN ".DB::table($tablename)." a ON a.$idtype=c.id
-			WHERE m.".DB::field('idtype', $idtype.'_cid')." AND m.status='$status' $sqlwhere");
+			WHERE m.".DB::field('idtype', $idtype.'_cid')." AND m.`status`='$status' $sqlwhere");
 		}
 		return DB::fetch_all("SELECT c.cid, c.uid, c.username, c.id, c.postip, c.dateline, c.message, a.title
 			FROM ".DB::table($this->_get_table($idtype.'_cid'))." m
 			LEFT JOIN ".DB::table('portal_comment')." c ON c.cid=m.id
 			LEFT JOIN ".DB::table($tablename)." a ON a.$idtype=c.id
-			WHERE m.".DB::field('idtype', $idtype.'_cid')." AND m.status='$status' $sqlwhere
+			WHERE m.".DB::field('idtype', $idtype.'_cid')." AND m.`status`='$status' $sqlwhere
 			ORDER BY m.dateline DESC".DB::limit($start, $limit));
 	}
 
@@ -133,9 +133,9 @@ class table_common_moderate extends discuz_table
 		$return = array();
 		foreach($this->_tables as $idtype => $table) {
 			if($this->_is_comment_table($idtype)) {
-				$return[] = array('idtype' => $idtype, 'count' => DB::result_first('SELECT COUNT(*) FROM %t WHERE idtype=%s AND status=%d', array($table, $idtype, $status)));
+				$return[] = array('idtype' => $idtype, 'count' => DB::result_first('SELECT COUNT(*) FROM %t WHERE idtype=%s AND `status`=%d', array($table, $idtype, $status)));
 			} else {
-				$return[] = array('idtype' => $idtype, 'count' => DB::result_first('SELECT COUNT(*) FROM %t WHERE status=%d', array($table, $status)));
+				$return[] = array('idtype' => $idtype, 'count' => DB::result_first('SELECT COUNT(*) FROM %t WHERE `status`=%d', array($table, $status)));
 			}
 		}
 		return $return;
@@ -180,7 +180,7 @@ class table_common_moderate extends discuz_table
 		} else {
 			return 0;
 		}
-		return DB::result_first('SELECT COUNT(*) FROM %t m INNER JOIN %t t ON m.id=t.%i AND t.'.DB::field('fid', $fids).' WHERE m.status=%d',
+		return DB::result_first('SELECT COUNT(*) FROM %t m INNER JOIN %t t ON m.id=t.%i AND t.'.DB::field('fid', $fids).' WHERE m.`status`=%d',
 				array($this->_get_table($idtype), $innertable, $idtype, $status));
 	}
 
@@ -230,7 +230,7 @@ class table_common_moderate extends discuz_table
 			$wheresql[] = 'p.'.DB::field('message', '%'.$subject.'%', 'like');
 		}
 		return DB::fetch_all('SELECT p.pid, p.fid, p.tid,
-			p.author, p.authorid, p.subject, p.dateline, p.message, p.useip, p.attachment, p.htmlon, p.smileyoff, p.bbcodeoff, p.status
+			p.author, p.authorid, p.subject, p.dateline, p.message, p.useip, p.attachment, p.htmlon, p.smileyoff, p.bbcodeoff, p.`status`
 			FROM %t m
 			LEFT JOIN %t p on p.pid=m.id
 			WHERE %i
@@ -462,7 +462,7 @@ class table_common_moderate extends discuz_table
 		}
 		$table = $this->_get_table($idtype);
 		$idtype = $table == 'home_comment_moderate' ? DB::field('idtype', $idtype).' AND' : '';
-		return DB::query('DELETE FROM %t WHERE %i status=%d', array($table, $idtype, $status));
+		return DB::query('DELETE FROM %t WHERE %i `status`=%d', array($table, $idtype, $status));
 	}
 
 	public function count_by_search_for_share($status = null, $username = null, $dateline = null, $body_general = null) {
@@ -501,7 +501,7 @@ class table_common_moderate extends discuz_table
 		if($body_general) {
 			$wheresql[] = 's.'.DB::field('body_general', '%'.$body_general.'%', 'like');
 		}
-		return DB::fetch_all('SELECT s.sid, s.type, s.uid, s.username, s.dateline, s.body_general, s.itemid, s.fromuid
+		return DB::fetch_all('SELECT s.sid, s.`type`, s.uid, s.username, s.dateline, s.body_general, s.itemid, s.fromuid
 			FROM %t m
 			LEFT JOIN %t s ON s.sid=m.id
 			WHERE %i

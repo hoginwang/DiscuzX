@@ -33,7 +33,7 @@ class table_common_template extends discuz_table
 	}
 
 	public function get_templateid($name) {
-		return DB::result_first("SELECT templateid FROM %t WHERE name=%s", array($this->_table, $name));
+		return DB::result_first("SELECT templateid FROM %t WHERE `name`=%s", array($this->_table, $name));
 	}
 
 }

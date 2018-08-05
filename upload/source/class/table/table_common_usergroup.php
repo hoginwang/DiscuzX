@@ -36,7 +36,7 @@ class table_common_usergroup extends discuz_table
 		$wherearr = array();
 		if(!empty($type)) {
 			$parameter[] = $type;
-			$wherearr[] = is_array($type) ? 'type IN(%n)' : 'type=%s';
+			$wherearr[] = is_array($type) ? '`type` IN(%n)' : '`type`=%s';
 		}
 		if($radminid !== null) {
 			$parameter[] = $radminid;
@@ -73,19 +73,19 @@ class table_common_usergroup extends discuz_table
 		if(!$gid) {
 			return null;
 		}
-		return DB::fetch_all('SELECT groupid FROM %t WHERE groupid IN (%n) AND type=\'special\' AND radminid>0', array($this->_table, $gid), $this->_pk);
+		return DB::fetch_all('SELECT groupid FROM %t WHERE groupid IN (%n) AND `type`=\'special\' AND radminid>0', array($this->_table, $gid), $this->_pk);
 	}
 
 	public function fetch_all_by_not_groupid($gid) {
-		return DB::fetch_all('SELECT groupid, type, grouptitle, creditshigher, radminid FROM %t WHERE type=\'member\' AND creditshigher=\'0\' OR (groupid NOT IN (%n) AND radminid<>\'1\' AND type<>\'member\') ORDER BY (creditshigher<>\'0\' || creditslower<>\'0\'), creditslower, groupid', array($this->_table, $gid), $this->_pk);
+		return DB::fetch_all('SELECT groupid, `type`, grouptitle, creditshigher, radminid FROM %t WHERE `type`=\'member\' AND creditshigher=\'0\' OR (groupid NOT IN (%n) AND radminid<>\'1\' AND `type`<>\'member\') ORDER BY (creditshigher<>\'0\' || creditslower<>\'0\'), creditslower, groupid', array($this->_table, $gid), $this->_pk);
 	}
 
 	public function fetch_all_not($gid, $creditnotzero = false) {
-		return DB::fetch_all('SELECT groupid, radminid, type, grouptitle, creditshigher, creditslower FROM %t WHERE groupid NOT IN (%n) ORDER BY '.($creditnotzero ? "(creditshigher<>'0' || creditslower<>'0'), " : '').'creditshigher, groupid', array($this->_table, $gid), $this->_pk);
+		return DB::fetch_all('SELECT groupid, radminid, `type`, grouptitle, creditshigher, creditslower FROM %t WHERE groupid NOT IN (%n) ORDER BY '.($creditnotzero ? "(creditshigher<>'0' || creditslower<>'0'), " : '').'creditshigher, groupid', array($this->_table, $gid), $this->_pk);
 	}
 
 	public function fetch_new_groupid($fetch = false) {
-		$sql = 'SELECT groupid, grouptitle FROM '.DB::table($this->_table)." WHERE type='member' AND creditslower>'0' ORDER BY creditslower LIMIT 1";
+		$sql = 'SELECT groupid, grouptitle FROM '.DB::table($this->_table)." WHERE `type`='member' AND creditslower>'0' ORDER BY creditslower LIMIT 1";
 		if($fetch) {
 			return DB::fetch_first($sql);
 		} else {
@@ -96,14 +96,14 @@ class table_common_usergroup extends discuz_table
 		if(!$ids) {
 			return null;
 		}
-		return DB::fetch_all('SELECT * FROM %t WHERE '.DB::field('groupid', $ids).' ORDER BY type, radminid, creditshigher', array($this->_table), $this->_pk);
+		return DB::fetch_all('SELECT * FROM %t WHERE '.DB::field('groupid', $ids).' ORDER BY \'type\', radminid, creditshigher', array($this->_table), $this->_pk);
 	}
 
 	public function fetch_all_switchable($ids) {
 		if(!$ids) {
 			return null;
 		}
-		return DB::fetch_all('SELECT * FROM %t WHERE (type=\'special\' AND system<>\'private\' AND radminid=\'0\') OR groupid IN (%n) ORDER BY type, system', array($this->_table, $ids), $this->_pk);
+		return DB::fetch_all('SELECT * FROM %t WHERE (`type`=\'special\' AND `system`<>\'private\' AND radminid=\'0\') OR groupid IN (%n) ORDER BY `type`, `system`', array($this->_table, $ids), $this->_pk);
 	}
 
 	public function range_orderby_credit() {
@@ -132,7 +132,7 @@ class table_common_usergroup extends discuz_table
 	}
 
 	public function buyusergroup_exists() {
-		return DB::result_first("SELECT COUNT(*) FROM %t WHERE type='special' and 'system'>0", array($this->_table));
+		return DB::result_first("SELECT COUNT(*) FROM %t WHERE `type`='special' and `system`>0", array($this->_table));
 	}
 }
 

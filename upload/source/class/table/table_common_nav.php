@@ -26,7 +26,7 @@ class table_common_nav extends discuz_table
 	}
 
 	public function fetch_by_type_identifier($type, $identifier) {
-		return DB::fetch_first('SELECT * FROM %t WHERE type=%d AND identifier=%s', array($this->_table, $type, $identifier));
+		return DB::fetch_first('SELECT * FROM %t WHERE `type`=%d AND identifier=%s', array($this->_table, $type, $identifier));
 	}
 
 	public function fetch_all_by_navtype($navtype = null) {
@@ -43,10 +43,10 @@ class table_common_nav extends discuz_table
 		return DB::fetch_all('SELECT * FROM %t WHERE navtype=%d AND parentid=%d ORDER BY displayorder', array($this->_table, $navtype, $parentid), $this->_pk);
 	}
 	public function fetch_all_by_navtype_type($navtype, $type) {
-		return DB::fetch_all('SELECT * FROM %t WHERE navtype=%d AND type=%d', array($this->_table, $navtype, $type), $this->_pk);
+		return DB::fetch_all('SELECT * FROM %t WHERE navtype=%d AND `type`=%d', array($this->_table, $navtype, $type), $this->_pk);
 	}
 	public function fetch_all_mainnav() {
-		return DB::fetch_all('SELECT * FROM %t WHERE navtype=0 AND (available=1 OR type=0) AND parentid=0 ORDER BY displayorder', array($this->_table), $this->_pk);
+		return DB::fetch_all('SELECT * FROM %t WHERE navtype=0 AND (available=1 OR `type`=0) AND parentid=0 ORDER BY displayorder', array($this->_table), $this->_pk);
 	}
 	public function fetch_all_subnav($parentid) {
 		return DB::fetch_all('SELECT * FROM %t WHERE navtype=0 AND parentid=%d AND available=1 ORDER BY displayorder', array($this->_table, $parentid), $this->_pk);
@@ -127,7 +127,7 @@ class table_common_nav extends discuz_table
 		return 0;
 	}
 	public function count_by_navtype_type_identifier($navtype, $type, $identifier) {
-		return DB::result_first('SELECT COUNT(*) FROM %t WHERE navtype=%d AND type=%d AND identifier=%s', array($this->_table, $navtype, $type, $identifier));
+		return DB::result_first('SELECT COUNT(*) FROM %t WHERE navtype=%d AND `type`=%d AND identifier=%s', array($this->_table, $navtype, $type, $identifier));
 	}
 
 }

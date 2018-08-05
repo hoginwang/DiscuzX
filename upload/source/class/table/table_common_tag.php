@@ -39,7 +39,7 @@ class table_common_tag extends discuz_table
 	}
 
 	public function insert($tagname, $status = 0) {
-		DB::query('INSERT INTO %t (tagname, status) VALUES (%s, %d)', array($this->_table, $tagname, $status));
+		DB::query('INSERT INTO %t (tagname, `status`) VALUES (%s, %d)', array($this->_table, $tagname, $status));
 		return DB::insert_id();
 	}
 
@@ -56,7 +56,7 @@ class table_common_tag extends discuz_table
 		if(empty($tagname)) {
 			return array();
 		}
-		$statussql = $type != 'uid' ? ' AND status<\'3\'' : ' AND status=\'3\'';
+		$statussql = $type != 'uid' ? ' AND `status`<\'3\'' : ' AND `status`=\'3\'';
 		return DB::fetch_first('SELECT * FROM %t WHERE tagname=%s '.$statussql, array($this->_table, $tagname));
 	}
 

@@ -37,7 +37,7 @@ class table_common_invite extends discuz_table
 			$sql = ' AND dateline>%d';
 			$parameter[] = $dateline;
 		}
-		return DB::fetch_all("SELECT count(*) AS invitenum ,uid FROM %t WHERE status=2 $sql GROUP BY uid ORDER BY invitenum DESC ".DB::limit($start, $limit), $parameter);
+		return DB::fetch_all("SELECT count(*) AS invitenum ,uid FROM %t WHERE `status`=2 $sql GROUP BY uid ORDER BY invitenum DESC ".DB::limit($start, $limit), $parameter);
 	}
 	public function fetch_all_orderid($orderid) {
 		return DB::fetch_all('SELECT * FROM %t WHERE orderid=%s', array($this->_table, $orderid));

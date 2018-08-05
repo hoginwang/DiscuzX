@@ -21,7 +21,7 @@ class table_connect_memberbindlog extends discuz_table {
 	}
 
 	public function count_uid_by_openid_type($openid, $type) {
-		$count = (int) DB::result_first('SELECT count(DISTINCT uid) FROM %t WHERE uin=%s AND type=%d', array($this->_table, $openid, $type));
+		$count = (int) DB::result_first('SELECT count(DISTINCT uid) FROM %t WHERE uin=%s AND `type`=%d', array($this->_table, $openid, $type));
 		return $count;
 	}
 

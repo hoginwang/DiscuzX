@@ -46,7 +46,7 @@ class table_common_member_grouppm extends discuz_table
 	}
 
 	public function update_to_read_by_unread($uid, $gpmid) {
-		return ($uid = dintval($uid)) && ($gpmid = dintval($gpmid, true)) ? DB::update($this->_table, array('status' => 1), DB::field('gpmid', $gpmid).' AND '.DB::field('uid', $uid).' AND status=0') : false;
+		return ($uid = dintval($uid)) && ($gpmid = dintval($gpmid, true)) ? DB::update($this->_table, array('status' => 1), DB::field('gpmid', $gpmid).' AND '.DB::field('uid', $uid).' AND `status`=0') : false;
 	}
 }
 

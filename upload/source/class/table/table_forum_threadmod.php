@@ -24,7 +24,7 @@ class table_forum_threadmod extends discuz_table
 		return DB::fetch_first('SELECT * FROM %t WHERE tid=%d ORDER BY dateline DESC LIMIT 1', array($this->_table, $tid));
 	}
 	public function fetch_by_tid_action_status($tid, $action, $status = 1) {
-		return DB::fetch_first('SELECT * FROM %t WHERE tid=%d AND action=%s AND status=%d ORDER BY dateline DESC LIMIT 1', array($this->_table, $tid, $action, $status));
+		return DB::fetch_first('SELECT * FROM %t WHERE tid=%d AND action=%s AND `status`=%d ORDER BY dateline DESC LIMIT 1', array($this->_table, $tid, $action, $status));
 	}
 	public function fetch_by_tid_magicid($tid, $magicid = 0) {
 		return DB::fetch_first('SELECT * FROM %t WHERE tid=%d AND magicid=%d', array($this->_table, $tid, $magicid));
@@ -45,7 +45,7 @@ class table_forum_threadmod extends discuz_table
 		return DB::fetch_all("SELECT * FROM %t $wheresql ORDER BY dateline DESC ".DB::limit($start, $limit), $parameter);
 	}
 	public function fetch_all_by_expiration_status($expiration, $status=1) {
-		return DB::fetch_all('SELECT * FROM %t WHERE expiration>0 AND expiration<%d AND status=%d', array($this->_table, $expiration, $status));
+		return DB::fetch_all('SELECT * FROM %t WHERE expiration>0 AND expiration<%d AND `status`=%d', array($this->_table, $expiration, $status));
 	}
 	public function fetch_all_recyclebin_by_dateline($dateline, $start = 0, $limit = 0) {
 		return DB::fetch_all("SELECT tm.tid FROM %t tm, %t t WHERE tm.action='DEL' AND tm.dateline<%d AND t.tid=tm.tid AND t.displayorder=-1".DB::limit($start, $limit), array($this->_table, 'forum_thread', $dateline));

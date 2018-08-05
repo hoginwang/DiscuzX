@@ -21,7 +21,7 @@ class table_forum_threadclass extends discuz_table
 		parent::__construct();
 	}
 	public function fetch_by_fid_name($fid, $name) {
-		return DB::fetch_first('SELECT * FROM %t WHERE fid=%d AND name=%s', array($this->_table, $fid, $name));
+		return DB::fetch_first('SELECT * FROM %t WHERE fid=%d AND `name`=%s', array($this->_table, $fid, $name));
 	}
 	public function fetch_all_by_typeid($typeids) {
 		$typeids = dintval($typeids, is_array($typeids) ? true : false);

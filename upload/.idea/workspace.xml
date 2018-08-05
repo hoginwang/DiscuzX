@@ -1,0 +1,1064 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="a898b430-11aa-4711-9fb9-3f59d8a6d8d6" name="Default" comment="" />
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="TRACKING_ENABLED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
+  <component name="FileEditorManager">
+    <leaf>
+      <file leaf-file-name="install.sql" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/install/data/install.sql">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="189">
+              <caret line="1234" column="25" lean-forward="true" selection-start-line="1234" selection-start-column="25" selection-end-line="1234" selection-end-column="25" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="uc.sql" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/uc_server/install/uc.sql">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="249">
+              <caret line="169" column="44" lean-forward="false" selection-start-line="169" selection-start-column="44" selection-end-line="169" selection-end-column="44" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="install_data.sql" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/install/data/install_data.sql">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="265">
+              <caret line="309" column="59" lean-forward="true" selection-start-line="309" selection-start-column="59" selection-end-line="309" selection-end-column="59" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
+  </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>admin=</find>
+      <find>admin=</find>
+      <find>.admin=</find>
+      <find>.admin</find>
+      <find>.admin</find>
+      <find>admin</find>
+      <find>count</find>
+      <find>.count</find>
+      <find>count</find>
+      <find>count=</find>
+      <find>count=</find>
+      <find>count</find>
+      <find>value</find>
+      <find>value=</find>
+      <find>value</find>
+      <find>.value</find>
+      <find>value</find>
+      <find>groups</find>
+      <find>groups=</find>
+      <find>groups=</find>
+      <find>groups =</find>
+      <find>([a-z]+)</find>
+      <find>groups</find>
+      <find>([a-z0-9]+)</find>
+      <find>admin</find>
+      <find>ucenter_badwords ( id smallint(6) unsigne</find>
+      <find>_allowpushthread</find>
+      <find>([a-z0-9_]+)</find>
+      <find>admin varchar(15) NOT</find>
+      <find>groupstatus</find>
+    </findStrings>
+    <replaceStrings>
+      <replace>`$1`</replace>
+    </replaceStrings>
+    <dirStrings>
+      <dir>$PROJECT_DIR$/source</dir>
+      <dir>$PROJECT_DIR$/install/images</dir>
+    </dirStrings>
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="CHANGED_PATHS">
+      <list>
+        <option value="$PROJECT_DIR$/source/class/table/table_forum_tradecomment.php" />
+        <option value="$PROJECT_DIR$/source/plugin/qqconnect/table/table_connect_memberbindlog.php" />
+        <option value="$PROJECT_DIR$/source/class/table/table_common_member_validate.php" />
+        <option value="$PROJECT_DIR$/source/class/table/table_common_banned.php" />
+        <option value="$PROJECT_DIR$/source/class/table/table_common_patch.php" />
+        <option value="$PROJECT_DIR$/source/class/table/table_common_task.php" />
+        <option value="$PROJECT_DIR$/source/class/table/table_common_tag.php" />
+        <option value="$PROJECT_DIR$/source/class/table/table_common_invite.php" />
+        <option value="$PROJECT_DIR$/source/class/table/table_home_specialuser.php" />
+        <option value="$PROJECT_DIR$/source/class/table/table_common_card.php" />
+        <option value="$PROJECT_DIR$/source/class/table/table_common_mytask.php" />
+        <option value="$PROJECT_DIR$/source/class/table/table_common_member_grouppm.php" />
+        <option value="$PROJECT_DIR$/source/class/table/table_forum_threadmod.php" />
+        <option value="$PROJECT_DIR$/source/class/table/table_home_doing.php" />
+        <option value="$PROJECT_DIR$/source/class/table/table_forum_tradelog.php" />
+        <option value="$PROJECT_DIR$/source/class/table/table_common_advertisement_custom.php" />
+        <option value="$PROJECT_DIR$/source/class/table/table_common_template.php" />
+        <option value="$PROJECT_DIR$/source/class/table/table_common_magic.php" />
+        <option value="$PROJECT_DIR$/source/class/table/table_common_style.php" />
+        <option value="$PROJECT_DIR$/source/class/table/table_forum_threadclass.php" />
+        <option value="$PROJECT_DIR$/source/class/table/table_portal_topic.php" />
+        <option value="$PROJECT_DIR$/source/class/table/table_forum_thread.php" />
+        <option value="$PROJECT_DIR$/source/class/table/table_forum_moderator.php" />
+        <option value="$PROJECT_DIR$/source/class/table/table_forum_attachment.php" />
+        <option value="$PROJECT_DIR$/source/class/table/table_common_block.php" />
+        <option value="$PROJECT_DIR$/source/class/table/table_common_nav.php" />
+        <option value="$PROJECT_DIR$/source/class/table/table_common_advertisement.php" />
+        <option value="$PROJECT_DIR$/source/class/table/table_home_notification.php" />
+        <option value="$PROJECT_DIR$/source/class/table/table_forum_groupfield.php" />
+        <option value="$PROJECT_DIR$/source/class/table/table_common_word.php" />
+        <option value="$PROJECT_DIR$/source/class/table/table_forum_imagetype.php" />
+        <option value="$PROJECT_DIR$/source/class/table/table_forum_medallog.php" />
+        <option value="$PROJECT_DIR$/source/class/table/table_common_secquestion.php" />
+        <option value="$PROJECT_DIR$/source/class/table/table_forum_statlog.php" />
+        <option value="$PROJECT_DIR$/source/class/table/table_common_usergroup.php" />
+        <option value="$PROJECT_DIR$/source/class/table/table_home_share.php" />
+        <option value="$PROJECT_DIR$/source/class/table/table_common_smiley.php" />
+        <option value="$PROJECT_DIR$/source/class/table/table_forum_threadtype.php" />
+        <option value="$PROJECT_DIR$/source/class/table/table_forum_forum.php" />
+        <option value="$PROJECT_DIR$/source/class/table/table_common_moderate.php" />
+        <option value="$PROJECT_DIR$/source/class/table/table_forum_groupuser.php" />
+        <option value="$PROJECT_DIR$/source/class/table/table_home_blog.php" />
+        <option value="$PROJECT_DIR$/source/class/table/table_common_regip.php" />
+        <option value="$PROJECT_DIR$/source/class/table/table_forum_modwork.php" />
+        <option value="$PROJECT_DIR$/source/class/table/table_common_failedlogin.php" />
+        <option value="$PROJECT_DIR$/source/class/table/table_forum_announcement.php" />
+        <option value="$PROJECT_DIR$/install/data/install.sql" />
+        <option value="$PROJECT_DIR$/uc_server/install/uc.sql" />
+      </list>
+    </option>
+  </component>
+  <component name="JsBuildToolGruntFileManager" detection-done="true" sorting="DEFINITION_ORDER" />
+  <component name="JsBuildToolPackageJson" detection-done="true" sorting="DEFINITION_ORDER" />
+  <component name="JsGulpfileManager">
+    <detection-done>true</detection-done>
+    <sorting>DEFINITION_ORDER</sorting>
+  </component>
+  <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" interpreter_name="PHP 5.5" />
+  <component name="ProjectFrameBounds">
+    <option name="width" value="1280" />
+    <option name="height" value="800" />
+  </component>
+  <component name="ProjectView">
+    <navigator currentView="ProjectPane" proportions="" version="1">
+      <flattenPackages />
+      <showMembers />
+      <showModules />
+      <showLibraryContents />
+      <hideEmptyPackages />
+      <abbreviatePackageNames />
+      <autoscrollToSource />
+      <autoscrollFromSource />
+      <sortByType />
+      <manualOrder />
+      <foldersAlwaysOnTop value="true" />
+    </navigator>
+    <panes>
+      <pane id="ProjectPane">
+        <subPane>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="upload" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="upload" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="upload" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="upload" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="install" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="upload" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="upload" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="install" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="data" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+          </PATH>
+        </subPane>
+      </pane>
+      <pane id="Scope" />
+      <pane id="Scratches" />
+    </panes>
+  </component>
+  <component name="PropertiesComponent">
+    <property name="settings.editor.selected.configurable" value="preferences.keymap" />
+    <property name="settings.editor.splitter.proportion" value="0.2" />
+    <property name="FullScreen" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="true" />
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="ShelveChangesManager" show_recycled="false">
+    <option name="remove_strategy" value="false" />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="a898b430-11aa-4711-9fb9-3f59d8a6d8d6" name="Default" comment="" />
+      <created>1533409614254</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1533409614254</updated>
+      <workItem from="1533409615997" duration="3642000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TimeTrackingManager">
+    <option name="totallyTimeSpent" value="3642000" />
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="0" y="0" width="1280" height="800" extended-state="6" />
+    <editor active="true" />
+    <layout>
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32846716" sideWeight="0.50319487" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="File Transfer" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32739726" sideWeight="0.4968051" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.329927" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Remote Host" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.26655897" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.19850498" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+    </layout>
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="processedProjectFiles" value="true" />
+  </component>
+  <component name="VcsContentAnnotationSettings">
+    <option name="myLimit" value="2678400000" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager />
+    <watches-manager />
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/source/class/table/table_common_patch.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="510">
+          <caret line="39" column="52" lean-forward="true" selection-start-line="39" selection-start-column="52" selection-end-line="39" selection-end-column="52" />
+          <folding>
+            <marker date="1533411478730" expanded="true" signature="490:504" ph="SELECT * FRO... ${DB::table($this-&gt;_table)}" />
+            <marker date="1533411478730" expanded="true" signature="602:678" ph="SELECT seria... ${DB::table($this-&gt;_table)}" />
+            <marker date="1533411478730" expanded="true" signature="985:1083" ph="SELECT * FRO... ${DB::table($this-&gt;_table)}" />
+            <marker date="1533411478730" expanded="true" signature="1165:1214" ph="SELECT * FRO... ${DB::table($this-&gt;_table)}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/source/class/table/table_common_banned.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="334">
+          <caret line="34" column="0" lean-forward="true" selection-start-line="34" selection-start-column="0" selection-end-line="34" selection-end-column="0" />
+          <folding>
+            <marker date="1533411483437" expanded="true" signature="515:625" ph="SELECT * FRO... " />
+            <marker date="1533411483437" expanded="true" signature="749:783" ph="SELECT * FRO... " />
+            <marker date="1533411483437" expanded="true" signature="868:884" ph="SELECT * FRO... " />
+            <marker date="1533411483437" expanded="true" signature="1051:1106" ph="DELETE FROM " />
+            <marker date="1533411483437" expanded="true" signature="1253:1287" ph="DELETE FROM " />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/source/class/table/table_common_member_validate.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="325">
+          <caret line="38" column="5" lean-forward="true" selection-start-line="38" selection-start-column="5" selection-end-line="38" selection-end-column="5" />
+          <folding>
+            <marker date="1533411516251" expanded="true" signature="962:1085" ph="SELECT v.uid... ${DB::table('common_member_validate')}" />
+            <marker date="1533411516251" expanded="true" signature="1186:1489" ph="SELECT mvi.`... ${DB::table('common_member_validate')}" />
+            <marker date="1533411516251" expanded="true" signature="1606:1647" ph="SELECT COUNT... " />
+            <marker date="1533411516251" expanded="true" signature="1775:1874" ph="SELECT `stat... ${DB::table('common_member_validate')}" />
+            <marker date="1533411516251" expanded="true" signature="2078:2138" ph="SELECT * FRO... " />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/source/class/table/table_forum_tradecomment.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="354">
+          <caret line="37" column="0" lean-forward="true" selection-start-line="37" selection-start-column="0" selection-end-line="37" selection-end-column="0" />
+          <folding>
+            <marker date="1533411015751" expanded="true" signature="598:648" ph="SELECT * FRO... " />
+            <marker date="1533411015751" expanded="true" signature="1140:1280" ph="SELECT tc.*,... " />
+            <marker date="1533411015751" expanded="true" signature="1789:1830" ph="SELECT COUNT... " />
+            <marker date="1533411015751" expanded="true" signature="2046:2136" ph="SELECT COUNT... " />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/source/class/table/table_common_invite.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="525">
+          <caret line="40" column="5" lean-forward="true" selection-start-line="40" selection-start-column="5" selection-end-line="40" selection-end-column="5" />
+          <folding>
+            <marker date="1533411573456" expanded="true" signature="530:569" ph="SELECT * FRO... " />
+            <marker date="1533411573456" expanded="true" signature="675:705" ph="SELECT * FRO... " />
+            <marker date="1533411573456" expanded="true" signature="807:859" ph="SELECT * FRO... " />
+            <marker date="1533411573456" expanded="true" signature="1152:1253" ph="SELECT count... " />
+            <marker date="1533411573456" expanded="true" signature="1369:1402" ph="SELECT * FRO... " />
+            <marker date="1533411573456" expanded="true" signature="1762:1810" ph="SELECT * FRO... " />
+            <marker date="1533411573456" expanded="true" signature="2062:2110" ph="SELECT COUNT... " />
+            <marker date="1533411573456" expanded="true" signature="2237:2289" ph="SELECT COUNT... " />
+            <marker date="1533411573456" expanded="true" signature="2614:2638" ph="SELECT COUNT... " />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/source/class/table/table_common_card.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="555">
+          <caret line="42" column="1" lean-forward="true" selection-start-line="42" selection-start-column="1" selection-end-line="42" selection-end-column="1" />
+          <folding>
+            <marker date="1533411612486" expanded="true" signature="754:810" ph="SELECT COUNT... ${DB::table('common_card')}" />
+            <marker date="1533411612486" expanded="true" signature="974:1046" ph="SELECT * FRO... ${DB::table($this-&gt;_table)}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/source/class/table/table_home_specialuser.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="540">
+          <caret line="43" column="56" lean-forward="true" selection-start-line="43" selection-start-column="56" selection-end-line="43" selection-end-column="56" />
+          <folding>
+            <marker date="1533411602941" expanded="true" signature="535:591" ph="SELECT * FRO... " />
+            <marker date="1533411602941" expanded="true" signature="825:866" ph="SELECT COUNT... " />
+            <marker date="1533411602941" expanded="true" signature="1473:1518" ph="SELECT * FRO... " />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/source/class/table/table_common_tag.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="321">
+          <caret line="70" column="9" lean-forward="true" selection-start-line="70" selection-start-column="9" selection-end-line="70" selection-end-column="9" />
+          <folding>
+            <marker date="1533411542993" expanded="true" signature="835:876" ph="SELECT count... " />
+            <marker date="1533411542993" expanded="true" signature="923:1006" ph="SELECT * FRO... " />
+            <marker date="1533411542993" expanded="true" signature="1114:1164" ph="INSERT INTO " />
+            <marker date="1533411542993" expanded="true" signature="1392:1428" ph="SELECT * FRO... " />
+            <marker date="1533411542993" expanded="true" signature="1674:1708" ph="SELECT * FRO... " />
+            <marker date="1533411542993" expanded="true" signature="2090:2157" ph="SELECT tagid... ${DB::table('common_tag')}" />
+            <marker date="1533411542993" expanded="true" signature="2322:2356" ph="DELETE FROM " />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/source/class/table/table_common_mytask.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="390">
+          <caret line="53" column="0" lean-forward="true" selection-start-line="53" selection-start-column="0" selection-end-line="53" selection-end-column="0" />
+          <folding>
+            <marker date="1533411629732" expanded="true" signature="1236:1278" ph="SELECT COUNT... " />
+            <marker date="1533411629732" expanded="true" signature="1391:1441" ph="DELETE FROM " />
+            <marker date="1533411629732" expanded="true" signature="1597:1664" ph="SELECT * FRO... " />
+            <marker date="1533411629732" expanded="true" signature="1777:1820" ph="SELECT * FRO... " />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/source/class/table/table_common_member_grouppm.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="530">
+          <caret line="47" column="60" lean-forward="true" selection-start-line="47" selection-start-column="60" selection-end-line="47" selection-end-column="60" />
+          <folding>
+            <marker date="1533411641454" expanded="true" signature="682:757" ph="SELECT COUNT... " />
+            <marker date="1533411641454" expanded="true" signature="881:923" ph="SELECT * FRO... " />
+            <marker date="1533411641454" expanded="true" signature="1082:1150" ph="SELECT * FRO... " />
+            <marker date="1533411641454" expanded="true" signature="1311:1378" ph="SELECT * FRO... " />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/source/class/table/table_home_doing.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="250">
+          <caret line="49" column="9" lean-forward="true" selection-start-line="49" selection-start-column="9" selection-end-line="49" selection-end-column="9" />
+          <folding>
+            <marker date="1533412007402" expanded="true" signature="3736:3764" ph="SELECT ${$se... " />
+            <marker date="1533412007402" expanded="true" signature="3825:3873" ph="SELECT ${$se... " />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/source/class/table/table_forum_threadmod.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="360">
+          <caret line="46" column="76" lean-forward="true" selection-start-line="46" selection-start-column="76" selection-end-line="46" selection-end-column="76" />
+          <folding>
+            <marker date="1533412009658" expanded="true" signature="501:561" ph="SELECT * FRO... " />
+            <marker date="1533412009658" expanded="true" signature="696:786" ph="SELECT * FRO... " />
+            <marker date="1533412009658" expanded="true" signature="925:969" ph="SELECT * FRO... " />
+            <marker date="1533412009658" expanded="true" signature="1102:1146" ph="SELECT * FRO... " />
+            <marker date="1533412009658" expanded="true" signature="1636:1686" ph="SELECT * FRO... " />
+            <marker date="1533412009658" expanded="true" signature="1829:1898" ph="SELECT * FRO... " />
+            <marker date="1533412009658" expanded="true" signature="2060:2170" ph="SELECT tm.ti... " />
+            <marker date="1533412009658" expanded="true" signature="2335:2386" ph="SELECT COUNT... " />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/source/class/table/table_forum_tradelog.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="450">
+          <caret line="76" column="0" lean-forward="true" selection-start-line="76" selection-start-column="0" selection-end-line="76" selection-end-column="0" />
+          <folding>
+            <marker date="1533412241199" expanded="true" signature="572:675" ph="SELECT COUNT... " />
+            <marker date="1533412241199" expanded="true" signature="869:926" ph="SELECT * FRO... " />
+            <marker date="1533412241199" expanded="true" signature="1034:1097" ph="DELETE FROM " />
+            <marker date="1533412241199" expanded="true" signature="1281:1346" ph="SELECT * FRO... " />
+            <marker date="1533412241199" expanded="true" signature="1610:1673" ph="DELETE FROM " />
+            <marker date="1533412241199" expanded="true" signature="1838:1904" ph="SELECT * FRO... " />
+            <marker date="1533412241199" expanded="true" signature="2169:2233" ph="DELETE FROM " />
+            <marker date="1533412241199" expanded="true" signature="2338:2438" ph="SELECT * FRO... " />
+            <marker date="1533412241199" expanded="true" signature="2984:3161" ph="SELECT tl.*,... " />
+            <marker date="1533412241199" expanded="true" signature="3740:3775" ph="SELECT COUNT... " />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/source/class/table/table_common_advertisement_custom.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="375">
+          <caret line="30" column="0" lean-forward="true" selection-start-line="30" selection-start-column="0" selection-end-line="30" selection-end-column="0" />
+          <folding>
+            <marker date="1533412497597" expanded="true" signature="536:564" ph="SELECT * FRO... " />
+            <marker date="1533412497597" expanded="true" signature="660:692" ph="SELECT * FRO... " />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/source/class/table/table_common_template.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="465">
+          <caret line="36" column="5" lean-forward="true" selection-start-line="36" selection-start-column="5" selection-end-line="36" selection-end-column="5" />
+          <folding>
+            <marker date="1533412497600" expanded="true" signature="501:517" ph="SELECT * FRO... " />
+            <marker date="1533412497600" expanded="true" signature="621:662" ph="DELETE FROM " />
+            <marker date="1533412497600" expanded="true" signature="791:832" ph="SELECT templ... " />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/source/class/table/table_common_magic.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="390">
+          <caret line="51" column="0" lean-forward="true" selection-start-line="51" selection-start-column="0" selection-end-line="51" selection-end-column="0" />
+          <folding>
+            <marker date="1533412592116" expanded="true" signature="597:638" ph="SELECT * FRO... " />
+            <marker date="1533412592116" expanded="true" signature="766:825" ph="SELECT COUNT... " />
+            <marker date="1533412592116" expanded="true" signature="1012:1056" ph="SELECT COUNT... " />
+            <marker date="1533412592116" expanded="true" signature="1351:1412" ph="SELECT * FRO... " />
+            <marker date="1533412592116" expanded="true" signature="1568:1639" ph="SELECT magic... " />
+            <marker date="1533412592116" expanded="true" signature="1771:1807" ph="SELECT * FRO... " />
+            <marker date="1533412592116" expanded="true" signature="2134:2235" ph="SELECT mm.* " />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/source/class/table/table_common_style.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="330">
+          <caret line="27" column="16" lean-forward="true" selection-start-line="27" selection-start-column="16" selection-end-line="27" selection-end-column="16" />
+          <folding>
+            <marker date="1533412592106" expanded="true" signature="638:775" ph="SELECT s.*, " />
+            <marker date="1533412592106" expanded="true" signature="951:970" ph="SELECT * FRO... " />
+            <marker date="1533412592106" expanded="true" signature="1088:1218" ph="SELECT s.*, " />
+            <marker date="1533412592106" expanded="true" signature="1351:1390" ph="SELECT COUNT... " />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/source/class/table/table_forum_threadclass.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="295">
+          <caret line="27" column="22" lean-forward="true" selection-start-line="27" selection-start-column="22" selection-end-line="27" selection-end-column="22" />
+          <folding>
+            <marker date="1533412592119" expanded="true" signature="520:563" ph="SELECT * FRO... " />
+            <marker date="1533412592119" expanded="true" signature="763:821" ph="SELECT * FRO... " />
+            <marker date="1533412592119" expanded="true" signature="960:1011" ph="SELECT * FRO... " />
+            <marker date="1533412592119" expanded="true" signature="1462:1485" ph="SELECT * FRO... " />
+            <marker date="1533412592119" expanded="true" signature="3134:3170" ph="SELECT COUNT... " />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/source/class/table/table_portal_topic.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="235">
+          <caret line="34" column="68" lean-forward="false" selection-start-line="34" selection-start-column="68" selection-end-line="34" selection-end-column="68" />
+          <folding>
+            <marker date="1533412592100" expanded="true" signature="582:603" ph="SELECT COUNT... ${DB::table($this-&gt;_table)}" />
+            <marker date="1533412592100" expanded="true" signature="849:931" ph="SELECT * FRO... ${DB::table($this-&gt;_table)}" />
+            <marker date="1533412592100" expanded="true" signature="1066:1106" ph="SELECT * FRO... " />
+            <marker date="1533412592100" expanded="true" signature="2274:2303" ph="SELECT ${$id... " />
+            <marker date="1533412592100" expanded="true" signature="2776:2872" ph="SELECT topic... ${DB::table($this-&gt;_table)}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/source/class/table/table_forum_thread.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="235">
+          <caret line="441" column="44" lean-forward="false" selection-start-line="441" selection-start-column="44" selection-end-line="441" selection-end-column="44" />
+          <folding>
+            <marker date="1533412592114" expanded="true" signature="771:800" ph="SELECT * FRO... " />
+            <marker date="1533412592114" expanded="true" signature="1691:1757" ph="SELECT * FRO... " />
+            <marker date="1533412592114" expanded="true" signature="1993:2090" ph="SELECT tid F... " />
+            <marker date="1533412592114" expanded="true" signature="3467:3537" ph="SELECT * FRO... " />
+            <marker date="1533412592114" expanded="true" signature="4223:4273" ph="SELECT * FRO... " />
+            <marker date="1533412592114" expanded="true" signature="4874:4924" ph="SELECT * FRO... " />
+            <marker date="1533412592114" expanded="true" signature="6341:6391" ph="SELECT * FRO... " />
+            <marker date="1533412592114" expanded="true" signature="6883:6916" ph="SELECT * FRO... " />
+            <marker date="1533412592114" expanded="true" signature="8741:8775" ph="SELECT * FRO... " />
+            <marker date="1533412592114" expanded="true" signature="9202:9290" ph="SELECT * FRO... " />
+            <marker date="1533412592114" expanded="true" signature="9540:9566" ph="SELECT * FRO... " />
+            <marker date="1533412592114" expanded="true" signature="9843:9892" ph="SELECT * FRO... " />
+            <marker date="1533412592114" expanded="true" signature="10330:10397" ph="SELECT * FRO... " />
+            <marker date="1533412592114" expanded="true" signature="11438:11475" ph="SELECT * FRO... " />
+            <marker date="1533412592114" expanded="true" signature="11722:11767" ph="SELECT * FRO... " />
+            <marker date="1533412592114" expanded="true" signature="12890:12927" ph="SELECT * FRO... " />
+            <marker date="1533412592114" expanded="true" signature="13737:13787" ph="SELECT * FRO... " />
+            <marker date="1533412592114" expanded="true" signature="14105:14122" ph="SELECT * FRO... " />
+            <marker date="1533412592114" expanded="true" signature="14493:14527" ph="SELECT * FRO... " />
+            <marker date="1533412592114" expanded="true" signature="14851:14891" ph="SELECT * FRO... " />
+            <marker date="1533412592114" expanded="true" signature="15539:15665" ph="SELECT tid, " />
+            <marker date="1533412592114" expanded="true" signature="16629:16815" ph="SELECT t.tid... " />
+            <marker date="1533412592114" expanded="true" signature="17469:17734" ph="SELECT t.tid... " />
+            <marker date="1533412592114" expanded="true" signature="18158:18658" ph="SELECT f.`na... ${DB::table('forum_thread')}" />
+            <marker date="1533412592114" expanded="true" signature="18974:18991" ph="SELECT * FRO... " />
+            <marker date="1533412592114" expanded="true" signature="19129:19317" ph="SELECT t1.ti... " />
+            <marker date="1533412592114" expanded="true" signature="19978:19995" ph="SELECT * FRO... " />
+            <marker date="1533412592114" expanded="true" signature="20194:20270" ph="SELECT * FRO... " />
+            <marker date="1533412592114" expanded="true" signature="21839:21962" ph="SELECT * FRO... ${DB::table($this-&gt;get_table_name($tableid))}" />
+            <marker date="1533412592114" expanded="true" signature="22615:22658" ph="SELECT t.* F... " />
+            <marker date="1533412592114" expanded="true" signature="23115:23376" ph="SELECT t.tid... ${DB::table('forum_thread')}" />
+            <marker date="1533412592114" expanded="true" signature="24852:24900" ph="SELECT COUNT... " />
+            <marker date="1533412592114" expanded="true" signature="26461:26495" ph="SELECT COUNT... " />
+            <marker date="1533412592114" expanded="true" signature="39059:39097" ph="INSERT INTO " />
+            <marker date="1533412592114" expanded="true" signature="39285:39326" ph="SELECT COUNT... " />
+            <marker date="1533412592114" expanded="true" signature="39464:39500" ph="SELECT COUNT... " />
+            <marker date="1533412592114" expanded="true" signature="39637:39682" ph="SELECT COUNT... " />
+            <marker date="1533412592114" expanded="true" signature="39864:39910" ph="SELECT COUNT... " />
+            <marker date="1533412592114" expanded="true" signature="40592:40616" ph="SELECT COUNT... " />
+            <marker date="1533412592114" expanded="true" signature="41244:41343" ph="SELECT COUNT... " />
+            <marker date="1533412592114" expanded="true" signature="41637:41709" ph="SELECT COUNT... " />
+            <marker date="1533412592114" expanded="true" signature="42301:42365" ph="SELECT COUNT... " />
+            <marker date="1533412592114" expanded="true" signature="42515:42538" ph="SELECT COUNT... " />
+            <marker date="1533412592114" expanded="true" signature="42804:42828" ph="SELECT COUNT... " />
+            <marker date="1533412592114" expanded="true" signature="42940:43011" ph="SELECT COUNT... " />
+            <marker date="1533412592114" expanded="true" signature="43132:43216" ph="SELECT fid, " />
+            <marker date="1533412592114" expanded="true" signature="43340:43400" ph="SELECT speci... " />
+            <marker date="1533412592114" expanded="true" signature="43781:43896" ph="SELECT COUNT... ${DB::table('forum_thread')}" />
+            <marker date="1533412592114" expanded="true" signature="46143:46193" ph="SELECT * FRO... ${DB::table('forum_thread')}" />
+            <marker date="1533412592114" expanded="true" signature="46278:46309" ph="SELECT MAX(t... ${DB::table('forum_thread')}" />
+            <marker date="1533412592114" expanded="true" signature="46520:46554" ph="SELECT * FRO... " />
+            <marker date="1533412592114" expanded="true" signature="49712:49725" ph="DROP TABLE %... " />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/source/class/table/table_forum_moderator.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="235">
+          <caret line="39" column="51" lean-forward="false" selection-start-line="39" selection-start-column="51" selection-end-line="39" selection-end-column="51" />
+          <folding>
+            <marker date="1533412592109" expanded="true" signature="517:546" ph="SELECT * FRO... " />
+            <marker date="1533412592109" expanded="true" signature="733:779" ph="SELECT * FRO... " />
+            <marker date="1533412592109" expanded="true" signature="934:959" ph="SELECT * FRO... " />
+            <marker date="1533412592109" expanded="true" signature="1092:1226" ph="SELECT m.fid... " />
+            <marker date="1533412592109" expanded="true" signature="1356:1398" ph="SELECT uid F... " />
+            <marker date="1533412592109" expanded="true" signature="1639:1718" ph="SELECT uid F... " />
+            <marker date="1533412592109" expanded="true" signature="1873:1905" ph="SELECT count... " />
+            <marker date="1533412592109" expanded="true" signature="2038:2105" ph="SELECT * FRO... " />
+            <marker date="1533412592109" expanded="true" signature="2216:2272" ph="SELECT * FRO... " />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/source/class/table/table_forum_attachment.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="495">
+          <caret line="129" column="74" lean-forward="true" selection-start-line="129" selection-start-column="74" selection-end-line="129" selection-end-column="74" />
+          <folding>
+            <marker date="1533412592124" expanded="true" signature="1020:1056" ph="SELECT * FRO... " />
+            <marker date="1533412592124" expanded="true" signature="1420:1451" ph="DELETE FROM " />
+            <marker date="1533412592124" expanded="true" signature="1870:1906" ph="SELECT COUNT... " />
+            <marker date="1533412592124" expanded="true" signature="2016:2056" ph="SELECT * FRO... " />
+            <marker date="1533412592124" expanded="true" signature="2687:2809" ph="SELECT a.*, " />
+            <marker date="1533412592124" expanded="true" signature="4180:4474" ph="SELECT COUNT... ${DB::table('forum_attachment_'.$tableid)}" />
+            <marker date="1533412592124" expanded="true" signature="4510:4882" ph="SELECT a.*, ${DB::table('forum_attachment_'.$tableid)}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/source/class/table/table_common_block.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="182">
+          <caret line="81" column="5" lean-forward="true" selection-start-line="81" selection-start-column="5" selection-end-line="81" selection-end-column="5" />
+          <folding>
+            <marker date="1533412592103" expanded="true" signature="970:1089" ph="SELECT COUNT... ${DB::table($this-&gt;_table)}" />
+            <marker date="1533412592103" expanded="true" signature="1274:1420" ph="SELECT b.*, ${DB::table($this-&gt;_table)}" />
+            <marker date="1533412592103" expanded="true" signature="1836:1927" ph="SELECT * FRO... ${DB::table($this-&gt;_table)}" />
+            <marker date="1533412592103" expanded="true" signature="2090:2197" ph="SELECT bid F... ${DB::table($this-&gt;_table)}" />
+            <marker date="1533412592103" expanded="true" signature="2855:3164" ph="SELECT bi.da... ${DB::table('common_block')}" />
+            <marker date="1533412592103" expanded="true" signature="3294:3359" ph="SELECT COUNT... ${DB::table($this-&gt;_table)}" />
+            <marker date="1533412592103" expanded="true" signature="3503:3641" ph="SELECT b.bid... ${DB::table($this-&gt;_table)}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/source/class/table/table_common_nav.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="456">
+          <caret line="125" column="9" lean-forward="true" selection-start-line="125" selection-start-column="9" selection-end-line="125" selection-end-column="9" />
+          <folding>
+            <marker date="1533412701732" expanded="true" signature="499:542" ph="SELECT * FRO... " />
+            <marker date="1533412701732" expanded="true" signature="677:727" ph="SELECT * FRO... " />
+            <marker date="1533412701732" expanded="true" signature="1007:1075" ph="SELECT * FRO... " />
+            <marker date="1533412701732" expanded="true" signature="1201:1272" ph="SELECT * FRO... " />
+            <marker date="1533412701732" expanded="true" signature="1420:1467" ph="SELECT * FRO... " />
+            <marker date="1533412701732" expanded="true" signature="1588:1687" ph="SELECT * FRO... " />
+            <marker date="1533412701732" expanded="true" signature="1799:1885" ph="SELECT * FRO... " />
+            <marker date="1533412701732" expanded="true" signature="2291:2316" ph="SELECT * FRO... " />
+            <marker date="1533412701732" expanded="true" signature="4876:4948" ph="SELECT COUNT... " />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/source/class/table/table_common_advertisement.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="211">
+          <caret line="33" column="5" lean-forward="true" selection-start-line="33" selection-start-column="5" selection-end-line="33" selection-end-column="5" />
+          <folding>
+            <marker date="1533412899288" expanded="true" signature="512:569" ph="SELECT type,... " />
+            <marker date="1533412899288" expanded="true" signature="512:575" ph="SELECT `type... " />
+            <marker date="1533412899288" expanded="true" signature="673:705" ph="SELECT * FRO... " />
+            <marker date="1533412899288" expanded="true" signature="801:875" ph="SELECT * FRO... " />
+            <marker date="1533412899288" expanded="true" signature="981:1049" ph="SELECT COUNT... " />
+            <marker date="1533412899288" expanded="true" signature="1278:1311" ph="SELECT * FRO... " />
+            <marker date="1533412899288" expanded="true" signature="2446:2573" ph="SELECT * FRO... ${DB::table('common_advertisement')}" />
+            <marker date="1533412899288" expanded="true" signature="2782:2849" ph="SELECT COUNT... ${DB::table('common_advertisement')}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/source/class/table/table_forum_optionvalue.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="250">
+          <caret line="32" column="31" lean-forward="true" selection-start-line="32" selection-start-column="31" selection-end-line="32" selection-end-column="31" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/source/class/table/table_home_notification.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="272">
+          <caret line="55" column="77" lean-forward="true" selection-start-line="55" selection-start-column="77" selection-end-line="55" selection-end-column="77" />
+          <folding>
+            <marker date="1533412899263" expanded="true" signature="543:586" ph="DELETE FROM " />
+            <marker date="1533412899263" expanded="true" signature="782:815" ph="DELETE FROM " />
+            <marker date="1533412899263" expanded="true" signature="1039:1102" ph="SELECT * FRO... " />
+            <marker date="1533412899263" expanded="true" signature="1212:1249" ph="DELETE FROM " />
+            <marker date="1533412899263" expanded="true" signature="1342:1394" ph="DELETE FROM " />
+            <marker date="1533412899263" expanded="true" signature="1527:1584" ph="DELETE FROM " />
+            <marker date="1533412899263" expanded="true" signature="1737:1800" ph="SELECT * FRO... " />
+            <marker date="1533412899263" expanded="true" signature="3122:3167" ph="SELECT COUNT... " />
+            <marker date="1533412899263" expanded="true" signature="3914:3978" ph="SELECT * FRO... " />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/source/class/table/table_common_smiley.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="337">
+          <caret line="47" column="78" lean-forward="true" selection-start-line="47" selection-start-column="78" selection-end-line="47" selection-end-column="78" />
+          <folding>
+            <marker date="1533413007072" expanded="true" signature="694:747" ph="SELECT * FRO... " />
+            <marker date="1533413007072" expanded="true" signature="904:973" ph="SELECT * FRO... " />
+            <marker date="1533413007072" expanded="true" signature="1145:1226" ph="SELECT * FRO... " />
+            <marker date="1533413007072" expanded="true" signature="1345:1516" ph="SELECT s.id,... " />
+            <marker date="1533413007072" expanded="true" signature="1639:1681" ph="SELECT * FRO... " />
+            <marker date="1533413007072" expanded="true" signature="2982:3025" ph="SELECT COUNT... " />
+            <marker date="1533413007072" expanded="true" signature="3132:3171" ph="SELECT COUNT... " />
+            <marker date="1533413007072" expanded="true" signature="3390:3447" ph="SELECT COUNT... " />
+            <marker date="1533413007072" expanded="true" signature="3596:3662" ph="SELECT COUNT... " />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/source/class/table/table_home_share.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="332">
+          <caret line="140" column="42" lean-forward="true" selection-start-line="140" selection-start-column="42" selection-end-line="140" selection-end-column="42" />
+          <folding>
+            <marker date="1533413010245" expanded="true" signature="528:553" ph="SELECT * FRO... " />
+            <marker date="1533413010245" expanded="true" signature="974:1006" ph="SELECT * FRO... " />
+            <marker date="1533413010245" expanded="true" signature="1117:1157" ph="SELECT * FRO... " />
+            <marker date="1533413010245" expanded="true" signature="1330:1404" ph="SELECT * FRO... " />
+            <marker date="1533413010245" expanded="true" signature="2075:2129" ph="SELECT * FRO... " />
+            <marker date="1533413010245" expanded="true" signature="2284:2307" ph="SELECT * FRO... " />
+            <marker date="1533413010245" expanded="true" signature="3407:3461" ph="SELECT * FRO... " />
+            <marker date="1533413010245" expanded="true" signature="3586:3625" ph="SELECT COUNT... " />
+            <marker date="1533413010245" expanded="true" signature="4182:4206" ph="SELECT COUNT... " />
+            <marker date="1533413010245" expanded="true" signature="4792:4816" ph="SELECT COUNT... " />
+            <marker date="1533413010245" expanded="true" signature="5830:5854" ph="SELECT COUNT... " />
+            <marker date="1533413010245" expanded="true" signature="5991:6012" ph="DELETE FROM " />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/source/class/table/table_forum_medallog.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="486">
+          <caret line="82" column="0" lean-forward="true" selection-start-line="82" selection-start-column="0" selection-end-line="82" selection-end-column="0" />
+          <folding>
+            <marker date="1533412899294" expanded="true" signature="497:536" ph="SELECT COUNT... " />
+            <marker date="1533412899294" expanded="true" signature="638:674" ph="SELECT COUNT... " />
+            <marker date="1533412899294" expanded="true" signature="778:828" ph="SELECT * FRO... " />
+            <marker date="1533412899294" expanded="true" signature="948:1013" ph="SELECT * FRO... " />
+            <marker date="1533412899294" expanded="true" signature="1143:1211" ph="SELECT * FRO... " />
+            <marker date="1533412899294" expanded="true" signature="1336:1400" ph="SELECT * FRO... " />
+            <marker date="1533412899294" expanded="true" signature="2096:2192" ph="SELECT * FRO... ${DB::table('forum_medallog')}" />
+            <marker date="1533412899294" expanded="true" signature="2509:2562" ph="SELECT COUNT... ${DB::table('forum_medallog')}" />
+            <marker date="1533412899294" expanded="true" signature="2662:2726" ph="SELECT COUNT... " />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/source/class/table/table_common_word.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="416">
+          <caret line="54" column="9" lean-forward="true" selection-start-line="54" selection-start-column="9" selection-end-line="54" selection-end-column="9" />
+          <folding>
+            <marker date="1533412899305" expanded="true" signature="494:524" ph="SELECT * FRO... " />
+            <marker date="1533412899305" expanded="true" signature="631:677" ph="SELECT * FRO... " />
+            <marker date="1533412899305" expanded="true" signature="774:790" ph="SELECT * FRO... " />
+            <marker date="1533412899305" expanded="true" signature="1317:1361" ph="SELECT * FRO... " />
+            <marker date="1533412899305" expanded="true" signature="2318:2342" ph="SELECT COUNT... " />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/source/class/table/table_forum_groupfield.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="465">
+          <caret line="36" column="1" lean-forward="true" selection-start-line="36" selection-start-column="1" selection-end-line="36" selection-end-column="1" />
+          <folding>
+            <marker date="1533412899300" expanded="true" signature="690:742" ph="DELETE FROM " />
+            <marker date="1533412899300" expanded="true" signature="967:1071" ph="SELECT fid, ${DB::table('forum_groupfield')}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/source/class/table/table_common_usergroup.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="286">
+          <caret line="38" column="68" lean-forward="false" selection-start-line="38" selection-start-column="64" selection-end-line="38" selection-end-column="68" />
+          <folding>
+            <marker date="1533412939522" expanded="true" signature="690:827" ph="SELECT group... " />
+            <marker date="1533412939522" expanded="true" signature="2088:2170" ph="SELECT group... " />
+            <marker date="1533412939522" expanded="true" signature="2292:2553" ph="SELECT group... " />
+            <marker date="1533412939522" expanded="true" signature="2688:2900" ph="SELECT group... " />
+            <marker date="1533412939522" expanded="true" signature="3011:3144" ph="SELECT group... ${DB::table($this-&gt;_table)}" />
+            <marker date="1533412939522" expanded="true" signature="3340:3402" ph="SELECT * FRO... " />
+            <marker date="1533412939522" expanded="true" signature="3340:3436" ph="SELECT * FRO... " />
+            <marker date="1533412939522" expanded="true" signature="3582:3628" ph="SELECT * FRO... " />
+            <marker date="1533412939522" expanded="true" signature="3582:3629" ph="SELECT * FRO... " />
+            <marker date="1533412939522" expanded="true" signature="3582:3698" ph="SELECT * FRO... " />
+            <marker date="1533412939522" expanded="true" signature="3582:3706" ph="SELECT * FRO... " />
+            <marker date="1533412939522" expanded="true" signature="3582:3707" ph="SELECT * FRO... " />
+            <marker date="1533412939522" expanded="true" signature="3582:3715" ph="SELECT * FRO... " />
+            <marker date="1533412939522" expanded="true" signature="3829:3923" ph="SELECT * FRO... " />
+            <marker date="1533412939522" expanded="true" signature="4038:4077" ph="SELECT * FRO... " />
+            <marker date="1533412939522" expanded="true" signature="4335:4360" ph="SELECT * FRO... " />
+            <marker date="1533412939522" expanded="true" signature="4801:4862" ph="SELECT COUNT... " />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/source/class/table/table_common_secquestion.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="345">
+          <caret line="28" column="45" lean-forward="false" selection-start-line="28" selection-start-column="45" selection-end-line="28" selection-end-column="45" />
+          <folding>
+            <marker date="1533412899318" expanded="true" signature="526:542" ph="SELECT * FRO... " />
+            <marker date="1533412899318" expanded="true" signature="652:682" ph="DELETE FROM " />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/source/class/table/table_forum_statlog.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="321">
+          <caret line="28" column="73" lean-forward="false" selection-start-line="28" selection-start-column="69" selection-end-line="28" selection-end-column="73" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/source/class/table/table_common_remote_port.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="485">
+          <caret line="50" column="168" lean-forward="false" selection-start-line="50" selection-start-column="168" selection-end-line="50" selection-end-column="168" />
+          <folding>
+            <marker date="1533405860367" expanded="true" signature="613:655" ph="SELECT * FRO... " />
+            <marker date="1533405860367" expanded="true" signature="1042:1059" ph="SELECT * FRO... " />
+            <marker date="1533405860367" expanded="true" signature="1353:1648" ph="CREATE TABLE... pre_common_remote_port" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/source/class/table/table_forum_imagetype.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="375">
+          <caret line="30" column="5" lean-forward="true" selection-start-line="30" selection-start-column="5" selection-end-line="30" selection-end-column="5" />
+          <folding>
+            <marker date="1533412899323" expanded="true" signature="629:686" ph="SELECT * FRO... " />
+            <marker date="1533412899323" expanded="true" signature="800:834" ph="SELECT * FRO... " />
+            <marker date="1533412899323" expanded="true" signature="938:991" ph="SELECT COUNT... " />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/source/class/table/table_common_moderate.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="480">
+          <caret line="504" column="21" lean-forward="true" selection-start-line="504" selection-start-column="21" selection-end-line="504" selection-end-column="21" />
+          <folding>
+            <marker date="1533413077199" expanded="true" signature="1926:2003" ph="SELECT COUNT... " />
+            <marker date="1533413077199" expanded="true" signature="2055:2125" ph="SELECT * FRO... " />
+            <marker date="1533413077199" expanded="true" signature="2656:2820" ph="SELECT COUNT... ${DB::table('portal_article_moderate')}" />
+            <marker date="1533413077199" expanded="true" signature="2861:3203" ph="SELECT a.aid... ${DB::table('portal_article_moderate')}" />
+            <marker date="1533413077199" expanded="true" signature="3902:4173" ph="SELECT COUNT... ${DB::table($this-&gt;_get_table($idtype.'_cid'))}" />
+            <marker date="1533413077199" expanded="true" signature="4214:4586" ph="SELECT c.cid... ${DB::table($this-&gt;_get_table($idtype.'_cid'))}" />
+            <marker date="1533413077199" expanded="true" signature="4862:4917" ph="SELECT COUNT... " />
+            <marker date="1533413077199" expanded="true" signature="5039:5080" ph="SELECT COUNT... " />
+            <marker date="1533413077199" expanded="true" signature="6595:6703" ph="SELECT COUNT... " />
+            <marker date="1533413077199" expanded="true" signature="7454:7517" ph="SELECT COUNT... " />
+            <marker date="1533413077199" expanded="true" signature="8300:8542" ph="SELECT p.pid... " />
+            <marker date="1533413077199" expanded="true" signature="8924:8987" ph="SELECT COUNT... " />
+            <marker date="1533413077199" expanded="true" signature="9373:9574" ph="SELECT t.tid... " />
+            <marker date="1533413077199" expanded="true" signature="10227:10384" ph="SELECT COUNT... " />
+            <marker date="1533413077199" expanded="true" signature="11068:11343" ph="SELECT b.blo... " />
+            <marker date="1533413077199" expanded="true" signature="12286:12349" ph="SELECT COUNT... " />
+            <marker date="1533413077199" expanded="true" signature="13241:13413" ph="SELECT c.cid... " />
+            <marker date="1533413077199" expanded="true" signature="14122:14195" ph="SELECT COUNT... " />
+            <marker date="1533413077199" expanded="true" signature="14920:15068" ph="SELECT d.doi... " />
+            <marker date="1533413077199" expanded="true" signature="15711:15785" ph="SELECT COUNT... " />
+            <marker date="1533413077199" expanded="true" signature="16426:16674" ph="SELECT p.pic... " />
+            <marker date="1533413077199" expanded="true" signature="17072:17107" ph="DELETE FROM " />
+            <marker date="1533413077199" expanded="true" signature="17790:17862" ph="SELECT COUNT... " />
+            <marker date="1533413077199" expanded="true" signature="18533:18709" ph="SELECT s.sid... " />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/source/class/table/table_forum_forum.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="482">
+          <caret line="105" column="47" lean-forward="true" selection-start-line="105" selection-start-column="47" selection-end-line="105" selection-end-column="47" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/source/class/table/table_forum_threadtype.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="510">
+          <caret line="39" column="5" lean-forward="true" selection-start-line="39" selection-start-column="5" selection-end-line="39" selection-end-column="5" />
+          <folding>
+            <marker date="1533413082730" expanded="true" signature="512:982" ph="SELECT t.typ... ${DB::table('forum_threadtype')}" />
+            <marker date="1533413082730" expanded="true" signature="1151:1227" ph="SELECT * FRO... ${DB::table('forum_threadtype')}" />
+            <marker date="1533413082730" expanded="true" signature="1297:1334" ph="SELECT typei... " />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/source/class/table/table_forum_modwork.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="456">
+          <caret line="40" column="97" lean-forward="true" selection-start-line="40" selection-start-column="97" selection-end-line="40" selection-end-column="97" />
+          <folding>
+            <marker date="1533456403145" expanded="true" signature="838:917" ph="SELECT uid, " />
+            <marker date="1533456403145" expanded="true" signature="1055:1117" ph="SELECT * FRO... " />
+            <marker date="1533456403145" expanded="true" signature="1334:1508" ph="SELECT uid, " />
+            <marker date="1533456403145" expanded="true" signature="1633:1665" ph="DELETE FROM " />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/source/class/table/table_common_regip.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="450">
+          <caret line="35" column="80" lean-forward="false" selection-start-line="35" selection-start-column="80" selection-end-line="35" selection-end-column="80" />
+          <folding>
+            <marker date="1533456381314" expanded="true" signature="517:581" ph="SELECT `coun... " />
+            <marker date="1533456381314" expanded="true" signature="745:851" ph="SELECT COUNT... " />
+            <marker date="1533456381314" expanded="true" signature="1144:1177" ph="DELETE FROM " />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/source/class/table/table_home_blog.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="250">
+          <caret line="180" column="5" lean-forward="true" selection-start-line="180" selection-start-column="5" selection-end-line="180" selection-end-column="5" />
+          <folding>
+            <marker date="1533456350450" expanded="true" signature="528:553" ph="SELECT * FRO... " />
+            <marker date="1533456350450" expanded="true" signature="1454:1479" ph="SELECT * FRO... " />
+            <marker date="1533456350450" expanded="true" signature="1898:1923" ph="SELECT * FRO... " />
+            <marker date="1533456350450" expanded="true" signature="3799:3824" ph="SELECT * FRO... " />
+            <marker date="1533456350450" expanded="true" signature="4004:4046" ph="SELECT blogi... " />
+            <marker date="1533456350450" expanded="true" signature="4353:4390" ph="SELECT * FRO... " />
+            <marker date="1533456350450" expanded="true" signature="4708:4741" ph="SELECT * FRO... " />
+            <marker date="1533456350450" expanded="true" signature="4896:4936" ph="SELECT COUNT... " />
+            <marker date="1533456350450" expanded="true" signature="5039:5077" ph="SELECT COUNT... " />
+            <marker date="1533456350450" expanded="true" signature="5728:5806" ph="SELECT uid, " />
+            <marker date="1533456350450" expanded="true" signature="9429:9550" ph="SELECT ${$se... " />
+            <marker date="1533456350450" expanded="true" signature="9814:9903" ph="SELECT ${$se... " />
+            <marker date="1533456350450" expanded="true" signature="11138:11173" ph="SELECT b.* %... " />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/source/class/table/table_forum_groupuser.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="145">
+          <caret line="94" column="9" lean-forward="true" selection-start-line="94" selection-start-column="9" selection-end-line="94" selection-end-column="9" />
+          <folding>
+            <marker date="1533456306735" expanded="true" signature="565:631" ph="SELECT fid F... " />
+            <marker date="1533456306735" expanded="true" signature="897:937" ph="SELECT * FRO... " />
+            <marker date="1533456306735" expanded="true" signature="1112:1146" ph="SELECT * FRO... " />
+            <marker date="1533456306735" expanded="true" signature="1461:1490" ph="SELECT * FRO... " />
+            <marker date="1533456306735" expanded="true" signature="1753:1789" ph="SELECT COUNT... " />
+            <marker date="1533456306735" expanded="true" signature="1936:2033" ph="INSERT INTO " />
+            <marker date="1533456306735" expanded="true" signature="2738:2792" ph="DELETE FROM " />
+            <marker date="1533456306735" expanded="true" signature="4542:4634" ph="SELECT ${$fi... ${DB::table('forum_groupuser')}" />
+            <marker date="1533456306735" expanded="true" signature="5346:5417" ph="SELECT count... ${DB::table('forum_groupuser')}" />
+            <marker date="1533456306735" expanded="true" signature="5518:5628" ph="SELECT fid, ${DB::table('forum_groupuser')}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/source/class/table/table_forum_announcement.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="310">
+          <caret line="37" column="48" lean-forward="true" selection-start-line="37" selection-start-column="48" selection-end-line="37" selection-end-column="48" />
+          <folding>
+            <marker date="1533456577248" expanded="true" signature="531:659" ph="SELECT * FRO... " />
+            <marker date="1533456577248" expanded="true" signature="803:866" ph="SELECT * FRO... " />
+            <marker date="1533456577248" expanded="true" signature="987:1143" ph="SELECT * FRO... " />
+            <marker date="1533456577248" expanded="true" signature="1501:1620" ph="SELECT * FRO... " />
+            <marker date="1533456577248" expanded="true" signature="1797:1850" ph="SELECT * FRO... " />
+            <marker date="1533456577248" expanded="true" signature="2036:2090" ph="DELETE FROM " />
+            <marker date="1533456577248" expanded="true" signature="2857:2905" ph="DELETE FROM " />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/source/class/table/table_common_failedlogin.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="450">
+          <caret line="35" column="47" lean-forward="false" selection-start-line="35" selection-start-column="42" selection-end-line="35" selection-end-column="47" />
+          <folding>
+            <marker date="1533456411734" expanded="true" signature="517:561" ph="SELECT * FRO... " />
+            <marker date="1533456411734" expanded="true" signature="665:693" ph="SELECT * FRO... " />
+            <marker date="1533456411734" expanded="true" signature="778:812" ph="DELETE FROM " />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/api.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="285">
+          <caret line="24" column="0" lean-forward="true" selection-start-line="24" selection-start-column="0" selection-end-line="24" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/install/data/common_district_1.sql">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="210">
+          <caret line="14" column="21" lean-forward="true" selection-start-line="14" selection-start-column="21" selection-end-line="14" selection-end-column="21" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/install/data/install.sql">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="189">
+          <caret line="1234" column="25" lean-forward="true" selection-start-line="1234" selection-start-column="25" selection-end-line="1234" selection-end-column="25" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/uc_server/install/uc.sql">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="249">
+          <caret line="169" column="44" lean-forward="false" selection-start-line="169" selection-start-column="44" selection-end-line="169" selection-end-column="44" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/install/data/install_data.sql">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="265">
+          <caret line="309" column="59" lean-forward="true" selection-start-line="309" selection-start-column="59" selection-end-line="309" selection-end-column="59" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+  </component>
+</project>

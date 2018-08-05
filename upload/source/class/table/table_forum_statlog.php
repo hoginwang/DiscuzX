@@ -22,15 +22,15 @@ class table_forum_statlog extends discuz_table
 	}
 
 	public function fetch_all_by_logdate($start, $end, $fid) {
-		return DB::fetch_all('SELECT * FROM %t WHERE logdate>=%s AND logdate<=%s AND type=1 AND fid=%d ORDER BY logdate ASC', array($this->_table, $start, $end, $fid));
+		return DB::fetch_all('SELECT * FROM %t WHERE logdate>=%s AND logdate<=%s AND `type`=1 AND fid=%d ORDER BY logdate ASC', array($this->_table, $start, $end, $fid));
 	}
 
 	public function fetch_all_rank_by_logdate($date) {
-		return DB::fetch_all('SELECT * FROM %t WHERE logdate=%s AND type=1 ORDER BY value DESC', array($this->_table, $date));
+		return DB::fetch_all('SELECT * FROM %t WHERE logdate=%s AND `type`=1 ORDER BY `value` DESC', array($this->_table, $date));
 	}
 
 	public function fetch_all_by_fid_type($fid, $type=1) {
-		return DB::fetch_all("SELECT * FROM %t WHERE fid=%d AND type=%d", array($this->_table, $fid, $type));
+		return DB::fetch_all("SELECT * FROM %t WHERE fid=%d AND `type`=%d", array($this->_table, $fid, $type));
 	}
 
 	public function fetch_min_logdate_by_fid($fid) {

@@ -22,7 +22,7 @@ class table_forum_medallog extends discuz_table
 	}
 
 	public function count_by_type($type) {
-		return DB::result_first("SELECT COUNT(*) FROM %t WHERE type=%d", array($this->_table, $type));
+		return DB::result_first("SELECT COUNT(*) FROM %t WHERE `type`=%d", array($this->_table, $type));
 	}
 
 	public function count_by_uid($uid) {
@@ -30,15 +30,15 @@ class table_forum_medallog extends discuz_table
 	}
 
 	public function fetch_all_by_type($type) {
-		return DB::fetch_all("SELECT * FROM %t WHERE type=%d ORDER BY dateline", array($this->_table, $type), $this->_pk);
+		return DB::fetch_all("SELECT * FROM %t WHERE `type`=%d ORDER BY dateline", array($this->_table, $type), $this->_pk);
 	}
 
 	public function fetch_all_lastmedal($limit) {
-		return DB::fetch_all("SELECT * FROM %t WHERE type<'2' ORDER BY dateline DESC LIMIT %d", array($this->_table, $limit), $this->_pk);
+		return DB::fetch_all("SELECT * FROM %t WHERE `type`<'2' ORDER BY dateline DESC LIMIT %d", array($this->_table, $limit), $this->_pk);
 	}
 
 	public function fetch_all_by_expiration($expiration) {
-		return DB::fetch_all("SELECT * FROM %t WHERE status=1 AND expiration>0 AND expiration<%d", array($this->_table, $expiration));
+		return DB::fetch_all("SELECT * FROM %t WHERE `status`=1 AND expiration>0 AND expiration<%d", array($this->_table, $expiration));
 	}
 
 	public function fetch_all_by_uid($uid, $start, $limit) {
@@ -82,7 +82,7 @@ class table_forum_medallog extends discuz_table
 	}
 
 	public function count_by_verify_medalid($uid, $medalid) {
-		return DB::result_first("SELECT COUNT(*) FROM %t WHERE uid=%d AND medalid=%d AND type=2", array($this->_table, $uid, $medalid));
+		return DB::result_first("SELECT COUNT(*) FROM %t WHERE uid=%d AND medalid=%d AND `type`=2", array($this->_table, $uid, $medalid));
 	}
 
 }

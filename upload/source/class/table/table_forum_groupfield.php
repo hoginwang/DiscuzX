@@ -32,7 +32,7 @@ class table_forum_groupfield extends discuz_table
 	}
 	public function fetch_all_group_cache($fid, $types = array(), $privacy = 0) {
 		$typeadd = $types && is_array($types) ? "AND ".DB::field('type', $types) : '';
-		return DB::fetch_all("SELECT fid, dateline, type, data FROM ".DB::table('forum_groupfield')." WHERE fid=%d AND privacy=%d $typeadd", array($fid, $privacy));
+		return DB::fetch_all("SELECT fid, dateline, `type`, `data` FROM ".DB::table('forum_groupfield')." WHERE fid=%d AND privacy=%d $typeadd", array($fid, $privacy));
 	}
 }
 

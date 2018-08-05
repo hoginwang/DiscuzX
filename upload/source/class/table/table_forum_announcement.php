@@ -22,7 +22,7 @@ class table_forum_announcement extends discuz_table
 	}
 
 	public function fetch_all_by_date($timestamp, $type = 2) {
-		return DB::fetch_all('SELECT * FROM %t WHERE type!=%d AND starttime<=%d AND (endtime=0 OR endtime>%d) ORDER BY displayorder, starttime DESC, id DESC', array($this->_table, $type, $timestamp, $timestamp), $this->_pk);
+		return DB::fetch_all('SELECT * FROM %t WHERE `type`!=%d AND starttime<=%d AND (endtime=0 OR endtime>%d) ORDER BY displayorder, starttime DESC, id DESC', array($this->_table, $type, $timestamp, $timestamp), $this->_pk);
 	}
 
 	public function fetch_all_by_displayorder() {
@@ -30,7 +30,7 @@ class table_forum_announcement extends discuz_table
 	}
 
 	public function fetch_by_displayorder($timestamp) {
-		return DB::fetch_first('SELECT * FROM %t WHERE type!=2 AND groups = \'\' AND starttime<=%d AND (endtime>=%d OR endtime=0) ORDER BY displayorder, starttime DESC, id DESC LIMIT 1', array($this->_table, $timestamp, $timestamp));
+		return DB::fetch_first('SELECT * FROM %t WHERE `type`!=2 AND `groups` = \'\' AND starttime<=%d AND (endtime>=%d OR endtime=0) ORDER BY displayorder, starttime DESC, id DESC LIMIT 1', array($this->_table, $timestamp, $timestamp));
 	}
 
 	public function fetch_all_by_time($time, $type, $bannedids, $startrow, $items) {

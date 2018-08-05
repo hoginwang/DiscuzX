@@ -177,7 +177,7 @@ class table_home_blog extends discuz_table
 		if(!is_array($blogid) || !$blogid) {
 			return null;
 		}
-		return DB::fetch_all('SELECT uid, COUNT(blogid) AS count FROM %t WHERE blogid IN (%n) GROUP BY uid', array($this->_table, $blogid));
+		return DB::fetch_all('SELECT uid, COUNT(blogid) AS `count` FROM %t WHERE blogid IN (%n) GROUP BY uid', array($this->_table, $blogid));
 	}
 
 	public function count_all_by_search($blogid = null, $uids = null, $starttime = null, $endtime = null, $hot1 = null, $hot2 = null, $viewnum1 = null, $viewnum2 = null, $replynum1 = null, $replynum2 = null, $friend = null, $ip = null, $keywords = null, $lengthlimit = null, $classid = null, $catid = null, $subject = null, $countwithoutjoin = false, $status = null) {
@@ -293,7 +293,7 @@ class table_home_blog extends discuz_table
 			$fieldsql = ', bf.pic, b.picflag, bf.message';
 		}
 		$wheres[] = "b.friend = '0'";
-		$wheres[] = "b.status='0'";
+		$wheres[] = "b.`status`='0'";
 		$wheresql = $wheres ? implode(' AND ', $wheres) : '1';
 
 		return DB::fetch_all('SELECT b.* %i FROM %t b %i WHERE %i', array($fieldsql, $this->_table, $tablesql, $wheresql.' ORDER BY b.'.DB::order($orderby, 'DESC').' '.DB::limit($start, $limit)));

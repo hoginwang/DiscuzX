@@ -22,12 +22,12 @@ class table_forum_modwork extends discuz_table
 	}
 
 	public function increase_count_posts_by_uid_modaction_dateline($count, $posts, $uid, $modaction, $dateline) {
-		return DB::query('UPDATE %t SET count=count+\'%d\', posts=posts+\'%d\' WHERE uid=%d AND modaction=%s AND dateline=%s',
+		return DB::query('UPDATE %t SET `count`=`count`+\'%d\', posts=posts+\'%d\' WHERE uid=%d AND modaction=%s AND dateline=%s',
 				array($this->_table, $count, $posts, $uid, $modaction, $dateline));
 	}
 
 	public function fetch_all_user_count_by_dateline($dateline) {
-		return DB::fetch_all('SELECT uid, SUM(count) AS actioncount FROM %t WHERE dateline>=%s GROUP BY uid', array($this->_table, $dateline));
+		return DB::fetch_all('SELECT uid, SUM(`count`) AS actioncount FROM %t WHERE dateline>=%s GROUP BY uid', array($this->_table, $dateline));
 	}
 
 	public function fetch_all_by_uid_dateline($uid, $starttime, $endtime) {
@@ -38,7 +38,7 @@ class table_forum_modwork extends discuz_table
 		if(empty($uids)) {
 			return array();
 		}
-		return DB::fetch_all('SELECT uid, modaction, SUM(count) AS count, SUM(posts) AS posts
+		return DB::fetch_all('SELECT uid, modaction, SUM(`count`) AS `count`, SUM(posts) AS posts
 				FROM %t
 				WHERE '.DB::field('uid', $uids).' AND dateline>=%s AND dateline<%s GROUP BY uid, modaction',
 				array($this->_table, $starttime, $endtime));

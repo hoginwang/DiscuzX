@@ -47,7 +47,7 @@ class table_common_magic extends discuz_table
 	}
 
 	public function fetch_all_name_by_available($available = 1) {
-		return DB::fetch_all('SELECT magicid, name FROM %t WHERE available=%d ORDER BY displayorder', array($this->_table, $available), $this->_pk);
+		return DB::fetch_all('SELECT magicid, `name` FROM %t WHERE available=%d ORDER BY displayorder', array($this->_table, $available), $this->_pk);
 	}
 
 	public function fetch_by_identifier($identifier) {

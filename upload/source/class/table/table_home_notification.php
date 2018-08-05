@@ -30,7 +30,7 @@ class table_home_notification extends discuz_table
 			return;
 		}
 		$uid = $uid ? ' AND '.DB::field('uid', $uid) : '';
-		return DB::query("DELETE FROM %t WHERE type=%s %i", array($this->_table, $type, $uid));
+		return DB::query("DELETE FROM %t WHERE `type`=%s %i", array($this->_table, $type, $uid));
 	}
 
 	public function optimize() {
@@ -50,11 +50,11 @@ class table_home_notification extends discuz_table
 	}
 
 	public function delete_by_uid_type_authorid($uid, $type, $authorid) {
-		return DB::query('DELETE FROM %t WHERE uid=%d AND type=%s AND authorid=%d', array($this->_table, $uid, $type, $authorid));
+		return DB::query('DELETE FROM %t WHERE uid=%d AND `type`=%s AND authorid=%d', array($this->_table, $uid, $type, $authorid));
 	}
 
 	public function fetch_all_by_authorid_fromid($authorid, $fromid, $type) {
-		return DB::fetch_all("SELECT * FROM %t WHERE authorid=%d AND from_id=%d AND type=%s", array($this->_table, $authorid, $fromid, $type));
+		return DB::fetch_all("SELECT * FROM %t WHERE authorid=%d AND from_id=%d AND `type`=%s", array($this->_table, $authorid, $fromid, $type));
 	}
 
 	public function ignore($uid, $type = '', $category = '', $new = true, $from_num = true) {

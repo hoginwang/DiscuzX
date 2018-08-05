@@ -59,18 +59,18 @@ class table_common_task extends discuz_table
 	public function fetch_all_by_status($uid, $status) {
 		switch($status) {
 			case 'doing':
-				$status = "mt.status='0'";
+				$status = "mt.`status`='0'";
 				break;
 			case 'done':
-				$status = "mt.status='1'";
+				$status = "mt.`status`='1'";
 				break;
 			case 'failed':
-				$status = "mt.status='-1'";
+				$status = "mt.`status`='-1'";
 				break;
 			case 'canapply':
 			case 'new':
 			default:
-				$status = "'".TIMESTAMP."' > starttime AND (endtime=0 OR endtime>'".TIMESTAMP."') AND (mt.taskid IS NULL OR (ABS(mt.status)='1' AND t.period>0))";
+				$status = "'".TIMESTAMP."' > starttime AND (endtime=0 OR endtime>'".TIMESTAMP."') AND (mt.taskid IS NULL OR (ABS(mt.`status`)='1' AND t.period>0))";
 				break;
 		}
 		return DB::fetch_all("SELECT t.*, mt.csc, mt.dateline FROM %t t
@@ -79,7 +79,7 @@ class table_common_task extends discuz_table
 	}
 
 	public function fetch_by_uid($uid, $taskid) {
-		return DB::fetch_first("SELECT t.*, mt.dateline, mt.dateline AS applytime, mt.status, mt.csc FROM %t t LEFT JOIN %t mt ON mt.uid=%d AND mt.taskid=t.taskid
+		return DB::fetch_first("SELECT t.*, mt.dateline, mt.dateline AS applytime, mt.`status`, mt.csc FROM %t t LEFT JOIN %t mt ON mt.uid=%d AND mt.taskid=t.taskid
 			WHERE t.taskid=%d AND t.available='2'", array($this->_table, 'common_mytask', $uid, $taskid));
 	}
 
