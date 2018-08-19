@@ -17,7 +17,7 @@ if (DB::result_first($countPre . $bastSql, array($superGroup, $superUID, $dateli
     $resultTmp = DB::fetch_all($selPre . $bastSql, array($superGroup, $superUID, $dateline));
     foreach ($resultTmp as $r) {
         notification_add(
-            $r['uid'], 'system', '&#36134;&#21495;&#36829;&#21453;&#24635;&#29256;&#35268;&#31532;&#19971;&#22823;&#39033;&#31532;&#49;&#26465;&#21363;&#23558;&#34987;&#31995;&#32479;&#31105;&#29992;&#65292;&#35831;&#31435;&#21363;&#25913;&#21892;&#65281;<br/>&#24635;&#29256;&#35268;&#65306;https://www.yueing.org/forum.php?mod=viewthread&tid=2<br/>&#22914;&#26377;&#20219;&#20309;&#30097;&#38382;&#35831;&#33267;&#25509;&#24453;&#20013;&#24515;&#21453;&#39304;',
+            $r['uid'], 'system', '违规预警：总版规第七大项第1条，请立即改善！<br/>总版规：<a href="forum.php?mod=viewthread&tid=2">前往查看</a><br/>如有疑问请至接待中心反馈!',
             array(),
             1
         );
@@ -33,7 +33,7 @@ if (DB::fetch_first("SHOW TABLES LIKE 'common_member_archive'") && DB::fetch_fir
         $resultTmp = DB::fetch_all($selPre . $bastSql, array($superGroup, $superUID, $dateline));
         foreach ($resultTmp as $r) {
             notification_add(
-                $r['uid'], 'system', '&#36134;&#21495;&#36829;&#21453;&#24635;&#29256;&#35268;&#31532;&#19971;&#22823;&#39033;&#31532;&#49;&#26465;&#21363;&#23558;&#34987;&#31995;&#32479;&#31105;&#29992;&#65292;&#35831;&#31435;&#21363;&#25913;&#21892;&#65281;<br/>&#24635;&#29256;&#35268;&#65306;https://www.yueing.org/forum.php?mod=viewthread&tid=2<br/>&#22914;&#26377;&#20219;&#20309;&#30097;&#38382;&#35831;&#33267;&#25509;&#24453;&#20013;&#24515;&#21453;&#39304;',
+                $r['uid'], 'system', '违规预警：总版规第七大项第1条，请立即改善！<br/>总版规：<a href="forum.php?mod=viewthread&tid=2">前往查看</a><br/>如有请至接待中心反馈!',
                 array(),
                 1
             );
@@ -49,7 +49,7 @@ if (DB::result_first($countPre . $bastSql, array($superGroup, $superUID, $dateli
     $resultTmp = DB::fetch_all($selPre . $bastSql, array($superGroup, $superUID, $dateline));
     foreach ($resultTmp as $r) {
         notification_add(
-            $r['uid'], 'system', '&#36134;&#21495;&#36829;&#21453;&#24635;&#29256;&#35268;&#31532;&#19971;&#22823;&#39033;&#31532;&#50;&#26465;&#21363;&#23558;&#34987;&#31995;&#32479;&#31105;&#29992;&#65292;&#35831;&#31435;&#21363;&#25913;&#21892;&#65281;<br/>&#24635;&#29256;&#35268;&#65306;https://www.yueing.org/forum.php?mod=viewthread&tid=2<br/>&#22914;&#26377;&#20219;&#20309;&#30097;&#38382;&#35831;&#33267;&#25509;&#24453;&#20013;&#24515;&#21453;&#39304;',
+            $r['uid'], 'system', '违规预警：总版规第七大项第2条，请立即改善！<br/>总版规：<a href="forum.php?mod=viewthread&tid=2">前往查看</a><br/>如有请至接待中心反馈!',
             array(),
             1
         );
@@ -64,7 +64,7 @@ if (DB::result_first($countPre . $bastSql, array($superGroup, $superUID, $dateli
     $resultTmp = DB::fetch_all($selPre . $bastSql, array($superGroup, $superUID, $dateline));
     foreach ($resultTmp as $r) {
         notification_add(
-            $r['uid'], 'system', '&#36134;&#21495;&#36829;&#21453;&#24635;&#29256;&#35268;&#31532;&#19971;&#22823;&#39033;&#31532;&#50;&#26465;&#21363;&#23558;&#34987;&#31995;&#32479;&#31105;&#29992;&#65292;&#35831;&#31435;&#21363;&#25913;&#21892;&#65281;<br/>&#24635;&#29256;&#35268;&#65306;https://www.yueing.org/forum.php?mod=viewthread&tid=2<br/>&#22914;&#26377;&#20219;&#20309;&#30097;&#38382;&#35831;&#33267;&#25509;&#24453;&#20013;&#24515;&#21453;&#39304;',
+            $r['uid'], 'system', '违规预警：总版规第七大项第2条，请立即改善！<br/>总版规：<a href="forum.php?mod=viewthread&tid=2">前往查看</a><br/>如有请至接待中心反馈!',
             array(),
             1
         );
