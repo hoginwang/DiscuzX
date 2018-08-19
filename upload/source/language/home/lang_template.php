@@ -1361,6 +1361,7 @@ $lang = array (
   'current_time' => '当前时间',
   'email' => 'Email',
   'email_been_active' => '<img src="{IMGDIR}/mail_active.png" alt="已验证" class="vm" /> <span class="xi1">当前邮箱已经验证激活</span>',
+  'email_comment' => '请将"{$_G[setting][adminemail]}"加入邮箱白名单',
   'memcp_profile_email_comment' => '!如更改地址，系统将修改您的密码并重新验证其有效性，请慎用 ',
   'memcp_profile_passwd_comment' => '如不需要更改密码，此处请留空 ',
   'memcp_profile_security_answer_comment' => '如您设置新的安全提问，请在此输入答案 ',
