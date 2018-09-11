@@ -51,6 +51,16 @@
 				<a href="home.php?mod=spacecp&ac=follow&op=bkname&fuid=$uid&handlekey=followbkame_$uid" id="fbkname_{$uid}" onclick="showWindow('followbkame_{$uid}', this.href, 'get', 0);"><!--{if $flag[$_G['uid']]['bkname']}-->[{lang follow_mod_bkname}]<!--{else}-->[{lang follow_add_bkname}]<!--{/if}--></a>
 			</span>
 			<!--{/if}-->
+			<!--{if $space[status] == -1 || $space[freeze] == 1 }-->
+			<span class="xs1 xg1 xw0">
+				<!--{if $space[status] == -1 }-->
+				<span style="color: red;">(锁定)</span>
+				<!--{/if}-->
+				<!--{if $space[freeze] == 1 }-->
+				<span style="color: red;">(冻结)</span>
+				<!--{/if}-->
+			</span>
+			<!--{/if}-->
 		</h2>
 		<p>
 			<a href="{$_G[siteurl]}?$uid" class="xg1">{$_G[siteurl]}?$uid</a>
