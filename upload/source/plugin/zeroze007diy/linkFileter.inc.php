@@ -21,11 +21,18 @@ if ($url = authcode(base64_decode($code), 'DECODE')) {
         'dateline' => TIMESTAMP
     );
     C::t('#zeroze007diy#link_fileter_url')->insert($link_fileter_url);
+    /*
     if (preg_match('/^https?:\/\//is', $url)) {
         dheader("Location: {$url}");
     } else {
         dheader("Location: http://{$url}");
     }
+    */
+    if (!preg_match('/^https?:\/\//is', $url)) {
+        dheader("Location: {$url}");
+        $url = "http://{$url}";
+    }
+    include template('zeroze007diy:linkloading');
 } else {
     dheader('Location: ' . $_G['siteurl']);
 }
