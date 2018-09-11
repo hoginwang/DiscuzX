@@ -7,7 +7,7 @@
  *      $Id: post_albumphoto.php 25246 2011-11-02 03:34:53Z zhangguosheng $
  */
 if (!defined('IN_DISCUZ')) {
-	exit('Access Denied');
+    exit('Access Denied');
 }
 
 include_once libfile('function/home');
@@ -19,13 +19,13 @@ $photolist = array();
 $query = C::t('home_album')->fetch_all_by_uid($_G['uid'], false, 0, 0, $aid);
 $count = $query[0]['picnum'];
 $query = C::t('home_pic')->fetch_all_by_albumid($aid, $start_limit, $perpage, 0, 0, 1);
-foreach($query as $value) {
-	$value['bigpic'] = pic_get($value['filepath'], 'album', $value['thumb'], $value['remote'], 0);
-	$value['pic'] = pic_get($value['filepath'], 'album', $value['thumb'], $value['remote']);
-	$value['count'] = $count;
-	$value['url'] = (substr(strtolower($value['bigpic']), 0, 7) == 'http://' ? '' : $_G['siteurl']) . $value['bigpic'];
-	$value['thumburl'] = (substr(strtolower($value['pic']), 0, 7) == 'http://' ? '' : $_G['siteurl']) . $value['pic'];
-	$photolist[] = $value;
+foreach ($query as $value) {
+    $value['bigpic'] = pic_get($value['filepath'], 'album', $value['thumb'], $value['remote'], 0);
+    $value['pic'] = pic_get($value['filepath'], 'album', $value['thumb'], $value['remote']);
+    $value['count'] = $count;
+    $value['url'] = (strpos($value['bigpic'], '://') ? '' : $_G['siteurl']) . $value['bigpic'];
+    $value['thumburl'] = (strpos($value['pic'], '://') ? '' : $_G['siteurl']) . $value['pic'];
+    $photolist[] = $value;
 }
 $_GET['ajaxtarget'] = 'albumphoto';
 $multi = multi($count, $perpage, $page, "forum.php?mod=post&action=albumphoto&aid=$aid");

@@ -130,24 +130,68 @@ class plugin_zeroze007diy
         $message = $_G['discuzcodemessage'];
         $msglower = strtolower($message);
         if (strpos($msglower, '[/url]') !== false) {
-            $message = preg_replace_callback("/\[url(=((https?|ftp|gopher|news|telnet|rtsp|mms|callto|bctp|thunder|qqdl|synacast){1}:\/\/|www\.|mailto:)?([^\r\n\[\"']+?))?\](.+?)\[\/url\]/is", create_function('$matches', 'return plugin_zeroze007diy::_parseurl($matches[1], $matches[5], $matches[2]);'), $message);
+            $message = preg_replace_callback(
+                "/\[url(=((https?|ftp|gopher|news|telnet|rtsp|mms|callto|bctp|thunder|qqdl|synacast){1}:\/\/|www\.|mailto:)?([^\r\n\[\"']+?))?\](.+?)\[\/url\]/is",
+                function ($matches) {
+                    return plugin_zeroze007diy::_parseurl($matches[1], $matches[5], $matches[2]);
+                },
+                $message);
         }
         //validateCode
         if (strpos($msglower, '[validatecode/]') !== false) {
             $message = preg_replace_callback("/\[validateCode\/\]/is", 'self::_createValidateCode', $message);
         }
-        $message = preg_replace_callback('/((http|https)\:\/\/)?pan\.baidu.com\/(s|share|pcloud)\/([\w\/\?\=&_;\-]*)/is', create_function('$matches', 'return plugin_zeroze007diy::_filterurl("$matches[1]pan.baidu.com/$matches[3]/$matches[4]");'), $message);
-        $message = preg_replace_callback('/((http|https)\:\/\/)?(yunpan\.cn\/)(\w*)/is', create_function('$matches', 'return plugin_zeroze007diy::_filterurl("$matches[1]yunpan.cn/$matches[4]");'), $message);
-        $message = preg_replace_callback('/((http|https)\:\/\/)?(caiyun\.feixin\.10086.cn\/dl\/)(\w*)/is', create_function('$matches', 'return plugin_zeroze007diy::_filterurl("$matches[1]caiyun.feixin.10086.cn/dl/$matches[4]");'), $message);
-        $message = preg_replace_callback('/((http|https)\:\/\/)?(cloud\.letv\.com\/s\/)(\w*)/is', create_function('$matches', 'return plugin_zeroze007diy::_filterurl("$matches[1]cloud.letv.com/s/$matches[4]");'), $message);
-        $message = preg_replace_callback('/((http|https)\:\/\/)?(dl\.vmall\.com\/)(\w*)/is', create_function('$matches', 'return plugin_zeroze007diy::_filterurl("$matches[1]dl.vmall.com/$matches[4]");'), $message);
-        $message = preg_replace_callback('/((http|https)\:\/\/)?(dl\.dbank\.com\/)(\w*)/is', create_function('$matches', 'return plugin_zeroze007diy::_filterurl("$matches[1]dl.dbank.com/$matches[4]");'), $message);
-        $message = preg_replace_callback('/((http|https)\:\/\/)?(drive\.google\.com\/)([\w\/\?\=&_;]*)/is', create_function('$matches', 'return plugin_zeroze007diy::_filterurl("$matches[1]drive.google.com/$matches[4]");'), $message);
+        $message = preg_replace_callback(
+            '/((http|https)\:\/\/)?pan\.baidu.com\/(s|share|pcloud)\/([\w\/\?\=&_;\-]*)/is',
+            function ($matches) {
+                return plugin_zeroze007diy::_filterurl("$matches[1]pan.baidu.com/$matches[3]/$matches[4]");
+            },
+            $message);
+        $message = preg_replace_callback(
+            '/((http|https)\:\/\/)?(yunpan\.cn\/)(\w*)/is',
+            function ($matches) {
+                return plugin_zeroze007diy::_filterurl("$matches[1]yunpan.cn/$matches[4]");
+            },
+            $message);
+        $message = preg_replace_callback(
+            '/((http|https)\:\/\/)?(caiyun\.feixin\.10086.cn\/dl\/)(\w*)/is',
+            function ($matches) {
+                return plugin_zeroze007diy::_filterurl("$matches[1]caiyun.feixin.10086.cn/dl/$matches[4]");
+            },
+            $message);
+        $message = preg_replace_callback(
+            '/((http|https)\:\/\/)?(cloud\.letv\.com\/s\/)(\w*)/is',
+            function ($matches) {
+                return plugin_zeroze007diy::_filterurl("$matches[1]cloud.letv.com/s/$matches[4]");
+            }, $message);
+        $message = preg_replace_callback(
+            '/((http|https)\:\/\/)?(dl\.vmall\.com\/)(\w*)/is',
+            function ($matches) {
+                return plugin_zeroze007diy::_filterurl("$matches[1]dl.vmall.com/$matches[4]");
+            },
+            $message);
+        $message = preg_replace_callback(
+            '/((http|https)\:\/\/)?(dl\.dbank\.com\/)(\w*)/is',
+            function ($matches) {
+                return plugin_zeroze007diy::_filterurl("$matches[1]dl.dbank.com/$matches[4]");
+            },
+            $message);
+        $message = preg_replace_callback(
+            '/((http|https)\:\/\/)?(drive\.google\.com\/)([\w\/\?\=&_;]*)/is',
+            function ($matches) {
+                return plugin_zeroze007diy::_filterurl("$matches[1]drive.google.com/$matches[4]");
+            },
+            $message);
 
         if (strpos($msglower, '[/hide]') !== false) {
             $msglower = strtolower($message);
             if (strpos($msglower, '[hide=p') !== false) {
-                $message = preg_replace_callback("/\[hide=p(\d+)\]\s*(.+?)\s*\[\/hide\]/is", create_function('$matches', 'return plugin_zeroze007diy::_hidepermit($matches[1], $matches[2]);'), $message);
+                $message = preg_replace_callback(
+                    "/\[hide=p(\d+)\]\s*(.+?)\s*\[\/hide\]/is",
+                    function ($matches) {
+                        return plugin_zeroze007diy::_hidepermit($matches[1], $matches[2]);
+                    },
+                    $message);
             }
             if (strpos($msglower, '[hide=d') !== FALSE && in_array($_G['member']['groupid'], $exemptHideGroups) || ($_G['uid'] && in_array($_G['uid'], $exemptHideUids))) {
                 $message = preg_replace("/\[hide=(d\d+)?[,]?(\d+)?\]\s*(.*?)\s*\[\/hide\]/", tpl_hide_reply2(), $message);
