@@ -89,7 +89,7 @@ if(isUndefined(sliderun)) {
 					s.imgLoad[i].status = 1;
 					if(s.imgLoad[i].width > s.size[0] || s.imgLoad[i].height > s.size[1]) {
 						zr = s.imgLoad[i].width / s.imgLoad[i].height;
-						if(zr > 1) {
+						if(zr < 1) {
 							s.imgLoad[i].height = s.size[1];
 							s.imgLoad[i].width = s.size[1] * zr;
 						} else {
