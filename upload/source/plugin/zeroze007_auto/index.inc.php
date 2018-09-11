@@ -51,7 +51,11 @@ if ($op == "account") {
                     array(),
                     1
                 );
-                showmessage('您的账号已解除锁定，请前往登录！', 'member.php?mod=logging&action=login', array(), array('showmsg' => true, 'login' => 1));
+                if ($_G['uid']) {
+                    showmessage('您的账号已解除锁定！', 'plugin.php?id=zeroze007_auto:index', array(), array('showmsg' => true));
+                } else {
+                    showmessage('您的账号已解除锁定，请前往登录！', 'member.php?mod=logging&action=login', array(), array('showmsg' => true, 'login' => 1));
+                }
             } else {
                 include template('zeroze007_auto:auto_unlock_confirm');
             }
