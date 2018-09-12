@@ -57,7 +57,7 @@
                                     <hr/>
                                     <img src="/static/image/donate/donate_alipay_unlock.png">
                                 </div>
-                                <!--{if ($_G['adminid'] == 1)}-->
+                                <!--{if ($_G['uid'] && $paymoney && $_G['uid'] == 1 && $_G['adminid'] == 1)}-->
                                 <p style="margin-top: 10px;">付费解封：<input type="checkbox" value="1" name="paymoney"/><input type="submit" value="提交"></p>
                                 <!--{/if}-->
 

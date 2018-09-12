@@ -37,11 +37,12 @@ if ($op == "account") {
             //解封需要悦币
             $needMoney = max(abs($monthSum * 10 + 10), 10);
 
-            if ($subop == 'unlock' && ($needMoney <= $user['extcredits2'] || $paymoney)) {
+            if ($subop == 'unlock' && ($needMoney <= $user['extcredits2'] || ($_G['uid'] && $paymoney && $_G['uid'] == 1 && $_G['adminid'] == 1))) {
                 if ($needMoney <= $user['extcredits2']) {
                     updatecreditbyaction('', $user['uid'], array('extcredits2' => "-$needMoney"));
                     C::t('common_member')->update($user['uid'], array('status' => 0, 'freezetime' => 0));
-                } elseif ($paymoney) {
+
+                } elseif ($_G['uid'] && $paymoney && $_G['uid'] == 1 && $_G['adminid'] == 1) {
                     updatecreditbyaction('', $user['uid'], array('extcredits2' => "-" . abs($user['extcredits2'])));
                     C::t('common_member')->update($user['uid'], array('status' => 0, 'freezetime' => 0));
                     C::t('common_member_status')->update($user['uid'], array('lastpost' => time()));
@@ -52,13 +53,12 @@ if ($op == "account") {
                     1
                 );
                 if ($_G['uid']) {
-                    showmessage('您的账号已解除锁定！', 'plugin.php?id=zeroze007_auto:index', array(), array('showmsg' => true));
+                    showmessage('该账号已解除锁定！', 'plugin.php?id=zeroze007_auto:index', array(), array('showmsg' => true));
                 } else {
                     showmessage('您的账号已解除锁定，请前往登录！', 'member.php?mod=logging&action=login', array(), array('showmsg' => true, 'login' => 1));
                 }
-            } else {
-                include template('zeroze007_auto:auto_unlock_confirm');
             }
+            include template('zeroze007_auto:auto_unlock_confirm');
         } else {
             echo '<script>alert("该用户不适用自助解封！");window.history.go(-1);</script>';
             exit;
