@@ -37,7 +37,7 @@ if ($op == "account") {
             //解封需要悦币
             $needMoney = max(abs($monthSum * 10 + 10), 10);
 
-            if ($subop == 'unlock' && ($needMoney <= $user['extcredits2'] || ($_G['uid'] && $paymoney && $_G['uid'] == 1 && $_G['adminid'] == 1))) {
+            if ($subop == 'unlock' && ($needMoney <= $user['extcredits2'] || ($paymoney && $_G['uid'] && $_G['uid'] == 1 && $_G['adminid'] == 1))) {
                 if ($needMoney <= $user['extcredits2']) {
                     updatecreditbyaction('', $user['uid'], array('extcredits2' => "-$needMoney"));
                     C::t('common_member')->update($user['uid'], array('status' => 0, 'freezetime' => 0));
