@@ -75,6 +75,7 @@ $lang = array (
   'search' => '搜索',
   'description' => '描述',
   'save_to_album' => '保存到相册',
+  'attachment_insert_all_attach' => '插入全部图片',
   'post_meanwhile_relay' => '同时转播',
   'reply' => '回复',
   'view_all_replies' => '去论坛查看所有回复',

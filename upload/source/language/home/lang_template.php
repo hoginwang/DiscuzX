@@ -1541,6 +1541,7 @@ $lang = array (
   'connect_fill_profile_to_view' => '<a href="member.php?mod=connect" target="_blank">完善帐号信息</a> <a href="member.php?mod=connect&ac=bind" target="_blank">绑定已有帐号</a>',
   'connect_fill_profile_to_comment' => '您需要<a href="member.php?mod=connect" class="xi2">完善帐号信息</a> 或 <a href="member.php?mod=connect&ac=bind" class="xi2">绑定已有帐号</a> 后才可以留言',
   'save_to_album' => '保存到相册',
+  'attachment_insert_all_attach' => '插入全部图片',
   'usergroup_expired' => '您当前的用户组已经到期，请选择继续续费还是要切换到其他用户组',
   'freeze_pw_tips' => '您当前的帐号存在安全隐患已经被冻结，请修改密码解除冻结状态',
   'freeze_email_tips' => '您当前的帐号已经太长时间未登录网站已经被冻结，必须验证邮箱后才能解除冻结状态 <a href="home.php?mod=spacecp&ac=profile&op=password&resend=1" class="xi2">重新接收验证邮件</a>',

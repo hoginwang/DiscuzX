@@ -702,6 +702,23 @@ function insertAttachimgTag(aid) {
 	var txt = '[attachimg]' + aid + '[/attachimg]';
 	seditor_insertunit('fastpost', txt);
 }
+
+function insertAllattachimgTag() {
+    var attachListObj = $('e_imgattachlist').getElementsByTagName("td");
+    for (var i in attachListObj) {
+        if (typeof attachListObj[i] == "object") {
+            var attach = attachListObj[i];
+            var ids = attach.id.split('_td_');
+            if (ids[0] == 'image') {
+                insertAttachimgTag(ids[1]);
+                var txt = wysiwyg ? '\r\n<br/><br/>\r\n' : '\r\n\r\n';
+                insertText(txt, strlen(txt), 0);
+            }
+        }
+    }
+    doane();
+}
+
 function insertText(str) {
 	seditor_insertunit('fastpost', str);
 }
