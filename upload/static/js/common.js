@@ -4,7 +4,7 @@
 
 	$Id: common.js 36359 2017-01-20 05:06:45Z nemohou $
 */
-
+/*  */
 function $(id) {
 	return !id ? null : document.getElementById(id);
 }
