@@ -113,6 +113,12 @@
 								<div id="attachlist" class="fieldset flash cl"><span style="font-size:0"></span></div>
 								<!--{if empty($_G['setting']['pluginhooks']['follow_upload_extend'])}-->
 									<!--{subtemplate common/webupload}-->
+                                    <style>
+                                        .webuploader-pick {
+                                            padding: 0 2px;
+                                            height: 25px;
+                                        }
+                                    </style>
 									<script type="text/javascript">
                                         var attachUpload = new WEBUpload({
                                             server: "{$_G[siteurl]}misc.php?mod=webupload&action=webupload&operation=<!--{if $_G['basescript'] == 'portal'}-->portal<!--{else}-->album<!--{/if}-->",
