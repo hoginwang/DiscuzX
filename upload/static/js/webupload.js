@@ -65,7 +65,7 @@ if (WEBUpload == undefined) {
         uploader.customSettings = window.jQuery.extend({}, settings.customSettings);
 
         return uploader;
-    }
+    };
     if(typeof forum_post_inited == 'undefined') {
         appendscript(JSPATH + 'forum_post.js?' + VERHASH);
     }
