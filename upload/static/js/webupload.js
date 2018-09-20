@@ -2,9 +2,6 @@ var WEBUpload;
 
 
 if (WEBUpload == undefined) {
-    if(!window.jQuery) {
-        appendscript(STATICURL + 'js/jquery.min.js?' + VERHASH);
-    }
     if (window.jQuery) {
         jQuery.noConflict();
     }
