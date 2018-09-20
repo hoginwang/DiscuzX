@@ -92,22 +92,24 @@ var maxoptions = parseInt('$_G[setting][maxpolloptions]');
 <!--{/if}-->
 function addUploadEvent(imgid, pollstr) {
 	<!--{if empty($_G['setting']['pluginhooks']['post_upload_extend']) && empty($_G['setting']['pluginhooks']['post_poll_upload_extend'])}-->
-		new WEBUpload({
-			server: "{$_G[siteurl]}misc.php?mod=webupload&action=webupload&operation=poll&fid=$_G[fid]",
-			formData: {"uid": "$_G[uid]", "hash": "$swfconfig[hash]"},
-			fileSingleSizeLimit: 1000 * 2048,
-			pick: imgid,
-			accept: {
-				title: 'Files',
-				extensions: 'jpg,jpeg,gif,png,bmp',
-				mimeTypes: 'image/*'
-			},
-			customSettings: {
-                progressTarget : pollstr,
-                uploadSource: 'forum',
-                uploadType: 'poll'
-			}
-		});
+		jq(function () {
+            new WEBUpload({
+                server: "{$_G[siteurl]}misc.php?mod=webupload&action=webupload&operation=poll&fid=$_G[fid]",
+                formData: {"uid": "$_G[uid]", "hash": "$swfconfig[hash]"},
+                fileSingleSizeLimit: 1000 * 2048,
+                pick: $jq('#' + imgid),
+                accept: {
+                    title: 'Files',
+                    extensions: 'jpg,jpeg,gif,png,bmp',
+                    mimeTypes: 'image/*'
+                },
+                customSettings: {
+                    progressTarget : pollstr,
+                    uploadSource: 'forum',
+                    uploadType: 'poll'
+                }
+            });
+        })
 	<!--{else}-->
 		<!--{hook/post_poll_upload_extend}-->
 	<!--{/if}-->

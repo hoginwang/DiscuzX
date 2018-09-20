@@ -2,9 +2,6 @@ var WEBUpload;
 
 
 if (WEBUpload == undefined) {
-    if (window.jQuery) {
-        jQuery.noConflict();
-    }
     WEBUpload = function (settings) {
         var defaultStting = {
             auto: true,

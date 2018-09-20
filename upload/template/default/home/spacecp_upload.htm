@@ -49,23 +49,25 @@
 				<!--{if empty($_G['setting']['pluginhooks']['spacecp_upload_extend'])}-->
 					<!--{subtemplate common/webupload}-->
 					<script type="text/javascript">
-                        var upload = new WEBUpload({
-                            server: "{$_G[siteurl]}misc.php?mod=webupload&action=webupload&operation=album",
-                            formData: {"uid" : "$_G[uid]", "hash":"$swfconfig[hash]"},
-                            fileSingleSizeLimit: 1000 * $swfconfig[max],
-                            pick: $('spanButtonPlaceholder'),
-                            accept: {
-                                title: 'Images',
-                                extensions: "$swfconfig[imageexts][ext]".replace(/;/g, ",").replace(/\*./g, ""),
-                                mimeTypes: 'image/*',
-                            },
-                            customSettings: {
-                                progressTarget : "imgUploadProgress",
-                                uploadSource: 'home',
-                                uploadType: 'album',
-                                imgBoxObj: $('attachbody')
-                            }
-                        });
+                        jq(function () {
+                            var upload = new WEBUpload({
+                                server: "{$_G[siteurl]}misc.php?mod=webupload&action=webupload&operation=album",
+                                formData: {"uid" : "$_G[uid]", "hash":"$swfconfig[hash]"},
+                                fileSingleSizeLimit: 1000 * $swfconfig[max],
+                                pick: $jq('#spanButtonPlaceholder'),
+                                accept: {
+                                    title: 'Images',
+                                    extensions: "$swfconfig[imageexts][ext]".replace(/;/g, ",").replace(/\*./g, ""),
+                                    mimeTypes: 'image/*',
+                                },
+                                customSettings: {
+                                    progressTarget : "imgUploadProgress",
+                                    uploadSource: 'home',
+                                    uploadType: 'album',
+                                    imgBoxObj: $('attachbody')
+                                }
+                            });
+                        })
 					</script>
 				<!--{else}-->
 					<!--{hook/spacecp_upload_extend}-->

@@ -130,45 +130,47 @@
 <!--{if $_G['basescript'] == 'home' && empty($_G['setting']['pluginhooks']['spacecp_blog_upload_extend']) || $_G['basescript'] == 'portal' && empty($_G['setting']['pluginhooks']['portalcp_top_upload_extend'])}-->
 	<!--{subtemplate common/webupload}-->
 	<script type="text/javascript">
-        var attachUpload = new WEBUpload({
-            server: "{$_G[siteurl]}misc.php?mod=webupload&action=webupload&operation=<!--{if $_G['basescript'] == 'portal'}-->portal<!--{else}-->album<!--{/if}-->",
-            formData: {"uid" : "$_G[uid]", "hash":"$swfconfig[hash]"<!--{if $_G['basescript'] == 'portal'}-->,"aid":$aid,"catid":$catid<!--{/if}-->},
-            fileSingleSizeLimit: 1000 * $swfconfig[max],
-            pick: $('spanButtonPlaceholder'),
-            accept: {
-                <!--{if $_G['basescript'] == 'portal'}-->
-                title: 'Files',
-                extensions: "$swfconfig[attachexts][ext]".replace(/;/g, ",").replace(/\*./g, ""),
-                mimeTypes: '*/*',
-                <!--{else}-->
-                title: 'Files',
-                extensions: "$swfconfig[imageexts][ext]".replace(/;/g, ",").replace(/\*./g, ""),
-                mimeTypes: 'image/*',
-                <!--{/if}-->
-            },
-            customSettings: {
-                progressTarget : "fsUploadProgress",
-                uploadSource: 'portal',
-                uploadType: 'attach',
-                imgBoxObj: $('attachlist')
-            }
-        });
-        var upload = new WEBUpload({
-            server: "{$_G[siteurl]}misc.php?mod=webupload&action=webupload&operation=<!--{if $_G['basescript'] == 'portal'}-->portal<!--{else}-->album<!--{/if}-->",
-            formData: {"uid" : "$_G[uid]", "hash":"$swfconfig[hash]"<!--{if $_G['basescript'] == 'portal'}-->,"aid":$aid,"catid":$catid<!--{/if}-->},
-            fileSingleSizeLimit: 1000 * $swfconfig[max],
-            pick: $('spanButtonPlaceholder'),
-            accept: {
-                title: 'Files',
-                extensions: "$swfconfig[imageexts][ext]".replace(/;/g, ",").replace(/\*./g, ""),
-                mimeTypes: 'image/*',
-            },
-            customSettings: {
-                progressTarget : "imgUploadProgress",
-                uploadSource: 'portal',
-                uploadType: <!--{if $_G['basescript'] == 'portal'}-->'portal'<!--{else}-->'blog'<!--{/if}-->,
-                imgBoxObj: $('imgattachlist')
-            }
+		jq(function () {
+			var attachUpload = new WEBUpload({
+				server: "{$_G[siteurl]}misc.php?mod=webupload&action=webupload&operation=<!--{if $_G['basescript'] == 'portal'}-->portal<!--{else}-->album<!--{/if}-->",
+				formData: {"uid" : "$_G[uid]", "hash":"$swfconfig[hash]"<!--{if $_G['basescript'] == 'portal'}-->,"aid":$aid,"catid":$catid<!--{/if}-->},
+				fileSingleSizeLimit: 1000 * $swfconfig[max],
+				pick: $('spanButtonPlaceholder'),
+				accept: {
+					<!--{if $_G['basescript'] == 'portal'}-->
+					title: 'Files',
+					extensions: "$swfconfig[attachexts][ext]".replace(/;/g, ",").replace(/\*./g, ""),
+					mimeTypes: '*/*',
+					<!--{else}-->
+					title: 'Files',
+					extensions: "$swfconfig[imageexts][ext]".replace(/;/g, ",").replace(/\*./g, ""),
+					mimeTypes: 'image/*',
+					<!--{/if}-->
+				},
+				customSettings: {
+					progressTarget : "fsUploadProgress",
+					uploadSource: 'portal',
+					uploadType: 'attach',
+					imgBoxObj: $('attachlist')
+				}
+			});
+			var upload = new WEBUpload({
+				server: "{$_G[siteurl]}misc.php?mod=webupload&action=webupload&operation=<!--{if $_G['basescript'] == 'portal'}-->portal<!--{else}-->album<!--{/if}-->",
+				formData: {"uid" : "$_G[uid]", "hash":"$swfconfig[hash]"<!--{if $_G['basescript'] == 'portal'}-->,"aid":$aid,"catid":$catid<!--{/if}-->},
+				fileSingleSizeLimit: 1000 * $swfconfig[max],
+				pick: $('spanButtonPlaceholder'),
+				accept: {
+					title: 'Files',
+					extensions: "$swfconfig[imageexts][ext]".replace(/;/g, ",").replace(/\*./g, ""),
+					mimeTypes: 'image/*',
+				},
+				customSettings: {
+					progressTarget : "imgUploadProgress",
+					uploadSource: 'portal',
+					uploadType: <!--{if $_G['basescript'] == 'portal'}-->'portal'<!--{else}-->'blog'<!--{/if}-->,
+					imgBoxObj: $('imgattachlist')
+				}
+			});
         });
 	</script>
 <!--{else}-->

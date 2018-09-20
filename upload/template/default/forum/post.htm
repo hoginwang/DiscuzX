@@ -267,63 +267,65 @@
 	<!--{if empty($_G['setting']['pluginhooks']['post_upload_extend'])}-->
 		<!--{subtemplate common/webupload}-->
 		<script type="text/javascript">
-		<!--{if $allowpostimg}-->
-            var imguploader = new WEBUpload({
-                server: "{$_G[siteurl]}misc.php?mod=webupload&action=webupload&operation=upload&fid=$_G[fid]&attachtype=image",
-                formData: {"uid": "$_G[uid]", "hash": "$swfconfig[hash]", "attachtype": "image"},
-                fileSingleSizeLimit: 1000 * $swfconfig[max],
-                pick: '#imgpicker',
-                accept: {
-                    title: 'Images',
-                    extensions: "$swfconfig[imageexts][ext]".replace(/;/g, ",").replace(/\*./g, ""),
-                    mimeTypes: 'image/*'
-                },
-                customSettings: {
-                    progressTarget : "imgUploadProgress",
-                    uploadSource: 'forum',
-                    uploadType: 'image',
-                    imgBoxObj: $('imgattachlist'),
-                    <!--{if $swfconfig['maxsizeperday']}-->
-                    maxSizePerDay: $swfconfig['maxsizeperday'],
-                    <!--{/if}-->
-                    <!--{if $swfconfig['maxattachnum']}-->
-                    maxAttachNum: $swfconfig['maxattachnum'],
-                    <!--{/if}-->
-                    <!--{if $swfconfig['filtertype']}-->
-                    filterType: $swfconfig['filtertype'],
-                    <!--{/if}-->
-                    singleUpload: $('{$editorid}_btn_local')
-                }
+			jq(function () {
+                <!--{if $allowpostimg}-->
+                var imguploader = new WEBUpload({
+                    server: "{$_G[siteurl]}misc.php?mod=webupload&action=webupload&operation=upload&fid=$_G[fid]&attachtype=image",
+                    formData: {"uid": "$_G[uid]", "hash": "$swfconfig[hash]", "attachtype": "image"},
+                    fileSingleSizeLimit: 1000 * $swfconfig[max],
+                    pick: $jq('#imgpicker'),
+                    accept: {
+                        title: 'Images',
+                        extensions: "$swfconfig[imageexts][ext]".replace(/;/g, ",").replace(/\*./g, ""),
+                        mimeTypes: 'image/*'
+                    },
+                    customSettings: {
+                        progressTarget : "imgUploadProgress",
+                        uploadSource: 'forum',
+                        uploadType: 'image',
+                        imgBoxObj: $('imgattachlist'),
+                        <!--{if $swfconfig['maxsizeperday']}-->
+                        maxSizePerDay: $swfconfig['maxsizeperday'],
+                        <!--{/if}-->
+                        <!--{if $swfconfig['maxattachnum']}-->
+                        maxAttachNum: $swfconfig['maxattachnum'],
+                        <!--{/if}-->
+                        <!--{if $swfconfig['filtertype']}-->
+                        filterType: $swfconfig['filtertype'],
+                        <!--{/if}-->
+                        singleUpload: $('{$editorid}_btn_local')
+                    }
+                });
+                <!--{/if}-->
+                <!--{if $_G['group']['allowpostattach']}-->
+                var fileuploader = new WEBUpload({
+                    server: "{$_G[siteurl]}misc.php?mod=webupload&action=webupload&operation=upload&fid=$_G[fid]",
+                    formData: {"uid": "$_G[uid]", "hash": "$swfconfig[hash]"},
+                    fileSingleSizeLimit: 1000 * $swfconfig[max],
+                    pick: $jq('#filepicker'),
+                    accept: {
+                        title: 'Files',
+                        extensions: "$swfconfig[attachexts][ext]".replace(/;/g, ",").replace(/\*./g, ""),
+                        mimeTypes: '*/*'
+                    },
+                    customSettings: {
+                        progressTarget : "fsUploadProgress",
+                        uploadSource: 'forum',
+                        uploadType: 'attach',
+                        <!--{if $swfconfig['maxsizeperday']}-->
+                        maxSizePerDay: $swfconfig['maxsizeperday'],
+                        <!--{/if}-->
+                        <!--{if $swfconfig['maxattachnum']}-->
+                        maxAttachNum: $swfconfig['maxattachnum'],
+                        <!--{/if}-->
+                        <!--{if $swfconfig['filtertype']}-->
+                        filterType: $swfconfig['filtertype'],
+                        <!--{/if}-->
+                        singleUpload: $('{$editorid}_btn_upload')
+                    }
+                });
+                <!--{/if}-->
             });
-		<!--{/if}-->
-		<!--{if $_G['group']['allowpostattach']}-->
-            var fileuploader = new WEBUpload({
-                server: "{$_G[siteurl]}misc.php?mod=webupload&action=webupload&operation=upload&fid=$_G[fid]",
-                formData: {"uid": "$_G[uid]", "hash": "$swfconfig[hash]"},
-                fileSingleSizeLimit: 1000 * $swfconfig[max],
-                pick: '#filepicker',
-                accept: {
-                    title: 'Files',
-                    extensions: "$swfconfig[attachexts][ext]".replace(/;/g, ",").replace(/\*./g, ""),
-                    mimeTypes: '*/*'
-                },
-                customSettings: {
-                    progressTarget : "fsUploadProgress",
-                    uploadSource: 'forum',
-                    uploadType: 'attach',
-                    <!--{if $swfconfig['maxsizeperday']}-->
-                    maxSizePerDay: $swfconfig['maxsizeperday'],
-                    <!--{/if}-->
-                    <!--{if $swfconfig['maxattachnum']}-->
-                    maxAttachNum: $swfconfig['maxattachnum'],
-                    <!--{/if}-->
-                    <!--{if $swfconfig['filtertype']}-->
-                    filterType: $swfconfig['filtertype'],
-                    <!--{/if}-->
-                    singleUpload: $('{$editorid}_btn_upload')
-                }
-            });
-		<!--{/if}-->
 		</script>
 	<!--{else}-->
 		<!--{hook/post_upload_extend}-->

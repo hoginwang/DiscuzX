@@ -107,29 +107,31 @@ var fid = parseInt('$_G[fid]');
 							}
 						</style>
 						<script type="text/javascript">
-                            var fileuploader = new WEBUpload({
-                                server: "{$_G[siteurl]}misc.php?mod=webupload&action=webupload&operation=upload&fid=$_G[fid]",
-                                formData: {"uid": "$_G[uid]", "hash": "$swfconfig[hash]"},
-                                fileSingleSizeLimit: 1000 * $swfconfig[max],
-                                pick: $('spanButtonPlaceholder'),
-                                accept: {
-                                    title: 'Files',
-                                    extensions: "$swfconfig[attachexts][ext]".replace(/;/g, ",").replace(/\*./g, ""),
-                                    mimeTypes: '*/*'
-                                },
-                                customSettings: {
-                                    progressTarget : "attachlist",
-                                    uploadSource: 'forum',
-                                    uploadType: 'attach',
-                                    <!--{if $swfconfig['maxsizeperday']}-->
-                                    maxSizePerDay: $swfconfig['maxsizeperday'],
-                                    <!--{/if}-->
-                                    <!--{if $swfconfig['maxattachnum']}-->
-                                    maxAttachNum: $swfconfig['maxattachnum'],
-                                    <!--{/if}-->
-                                    uploadFrom: 'fastpost'
-                                }
-                            });
+                           jq(function () {
+                               var fileuploader = new WEBUpload({
+                                   server: "{$_G[siteurl]}misc.php?mod=webupload&action=webupload&operation=upload&fid=$_G[fid]",
+                                   formData: {"uid": "$_G[uid]", "hash": "$swfconfig[hash]"},
+                                   fileSingleSizeLimit: 1000 * $swfconfig[max],
+                                   pick: $jq('#spanButtonPlaceholder'),
+                                   accept: {
+                                       title: 'Files',
+                                       extensions: "$swfconfig[attachexts][ext]".replace(/;/g, ",").replace(/\*./g, ""),
+                                       mimeTypes: '*/*'
+                                   },
+                                   customSettings: {
+                                       progressTarget : "attachlist",
+                                       uploadSource: 'forum',
+                                       uploadType: 'attach',
+                                       <!--{if $swfconfig['maxsizeperday']}-->
+                                       maxSizePerDay: $swfconfig['maxsizeperday'],
+                                       <!--{/if}-->
+                                       <!--{if $swfconfig['maxattachnum']}-->
+                                       maxAttachNum: $swfconfig['maxattachnum'],
+                                       <!--{/if}-->
+                                       uploadFrom: 'fastpost'
+                                   }
+                               });
+                           })
 						</script>
 					<!--{else}-->
 						<!--{hook/forumdisplay_fastpost_upload_extend}-->
