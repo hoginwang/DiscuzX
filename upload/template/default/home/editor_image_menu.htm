@@ -128,105 +128,48 @@
 <iframe name="attachframe" id="attachframe" style="display: none;"></iframe>
 
 <!--{if $_G['basescript'] == 'home' && empty($_G['setting']['pluginhooks']['spacecp_blog_upload_extend']) || $_G['basescript'] == 'portal' && empty($_G['setting']['pluginhooks']['portalcp_top_upload_extend'])}-->
-	<!--{subtemplate common/upload}-->
+	<!--{subtemplate common/webupload}-->
 	<script type="text/javascript">
-		var attachUpload = new SWFUpload({
-			// Backend Settings
-			upload_url: "{$_G[siteurl]}misc.php?mod=swfupload&action=swfupload&operation=<!--{if $_G['basescript'] == 'portal'}-->portal<!--{else}-->album<!--{/if}-->",
-			post_params: {"uid" : "$_G[uid]", "hash":"$swfconfig[hash]"<!--{if $_G['basescript'] == 'portal'}-->,"aid":$aid,"catid":$catid<!--{/if}-->},
-
-			// File Upload Settings
-			file_size_limit : "$swfconfig[max]",	// 100MB
-			<!--{if $_G['basescript'] == 'portal'}-->
-			file_types : "$swfconfig[attachexts][ext]",
-			file_types_description : "$swfconfig[attachexts][depict]",
-			<!--{else}-->
-			file_types : "$swfconfig[imageexts][ext]",
-			file_types_description : "$swfconfig[imageexts][depict]",
-			<!--{/if}-->
-			file_upload_limit : 0,
-			file_queue_limit : 0,
-
-			// Event Handler Settings (all my handlers are in the Handler.js file)
-			swfupload_preload_handler : preLoad,
-			swfupload_load_failed_handler : loadFailed,
-			file_dialog_start_handler : fileDialogStart,
-			file_queued_handler : fileQueued,
-			file_queue_error_handler : fileQueueError,
-			file_dialog_complete_handler : fileDialogComplete,
-			upload_start_handler : uploadStart,
-			upload_progress_handler : uploadProgress,
-			upload_error_handler : uploadError,
-			upload_success_handler : uploadSuccess,
-			upload_complete_handler : uploadComplete,
-
-			// Button Settings
-			button_image_url : "{IMGDIR}/uploadbutton.png",
-			button_placeholder_id : "spanButtonPlaceholder",
-			button_width: 100,
-			button_height: 25,
-			button_cursor:SWFUpload.CURSOR.HAND,
-			button_window_mode: "transparent",
-
-			custom_settings : {
-				progressTarget : "fsUploadProgress",
-				uploadSource: 'portal',
-				uploadType: 'attach',
-				imgBoxObj: $('attachlist')
-				//thumbnail_height: 400,
-				//thumbnail_width: 400,
-				//thumbnail_quality: 100
-			},
-
-			// Debug Settings
-			debug: false
-		});
-		var upload = new SWFUpload({
-			// Backend Settings
-			upload_url: "{$_G[siteurl]}misc.php?mod=swfupload&action=swfupload&operation=<!--{if $_G['basescript'] == 'portal'}-->portal<!--{else}-->album<!--{/if}-->",
-			post_params: {"uid" : "$_G[uid]", "hash":"$swfconfig[hash]"<!--{if $_G['basescript'] == 'portal'}-->,"aid":$aid,"catid":$catid<!--{/if}-->},
-
-			// File Upload Settings
-			file_size_limit : "$swfconfig[max]",	// 100MB
-			file_types : "$swfconfig[imageexts][ext]",
-			file_types_description : "$swfconfig[imageexts][depict]",
-			file_upload_limit : 0,
-			file_queue_limit : 0,
-
-			// Event Handler Settings (all my handlers are in the Handler.js file)
-			swfupload_preload_handler : preLoad,
-			swfupload_load_failed_handler : loadFailed,
-			file_dialog_start_handler : fileDialogStart,
-			file_queued_handler : fileQueued,
-			file_queue_error_handler : fileQueueError,
-			file_dialog_complete_handler : fileDialogComplete,
-			upload_start_handler : uploadStart,
-			upload_progress_handler : uploadProgress,
-			upload_error_handler : uploadError,
-			upload_success_handler : uploadSuccess,
-			upload_complete_handler : uploadComplete,
-
-			// Button Settings
-			button_image_url : "{IMGDIR}/uploadbutton.png",
-			button_placeholder_id : "imgSpanButtonPlaceholder",
-			button_width: 100,
-			button_height: 25,
-			button_cursor:SWFUpload.CURSOR.HAND,
-			button_window_mode: "transparent",
-
-			custom_settings : {
-				progressTarget : "imgUploadProgress",
-				uploadSource: 'portal',
-				uploadType: <!--{if $_G['basescript'] == 'portal'}-->'portal'<!--{else}-->'blog'<!--{/if}-->,
-				imgBoxObj: $('imgattachlist')
-				//thumbnail_height: 400,
-				//thumbnail_width: 400,
-				//thumbnail_quality: 100
-			},
-
-			// Debug Settings
-			debug: false
-		});
+        var attachUpload = new WEBUpload({
+            server: "{$_G[siteurl]}misc.php?mod=webupload&action=webupload&operation=<!--{if $_G['basescript'] == 'portal'}-->portal<!--{else}-->album<!--{/if}-->",
+            formData: {"uid" : "$_G[uid]", "hash":"$swfconfig[hash]"<!--{if $_G['basescript'] == 'portal'}-->,"aid":$aid,"catid":$catid<!--{/if}-->},
+            fileSingleSizeLimit: 1000 * $swfconfig[max],
+            pick: $('spanButtonPlaceholder'),
+            accept: {
+                <!--{if $_G['basescript'] == 'portal'}-->
+                title: 'Files',
+                extensions: "$swfconfig[attachexts][ext]".replace(/;/g, ",").replace(/\*./g, ""),
+                mimeTypes: '*/*',
+                <!--{else}-->
+                title: 'Files',
+                extensions: "$swfconfig[imageexts][ext]".replace(/;/g, ",").replace(/\*./g, ""),
+                mimeTypes: 'image/*',
+                <!--{/if}-->
+            },
+            customSettings: {
+                progressTarget : "fsUploadProgress",
+                uploadSource: 'portal',
+                uploadType: 'attach',
+                imgBoxObj: $('attachlist')
+            }
+        });
+        var upload = new WEBUpload({
+            server: "{$_G[siteurl]}misc.php?mod=webupload&action=webupload&operation=<!--{if $_G['basescript'] == 'portal'}-->portal<!--{else}-->album<!--{/if}-->",
+            formData: {"uid" : "$_G[uid]", "hash":"$swfconfig[hash]"<!--{if $_G['basescript'] == 'portal'}-->,"aid":$aid,"catid":$catid<!--{/if}-->},
+            fileSingleSizeLimit: 1000 * $swfconfig[max],
+            pick: $('spanButtonPlaceholder'),
+            accept: {
+                title: 'Files',
+                extensions: "$swfconfig[imageexts][ext]".replace(/;/g, ",").replace(/\*./g, ""),
+                mimeTypes: 'image/*',
+            },
+            customSettings: {
+                progressTarget : "imgUploadProgress",
+                uploadSource: 'portal',
+                uploadType: <!--{if $_G['basescript'] == 'portal'}-->'portal'<!--{else}-->'blog'<!--{/if}-->,
+                imgBoxObj: $('imgattachlist')
+            }
+        });
 	</script>
 <!--{else}-->
 	<!--{if $_G['basescript'] == 'home'}-->

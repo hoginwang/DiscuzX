@@ -120,7 +120,7 @@ class forum_upload {
 				list($width) = @getimagesize($upload->attach['target']);
 			}
 		}
-		if($_GET['type'] != 'image' && $upload->attach['isimage']) {
+		if($_GET['attachtype'] != 'image' && $upload->attach['isimage']) {
 			$upload->attach['isimage'] = -1;
 		}
 		$this->aid = $aid = getattachnewaid($this->uid);

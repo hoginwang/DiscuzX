@@ -64,6 +64,8 @@ function getattach_row($attach, &$attachs, &$imgattachs) {
 	$attach['attachsize'] = sizecount($attach['filesize']);
 	$attach['dateline'] = dgmdate($attach['dateline']);
 	$attach['filetype'] = attachtype($attach['ext']."\t".$attach['filetype']);
+//    var_dump(json_encode($attach));
+//    exit(0);
 	if($attach['isimage'] < 1) {
 		if($attach['isimage']) {
 			$attach['url'] = $attach['remote'] ? $_G['setting']['ftp']['attachurl'] : $_G['setting']['attachurl'];
