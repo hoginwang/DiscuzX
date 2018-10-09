@@ -67,20 +67,6 @@ class miscmodel {
 		$path = $matches['path'] ? $matches['path'].($matches['query'] ? '?'.$matches['query'] : '') : '/';
 		$port = !empty($matches['port']) ? $matches['port'] : ($matches['scheme'] == 'https' ? 443 : 80);
 
-		if(substr($url,0,5)==’https’){
-		$ch = curl_init($url);
-		curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
-		if($post){
-		curl_setopt($ch, CURLOPT_POST, 1);
-		curl_setopt($ch, CURLOPT_POSTFIELDS, $post);
-		}
-		if($cookie){
-		curl_setopt($ch, CURLOPT_COOKIE, $cookie);
-		}
-		curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, FALSE);
-		return curl_exec($ch);
-		}
-		
 		if($post) {
 			$out = "POST $path HTTP/1.0\r\n";
 			$header = "Accept: */*\r\n";
