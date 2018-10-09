@@ -297,7 +297,7 @@ if($operation == 'export') {
 
 			$tablesstr = '';
 			foreach($tables as $table) {
-				$tablesstr .= '"'.$table.'" ';
+				$tablesstr.='"'.addslashes($table).'"';
 			}
 
 			require DISCUZ_ROOT . './config/config_global.php';
@@ -307,7 +307,7 @@ if($operation == 'export') {
 			list(, $mysql_base) = DB::fetch($query, DB::$drivertype == 'mysqli' ? MYSQLI_NUM : MYSQL_NUM);
 
 			$dumpfile = addslashes(dirname(dirname(__FILE__))).'/'.$backupfilename.'.sql';
-			@unlink($dumpfile);
+			@unlink($dumpfile); $tablesstr=escapeshellarg($tablesstr);
 
 			$mysqlbin = $mysql_base == '/' ? '' : addslashes($mysql_base).'bin/';
 			@shell_exec($mysqlbin.'mysqldump --force --quick '.($db->version() > '4.1' ? '--skip-opt --create-options' : '-all').' --add-drop-table'.($_GET['extendins'] == 1 ? ' --extended-insert' : '').''.($db->version() > '4.1' && $_GET['sqlcompat'] == 'MYSQL40' ? ' --compatible=mysql40' : '').' --host="'.$dbhost.($dbport ? (is_numeric($dbport) ? ' --port='.$dbport : ' --socket="'.$dbport.'"') : '').'" --user="'.$dbuser.'" --password="'.$dbpw.'" "'.$dbname.'" '.escapeshellarg($tablesstr).' > '.$dumpfile);
@@ -325,7 +325,7 @@ if($operation == 'export') {
 					$fp = fopen($zipfilename, 'w');
 					@fwrite($fp, $zip->file());
 					fclose($fp);
-					@unlink($dumpfile);
+					@unlink($dumpfile); $tablesstr=escapeshellarg($tablesstr);
 					@touch('./data/'.$backupdir.'/index.htm');
 					$filename = $backupfilename.'.zip';
 					unset($sqldump, $zip, $content);
