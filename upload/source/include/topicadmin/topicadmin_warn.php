@@ -89,7 +89,7 @@ if(!submitcheck('modsubmit')) {
 				'dateline' => $_G['timestamp'],
 				'reason' => $reason,
 			));
-			$authorwarnings = C::t('forum_warning')->count_by_authorid_dateline($post['authorid'], $_G['timestamp'] - $_G['setting']['warningexpiration'] * 86400);
+			$authorwarnings = C::t('forum_warning')->count_by_authorid_dateline($post['authorid'], $_G['timestamp'] - $_G['setting']['warningrange'] * 86400);
 			if($authorwarnings >= $_G['setting']['warninglimit']) {
 				$member = getuserbyuid($post[authorid]);
 				$memberfieldforum = C::t('common_member_field_forum')->fetch($post[authorid]);
@@ -120,7 +120,7 @@ if(!submitcheck('modsubmit')) {
 	'redirect'	=> "forum.php?mod=viewthread&tid=$_G[tid]&page=$page",
 	'reasonpm'	=> ($sendreasonpm ? array('data' => $posts, 'var' => 'post', 'item' => 'reason_warn_post', 'notictype' => 'post') : array()),
 	'reasonvar'	=> array('tid' => $thread['tid'], 'subject' => $thread['subject'], 'modaction' => $modaction, 'reason' => $reason,
-			'warningexpiration' => $_G['setting']['warningexpiration'], 'warninglimit' => $_G['setting']['warninglimit'], 'warningexpiration' => $_G['setting']['warningexpiration'],
+			'warningrange' => $_G['setting']['warningrange'], 'warninglimit' => $_G['setting']['warninglimit'], 'warningexpiration' => $_G['setting']['warningexpiration'],
 			'authorwarnings' => $authorwarnings),
 	'modtids'	=> 0,
 	'modlog'	=> $thread

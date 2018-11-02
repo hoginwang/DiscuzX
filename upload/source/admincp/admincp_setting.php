@@ -205,6 +205,7 @@ if(!submitcheck('settingsubmit')) {
 		showsetting('setting_basic_adminemail', 'settingnew[adminemail]', $setting['adminemail'], 'text');
 		showsetting('setting_basic_site_qq', 'settingnew[site_qq]', $setting['site_qq'], 'text',$disabled = '', $hidden = 0, $comment = '', $extra = 'id="settingnew[site_qq]"');
 		showsetting('setting_basic_icp', 'settingnew[icp]', $setting['icp'], 'text');
+        showsetting('setting_basic_beian', 'settingnew[beian]', $setting['beian'], 'text');
 		showsetting('setting_basic_boardlicensed', 'settingnew[boardlicensed]', $setting['boardlicensed'], 'radio');
 		showsetting('setting_basic_stat', 'settingnew[statcode]', $setting['statcode'], 'textarea');
 		showtablefooter();
@@ -1210,6 +1211,7 @@ EOF;
 			$lang['setting_functions_mod_bannedmessages_thread'],
 			$lang['setting_functions_mod_bannedmessages_avatar'],
 			$lang['setting_functions_mod_bannedmessages_signature'])), $setting['bannedmessages'], 'binmcheckbox');
+        showsetting('setting_functions_mod_warningrange', 'settingnew[warningrange]', $setting['warningrange'], 'text');
 		showsetting('setting_functions_mod_warninglimit', 'settingnew[warninglimit]', $setting['warninglimit'], 'text');
 		showsetting('setting_functions_mod_warningexpiration', 'settingnew[warningexpiration]', $setting['warningexpiration'], 'text');
 		showsetting('setting_functions_mod_rewardexpiration', 'settingnew[rewardexpiration]', $setting['rewardexpiration'], 'text');
