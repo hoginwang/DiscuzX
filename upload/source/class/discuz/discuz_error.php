@@ -188,6 +188,10 @@ class discuz_error
 		$gzip = getglobal('gzipcompress');
 		ob_start($gzip ? 'ob_gzhandler' : null);
 
+		header("HTTP/1.1 503 Service Temporarily Unavailable");
+		header("Status: 503 Service Temporarily Unavailable");
+		header("Retry-After: 3600");
+
 		$host = $_SERVER['HTTP_HOST'];
 		$title = $type == 'db' ? 'Database' : 'System';
 		echo <<<EOT
@@ -290,6 +294,10 @@ EOT;
 
 		ob_end_clean();
 		ob_start();
+
+		header("HTTP/1.1 503 Service Temporarily Unavailable");
+		header("Status: 503 Service Temporarily Unavailable");
+		header("Retry-After: 3600");
 
 		$host = $_SERVER['HTTP_HOST'];
 		$phpmsg = trim($phpmsg);
