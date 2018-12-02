@@ -28,7 +28,9 @@ if ($op == "account") {
             $wheresql[] = "dateline = " . $user['freezetime'];
             $wheresql[] = "reason like '%不活跃%'";
             $flag = C::t('common_member_crime')->count_by_where('WHERE ' . implode(' AND ', $wheresql), 0, 1);
-            if (!$flag) {//非系统自动锁定，不允许自助接近
+
+            //非系统自动锁定、禁言用户，不允许自助解封
+            if (!$flag || $user['groupid'] == 4) {
                 echo '<script>alert("该用户不支持自助解封！");window.history.go(-1);</script>';
                 exit;
             }
