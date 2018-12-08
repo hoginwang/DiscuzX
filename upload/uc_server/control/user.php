@@ -207,7 +207,7 @@ class usercontrol extends base {
 
 	function ondeleteavatar() {
 		$this->init_input();
-		$uid = $this->input('uid');
+		$uid = $this->input('uid_avatar');
 		$_ENV['user']->delete_useravatar($uid);
 	}
 
@@ -307,7 +307,7 @@ class usercontrol extends base {
 		@header("Pragma: no-cache");
 		$this->init_input(getgpc('agent', 'G'));
 
-		$uid = $this->input('uid');
+		$uid = $this->input('uid_avatar');
 		if(empty($uid)) {
 			return -1;
 		}
@@ -350,7 +350,7 @@ class usercontrol extends base {
 			header("Content-type: application/xml; charset=utf-8");
 		}
 		$this->init_input(getgpc('agent'));
-		$uid = $this->input('uid');
+		$uid = $this->input('uid_avatar');
 		if(empty($uid)) {
 			return '<root><message type="error" value="-1" /></root>';
 		}
