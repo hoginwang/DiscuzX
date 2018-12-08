@@ -79,7 +79,7 @@ class mobile_api {
 				$avatar3 = self::byte2hex(file_get_contents(self::$tmpavatarsmall));
 
 				$extra = '&avatar1='.$avatar1.'&avatar2='.$avatar2.'&avatar3='.$avatar3;
-				$result = self::uc_api_post_ex('user', 'rectavatar', array('uid' => $_G['uid']), $extra);
+				$result = self::uc_api_post_ex('user', 'rectavatar', array('uid_avatar' => $_G['uid']), $extra);
 
 				@unlink(self::$tmpavatar);
 				@unlink(self::$tmpavatarbig);
