@@ -546,7 +546,7 @@ class uploadUcAvatar {
 		$avatar3 = self::byte2hex(file_get_contents($tmpAvatarSmall));
 
 		$extra = '&avatar1='.$avatar1.'&avatar2='.$avatar2.'&avatar3='.$avatar3;
-		$result = self::uc_api_post_ex('user', 'rectavatar', array('uid' => $uid), $extra);
+		$result = self::uc_api_post_ex('user', 'rectavatar', array('uid_avatar' => $uid), $extra);
 
 		@unlink($tmpAvatar);
 		@unlink($tmpAvatarBig);
