@@ -664,7 +664,7 @@ if($filter !== 'hot') {
 
 }
 
-$_G['ppp'] = $_G['forum']['threadcaches'] && !$_G['uid'] ? $_G['setting']['postperpage'] : $_G['ppp'];
+$_G['ppp'] = $_G['forum']['threadcaches'] && !$_G['uid'] && !isset($_GET['mapifrom']) ? $_G['setting']['postperpage'] : $_G['ppp'];
 $page = $_G['page'];
 $todaytime = strtotime(dgmdate(TIMESTAMP, 'Ymd'));
 

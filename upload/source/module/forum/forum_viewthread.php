@@ -469,7 +469,7 @@ if(empty($_GET['viewpid'])) {
 	if($maxposition) {
 		$_G['forum_thread']['replies'] = $maxposition - 1;
 	}
-	$_G['ppp'] = $_G['forum']['threadcaches'] && !$_G['uid'] ? $_G['setting']['postperpage'] : $_G['ppp'];
+	$_G['ppp'] = $_G['forum']['threadcaches'] && !$_G['uid'] && !isset($_GET['mapifrom']) ? $_G['setting']['postperpage'] : $_G['ppp'];
 	$totalpage = ceil(($_G['forum_thread']['replies'] + 1) / $_G['ppp']);
 	$page > $totalpage && $page = $totalpage;
 	$_G['forum_pagebydesc'] = !$maxposition && $page > 2 && $page > ($totalpage / 2) ? TRUE : FALSE;
