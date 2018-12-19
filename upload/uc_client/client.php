@@ -233,6 +233,7 @@ function uc_fopen($url, $limit = 0, $post = '', $cookie = '', $bysocket = FALSE,
 	$scheme = $matches['scheme'];
 	$host = $matches['host'];
 	$path = $matches['path'] ? $matches['path'].($matches['query'] ? '?'.$matches['query'] : '') : '/';
+	$matches['port'] = !empty($matches['port'])&&$scheme=='https' ? $matches['port'] : 443;
 	$port = !empty($matches['port']) ? $matches['port'] : 80;
 	if($post) {
 		$out = "POST $path HTTP/1.0\r\n";
@@ -258,6 +259,11 @@ function uc_fopen($url, $limit = 0, $post = '', $cookie = '', $bysocket = FALSE,
 	}
 
 	$fpflag = 0;
+		if($port=='443'){
+			$temp = 'ssl://';
+		}else{
+			$temp = 'http://';
+		}
 	if(!$fp = @fsocketopen(($ip ? $ip : $host), $port, $errno, $errstr, $timeout)) {
 		$context = array(
 			'http' => array(
