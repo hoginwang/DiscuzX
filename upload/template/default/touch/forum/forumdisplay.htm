@@ -30,6 +30,9 @@
 <!-- header end -->
 
 <!--{hook/forumdisplay_top_mobile}-->
+
+<!--{if $subexists && $_G['page'] == 1}--><!--{template forum/forumdisplay_subforum}--><!--{/if}-->
+			
 <!-- main threadlist start -->
 <!--{if !$subforumonly}-->
 <div class="threadlist">
