@@ -967,6 +967,7 @@ if($_G['forum']['status'] == 3) {
 }
 
 if(!defined('IN_ARCHIVER')) {
+	// die($template);
 	include template($template);
 } else {
 	include loadarchiver('forum/forumdisplay');
