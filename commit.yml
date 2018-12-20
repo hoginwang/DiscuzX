@@ -3,48 +3,18 @@ branches: {
   }
 fileChange:
   /upload:
-    newFile: !uuid '55519414ad2ea3aee0354272f8882e672e682be6'
-    oldFile: !uuid '580ce16bbe40fdbf61cdc385b29bad7f7910d564'
+    newFile: !uuid '21cf217b5817814e24c6430b067777d307348955'
+    oldFile: !uuid '55519414ad2ea3aee0354272f8882e672e682be6'
   /upload/source:
-    newFile: !uuid 'c4c4776870d509dad70466fc0b4410413d54d49e'
-    oldFile: !uuid '749e9aaa25d87d888969747bae1f6d1bf299783d'
-  /upload/source/class:
-    newFile: !uuid 'bc8e1066b187e4878226caef061bfffcef6c0e85'
-    oldFile: !uuid '6df12b6428dbea81e6113261cdbc8ee94f1d9740'
-  /upload/source/class/discuz:
-    newFile: !uuid 'a31f3951e7ec395b490ca57ad8c1ebe9070d331a'
-    oldFile: !uuid '560ab82d24edbc01a5d0ba052a36052d739fa790'
-  /upload/source/class/discuz/discuz_application.php:
-    newFile: !uuid '9c606a0f85d9e2a778f5b7cefdcbb52f11049551'
-    oldFile: !uuid 'e7a007d59556adfce21bc6e7b269fbc0556c578c'
+    newFile: !uuid '3a96aeb08928565788898f9f065f8943cc2ab245'
+    oldFile: !uuid 'c4c4776870d509dad70466fc0b4410413d54d49e'
   /upload/source/function:
-    newFile: !uuid '0215000e8c5d76d0237a112c335804ba94a95519'
-    oldFile: !uuid '28e7c42be374a7c51b7b3dde784044aaeb386fa7'
-  /upload/source/function/function_attachment.php:
-    newFile: !uuid 'dfbeb90bb7af3a8c1e43b6066cd7c414830bfb05'
-    oldFile: !uuid '65cd4fc55fe5256ca8014bb24810b3d7edc77791'
-  /upload/template:
-    newFile: !uuid '55bda65b5443c45dbc35597883f682ee62cbf8c3'
-    oldFile: !uuid 'dba5d487268053e8bbc8137038439779f256c4d2'
-  /upload/template/default:
-    newFile: !uuid 'c4c4a5c606537a6ea958063d6968abbdd7b1da60'
-    oldFile: !uuid '2d9e8f0161df3de37d2ee67f32bbeab60f92100e'
-  /upload/template/default/m:
-    newFile: !uuid '1d3ee80cb230c7c0166074aec203155f602c3b13'
-    oldFile: !uuid 'f968bf370980e591ecafc4f765c82dff536b54ca'
-  /upload/template/default/m/header.htm:
-    newFile: !uuid '8e2bf30c0175a8615da3572c3e9d2a69c4b937bc'
-    oldFile: !uuid '62d4b11bbb721edbe70e4a86029b477d7a5b6f55'
-  /upload/template/default/m/js:
-    newFile: !uuid 'c30c1baca8fde3f233f282afc87c516ea22ea1f2'
-    oldFile: !uuid '9e675e0707af84f5c4a0d9898463da81dd0316bd'
-  /upload/template/default/m/js/commtools.js:
-    newFile: !uuid '1adac180f3913716df68fd0c14eb10cf01a303bb'
-    oldFile: !uuid '98088a8b36ab9a450246729eaea1360ca5dfc0e5'
-  /upload/template/default/m/js/viewthread.js:
-    newFile: !uuid 'e275d271ea59a129d506f82ddce7463041c974eb'
-    oldFile: !uuid 'fbd203639ad63f2e5d587f46b0e5dacb3c85676c'
-gitCommitId: !uuid '1064a8f4052714fb741c093aed0bdc5d697d6794'
+    newFile: !uuid 'caa4f2ef5d58bdfa52abab5e85de780fcf40faba'
+    oldFile: !uuid '0215000e8c5d76d0237a112c335804ba94a95519'
+  /upload/source/function/function_filesock.php:
+    newFile: !uuid '7f0a8f5c2d0b9522368873f9e22504a8cb8639c8'
+    oldFile: !uuid 'c06ac5d4bcc7c0a5ce233f60a9ef9479c0a820fc'
+gitCommitId: !uuid '016fc5fa1b3ad17108e9eb98c9d145849d7c625d'
 renames: {
   }
-revisionId: 269
+revisionId: 270
