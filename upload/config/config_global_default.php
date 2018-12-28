@@ -149,6 +149,7 @@ $_config['cookie']['cookiedomain'] 		= ''; 		// COOKIE作用域
 $_config['cookie']['cookiepath'] 		= '/'; 		// COOKIE作用路径
 
 // 站点安全设置
+$_config['security']['onlyremoteaddr'] = 0;		//是否只信任来自于TCP/IP协议栈的远程地址(即不信任HTTP_CLIENT_IP、HTTP_X_FORWARDED_FOR头)
 $_config['security']['authkey']			= 'asdfasfas';	// 站点加密密钥
 $_config['security']['urlxssdefend']		= true;		// 自身 URL XSS 防御
 $_config['security']['attackevasive']		= 0;		// CC 攻击防御 1|2|4|8
