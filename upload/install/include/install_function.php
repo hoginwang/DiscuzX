@@ -348,6 +348,14 @@ function show_env_result(&$env_items, &$dirfile_items, &$func_items, &$filesock_
 
 function show_next_step($step, $error_code) {
 	global $uchidden;
+
+	if(!empty($uchidden)) {//Check $uchidden from user, fix xss.
+		$uc_info_transfer = unserialize(urldecode($uchidden));
+		if(!isset($uc_info_transfer['ucapi']) && !isset($uc_info_transfer['ucfounderpw'])){
+			$uchidden = '';
+		}
+	}
+
 	echo "<form action=\"index.php\" method=\"post\">\n";
 	echo "<input type=\"hidden\" name=\"step\" value=\"$step\" />";
 	if(isset($GLOBALS['hidden'])) {
