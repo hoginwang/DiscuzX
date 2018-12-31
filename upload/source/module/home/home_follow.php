@@ -10,6 +10,11 @@ if(!defined('IN_DISCUZ')) {
 	exit('Access Denied');
 }
 
+if(!$_G['setting']['followstatus']) {
+	showmessage('follow_status_off');//提示信息
+	exit();
+}
+
 if(!$_G['uid']) {
 	showmessage('login_before_enter_home', null, array(), array('showmsg' => true, 'login' => 1));
 }

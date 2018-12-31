@@ -9,6 +9,12 @@
 if(!defined('IN_DISCUZ')) {
 	exit('Access Denied');
 }
+
+if(!$_G['setting']['followstatus']) {
+	showmessage('follow_status_off');//提示信息
+	exit();
+}
+
 $ops = array('add', 'del', 'bkname', 'checkfeed', 'relay', 'getfeed', 'delete', 'newthread');
 $op = in_array($_GET['op'], $ops) ? $_GET['op'] : '';
 

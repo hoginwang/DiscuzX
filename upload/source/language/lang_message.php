@@ -19,6 +19,7 @@ $lang = array (
   'quickclear_noperm' => '您没有权限进行此操作',
   'attachment_nonexistence' => '抱歉，该附件无法读取',
   'attachment_forum_nopermission' => '抱歉，只有特定用户可以下载本站附件',
+  'follow_status_off'  => '抱歉，广播功能尚未开启',
   'forum_not_group' => '该版块不是{_G/setting/navs/3/navname}',
   'forum_group_status_off' => '该{_G/setting/navs/3/navname}已关闭',
   'forum_group_noallowed' => '抱歉，您没有权限访问该{_G/setting/navs/3/navname}',
