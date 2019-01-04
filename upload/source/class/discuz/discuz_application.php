@@ -187,7 +187,7 @@ class discuz_application extends discuz_base{
 		if(defined('IN_NEWMOBILE')) {
 			$sitepath = preg_replace("/\/m/i", '', $sitepath);
 		}
-		$_G['isHTTPS'] = ($_SERVER['HTTPS'] && strtolower($_SERVER['HTTPS']) != 'off') ? true : false;
+		$_G['isHTTPS'] = $this->_is_https();
 		$_G['scheme'] = 'http'.($_G['isHTTPS'] ? 's' : '');
 		$_G['siteurl'] = dhtmlspecialchars($_G['scheme'].'://'.$_SERVER['HTTP_HOST'].$sitepath.'/');
 
@@ -378,6 +378,19 @@ class discuz_application extends discuz_base{
 
 		return true;
 	}
+
+    private function _is_https(){
+        if ($_SERVER["HTTP_X_SCHEME"] && strtolower($_SERVER["HTTP_X_SCHEME"]) == "https") {
+            return true;
+        }
+        if ($_SERVER["HTTP_X_FORWARDED_PROTO"] && strtolower($_SERVER["HTTP_X_FORWARDED_PROTO"]) == "https") {
+            return true;
+        }
+        if ($_SERVER['HTTPS'] && strtolower($_SERVER["HTTPS"]) != "off") {
+            return true;
+        }
+        return false;
+    }
 
 	private function _get_client_ip() {
 		$ip = $_SERVER['REMOTE_ADDR'];
