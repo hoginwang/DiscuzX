@@ -19,13 +19,13 @@ $photolist = array();
 $query = C::t('home_album')->fetch_all_by_uid($_G['uid'], false, 0, 0, $aid);
 $count = $query[0]['picnum'];
 $query = C::t('home_pic')->fetch_all_by_albumid($aid, $start_limit, $perpage, 0, 0, 1);
-foreach ($query as $value) {
-    $value['bigpic'] = pic_get($value['filepath'], 'album', $value['thumb'], $value['remote'], 0);
-    $value['pic'] = pic_get($value['filepath'], 'album', $value['thumb'], $value['remote']);
-    $value['count'] = $count;
-    $value['url'] = (strpos($value['bigpic'], '://') ? '' : $_G['siteurl']) . $value['bigpic'];
-    $value['thumburl'] = (strpos($value['pic'], '://') ? '' : $_G['siteurl']) . $value['pic'];
-    $photolist[] = $value;
+foreach($query as $value) {
+	$value['bigpic'] = pic_get($value['filepath'], 'album', $value['thumb'], $value['remote'], 0);
+	$value['pic'] = pic_get($value['filepath'], 'album', $value['thumb'], $value['remote']);
+	$value['count'] = $count;
+	$value['url'] = (preg_match('/^https?:\/\//is', $value['bigpic']) ? '' : $_G['siteurl']) . $value['bigpic'];
+	$value['thumburl'] = (preg_match('/^https?:\/\//is', $value['pic']) ? '' : $_G['siteurl']) . $value['pic'];
+	$photolist[] = $value;
 }
 $_GET['ajaxtarget'] = 'albumphoto';
 $multi = multi($count, $perpage, $page, "forum.php?mod=post&action=albumphoto&aid=$aid");
