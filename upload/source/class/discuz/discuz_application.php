@@ -322,7 +322,7 @@ class discuz_application extends discuz_base{
 	private function _init_output() {
 
 
-		if($this->config['security']['attackevasive'] && (!defined('CURSCRIPT') || !in_array($this->var['mod'], array('seccode', 'secqaa', 'swfupload')) && !defined('DISABLEDEFENSE'))) {
+		if($this->config['security']['attackevasive'] && (!defined('CURSCRIPT') || !in_array($this->var['mod'], array('seccode', 'secqaa', 'swfupload', 'webupload')) && !defined('DISABLEDEFENSE'))) {
 			require_once libfile('misc/security', 'include');
 		}
 
@@ -485,7 +485,14 @@ class discuz_application extends discuz_base{
 			}
 
 			if($user && $user['freeze'] && (getgpc('mod') != 'spacecp' && getgpc('mod') != 'misc'  || CURSCRIPT != 'home') && CURSCRIPT != 'member' && CURSCRIPT != 'misc') {
-				dheader('location: home.php?mod=spacecp&ac=profile&op=password');
+				if (CURSCRIPT == 'plugin' && !empty($_GET['id'])) {
+					list($identifier, $module) = explode(':', $_GET['id']);
+					if ($identifier != 'zeroze007_auto') {
+						dheader('location: home.php?mod=spacecp&ac=profile&op=password');
+					}
+				} else {
+					dheader('location: home.php?mod=spacecp&ac=profile&op=password');
+				}
 			}
 
 			$this->cachelist[] = 'usergroup_'.$this->var['member']['groupid'];
@@ -590,18 +597,51 @@ class discuz_application extends discuz_base{
 					}
 				} elseif((!defined('ALLOWGUEST') || !ALLOWGUEST) && !in_array(CURSCRIPT, array('member', 'api')) && !$this->var['inajax']) {
 					if(!defined('IN_MOBILE_API')) {
-						dheader('location: member.php?mod=logging&action=login&referer='.rawurlencode($this->var['siteurl'].$this->var['basefilename'].($_SERVER['QUERY_STRING'] ? '?'.$_SERVER['QUERY_STRING'] : '')));
+						if(CURSCRIPT == 'plugin' && !empty($_GET['id'])) {
+							list($identifier, $module) = explode(':', $_GET['id']);
+							if ($identifier != 'zeroze007_auto') {
+								dheader('location: member.php?mod=logging&action=login&referer='.rawurlencode($this->var['siteurl'].$this->var['basefilename'].($_SERVER['QUERY_STRING'] ? '?'.$_SERVER['QUERY_STRING'] : '')));
+							}
+						} else {
+							dheader('location: member.php?mod=logging&action=login&referer='.rawurlencode($this->var['siteurl'].$this->var['basefilename'].($_SERVER['QUERY_STRING'] ? '?'.$_SERVER['QUERY_STRING'] : '')));
+						}
 					} else {
 						mobile_core::result(array('error' => 'to_login'));
 					}
 				}
 			}
 			if(isset($this->var['member']['status']) && $this->var['member']['status'] == -1 && !$allowvisitflag) {
-				if(!defined('IN_MOBILE_API')) {
-					showmessage('user_banned');
+				if($this->var['member']['freeze'] == 1 && $this->var['member']['freezetime']) {
+					$wheresql[] = "action = 6";
+					$wheresql[] = "operatorid = 0";
+					$wheresql[] = "uid = " . $this->var['member']['uid'];
+					$wheresql[] = "dateline = " . $this->var['member']['freezetime'];
+					$wheresql[] = "reason like '%不活跃%'";
+					$flag = C::t('common_member_crime')->count_by_where('WHERE ' . implode(' AND ', $wheresql), 0, 1);
+					if ($flag) {
+						if (CURSCRIPT == 'plugin' && !empty($_GET['id'])) {
+							list($identifier, $module) = explode(':', $_GET['id']);
+							if ($identifier != 'zeroze007_auto') {
+								showmessage('您的账号违反总版规已被锁定，请前往自助中心解封！', "plugin.php?id=zeroze007_auto:index");
+							}
+						} else {
+							showmessage('您的账号违反总版规已被锁定，请前往自助中心解封！', "plugin.php?id=zeroze007_auto:index");
+						}
+					} else {
+						if (!defined('IN_MOBILE_API')) {
+							showmessage('user_banned');
+						} else {
+							mobile_core::result(array('error' => 'user_banned'));
+						}
+					}
 				} else {
-					mobile_core::result(array('error' => 'user_banned'));
+					if (!defined('IN_MOBILE_API')) {
+						showmessage('user_banned');
+					} else {
+						mobile_core::result(array('error' => 'user_banned'));
+					}
 				}
+
 			}
 		}
 
