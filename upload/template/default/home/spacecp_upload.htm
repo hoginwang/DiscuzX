@@ -51,7 +51,7 @@
 					<script type="text/javascript">
                         jq(function () {
                             var upload = new WEBUpload({
-                                server: "{$_G[siteurl]}misc.php?mod=webupload&action=webupload&operation=album",
+                                server: "{$_G[siteurl]}misc.php?mod=webupload&action=webupload&operation=album&formhash={FORMHASH}",
                                 formData: {"uid" : "$_G[uid]", "hash":"$swfconfig[hash]"},
                                 fileSingleSizeLimit: 1000 * $swfconfig[max],
                                 pick: $jq('#spanButtonPlaceholder'),

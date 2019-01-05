@@ -132,7 +132,7 @@
 	<script type="text/javascript">
 		jq(function () {
 			var attachUpload = new WEBUpload({
-				server: "{$_G[siteurl]}misc.php?mod=webupload&action=webupload&operation=<!--{if $_G['basescript'] == 'portal'}-->portal<!--{else}-->album<!--{/if}-->",
+				server: "{$_G[siteurl]}misc.php?mod=webupload&action=webupload&operation=<!--{if $_G['basescript'] == 'portal'}-->portal<!--{else}-->album<!--{/if}-->&formhash={FORMHASH}",
 				formData: {"uid" : "$_G[uid]", "hash":"$swfconfig[hash]"<!--{if $_G['basescript'] == 'portal'}-->,"aid":$aid,"catid":$catid<!--{/if}-->},
 				fileSingleSizeLimit: 1000 * $swfconfig[max],
 				pick: $('spanButtonPlaceholder'),
@@ -155,7 +155,7 @@
 				}
 			});
 			var upload = new WEBUpload({
-				server: "{$_G[siteurl]}misc.php?mod=webupload&action=webupload&operation=<!--{if $_G['basescript'] == 'portal'}-->portal<!--{else}-->album<!--{/if}-->",
+				server: "{$_G[siteurl]}misc.php?mod=webupload&action=webupload&operation=<!--{if $_G['basescript'] == 'portal'}-->portal<!--{else}-->album<!--{/if}-->&formhash={FORMHASH}",
 				formData: {"uid" : "$_G[uid]", "hash":"$swfconfig[hash]"<!--{if $_G['basescript'] == 'portal'}-->,"aid":$aid,"catid":$catid<!--{/if}-->},
 				fileSingleSizeLimit: 1000 * $swfconfig[max],
 				pick: $('spanButtonPlaceholder'),

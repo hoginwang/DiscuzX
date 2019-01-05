@@ -12,7 +12,7 @@ if(!defined('IN_DISCUZ')) {
 }
 
 $ac = empty($_GET['ac']) ? '' : $_GET['ac'];
-$acs = array('lostpasswd', 'swfupload', 'inputpwd', 'ajax', 'seccode', 'sendmail', 'emailcheck');
+$acs = array('lostpasswd', 'swfupload', 'webupload', 'inputpwd', 'ajax', 'seccode', 'sendmail', 'emailcheck');
 if(empty($ac) || !in_array($ac, $acs)) {
 	showmessage('enter_the_space', 'home.php?mod=space');
 }
