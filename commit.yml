@@ -3,21 +3,24 @@ branches: {
   }
 fileChange:
   /upload:
-    newFile: !uuid '552c51340fbf9ba1e5741951568baa0ab9073ba5'
-    oldFile: !uuid '19d166537f2df12ed9916382bef2b4eeeea613c1'
+    newFile: !uuid 'a5df08027c8d2e886ee5ac478f4863bbe23eb396'
+    oldFile: !uuid '552c51340fbf9ba1e5741951568baa0ab9073ba5'
   /upload/source:
-    newFile: !uuid 'db357a17dfc0951804ca14eef8b2c059feda3dd0'
-    oldFile: !uuid '0977474fcd856377df32b9ec2efa4797bd510cfa'
-  /upload/source/class:
-    newFile: !uuid '4d48a7f581b2b6350bfee95f83d45592e6eddbd9'
-    oldFile: !uuid '720370143c4cda44d7edeb7abb86872633ce197e'
-  /upload/source/class/discuz:
-    newFile: !uuid 'ffa8895b1374a2fe8dcbd52c7cf0cd933cca1ecc'
-    oldFile: !uuid 'a31f3951e7ec395b490ca57ad8c1ebe9070d331a'
-  /upload/source/class/discuz/discuz_application.php:
-    newFile: !uuid '93c7adb4c0569d94741f15023b5e0864fc3c29cd'
-    oldFile: !uuid '9c606a0f85d9e2a778f5b7cefdcbb52f11049551'
-gitCommitId: !uuid 'c52fcb89c2664b46f3da7a6cc5c66bab682d0ead'
+    newFile: !uuid '4248ab19146688b502931be8c1725f896a2288bd'
+    oldFile: !uuid 'db357a17dfc0951804ca14eef8b2c059feda3dd0'
+  /upload/source/plugin:
+    newFile: !uuid '7085956f59ec8ac9753e576c45a74c76c77b9e9e'
+    oldFile: !uuid '071a45bf65e4a055af39a72f8a855bb2d7a2147f'
+  /upload/source/plugin/wechat:
+    newFile: !uuid 'ca97b19155a7b3f75eec2650c351334520fed282'
+    oldFile: !uuid '27593e7af199ed7227a3d976dc12839ac5c3317b'
+  /upload/source/plugin/wechat/discuz_plugin_wechat.xml:
+    newFile: !uuid 'ab1f75d67a0c0938b837fb20eed178deb70c43bf'
+    oldFile: !uuid '4eb0761a35985aab719e9c5a66d99f6bcb50b961'
+  /upload/source/plugin/wechat/wechat.inc.php:
+    newFile: !uuid '87c4522b041c043a4514b7c5eaca24029177475a'
+    oldFile: !uuid '3de026891b5b748909543b0ac273776cef96c04b'
+gitCommitId: !uuid '360ce959a85897c11e17949003c400b526aa12fc'
 renames: {
   }
-revisionId: 304
+revisionId: 305
