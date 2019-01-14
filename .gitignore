@@ -8,3 +8,6 @@ upload/data/diy
 upload/data/log
 upload/data/template
 upload/data/sysdata
+upload/source/plugin/austgl_*
+upload/data/download
+upload/data/addonmd5/*.xml
