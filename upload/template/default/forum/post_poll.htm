@@ -94,7 +94,7 @@ function addUploadEvent(imgid, pollstr) {
 	<!--{if empty($_G['setting']['pluginhooks']['post_upload_extend']) && empty($_G['setting']['pluginhooks']['post_poll_upload_extend'])}-->
 		jq(function () {
             new WEBUpload({
-                server: "{$_G[siteurl]}misc.php?mod=webupload&action=webupload&operation=poll&fid=$_G[fid]",
+                server: "{$_G[siteurl]}misc.php?mod=webupload&action=webupload&operation=poll&fid=$_G[fid]&formhash={FORMHASH}",
                 formData: {"uid": "$_G[uid]", "hash": "$swfconfig[hash]"},
                 fileSingleSizeLimit: 1000 * 2048,
                 pick: $jq('#' + imgid),

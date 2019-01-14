@@ -270,7 +270,7 @@
 			jq(function () {
                 <!--{if $allowpostimg}-->
                 var imguploader = new WEBUpload({
-                    server: "{$_G[siteurl]}misc.php?mod=webupload&action=webupload&operation=upload&fid=$_G[fid]&attachtype=image",
+                    server: "{$_G[siteurl]}misc.php?mod=webupload&action=webupload&operation=upload&fid=$_G[fid]&attachtype=image&formhash={FORMHASH}",
                     formData: {"uid": "$_G[uid]", "hash": "$swfconfig[hash]", "attachtype": "image"},
                     fileSingleSizeLimit: 1000 * $swfconfig[max],
                     pick: $jq('#imgpicker'),
@@ -299,7 +299,7 @@
                 <!--{/if}-->
                 <!--{if $_G['group']['allowpostattach']}-->
                 var fileuploader = new WEBUpload({
-                    server: "{$_G[siteurl]}misc.php?mod=webupload&action=webupload&operation=upload&fid=$_G[fid]",
+                    server: "{$_G[siteurl]}misc.php?mod=webupload&action=webupload&operation=upload&fid=$_G[fid]&formhash={FORMHASH}",
                     formData: {"uid": "$_G[uid]", "hash": "$swfconfig[hash]"},
                     fileSingleSizeLimit: 1000 * $swfconfig[max],
                     pick: $jq('#filepicker'),

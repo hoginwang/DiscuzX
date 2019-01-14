@@ -116,7 +116,7 @@ if(submitcheck('albumsubmit') && helper_access::check_module('album')) {
 
 	cknewuser();
 
-	$config = urlencode($_G['siteroot'].'home.php?mod=misc&ac=swfupload&op=config'.($_GET['op'] == 'cam'? '&cam=1' : ''));
+	$config = urlencode($_G['siteroot'].'home.php?mod=misc&ac=webupload&op=config'.($_GET['op'] == 'cam'? '&cam=1' : ''));
 
 	$albums = getalbums($_G['uid']);
 

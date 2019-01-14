@@ -11,8 +11,8 @@ if(!defined('IN_MOBILE_API')) {
 	exit('Access Denied');
 }
 
-$_GET['mod'] = 'swfupload';
-$_GET['action'] = 'swfupload';
+$_GET['mod'] = 'webupload';
+$_GET['action'] = 'webupload';
 $_GET['operation'] = 'upload';
 include_once 'misc.php';
 

@@ -109,7 +109,7 @@ var fid = parseInt('$_G[fid]');
 						<script type="text/javascript">
                            jq(function () {
                                var fileuploader = new WEBUpload({
-                                   server: "{$_G[siteurl]}misc.php?mod=webupload&action=webupload&operation=upload&fid=$_G[fid]",
+                                   server: "{$_G[siteurl]}misc.php?mod=webupload&action=webupload&operation=upload&fid=$_G[fid]&formhash={FORMHASH}",
                                    formData: {"uid": "$_G[uid]", "hash": "$swfconfig[hash]"},
                                    fileSingleSizeLimit: 1000 * $swfconfig[max],
                                    pick: $jq('#spanButtonPlaceholder'),
