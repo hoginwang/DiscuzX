@@ -12,7 +12,6 @@ if(!defined('IN_DISCUZ')) {
 
 if(!$_G['setting']['followstatus']) {
 	showmessage('follow_status_off');//提示信息
-	exit();
 }
 
 $ops = array('add', 'del', 'bkname', 'checkfeed', 'relay', 'getfeed', 'delete', 'newthread');
