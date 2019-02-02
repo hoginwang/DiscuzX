@@ -168,5 +168,28 @@
 	</script>
 <!--{/if}-->
 <!--{eval output();}-->
+
+<script type="text/JavaScript" language="JavaScript" src="{$_G[setting][jspath]}transform.js?{VERHASH}"></script>
+<script src="{$_G[setting][jspath]}js.cookie.js?{VERHASH}"></script>
+	<script type="text/JavaScript" language="JavaScript">
+	var Convertor = new Convertor();
+	
+	function s2t(){
+		Cookies.set('lang', "zh-CHT");
+		document.body.innerHTML=Convertor.s2t();
+	}
+	function t2s(){
+		Cookies.set('lang', "zh-CHS");
+		document.body.innerHTML=Convertor.t2s();
+	}
+	
+	window.onload = function(){
+		if(Cookies.get('lang') == "zh-CHT"){
+			s2t();
+		} else {
+			t2s();
+		}
+	};
+	</script>
 </body>
 </html>
