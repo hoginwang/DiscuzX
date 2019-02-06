@@ -3,21 +3,18 @@ branches: {
   }
 fileChange:
   /upload:
-    newFile: !uuid '7f8fbb0ba8f64694bf379676a41da99905383fbf'
-    oldFile: !uuid 'a5df08027c8d2e886ee5ac478f4863bbe23eb396'
-  /upload/source:
-    newFile: !uuid 'b68bd3e8b7ace67d02d06ce91b3e365e982bfc61'
-    oldFile: !uuid '4248ab19146688b502931be8c1725f896a2288bd'
-  /upload/source/module:
-    newFile: !uuid '62c9436a98f4d0c45cd83439eb5bfefca4576041'
-    oldFile: !uuid '4eaaef2a42b271c29874c6ae1f76c61a2ce77b17'
-  /upload/source/module/forum:
-    newFile: !uuid '9156fbc07978815a1e92f0a9b1451bce6ce07760'
-    oldFile: !uuid 'eb97d68f0ba79a0a3ce25b8b6b491ac2cc23fb80'
-  /upload/source/module/forum/forum_misc.php:
-    newFile: !uuid 'bc3f1dc76f2eee1fd683c52b59613fd2081b6e23'
-    oldFile: !uuid '69b59ff964820f9c4e2050a17c162684d4ae3384'
-gitCommitId: !uuid '59c5645028b6659eb30069af7c9037628be97d29'
+    newFile: !uuid 'd419618e539e2e7a6067ee183a890f464af93dee'
+    oldFile: !uuid '7f8fbb0ba8f64694bf379676a41da99905383fbf'
+  /upload/static:
+    newFile: !uuid '42872a07dbd7101f54919d223d7e354cb8a61160'
+    oldFile: !uuid '7eecf105a9bcda47b57d651a0d30360a30a05e78'
+  /upload/static/js:
+    newFile: !uuid 'cddd8dbf07d4d800ba40e99e33af0a75c341b2ee'
+    oldFile: !uuid 'f1a620b8570709a230f38a63d6c4e846824965c4'
+  /upload/static/js/calendar.js:
+    newFile: !uuid 'f440cd99eb07fa8416751fe2a1df5fd3893de71d'
+    oldFile: !uuid 'de070120f4026974365f0bcabbe61e4276984eec'
+gitCommitId: !uuid 'f6253217b194d62a0e4f28d59ec316ba9918c056'
 renames: {
   }
-revisionId: 282
+revisionId: 283
