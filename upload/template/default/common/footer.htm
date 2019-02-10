@@ -182,12 +182,15 @@
 		Cookies.set('lang', "zh-CHS");
 		document.body.innerHTML=Convertor.t2s();
 	}
-	
+
 	window.onload = function(){
-		if(Cookies.get('lang') == "zh-CHT"){
-			s2t();
-		} else {
-			t2s();
+		mod = new URL(window.location.href).searchParams.get("mod");
+		if(mod !="post") {
+			if (Cookies.get('lang') == "zh-CHT") {
+				s2t();
+			} else {
+				t2s();
+			}
 		}
 	};
 	</script>
