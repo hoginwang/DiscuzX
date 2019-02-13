@@ -17,7 +17,7 @@
 		<!--{else}-->
 		<a href="home.php?mod=space&uid={$_G[uid]}&do=profile&mycenter=1">{$_G['member']['username']}</a> , <a href="member.php?mod=logging&action=logout&formhash={FORMHASH}" title="{lang logout}" class="dialog">{lang logout}</a> |
 		<!--{/if}-->
-		<li><a href="javascript:s2t()">繁</a> | <a href="javascript:t2s()">简</a></li>
+		<li><a href="javascript:s2t()">繝</a> | <a href="javascript:t2s()">简</a></li>
 	</div>
     <div>
 		<a href="{$_G['setting']['mobile']['simpletypeurl'][0]}">{lang no_simplemobiletype}</a> |  
@@ -42,13 +42,18 @@
 		Cookies.set('lang', "zh-CHS");
 		document.body.innerHTML=Convertor.t2s();
 	}
+	function clearAndReload() {
+		Cookies.remove('lang');
+		location.reload();
+	}
 
 	window.onload = function(){
 		mod = new URL(window.location.href).searchParams.get("mod");
 		if(mod !="post") {
-			if (Cookies.get('lang') == "zh-CHT") {
+			let lang = Cookies.get('lang');
+			if (lang == "zh-CHT") {
 				s2t();
-			} else {
+			} else if (lang == "zh-CHS") {
 				t2s();
 			}
 		}

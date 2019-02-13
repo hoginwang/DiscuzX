@@ -182,13 +182,18 @@
 		Cookies.set('lang', "zh-CHS");
 		document.body.innerHTML=Convertor.t2s();
 	}
+	function clearAndReload() {
+		Cookies.remove('lang');
+		location.reload();
+	}
 
 	window.onload = function(){
 		mod = new URL(window.location.href).searchParams.get("mod");
 		if(mod !="post") {
-			if (Cookies.get('lang') == "zh-CHT") {
+			let lang = Cookies.get('lang');
+			if (lang == "zh-CHT") {
 				s2t();
-			} else {
+			} else if (lang == "zh-CHS") {
 				t2s();
 			}
 		}

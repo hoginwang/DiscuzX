@@ -132,7 +132,7 @@
 						<!--{loop $_G['setting']['navs'] $nav}-->
 							<!--{if $nav['available'] && (!$nav['level'] || ($nav['level'] == 1 && $_G['uid']) || ($nav['level'] == 2 && $_G['adminid'] > 0) || ($nav['level'] == 3 && $_G['adminid'] == 1))}--><li {if $mnid == $nav[navid]}class="a" {/if}$nav[nav]></li><!--{/if}-->
 						<!--{/loop}-->
-						<li><a href="javascript:s2t()">繁</a> <a href="javascript:t2s()">简</a></li>
+						<li><a href="javascript:s2t()">繁</a> <a href="javascript:t2s()">简</a> <a href="javascript:clearAndReload()">清除简繁转换</a> </li>
 					</ul>
 					<!--{hook/global_nav_extra}-->
 				</div>
