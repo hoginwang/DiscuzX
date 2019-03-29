@@ -2,19 +2,10 @@
 branches: {
   }
 fileChange:
-  /upload:
-    newFile: !uuid 'd419618e539e2e7a6067ee183a890f464af93dee'
-    oldFile: !uuid '7f8fbb0ba8f64694bf379676a41da99905383fbf'
-  /upload/static:
-    newFile: !uuid '42872a07dbd7101f54919d223d7e354cb8a61160'
-    oldFile: !uuid '7eecf105a9bcda47b57d651a0d30360a30a05e78'
-  /upload/static/js:
-    newFile: !uuid 'cddd8dbf07d4d800ba40e99e33af0a75c341b2ee'
-    oldFile: !uuid 'f1a620b8570709a230f38a63d6c4e846824965c4'
-  /upload/static/js/calendar.js:
-    newFile: !uuid 'f440cd99eb07fa8416751fe2a1df5fd3893de71d'
-    oldFile: !uuid 'de070120f4026974365f0bcabbe61e4276984eec'
-gitCommitId: !uuid 'f6253217b194d62a0e4f28d59ec316ba9918c056'
+  /README.md:
+    newFile: !uuid 'f5e4cef80466fdec45ad5e0d95e4a11dff051d5b'
+    oldFile: !uuid 'ce50eb323dc3c4d34b46ce61b5aeeceebe8b1afc'
+gitCommitId: !uuid 'e7de484cea368e8cbd51e3e694c93870c99c3d81'
 renames: {
   }
-revisionId: 283
+revisionId: 284
