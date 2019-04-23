@@ -105,6 +105,7 @@ $_config['memory']['redis']['requirepass'] = '';
  * Redis::SERIALIZER_NONE =0 //则不使用serialize,即无法保存array
  */
 $_config['memory']['redis']['serializer'] = 1;
+$_config['memory']['redis']['db'] = 1;					//这里可以填写0到15的数字，每个站点使用不同的，redis默认是16个库，也可以增加库
 
 $_config['memory']['memcache']['server'] = '';			// memcache 服务器地址
 $_config['memory']['memcache']['port'] = 11211;			// memcache 服务器端口
