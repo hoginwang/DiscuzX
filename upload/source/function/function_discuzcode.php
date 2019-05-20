@@ -177,6 +177,10 @@ function discuzcode($message, $smileyoff = false, $bbcodeoff = false, $htmlon = 
 			$message = preg_replace("/\s?\[postbg\]\s*([^\[\<\r\n;'\"\?\(\)]+?)\s*\[\/postbg\]\s?/is", "", $message);
 		}
 
+		$message = preg_replace("/\[ruby=(.+?)\](.+?)\[\/ruby\]/is",
+			"<ruby><rb>\\2</rb><rp>（</rp><rt>\\1</rt><rp>）</rp>",
+			$message);
+
 		if($parsetype != 1) {
 			if(strpos($msglower, '[/quote]') !== FALSE) {
 				$message = preg_replace("/\s?\[quote\][\n\r]*(.+?)[\n\r]*\[\/quote\]\s?/is", tpl_quote(), $message);
@@ -545,11 +549,11 @@ function highlightword($text, $words, $prepend) {
 function parseflv($url, $width = 0, $height = 0) {
 	global $_G;
 	$lowerurl = strtolower($url);
-	$flv = $iframe = $imgurl = '';		
+	$flv = $iframe = $imgurl = '';
 	if(empty($_G['setting']['parseflv']) || !is_array($_G['setting']['parseflv'])) {
 		return FALSE;
 	}
-	
+
 	foreach($_G['setting']['parseflv'] as $script => $checkurl) {
 		$check = FALSE;
 		foreach($checkurl as $row) {
@@ -565,7 +569,7 @@ function parseflv($url, $width = 0, $height = 0) {
 			}
 			break;
 		}
-	}	    	
+	}
 	if($flv) {
 		if(!$width && !$height) {
 			return array('flv' => $flv, 'imgurl' => $imgurl);
