@@ -3,24 +3,27 @@ branches: {
   }
 fileChange:
   /upload:
-    newFile: !uuid '10c20140ff4241ba8b59d80e397c90208dd01511'
-    oldFile: !uuid '0cc78a0337ec6ca8e37a81d81310b4c264aea58b'
-  /upload/source:
-    newFile: !uuid 'dbff7c0e59ffd2ceb142733ad41467daee7577aa'
-    oldFile: !uuid '8d6824738c452a3e179aba3c083263c7dbe3c502'
-  /upload/source/admincp:
-    newFile: !uuid '6ceb237ba9f74c1fd7c4cfd1d62d90b71e665063'
-    oldFile: !uuid 'a8d37185c153a31cd59a29b27fd6f3a5b2da63ed'
-  /upload/source/admincp/admincp_cloudaddons.php:
-    newFile: !uuid '536721e8b5ae2671acc4fdc84ebf95dae602a829'
-    oldFile: !uuid '0842dc962df32f42a7b596eff21fa0e80fa493d3'
-  /upload/source/function:
-    newFile: !uuid '1ed405ca9b4e619ff1b632430321bc065b273230'
-    oldFile: !uuid '2f3b11d87320332d935704410e9dc2154f9d77a7'
-  /upload/source/function/function_cloudaddons.php:
-    newFile: !uuid '6f4ab013179a05d16121d4918c167f15b4900a41'
-    oldFile: !uuid 'cf20bf1bda8389931c898775034d4ccef3cf75fe'
-gitCommitId: !uuid '8c324246636469298da9a799142e53f53f65b164'
+    newFile: !uuid '986b611a323187d19ba67a46989cc9afa7918ff3'
+    oldFile: !uuid '10c20140ff4241ba8b59d80e397c90208dd01511'
+  /upload/install:
+    newFile: !uuid '6e7d9c2a100292249f3185cae1f0440f12aabf26'
+    oldFile: !uuid '6025bed013f432dd91f60c1855884b5216fb79cf'
+  /upload/install/data:
+    newFile: !uuid 'f6d0a9cedde4f7f4f3c0e2ab4520b92ebe418ce0'
+    oldFile: !uuid '095f3241d94b06d8fd1cd39a94e1c1578f9db362'
+  /upload/install/data/install.sql:
+    newFile: !uuid '571809f1a241374c290d15fa4c8122b3dae7a970'
+    oldFile: !uuid '400fdc51f89da5ad0d81f98aa57eb3b2c1f63edf'
+  /upload/uc_server:
+    newFile: !uuid '6f3905b7736db14ae568bb15ed9c4b70174a20c2'
+    oldFile: !uuid '1baa9975ee6129022f64762388d87c885d2152d1'
+  /upload/uc_server/install:
+    newFile: !uuid '3f515b7a59531dcd9f7c8c8e07b3c1947b129b2b'
+    oldFile: !uuid 'e141129e5b458da43f953294fc70dcaad613ba6a'
+  /upload/uc_server/install/uc.sql:
+    newFile: !uuid 'd1d7a7a126e3492aa72b87b039b014eb5312ac9a'
+    oldFile: !uuid '0cfd1c8991d3e94e1970890e32cf343073396ac0'
+gitCommitId: !uuid 'd38dd9a1ba3d259aa5602a087ea4c833e103c137'
 renames: {
   }
-revisionId: 327
+revisionId: 328
