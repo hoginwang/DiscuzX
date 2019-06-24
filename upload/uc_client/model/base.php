@@ -51,14 +51,18 @@ class base {
 		$xip = getenv('HTTP_X_FORWARDED_FOR');
 		$rip = getenv('REMOTE_ADDR');
 		$srip = $_SERVER['REMOTE_ADDR'];
-		if($cip && strcasecmp($cip, 'unknown')) {
-			$this->onlineip = $cip;
-		} elseif($xip && strcasecmp($xip, 'unknown')) {
-			$this->onlineip = $xip;
-		} elseif($rip && strcasecmp($rip, 'unknown')) {
-			$this->onlineip = $rip;
-		} elseif($srip && strcasecmp($srip, 'unknown')) {
+		if (defined('UC_ONLYREMOTEADDR') && constant('UC_ONLYREMOTEADDR')==true) {
 			$this->onlineip = $srip;
+		} else {
+			if($cip && strcasecmp($cip, 'unknown')) {
+				$this->onlineip = $cip;
+			} elseif($xip && strcasecmp($xip, 'unknown')) {
+				$this->onlineip = $xip;
+			} elseif($rip && strcasecmp($rip, 'unknown')) {
+				$this->onlineip = $rip;
+			} elseif($srip && strcasecmp($srip, 'unknown')) {
+				$this->onlineip = $srip;
+			}
 		}
 		preg_match("/[\d\.]{7,15}/", $this->onlineip, $match);
 		$this->onlineip = $match[0] ? $match[0] : 'unknown';
