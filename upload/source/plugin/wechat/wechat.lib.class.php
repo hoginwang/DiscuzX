@@ -9,7 +9,7 @@
 if (!defined('IN_DISCUZ')) {
 	exit('Access Denied');
 }
-
+ 
 class WeChatServer {
 
 	private $_token;
