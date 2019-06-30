@@ -26,7 +26,7 @@ class discuz_process
 	private static function _status($action, $process) {
 		static $plist = array();
 		switch ($action) {
-			case 'set' : $plist[$process] = true; break;
+			case 'add' : $plist[$process] = true; break;
 			case 'get' : return !empty($plist[$process]); break;
 			case 'rm' : $plist[$process] = null; break;
 			case 'clear' : $plist = array(); break;
@@ -37,20 +37,23 @@ class discuz_process
 	private static function _find($name, $ttl) {
 
 		if(!discuz_process::_cmd('get', $name)) {
-			discuz_process::_cmd('set', $name, $ttl);
-			$ret = false;
+			if(discuz_process::_cmd('add', $name, $ttl) == true) {
+				$ret = false;
+			} else {
+				$ret = true;
+			}
 		} else {
 			$ret = true;
 		}
-		discuz_process::_status('set', $name);
+		discuz_process::_status('add', $name);
 		return $ret;
 	}
 
 	private static function _cmd($cmd, $name, $ttl = 0) {
 		static $allowmem;
 		if($allowmem === null) {
-			$mc = memory('check');
-			$allowmem = $mc == 'memcache' || $mc == 'redis';
+			$mc = strtolower(memory('check'));
+			$allowmem = $mc == 'memcache' || $mc == 'redis' || $mc == 'memcached';
 		}
 		if($allowmem) {
 			return discuz_process::_process_cmd_memory($cmd, $name, $ttl);
@@ -62,8 +65,8 @@ class discuz_process
 	private static function _process_cmd_memory($cmd, $name, $ttl = 0) {
 		$ret = '';
 		switch ($cmd) {
-			case 'set' :
-				$ret = memory('set', 'process_lock_'.$name, time(), $ttl);
+			case 'add' :
+				$ret = memory('add', 'process_lock_'.$name, time(), $ttl);
 				break;
 			case 'get' :
 				$ret = memory('get', 'process_lock_'.$name);
@@ -77,8 +80,8 @@ class discuz_process
 	private static function _process_cmd_db($cmd, $name, $ttl = 0) {
 		$ret = '';
 		switch ($cmd) {
-			case 'set':
-				$ret = C::t('common_process')->insert(array('processid' => $name, 'expiry' => time() + $ttl), FALSE, true);
+			case 'add':
+				$ret = C::t('common_process')->insert($name, (time() + $ttl));
 				break;
 			case 'get':
 				$ret = C::t('common_process')->fetch($name);
