@@ -341,6 +341,10 @@ if($action == 'shop') {
 			$useperoid = magic_peroid($magic, $_G['uid']);
 
 			if(submitcheck('usesubmit')) {
+				if(discuz_process::islocked('magiclock_'.$_G['uid'].'_'.$magicid)){
+					showmessage('magics_locked','');
+				}
+
 				if($useperoid !== true && $useperoid <= 0) {
 					showmessage('magics_outofperoid_'.$magic['useperoid'], '', array('usenum' => $magic['usenum']));
 				}

@@ -212,6 +212,8 @@ function updatemagiclog($magicid, $action, $amount, $price, $targetuid = 0, $idt
 			'targetuid' => $targetuid
 		);
 	C::t('common_magiclog')->insert($data);
+	
+	discuz_process::unlock('magiclock_'.$_G['uid'].'_'.$magicid);
 }
 
 

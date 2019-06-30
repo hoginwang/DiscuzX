@@ -394,6 +394,9 @@ class task {
 		}
 
 		if($result === TRUE) {
+			if(discuz_process::islocked('task_'.$_G['uid'].'_'.$id)){
+				showmessage('task_locked', 'home.php?mod=task&do=view&id='.$id);
+			}
 
 			if($this->task['reward']) {
 				$rewards = $this->reward();
@@ -429,6 +432,8 @@ class task {
 
 			C::t('common_mytask')->update($_G['uid'], $id, array('status' => 1, 'csc' => 100, 'dateline' => $_G['timestamp']));
 			C::t('common_task')->update_achievers($id, 1);
+
+			discuz_process::unlock('task_'.$_G['uid'].'_'.$id);
 
 			if($_G['inajax']) {
 				$this->message('100', $this->task['reward'] ? 'task_reward_'.$this->task['reward'] : 'task_completed', array(
