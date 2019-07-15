@@ -738,7 +738,7 @@ class discuz_application extends discuz_base{
 			return false;
 		}
 
-		if(!$this->var['setting'] || !$this->var['setting']['mobile']['allowmobile'] || !is_array($this->var['setting']['mobile']) || IS_ROBOT) {
+		if(!$this->var['setting'] || !$this->var['setting']['mobile']['allowmobile'] || !is_array($this->var['setting']['mobile'])) {
 			$nomobile = true;
 			$unallowmobile = true;
 		}
@@ -762,12 +762,6 @@ class discuz_application extends discuz_base{
 		}
 		if(!$mobile || $mobile == 'yes') {
 			$mobile = isset($mobile_) ? $mobile_ : 2;
-		}
-
-		if(!$this->var['mobile'] && !$unallowmobile) {
-			if($mobileflag) {
-				dheader("Location:misc.php?mod=mobile");
-			}
 		}
 
 		if($nomobile || (!$this->var['setting']['mobile']['mobileforward'] && !$mobileflag)) {
