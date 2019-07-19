@@ -219,27 +219,6 @@ function checkImage(url) {
 	return url.match(re);
 }
 
-function quick_validate(obj) {
-	if($('seccode')) {
-		var code = $('seccode').value;
-		var x = new Ajax();
-		x.get('cp.php?ac=common&op=seccode&code=' + code, function(s){
-			s = trim(s);
-			if(s != 'succeed') {
-				alert(s);
-				$('seccode').focus();
-		   		return false;
-			} else {
-				obj.form.submit();
-				return true;
-			}
-		});
-	} else {
-		obj.form.submit();
-		return true;
-	}
-}
-
 function stopMusic(preID, playerID) {
 	var musicFlash = preID.toString() + '_' + playerID.toString();
 	if($(musicFlash)) {
