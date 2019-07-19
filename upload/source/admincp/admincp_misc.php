@@ -706,7 +706,7 @@ EOT;
 
 		if(is_array($_GET['find'])) {
 			foreach($_GET['find'] as $id => $val) {
-				$id = is_int($id) ? $id : 0;
+				$id = is_numeric($id) ? $id : 0;
 				$_GET['find'][$id]  = $val = trim(str_replace('=', '', $_GET['find'][$id]));
 				if(strlen($val) < 3) {
 					cpmsg('censor_keywords_tooshort', '', 'error');
@@ -716,7 +716,7 @@ EOT;
 				DB::update('common_word', array(
 					'find' => str_replace("\\", "\\\\", addslashes($_GET['find'][$id])),
 					'replacement' => addslashes($_GET['replace'][$id]),
-					'type' => is_int($_GET['wordtype_select'][$id]) ? $_GET['wordtype_select'][$id] : 0,
+					'type' => is_numeric($_GET['wordtype_select'][$id]) ? $_GET['wordtype_select'][$id] : 0,
 				), "id='$id' AND ('{$_G['adminid']}'='1' OR admin='{$_G['username']}')");
 			}
 		}
