@@ -737,14 +737,6 @@ function resend_mail(mid) {
 	}
 }
 
-function userapp_delete(id, result) {
-	if(result) {
-		var ids = explode('_', id);
-		var appid = ids[1];
-		$('space_app_'+appid).style.display = "none";
-	}
-}
-
 function docomment_get(doid, key) {
 	var showid = key + '_' + doid;
 	var opid = key + '_do_a_op_'+doid;
