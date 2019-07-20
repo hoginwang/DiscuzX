@@ -57,6 +57,7 @@ var disablepostctrl = parseInt('{$_G['group']['disablepostctrl']}');
 								<!--{else}-->
 									{lang connect_fill_profile_to_post}
 								<!--{/if}-->
+								<!--{elseif $_G['forum_thread']['closed'] == 1}--> {lang no_closed_to_post}
 							<!--{else}-->
 								{lang no_permission_to_post}<a href="javascript:;" onclick="$('fastpostform').submit()" class="xi2">{lang click_to_show_reason}</a>
 							<!--{/if}-->
