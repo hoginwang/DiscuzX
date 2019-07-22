@@ -393,7 +393,7 @@ class discuz_application extends discuz_base{
 					$exp = explode(",", $_SERVER['HTTP_X_FORWARDED_FOR']);
 					$ip = $this->_validate_ip(trim($exp[0])) ? $exp[0] : $ip;
 				} else {
-					$ip = validate_ip($_SERVER['HTTP_X_FORWARDED_FOR']) ? $_SERVER['HTTP_X_FORWARDED_FOR'] : $ip;
+					$ip = $this->validate_ip($_SERVER['HTTP_X_FORWARDED_FOR']) ? $_SERVER['HTTP_X_FORWARDED_FOR'] : $ip;
 				}
 			}
 		}
