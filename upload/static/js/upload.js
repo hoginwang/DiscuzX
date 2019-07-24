@@ -1031,13 +1031,6 @@ function disableMultiUpload(obj) {
 				if(typeof forum_post_inited == 'undefined') {
 					appendscript(JSPATH + 'forum_post.js?' + VERHASH);
 				}
-				var idArr = dIdStr.split("|");
-				$(idArr[0]).style.display = 'none';
-				if(idArr[1] == 'local') {
-					switchImagebutton('local');
-				} else if(idArr[1] == 'upload') {
-					switchAttachbutton('upload');
-				}
 			}
 		} catch (e) {
 		}
