@@ -1483,6 +1483,7 @@ CSS 写作注意事项：
 
 /* 上传按钮 */
 .uploadbtn { width: 100px; height: 25px; background: url({STATICURL}image/common/uploadbutton.png) no-repeat; text-indent: -9999px; line-height: 25px; overflow: hidden; cursor: pointer; }
+.uploadbtn:hover { background-position: 0px -25px; }
 
 /*
 	Name:			mod_flashupload
