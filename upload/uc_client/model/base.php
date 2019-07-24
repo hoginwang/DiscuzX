@@ -52,16 +52,16 @@ class base {
 	function init_var() {
 		$this->time = time();
 
-		$ip = $_SERVER['REMOTE_ADDR'];
-		if (defined('UC_ONLYREMOTEADDR') && !constant('UC_ONLYREMOTEADDR')) {
-			if (isset($_SERVER['HTTP_CLIENT_IP']) && validate_ip($_SERVER['HTTP_CLIENT_IP'])) {
-				$ip = $_SERVER['HTTP_CLIENT_IP'];
+		$this->onlineip = $_SERVER['REMOTE_ADDR'];
+		if (!defined('UC_ONLYREMOTEADDR') || (defined('UC_ONLYREMOTEADDR') && !constant('UC_ONLYREMOTEADDR'))) {
+			if (isset($_SERVER['HTTP_CLIENT_IP']) && $this->validate_ip($_SERVER['HTTP_CLIENT_IP'])) {
+				$this->onlineip = $_SERVER['HTTP_CLIENT_IP'];
 			} elseif(isset($_SERVER['HTTP_X_FORWARDED_FOR'])) {
 				if (strpos($_SERVER['HTTP_X_FORWARDED_FOR'], ",") > 0) {
 					$exp = explode(",", $_SERVER['HTTP_X_FORWARDED_FOR']);
-					$ip = validate_ip(trim($exp[0])) ? $exp[0] : $ip;
+					$this->onlineip = $this->validate_ip(trim($exp[0])) ? $exp[0] : $this->onlineip;
 				} else {
-					$ip = validate_ip($_SERVER['HTTP_X_FORWARDED_FOR']) ? $_SERVER['HTTP_X_FORWARDED_FOR'] : $ip;
+					$this->onlineip = $this->validate_ip($_SERVER['HTTP_X_FORWARDED_FOR']) ? $_SERVER['HTTP_X_FORWARDED_FOR'] : $this->onlineip;
 				}
 			}
 		}
