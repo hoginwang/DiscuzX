@@ -533,17 +533,26 @@ class register_ctl {
 				checkemail($_GET['email']);
 			}
 			if($sendurl) {
-				$hashstr = urlencode(authcode("$_GET[email]\t$_G[timestamp]", 'ENCODE', $_G['config']['security']['authkey']));
-				$registerurl = "{$_G[siteurl]}member.php?mod=".$this->setting['regname']."&amp;hash={$hashstr}&amp;email={$_GET[email]}";
-				$email_register_message = lang('email', 'email_register_message', array(
-					'bbname' => $this->setting['bbname'],
-					'siteurl' => $_G['siteurl'],
-					'url' => $registerurl
-				));
-				if(!sendmail("$_GET[email] <$_GET[email]>", lang('email', 'email_register_subject'), $email_register_message)) {
-					runlog('sendmail', "$_GET[email] sendmail failed.");
+				$sendmailact = getcookie('sendmailact');
+				$sendmailact = empty($sendmailact) ? true : (TIMESTAMP - $sendmailact) > 30;
+
+				if(!$sendmailact) {
+					showmessage('send_mail_waiting', dreferer(), array('bbname' => $this->setting['bbname']), array('showdialog' => false, 'msgtype' => 3, 'closetime' => 10));
 				}
-				showmessage('register_email_send_succeed', dreferer(), array('bbname' => $this->setting['bbname']), array('showdialog' => false, 'msgtype' => 3, 'closetime' => 10));
+				else {
+					$hashstr = urlencode(authcode("$_GET[email]\t$_G[timestamp]", 'ENCODE', $_G['config']['security']['authkey']));
+					$registerurl = "{$_G[siteurl]}member.php?mod=".$this->setting['regname']."&amp;hash={$hashstr}&amp;email={$_GET[email]}";
+					$email_register_message = lang('email', 'email_register_message', array(
+						'bbname' => $this->setting['bbname'],
+						'siteurl' => $_G['siteurl'],
+						'url' => $registerurl
+					));
+					if(!sendmail("$_GET[email] <$_GET[email]>", lang('email', 'email_register_subject'), $email_register_message)) {
+						runlog('sendmail', "$_GET[email] sendmail failed.");
+					}
+					dsetcookie('sendmailact', TIMESTAMP, '300');
+					showmessage('register_email_send_succeed', dreferer(), array('bbname' => $this->setting['bbname']), array('showdialog' => false, 'msgtype' => 3, 'closetime' => 10));
+				}
 			}
 			$emailstatus = 0;
 			if($this->setting['sendregisterurl'] && !$sendurl) {

@@ -833,7 +833,7 @@ $lang = array (
   'profile_passwd_wrong' => '原密码不正确，您不能修改密码或 Email 或安全提问',
   'profile_email_verify' => '确认 Email 已发送，请用邮件中提供的方法激活您的帐号。如果您尚未收到我们发送的系统邮件，请点击密码安全中的“重新接收验证邮件”，或尝试更换另外一个地址',
   'profile_succeed' => '个人资料保存成功 ',
-  'send_mail_waiting' => '系统已给您发送了一封邮件，请登录邮箱查收。如果您没有收到，可检查垃圾邮件箱，或稍等 30 秒后重试',
+  'send_mail_waiting' => '系统已给您发送了一封邮件，请登录邮箱查收。如果您没有收到，可检查垃圾邮件箱，或稍等 30 秒后重试', 
   'send_activate_mail_succeed' => '邮件已发送，可能需要几分钟后才能收到邮件',
   'send_activate_mail_error' => '抱歉，邮件发送失败，请过5分钟后重试发送验证激活邮件',
 
