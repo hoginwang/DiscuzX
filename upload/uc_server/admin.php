@@ -13,6 +13,73 @@ if(function_exists('set_magic_quotes_runtime')) {
 	set_magic_quotes_runtime(0);
 }
 
+if(!function_exists('daddslashes')) {
+    function daddslashes($string, $force = 0, $strip = FALSE) {
+        if(!MAGIC_QUOTES_GPC || $force) {
+            if(is_array($string)) {
+                foreach($string as $key => $val) {
+                    $string[$key] = daddslashes($val, $force, $strip);
+                }
+            } else {
+                $string = addslashes($strip ? stripslashes($string) : $string);
+            }
+        }
+        return $string;
+    }
+}
+if(!function_exists('getgpc')) {
+    function getgpc($k, $t='R') {
+        switch($t) {
+            case 'P': $var = &$_POST; break;
+            case 'G': $var = &$_GET; break;
+            case 'C': $var = &$_COOKIE; break;
+            case 'R': $var = &$_REQUEST; break;
+        }
+        return isset($var[$k]) ? (is_array($var[$k]) ? $var[$k] : trim($var[$k])) : NULL;
+    }
+}
+if(!function_exists('fsocketopen')) {
+    function fsocketopen($hostname, $port = 80, &$errno, &$errstr, $timeout = 15) {
+        $fp = '';
+        if(function_exists('fsockopen')) {
+            $fp = @fsockopen($hostname, $port, $errno, $errstr, $timeout);
+        } elseif(function_exists('pfsockopen')) {
+            $fp = @pfsockopen($hostname, $port, $errno, $errstr, $timeout);
+        } elseif(function_exists('stream_socket_client')) {
+            $fp = @stream_socket_client($hostname.':'.$port, $errno, $errstr, $timeout);
+        }
+        return $fp;
+    }
+}
+if(!function_exists('dhtmlspecialchars')) {
+    function dhtmlspecialchars($string, $flags = null) {
+        if(is_array($string)) {
+            foreach($string as $key => $val) {
+                $string[$key] = dhtmlspecialchars($val, $flags);
+            }
+        } else {
+            if($flags === null) {
+                $string = str_replace(array('&', '"', '<', '>'), array('&amp;', '&quot;', '&lt;', '&gt;'), $string);
+                if(strpos($string, '&amp;#') !== false) {
+                    $string = preg_replace('/&amp;((#(\d{3,5}|x[a-fA-F0-9]{4}));)/', '&\\1', $string);
+                }
+            } else {
+                if(PHP_VERSION < '5.4.0') {
+                    $string = htmlspecialchars($string, $flags);
+                } else {
+                    if(strtolower(CHARSET) == 'utf-8') {
+                        $charset = 'UTF-8';
+                    } else {
+                        $charset = 'ISO-8859-1';
+                    }
+                    $string = htmlspecialchars($string, $flags, $charset);
+                }
+            }
+        }
+        return $string;
+    }
+}
+
 $mtime = explode(' ', microtime());
 $starttime = $mtime[1] + $mtime[0];
 
@@ -63,66 +130,4 @@ if(in_array($m, array('admin', 'app', 'badword', 'cache', 'db', 'domain', 'frame
 
 $mtime = explode(' ', microtime());
 $endtime = $mtime[1] + $mtime[0];
-
-function daddslashes($string, $force = 0, $strip = FALSE) {
-	if(!MAGIC_QUOTES_GPC || $force) {
-		if(is_array($string)) {
-			foreach($string as $key => $val) {
-				$string[$key] = daddslashes($val, $force, $strip);
-			}
-		} else {
-			$string = addslashes($strip ? stripslashes($string) : $string);
-		}
-	}
-	return $string;
-}
-
-function getgpc($k, $t='R') {
-	switch($t) {
-		case 'P': $var = &$_POST; break;
-		case 'G': $var = &$_GET; break;
-		case 'C': $var = &$_COOKIE; break;
-		case 'R': $var = &$_REQUEST; break;
-	}
-	return isset($var[$k]) ? (is_array($var[$k]) ? $var[$k] : trim($var[$k])) : NULL;
-}
-
-function fsocketopen($hostname, $port = 80, &$errno, &$errstr, $timeout = 15) {
-	$fp = '';
-	if(function_exists('fsockopen')) {
-		$fp = @fsockopen($hostname, $port, $errno, $errstr, $timeout);
-	} elseif(function_exists('pfsockopen')) {
-		$fp = @pfsockopen($hostname, $port, $errno, $errstr, $timeout);
-	} elseif(function_exists('stream_socket_client')) {
-		$fp = @stream_socket_client($hostname.':'.$port, $errno, $errstr, $timeout);
-	}
-	return $fp;
-}
-
-function dhtmlspecialchars($string, $flags = null) {
-	if(is_array($string)) {
-		foreach($string as $key => $val) {
-			$string[$key] = dhtmlspecialchars($val, $flags);
-		}
-	} else {
-		if($flags === null) {
-			$string = str_replace(array('&', '"', '<', '>'), array('&amp;', '&quot;', '&lt;', '&gt;'), $string);
-			if(strpos($string, '&amp;#') !== false) {
-				$string = preg_replace('/&amp;((#(\d{3,5}|x[a-fA-F0-9]{4}));)/', '&\\1', $string);
-			}
-		} else {
-			if(PHP_VERSION < '5.4.0') {
-				$string = htmlspecialchars($string, $flags);
-			} else {
-				if(strtolower(CHARSET) == 'utf-8') {
-					$charset = 'UTF-8';
-				} else {
-					$charset = 'ISO-8859-1';
-				}
-				$string = htmlspecialchars($string, $flags, $charset);
-			}
-		}
-	}
-	return $string;
-}
 ?>

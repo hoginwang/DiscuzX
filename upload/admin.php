@@ -44,7 +44,7 @@ $operation = preg_replace('/[^\[A-Za-z0-9_\]]/', '', getgpc('operation'));
 $do = preg_replace('/[^\[A-Za-z0-9_\]]/', '', getgpc('do'));
 $frames = preg_replace('/[^\[A-Za-z0-9_\]]/', '', getgpc('frames'));
 lang('admincp');
-$lang = & $_G['lang']['admincp'];
+$lang = $_G['lang']['admincp'];
 $page = max(1, intval(getgpc('page')));
 $isfounder = $admincp->isfounder;
 
