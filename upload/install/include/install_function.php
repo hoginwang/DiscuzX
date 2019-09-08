@@ -25,15 +25,15 @@ function show_msg($error_no, $error_msg = 'ok', $success = 1, $quit = TRUE) {
 		show_header();
 		global $step;
 
-		$title = lang($error_no);
-		$comment = lang($error_no.'_comment', false);
+		$title = lang_install($error_no);
+		$comment = lang_install($error_no.'_comment', false);
 		$errormsg = '';
 
 		if($error_msg) {
 			if(!empty($error_msg)) {
 				foreach ((array)$error_msg as $k => $v) {
 					if(is_numeric($k)) {
-						$comment .= "<li><em class=\"red\">".lang($v)."</em></li>";
+						$comment .= "<li><em class=\"red\">".lang_install($v)."</em></li>";
 					}
 				}
 			}
@@ -46,10 +46,10 @@ function show_msg($error_no, $error_msg = 'ok', $success = 1, $quit = TRUE) {
 		}
 
 		if($quit) {
-			echo '<br /><span class="red">'.lang('error_quit_msg').'</span><br /><br /><br />';
+			echo '<br /><span class="red">'.lang_install('error_quit_msg').'</span><br /><br /><br />';
 		}
 
-		echo '<input type="button" onclick="history.back()" value="'.lang('click_to_back').'" /><br /><br /><br />';
+		echo '<input type="button" onclick="history.back()" value="'.lang_install('click_to_back').'" /><br /><br /><br />';
 
 		echo '</div>';
 
@@ -169,23 +169,24 @@ function function_check(&$func_items) {
 		function_exists($item) or show_msg('undefine_func', $item, 0);
 	}
 }
-
-function dintval($int, $allowarray = false) {
-	$ret = floatval($int);
-	if($int == $ret || !$allowarray && is_array($int)) return $ret;
-	if($allowarray && is_array($int)) {
-		foreach($int as &$v) {
-			$v = dintval($v, true);
-		}
-		return $int;
-	} elseif($int <= 0xffffffff) {
-		$l = strlen($int);
-		$m = substr($int, 0, 1) == '-' ? 1 : 0;
-		if(($l - $m) === strspn($int,'0987654321', $m)) {
-			return $int;
-		}
-	}
-	return $ret;
+if (!function_exists('dintval')) {
+    function dintval($int, $allowarray = false) {
+        $ret = floatval($int);
+        if($int == $ret || !$allowarray && is_array($int)) return $ret;
+        if($allowarray && is_array($int)) {
+            foreach($int as &$v) {
+                $v = dintval($v, true);
+            }
+            return $int;
+        } elseif($int <= 0xffffffff) {
+            $l = strlen($int);
+            $m = substr($int, 0, 1) == '-' ? 1 : 0;
+            if(($l - $m) === strspn($int,'0987654321', $m)) {
+                return $int;
+            }
+        }
+        return $ret;
+    }
 }
 function show_env_result(&$env_items, &$dirfile_items, &$func_items, &$filesock_items) {
 
@@ -218,9 +219,9 @@ function show_env_result(&$env_items, &$dirfile_items, &$func_items, &$filesock_
 			$env_str .= "\t\t<runCondition name=\"$key\" status=\"$status\" Require=\"$item[r]\" Best=\"$item[b]\" Current=\"$item[current]\"/>\n";
 		} else {
 			$env_str .= "<tr>\n";
-			$env_str .= "<td>".lang($key)."</td>\n";
-			$env_str .= "<td class=\"padleft\">".lang($item['r'])."</td>\n";
-			$env_str .= "<td class=\"padleft\">".lang($item['b'])."</td>\n";
+			$env_str .= "<td>".lang_install($key)."</td>\n";
+			$env_str .= "<td class=\"padleft\">".lang_install($item['r'])."</td>\n";
+			$env_str .= "<td class=\"padleft\">".lang_install($item['b'])."</td>\n";
 			$env_str .= ($status ? "<td class=\"w pdleft1\">" : "<td class=\"nw pdleft1\">").$item['current']."</td>\n";
 			$env_str .= "</tr>\n";
 		}
@@ -237,15 +238,15 @@ function show_env_result(&$env_items, &$dirfile_items, &$func_items, &$filesock_
 			$$variable .= "\t\t\t<File name=\"$item[path]\" status=\"$item[status]\" requirePermisson=\"+r+w\" currentPermisson=\"$item[current]\" />\n";
 		} else {
 			$$variable .= "<tr>\n";
-			$$variable .= "<td>$item[path]</td><td class=\"w pdleft1\">".lang('writeable')."</td>\n";
+			$$variable .= "<td>$item[path]</td><td class=\"w pdleft1\">".lang_install('writeable')."</td>\n";
 			if($item['status'] == 1) {
-				$$variable .= "<td class=\"w pdleft1\">".lang('writeable')."</td>\n";
+				$$variable .= "<td class=\"w pdleft1\">".lang_install('writeable')."</td>\n";
 			} elseif($item['status'] == -1) {
 				$error_code = ENV_CHECK_ERROR;
-				$$variable .= "<td class=\"nw pdleft1\">".lang('nodir')."</td>\n";
+				$$variable .= "<td class=\"nw pdleft1\">".lang_install('nodir')."</td>\n";
 			} else {
 				$error_code = ENV_CHECK_ERROR;
-				$$variable .= "<td class=\"nw pdleft1\">".lang('unwriteable')."</td>\n";
+				$$variable .= "<td class=\"nw pdleft1\">".lang_install('unwriteable')."</td>\n";
 			}
 			$$variable .= "</tr>\n";
 		}
@@ -274,23 +275,23 @@ function show_env_result(&$env_items, &$dirfile_items, &$func_items, &$filesock_
 
 		show_header();
 
-		echo "<h2 class=\"title\">".lang('env_check')."</h2>\n";
+		echo "<h2 class=\"title\">".lang_install('env_check')."</h2>\n";
 		echo "<table class=\"tb\" style=\"margin:20px 0 20px 55px;\">\n";
 		echo "<tr>\n";
-		echo "\t<th>".lang('project')."</th>\n";
-		echo "\t<th class=\"padleft\">".lang('ucenter_required')."</th>\n";
-		echo "\t<th class=\"padleft\">".lang('ucenter_best')."</th>\n";
-		echo "\t<th class=\"padleft\">".lang('curr_server')."</th>\n";
+		echo "\t<th>".lang_install('project')."</th>\n";
+		echo "\t<th class=\"padleft\">".lang_install('ucenter_required')."</th>\n";
+		echo "\t<th class=\"padleft\">".lang_install('ucenter_best')."</th>\n";
+		echo "\t<th class=\"padleft\">".lang_install('curr_server')."</th>\n";
 		echo "</tr>\n";
 		echo $env_str;
 		echo "</table>\n";
 
-		echo "<h2 class=\"title\">".lang('priv_check')."</h2>\n";
+		echo "<h2 class=\"title\">".lang_install('priv_check')."</h2>\n";
 		echo "<table class=\"tb\" style=\"margin:20px 0 20px 55px;width:90%;\">\n";
 		echo "\t<tr>\n";
-		echo "\t<th>".lang('step1_file')."</th>\n";
-		echo "\t<th class=\"padleft\">".lang('step1_need_status')."</th>\n";
-		echo "\t<th class=\"padleft\">".lang('step1_status')."</th>\n";
+		echo "\t<th>".lang_install('step1_file')."</th>\n";
+		echo "\t<th class=\"padleft\">".lang_install('step1_need_status')."</th>\n";
+		echo "\t<th class=\"padleft\">".lang_install('step1_status')."</th>\n";
 		echo "</tr>\n";
 		echo $file_str;
 		echo $dir_str;
@@ -301,12 +302,12 @@ function show_env_result(&$env_items, &$dirfile_items, &$func_items, &$filesock_
 			$func_str .= "<tr>\n";
 			$func_str .= "<td>$item()</td>\n";
 			if($status) {
-				$func_str .= "<td class=\"w pdleft1\">".lang('supportted')."</td>\n";
-				$func_str .= "<td class=\"padleft\">".lang('none')."</td>\n";
+				$func_str .= "<td class=\"w pdleft1\">".lang_install('supportted')."</td>\n";
+				$func_str .= "<td class=\"padleft\">".lang_install('none')."</td>\n";
 			} else {
 				$error_code = ENV_CHECK_ERROR;
-				$func_str .= "<td class=\"nw pdleft1\">".lang('unsupportted')."</td>\n";
-				$func_str .= "<td><font color=\"red\">".lang('advice_'.$item)."</font></td>\n";
+				$func_str .= "<td class=\"nw pdleft1\">".lang_install('unsupportted')."</td>\n";
+				$func_str .= "<td><font color=\"red\">".lang_install('advice_'.$item)."</font></td>\n";
 			}
 		}
 		$func_strextra = '';
@@ -316,24 +317,24 @@ function show_env_result(&$env_items, &$dirfile_items, &$func_items, &$filesock_
 			$func_strextra .= "<tr>\n";
 			$func_strextra .= "<td>$item()</td>\n";
 			if($status) {
-				$func_strextra .= "<td class=\"w pdleft1\">".lang('supportted')."</td>\n";
-				$func_strextra .= "<td class=\"padleft\">".lang('none')."</td>\n";
+				$func_strextra .= "<td class=\"w pdleft1\">".lang_install('supportted')."</td>\n";
+				$func_strextra .= "<td class=\"padleft\">".lang_install('none')."</td>\n";
 				break;
 			} else {
 				$filesock_disabled++;
-				$func_strextra .= "<td class=\"nw pdleft1\">".lang('unsupportted')."</td>\n";
-				$func_strextra .= "<td><font color=\"red\">".lang('advice_'.$item)."</font></td>\n";
+				$func_strextra .= "<td class=\"nw pdleft1\">".lang_install('unsupportted')."</td>\n";
+				$func_strextra .= "<td><font color=\"red\">".lang_install('advice_'.$item)."</font></td>\n";
 			}
 		}
 		if($filesock_disabled == count($filesock_items)) {
 			$error_code = ENV_CHECK_ERROR;
 		}
-		echo "<h2 class=\"title\">".lang('func_depend')."</h2>\n";
+		echo "<h2 class=\"title\">".lang_install('func_depend')."</h2>\n";
 		echo "<table class=\"tb\" style=\"margin:20px 0 20px 55px;width:90%;\">\n";
 		echo "<tr>\n";
-		echo "\t<th>".lang('func_name')."</th>\n";
-		echo "\t<th class=\"padleft\">".lang('check_result')."</th>\n";
-		echo "\t<th class=\"padleft\">".lang('suggestion')."</th>\n";
+		echo "\t<th>".lang_install('func_name')."</th>\n";
+		echo "\t<th class=\"padleft\">".lang_install('check_result')."</th>\n";
+		echo "\t<th class=\"padleft\">".lang_install('suggestion')."</th>\n";
 		echo "</tr>\n";
 		echo $func_str.$func_strextra;
 		echo "</table>\n";
@@ -355,9 +356,9 @@ function show_next_step($step, $error_code) {
 	}
 	echo "<input type=\"hidden\" name=\"uchidden\" value=\"$uchidden\" />";
 	if($error_code == 0) {
-		$nextstep = "<input type=\"button\" onclick=\"history.back();\" value=\"".lang('old_step')."\"><input type=\"submit\" value=\"".lang('new_step')."\">\n";
+		$nextstep = "<input type=\"button\" onclick=\"history.back();\" value=\"".lang_install('old_step')."\"><input type=\"submit\" value=\"".lang_install('new_step')."\">\n";
 	} else {
-		$nextstep = "<input type=\"button\" disabled=\"disabled\" value=\"".lang('not_continue')."\">\n";
+		$nextstep = "<input type=\"button\" disabled=\"disabled\" value=\"".lang_install('not_continue')."\">\n";
 	}
 	echo "<div class=\"btnbox marginbot\">".$nextstep."</div>\n";
 	echo "</form>\n";
@@ -442,15 +443,15 @@ function show_license() {
 	$next = $step + 1;
 	if(VIEW_OFF) {
 
-		show_msg('license_contents', lang('license'), 1);
+		show_msg('license_contents', lang_install('license'), 1);
 
 	} else {
 
 		show_header();
 
-		$license = str_replace('  ', '&nbsp; ', lang('license'));
-		$lang_agreement_yes = lang('agreement_yes');
-		$lang_agreement_no = lang('agreement_no');
+		$license = str_replace('  ', '&nbsp; ', lang_install('license'));
+		$lang_agreement_yes = lang_install('agreement_yes');
+		$lang_agreement_no = lang_install('agreement_no');
 		echo <<<EOT
 </div>
 <div class="main" style="margin-top:-123px;">
@@ -536,8 +537,8 @@ function show_header() {
 	define('SHOW_HEADER', TRUE);
 	global $step;
 	$version = DISCUZ_VERSION;
-	$install_lang = lang(INSTALL_LANG);
-	$title = lang('title_install');
+	$install_lang = lang_install(INSTALL_LANG);
+	$title = lang_install('title_install');
 	$charset = CHARSET;
 	echo <<<EOT
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
@@ -593,18 +594,19 @@ function showjsmessage($message) {
 	flush();
 	ob_flush();
 }
-
-function random($length) {
-	$hash = '';
-	$chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789abcdefghijklmnopqrstuvwxyz';
-	$max = strlen($chars) - 1;
-	PHP_VERSION < '4.2.0' && mt_srand((double)microtime() * 1000000);
-	for($i = 0; $i < $length; $i++) {
-		$hash .= $chars[mt_rand(0, $max)];
-	}
-	return $hash;
+if (!function_exists('random')) {
+    function random($length)
+    {
+        $hash = '';
+        $chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789abcdefghijklmnopqrstuvwxyz';
+        $max = strlen($chars) - 1;
+        PHP_VERSION < '4.2.0' && mt_srand((double)microtime() * 1000000);
+        for ($i = 0; $i < $length; $i++) {
+            $hash .= $chars[mt_rand(0, $max)];
+        }
+        return $hash;
+    }
 }
-
 function redirect($url) {
 
 	echo "<script>".
@@ -660,58 +662,59 @@ function setdefault($var, $default) {
 	}
 	return $var;
 }
+if (!function_exists('authcode')) {
+    function authcode($string, $operation = 'DECODE', $key = '', $expiry = 0)
+    {
 
-function authcode($string, $operation = 'DECODE', $key = '', $expiry = 0) {
+        $ckey_length = 4;
 
-	$ckey_length = 4;
+        $key = md5($key ? $key : UC_KEY);
+        $keya = md5(substr($key, 0, 16));
+        $keyb = md5(substr($key, 16, 16));
+        $keyc = $ckey_length ? ($operation == 'DECODE' ? substr($string, 0, $ckey_length) : substr(md5(microtime()), -$ckey_length)) : '';
 
-	$key = md5($key ? $key : UC_KEY);
-	$keya = md5(substr($key, 0, 16));
-	$keyb = md5(substr($key, 16, 16));
-	$keyc = $ckey_length ? ($operation == 'DECODE' ? substr($string, 0, $ckey_length): substr(md5(microtime()), -$ckey_length)) : '';
+        $cryptkey = $keya . md5($keya . $keyc);
+        $key_length = strlen($cryptkey);
 
-	$cryptkey = $keya.md5($keya.$keyc);
-	$key_length = strlen($cryptkey);
+        $string = $operation == 'DECODE' ? base64_decode(substr($string, $ckey_length)) : sprintf('%010d', $expiry ? $expiry + time() : 0) . substr(md5($string . $keyb), 0, 16) . $string;
+        $string_length = strlen($string);
 
-	$string = $operation == 'DECODE' ? base64_decode(substr($string, $ckey_length)) : sprintf('%010d', $expiry ? $expiry + time() : 0).substr(md5($string.$keyb), 0, 16).$string;
-	$string_length = strlen($string);
+        $result = '';
+        $box = range(0, 255);
 
-	$result = '';
-	$box = range(0, 255);
+        $rndkey = array();
+        for ($i = 0; $i <= 255; $i++) {
+            $rndkey[$i] = ord($cryptkey[$i % $key_length]);
+        }
 
-	$rndkey = array();
-	for($i = 0; $i <= 255; $i++) {
-		$rndkey[$i] = ord($cryptkey[$i % $key_length]);
-	}
+        for ($j = $i = 0; $i < 256; $i++) {
+            $j = ($j + $box[$i] + $rndkey[$i]) % 256;
+            $tmp = $box[$i];
+            $box[$i] = $box[$j];
+            $box[$j] = $tmp;
+        }
 
-	for($j = $i = 0; $i < 256; $i++) {
-		$j = ($j + $box[$i] + $rndkey[$i]) % 256;
-		$tmp = $box[$i];
-		$box[$i] = $box[$j];
-		$box[$j] = $tmp;
-	}
+        for ($a = $j = $i = 0; $i < $string_length; $i++) {
+            $a = ($a + 1) % 256;
+            $j = ($j + $box[$a]) % 256;
+            $tmp = $box[$a];
+            $box[$a] = $box[$j];
+            $box[$j] = $tmp;
+            $result .= chr(ord($string[$i]) ^ ($box[($box[$a] + $box[$j]) % 256]));
+        }
 
-	for($a = $j = $i = 0; $i < $string_length; $i++) {
-		$a = ($a + 1) % 256;
-		$j = ($j + $box[$a]) % 256;
-		$tmp = $box[$a];
-		$box[$a] = $box[$j];
-		$box[$j] = $tmp;
-		$result .= chr(ord($string[$i]) ^ ($box[($box[$a] + $box[$j]) % 256]));
-	}
+        if ($operation == 'DECODE') {
+            if ((substr($result, 0, 10) == 0 || substr($result, 0, 10) - time() > 0) && substr($result, 10, 16) == substr(md5(substr($result, 26) . $keyb), 0, 16)) {
+                return substr($result, 26);
+            } else {
+                return '';
+            }
+        } else {
+            return $keyc . str_replace('=', '', base64_encode($result));
+        }
 
-	if($operation == 'DECODE') {
-		if((substr($result, 0, 10) == 0 || substr($result, 0, 10) - time() > 0) && substr($result, 10, 16) == substr(md5(substr($result, 26).$keyb), 0, 16)) {
-			return substr($result, 26);
-		} else {
-			return '';
-		}
-	} else {
-		return $keyc.str_replace('=', '', base64_encode($result));
-	}
-
+    }
 }
-
 function generate_key() {
 	$random = random(32);
 	$info = md5($_SERVER['SERVER_SOFTWARE'].$_SERVER['SERVER_NAME'].$_SERVER['SERVER_ADDR'].$_SERVER['SERVER_PORT'].$_SERVER['HTTP_USER_AGENT'].time());
@@ -737,7 +740,7 @@ function initinput() {
 </script>
 		<div id="notice"></div>
 		<div class="btnbox margintop marginbot">
-			<input type="button" name="submit" value="<?php echo lang('install_in_processed');?>" disabled="disabled" id="laststep" onclick="initinput()">
+			<input type="button" name="submit" value="<?php echo lang_install('install_in_processed');?>" disabled="disabled" id="laststep" onclick="initinput()">
 		</div>
 <?php
 }
@@ -767,7 +770,7 @@ function runquery($sql) {
 
 			if(substr($query, 0, 12) == 'CREATE TABLE') {
 				$name = preg_replace("/CREATE TABLE ([a-z0-9_]+) .*/is", "\\1", $query);
-				showjsmessage(lang('create_table').' '.$name.' ... '.lang('succeed'));
+				showjsmessage(lang_install('create_table').' '.$name.' ... '.lang_install('succeed'));
 				$db->query(createtable($query, $db->version()));
 			} else {
 				$db->query($query);
@@ -802,7 +805,7 @@ function runucquery($sql, $tablepre) {
 
 			if(substr($query, 0, 12) == 'CREATE TABLE') {
 				$name = preg_replace("/CREATE TABLE ([a-z0-9_]+) .*/is", "\\1", $query);
-				showjsmessage(lang('create_table').' '.$name.' ... '.lang('succeed'));
+				showjsmessage(lang_install('create_table').' '.$name.' ... '.lang_install('succeed'));
 				$db->query(createtable($query, $db->version()));
 			} else {
 				$db->query($query);
@@ -831,35 +834,47 @@ function insertconfig($s, $find, $replace) {
 	}
 	return $s;
 }
-
-function getgpc($k, $t='GP') {
-	$t = strtoupper($t);
-	switch($t) {
-		case 'GP' : isset($_POST[$k]) ? $var = &$_POST : $var = &$_GET; break;
-		case 'G': $var = &$_GET; break;
-		case 'P': $var = &$_POST; break;
-		case 'C': $var = &$_COOKIE; break;
-		case 'R': $var = &$_REQUEST; break;
-	}
-	return isset($var[$k]) ? $var[$k] : null;
+if (!function_exists('getgpc')) {
+    function getgpc($k, $t = 'GP')
+    {
+        $t = strtoupper($t);
+        switch ($t) {
+            case 'GP' :
+                isset($_POST[$k]) ? $var = &$_POST : $var = &$_GET;
+                break;
+            case 'G':
+                $var = &$_GET;
+                break;
+            case 'P':
+                $var = &$_POST;
+                break;
+            case 'C':
+                $var = &$_COOKIE;
+                break;
+            case 'R':
+                $var = &$_REQUEST;
+                break;
+        }
+        return isset($var[$k]) ? $var[$k] : null;
+    }
 }
-
 function var_to_hidden($k, $v) {
 	return "<input type=\"hidden\" name=\"$k\" value=\"$v\" />\n";
 }
-
-function fsocketopen($hostname, $port = 80, &$errno, &$errstr, $timeout = 15) {
-	$fp = '';
-	if(function_exists('fsockopen')) {
-		$fp = @fsockopen($hostname, $port, $errno, $errstr, $timeout);
-	} elseif(function_exists('pfsockopen')) {
-		$fp = @pfsockopen($hostname, $port, $errno, $errstr, $timeout);
-	} elseif(function_exists('stream_socket_client')) {
-		$fp = @stream_socket_client($hostname.':'.$port, $errno, $errstr, $timeout);
-	}
-	return $fp;
+if (!function_exists('fsocketopen')) {
+    function fsocketopen($hostname, $port = 80, &$errno, &$errstr, $timeout = 15)
+    {
+        $fp = '';
+        if (function_exists('fsockopen')) {
+            $fp = @fsockopen($hostname, $port, $errno, $errstr, $timeout);
+        } elseif (function_exists('pfsockopen')) {
+            $fp = @pfsockopen($hostname, $port, $errno, $errstr, $timeout);
+        } elseif (function_exists('stream_socket_client')) {
+            $fp = @stream_socket_client($hostname . ':' . $port, $errno, $errstr, $timeout);
+        }
+        return $fp;
+    }
 }
-
 function dfopen($url, $limit = 0, $post = '', $cookie = '', $bysocket = FALSE, $ip = '', $timeout = 15, $block = TRUE, $encodetype  = 'URLENCODE', $allowcurl = TRUE) {
 	$return = '';
 	$matches = parse_url($url);
@@ -1019,14 +1034,14 @@ function show_error($type, $errors = '', $quit = false) {
 
 	global $lang, $step;
 
-	$title = lang($type);
-	$comment = lang($type.'_comment', false);
+	$title = lang_install($type);
+	$comment = lang_install($type.'_comment', false);
 	$errormsg = '';
 	if($errors) {
 		if(!empty($errors)) {
 			foreach ((array)$errors as $k => $v) {
 				if(is_numeric($k)) {
-					$comment .= "<li><em class=\"red\">".lang($v)."</em></li>";
+					$comment .= "<li><em class=\"red\">".lang_install($v)."</em></li>";
 				}
 			}
 		}
@@ -1049,8 +1064,8 @@ function show_error($type, $errors = '', $quit = false) {
 
 function show_tips($tip, $title = '', $comment = '', $style = 1) {
 	global $lang;
-	$title = empty($title) ? lang($tip) : $title;
-	$comment = empty($comment) ? lang($tip.'_comment', FALSE) : $comment;
+	$title = empty($title) ? lang_install($tip) : $title;
+	$comment = empty($comment) ? lang_install($tip.'_comment', FALSE) : $comment;
 	if($style) {
 		echo "<div class=\"desc\"><b>$title</b>";
 	} else {
@@ -1072,19 +1087,19 @@ function show_setting($setname, $varname = '', $value = '', $type = 'text|passwo
 		return;
 	}
 
-	echo "\n".'<tr><th class="tbopt'.($error ? ' red' : '').'" align="left">&nbsp;'.(empty($setname) ? '' : lang($setname).':')."</th>\n<td>";
+	echo "\n".'<tr><th class="tbopt'.($error ? ' red' : '').'" align="left">&nbsp;'.(empty($setname) ? '' : lang_install($setname).':')."</th>\n<td>";
 	if($type == 'text' || $type == 'password') {
 		$value = dhtmlspecialchars($value);
 		echo "<input type=\"$type\" name=\"$varname\" value=\"$value\" size=\"35\" class=\"txt\">";
 	} elseif(strpos($type, 'submit') !== FALSE) {
 		if(strpos($type, 'oldbtn') !== FALSE) {
-			echo "<input type=\"button\" name=\"oldbtn\" value=\"".lang('old_step')."\" class=\"btn\" onclick=\"history.back();\">\n";
+			echo "<input type=\"button\" name=\"oldbtn\" value=\"".lang_install('old_step')."\" class=\"btn\" onclick=\"history.back();\">\n";
 		}
 		$value = empty($value) ? 'next_step' : $value;
-		echo "<input type=\"submit\" name=\"$varname\" value=\"".lang($value)."\" class=\"btn\">\n";
+		echo "<input type=\"submit\" name=\"$varname\" value=\"".lang_install($value)."\" class=\"btn\">\n";
 	} elseif($type == 'checkbox') {
 		if(!is_array($varname) && !is_array($value)) {
-			echo "<label><input type=\"checkbox\" name=\"$varname\" value=\"1\"".($value ? 'checked="checked"' : '')."style=\"border: 0\">".lang($setname.'_check_label')."</label>\n";
+			echo "<label><input type=\"checkbox\" name=\"$varname\" value=\"1\"".($value ? 'checked="checked"' : '')."style=\"border: 0\">".lang_install($setname.'_check_label')."</label>\n";
 		}
 	} else {
 		echo $value;
@@ -1092,9 +1107,9 @@ function show_setting($setname, $varname = '', $value = '', $type = 'text|passwo
 
 	echo "</td>\n<td>";
 	if($error) {
-		$comment = '<span class="red">'.(is_string($error) ? lang($error) : lang($setname.'_error')).'</span>';
+		$comment = '<span class="red">'.(is_string($error) ? lang_install($error) : lang_install($setname.'_error')).'</span>';
 	} else {
-		$comment = lang($setname.'_comment', false);
+		$comment = lang_install($setname.'_comment', false);
 	}
 	echo "$comment</td>\n</tr>\n";
 	return true;
@@ -1105,12 +1120,12 @@ function show_step($step) {
 	global $method;
 
 	$laststep = 4;
-	$title = lang('step_'.$method.'_title');
-	$comment = lang('step_'.$method.'_desc');
-	$step_title_1 = lang('step_title_1');
-	$step_title_2 = lang('step_title_2');
-	$step_title_3 = lang('step_title_3');
-	$step_title_4 = lang('step_title_4');
+	$title = lang_install('step_'.$method.'_title');
+	$comment = lang_install('step_'.$method.'_desc');
+	$step_title_1 = lang_install('step_title_1');
+	$step_title_2 = lang_install('step_title_2');
+	$step_title_3 = lang_install('step_title_3');
+	$step_title_4 = lang_install('step_title_4');
 
 	$stepclass = array();
 	for($i = 1; $i <= $laststep; $i++) {
@@ -1138,7 +1153,7 @@ EOT;
 
 }
 
-function lang($lang_key, $force = true) {
+function lang_install($lang_key, $force = true) {
 	return isset($GLOBALS['lang'][$lang_key]) ? $GLOBALS['lang'][$lang_key] : ($force ? $lang_key : '');
 }
 
@@ -1328,7 +1343,7 @@ function install_uc_server() {
 
 function install_data($username, $uid) {
 	global $_G, $db, $tablepre;
-	showjsmessage(lang('install_data')." ... ".lang('succeed'));
+	showjsmessage(lang_install('install_data')." ... ".lang_install('succeed'));
 
 	$_G = array('db'=>$db,'tablepre'=>$tablepre, 'uid'=>$uid, 'username'=>$username);
 
@@ -1341,7 +1356,7 @@ function install_data($username, $uid) {
 }
 function install_testdata($username, $uid) {
 	global $_G, $db, $tablepre;
-	showjsmessage(lang('install_test_data')." ... ".lang('succeed'));
+	showjsmessage(lang_install('install_test_data')." ... ".lang_install('succeed'));
 
 	$sqlfile = ROOT_PATH.'./install/data/common_district_{#id}.sql';
 	for($i = 1; $i < 4; $i++) {
@@ -1686,12 +1701,15 @@ function import_diy($importfile, $primaltplname, $targettplname) {
 	}
 	return $arr;
 }
-function dimplode($array) {
-	if(!empty($array)) {
-		return "'".implode("','", is_array($array) ? $array : array($array))."'";
-	} else {
-		return '';
-	}
+if (!function_exists('dimplode')) {
+    function dimplode($array)
+    {
+        if (!empty($array)) {
+            return "'" . implode("','", is_array($array) ? $array : array($array)) . "'";
+        } else {
+            return '';
+        }
+    }
 }
 function implode_field_value($array, $glue = ',') {
 	$sql = $comma = '';
@@ -1701,47 +1719,59 @@ function implode_field_value($array, $glue = ',') {
 	}
 	return $sql;
 }
-
-function daddslashes($string, $force = 1) {
-	if(is_array($string)) {
-		foreach($string as $key => $val) {
-			$string[$key] = daddslashes($val, $force);
-		}
-	} else {
-		$string = addslashes($string);
-	}
-	return $string;
+if (!function_exists('daddslashes')) {
+    function daddslashes($string, $force = 1)
+    {
+        if (is_array($string)) {
+            foreach ($string as $key => $val) {
+                $string[$key] = daddslashes($val, $force);
+            }
+        } else {
+            $string = addslashes($string);
+        }
+        return $string;
+    }
 }
-function dstripslashes($string) {
-	if(is_array($string)) {
-		foreach($string as $key => $val) {
-			$string[$key] = dstripslashes($val);
-		}
-	} else {
-		$string = stripslashes($string);
-	}
-	return $string;
+if (!function_exists('dstripslashes')) {
+    function dstripslashes($string)
+    {
+        if (is_array($string)) {
+            foreach ($string as $key => $val) {
+                $string[$key] = dstripslashes($val);
+            }
+        } else {
+            $string = stripslashes($string);
+        }
+        return $string;
+    }
 }
-function dmkdir($dir, $mode = 0777){
-	if(!is_dir($dir)) {
-		dmkdir(dirname($dir), $mode);
-		@mkdir($dir, $mode);
-		@touch($dir.'/index.htm'); @chmod($dir.'/index.htm', 0777);
-	}
-	return true;
+if (!function_exists('dmkdir')) {
+    function dmkdir($dir, $mode = 0777)
+    {
+        if (!is_dir($dir)) {
+            dmkdir(dirname($dir), $mode);
+            @mkdir($dir, $mode);
+            @touch($dir . '/index.htm');
+            @chmod($dir . '/index.htm', 0777);
+        }
+        return true;
+    }
 }
-function dhtmlspecialchars($string) {
-	if(is_array($string)) {
-		foreach($string as $key => $val) {
-			$string[$key] = dhtmlspecialchars($val);
-		}
-	} else {
-		$string = str_replace(array('&', '"', '<', '>'), array('&amp;', '&quot;', '&lt;', '&gt;'), $string);
-		if(strpos($string, '&amp;#') !== false) {
-			$string = preg_replace('/&amp;((#(\d{3,5}|x[a-fA-F0-9]{4}));)/', '&\\1', $string);
-		}
-	}
-	return $string;
+if (!function_exists('dhtmlspecialchars')) {
+    function dhtmlspecialchars($string)
+    {
+        if (is_array($string)) {
+            foreach ($string as $key => $val) {
+                $string[$key] = dhtmlspecialchars($val);
+            }
+        } else {
+            $string = str_replace(array('&', '"', '<', '>'), array('&amp;', '&quot;', '&lt;', '&gt;'), $string);
+            if (strpos($string, '&amp;#') !== false) {
+                $string = preg_replace('/&amp;((#(\d{3,5}|x[a-fA-F0-9]{4}));)/', '&\\1', $string);
+            }
+        }
+        return $string;
+    }
 }
 function install_extra_setting() {
 	global $db, $tablepre, $lang;
