@@ -1,0 +1,13 @@
+*.lock
+upload/config/config_global.php
+upload/config/config_ucenter.php
+upload/data/cache
+upload/uc_client/data/cache
+upload/uc_server/data/config.inc.php
+upload/data/diy
+upload/data/log
+upload/data/template
+upload/data/sysdata
+upload/source/plugin/austgl_*
+upload/data/download
+upload/data/addonmd5/*.xml
