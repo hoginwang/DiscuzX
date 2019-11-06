@@ -766,12 +766,6 @@ class discuz_application extends discuz_base{
 			$mobile = isset($mobile_) ? $mobile_ : 2;
 		}
 
-		if(!$this->var['mobile'] && !$unallowmobile) {
-			if($mobileflag) {
-				dheader("Location:misc.php?mod=mobile");
-			}
-		}
-
 		if($nomobile || (!$this->var['setting']['mobile']['mobileforward'] && !$mobileflag)) {
 			if($_SERVER['HTTP_HOST'] == $this->var['setting']['domain']['app']['mobile'] && $this->var['setting']['domain']['app']['default']) {
 				dheader('Location:'.$this->var['scheme'].'://'.$this->var['setting']['domain']['app']['default'].$_SERVER['REQUEST_URI']);
