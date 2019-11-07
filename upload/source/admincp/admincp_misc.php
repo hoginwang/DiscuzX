@@ -714,8 +714,8 @@ EOT;
 				$_GET['replace'][$id] = $_GET['replace'][$id] == '{REPLACE}' ? $_GET['replacecontent'][$id] : $_GET['replace'][$id];
 				$_GET['replace'][$id] = daddslashes(str_replace("\\\'", '\'', $_GET['replace'][$id]), 1);
 				DB::update('common_word', array(
-					'find' => str_replace("\\", "\\\\", addslashes($_GET['find'][$id])),
-					'replacement' => addslashes($_GET['replace'][$id]),
+					'find' => str_replace("\\\\", "\\", addslashes($_GET['find'][$id])),
+					'replacement' => $_GET['replace'][$id],
 					'type' => is_numeric($_GET['wordtype_select'][$id]) ? $_GET['wordtype_select'][$id] : 0,
 				), "id='$id' AND ('{$_G['adminid']}'='1' OR admin='{$_G['username']}')");
 			}
