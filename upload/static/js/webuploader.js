@@ -86,14 +86,6 @@ SWFUpload.prototype.initSettings = function (userSettings) {
 	this.ensureDefault("custom_settings", {});
 	this.customSettings = this.settings.custom_settings;
 
-	if(this.customSettings.uploadSource == 'forum') {
-		this.customSettings.alertType = 0;
-		if(this.customSettings.uploadFrom == 'fastpost') {
-			if(typeof forum_post_inited == 'undefined') {
-				appendscript(JSPATH + 'forum_post.js?' + VERHASH);
-			}
-		}
-	}
 	if(this.settings.button_placeholder_id == 'imgSpanButtonPlaceholder' && $("imgSpanButtonPlaceholder")){
 		if($("icoImg_image_menu")){
 			$('icoImg_image_menu').style.display = '';
@@ -152,6 +144,10 @@ SWFUpload.prototype.initSettings = function (userSettings) {
 
 	this.uploader = uploader;
 
+	uploader.on('beforeFileQueued', function(file) {
+		self.queueEvent("file_dialog_start_handler");
+	});
+
 	uploader.on('fileQueued', function(file) {
 		self.queueEvent("file_queued_handler", file);
 	});
@@ -162,6 +158,15 @@ SWFUpload.prototype.initSettings = function (userSettings) {
 
 	uploader.on('uploadStart', function(file) {
 		self.queueEvent("upload_start_handler", file);
+	});
+
+	uploader.on('uploadBeforeSend', function (block, data) {
+		delete data.id;
+		delete data.name;
+		delete data.lastModifiedDate;
+		if(self.settings.post_params.type){
+			data.type = self.settings.post_params.type;
+		}
 	});
 
 	uploader.on('uploadProgress', function(file, percentage) {
@@ -252,7 +257,14 @@ function loadFailed() {
 }
 
 function fileDialogStart() {
-
+	if(this.customSettings.uploadSource == 'forum') {
+		this.customSettings.alertType = 0;
+		if(this.customSettings.uploadFrom == 'fastpost') {
+			if(typeof forum_post_inited == 'undefined') {
+				appendscript(JSPATH + 'forum_post.js?' + VERHASH);
+			}
+		}
+	}
 }
 
 function fileQueued(file) {
@@ -272,6 +284,7 @@ function fileQueued(file) {
 				return false;
 			}
 		}
+		this.addPostParam('filetype', file.type);
 		var progress = new FileProgress(file, this.customSettings.progressTarget);
 		if(this.customSettings.uploadSource == 'forum') {
 			if(this.customSettings.maxAttachNum != undefined) {
@@ -353,10 +366,10 @@ function fileDialogComplete() {
 					switchAttachbutton('attachlist');
 				}
 				try {
-					if(this.getStats().files_queued) {
+					//if(this.uploader.getStats().queueNum) {
 						$('attach_tblheader').style.display = '';
 						$('attach_notice').style.display = '';
-					}
+					//}
 				} catch (ex) {}
 			} else if(this.customSettings.uploadType == 'image') {
 				if(typeof switchImagebutton == "function") {
@@ -404,10 +417,8 @@ function uploadStart(file) {
 function uploadProgress(file, percentage) {
 	try {
 		var percent = Math.ceil((bytesLoaded / bytesTotal) * 100);
-
 		var progress = new FileProgress(file, this.customSettings.progressTarget);
 		progress.setStatus("正在上传(" + Math.round(percentage * 100) + "%)...");
-
 	} catch (ex) {
 		this.debug(ex);
 	}
@@ -469,8 +480,8 @@ function uploadSuccess(file, serverData) {
 					this.uploader.cancelFile(file);
 					progress.setCancelled();
 					progress.toggleCancel(true, this.uploader);
-					//var stats = this.getStats();
-					//var obj = {'successful_uploads':--stats.successful_uploads, 'upload_cancelled':++stats.upload_cancelled};
+					//var stats = this.uploader.getStats();
+					//var obj = {'successNum':--stats.successNum, 'cancelNum':++stats.cancelNum};
 					//this.setStats(obj);
 				}
 			}
