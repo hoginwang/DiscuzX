@@ -3,33 +3,21 @@ branches: {
   }
 fileChange:
   /upload:
-    newFile: !uuid '4c7633eae74f5aae2f942aaa6a1b404d2c7ef003'
-    oldFile: !uuid 'b7276fe39773c3208035db075e6028bd461b1197'
-  /upload/source:
-    newFile: !uuid '51c4caf9d409db1f8fa621e62c8c81c4b0d78354'
-    oldFile: !uuid 'bb500c6b333e960e769272f92773675ec016997d'
-  /upload/source/admincp:
-    newFile: !uuid '7558400b4c5bc9e98f71191bcd67c64d24ee6b51'
-    oldFile: !uuid '089fc7b098043ff02cca8107d22fab985d14649b'
-  /upload/source/admincp/admincp_setting.php:
-    newFile: !uuid '10db4bb02f67c7ad4ccc99ec874db7a4f9995e42'
-    oldFile: !uuid '95ad85b6c6ae33324c212056214c021cb9399840'
-  /upload/source/class:
-    newFile: !uuid '73f807eb6ff4c4d3c0457e2eaa603a7c8b7cdcbe'
-    oldFile: !uuid '1e06cdac73faad3bf68456b5a63d2ade691d5f8f'
-  /upload/source/class/discuz:
-    newFile: !uuid '59baa805d3a63c8daa386c801b7fc65b7a026357'
-    oldFile: !uuid '4776350deb622124f3069394c9480353f9021c76'
-  /upload/source/class/discuz/discuz_application.php:
-    newFile: !uuid '3ff4ed0a53dab99b339eb365078601091184159f'
-    oldFile: !uuid '1eacbb1826aa5e04b67248c22b8056600dfd29d2'
-  /upload/source/language:
-    newFile: !uuid '6370fdc8355584830616801beae49b4c0d58159f'
-    oldFile: !uuid '7c825c862655fafabb1e49678dd9bca9d24bfd10'
-  /upload/source/language/lang_admincp.php:
-    newFile: !uuid 'eb5ca68df8809780e6c455a92e0d7bd86e988be0'
-    oldFile: !uuid '0a599cdb36772ed78dff7f33fbbfbb08a0bd7563'
-gitCommitId: !uuid 'c004bbeed4d04a27516c6daa0e22bf4d656cc32c'
+    newFile: !uuid '84ac600b41f089cc201a9149d08a741bee914b65'
+    oldFile: !uuid '4c7633eae74f5aae2f942aaa6a1b404d2c7ef003'
+  /upload/uc_server:
+    newFile: !uuid '5f0b43e962ca02e0760bb0f38be2228c8e0e357a'
+    oldFile: !uuid '36b0195690627a3c670e06aa4df7c59802f94810'
+  /upload/uc_server/view:
+    newFile: !uuid '9322c81c598850e383b088a8d0f372f73131baba'
+    oldFile: !uuid '6e5aec2717d73fa82d2ecea03795dfcb23e1f4d8'
+  /upload/uc_server/view/default:
+    newFile: !uuid 'ca577bbb6324ce6b43a3b30fafc701d1a99449fa'
+    oldFile: !uuid '2fb79a7d659db24af0689972c031ae58027c2f7f'
+  /upload/uc_server/view/default/admin_login.htm:
+    newFile: !uuid '79ae22f779ebc48565c457032a0642494c0642be'
+    oldFile: !uuid 'bfe0ab7477074e971fd681889252ad8861e58631'
+gitCommitId: !uuid '9f2bfccade63b8786b4e127f5e6a7a5e7561c309'
 renames: {
   }
-revisionId: 352
+revisionId: 353
