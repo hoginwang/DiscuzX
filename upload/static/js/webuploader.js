@@ -99,6 +99,13 @@ SWFUpload.prototype.initSettings = function (userSettings) {
 		$("imgSpanButtonPlaceholder").style.width = this.settings.button_width + 'px';
 		$("imgSpanButtonPlaceholder").style.height = this.settings.button_height + 'px';
 		$("imgSpanButtonPlaceholder").style.backgroundImage = 'url(' + this.settings.button_image_url + ')';
+		$("imgSpanButtonPlaceholder").style.backgroundRepeat = 'no-repeat';
+        $("imgSpanButtonPlaceholder").onmouseover = function () {
+			$("imgSpanButtonPlaceholder").style.backgroundPosition = '0px -25px';
+        };
+        $("imgSpanButtonPlaceholder").onmouseout = function () {
+			$("imgSpanButtonPlaceholder").style.backgroundPosition = '0px 0px';
+        };
 	}
 	if(this.settings.button_placeholder_id == 'spanButtonPlaceholder' && $("spanButtonPlaceholder")){
 		if($("icoAttach_attach_menu")){
@@ -113,6 +120,13 @@ SWFUpload.prototype.initSettings = function (userSettings) {
 		$("spanButtonPlaceholder").style.width = this.settings.button_width + 'px';
 		$("spanButtonPlaceholder").style.height = this.settings.button_height + 'px';
 		$("spanButtonPlaceholder").style.backgroundImage = 'url(' + this.settings.button_image_url + ')';
+		$("spanButtonPlaceholder").style.backgroundRepeat = 'no-repeat';
+        $("spanButtonPlaceholder").onmouseover = function () {
+			$("spanButtonPlaceholder").style.backgroundPosition = '0px -25px';
+        };
+        $("spanButtonPlaceholder").onmouseout = function () {
+			$("spanButtonPlaceholder").style.backgroundPosition = '0px 0px';
+        };
 	}
 	if(this.customSettings.uploadSource == 'forum' && this.customSettings.uploadType == 'poll' && $(this.settings.button_placeholder_id)){
 		$(this.settings.button_placeholder_id).innerHTML = 'upload';
