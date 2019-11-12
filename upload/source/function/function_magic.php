@@ -250,7 +250,7 @@ function magic_peroid($magic, $uid) {
 		} elseif($magic['useperoid'] == 3) {
 			$dateline = TIMESTAMP - 86400 * 30;
 		}
-		$num = C::t('common_magiclog')->count_by_uid_magicid_action_dateline($uid, $magic['magicid'], 2, $dateline);
+		$num = C::t('common_magiclog')->count_by_uid_magicid_action_dateline($uid, $magic['magicid'], 1, $dateline);
 		return $magic['usenum'] - $num;
 	} else {
 		return true;
