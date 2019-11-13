@@ -17,6 +17,9 @@
 		<input type="hidden" name="referer" value="$dreferer" />
 		<input type="hidden" name="activationauth" value="{if $_GET[action] == 'activation'}$activationauth{/if}" />
 		<input type="hidden" name="agreebbrule" value="$bbrulehash" id="agreebbrule" checked="checked" />
+		<!--{if $_G['setting']['sendregisterurl']}-->
+			<input type="hidden" name="hash" value="$_GET[hash]" />
+		<!--{/if}-->
 		<ul>
 			<li><input type="text" tabindex="1" class="px p_fre" size="30" autocomplete="off" value="" name="{$_G['setting']['reginput']['username']}" placeholder="{lang registerinputtip}" fwin="login"></li>
 			<li><input type="password" tabindex="2" class="px p_fre" size="30" value="" name="{$_G['setting']['reginput']['password']}" placeholder="{lang login_password}" fwin="login"></li>
