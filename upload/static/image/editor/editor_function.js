@@ -194,3 +194,20 @@ function showInnerNav(){
 		pagetitle.style.display = '';
 	}
 }
+
+function loadimgsize(imgurl, editor, p) {
+	var editor = editor ? editor : 'icoImg';
+	var s = new Object();
+	var p = !p ? '_image' : p;
+	s.img = new Image();
+	s.img.src = imgurl;
+	s.loadCheck = function () {
+		if(s.img.complete) {
+			$(editor + p + '_param_2').value = s.img.width ? s.img.width : '';
+			$(editor + p + '_param_3').value = s.img.height ? s.img.height : '';
+		} else {
+			setTimeout(function () {s.loadCheck();}, 100);
+		}
+	};
+	s.loadCheck();
+}
