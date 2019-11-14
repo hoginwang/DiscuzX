@@ -52,7 +52,7 @@ if($operation == 'downremotefile') {
 					continue;
 				}
 				$content = '';
-				if(preg_match('/^(http:\/\/|\.)/i', $imageurl)) {
+				if(preg_match('/^(http(s?):\/\/|\.)/i', $imageurl)) {
 					$content = dfsockopen($imageurl);
 				} elseif(checkperm('allowdownlocalimg')) {
 					if(preg_match('/^data\/(.*?)\.thumb\.jpg$/i', $imageurl)) {
