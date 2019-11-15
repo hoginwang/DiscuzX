@@ -139,19 +139,16 @@ function announcement() {
             if (this.annrows.length == 1) {
                 $('an').onmouseover = $('an').onmouseout = null;
             } else {
-                this.annrows[this.annrowcount] = this.annrows[1];
                 $('ancl').innerHTML += $('ancl').innerHTML;
                 this.annst = setTimeout(function() {
                     ann.announcementScroll();
                 }, this.anndelay);
                 $('an').onmouseover = function() {
                     ann.annstop = 1;
-                }
-                ;
+                };
                 $('an').onmouseout = function() {
                     ann.annstop = 0;
-                }
-                ;
+                };
             }
             this.annrowcount = 1;
             return;
