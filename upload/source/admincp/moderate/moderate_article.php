@@ -19,7 +19,7 @@ if(!submitcheck('modsubmit') && !$_GET['fast']) {
 	$select[$_GET['tpp']] = $_GET['tpp'] ? "selected='selected'" : '';
 	$tpp_options = "<option value='20' $select[20]>20</option><option value='50' $select[50]>50</option><option value='100' $select[100]>100</option>";
 	$tpp = !empty($_GET['tpp']) ? $_GET['tpp'] : '20';
-	$start_limit = ($page - 1) * $ppp;
+	$start_limit = max(0, ($page - 1) * $ppp);
 	$dateline = $_GET['dateline'] ? $_GET['dateline'] : '604800';
 	$dateline_options = '';
 	foreach(array('all', '604800', '2592000', '7776000') as $v) {
@@ -68,7 +68,7 @@ if(!submitcheck('modsubmit') && !$_GET['fast']) {
 	$sqlwhere = "";
 	$modcount = C::t('common_moderate')->fetch_all_for_article($moderatestatus, $_GET['catid'], $_GET['username'], $dateline, 1);
 	do {
-		$start_limit = ($pagetmp - 1) * $tpp;
+		$start_limit = max(0, ($pagetmp - 1) * $tpp);
 		$query = C::t('common_moderate')->fetch_all_for_article($moderatestatus, $_GET['catid'], $_GET['username'], $dateline, 0, $start_limit, $tpp);
 		$pagetmp = $pagetmp - 1;
 	} while($pagetmp > 0 && count($query) == 0);
