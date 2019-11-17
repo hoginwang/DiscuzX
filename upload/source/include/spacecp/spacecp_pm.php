@@ -209,7 +209,12 @@ if($_GET['op'] == 'checknewpm') {
 		if(empty($message)) {
 			showmessage('unable_to_send_air_news', '', array(), array('return' => true));
 		}
+
 		$message = censor($message);
+		if(censormod($message)) {
+			showmessage(lang('spacecp', 'profile_censor'), '', array(), array('return' => true));
+		}
+
 		loadcache(array('smilies', 'smileytypes'));
 		foreach($_G['cache']['smilies']['replacearray'] AS $key => $smiley) {
 			$_G['cache']['smilies']['replacearray'][$key] = '[img]'.$_G['siteurl'].'static/image/smiley/'.$_G['cache']['smileytypes'][$_G['cache']['smilies']['typearray'][$key]]['directory'].'/'.$smiley.'[/img]';
