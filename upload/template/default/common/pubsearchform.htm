@@ -12,7 +12,7 @@
 <div id="scbar" class="{if $_G['setting']['srchhotkeywords'] && count($_G['setting']['srchhotkeywords']) > 5}scbar_narrow {/if}cl">
 	<form id="scbar_form" method="{if $_G[fid] && !empty($searchparams[url])}get{else}post{/if}" autocomplete="off" onsubmit="searchFocus($('scbar_txt'))" action="{if $_G[fid] && !empty($searchparams[url])}$searchparams[url]{else}search.php?searchsubmit=yes{/if}" target="_blank">
 		<input type="hidden" name="mod" id="scbar_mod" value="search" />
-		<input type="hidden" name="formhash" value="{FORMHASH}" />
+		<!--{if $_G['uid']}--><input type="hidden" name="formhash" value="{FORMHASH}" /><!--{/if}-->
 		<input type="hidden" name="srchtype" value="title" />
 		<input type="hidden" name="srhfid" value="$_G[fid]" />
 		<input type="hidden" name="srhlocality" value="$_G['basescript']::{CURMODULE}" />
@@ -55,7 +55,11 @@
 										<!--{if !empty($searchparams[url])}-->
 											<a href="$searchparams[url]?q=$valenc&source=hotsearch{$srchotquery}" target="_blank" class="xi2" sc="1">$val</a>
 										<!--{else}-->
+                                            <!--{if $_G['uid']}-->
 											<a href="search.php?mod=forum&srchtxt=$valenc&formhash={FORMHASH}&searchsubmit=true&source=hotsearch" target="_blank" class="xi2" sc="1">$val</a>
+                                            <!--{else}-->
+                                            <a href="search.php?mod=forum&srchtxt=$valenc&searchsubmit=true&source=hotsearch" target="_blank" class="xi2" sc="1">$val</a>
+                                            <!--{/if}-->
 										<!--{/if}-->
 									<!--{/block}-->
 								<!--{/if}-->
