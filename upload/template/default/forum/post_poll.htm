@@ -92,43 +92,28 @@ var maxoptions = parseInt('$_G[setting][maxpolloptions]');
 <!--{/if}-->
 function addUploadEvent(imgid, pollstr) {
 	<!--{if empty($_G['setting']['pluginhooks']['post_upload_extend']) && empty($_G['setting']['pluginhooks']['post_poll_upload_extend'])}-->
-		new SWFUpload({
-			upload_url: SITEURL + 'misc.php?mod=swfupload&action=swfupload&operation=poll&fid=$_G[fid]',
-			post_params: {"uid":"$_G[uid]", "hash":"$swfconfig[hash]"},
-
-			file_size_limit : "2048",
-			file_types : "*.jpg;*.jpeg;*.gif;*.png;*.bmp",
-			file_types_description : "{lang pictypefile}",
-			file_upload_limit : 0,
-			file_queue_limit : 1,
-
-			swfupload_preload_handler : preLoad,
-			swfupload_load_failed_handler : loadFailed,
-			file_dialog_start_handler : fileDialogStart,
-			file_queued_handler : fileQueued,
-			file_queue_error_handler : fileQueueError,
-			file_dialog_complete_handler : fileDialogComplete,
-			upload_start_handler : uploadStart,
-			upload_progress_handler : uploadProgress,
-			upload_error_handler : uploadError,
-			upload_success_handler : uploadSuccess,
-			upload_complete_handler : uploadComplete,
-
-			button_image_url : IMGDIR+"/uploadbutton_small_pic.png",
-			button_placeholder_id : imgid,
-			button_width: 26,
-			button_height: 26,
-			button_cursor:SWFUpload.CURSOR.HAND,
-			button_window_mode: "transparent",
-
-			custom_settings : {
+		var upload = WebUploader.create({
+			swf: '{STATICURL}js/webuploader/Uploader.swf',
+			server: SITEURL + 'misc.php?mod=swfupload&action=swfupload&operation=poll&fid=$_G[fid]',
+			auto: true,
+			formData:{"uid":"$_G[uid]", "hash":"$swfconfig[hash]"},
+			fileVal: 'Filedata',
+			fileSingleSizeLimit: 2048*1024,
+			pick: {id : '#' + imgid, multiple : false},
+			accept:{title: "{lang pictypefile}",extensions: "jpg,jpeg,gif,png,bmp",mimeTypes: 'image/*'},
+			compress: false,
+			fileNumLimit: 1,
+			resize: false
+		});
+		
+		upload.customSettings = {
+			progressTarget : "fsUploadProgress",
 				progressTarget : pollstr,
 				uploadSource: 'forum',
 				uploadType: 'poll'
-			},
-
-			debug: false
-		});
+		}
+		new H5Uploader(upload);
+		
 	<!--{else}-->
 		<!--{hook/post_poll_upload_extend}-->
 	<!--{/if}-->

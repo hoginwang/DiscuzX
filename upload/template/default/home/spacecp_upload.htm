@@ -1,5 +1,5 @@
 <!--{template common/header}-->
-
+<link rel="stylesheet" type="text/css" href="{STATICURL}js/webuploader/webuploader.css?{VERHASH}">
 <div id="pt" class="bm cl">
 	<div class="z"><a href="./" class="nvhm" title="{lang homepage}">$_G[setting][bbname]</a> <em>&rsaquo;</em> <a href="home.php?mod=space&do=album">{lang album}</a> <em>&rsaquo;</em> {lang upload_pic}</div>
 </div>
@@ -45,61 +45,51 @@
 				</table>
 
 				<div class="fieldset flash" id="imgUploadProgress"></div>
-				<div class="hm"><span id="imgSpanButtonPlaceholder"></span></div>
+				<div class="hm">
+                    <div id="attachuploader" class="wu-example">
+                        <div class="btns">
+                             <div id="imgSpanButtonPlaceholder"></div>
+                        </div>
+                    </div>
+                </div>
+                <script type="text/javascript" language="javascript" src="{STATICURL}js/jquery-1.11.0.min.js?{VERHASH}"></script>
+				<script type="text/javascript" language="javascript"> $.noConflict(); </script>
+                <script type="text/javascript" language="javascript" src="{STATICURL}js/webuploader/webuploader.min.js?{VERHASH}"></script>
+                <script type="text/javascript" language="javascript"  charset="utf-8" src="{STATICURL}js/h5upload.js?{VERHASH}"></script>
 				<!--{if empty($_G['setting']['pluginhooks']['spacecp_upload_extend'])}-->
 					<!--{subtemplate common/upload}-->
-					<script type="text/javascript">
-						var upload = new SWFUpload({
-							// Backend Settings
-							upload_url: "{$_G[siteurl]}misc.php?mod=swfupload&action=swfupload&operation=album",
-							post_params: {"uid" : "$_G[uid]", "hash":"$swfconfig[hash]"},
-
-							// File Upload Settings
-							file_size_limit : "$swfconfig[max]",	// 100MB
-							file_types : "$swfconfig[imageexts][ext]",
-							file_types_description : "$swfconfig[imageexts][depict]",
-							file_upload_limit : 0,
-							file_queue_limit : 0,
-
-							// Event Handler Settings (all my handlers are in the Handler.js file)
-							swfupload_preload_handler : preLoad,
-							swfupload_load_failed_handler : loadFailed,
-							file_dialog_start_handler : fileDialogStart,
-							file_queued_handler : fileQueued,
-							file_queue_error_handler : fileQueueError,
-							file_dialog_complete_handler : fileDialogComplete,
-							upload_start_handler : uploadStart,
-							upload_progress_handler : uploadProgress,
-							upload_error_handler : uploadError,
-							upload_success_handler : uploadSuccess,
-							upload_complete_handler : uploadComplete,
-
-							// Button Settings
-							button_image_url : "{IMGDIR}/uploadbutton.png",
-							button_placeholder_id : "imgSpanButtonPlaceholder",
-							button_width: 100,
-							button_height: 25,
-							button_cursor:SWFUpload.CURSOR.HAND,
-							button_window_mode: "transparent",
-
-							custom_settings : {
-								progressTarget : "imgUploadProgress",
-								uploadSource: 'home',
-								uploadType: 'album',
-								imgBoxObj: $('attachbody')
-							},
-
-							// Debug Settings
-							debug: false
+                   <script type="text/javascript">
+					var upload = WebUploader.create({
+							swf: '{STATICURL}js/webuploader/Uploader.swf',
+							server: "{$_G[siteurl]}misc.php?mod=swfupload&action=swfupload&operation=album",
+							auto: true,
+							formData: {"uid" : "$_G[uid]", "hash":"$swfconfig[hash]"},		
+							fileVal: 'Filedata',
+							fileSingleSizeLimit: $swfconfig[max]*1024,
+							pick: '#imgSpanButtonPlaceholder',
+							compress: false,
+							accept:{
+								title: "$swfconfig[imageexts][depict]",
+								extensions: "$swfconfig[imageexts][ext]".replace(/\*\./g,'').replace(/;/g,','),
+								mimeTypes: 'image/*'
+							},		
+							resize: false
 						});
-
+						
+						upload.customSettings = {
+							progressTarget : "imgUploadProgress",
+							uploadSource: 'home',
+							uploadType: 'album',
+							imgBoxObj: $('attachbody')
+						}
+						
+						new H5Uploader(upload);
 					</script>
 				<!--{else}-->
 					<!--{hook/spacecp_upload_extend}-->
 				<!--{/if}-->
 
 			</div>
-
 				<script type="text/javascript">
 					var check = false;
 					no_insert = 1;
