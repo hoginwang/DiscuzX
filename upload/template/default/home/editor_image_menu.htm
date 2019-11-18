@@ -1,3 +1,4 @@
+<link rel="stylesheet" type="text/css" href="{STATICURL}js/webuploader/webuploader.css?{VERHASH}">
 <div id="icoImg_image_menu" style="display: none" unselectable="on">
 	<table width="100%" cellpadding="0" cellspacing="0" class="fwin"><tr><td class="t_l"></td><td class="t_c"></td><td class="t_r"></td></tr><tr><td class="m_l">&nbsp;&nbsp;</td><td class="m_c"><div class="mtm mbm">
 	<ul class="tb tb_s cl" id="icoImg_image_ctrl" style="margin-top:0;margin-bottom:0;">
@@ -48,7 +49,12 @@
 				<button type="button" class="pn pnc" onclick="createNewAlbum();"><span>{lang create}</span></button>
 				<button type="button" class="pn" onclick="selectCreateTab(1);"><span>{lang cancel}</span></button>
 			</div>
-			<span id="imgSpanButtonPlaceholder"></span>
+           
+			<div id="attachuploader" class="wu-example">
+                <div class="btns">
+                     <div id="imgSpanButtonPlaceholder"></div>
+                </div>
+            </div>
 		</div>
 		<div class="upfilelist upfl bbda">
 			<div id="imgattachlist">
@@ -95,7 +101,11 @@
 					</ul>
 					<div class="p_opt post_tablelist" unselectable="on" id="icoAttach_attachlist">
 						<div class="pbm bbda">
-							<span id="spanButtonPlaceholder"></span>
+							<div id="attachuploader" class="wu-example">
+                                <div class="btns">
+                                     <div id="spanButtonPlaceholder"></div>
+                                </div>
+                            </div>
 						</div>
 						<table cellpadding="0" cellspacing="0" border="0" width="100%" id="attach_tblheader" class="mtn bbs" style="display: none;">
 							<tr>
@@ -126,107 +136,65 @@
 </div>
 
 <iframe name="attachframe" id="attachframe" style="display: none;"></iframe>
+<script type="text/javascript" language="javascript" src="{STATICURL}js/jquery-1.11.0.min.js?{VERHASH}"></script>
+<script type="text/javascript" language="javascript"> $.noConflict(); </script>
+<script type="text/javascript" language="javascript" src="{STATICURL}js/webuploader/webuploader.min.js?{VERHASH}"></script>
+<script type="text/javascript" language="javascript" charset="utf-8" src="{STATICURL}js/h5upload.js?{VERHASH}"></script>
 
 <!--{if $_G['basescript'] == 'home' && empty($_G['setting']['pluginhooks']['spacecp_blog_upload_extend']) || $_G['basescript'] == 'portal' && empty($_G['setting']['pluginhooks']['portalcp_top_upload_extend'])}-->
 	<!--{subtemplate common/upload}-->
 	<script type="text/javascript">
-		var attachUpload = new SWFUpload({
-			// Backend Settings
-			upload_url: "{$_G[siteurl]}misc.php?mod=swfupload&action=swfupload&operation=<!--{if $_G['basescript'] == 'portal'}-->portal<!--{else}-->album<!--{/if}-->",
-			post_params: {"uid" : "$_G[uid]", "hash":"$swfconfig[hash]"<!--{if $_G['basescript'] == 'portal'}-->,"aid":$aid,"catid":$catid<!--{/if}-->},
-
-			// File Upload Settings
-			file_size_limit : "$swfconfig[max]",	// 100MB
+		var attachUpload = WebUploader.create({
+			swf: '{STATICURL}js/webuploader/Uploader.swf',
+			server: "{$_G[siteurl]}misc.php?mod=swfupload&action=swfupload&operation=<!--{if $_G['basescript'] == 'portal'}-->portal<!--{else}-->album<!--{/if}-->",
+			auto: true,
+			formData: {"uid" : "$_G[uid]", "hash":"$swfconfig[hash]"<!--{if $_G['basescript'] == 'portal'}-->,"aid":$aid,"catid":$catid<!--{/if}-->},		
+			fileVal: 'Filedata',
+			fileSingleSizeLimit: $swfconfig[max]*1024,
+			pick: '#spanButtonPlaceholder',
+			compress: false,
 			<!--{if $_G['basescript'] == 'portal'}-->
-			file_types : "$swfconfig[attachexts][ext]",
-			file_types_description : "$swfconfig[attachexts][depict]",
+				accept:{"title" : "$swfconfig[attachexts][depict]",	"extensions" : "$swfconfig[attachexts][ext]".replace(/\*\./g,'').replace(/;/g,','),"mimeTypes" : '*/*'},					
 			<!--{else}-->
-			file_types : "$swfconfig[imageexts][ext]",
-			file_types_description : "$swfconfig[imageexts][depict]",
+				accept:{title: "$swfconfig[imageexts][depict]",extensions: "$swfconfig[imageexts][ext]".replace(/\*\./g,'').replace(/;/g,','),mimeTypes: 'image/*'},		
 			<!--{/if}-->
-			file_upload_limit : 0,
-			file_queue_limit : 0,
-
-			// Event Handler Settings (all my handlers are in the Handler.js file)
-			swfupload_preload_handler : preLoad,
-			swfupload_load_failed_handler : loadFailed,
-			file_dialog_start_handler : fileDialogStart,
-			file_queued_handler : fileQueued,
-			file_queue_error_handler : fileQueueError,
-			file_dialog_complete_handler : fileDialogComplete,
-			upload_start_handler : uploadStart,
-			upload_progress_handler : uploadProgress,
-			upload_error_handler : uploadError,
-			upload_success_handler : uploadSuccess,
-			upload_complete_handler : uploadComplete,
-
-			// Button Settings
-			button_image_url : "{IMGDIR}/uploadbutton.png",
-			button_placeholder_id : "spanButtonPlaceholder",
-			button_width: 100,
-			button_height: 25,
-			button_cursor:SWFUpload.CURSOR.HAND,
-			button_window_mode: "transparent",
-
-			custom_settings : {
-				progressTarget : "fsUploadProgress",
-				uploadSource: 'portal',
-				uploadType: 'attach',
-				imgBoxObj: $('attachlist')
-				//thumbnail_height: 400,
-				//thumbnail_width: 400,
-				//thumbnail_quality: 100
-			},
-
-			// Debug Settings
-			debug: false
+			resize: false
 		});
-		var upload = new SWFUpload({
-			// Backend Settings
-			upload_url: "{$_G[siteurl]}misc.php?mod=swfupload&action=swfupload&operation=<!--{if $_G['basescript'] == 'portal'}-->portal<!--{else}-->album<!--{/if}-->",
-			post_params: {"uid" : "$_G[uid]", "hash":"$swfconfig[hash]"<!--{if $_G['basescript'] == 'portal'}-->,"aid":$aid,"catid":$catid<!--{/if}-->},
-
-			// File Upload Settings
-			file_size_limit : "$swfconfig[max]",	// 100MB
-			file_types : "$swfconfig[imageexts][ext]",
-			file_types_description : "$swfconfig[imageexts][depict]",
-			file_upload_limit : 0,
-			file_queue_limit : 0,
-
-			// Event Handler Settings (all my handlers are in the Handler.js file)
-			swfupload_preload_handler : preLoad,
-			swfupload_load_failed_handler : loadFailed,
-			file_dialog_start_handler : fileDialogStart,
-			file_queued_handler : fileQueued,
-			file_queue_error_handler : fileQueueError,
-			file_dialog_complete_handler : fileDialogComplete,
-			upload_start_handler : uploadStart,
-			upload_progress_handler : uploadProgress,
-			upload_error_handler : uploadError,
-			upload_success_handler : uploadSuccess,
-			upload_complete_handler : uploadComplete,
-
-			// Button Settings
-			button_image_url : "{IMGDIR}/uploadbutton.png",
-			button_placeholder_id : "imgSpanButtonPlaceholder",
-			button_width: 100,
-			button_height: 25,
-			button_cursor:SWFUpload.CURSOR.HAND,
-			button_window_mode: "transparent",
-
-			custom_settings : {
-				progressTarget : "imgUploadProgress",
-				uploadSource: 'portal',
-				uploadType: <!--{if $_G['basescript'] == 'portal'}-->'portal'<!--{else}-->'blog'<!--{/if}-->,
-				imgBoxObj: $('imgattachlist')
-				//thumbnail_height: 400,
-				//thumbnail_width: 400,
-				//thumbnail_quality: 100
-			},
-
-			// Debug Settings
-			debug: false
+		
+		attachUpload.customSettings = {
+			progressTarget : "fsUploadProgress",
+			uploadSource: 'portal',
+			uploadType: 'attach',
+			imgBoxObj: $('attachlist')
+		}
+		
+		new H5Uploader(attachUpload);
+		
+		var upload = WebUploader.create({
+			swf: '{STATICURL}js/webuploader/Uploader.swf',
+			server: "{$_G[siteurl]}misc.php?mod=swfupload&action=swfupload&operation=<!--{if $_G['basescript'] == 'portal'}-->portal<!--{else}-->album<!--{/if}-->",
+			auto: true,
+			formData: {"uid" : "$_G[uid]", "hash":"$swfconfig[hash]"<!--{if $_G['basescript'] == 'portal'}-->,"aid":$aid,"catid":$catid<!--{/if}-->},		
+			fileVal: 'Filedata',
+			fileSingleSizeLimit: $swfconfig[max]*1024,
+			pick: '#imgSpanButtonPlaceholder',
+			compress: false,
+			accept:{
+				title: "$swfconfig[imageexts][depict]",
+				extensions: "$swfconfig[imageexts][ext]".replace(/\*\./g,'').replace(/;/g,','),
+				mimeTypes: 'image/*'
+			},		
+			resize: false
 		});
+		
+		upload.customSettings = {
+			progressTarget : "imgUploadProgress",
+			uploadSource: 'portal',
+			uploadType: <!--{if $_G['basescript'] == 'portal'}-->'portal'<!--{else}-->'blog'<!--{/if}-->,
+			imgBoxObj: $('imgattachlist')
+		}
+		
+		new H5Uploader(upload);
 	</script>
 <!--{else}-->
 	<!--{if $_G['basescript'] == 'home'}-->
@@ -254,7 +222,6 @@
 			var heightObj = $('icoImg_image_param_3');
 			insertImage(urlObj.value, null, widthObj.value, heightObj.value);
 			urlObj.value = widthObj.value = heightObj.value = '';
-			hideMenu('', 'win');
 		}
 	}
 	//note 选择图片
