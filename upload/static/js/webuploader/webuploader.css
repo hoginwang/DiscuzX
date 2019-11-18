@@ -1,0 +1,111 @@
+
+.webuploader-container {
+	position: relative;
+	
+}
+.webuploader-element-invisible {
+	position: absolute !important;
+	clip: rect(1px 1px 1px 1px); /* IE6, IE7 */
+    clip: rect(1px,1px,1px,1px);
+}
+
+.vm .webuploader-pick{
+		position: relative;
+		display: inline-block;
+		width:26px;
+		height:26px;
+		cursor: pointer;
+		padding: 0px 0px;
+		color: #fff;
+		background-color:transparent;
+		background-image:url('../../image/common/uploadbutton_small_pic.png');
+		background-repeat:no-repeat;
+		-moz-background-attachment:background-attachment:fixed;
+		background-position:0px 0px;
+		
+		text-align: center;
+		border-radius: 3px;
+		overflow: hidden;
+}
+
+.vm .webuploader-pick-hover {
+		background-color:transparent;
+		background-image:url('../../image/common/uploadbutton_small_pic.png');
+		background-repeat:no-repeat;
+		background-position:0px -25px;
+}
+
+#flw_bar .webuploader-container {
+	position: relative;
+	width:50px;
+	margin-left:50px;
+}
+
+.fpd #spanButtonPlaceholder .webuploader-pick {
+	position: relative;
+	display: inline-block;
+	width:25px;
+	height:25px;
+	cursor: pointer;
+	padding: 0px 0px;
+	color: #000;
+	text-align: center;
+	overflow: hidden;
+	
+	background-color:transparent;
+	background-image:url('../../image/common/uploadbutton_small.png');
+	background-repeat:no-repeat;
+	-moz-background-attachment:fixed;
+	background-position:0px 0px;
+}
+.fpd #spanButtonPlaceholder .webuploader-pick-hover {
+	background-color:transparent;
+	background-image:url('../../image/common/uploadbutton_small.png');
+	background-repeat:no-repeat;
+	-moz-background-attachment:fixed;
+	background-position:0px -75px;
+}
+
+
+.webuploader-pick {
+	position: relative;
+	display: inline-block;
+	width:100px;
+	height:25px;
+	cursor: pointer;
+	padding: 0px 0px;
+	color: #fff;
+	text-align: center;
+	overflow: hidden;
+	
+	background-color:transparent;
+	background-image:url('../../image/common/uploadbutton.png');
+	background-repeat:no-repeat;
+	-moz-background-attachment:fixed;
+	background-position:0px 0px;
+}
+.webuploader-pick-hover {
+	background-color:transparent;
+	background-image:url('../../image/common/uploadbutton.png');
+	background-repeat:no-repeat;
+	-moz-background-attachment:fixed;
+	background-position:0px -50px;
+}
+
+.webuploader-pick-disable {
+	opacity: 0.6;
+	pointer-events:none;
+}
+#thelist .placeholder{
+    background-color: #eeee;
+    margin-left: 9px;
+    float: left;
+    height: 34px;
+    width: 84%;
+    color: #aaa;
+    font-size: 16px;
+    text-align: center;
+    line-height: 22px;
+    padding-top: 11px;
+}
+	
