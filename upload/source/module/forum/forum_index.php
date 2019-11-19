@@ -458,16 +458,16 @@ function get_index_page_guest_cache() {
 		@unlink($indexcache['filename']);
 		define('CACHE_FILE', $indexcache['filename']);
 	} elseif($indexcache['filename']) {
-		@readfile($indexcache['filename']);
-		$updatetime = dgmdate($indexcache['filemtime'], 'H:i:s');
-		$gzip = $_G['gzipcompress'] ? ', Gzip enabled' : '';
-		echo "<script type=\"text/javascript\">
-			if($('debuginfo')) {
-				$('debuginfo').innerHTML = '. This page is cached  at $updatetime $gzip .';
-			}
-			</script>";
-		echo '</body></html>';
-		exit();
+		$formhash = constant("FORMHASH");
+		$cachefile = file_get_contents($indexcache['filename']);
+		$cachefile = preg_replace('/(name=\"formhash\" value=\")([a-z0-9]){8}(\")/ismU', '${1}'.$formhash.'${3}', $cachefile);
+		$cachefile = preg_replace('/(formhash=)([a-z0-9]{8})/ismU', '${1}'.$formhash, $cachefile);
+		echo $cachefile;
+		$updatetime = dgmdate($indexcache['filemtime'], 'Y-m-d H:i:s');
+		$nowtime = dgmdate(constant("TIMESTAMP"), 'Y-m-d H:i:s');
+		$gzip = $_G['gzipcompress'] ? ', Gzip On' : '';
+		echo '<script type="text/javascript">$("debuginfo") ? $("debuginfo").innerHTML = ", Updated at '.$updatetime.', Now is '.$nowtime.$gzip.'." : "";</script></body></html>';
+		dexit();
 	}
 }
 
