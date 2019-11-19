@@ -716,7 +716,7 @@ EOT;
 					'find' => $_GET['find'][$id],
 					'replacement' => $_GET['replace'][$id],
 					'type' => $_GET['wordtype_select'][$id],
-				), DB::field("id", $id)." AND ('{$_G['adminid']}'='1' OR admin='{$_G['username']}')");
+				), DB::field("id", $id)." AND ('{$_G['adminid']}'='1' OR `admin`='{$_G['username']}')");
 			}
 		}
 
