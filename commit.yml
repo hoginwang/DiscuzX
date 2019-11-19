@@ -3,18 +3,21 @@ branches: {
   }
 fileChange:
   /upload:
-    newFile: !uuid 'eafabbc71d8df2047464c2e9ccf594c1e1652bb5'
-    oldFile: !uuid 'e22a6a9b317aa8b84e1354b3fcd920d79f7deac7'
-  /upload/uc_server:
-    newFile: !uuid '5927fd304a6c585fb615d3896f3de304d141a6fc'
-    oldFile: !uuid '62caac522f1f216f506a4f0c7c65cb73303d843d'
-  /upload/uc_server/install:
-    newFile: !uuid 'b185a34c6458889581ae94446072cf6c05b09ba5'
-    oldFile: !uuid '2e03aff539de694fdc38df8120cb14d7e8b40836'
-  /upload/uc_server/install/var.inc.php:
-    newFile: !uuid '807e70221cc1f3757337dfae4fa616687318263a'
-    oldFile: !uuid 'd5d860e724dc6f82779613fff63099a50c334a94'
-gitCommitId: !uuid '8acdae48d5014c419ddc9054a6c1dea2423a714c'
+    newFile: !uuid 'a8121f9b66aa8fe582c1e3faff1045bc5b94014c'
+    oldFile: !uuid 'eafabbc71d8df2047464c2e9ccf594c1e1652bb5'
+  /upload/template:
+    newFile: !uuid '9cef2bf296b2b940b4cf71af03ec7c5c49f333e9'
+    oldFile: !uuid 'df308cf387e3c205ef0c135e7d1a567e1e8fa52f'
+  /upload/template/default:
+    newFile: !uuid '5c1763d5487db88dda5093e16bfa248bb189c95f'
+    oldFile: !uuid '34da3ec86592892fb742f3591fbcd43476a6a38a'
+  /upload/template/default/common:
+    newFile: !uuid '5de4b6f6f3ed0fbea4dfbd877512c2572f1149f4'
+    oldFile: !uuid '012425793a4784cfcdfd08c49d532e3ba663ccf4'
+  /upload/template/default/common/editor.htm:
+    newFile: !uuid '23ab8c71d1eb4137ca571a1d057d0b7119b9bd66'
+    oldFile: !uuid 'cb118e68c913280f8d18c1a32f6f67fe97612826'
+gitCommitId: !uuid '344601e774a9f9b147900a30e6408598ff8e4997'
 renames: {
   }
-revisionId: 340
+revisionId: 341
