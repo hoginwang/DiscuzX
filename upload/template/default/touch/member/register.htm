@@ -30,7 +30,7 @@
 				<li><input type="text" tabindex="2" class="px p_fre" size="30" autocomplete="off" value="" name="{$_G['setting']['reginput']['username']}" placeholder="{lang registerinputtip}" fwin="login"></li>
 				<li><input type="password" tabindex="3" class="px p_fre" size="30" value="" name="{$_G['setting']['reginput']['password']}" placeholder="{lang login_password}" fwin="login"></li>
 				<li><input type="password" tabindex="4" class="px p_fre" size="30" value="" name="{$_G['setting']['reginput']['password2']}" placeholder="{lang registerpassword2}" fwin="login"></li>
-				<li><input type="email" tabindex="5" class="px p_fre" size="30" autocomplete="off" value="" name="{$_G['setting']['reginput']['email']}" placeholder="{lang registeremail}" fwin="login"></li>
+				<li><input type="email" tabindex="5" class="px p_fre" size="30" autocomplete="off" value="$hash[0]" name="{$_G['setting']['reginput']['email']}" placeholder="{lang registeremail}" fwin="login"></li>
 				<!--{if $_G['setting']['regverify'] == 2}-->
 					<li><input type="text" tabindex="6" class="px p_fre" size="30" autocomplete="off" value="{lang register_message}" name="regmessage" placeholder="{lang register_message}" fwin="login"></li>
 				<!--{/if}-->
