@@ -13,6 +13,8 @@ if(!defined('IN_DISCUZ')) {
 
 define('NOROBOT', TRUE);
 
+$formhash = constant("FORMHASH");
+
 $url = '';
 if($_G['setting']['domain']['app']['home'] || $_G['setting']['domain']['app']['default']) {
 	$domain = '';
@@ -25,7 +27,7 @@ if($_G['setting']['domain']['app']['home'] || $_G['setting']['domain']['app']['d
 }
 $url .= 'home.php?mod=spacecp&ac=search';
 if($_GET['srchtxt']) {
-	$url .= '&username='.$_GET['srchtxt'].'&searchsubmit=yes';
+	$url .= '&username='.$_GET['srchtxt'].'&searchsubmit=yes&formhash='.$formhash;
 }
 
 dheader('Location: '.$url);

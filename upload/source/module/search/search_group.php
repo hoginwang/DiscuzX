@@ -38,6 +38,8 @@ $srchfid = intval($_GET['srchfid']);
 $viewgroup = intval($_GET['viewgroup']);
 $keyword = isset($srchtxt) ? dhtmlspecialchars(trim($srchtxt)) : '';
 
+$formhash = constant("FORMHASH");
+
 if(!submitcheck('searchsubmit', 1)) {
 
 	include template('search/group');
@@ -109,9 +111,9 @@ if(!submitcheck('searchsubmit', 1)) {
 			}
 		}
 		if(empty($viewgroup)) {
-			$multipage = multi($index['num'], $_G['tpp'], $page, "search.php?mod=group&searchid=$searchid&orderby=$orderby&ascdesc=$ascdesc&searchsubmit=yes".($viewgroup ? '&viewgroup=1' : ''));
+			$multipage = multi($index['num'], $_G['tpp'], $page, "search.php?mod=group&formhash=$formhash&searchid=$searchid&orderby=$orderby&ascdesc=$ascdesc&searchsubmit=yes".($viewgroup ? '&viewgroup=1' : ''));
 		} else {
-			$multipage = multi($groupnum, $_G['tpp'], $page, "search.php?mod=group&searchid=$searchid&orderby=$orderby&ascdesc=$ascdesc&searchsubmit=yes".($viewgroup ? '&viewgroup=1' : ''));
+			$multipage = multi($groupnum, $_G['tpp'], $page, "search.php?mod=group&formhash=$formhash&searchid=$searchid&orderby=$orderby&ascdesc=$ascdesc&searchsubmit=yes".($viewgroup ? '&viewgroup=1' : ''));
 		}
 
 		$url_forward = 'search.php?mod=group&'.$_SERVER['QUERY_STRING'];
@@ -195,7 +197,7 @@ if(!submitcheck('searchsubmit', 1)) {
 			!($_G['group']['exempt'] & 2) && updatecreditbyaction('search');
 		}
 
-		dheader("location: search.php?mod=group&searchid=$searchid&searchsubmit=yes&kw=".urlencode($keyword));
+		dheader("location: search.php?mod=group&formhash=$formhash&searchid=$searchid&searchsubmit=yes&kw=".urlencode($keyword));
 
 	}
 
