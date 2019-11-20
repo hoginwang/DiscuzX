@@ -19,7 +19,7 @@
 		<!--{if $allowpostimg}-->
 			<li class="current" id="{$editorid}_btn_imgattachlist"><a href="javascript:;" hidefocus="true" onclick="switchImagebutton('imgattachlist');">{lang e_img_attach}</a></li>
 			<!--{if $allowuploadtoday}-->
-				<li id="{$editorid}_btn_local" style="display:none;" did="{$editorid}_btn_imgattachlist|local"><a href="javascript:;" hidefocus="true" onclick="switchImagebutton('local');">{lang normal_upload}</a></li>
+				<li id="{$editorid}_btn_local" did="{$editorid}_btn_imgattachlist|local"><a href="javascript:;" hidefocus="true" onclick="switchImagebutton('local');">{lang normal_upload}</a></li>
 			<!--{/if}-->
 		<!--{/if}-->
 		<!--{if helper_access::check_module('album')}--><li {if !$allowpostimg}class="current"{/if} id="{$editorid}_btn_albumlist"><a href="javascript:;" hidefocus="true" onclick="switchImagebutton('albumlist');">{lang e_img_albumlist}</a></li><!--{/if}-->
@@ -119,7 +119,7 @@
 							</div>
 						<!--{/if}-->
 					</div>
-					<span id="imgSpanButtonPlaceholder"></span>
+					<span id="imgSpanButtonPlaceholder"><div id="imgUploadBtn" class="uploadbtn" onclick="switchImagebutton('local');">{lang normal_upload}</div></span>
 				</div>
 			<!--{/if}-->
 			<div class="upfilelist upfl bbda">
@@ -231,7 +231,7 @@
 			<li class="y"><span class="flbc" onclick="hideAttachMenu('attach')">{lang close}</span></li>
 			<li class="current" id="{$editorid}_btn_attachlist"><a href="javascript:;" hidefocus="true" onclick="switchAttachbutton('attachlist');">{lang attachment_list}</a></li>
 			<!--{if $allowuploadtoday}-->
-			<li id="{$editorid}_btn_upload" style="display: none;" did="{$editorid}_btn_attachlist|upload"><a href="javascript:;" hidefocus="true" onclick="switchAttachbutton('upload');">{lang common_upload}</a></li>
+			<li id="{$editorid}_btn_upload" did="{$editorid}_btn_attachlist|upload"><a href="javascript:;" hidefocus="true" onclick="switchAttachbutton('upload');">{lang common_upload}</a></li>
 			<!--{/if}-->
 			<!--{hook/post_attach_btn_extra}-->
 		</ul>
@@ -275,7 +275,7 @@
 		<div class="p_opt post_tablelist" unselectable="on" id="{$editorid}_attachlist">
 			<!--{if $allowuploadtoday}-->
 				<div class="pbm bbda">
-					<span id="spanButtonPlaceholder"></span>
+					<span id="spanButtonPlaceholder"><div id="attUploadBtn" class="uploadbtn" onclick="switchAttachbutton('upload');">{lang common_upload}</div></span>
 				</div>
 			<!--{/if}-->
 			<table cellpadding="0" cellspacing="0" border="0" width="100%" id="attach_tblheader" class="mtn bbs"{if empty($attachs['used'])} style="display: none"{/if}>

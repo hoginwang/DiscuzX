@@ -1028,6 +1028,7 @@ CSS 写作注意事项：
 			.fpd a.fcd { background-position: -120px -20px; }
 			.fpd a.fsml { background-position: -20px -20px; }
 			.fpd a.fat { background-position: -140px 0; }
+			.fpd a.fatt { background-position: -200px -20px; }
 		.tedt .area { padding: 4px; background: {WRAPBG}; zoom: 1; }
 		.tedt .pt { width: 100%; margin-right: 0; padding: 0 !important; border: none; background: {WRAPBG} none; }
 			.tedt .pt:focus { outline: none; -moz-box-shadow: none; }
@@ -1479,6 +1480,10 @@ CSS 写作注意事项：
 /* 上传弹出层 */
 .upfile { width: 220px; }
 	.uploadform { padding: 0 10px; border: 1px dashed {COMMONBORDER}; background: {COMMONBG}; }
+
+/* 上传按钮 */
+.uploadbtn { width: 100px; height: 25px; background: url({STATICURL}image/common/uploadbutton.png) no-repeat; text-indent: -9999px; line-height: 25px; overflow: hidden; cursor: pointer; }
+.uploadbtn:hover { background-position: 0px -25px; }
 
 /*
 	Name:			mod_flashupload
