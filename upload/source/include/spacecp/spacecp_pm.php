@@ -212,7 +212,7 @@ if($_GET['op'] == 'checknewpm') {
 
 		$message = censor($message);
 		if(censormod($message)) {
-			showmessage(lang('spacecp', 'profile_censor'), '', array(), array('return' => true));
+			showmessage('word_banned', '', array(), array('return' => true));
 		}
 
 		loadcache(array('smilies', 'smileytypes'));
