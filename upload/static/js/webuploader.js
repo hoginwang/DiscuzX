@@ -144,6 +144,7 @@ SWFUpload.prototype.initSettings = function (userSettings) {
 		swf: getBasePath() + 'Uploader.swf',
 		server: this.settings.upload_url,
 		pick: '#'+this.settings.button_placeholder_id,
+		compress: false,
 		accept: {
 			title: this.settings.file_types_description,
 			extensions: this.settings.file_types.replace(/\*\.\*/g,'').replace(/\*\./g,'').replace(/;/g,','),
