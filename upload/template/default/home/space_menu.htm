@@ -58,50 +58,50 @@
 				<span class="pipe">|</span>
 					<!--{if checkperm('allowbanuser') || checkperm('allowedituser')}-->
 							<!--{if checkperm('allowbanuser')}-->
-							<a href="{if $_G[adminid] == 1}admin.php?action=members&operation=ban&username=$encodeusername&frames=yes{else}forum.php?mod=modcp&action=member&op=ban&uid=$space[uid]{/if}" id="usermanageli" onmouseover="showMenu(this.id)" class="showmenu" target="_blank">{lang member_manage}</a>
+							<a href="{if $_G[adminid] == 1}admin.php?action=members&operation=ban&username=$encodeusername&frames=yes{else}forum.php?mod=modcp&action=member&op=ban&uid=$space[uid]&formhash={FORMHASH}{/if}" id="usermanageli" onmouseover="showMenu(this.id)" class="showmenu" target="_blank">{lang member_manage}</a>
 							<!--{else}-->
-							<a href="{if $_G[adminid] == 1}admin.php?action=members&operation=search&username=$encodeusername&submit=yes&frames=yes{else}forum.php?mod=modcp&action=member&op=edit&uid=$space[uid]{/if}" id="usermanageli" onmouseover="showMenu(this.id)" class="showmenu" target="_blank">{lang member_manage}</a>
+							<a href="{if $_G[adminid] == 1}admin.php?action=members&operation=search&username=$encodeusername&frames=yes{else}forum.php?mod=modcp&action=member&op=edit&uid=$space[uid]&formhash={FORMHASH}{/if}" id="usermanageli" onmouseover="showMenu(this.id)" class="showmenu" target="_blank">{lang member_manage}</a>
 							<!--{/if}-->
 					<!--{/if}-->
 					
 					<!--{if $_G[adminid] == 1}-->
-						<a href="forum.php?mod=modcp&action=thread&op=post&do=search&searchsubmit=1&users=$encodeusername" id="umanageli" onmouseover="showMenu(this.id)" class="showmenu">{lang content_manage}</a>
+						<a href="forum.php?mod=modcp&action=thread&op=post&do=search&users=$encodeusername&formhash={FORMHASH}" id="umanageli" onmouseover="showMenu(this.id)" class="showmenu">{lang content_manage}</a>
 					<!--{/if}-->
 				<!--{if checkperm('allowbanuser') || checkperm('allowedituser')}-->
 				<ul id="usermanageli_menu" class="p_pop" style="width: 80px; display:none;">
 					<!--{if checkperm('allowbanuser')}-->
-						<li><a href="{if $_G[adminid] == 1}admin.php?action=members&operation=ban&username=$encodeusername&frames=yes{else}forum.php?mod=modcp&action=member&op=ban&uid=$space[uid]{/if}" target="_blank">{lang user_ban}</a></li>
+						<li><a href="{if $_G[adminid] == 1}admin.php?action=members&operation=ban&username=$encodeusername&frames=yes{else}forum.php?mod=modcp&action=member&op=ban&uid=$space&formhash={FORMHASH}[uid]{/if}" target="_blank">{lang user_ban}</a></li>
 					<!--{/if}-->
 					<!--{if checkperm('allowedituser')}-->
-						<li><a href="{if $_G[adminid] == 1}admin.php?action=members&operation=search&username=$encodeusername&submit=yes&frames=yes{else}forum.php?mod=modcp&action=member&op=edit&uid=$space[uid]{/if}" target="_blank">{lang user_edit}</a></li>
+						<li><a href="{if $_G[adminid] == 1}admin.php?action=members&operation=search&username=$encodeusername&frames=yes{else}forum.php?mod=modcp&action=member&op=edit&uid=$space[uid]&formhash={FORMHASH}{/if}" target="_blank">{lang user_edit}</a></li>
 					<!--{/if}-->
 				</ul>
 				<!--{/if}-->
 				<!--{if $_G['adminid'] == 1}-->
 					<ul id="umanageli_menu" class="p_pop" style="width: 80px; display:none;">
-						<li><a href="forum.php?mod=modcp&action=thread&op=post&searchsubmit=1&do=search&users=$encodeusername" target="_blank">{lang manage_post}</a></li>
+						<li><a href="forum.php?mod=modcp&action=thread&op=post&searchsubmit=1&do=search&users=$encodeusername&formhash={FORMHASH}" target="_blank">{lang manage_post}</a></li>
 						<!--{if helper_access::check_module('doing')}-->
-							<li><a href="admin.php?action=doing&searchsubmit=1&detail=1&search=true&fromumanage=1&users=$encodeusername" target="_blank">{lang manage_doing}</a></li>
+							<li><a href="admin.php?action=doing&detail=1&search=true&fromumanage=1&users=$encodeusername&frames=yes" target="_blank">{lang manage_doing}</a></li>
 						<!--{/if}-->
 						<!--{if helper_access::check_module('blog')}-->
-							<li><a href="admin.php?action=blog&searchsubmit=1&detail=1&search=true&fromumanage=1&uid=$space[uid]" target="_blank">{lang manage_blog}</a></li>
+							<li><a href="admin.php?action=blog&detail=1&search=true&fromumanage=1&uid=$space[uid]&frames=yes" target="_blank">{lang manage_blog}</a></li>
 						<!--{/if}-->
 						<!--{if helper_access::check_module('feed')}-->
-							<li><a href="admin.php?action=feed&searchsubmit=1&detail=1&fromumanage=1&uid=$space[uid]" target="_blank">{lang manage_feed}</a></li>
+							<li><a href="admin.php?action=feed&detail=1&fromumanage=1&uid=$space[uid]&frames=yes" target="_blank">{lang manage_feed}</a></li>
 						<!--{/if}-->
 						<!--{if helper_access::check_module('album')}-->
-							<li><a href="admin.php?action=album&searchsubmit=1&detail=1&search=true&fromumanage=1&uid=$space[uid]" target="_blank">{lang manage_album}</a></li>
-							<li><a href="admin.php?action=pic&searchsubmit=1&detail=1&search=true&fromumanage=1&users=$encodeusername" target="_blank">{lang manage_pic}</a></li>
+							<li><a href="admin.php?action=album&detail=1&search=true&fromumanage=1&uid=$space[uid]&frames=yes" target="_blank">{lang manage_album}</a></li>
+							<li><a href="admin.php?action=pic&detail=1&search=true&fromumanage=1&users=$encodeusername&frames=yes" target="_blank">{lang manage_pic}</a></li>
 						<!--{/if}-->
 						<!--{if helper_access::check_module('wall')}-->
-							<li><a href="admin.php?action=comment&searchsubmit=1&detail=1&fromumanage=1&authorid=$space[uid]" target="_blank">{lang manage_comment}</a></li>
+							<li><a href="admin.php?action=comment&detail=1&fromumanage=1&authorid=$space[uid]&frames=yes" target="_blank">{lang manage_comment}</a></li>
 						<!--{/if}-->
 						<!--{if helper_access::check_module('share')}-->
-							<li><a href="admin.php?action=share&searchsubmit=1&detail=1&search=true&fromumanage=1&uid=$space[uid]" target="_blank">{lang manage_share}</a></li>
+							<li><a href="admin.php?action=share&detail=1&search=true&fromumanage=1&uid=$space[uid]&frames=yes" target="_blank">{lang manage_share}</a></li>
 						<!--{/if}-->
 						<!--{if helper_access::check_module('group')}-->
-							<li><a href="admin.php?action=threads&operation=group&searchsubmit=1&detail=1&search=true&fromumanage=1&users=$encodeusername" target="_blank">{lang manage_group_threads}</a></li>
-							<li><a href="admin.php?action=prune&searchsubmit=1&detail=1&operation=group&fromumanage=1&users=$encodeusername" target="_blank">{lang manage_group_prune}</a></li>
+							<li><a href="admin.php?action=threads&operation=group&detail=1&search=true&fromumanage=1&users=$encodeusername&frames=yes" target="_blank">{lang manage_group_threads}</a></li>
+							<li><a href="admin.php?action=prune&detail=1&operation=group&fromumanage=1&users=$encodeusername&frames=yes" target="_blank">{lang manage_group_prune}</a></li>
 						<!--{/if}-->
 					</ul>
 				<!--{/if}-->

@@ -77,6 +77,7 @@ function getblockhtml($blockname,$parameters = array()) {
 			$managehtml = '';
 			$avatar = empty($parameters['banavatar']) ? 'middle' : $parameters['banavatar'];
 			$html .= "<div class=\"hm\"><p><a href=\"home.php?mod=space&uid=$uid\" target=\"_blank\">".avatar($uid,$avatar).'</a></p>';
+			$formhash = constant("FORMHASH");
 
 			$memberfieldforum = C::t('common_member_field_forum')->fetch($space['uid']);
 			$space['medals'] = $memberfieldforum['medals'];
@@ -151,34 +152,34 @@ function getblockhtml($blockname,$parameters = array()) {
 			$encodeusername = rawurlencode($space['username']);
 
 			if(checkperm('allowbanuser')) {
-				$managehtml .= '<li><a href="'.($_G['adminid'] == 1 ? "admin.php?action=members&operation=ban&username=$encodeusername&frames=yes" : "forum.php?mod=modcp&action=member&op=ban&uid=$space[uid]").'" id="usermanageli" onmouseover="showMenu(this.id)" class="showmenu" target="_blank">'.lang('home/template', 'member_manage').'</a></li>';
+				$managehtml .= '<li><a href="'.($_G['adminid'] == 1 ? "admin.php?action=members&operation=ban&username=$encodeusername&frames=yes" : "forum.php?mod=modcp&action=member&op=ban&uid=$space[uid]&formhash=$formhash").'" id="usermanageli" onmouseover="showMenu(this.id)" class="showmenu" target="_blank">'.lang('home/template', 'member_manage').'</a></li>';
 			} elseif (checkperm('allowedituser')) {
-				$managehtml .= '<li><a href="'.($_G['adminid'] == 1 ? "admin.php?action=members&operation=search&username=$encodeusername&submit=yes&frames=yes" : "forum.php?mod=modcp&action=member&op=edit&uid=$space[uid]").'" id="usermanageli" onmouseover="showMenu(this.id)" class="showmenu" target="_blank">'.lang('home/template', 'member_manage').'</a></li>';
+				$managehtml .= '<li><a href="'.($_G['adminid'] == 1 ? "admin.php?action=members&operation=search&username=$encodeusername&frames=yes" : "forum.php?mod=modcp&action=member&op=edit&uid=$space[uid]&formhash=$formhash").'" id="usermanageli" onmouseover="showMenu(this.id)" class="showmenu" target="_blank">'.lang('home/template', 'member_manage').'</a></li>';
 			}
 			if($_G['adminid'] == 1) {
-				$managehtml .= "<li><a href=\"forum.php?mod=modcp&action=thread&op=post&do=search&searchsubmit=1&users=$encodeusername\" id=\"umanageli\" onmouseover=\"showMenu(this.id)\" class=\"showmenu\">".lang('home/template', 'content_manage')."</a></li>";
+				$managehtml .= "<li><a href=\"forum.php?mod=modcp&action=thread&op=post&do=search&users=$encodeusername&formhash=$formhash\" id=\"umanageli\" onmouseover=\"showMenu(this.id)\" class=\"showmenu\">".lang('home/template', 'content_manage')."</a></li>";
 			}
 			if(!empty($managehtml)) {
 				$html .= '<hr class="da mtn m0" /><ul class="ptn xl xl2 cl">'.$managehtml.'</ul><ul id="usermanageli_menu" class="p_pop" style="width: 80px; display:none;">';
 				if(checkperm('allowbanuser')) {
-					$html .= '<li><a href="'.($_G['adminid'] == 1 ? "admin.php?action=members&operation=ban&username=$encodeusername&frames=yes" : "forum.php?mod=modcp&action=member&op=ban&uid=$space[uid]").'" target="_blank">'.lang('home/template', 'user_ban').'</a></li>';
+					$html .= '<li><a href="'.($_G['adminid'] == 1 ? "admin.php?action=members&operation=ban&username=$encodeusername&frames=yes" : "forum.php?mod=modcp&action=member&op=ban&uid=$space[uid]&formhash=$formhash").'" target="_blank">'.lang('home/template', 'user_ban').'</a></li>';
 				}
 				if (checkperm('allowedituser')) {
-					$html .= '<li><a href="'.($_G['adminid'] == 1 ? "admin.php?action=members&operation=search&username=$encodeusername&submit=yes&frames=yes" : "forum.php?mod=modcp&action=member&op=edit&uid=$space[uid]").'" target="_blank">'.lang('home/template', 'user_edit').'</a></li>';
+					$html .= '<li><a href="'.($_G['adminid'] == 1 ? "admin.php?action=members&operation=search&username=$encodeusername&frames=yes" : "forum.php?mod=modcp&action=member&op=edit&uid=$space[uid]&formhash=$formhash").'" target="_blank">'.lang('home/template', 'user_edit').'</a></li>';
 				}
 				$html .= '</ul>';
 				if($_G['adminid'] == 1) {
 					$html .= '<ul id="umanageli_menu" class="p_pop" style="width: 80px; display:none;">';
-					$html .= '<li><a href="forum.php?mod=modcp&action=thread&op=post&searchsubmit=1&do=search&users='.$encodeusername.'" target="_blank">'.lang('space', 'manage_post').'</a></li>';
-					$html .= '<li><a href="admin.php?action=doing&searchsubmit=1&detail=1&search=true&fromumanage=1&users='.$encodeusername.'" target="_blank">'.lang('space', 'manage_doing').'</a></li>';
-					$html .= '<li><a href="admin.php?action=blog&searchsubmit=1&detail=1&search=true&fromumanage=1&uid='.$uid.'" target="_blank">'.lang('space', 'manage_blog').'</a></li>';
-					$html .= '<li><a href="admin.php?action=feed&searchsubmit=1&detail=1&fromumanage=1&uid='.$uid.'" target="_blank">'.lang('space', 'manage_feed').'</a></li>';
-					$html .= '<li><a href="admin.php?action=album&searchsubmit=1&detail=1&search=true&fromumanage=1&uid='.$uid.'" target="_blank">'.lang('space', 'manage_album').'</a></li>';
-					$html .= '<li><a href="admin.php?action=pic&searchsubmit=1&detail=1&search=true&fromumanage=1&users='.$encodeusername.'" target="_blank">'.lang('space', 'manage_pic').'</a></li>';
-					$html .= '<li><a href="admin.php?action=comment&searchsubmit=1&detail=1&fromumanage=1&authorid='.$uid.'" target="_blank">'.lang('space', 'manage_comment').'</a></li>';
-					$html .= '<li><a href="admin.php?action=share&searchsubmit=1&detail=1&search=true&fromumanage=1&uid='.$uid.'" target="_blank">'.lang('space', 'manage_share').'</a></li>';
-					$html .= '<li><a href="admin.php?action=threads&operation=group&searchsubmit=1&detail=1&search=true&fromumanage=1&users='.$encodeusername.'" target="_blank">'.lang('space', 'manage_group_threads').'</a></li>';
-					$html .= '<li><a href="admin.php?action=prune&operation=group&searchsubmit=1&detail=1&fromumanage=1&users='.$encodeusername.'" target="_blank">'.lang('space', 'manage_group_prune').'</a></li>';
+					$html .= '<li><a href="forum.php?mod=modcp&action=thread&op=post&searchsubmit=1&do=search&users='.$encodeusername.'&formhash='.$formhash.'" target="_blank">'.lang('space', 'manage_post').'</a></li>';
+					$html .= '<li><a href="admin.php?action=doing&detail=1&search=true&fromumanage=1&users='.$encodeusername.'&frames=yes" target="_blank">'.lang('space', 'manage_doing').'</a></li>';
+					$html .= '<li><a href="admin.php?action=blog&detail=1&search=true&fromumanage=1&uid='.$uid.'&frames=yes" target="_blank">'.lang('space', 'manage_blog').'</a></li>';
+					$html .= '<li><a href="admin.php?action=feed&detail=1&fromumanage=1&uid='.$uid.'&frames=yes" target="_blank">'.lang('space', 'manage_feed').'</a></li>';
+					$html .= '<li><a href="admin.php?action=album&detail=1&search=true&fromumanage=1&uid='.$uid.'&frames=yes" target="_blank">'.lang('space', 'manage_album').'</a></li>';
+					$html .= '<li><a href="admin.php?action=pic&detail=1&search=true&fromumanage=1&users='.$encodeusername.'&frames=yes" target="_blank">'.lang('space', 'manage_pic').'</a></li>';
+					$html .= '<li><a href="admin.php?action=comment&detail=1&fromumanage=1&authorid='.$uid.'&frames=yes" target="_blank">'.lang('space', 'manage_comment').'</a></li>';
+					$html .= '<li><a href="admin.php?action=share&detail=1&search=true&fromumanage=1&uid='.$uid.'&frames=yes" target="_blank">'.lang('space', 'manage_share').'</a></li>';
+					$html .= '<li><a href="admin.php?action=threads&operation=group&detail=1&search=true&fromumanage=1&users='.$encodeusername.'&frames=yes" target="_blank">'.lang('space', 'manage_group_threads').'</a></li>';
+					$html .= '<li><a href="admin.php?action=prune&operation=group&detail=1&fromumanage=1&users='.$encodeusername.'&frames=yes" target="_blank">'.lang('space', 'manage_group_prune').'</a></li>';
 					$html .= '</ul>';
 				}
 			}
