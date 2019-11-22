@@ -139,6 +139,11 @@ SWFUpload.prototype.initSettings = function (userSettings) {
 	}
 
 	var self = this;
+	var mimes = '*/*';
+
+	if(!WebUploader.os.android && !WebUploader.os.ios){
+		mimes = this.settings.file_types.replace(/\*\.\*/g,'').replace(/\*/g,'').replace(/;/g,',');
+	}
 
 	var uploader = WebUploader.create({
 		swf: getBasePath() + 'Uploader.swf',
@@ -148,7 +153,7 @@ SWFUpload.prototype.initSettings = function (userSettings) {
 		accept: {
 			title: this.settings.file_types_description,
 			extensions: this.settings.file_types.replace(/\*\.\*/g,'').replace(/\*\./g,'').replace(/;/g,','),
-			mimeTypes: this.settings.file_types.replace(/\*\.\*/g,'').replace(/\*/g,'').replace(/;/g,',')
+			mimeTypes: mimes
 		},
 		fileVal: this.settings.file_post_name,
 		formData: this.settings.post_params,
