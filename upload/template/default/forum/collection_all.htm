@@ -15,7 +15,7 @@
 		<div class="tbmu cl">
 			<div class="y">
 				<!--{if $_G['setting']['search']['collection']['status'] && ($_G['group']['allowsearch'] & 64 || $_G['adminid'] == 1)}-->
-					<form action="forum.php?mod=collection&amp;op=search" method="post">
+					<form action="forum.php?mod=collection&amp;op=search&amp;formhash={FORMHASH}" method="post">
 						<input type="text" name="kw" class="px vm" />
 						<button type="submit" value="submit" class="pn vm"><span>{lang search}</span></button>
 					</form>
