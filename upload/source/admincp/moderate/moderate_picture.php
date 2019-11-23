@@ -97,7 +97,7 @@ if(!submitcheck('modsubmit') && !$_GET['fast']) {
 			"<ul class=\"nofloat\"><li><input class=\"radio\" type=\"radio\" name=\"moderate[$pic[picid]]\" id=\"mod_$pic[picid]_1\" value=\"validate\" onclick=\"mod_setbg($pic[picid], 'validate');\"><label for=\"mod_$pic[picid]_1\">$lang[validate]</label></li><li><input class=\"radio\" type=\"radio\" name=\"moderate[$pic[picid]]\" id=\"mod_$pic[picid]_2\" value=\"delete\" onclick=\"mod_setbg($pic[picid], 'delete');\"><label for=\"mod_$pic[picid]_2\">$lang[delete]</label></li><li><input class=\"radio\" type=\"radio\" name=\"moderate[$pic[picid]]\" id=\"mod_$pic[picid]_3\" value=\"ignore\" onclick=\"mod_setbg($pic[picid], 'ignore');\"><label for=\"mod_$pic[picid]_3\">$lang[ignore]</label></li></ul>",
 			"<h3><a href=\"javascript:;\" onclick=\"display_toggle('$pic[picid]');\">$pic[title]</a> $pic_censor_text</h3><p>$pic[postip]</p>",
 			"<a target=\"_blank\" href=\"home.php?mod=space&uid=$pic[uid]&do=album&id=$pic[albumid]\">$pic[albumname]</a>",
-			"<p><a target=\"_blank\" href=\"".ADMINSCRIPT."?action=members&operation=search&uid=$pic[uid]&submit=yes\">$pic[username]</a></p> <p>$pic[dateline]</p>",
+			"<p><a target=\"_blank\" href=\"".ADMINSCRIPT."?action=members&operation=search&uid=$pic[uid]&submit=yes&formhash".constant("FORMHASH")."\">$pic[username]</a></p> <p>$pic[dateline]</p>",
 			"<a target=\"_blank\" href=\"home.php?mod=space&uid=$pic[uid]&do=album&picid=$pic[picid]&modpickey=$pic[modpickey]\">$lang[view]</a>",
 		));
 		showtablerow("id=\"mod_$pic[picid]_row2\"", 'colspan="4" style="padding: 10px; line-height: 180%;"', '<div style="overflow: auto; overflow-x: hidden; max-height:120px; height:auto !important; height:100px; word-break: break-all;"><img src="'.$pic['url'].'" /></div>');

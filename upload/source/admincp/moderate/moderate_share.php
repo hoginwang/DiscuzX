@@ -134,7 +134,7 @@ if(!submitcheck('modsubmit') && !$_GET['fast']) {
 			"<ul class=\"nofloat\"><li><input class=\"radio\" type=\"radio\" name=\"moderate[$share[sid]]\" id=\"mod_$share[sid]_1\" value=\"validate\" onclick=\"mod_setbg($share[sid], 'validate');\"><label for=\"mod_$share[sid]_1\">$lang[validate]</label></li><li><input class=\"radio\" type=\"radio\" name=\"moderate[$share[sid]]\" id=\"mod_$share[sid]_2\" value=\"delete\" onclick=\"mod_setbg($share[sid], 'delete');\"><label for=\"mod_$share[sid]_2\">$lang[delete]</label></li><li><input class=\"radio\" type=\"radio\" name=\"moderate[$share[sid]]\" id=\"mod_$doing[doid]_3\" value=\"ignore\" onclick=\"mod_setbg($share[sid], 'ignore');\"><label for=\"mod_$share[sid]_3\">$lang[ignore]</label></li></ul>",
 			"<h3><a href=\"javascript:;\" onclick=\"display_toggle({$share[sid]});\">$short_desc $share_censor_text</a></h3>",
 			$sharetitle,
-			"<p><a target=\"_blank\" href=\"".ADMINSCRIPT."?action=members&operation=search&uid=$share[uid]&submit=yes\">$share[username]</a></p> <p>$share[dateline]</p>",
+			"<p><a target=\"_blank\" href=\"".ADMINSCRIPT."?action=members&operation=search&uid=$share[uid]&submit=yes&formhash".constant("FORMHASH")."\">$share[username]</a></p> <p>$share[dateline]</p>",
 			"<a target=\"_blank\" href=\"$shareurl\">$lang[view]</a>",
 		));
 
