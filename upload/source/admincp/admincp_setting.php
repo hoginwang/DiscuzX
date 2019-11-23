@@ -2528,6 +2528,7 @@ EOT;
 
 				$multipage = '';
 				$count = C::t('common_visit')->count();
+				$formhash = constant("FORMHASH");
 				if($count) {
 					require_once libfile('function/misc');
 					foreach(C::t('common_visit')->range($start, $perpage) as $value) {
@@ -2536,9 +2537,9 @@ EOT;
 								"<input type=\"checkbox\" class=\"checkbox\" name=\"ips[]\" value=\"$value[ip]\">",
 								"$ip ".convertip($ip),
 								$value['view'],
-								"<a href=\"$mpurl&optype=white&ips[]=$value[ip]&antitheftsubmit=yes\">$lang[setting_antitheft_addwhitelist]</a> |
-								 <a href=\"$mpurl&optype=black&ips[]=$value[ip]&antitheftsubmit=yes\">$lang[setting_antitheft_addblacklist]</a> |
-								 <a href=\"$mpurl&optype=delete&ips[]=$value[ip]&antitheftsubmit=yes\">$lang[delete]</a>
+								"<a href=\"$mpurl&optype=white&ips[]=$value[ip]&antitheftsubmit=yes&formhash=$formhash\">$lang[setting_antitheft_addwhitelist]</a> |
+								 <a href=\"$mpurl&optype=black&ips[]=$value[ip]&antitheftsubmit=yes&formhash=$formhash\">$lang[setting_antitheft_addblacklist]</a> |
+								 <a href=\"$mpurl&optype=delete&ips[]=$value[ip]&antitheftsubmit=yes&formhash=$formhash\">$lang[delete]</a>
 								",
 							));
 					}

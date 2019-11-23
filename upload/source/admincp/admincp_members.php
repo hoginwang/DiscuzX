@@ -22,6 +22,7 @@ $_G['setting']['memberperpage'] = 20;
 $page = max(1, $_G['page']);
 $start_limit = ($page - 1) * $_G['setting']['memberperpage'];
 $search_condition = array_merge($_GET, $_POST);
+$formhash = constant("FORMHASH");
 
 if(!is_array($search_condition['groupid']) && $search_condition['groupid']) {
 	$search_condition['groupid'][0] = $search_condition['groupid'];
@@ -76,7 +77,7 @@ EOF;
 
 		$members = '';
 		if($membernum > 0) {
-			$multipage = multi($membernum, $_G['setting']['memberperpage'], $page, ADMINSCRIPT."?action=members&operation=search&submit=yes".$urladd);
+			$multipage = multi($membernum, $_G['setting']['memberperpage'], $page, ADMINSCRIPT."?action=members&operation=search&submit=yes&formhash=$formhash".$urladd);
 
 			$usergroups = array();
 			foreach(C::t('common_usergroup')->range() as $group) {
@@ -272,7 +273,7 @@ EOF;
 			$conditions = 'm.uid IN ('.dimplode($uids).')';
 			$_G['setting']['memberperpage'] = 100;
 			$start_limit = ($page - 1) * $_G['setting']['memberperpage'];
-			$multipage = multi($membernum, $_G['setting']['memberperpage'], $page, ADMINSCRIPT."?action=members&operation=repeat&submit=yes".$urladd);
+			$multipage = multi($membernum, $_G['setting']['memberperpage'], $page, ADMINSCRIPT."?action=members&operation=repeat&submit=yes&formhash=$formhash".$urladd);
 			$allstatus = !empty($ips) ? C::t('common_member_status')->fetch_all_by_ip($ips, $start_limit, $_G['setting']['memberperpage'])
 					: C::t('common_member_status')->range($start_limit, $_G['setting']['memberperpage']);
 			$allcount = C::t('common_member_count')->fetch_all(array_keys($allstatus));
@@ -374,7 +375,7 @@ EOF;
 		}
 		if(!submitcheck('confirmed')) {
 
-			cpmsg('members_delete_confirm', "action=members&operation=clean&submit=yes&confirmed=yes".$urladd, 'form', array('membernum' => $membernum), $extra.'<br /><label><input type="checkbox" name="includepost" value="1" class="checkbox" />'.$lang['members_delete_all'].'</label>'.($isfounder ? '&nbsp;<label><input type="checkbox" name="includeuc" value="1" class="checkbox" />'.$lang['members_delete_ucdata'].'</label>' : ''), '');
+			cpmsg('members_delete_confirm', "action=members&operation=clean&submit=yes&confirmed=yes&formhash=$formhash".$urladd, 'form', array('membernum' => $membernum), $extra.'<br /><label><input type="checkbox" name="includepost" value="1" class="checkbox" />'.$lang['members_delete_all'].'</label>'.($isfounder ? '&nbsp;<label><input type="checkbox" name="includeuc" value="1" class="checkbox" />'.$lang['members_delete_ucdata'].'</label>' : ''), '');
 
 		} else {
 
@@ -394,7 +395,7 @@ EOF;
 					cpmsg('members_delete_succeed', '', 'succeed', array('numdeleted' => $numdeleted));
 				} else {
 					$allnum += $membernum < $delmemberlimit ? $membernum : $delmemberlimit;
-					$nextlink = "action=members&operation=clean&confirmed=yes&submit=yes".(!empty($_GET['includeuc']) ? '&includeuc=yes' : '')."&allnum=$allnum&deletestart=".($deletestart+$delmemberlimit).$urladd;
+					$nextlink = "action=members&operation=clean&confirmed=yes&submit=yes&formhash=$formhash".(!empty($_GET['includeuc']) ? '&includeuc=yes' : '')."&allnum=$allnum&deletestart=".($deletestart+$delmemberlimit).$urladd;
 					cpmsg(cplang('members_delete_user_processing_next', array('deletestart' => $deletestart, 'nextdeletestart' => $deletestart+$delmemberlimit)), $nextlink, 'loadingform', array());
 				}
 
@@ -523,7 +524,7 @@ EOF;
 						cpmsg('members_delete_succeed', '', 'succeed', array('numdeleted' => $numdeleted));
 					} else {
 						$allnum += $membernum < $delmemberlimit ? $membernum : $delmemberlimit;
-						$nextlink = "action=members&operation=clean&confirmed=yes&submit=yes&includepost=yes".(!empty($_GET['includeuc']) ? '&includeuc=yes' : '')."&allnum=$allnum&deletestart=".($deletestart+$delmemberlimit).$urladd;
+						$nextlink = "action=members&operation=clean&confirmed=yes&submit=yes&includepost=yes&formhash=$formhash".(!empty($_GET['includeuc']) ? '&includeuc=yes' : '')."&allnum=$allnum&deletestart=".($deletestart+$delmemberlimit).$urladd;
 						cpmsg(cplang('members_delete_user_processing_next', array('deletestart' => $deletestart, 'nextdeletestart' => $deletestart+$delmemberlimit)), $nextlink, 'loadingform', array());
 					}
 				}
@@ -960,7 +961,7 @@ EOF;
 				cpmsg('members_username_protect', '', 'error');
 			} elseif($uid == -3) {
 				if(empty($_GET['confirmed'])) {
-					cpmsg('members_add_username_activation', 'action=members&operation=add&addsubmit=yes&newgroupid='.$_GET['newgroupid'].'&newusername='.rawurlencode($newusername), 'form');
+					cpmsg('members_add_username_activation', 'action=members&operation=add&addsubmit=yes&newgroupid='.$_GET['newgroupid'].'&newusername='.rawurlencode($newusername).'&formhash='.$formhash, 'form');
 				} else {
 					list($uid,, $newemail) = uc_get_user(addslashes($newusername));
 				}
@@ -1946,7 +1947,7 @@ EOF;
 		$status = array($member['status'] => ' checked');
 		showsetting('members_edit_username', '', '', ($_G['setting']['connect']['allow'] && $member['conisbind'] ? ' <img class="vmiddle" src="static/image/common/connect_qq.gif" />' : '').' '.$member['username']);
 		showsetting('members_edit_avatar', '', '', ' <img src="'.avatar($uid, 'middle', true, false, true).'?random='.random(2).'" onerror="this.onerror=null;this.src=\''.$_G['setting']['ucenterurl'].'/images/noavatar_middle.gif\'" /><br /><br /><input name="clearavatar" class="checkbox" type="checkbox" value="1" /> '.$lang['members_edit_avatar_clear']);
-		$hrefext = "&detail=1&users=$member[username]&searchsubmit=1&perpage=50&fromumanage=1";
+		$hrefext = "&detail=1&users=$member[username]&searchsubmit=1&perpage=50&fromumanage=1&formhash=$formhash";
 		showsetting('members_edit_statistics', '', '', "<a href=\"".ADMINSCRIPT."?action=prune$hrefext\" class=\"act\">$lang[posts]($member[posts])</a>".
 				"<a href=\"".ADMINSCRIPT."?action=doing$hrefext\" class=\"act\">$lang[doings]($member[doings])</a>".
 				"<a href=\"".ADMINSCRIPT."?action=blog$hrefext\" class=\"act\">$lang[blogs]($member[blogs])</a>".
@@ -3269,7 +3270,7 @@ function notifymembers($operation, $variable) {
 			'current' => $current,
 			'next' => $next,
 			'search_condition' => serialize($search_condition),
-			'action' => "action=members&operation=$operation&{$operation}submit=yes&current=$next&pertask=$pertask&system={$_GET['system']}&posttype={$_GET['posttype']}&notifymember={$_GET['notifymember']}&notifymembers=".rawurlencode($_GET['notifymembers']).$urladd
+			'action' => "action=members&operation=$operation&{$operation}submit=yes&current=$next&pertask=$pertask&formhash=$formhash&system={$_GET['system']}&posttype={$_GET['posttype']}&notifymember={$_GET['notifymember']}&notifymembers=".rawurlencode($_GET['notifymembers']).$urladd
 		);
 		save_newsletter('newsletter_detail', $newsletter_detail);
 
@@ -3283,7 +3284,7 @@ function notifymembers($operation, $variable) {
 		}
 		$logaddurl .= '&updatecredittype='.$_GET['updatecredittype'];
 
-		cpmsg("$lang[members_newsletter_send]: ".cplang('members_newsletter_processing', array('current' => $current, 'next' => $next, 'search_condition' => serialize($search_condition))), "action=members&operation=$operation&{$operation}submit=yes&current=$next&pertask=$pertask&system={$_GET['system']}&posttype={$_GET['posttype']}&notifymember={$_GET['notifymember']}&notifymembers=".rawurlencode($_GET['notifymembers']).$urladd.$logaddurl, 'loadingform');
+		cpmsg("$lang[members_newsletter_send]: ".cplang('members_newsletter_processing', array('current' => $current, 'next' => $next, 'search_condition' => serialize($search_condition))), "action=members&operation=$operation&{$operation}submit=yes&current=$next&pertask=$pertask&formhash=$formhash&system={$_GET['system']}&posttype={$_GET['posttype']}&notifymember={$_GET['notifymember']}&notifymembers=".rawurlencode($_GET['notifymembers']).$urladd.$logaddurl, 'loadingform');
 	} else {
 		del_newsletter('newsletter_detail');
 

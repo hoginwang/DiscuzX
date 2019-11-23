@@ -353,7 +353,7 @@ EOT;
 		$_GET['fail_num'] += $card->fail;
 		if($nextstep) {
 			$_GET['rule'] = rawurlencode($_GET['rule']);
-			$nextlink = "action=card&operation=make&rule={$_GET['rule']}&num={$_GET['num']}&price={$_GET['price']}&extcreditskey={$_GET['extcreditskey']}&extcreditsval={$_GET['extcreditsval']}&cleardateline={$_GET['cleardateline']}&step={$nextstep}&succeed_num={$_GET['succeed_num']}&fail_num={$_GET['fail_num']}&typeid={$_GET['typeid']}&logid={$_GET['logid']}&cardsubmit=yes";
+			$nextlink = "action=card&operation=make&rule={$_GET['rule']}&num={$_GET['num']}&price={$_GET['price']}&extcreditskey={$_GET['extcreditskey']}&extcreditsval={$_GET['extcreditsval']}&cleardateline={$_GET['cleardateline']}&step={$nextstep}&succeed_num={$_GET['succeed_num']}&fail_num={$_GET['fail_num']}&typeid={$_GET['typeid']}&logid={$_GET['logid']}&cardsubmit=yes&formhash=".constant("FORMHASH");
 			cpmsg('card_make_step', $nextlink, 'loading', array('step' => $nextstep - 1, 'step_num' => $step_num, 'succeed_num' => $card->succeed, 'fail_num' => $card->fail));
 		} else {
 			$card_info = serialize(array('num' => $_GET['num'], 'succeed_num' => $_GET['succeed_num'], 'fail_num' => $_GET['fail_num']));

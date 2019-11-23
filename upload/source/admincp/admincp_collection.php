@@ -40,7 +40,7 @@ if($operation == 'comment') {
 				C::t('forum_collection')->update_by_ctid($uniquecid['ctid'], 0, 0, -$decreasnum[$uniquecid['ctid']]);
 			}
 		}
-		cpmsg('collection_admin_updated', 'action=collection&operation=comment&searchsubmit=yes&perpage='.$_GET['perpage'].'&page='.$_GET['page'], 'succeed');
+		cpmsg('collection_admin_updated', 'action=collection&operation=comment&searchsubmit=yes&perpage='.$_GET['perpage'].'&page='.$_GET['page'].'&formhash='.constant("FORMHASH"), 'succeed');
 	}
 	if(!submitcheck('searchsubmit', 1)) {
 		showformheader('collection&operation=comment');
@@ -72,12 +72,13 @@ if($operation == 'comment') {
 		$comment_rate = dintval($_GET['comment_rate']);
 		$starttime = $_GET['starttime'] ? strtotime($_GET['starttime']) : '';
 		$endtime = $_GET['endtime'] ? strtotime($_GET['endtime']) : '';
+		$formhash = constant("FORMHASH");
 
 		$ppp = $_GET['perpage'];
 		$startlimit = ($page - 1) * $ppp;
 		$multipage = '';
 		$totalcount = C::t('forum_collectioncomment')->fetch_all_for_search($comment_cid, $comment_ctid, $comment_username, $comment_uid, $comment_useip, $comment_rate, $comment_message, $starttime, $endtime, -1);
-		$multipage = multi($totalcount, $ppp, $page, ADMINSCRIPT."?action=collection&operation=comment&searchsubmit=yes&comment_message=$comment_message&comment_cid=$comment_cid&comment_username=$comment_username&comment_uid=$comment_uid&comment_ctid=$comment_ctid&comment_useip=$comment_useip&comment_rate=$comment_rate&starttime=$starttime&endtime=$endtime&perpage=$ppp");
+		$multipage = multi($totalcount, $ppp, $page, ADMINSCRIPT."?action=collection&operation=comment&searchsubmit=yes&comment_message=$comment_message&comment_cid=$comment_cid&comment_username=$comment_username&comment_uid=$comment_uid&comment_ctid=$comment_ctid&comment_useip=$comment_useip&comment_rate=$comment_rate&starttime=$starttime&endtime=$endtime&perpage=$ppp&formhash=$formhash");
 		$collectioncomment = C::t('forum_collectioncomment')->fetch_all_for_search($comment_cid, $comment_ctid, $comment_username, $comment_uid, $comment_useip, $comment_rate, $comment_message, $starttime, $endtime, $startlimit, $ppp);
 		showformheader('collection&operation=comment');
 		showtableheader(cplang('collection_comment_result').' '.$totalcount.' <a href="###" onclick="location.href=\''.ADMINSCRIPT.'?action=collection&operation=comment\';" class="act lightlink normal">'.cplang('research').'</a>', 'nobottom');
@@ -124,7 +125,7 @@ if($operation == 'comment') {
 				deletecollection($ctid);
 			}
 		}
-		cpmsg('collection_admin_updated', 'action=collection&operation=admin&searchsubmit=yes&perpage='.$_GET['perpage'].'&page='.$_GET['page'], 'succeed');
+		cpmsg('collection_admin_updated', 'action=collection&operation=admin&searchsubmit=yes&perpage='.$_GET['perpage'].'&page='.$_GET['page'].'&formhash='.constant("FORMHASH"), 'succeed');
 	}
 	if(!submitcheck('searchsubmit', 1)) {
 		showformheader('collection&operation=admin');
@@ -143,13 +144,14 @@ if($operation == 'comment') {
 		$collection_ctid = dintval($_GET['collection_ctid']);
 		$collection_username = trim($_GET['collection_username']);
 		$collection_uid = dintval($_GET['collection_uid']);
+		$formhash = constant("FORMHASH");
 
 
 		$ppp = $_GET['perpage'];
 		$startlimit = ($page - 1) * $ppp;
 		$multipage = '';
 		$totalcount = C::t('forum_collection')->fetch_all_for_search($collection_name, $collection_ctid, $collection_username, $collection_uid, -1);
-		$multipage = multi($totalcount, $ppp, $page, ADMINSCRIPT."?action=collection&operation=admin&searchsubmit=yes&collection_name=$collection_name&collection_ctid=$collection_ctid&collection_username=$collection_username&collection_uid=$collection_uid&perpage=$ppp&status=$status");
+		$multipage = multi($totalcount, $ppp, $page, ADMINSCRIPT."?action=collection&operation=admin&searchsubmit=yes&collection_name=$collection_name&collection_ctid=$collection_ctid&collection_username=$collection_username&collection_uid=$collection_uid&perpage=$ppp&status=$status&formhash=$formhash");
 		$collection = C::t('forum_collection')->fetch_all_for_search($collection_name, $collection_ctid, $collection_username, $collection_uid, $startlimit, $ppp);
 		showformheader('collection&operation=admin');
 		showtableheader(cplang('collection_result').' '.$totalcount.' <a href="###" onclick="location.href=\''.ADMINSCRIPT.'?action=collection&operation=admin\';" class="act lightlink normal">'.cplang('research').'</a>', 'nobottom');

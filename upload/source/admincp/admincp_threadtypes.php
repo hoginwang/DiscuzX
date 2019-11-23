@@ -987,7 +987,7 @@ EOT;
 			if(empty($_GET['searchoption']) && !$_GET['sortid']) {
 				cpmsg('threadtype_content_no_choice', 'action=threadtypes&operation=content', 'error');
 			}
-			$mpurl = ADMINSCRIPT.'?action=threadtypes&operation=content&sortid='.$_GET['sortid'].'&searchsortsubmit=true';
+			$mpurl = ADMINSCRIPT.'?action=threadtypes&operation=content&sortid='.$_GET['sortid'].'&searchsortsubmit=true&formhash='.constant("FORMHASH");
 			if(!is_array($_GET['searchoption'])) {
 				$mpurl .= '&searchoption='.$_GET['searchoption'];
 				$_GET['searchoption'] = dunserialize(base64_decode($_GET['searchoption']));
