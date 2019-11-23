@@ -256,7 +256,7 @@ SWFUpload.prototype.initSettings = function (userSettings) {
 			}
 		}
 		return arrData;
-	}
+	};
 
 	var uploader = WebUploader.create({
 		swf: getBasePath() + 'Uploader.swf',
