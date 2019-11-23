@@ -22,8 +22,8 @@ $cpp = 20;
 $start = ($page-1)*$cpp;
 
 if($op == 'all' || $op == 'search') {
-	if($op == 'search' && $_GET['kw']) {
-		dheader('Location: search.php?mod=collection&searchsubmit=yes&srchtxt='.urlencode($_GET['kw']));
+	if($op == 'search' && isset($_GET['kw']) && isset($_GET['formhash'])) {
+		dheader('Location: search.php?mod=collection&searchsubmit=yes&srchtxt='.urlencode($_GET['kw']).'&formhash='.$_GET['formhash']);
 		exit;
 	} else {
 		$orderbyarr = array('follownum', 'threadnum', 'commentnum', 'dateline');
