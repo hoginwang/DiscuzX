@@ -35,6 +35,7 @@ SWFUpload.EXT_MIME_MAP = {
 	'abw': 'application/x-abiword',
 	'arc': 'application/x-freearc',
 	'avi': 'video/x-msvideo',
+	'apk': 'application/vnd.android.package-archive',
 	'azw': 'application/vnd.amazon.ebook',
 	'bin': 'application/octet-stream',
 	'bmp': 'image/bmp',
@@ -227,36 +228,31 @@ SWFUpload.prototype.initSettings = function (userSettings) {
 
 	var self = this;
 
-	var exts = this.settings.file_types.replace(/[\*\.\*]|[\*\.]/g, '').replace(/;/g, ',');
-	var extsArray = jQuery.grep(exts.split(','), function (s) {
-		return s.length > 0
-	});
-	var mimes = jQuery.grep(
-		jQuery.merge(
-			jQuery.map(extsArray, function (ext) {
-				return "." + ext;
-			}),
-			jQuery.map(extsArray, function (ext) {
-				return SWFUpload.EXT_MIME_MAP[ext];
-			})
-		),
-		function (s) {
-			return s.length > 0
-		}
-	).join(",");
+	var exts = "",
+		mimes = "";
 
-	mimes = new function () {
-		var arr = mimes.split(',');
-		var arrTable = {},
-			arrData = [];
-		for (var i = 0; i < arr.length; i++) {
-			if (!arrTable[arr[i]]) {
-				arrTable[arr[i]] = true;
-				arrData.push(arr[i]);
+	if (this.settings.file_types.indexOf('*.*') < 0) {
+		exts = this.settings.file_types.replace(/\*\./g, '').replace(/;/g, ',');
+		var extsArray = jQuery.grep(exts.split(','), function (s) {
+			return s.length > 0
+		});
+		mimes = jQuery.grep(
+			jQuery.merge(
+				jQuery.map(extsArray, function (ext) {
+					return "." + ext;
+				}),
+				jQuery.map(extsArray, function (ext) {
+					return SWFUpload.EXT_MIME_MAP[ext];
+				})
+			),
+			function (s) {
+				return s.length > 0
 			}
-		}
-		return arrData;
-	};
+		);
+		mimes = jQuery.grep(mimes, function (m, i) {
+			return i === jQuery.inArray(m, mimes)
+		}).join(",");
+	}
 
 	var uploader = WebUploader.create({
 		swf: getBasePath() + 'Uploader.swf',
