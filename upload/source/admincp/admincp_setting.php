@@ -2409,7 +2409,7 @@ EOT;
 		/*search={"setting_ranklist":"action=setting&operation=ranklist"}*/
 		$setting['ranklist'] = dunserialize($setting['ranklist']);
 		showtableheader('', 'nobottom', 'id="all"');
-		showsetting('setting_rankliststatus', 'settingnew[rankliststatus]', $setting['rankliststatus'], 'radio');
+		showsetting('setting_ranklist_status', 'settingnew[rankliststatus]', $setting['rankliststatus'], 'radio');
 		showsetting('setting_ranklist_index_cache_time', 'settingnew[ranklist][cache_time]', $setting['ranklist']['cache_time'], 'text');
 		showsetting('setting_ranklist_index_select', array('settingnew[ranklist][index_select]', array(array('all',cplang('dateline_all')), array('thismonth',cplang('thismonth')), array('thisweek',cplang('thisweek')), array('today',cplang('today')))), $setting['ranklist']['index_select'], 'select');
 		showsetting('setting_ranklist_ignorefid', 'settingnew[ranklist][ignorefid]', $setting['ranklist']['ignorefid'], 'text');
