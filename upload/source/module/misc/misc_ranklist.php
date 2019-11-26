@@ -10,6 +10,10 @@ if(!defined('IN_DISCUZ')) {
 	exit('Access Denied');
 }
 
+if(!$_G['setting']['rankliststatus']) {
+	showmessage('ranklist_status_off');
+}
+
 $page = $_G['page'];
 $type = $_GET['type'];
 
@@ -20,9 +24,6 @@ if(!in_array($type, array('index', 'member', 'thread', 'blog', 'poll', 'picture'
 }
 
 $ranklist_setting = $_G['setting']['ranklist'];
-if(!$ranklist_setting['status']) {
-	showmessage('ranklist_status_off');
-}
 
 $navtitle = lang('core', 'title_ranklist_'.$type);
 

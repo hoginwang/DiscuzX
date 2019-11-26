@@ -110,7 +110,7 @@
 			<!--{/if}-->
 			<!--{if $_G['uid']}-->
 				<ul id="myitem_menu" class="p_pop" style="display: none;">
-					<li><a href="forum.php?mod=guide&view=my">{lang mypost}</a></li>
+					<!--{if $_G['setting']['guidestatus']}--><li><a href="forum.php?mod=guide&view=my">{lang mypost}</a></li><!--{/if}-->
 					<li><a href="home.php?mod=space&do=favorite&view=me">{lang favorite}</a></li>
 					<li><a href="home.php?mod=space&do=friend">{lang friends}</a></li>
 					<!--{hook/global_myitem_extra}-->

@@ -28,7 +28,9 @@ $space = array();
 $mod = getgpc('mod');
 if(!in_array($mod, array('space', 'spacecp', 'misc', 'magic', 'editor', 'invite', 'task', 'medal', 'rss', 'follow'))) {
 	$mod = 'space';
-	$_GET['do'] = 'home';
+	if($_G['setting']['feedstatus']){
+		$_GET['do'] = 'home';
+	}
 }
 
 if($mod == 'space' && ((empty($_GET['do']) || $_GET['do'] == 'index') && ($_G['inajax']))) {

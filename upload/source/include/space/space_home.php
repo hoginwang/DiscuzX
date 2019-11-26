@@ -11,6 +11,10 @@ if(!defined('IN_DISCUZ')) {
 	exit('Access Denied');
 }
 
+if(!$_G['setting']['feedstatus']) {
+	showmessage('feed_status_off');
+}
+
 if(!$_G['uid'] && $_G['setting']['privacy']['view']['home']) {
 	showmessage('home_no_privilege', '', array(), array('login' => true));
 }

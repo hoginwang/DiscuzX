@@ -11,7 +11,7 @@ if(!defined('IN_DISCUZ')) {
 }
 
 if(!$_G['setting']['followstatus']) {
-	showmessage('follow_status_off');//提示信息
+	showmessage('follow_status_off');
 }
 
 if(!$_G['uid']) {
