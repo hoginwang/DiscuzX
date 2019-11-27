@@ -1745,6 +1745,8 @@ EOF;
 			if(in_array('profile', $_GET['clear'])) {
 				C::t('common_member_profile'.$tableext)->delete($member['uid']);
 				C::t('common_member_profile'.$tableext)->insert(array('uid' => $member['uid']));
+                		C::t('common_member_field_forum'.$tableext)->update($member['uid'], array('customstatus' => '', 'sightml' => ''));
+                		C::t('common_member_field_home'.$tableext)->update($member['uid'], array('spacename' => '', 'spacedescription' => ''));
 			}
             
 			if($membercount) {
