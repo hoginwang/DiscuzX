@@ -1271,8 +1271,10 @@ function viewthread_procpost($post, $lastvisit, $ordertype, $maxposition = 0) {
 }
 
 function replace_formhash($input) {
+	global $_G;
+	$temp_formhash = substr(md5($_G['setting']['authkey']), 8, 8);
 	$formhash = constant("FORMHASH");
-	return preg_replace('/(name=[\'|\"]formhash[\'|\"] value=[\'\"]|formhash=)([a-z0-9]){8}/ismU', '${1}'.$formhash, $input);
+	return preg_replace('/(name=[\'|\"]formhash[\'|\"] value=[\'\"]|formhash=)'.$temp_formhash.'/ismU', '${1}'.$formhash, $input);
 }
 
 function viewthread_loadcache() {
