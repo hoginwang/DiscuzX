@@ -1270,9 +1270,9 @@ function viewthread_procpost($post, $lastvisit, $ordertype, $maxposition = 0) {
 	return $post;
 }
 
-function replace_formhash($input) {
+function replace_formhash($timestamp, $input) {
 	global $_G;
-	$temp_formhash = substr(md5($_SERVER['HTTP_HOST']), 8, 8);
+	$temp_formhash = substr(md5(substr($timestamp, 0, -3).substr($_G['config']['security']['authkey'], 3, -3)), 8, 8);
 	$formhash = constant("FORMHASH");
 	return preg_replace('/(name=[\'|\"]formhash[\'|\"] value=[\'\"]|formhash=)'.$temp_formhash.'/ismU', '${1}'.$formhash, $input);
 }
@@ -1296,12 +1296,13 @@ function viewthread_loadcache() {
 			define('CACHE_FILE', $threadcache['filename']);
 		} else {
 			$start_time = microtime(TRUE);
-			ob_start('replace_formhash');
+			$filemtime = $threadcache['filemtime'];
+			ob_start(function($input) use (&$filemtime) {
+				return replace_formhash($filemtime, $input);
+			});
 			readfile($threadcache['filename']);
-
 			viewthread_updateviews($_G['forum_thread']['threadtableid']);
-
-			$updatetime = dgmdate($threadcache['filemtime'], 'Y-m-d H:i:s');
+			$updatetime = dgmdate($filemtime, 'Y-m-d H:i:s');
 			$gzip = $_G['gzipcompress'] ? ', Gzip On' : '';
 			echo '<script type="text/javascript">$("debuginfo") ? $("debuginfo").innerHTML = ", Updated at '.$updatetime.', Processed in '.sprintf("%0.6f", microtime(TRUE) - $start_time).' second(s)'.$gzip.'." : "";</script></body></html>';
 			ob_end_flush();
