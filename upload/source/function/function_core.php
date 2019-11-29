@@ -1065,7 +1065,7 @@ function output() {
 			if($fp = @fopen(CACHE_FILE, 'w')) {
 				flock($fp, LOCK_EX);
 				$content = empty($content) ? ob_get_contents() : $content;
-				$temp_formhash = substr(md5($_G['setting']['authkey']), 8, 8);
+				$temp_formhash = substr(md5($_SERVER['HTTP_HOST']), 8, 8);
 				$content = preg_replace('/(name=[\'|\"]formhash[\'|\"] value=[\'\"]|formhash=)('.constant("FORMHASH").')/ismU', '${1}'.$temp_formhash, $content);
 				fwrite($fp, empty($content) ? ob_get_contents() : $content);
 			}

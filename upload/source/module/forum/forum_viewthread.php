@@ -1272,7 +1272,7 @@ function viewthread_procpost($post, $lastvisit, $ordertype, $maxposition = 0) {
 
 function replace_formhash($input) {
 	global $_G;
-	$temp_formhash = substr(md5($_G['setting']['authkey']), 8, 8);
+	$temp_formhash = substr(md5($_SERVER['HTTP_HOST']), 8, 8);
 	$formhash = constant("FORMHASH");
 	return preg_replace('/(name=[\'|\"]formhash[\'|\"] value=[\'\"]|formhash=)'.$temp_formhash.'/ismU', '${1}'.$formhash, $input);
 }
@@ -1303,7 +1303,7 @@ function viewthread_loadcache() {
 
 			$updatetime = dgmdate($threadcache['filemtime'], 'Y-m-d H:i:s');
 			$gzip = $_G['gzipcompress'] ? ', Gzip On' : '';
-			echo '<script type="text/javascript">$("debuginfo") ? $("debuginfo").innerHTML = ", processed from cache in '.sprintf("%0.4f", microtime(TRUE) - $start_time).' sec, updated at '.$updatetime.$gzip.'." : "";</script></body></html>';
+			echo '<script type="text/javascript">$("debuginfo") ? $("debuginfo").innerHTML = ", Updated at '.$updatetime.', Processed in '.sprintf("%0.6f", microtime(TRUE) - $start_time).' second(s)'.$gzip.'." : "";</script></body></html>';
 			ob_end_flush();
 			exit();
 		}
