@@ -1300,7 +1300,7 @@ i.pstatus { display: block; margin-bottom: -30px; font-size: 12px; text-align: c
 		.tatt em { color: {LIGHTTEXT}; }
 		.t_attachinsert{ margin:1em 0; font-size: 12px; }
 		.t_attachinsert p img{ margin-bottom: -4px; }
-	.t_table{ border: 1px solid #E3EDF5; empty-cells: show; border-collapse: collapse; }
+	.t_table{ border: 1px solid #E3EDF5; empty-cells: show; border-collapse: collapse; word-break: break-all;  word-wrap: break-word; }
 		.pl table.t_table { table-layout: auto; }
 		.t_table td { padding: 4px; border: 1px solid #E3EDF5; overflow: hidden; }
 	.tattl { float: left; overflow: hidden; padding: 10px 10px 10px 0; width: 45%; height: 64px; }
