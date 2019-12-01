@@ -7,23 +7,29 @@
  *      $Id: class_core.php 33982 2013-09-12 06:36:35Z hypowang $
  */
 
-error_reporting(E_ALL);
+if(class_exists('C', false)) {
+    C::create(substr(dirname(__FILE__), 0, -12));
+} else {
+    error_reporting(E_ALL);
 
-define('IN_DISCUZ', true);
-define('DISCUZ_ROOT', substr(dirname(__FILE__), 0, -12));
-define('DISCUZ_CORE_DEBUG', false);
-define('DISCUZ_TABLE_EXTENDABLE', false);
+    define('IN_DISCUZ', true);
+    define('DISCUZ_ROOT', substr(dirname(__FILE__), 0, -12));
+    define('DISCUZ_CORE_DEBUG', false);
+    define('DISCUZ_TABLE_EXTENDABLE', false);
 
-set_exception_handler(array('core', 'handleException'));
+    set_exception_handler(array('core', 'handleException'));
 
-if(DISCUZ_CORE_DEBUG) {
-	set_error_handler(array('core', 'handleError'));
-	register_shutdown_function(array('core', 'handleShutdown'));
+    if(DISCUZ_CORE_DEBUG) {
+        set_error_handler(array('core', 'handleError'));
+        register_shutdown_function(array('core', 'handleShutdown'));
+    }
+
+    spl_autoload_register(array('core', 'autoload'));
+
+    class C extends core {}
+    class DB extends discuz_database {}
+    C::creatapp();
 }
-
-spl_autoload_register(array('core', 'autoload'));
-
-C::creatapp();
 
 class core
 {
@@ -198,7 +204,5 @@ class core
 	}
 }
 
-class C extends core {}
-class DB extends discuz_database {}
 
 ?>
