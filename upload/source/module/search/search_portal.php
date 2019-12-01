@@ -38,6 +38,8 @@ $srchtxt = $_GET['srchtxt'];
 
 $keyword = isset($srchtxt) ? dhtmlspecialchars(trim($srchtxt)) : '';
 
+$formhash = constant("FORMHASH");
+
 if(!submitcheck('searchsubmit', 1)) {
 
 	include template('search/portal');
@@ -71,7 +73,7 @@ if(!submitcheck('searchsubmit', 1)) {
 			$articlelist[] = $article;
 		}
 
-		$multipage = multi($index['num'], $_G['tpp'], $page, "search.php?mod=portal&searchid=$searchid&orderby=$orderby&ascdesc=$ascdesc&searchsubmit=yes");
+		$multipage = multi($index['num'], $_G['tpp'], $page, "search.php?mod=portal&formhash=$formhash&searchid=$searchid&orderby=$orderby&ascdesc=$ascdesc&searchsubmit=yes");
 
 		$url_forward = 'search.php?mod=portal&'.$_SERVER['QUERY_STRING'];
 
@@ -136,7 +138,7 @@ if(!submitcheck('searchsubmit', 1)) {
 			!($_G['portal']['exempt'] & 2) && updatecreditbyaction('search');
 		}
 
-		dheader("location: search.php?mod=portal&searchid=$searchid&searchsubmit=yes&kw=".urlencode($keyword));
+		dheader("location: search.php?mod=portal&formhash=$formhash&searchid=$searchid&searchsubmit=yes&kw=".urlencode($keyword));
 
 	}
 

@@ -305,7 +305,7 @@ EOT;
 			$delcount = deletethread($deletetids);
 			$threadsdel += $delcount;
 			$startlimit += $pernum;
-			cpmsg('recyclebin_clean_next', 'action=recyclebin&operation=clean&rbsubmit=1&threadsdel='.$threadsdel.'&days='.$days, 'succeed', array('threadsdel' => $threadsdel));
+			cpmsg('recyclebin_clean_next', 'action=recyclebin&operation=clean&rbsubmit=1&threadsdel='.$threadsdel.'&days='.$days.'&formhash='.constant("FORMHASH"), 'succeed', array('threadsdel' => $threadsdel));
 		} else {
 			cpmsg('recyclebin_succeed', 'action=recyclebin&operation=clean', 'succeed', array('threadsdel' => $threadsdel, 'threadsundel' => 0));
 		}

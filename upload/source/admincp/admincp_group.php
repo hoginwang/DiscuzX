@@ -10,6 +10,7 @@
 if(!defined('IN_DISCUZ') || !defined('IN_ADMINCP')) {
 	exit('Access Denied');
 }
+$formhash = constant("FORMHASH");
 
 cpheader();
 if($operation != 'setting' && empty($_G['setting']['groupstatus'])) {
@@ -223,7 +224,7 @@ var rowtypedata = [
 
 		} else {
 			list($page, $start_limit, $groupnum, $conditions, $urladd) = countgroups();
-			$multipage = multi($groupnum, $_G['setting']['group_perpage'], $page, ADMINSCRIPT."?action=group&operation=manage&submit=yes".$urladd);
+			$multipage = multi($groupnum, $_G['setting']['group_perpage'], $page, ADMINSCRIPT."?action=group&operation=manage&submit=yes&formhash=$formhash".$urladd);
 			$query  = C::t('forum_forum')->fetch_all_for_search($conditions, $start_limit, $_G['setting']['group_perpage']);
 			foreach($query as $group) {
 				$groups .= showtablerow('', array('class="td25"', '', ''), array(
@@ -301,7 +302,7 @@ var rowtypedata = [
 				if($tids) {
 					deletepost($tids, 'tid');
 					deletethread($tids);
-					cpmsg('group_thread_removing', 'action=group&operation=manage&mtype=managetype&optype=delete&submit=yes&confirmed=yes&fidarray='.$_GET['fidarray'].'&start='.($start + $pp));
+					cpmsg('group_thread_removing', 'action=group&operation=manage&mtype=managetype&optype=delete&submit=yes&confirmed=yes&fidarray='.$_GET['fidarray'].'&start='.($start + $pp).'&formhash='.$formhash);
 				}
 				loadcache('posttable_info');
 				if(!empty($_G['cache']['posttable_info']) && is_array($_G['cache']['posttable_info'])) {
@@ -395,7 +396,7 @@ var rowtypedata = [
 					C::t('forum_groupcreditslog')->delete_by_fid($sourcefid);
 					C::t('forum_groupfield')->delete($sourcefid);
 					$start ++;
-					cpmsg('group_merge_continue', 'action=group&operation=manage&mtype=managetype&optype='.$optype.'&submit=yes&confirmed=yes&targetgroup='.$targetgroup.'&fidarray='.$_GET['fidarray'].'&start='.$start, '', array('m' => $start, 'n' => count($fidarray)-$start));
+					cpmsg('group_merge_continue', 'action=group&operation=manage&mtype=managetype&optype='.$optype.'&submit=yes&confirmed=yes&targetgroup='.$targetgroup.'&fidarray='.$_GET['fidarray'].'&start='.$start.'&formhash='.$formhash, '', array('m' => $start, 'n' => count($fidarray)-$start));
 				}
 				$threads = $posts = 0;
 				$archive = 0;
@@ -453,7 +454,7 @@ var rowtypedata = [
 			if(is_array($fidarray)) {
 				$fidarray = implode(',', $fidarray);
 			}
-			cpmsg('group_'.$optype.'_confirm', 'action=group&operation=manage&mtype=managetype&optype='.$optype.'&submit=yes', 'form', array('targetname' => $targetname), '<input type="hidden" name="fidarray" value="'.$fidarray.'"><input type="hidden" name="newtypeid" value="'.$newtypeid.'"><input type="hidden" name="targetgroup" value="'.$targetgroup.'">');
+			cpmsg('group_'.$optype.'_confirm', 'action=group&operation=manage&mtype=managetype&optype='.$optype.'&submit=yes&formhash='.$formhash, 'form', array('targetname' => $targetname), '<input type="hidden" name="fidarray" value="'.$fidarray.'"><input type="hidden" name="newtypeid" value="'.$newtypeid.'"><input type="hidden" name="targetgroup" value="'.$targetgroup.'">');
 		} else {
 			cpmsg('group_group_no_choice', '', 'error');
 		}
@@ -960,7 +961,7 @@ EOT;
 	} else {
 		$mergefid = $_GET['mergefid'];
 		if(empty($_GET['confirm'])) {
-			cpmsg('group_mergetype_confirm', 'action=group&operation=mergetype&fid='.$fid.'&mergesubmit=yes&confirm=1', 'form', array(), '<input type="hidden" name="mergefid" value="'.$mergefid.'">');
+			cpmsg('group_mergetype_confirm', 'action=group&operation=mergetype&fid='.$fid.'&mergesubmit=yes&confirm=1&formhash='.$formhash, 'form', array(), '<input type="hidden" name="mergefid" value="'.$mergefid.'">');
 		}
 		if($mergefid == $fid) {
 			cpmsg('group_mergetype_target_error', 'action=group&operation=mergetype&fid='.$fid, 'error');
@@ -1003,7 +1004,7 @@ EOT;
 	$page = intval($_GET['page']) ? intval($_GET['page']) : 1;
 	$startlimit = ($page - 1) * $perpage;
 	$count = C::t('forum_forum')->validate_level_num();
-	$multipage = multi($count, $perpage, $page, ADMINSCRIPT."?action=group&operation=mod&submit=yes");
+	$multipage = multi($count, $perpage, $page, ADMINSCRIPT."?action=group&operation=mod&submit=yes&formhash=$formhash");
 	$query = C::t('forum_forum')->fetch_all_validate($startlimit, $startlimit+$perpage);
 	foreach($query as $group) {
 		$groups .= showtablerow('', array('class="td25"', '', ''), array(
@@ -1068,7 +1069,7 @@ function showgroup(&$forum, $type = '', $last = '') {
 			'</td>
 			<td>'.$forum['groupnum'].'</td>
 			<td><a href="'.ADMINSCRIPT.'?action=group&operation=deletetype&fid='.$forum['fid'].'" title="'.cplang('groups_type_delete').'" class="act">'.cplang('delete').'</a>';
-		$return .= '<a href="'.ADMINSCRIPT.'?action=group&operation=manage&submit=yes'.$selectgroups.'" class="act">'.cplang('groups_type_search').'</a><a href="'.ADMINSCRIPT.'?action=group&operation=mergetype&fid='.$forum['fid'].'" class="act">'.cplang('group_mergetype').'</a>';
+		$return .= '<a href="'.ADMINSCRIPT.'?action=group&operation=manage&submit=yes'.$selectgroups.'&formhash='.$formhash.'" class="act">'.cplang('groups_type_search').'</a><a href="'.ADMINSCRIPT.'?action=group&operation=mergetype&fid='.$forum['fid'].'" class="act">'.cplang('group_mergetype').'</a>';
 		$return .= '</td></tr>';
 	} else {
 		if($last == 'lastboard') {

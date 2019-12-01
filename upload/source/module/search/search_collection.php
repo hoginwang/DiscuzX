@@ -35,6 +35,8 @@ $searchid = isset($_GET['searchid']) ? intval($_GET['searchid']) : 0;
 $srchtxt = $_GET['srchtxt'];
 $keyword = isset($srchtxt) ? dhtmlspecialchars(trim($srchtxt)) : '';
 
+$formhash = constant("FORMHASH");
+
 if(!submitcheck('searchsubmit', 1)) {
 
 	include template('search/collection');
@@ -71,7 +73,7 @@ if(!submitcheck('searchsubmit', 1)) {
 			$collectionlist[$value['ctid']] = $value;
 		}
 
-		$multipage = multi($index['num'], $_G['tpp'], $page, "search.php?mod=collection&searchid=$searchid&orderby=$orderby&ascdesc=$ascdesc&searchsubmit=yes");
+		$multipage = multi($index['num'], $_G['tpp'], $page, "search.php?mod=collection&formhash=$formhash&searchid=$searchid&orderby=$orderby&ascdesc=$ascdesc&searchsubmit=yes");
 
 		$url_forward = 'search.php?mod=collection&'.$_SERVER['QUERY_STRING'];
 
@@ -137,7 +139,7 @@ if(!submitcheck('searchsubmit', 1)) {
 			!($_G['group']['exempt'] & 2) && updatecreditbyaction('search');
 		}
 
-		dheader("location: search.php?mod=collection&searchid=$searchid&searchsubmit=yes&kw=".urlencode($keyword));
+		dheader("location: search.php?mod=collection&formhash=$formhash&searchid=$searchid&searchsubmit=yes&kw=".urlencode($keyword));
 
 	}
 

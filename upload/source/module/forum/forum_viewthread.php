@@ -1288,11 +1288,17 @@ function viewthread_loadcache() {
 			@unlink($threadcache['filename']);
 			define('CACHE_FILE', $threadcache['filename']);
 		} else {
-			readfile($threadcache['filename']);
-
+			$formhash = constant("FORMHASH");
+			$cachefile = file_get_contents($threadcache['filename']);
+			$cachefile = preg_replace('/(name=(\'|\"|)formhash(\'|\"|) value=(\'|\"|))([a-z0-9]){8}(\'|\"|)/ismU', '${1}'.$formhash.'${4}', $cachefile);
+			$cachefile = preg_replace('/(formhash=)([a-z0-9]{8})/ismU', '${1}'.$formhash, $cachefile);
+			echo $cachefile;
 			viewthread_updateviews($_G['forum_thread']['threadtableid']);
-			$_G['setting']['debug'] && debuginfo();
-			$_G['setting']['debug'] ? die('<script type="text/javascript">document.getElementById("debuginfo").innerHTML = " '.($_G['setting']['debug'] ? 'Updated at '.gmdate("H:i:s", $threadcache['filemtime'] + 3600 * 8).', Processed in '.$debuginfo['time'].' second(s), '.$debuginfo['queries'].' Queries'.($_G['gzipcompress'] ? ', Gzip enabled' : '') : '').'";</script></body></html>') : die('</body></html>');
+			$updatetime = dgmdate($threadcache['filemtime'], 'Y-m-d H:i:s');
+			$nowtime = dgmdate(constant("TIMESTAMP"), 'Y-m-d H:i:s');
+			$gzip = $_G['gzipcompress'] ? ', Gzip On' : '';
+			echo '<script type="text/javascript">$("debuginfo") ? $("debuginfo").innerHTML = ", Updated at '.$updatetime.', Now is '.$nowtime.$gzip.'." : "";</script></body></html>';
+			dexit();
 		}
 	}
 }

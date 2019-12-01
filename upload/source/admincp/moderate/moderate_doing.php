@@ -94,7 +94,7 @@ if(!submitcheck('modsubmit') && !$_GET['fast']) {
 		showtablerow("id=\"mod_$doing[doid]_row1\"", array("id=\"mod_$doing[doid]_row1_op\" rowspan=\"3\" class=\"rowform threadopt\" style=\"width:80px;\"", '', 'width="120"'), array(
 			"<ul class=\"nofloat\"><li><input class=\"radio\" type=\"radio\" name=\"moderate[$doing[doid]]\" id=\"mod_$doing[doid]_1\" value=\"validate\" onclick=\"mod_setbg($doing[doid], 'validate');\"><label for=\"mod_$doing[doid]_1\">$lang[validate]</label></li><li><input class=\"radio\" type=\"radio\" name=\"moderate[$doing[doid]]\" id=\"mod_$doing[doid]_2\" value=\"delete\" onclick=\"mod_setbg($doing[doid], 'delete');\"><label for=\"mod_$doing[doid]_2\">$lang[delete]</label></li><li><input class=\"radio\" type=\"radio\" name=\"moderate[$doing[doid]]\" id=\"mod_$doing[doid]_3\" value=\"ignore\" onclick=\"mod_setbg($doing[doid], 'ignore');\"><label for=\"mod_$doing[doid]_3\">$lang[ignore]</label></li></ul>",
 			"<h3><a href=\"javascript:;\" onclick=\"display_toggle({$doing[doid]});\">$short_desc $doing_censor_text</a></h3><p>$doing[ip]</p>",
-			"<p><a target=\"_blank\" href=\"".ADMINSCRIPT."?action=members&operation=search&uid=$doing[uid]&submit=yes\">$doing[username]</a></p> <p>$doing[dateline]</p>",
+			"<p><a target=\"_blank\" href=\"".ADMINSCRIPT."?action=members&operation=search&uid=$doing[uid]&submit=yes&formhash".constant("FORMHASH")."\">$doing[username]</a></p> <p>$doing[dateline]</p>",
 		));
 
 

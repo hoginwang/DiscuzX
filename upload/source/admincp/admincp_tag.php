@@ -37,7 +37,7 @@ if($operation == 'admin') {
 				cpmsg($data);
 			}
 		}
-		cpmsg('tag_admin_updated', 'action=tag&operation=admin&searchsubmit=yes&tagname='.$_GET['tagname'].'&perpage='.$_GET['perpage'].'&status='.$_GET['status'].'&page='.$_GET['page'], 'succeed');
+		cpmsg('tag_admin_updated', 'action=tag&operation=admin&searchsubmit=yes&tagname='.$_GET['tagname'].'&perpage='.$_GET['perpage'].'&status='.$_GET['status'].'&page='.$_GET['page'].'&formhash='.constant("FORMHASH"), 'succeed');
 	}
 	if(!submitcheck('searchsubmit', 1)) {
 		showformheader('tag&operation=admin');
@@ -65,7 +65,7 @@ if($operation == 'admin') {
 		$startlimit = ($page - 1) * $ppp;
 		$multipage = '';
 		$totalcount  = C::t('common_tag')->fetch_all_by_status($table_status, $tagname, 0, 0, 1);
-		$multipage = multi($totalcount, $ppp, $page, ADMINSCRIPT."?action=tag&operation=admin&searchsubmit=yes&tagname=$tagname&perpage=$ppp&status=$status");
+		$multipage = multi($totalcount, $ppp, $page, ADMINSCRIPT."?action=tag&operation=admin&searchsubmit=yes&tagname=$tagname&perpage=$ppp&status=$status&formhash=".constant("FORMHASH"));
 		$query = C::t('common_tag')->fetch_all_by_status($table_status, $tagname, $startlimit, $ppp);
 		showformheader('tag&operation=admin');
 		showtableheader(cplang('tag_result').' '.$totalcount.' <a href="###" onclick="location.href=\''.ADMINSCRIPT.'?action=tag&operation=admin;\'" class="act lightlink normal">'.cplang('research').'</a>', 'nobottom');

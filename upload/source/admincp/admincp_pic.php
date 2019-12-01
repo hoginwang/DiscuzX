@@ -206,7 +206,7 @@ if(submitcheck('searchsubmit', 1) || $newlist) {
 					$pic['size'],
 					"<a href='home.php?mod=space&uid=$pic[uid]&do=album&id=$pic[albumid]'  target='_blank'>$pic[albumname]</a>",
 					"<a href=\"home.php?mod=space&uid=$pic[uid]\" target=\"_blank\">".$pic['username']."</a>",
-					$pic['dateline'], "<a href=\"".ADMINSCRIPT."?action=comment&detail=1&searchsubmit=1&idtype=picid&id=$pic[picid]\">".$lang['pic_comment']."</a>"
+					$pic['dateline'], "<a href=\"".ADMINSCRIPT."?action=comment&detail=1&searchsubmit=1&idtype=picid&id=$pic[picid]&formhash=".constant("FORMHASH")."\">".$lang['pic_comment']."</a>"
 				), TRUE);
 			}
 			$piccount = C::t('home_pic')->fetch_all_by_sql('1 '.$sql, '', 0, 0, 1);

@@ -98,14 +98,14 @@ if($operation == 'check') {
 		if(!C::t('common_member')->split($splitnum)) {
 			cpmsg('membersplit_split_succeed', 'action=membersplit&operation=manage', 'succeed');
 		}
-		cpmsg('membersplit_split_doing', 'action=membersplit&operation=manage&membersplit_split_submit=1&step='.$step.'&splitnum='.$splitnum, 'loadingform', array('num' => $step*$splitnum));
+		cpmsg('membersplit_split_doing', 'action=membersplit&operation=manage&membersplit_split_submit=1&step='.$step.'&splitnum='.$splitnum.'&formhash='.constant("FORMHASH"), 'loadingform', array('num' => $step*$splitnum));
 	}
 } else if($operation == 'rebuildtable') {
 	$step = intval($_GET['step']);
 	$splitnum = max(10, intval($_GET['splitnum']));
 	$ret = C::t('common_member_archive')->rebuild_table($step);
 	if($ret === false) {
-		cpmsg('membersplit_split_check_table_done', 'action=membersplit&operation=manage&membersplit_split_submit=1&nocheck=1&splitnum='.$splitnum, 'loadingform');
+		cpmsg('membersplit_split_check_table_done', 'action=membersplit&operation=manage&membersplit_split_submit=1&nocheck=1&splitnum='.$splitnum.'&formhash='.constant("FORMHASH"), 'loadingform');
 	} else if($ret === true) {
 		cpmsg('membersplit_split_checking_table', 'action=membersplit&operation=rebuildtable&splitnum='.$splitnum.'&step='.($step+1), 'loadingform', array('step' => $step+1));
 	} else {

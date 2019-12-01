@@ -59,7 +59,7 @@ if(!$operation) {
 		foreach($sgroups as $group) {
 			if(is_array($smembers[$group['groupid']])) {
 				$num = count($smembers[$group['groupid']]);
-				$specifiedusers = implode('', $smembers[$group['groupid']]).($num > $smembernum[$group['groupid']] ? '<br /><div style="float: right; clear: both; margin:5px"><a href="'.ADMINSCRIPT.'?action=members&submit=yes&usergroupid[]='.$group['groupid'].'" style="text-align: right;">'.$lang['more'].'&raquo;</a>&nbsp;</div>' : '<br /><br/>');
+				$specifiedusers = implode('', $smembers[$group['groupid']]).($num > $smembernum[$group['groupid']] ? '<br /><div style="float: right; clear: both; margin:5px"><a href="'.ADMINSCRIPT.'?action=members&submit=yes&usergroupid[]='.$group['groupid'].'&formhash='.constant("FORMHASH").'" style="text-align: right;">'.$lang['more'].'&raquo;</a>&nbsp;</div>' : '<br /><br/>');
 				unset($smembers[$group['groupid']]);
 			} else {
 				$specifiedusers = '';
@@ -399,7 +399,7 @@ EOT;
 		$sgroups .= '<li><a href="home.php?mod=space&uid='.$uid.'" target="_blank">'.$member['username'].'</a></li>';
 	}
 	ajaxshowheader();
-	echo '<ul class="userlist"><li class="unum">'.$lang['usernum'].$num.($num > 80 ? '&nbsp;<a href="'.ADMINSCRIPT.'?action=members&operation=search&submit=yes&groupid='.$sgroupid.'">'.$lang['more'].'&raquo;</a>' : '').'</li>'.$sgroups.'</ul>';
+	echo '<ul class="userlist"><li class="unum">'.$lang['usernum'].$num.($num > 80 ? '&nbsp;<a href="'.ADMINSCRIPT.'?action=members&operation=search&submit=yes&groupid='.$sgroupid.'&formhash='.constant("FORMHASH").'">'.$lang['more'].'&raquo;</a>' : '').'</li>'.$sgroups.'</ul>';
 	ajaxshowfooter();
 
 } elseif($operation == 'edit') {

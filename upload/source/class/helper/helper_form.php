@@ -19,8 +19,12 @@ class helper_form {
 			return FALSE;
 		} else {
 			global $_G;
-			if($allowget || ($_SERVER['REQUEST_METHOD'] == 'POST' && !empty($_GET['formhash']) && $_GET['formhash'] == formhash() && empty($_SERVER['HTTP_X_FLASH_VERSION']) && (empty($_SERVER['HTTP_REFERER']) ||
-				strncmp($_SERVER['HTTP_REFERER'], 'http://wsq.discuz.com/', 22) === 0 || preg_replace("/https?:\/\/([^\:\/]+).*/i", "\\1", $_SERVER['HTTP_REFERER']) == preg_replace("/([^\:]+).*/", "\\1", $_SERVER['HTTP_HOST'])))) {
+			if(!(($allowget && $_SERVER['REQUEST_METHOD'] == 'GET') || $_SERVER['REQUEST_METHOD'] == 'POST')){
+				showmessage('submit_invalid');
+			}
+			$formhash = !empty($_GET['formhash']) ? $_GET['formhash'] : (!empty($_POST['formhash']) ? $_POST['formhash'] : '');
+			if($formhash == formhash() && empty($_SERVER['HTTP_X_FLASH_VERSION']) && (empty($_SERVER['HTTP_REFERER']) ||
+				strncmp($_SERVER['HTTP_REFERER'], 'http://wsq.discuz.com/', 22) === 0 || preg_replace("/https?:\/\/([^\:\/]+).*/i", "\\1", $_SERVER['HTTP_REFERER']) == preg_replace("/([^\:]+).*/", "\\1", $_SERVER['HTTP_HOST']))) {
 				if(checkperm('seccode')) {
 					if($secqaacheck && !check_secqaa($_GET['secanswer'], $_GET['secqaahash'])) {
 						showmessage('submit_secqaa_invalid');

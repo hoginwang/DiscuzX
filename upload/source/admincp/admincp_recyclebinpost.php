@@ -195,7 +195,7 @@ EOT;
 				$postsdel += recyclebinpostdelete($deletepids, $ptid);
 			}
 			$startlimit += $pernum;
-			cpmsg('recyclebinpost_clean_next', 'action=recyclebinpost&operation=clean&cleanrbsubmit=1&days='.$days.'&postsdel='.$postsdel, 'succeed', array('postsdel' => $postsdel));
+			cpmsg('recyclebinpost_clean_next', 'action=recyclebinpost&operation=clean&cleanrbsubmit=1&days='.$days.'&postsdel='.$postsdel.'&formhash='.constant("FORMHASH"), 'succeed', array('postsdel' => $postsdel));
 		} else {
 			cpmsg('recyclebinpost_succeed', 'action=recyclebinpost&operation=clean', 'succeed', array('postsdel' => $postsdel, 'postsundel' => $postsundel));
 		}

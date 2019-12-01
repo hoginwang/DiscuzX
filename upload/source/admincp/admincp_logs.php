@@ -18,6 +18,8 @@ $checklpp = array();
 $checklpp[$lpp] = 'selected="selected"';
 $extrainput = '';
 
+$formhash = constant("FORMHASH");
+
 $operation = in_array($operation, array('illegal', 'rate', 'credit', 'mods', 'medal', 'ban', 'cp', 'magic', 'error', 'invite', 'payment', 'warn', 'crime', 'sendmail')) ? $operation : 'illegal';
 $logdir = DISCUZ_ROOT.'./data/log/';
 $logfiles = get_log_files($logdir, $operation.($operation == 'sendmail' ? '' : 'log'));
@@ -105,15 +107,15 @@ showsubmenu('nav_logs', array(
 		array('nav_logs_payment', 'logs&operation=payment'),
 	)), '', in_array($operation, array('rate', 'credit', 'magic', 'medal', 'invite', 'payment'))),
 	array(array('menu' => 'nav_logs_crime', 'submenu' => array(
-		array('nav_logs_crime_delpost', 'logs&operation=crime&crimeactions=crime_delpost'),
-		array('nav_logs_crime_warnpost', 'logs&operation=crime&crimeactions=crime_warnpost'),
-		array('nav_logs_crime_banpost', 'logs&operation=crime&crimeactions=crime_banpost'),
-		array('nav_logs_crime_banspeak', 'logs&operation=crime&crimeactions=crime_banspeak'),
-		array('nav_logs_crime_banvisit', 'logs&operation=crime&crimeactions=crime_banvisit'),
-		array('nav_logs_crime_banstatus', 'logs&operation=crime&crimeactions=crime_banstatus'),
-		array('nav_logs_crime_avatar', 'logs&operation=crime&crimeactions=crime_avatar'),
-		array('nav_logs_crime_sightml', 'logs&operation=crime&crimeactions=crime_sightml'),
-		array('nav_logs_crime_customstatus', 'logs&operation=crime&crimeactions=crime_customstatus'),
+		array('nav_logs_crime_delpost', 'logs&operation=crime&crimeactions=crime_delpost&formhash='.$formhash),
+		array('nav_logs_crime_warnpost', 'logs&operation=crime&crimeactions=crime_warnpost&formhash='.$formhash),
+		array('nav_logs_crime_banpost', 'logs&operation=crime&crimeactions=crime_banpost&formhash='.$formhash),
+		array('nav_logs_crime_banspeak', 'logs&operation=crime&crimeactions=crime_banspeak&formhash='.$formhash),
+		array('nav_logs_crime_banvisit', 'logs&operation=crime&crimeactions=crime_banvisit&formhash='.$formhash),
+		array('nav_logs_crime_banstatus', 'logs&operation=crime&crimeactions=crime_banstatus&formhash='.$formhash),
+		array('nav_logs_crime_avatar', 'logs&operation=crime&crimeactions=crime_avatar&formhash='.$formhash),
+		array('nav_logs_crime_sightml', 'logs&operation=crime&crimeactions=crime_sightml&formhash='.$formhash),
+		array('nav_logs_crime_customstatus', 'logs&operation=crime&crimeactions=crime_customstatus&formhash='.$formhash),
 	)), '', in_array($operation, array('crime'))),
 ), $sel);
 if($operation == 'illegal') {

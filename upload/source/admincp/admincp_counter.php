@@ -16,10 +16,11 @@ cpheader();
 $pertask = isset($_GET['pertask']) ? intval($_GET['pertask']) : 100;
 $current = isset($_GET['current']) && $_GET['current'] > 0 ? intval($_GET['current']) : 0;
 $next = $current + $pertask;
+$formhash = constant("FORMHASH");
 
 if(submitcheck('forumsubmit', 1)) {
 
-	$nextlink = "action=counter&current=$next&pertask=$pertask&forumsubmit=yes";
+	$nextlink = "action=counter&formhash=$formhash&current=$next&pertask=$pertask&forumsubmit=yes";
 	$processed = 0;
 
 	$queryf = C::t('forum_forum')->fetch_all_fids(1, '', '', $current, $pertask);
@@ -66,7 +67,7 @@ if(submitcheck('forumsubmit', 1)) {
 		C::t('common_member_count')->clear_digestposts();
 		$current = 0;
 	}
-	$nextlink = "action=counter&current=$next&pertask=$pertask&digestsubmit=yes";
+	$nextlink = "action=counter&formhash=$formhash&current=$next&pertask=$pertask&digestsubmit=yes";
 	$processed = 0;
 	$membersarray = $postsarray = array();
 
@@ -102,7 +103,7 @@ if(submitcheck('forumsubmit', 1)) {
 
 } elseif(submitcheck('membersubmit', 1)) {
 
-	$nextlink = "action=counter&current=$next&pertask=$pertask&membersubmit=yes";
+	$nextlink = "action=counter&formhash=$formhash&current=$next&pertask=$pertask&membersubmit=yes";
 	$processed = 0;
 
 	$threadtableids = C::t('common_setting')->fetch('threadtableids', true);
@@ -137,7 +138,7 @@ if(submitcheck('forumsubmit', 1)) {
 
 } elseif(submitcheck('threadsubmit', 1)) {
 
-	$nextlink = "action=counter&current=$next&pertask=$pertask&threadsubmit=yes";
+	$nextlink = "action=counter&formhash=$formhash&current=$next&pertask=$pertask&threadsubmit=yes";
 	$processed = 0;
 
 	foreach(C::t('forum_thread')->fetch_all_by_displayorder(0, '>=', $current, $pertask) as $threads) {
@@ -166,7 +167,7 @@ if(submitcheck('forumsubmit', 1)) {
 
 } elseif(submitcheck('movedthreadsubmit', 1)) {
 
-	$nextlink = "action=counter&current=$next&pertask=$pertask&movedthreadsubmit=yes";
+	$nextlink = "action=counter&formhash=$formhash&current=$next&pertask=$pertask&movedthreadsubmit=yes";
 	$processed = 0;
 
 	$tids = array();
@@ -280,7 +281,7 @@ if(submitcheck('forumsubmit', 1)) {
 		$changesort = 1;
 	}
 
-	$nextlink = "action=counter&changesort=$changesort&cursort=$cursort&specialarrange=yes";
+	$nextlink = "action=counter&formhash=$formhash&changesort=$changesort&cursort=$cursort&specialarrange=yes";
 	if($processed) {
 		cpmsg('counter_special_arrange', $nextlink, 'loading', array('cursort' => $cursort, 'sortids' => count($sortids)));
 	} else {
@@ -288,7 +289,7 @@ if(submitcheck('forumsubmit', 1)) {
 	}
 
 
-	$nextlink = "action=counter&current=$next&pertask=$pertask&membersubmit=yes";
+	$nextlink = "action=counter&formhash=$formhash&current=$next&pertask=$pertask&membersubmit=yes";
 	$processed = 0;
 
 	$queryt = C::t('common_member')->range($current, $pertask);
@@ -316,7 +317,7 @@ if(submitcheck('forumsubmit', 1)) {
 
 } elseif(submitcheck('groupmembernum', 1)) {
 
-	$nextlink = "action=counter&current=$next&pertask=$pertask&groupmembernum=yes";
+	$nextlink = "action=counter&formhash=$formhash&current=$next&pertask=$pertask&groupmembernum=yes";
 	$processed = 0;
 
 	$query = C::t('forum_forum')->fetch_all_fid_for_group($current, $pertask, 1);
@@ -333,7 +334,7 @@ if(submitcheck('forumsubmit', 1)) {
 	}
 } elseif(submitcheck('groupmemberpost', 1)) {
 
-	$nextlink = "action=counter&current=$next&pertask=$pertask&groupmemberpost=yes";
+	$nextlink = "action=counter&formhash=$formhash&current=$next&pertask=$pertask&groupmemberpost=yes";
 	$processed = 0;
 
 	$queryf = C::t('forum_forum')->fetch_all_fid_for_group($current, $pertask, 1);
@@ -369,7 +370,7 @@ if(submitcheck('forumsubmit', 1)) {
 
 } elseif(submitcheck('groupnum', 1)) {
 
-	$nextlink = "action=counter&current=$next&pertask=$pertask&groupnum=yes";
+	$nextlink = "action=counter&formhash=$formhash&current=$next&pertask=$pertask&groupnum=yes";
 	$processed = 0;
 
 	$queryf = C::t('forum_forum')->fetch_all_fid_for_group($current, $pertask);
@@ -388,7 +389,7 @@ if(submitcheck('forumsubmit', 1)) {
 
 } elseif(submitcheck('blogreplynum', 1)) {
 
-	$nextlink = "action=counter&current=$next&pertask=$pertask&blogreplynum=yes";
+	$nextlink = "action=counter&formhash=$formhash&current=$next&pertask=$pertask&blogreplynum=yes";
 	if(blog_replynum_stat($current, $pertask)) {
 		cpmsg("$lang[counter_blog_replynum]: ".cplang('counter_processing', array('current' => $current, 'next' => $next)), $nextlink, 'loading');
 	} else {
@@ -397,7 +398,7 @@ if(submitcheck('forumsubmit', 1)) {
 
 } elseif(submitcheck('friendnum', 1)) {
 
-	$nextlink = "action=counter&current=$next&pertask=$pertask&friendnum=yes";
+	$nextlink = "action=counter&formhash=$formhash&current=$next&pertask=$pertask&friendnum=yes";
 	if(space_friendnum_stat($current, $pertask)) {
 		cpmsg("$lang[counter_friendnum]: ".cplang('counter_processing', array('current' => $current, 'next' => $next)), $nextlink, 'loading');
 	} else {
@@ -406,7 +407,7 @@ if(submitcheck('forumsubmit', 1)) {
 
 } elseif(submitcheck('albumpicnum', 1)) {
 
-	$nextlink = "action=counter&current=$next&pertask=$pertask&albumpicnum=yes";
+	$nextlink = "action=counter&formhash=$formhash&current=$next&pertask=$pertask&albumpicnum=yes";
 	if(album_picnum_stat($current, $pertask)) {
 		cpmsg("$lang[counter_album_picnum]: ".cplang('counter_processing', array('current' => $current, 'next' => $next)), $nextlink, 'loading');
 	} else {
@@ -418,7 +419,7 @@ if(submitcheck('forumsubmit', 1)) {
 	if(empty($fid)) {
 		cpmsg('counter_thread_cover_fiderror', 'action=counter', 'error');
 	}
-	$nextlink = "action=counter&current=$next&pertask=$pertask&setthreadcover=yes&fid=$fid&allthread=$allthread";
+	$nextlink = "action=counter&formhash=$formhash&current=$next&pertask=$pertask&setthreadcover=yes&fid=$fid&allthread=$allthread";
 	$starttime = strtotime($_GET['starttime']);
 	$endtime = strtotime($_GET['endtime']);
 	$timesql = '';
@@ -462,7 +463,7 @@ if(submitcheck('forumsubmit', 1)) {
 
 	shownav('tools', 'nav_updatecounters');
 	showsubmenu('nav_updatecounters');
-	/*search={"nav_updatecounters":"action=counter"}*/
+	/*search={"nav_updatecounters":"action=counter&formhash=$formhash"}*/
 	showtips('counter_tips');
 	/*search*/
 	showformheader('counter');

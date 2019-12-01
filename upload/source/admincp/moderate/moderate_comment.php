@@ -130,7 +130,7 @@ if(!submitcheck('modsubmit') && !$_GET['fast']) {
 			"<ul class=\"nofloat\"><li><input class=\"radio\" type=\"radio\" name=\"moderate[$comment[cid]]\" id=\"mod_$comment[cid]_1\" value=\"validate\" onclick=\"mod_setbg($comment[cid], 'validate');\"><label for=\"mod_$comment[cid]_1\">$lang[validate]</label></li><li><input class=\"radio\" type=\"radio\" name=\"moderate[$comment[cid]]\" id=\"mod_$comment[cid]_2\" value=\"delete\" onclick=\"mod_setbg($comment[cid], 'delete');\"><label for=\"mod_$comment[cid]_2\">$lang[delete]</label></li><li><input class=\"radio\" type=\"radio\" name=\"moderate[$comment[cid]]\" id=\"mod_$comment[cid]_3\" value=\"ignore\" onclick=\"mod_setbg($comment[cid], 'ignore');\"><label for=\"mod_$comment[cid]_3\">$lang[ignore]</label></li></ul>",
 			"<h3><a href=\"javascript:;\" onclick=\"display_toggle({$comment[cid]});\"> $short_desc $comment_censor_text</a></h3><p>$comment[ip]</p>",
 			$commenttype.'<input name="idtypes['.$comment['cid'].']" type="hidden" value="'.$comment['idtype'].'">',
-			"<p><a target=\"_blank\" href=\"".ADMINSCRIPT."?action=members&operation=search&uid=$comment[authorid]&submit=yes\">$comment[author]</a></p> <p>$comment[dateline]</p>",
+			"<p><a target=\"_blank\" href=\"".ADMINSCRIPT."?action=members&operation=search&uid=$comment[authorid]&submit=yes&formhash".constant("FORMHASH")."\">$comment[author]</a></p> <p>$comment[dateline]</p>",
 			"<a target=\"_blank\" href=\"$viewurl\">$lang[view]</a>&nbsp;<a href=\"$editurl\" target=\"_blank\">$lang[edit]</a>",
 		));
 
