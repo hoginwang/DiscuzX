@@ -1505,7 +1505,9 @@ function dmkdir($dir, $mode = 0777, $makeindex = TRUE){
 function dreferer($default = '') {
 	global $_G;
 
-	$default = empty($default) && $_ENV['curapp'] ? $_ENV['curapp'].'.php' : '';
+	if (empty($default)) {
+		$default = $_ENV['curapp'] ? $_ENV['curapp'].'.php' : '';
+	}
 	$_G['referer'] = !empty($_GET['referer']) ? $_GET['referer'] : $_SERVER['HTTP_REFERER'];
 	$_G['referer'] = substr($_G['referer'], -1) == '?' ? substr($_G['referer'], 0, -1) : $_G['referer'];
 
