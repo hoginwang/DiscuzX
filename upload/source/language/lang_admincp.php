@@ -14,7 +14,9 @@ if(!defined('IN_DISCUZ')) {
 
 $lang = array
 (
-
+	'req_ver_too_low' => '您当前系统内的 {req} 版本 ({now_ver}) 过低，程序无法按预期正常运行。我们强烈建议您升级到 {sug_ver} 版本，正常运行最低要求为 {req_ver} 版本。腾讯云计算（北京）有限责任公司不对您在此模式下继续运行程序出现的任何问题负责。',
+	'req_not_found' => '您当前系统内未安装或开启 {req} 扩展，程序无法按预期正常运行。我们强烈建议您安装此扩展。腾讯云计算（北京）有限责任公司不对您在此模式下继续运行程序出现的任何问题负责。',
+	'req_ok' => '您当前系统适合当前版本的 Discuz! {version}',
 	'subscribe_comsenz_email' => '填写您的邮件地址，订阅 Discuz! 官方产品动态、安全提醒、官方新闻',
 	'scan_discuz_qrcode' => '<img src="source/plugin/wechat/image/discuz_qr.jpg" align="left" width="80" /><br />扫描关注Discuz!官方微信<br /><br />获取官方最新动态',
 	'reglinkname_default' => '注册',
