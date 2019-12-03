@@ -239,7 +239,7 @@ foreach ($now_ver as $key => $value) {
 			);
 			$env_ok = false;
 		}
-	} else if (version_compare($value, $req_ver[$key], '<=')) {
+	} else if (version_compare($value, $req_ver[$key], '<')) {
 		showtablerow('', array('', 'class="td21" style="text-align:right;"'),
 			'<em class="unfixed">'.lang("admincp", "req_ver_too_low", array('req' => $key, 'now_ver' => $value, 'sug_ver' => $sug_ver[$key], 'req_ver' => $req_ver[$key])).'</em>'
 		);
