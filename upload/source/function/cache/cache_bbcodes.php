@@ -16,7 +16,7 @@ function build_cache_bbcodes() {
 
 	$regexp = array	(
 		1 => "/\[{bbtag}]([^\"\[]+?)\[\/{bbtag}\]/is",
-		2 => "/\[{bbtag}=(['\"]?)([^\"\[]+?)(['\"]?)\]([^\"\[]+?)\[\/{bbtag}\]/is",
+		2 => "/\[{bbtag}=(.+?)\](?!\])(.+?)\[\/{bbtag}\]/is",
 		3 => "/\[{bbtag}=(['\"]?)([^\"\[]+?)(['\"]?),(['\"]?)([^\"\[]+?)(['\"]?)\]([^\"\[]+?)\[\/{bbtag}\]/is"
 	);
 
@@ -29,8 +29,8 @@ function build_cache_bbcodes() {
 		$bbcode['replacement'] = preg_replace("/([\r\n])/", '', $bbcode['replacement']);
 		switch($bbcode['params']) {
 			case 2:
-				$bbcode['replacement'] = str_replace('{1}', '\\2', $bbcode['replacement']);
-				$bbcode['replacement'] = str_replace('{2}', '\\4', $bbcode['replacement']);
+				$bbcode['replacement'] = str_replace('{1}', '\\1', $bbcode['replacement']);
+				$bbcode['replacement'] = str_replace('{2}', '\\2', $bbcode['replacement']);
 				break;
 			case 3:
 				$bbcode['replacement'] = str_replace('{1}', '\\2', $bbcode['replacement']);

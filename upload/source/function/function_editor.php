@@ -41,6 +41,7 @@ function divtag($divoptions, $text) {
 
 	parsestyle($divoptions, $prepend, $append);
 	$align = getoptionvalue('align', $divoptions);
+	$valign = getoptionvalue('valign', $divoptions);
 
 	switch($align) {
 		case 'left':
@@ -51,9 +52,23 @@ function divtag($divoptions, $text) {
 			$align = '';
 	}
 
+	switch($valign) {
+		case 'top':
+		case 'middle':
+		case 'bottom':
+			break;
+		default:
+			$valign = '';
+	}
+
 	if($align) {
 		$prepend .= "[align=$align]";
 		$append .= "[/align]";
+	}
+	
+	if($valign) {
+		$prepend .= "[valign=$valign]";
+		$append .= "[/valign]";
 	}
 	$append .= "\n";
 
@@ -242,6 +257,10 @@ function parsestyle($tagoptions, &$prependtags, &$appendtags) {
 		array('tag' => 'align', 'option' => TRUE, 'regex' => 'text-align:\s*(left);?', 'match' => 1),
 		array('tag' => 'align', 'option' => TRUE, 'regex' => 'text-align:\s*(center);?', 'match' => 1),
 		array('tag' => 'align', 'option' => TRUE, 'regex' => 'text-align:\s*(right);?', 'match' => 1),
+		array('tag' => 'valign', 'option' => TRUE, 'regex' => 'text-align:\s*(top);?', 'match' => 1),
+		array('tag' => 'valign', 'option' => TRUE, 'regex' => 'text-align:\s*(middle);?', 'match' => 1),
+		array('tag' => 'valign', 'option' => TRUE, 'regex' => 'text-align:\s*(bottom);?', 'match' => 1),
+		
 		array('tag' => 'color', 'option' => TRUE, 'regex' => '(?<![a-z0-9-])color:\s*([^;]+);?', 'match' => 1),
 		array('tag' => 'font', 'option' => TRUE, 'regex' => 'font-family:\s*([^;]+);?', 'match' => 1),
 		array('tag' => 'size', 'option' => TRUE, 'regex' => 'font-size:\s*(\d+(\.\d+)?(px|pt|in|cm|mm|pc|em|ex|%|));?', 'match' => 1),
@@ -267,6 +286,7 @@ function parsestyle_callback_sprintf_4123($matches) {
 
 function ptag($poptions, $text) {
 	$align = getoptionvalue('align', $poptions);
+	$valign = getoptionvalue('valign', $poptions);
 
 	switch($align) {
 		case 'left':
@@ -276,12 +296,26 @@ function ptag($poptions, $text) {
 		default:
 			$align = '';
 	}
+	
+	switch($valign) {
+		case 'top':
+		case 'middle':
+		case 'bottom':
+			break;
+		default:
+			$valign = '';
+	}
+
 
 	$prepend = $append = '';
 	parsestyle($poptions, $prepend, $append);
 	if($align) {
 		$prepend .= "[align=$align]";
 		$append .= "[/align]";
+	}
+	if($valign) {
+		$prepend .= "[valign=$valign]";
+		$append .= "[/valign]";
 	}
 	$append .= "\n";
 

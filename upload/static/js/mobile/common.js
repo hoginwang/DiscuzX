@@ -755,6 +755,9 @@ var pullrefresh = {
 				return;
 			}
 			if(!status && $(window).scrollTop() <= 0) {
+				if(!$('.subname_list').is(':hidden')) {
+					return;
+				}
 				status = true;
 				divobj = document.createElement('div');
 				divobj = $(divobj);
@@ -974,3 +977,17 @@ $(document).ready(function() {
 	formdialog.init();
 	redirect.init();
 });
+
+function toggle_collapse(objname) {
+	var obj = $(objname);
+	var img = $(objname + '_img');
+	
+	if(!obj.is(':hidden')) {
+		img.attr('src','static/image/common/collapsed_yes.gif');
+		obj.css('display','none');
+	}
+	else {
+		img.attr('src','static/image/common/collapsed_no.gif');
+		obj.css('display','block');
+	}
+}
