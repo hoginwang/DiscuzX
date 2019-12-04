@@ -76,11 +76,17 @@ class discuz_application extends discuz_base{
 	private function _init_env() {
 
 		error_reporting(E_ERROR);
+
 		if(PHP_VERSION < '5.3.0') {
 			set_magic_quotes_runtime(0);
 		}
 
-		define('MAGIC_QUOTES_GPC', function_exists('get_magic_quotes_gpc') && get_magic_quotes_gpc());
+		if (PHP_VERSION < '5.4.0') {
+			define('MAGIC_QUOTES_GPC', function_exists('get_magic_quotes_gpc') && get_magic_quotes_gpc());
+		} else {
+			define('MAGIC_QUOTES_GPC', FALSE);
+		}
+
 		define('ICONV_ENABLE', function_exists('iconv'));
 		define('MB_ENABLE', function_exists('mb_convert_encoding'));
 		define('EXT_OBGZIP', function_exists('ob_gzhandler'));
@@ -187,7 +193,7 @@ class discuz_application extends discuz_base{
 		if(defined('IN_NEWMOBILE')) {
 			$sitepath = preg_replace("/\/m/i", '', $sitepath);
 		}
-		$_G['isHTTPS'] = ($_SERVER['HTTPS'] && strtolower($_SERVER['HTTPS']) != 'off') ? true : false;
+		$_G['isHTTPS'] = (array_key_exists('HTTPS', $_SERVER) && strtolower($_SERVER['HTTPS']) != 'off') ? true : false;
 		$_G['scheme'] = 'http'.($_G['isHTTPS'] ? 's' : '');
 		$_G['siteurl'] = dhtmlspecialchars($_G['scheme'].'://'.$_SERVER['HTTP_HOST'].$sitepath.'/');
 
@@ -281,7 +287,7 @@ class discuz_application extends discuz_base{
 		@include DISCUZ_ROOT.'./config/config_global.php';
 		if(empty($_config)) {
 			if(!file_exists(DISCUZ_ROOT.'./data/install.lock')) {
-				header('location: install');
+				header('location: install/');
 				exit;
 			} else {
 				system_error('config_notfound');
@@ -381,7 +387,7 @@ class discuz_application extends discuz_base{
 
 	private function _get_client_ip() {
 		$ip = $_SERVER['REMOTE_ADDR'];
-		if (!$this->config['security']['onlyremoteaddr']) {
+		if (!array_key_exists('security', $this->config) || !$this->config['security']['onlyremoteaddr']) {
 			if (isset($_SERVER['HTTP_CLIENT_IP']) && preg_match('/^([0-9]{1,3}\.){3}[0-9]{1,3}$/', $_SERVER['HTTP_CLIENT_IP'])) {
 				$ip = $_SERVER['HTTP_CLIENT_IP'];
 			} elseif(isset($_SERVER['HTTP_X_FORWARDED_FOR']) AND preg_match_all('#\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}#s', $_SERVER['HTTP_X_FORWARDED_FOR'], $matches)) {
@@ -584,12 +590,14 @@ class discuz_application extends discuz_base{
 			if($this->var['group'] && isset($this->var['group']['allowvisit']) && !$this->var['group']['allowvisit']) {
 				if($this->var['uid'] && !$allowvisitflag) {
 					if(!defined('IN_MOBILE_API')) {
-						showmessage('user_banned');
+						($this->var['member']['groupexpiry'] > 0) ? showmessage('user_banned_has_expiry') : showmessage('user_banned');
 					} else {
-						mobile_core::result(array('error' => 'user_banned'));
+						($this->var['member']['groupexpiry'] > 0) ? mobile_core::result(array('error' => 'user_banned_has_expiry')) : mobile_core::result(array('error' => 'user_banned'));
 					}
 				} elseif((!defined('ALLOWGUEST') || !ALLOWGUEST) && !in_array(CURSCRIPT, array('member', 'api')) && !$this->var['inajax']) {
-					if(!defined('IN_MOBILE_API')) {
+					if(defined('IN_ARCHIVER')) {
+						dheader('location: ../member.php?mod=logging&action=login&referer='.rawurlencode($this->var['siteurl']."archiver/".$this->var['basefilename'].($_SERVER['QUERY_STRING'] ? '?'.$_SERVER['QUERY_STRING'] : '')));
+					} else if(!defined('IN_MOBILE_API')) {
 						dheader('location: member.php?mod=logging&action=login&referer='.rawurlencode($this->var['siteurl'].$this->var['basefilename'].($_SERVER['QUERY_STRING'] ? '?'.$_SERVER['QUERY_STRING'] : '')));
 					} else {
 						mobile_core::result(array('error' => 'to_login'));
@@ -764,6 +772,13 @@ class discuz_application extends discuz_base{
 			$mobile = isset($mobile_) ? $mobile_ : 2;
 		}
 
+		if(!$this->var['mobile'] && !$unallowmobile) {
+			if($mobileflag) {
+				$location = ($this->var['setting']['domain']['app']['forum'] ? $this->var['scheme'].'://'.$this->var['setting']['domain']['app']['forum'].'/' : $this->var['siteurl']).$this->var['basefilename'].'?'.$query_sting_tmp;
+				dheader("Location: ".$location);
+			}
+		}
+
 		if($nomobile || (!$this->var['setting']['mobile']['mobileforward'] && !$mobileflag)) {
 			if($_SERVER['HTTP_HOST'] == $this->var['setting']['domain']['app']['mobile'] && $this->var['setting']['domain']['app']['default']) {
 				dheader('Location:'.$this->var['scheme'].'://'.$this->var['setting']['domain']['app']['default'].$_SERVER['REQUEST_URI']);
@@ -783,9 +798,11 @@ class discuz_application extends discuz_base{
 					$mobileurl = $this->var['siteurl'].'forum.php?mobile=yes';
 				}
 			}
-			dheader("location:$mobileurl");
+			if(!$this->var['setting']['mobile']['otherindex']){
+				dheader("location:$mobileurl");
+			}
 		}
-		if($this->var['setting']['mobile']['allowmnew'] && !defined('IN_MOBILE_API') && !defined('NOT_IN_MOBILE_API')) {
+		if($this->var['setting']['mobile']['allowmnew'] && !defined('IN_MOBILE_API') && !defined('NOT_IN_MOBILE_API') && !defined("IS_ROBOT")) {
 			$modid = $this->var['basescript'].'::'.CURMODULE;
 			if(($modid == 'forum::viewthread' || $modid == 'group::viewthread') && !empty($_GET['tid'])) {
 				dheader('location: '.$this->var['siteurl'].'m/?a=viewthread&tid='.$_GET['tid']);

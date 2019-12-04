@@ -10,6 +10,7 @@ require './source/class/class_core.php';
 
 $discuz = C::app();
 
+$discuz->reject_robot();
 $discuz->init_cron = false;
 $discuz->init_session = false;
 $discuz->init_user = false;
