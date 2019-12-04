@@ -774,7 +774,8 @@ class discuz_application extends discuz_base{
 
 		if(!$this->var['mobile'] && !$unallowmobile) {
 			if($mobileflag) {
-				dheader("Location:misc.php?mod=mobile");
+				$location = ($this->var['setting']['domain']['app']['forum'] ? $this->var['scheme'].'://'.$this->var['setting']['domain']['app']['forum'].'/' : $this->var['siteurl']).$this->var['basefilename'].'?'.$query_sting_tmp;
+				dheader("Location: ".$location);
 			}
 		}
 
@@ -801,7 +802,7 @@ class discuz_application extends discuz_base{
 				dheader("location:$mobileurl");
 			}
 		}
-		if($this->var['setting']['mobile']['allowmnew'] && !defined('IN_MOBILE_API') && !defined('NOT_IN_MOBILE_API')) {
+		if($this->var['setting']['mobile']['allowmnew'] && !defined('IN_MOBILE_API') && !defined('NOT_IN_MOBILE_API') && !defined("IS_ROBOT")) {
 			$modid = $this->var['basescript'].'::'.CURMODULE;
 			if(($modid == 'forum::viewthread' || $modid == 'group::viewthread') && !empty($_GET['tid'])) {
 				dheader('location: '.$this->var['siteurl'].'m/?a=viewthread&tid='.$_GET['tid']);
