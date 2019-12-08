@@ -2190,10 +2190,8 @@ EOF;
 					cpmsg('members_ipban_illegal', '', 'error');
 				}
 
-				foreach(C::t('common_banned')->fetch_all_order_dateline() as $banned) {
-					if($banned['ip'] == $_GET['ipnew']) {
-						cpmsg('members_ipban_invalid', '', 'error');
-					}
+				if($banned = C::t('common_banned')->fetch_by_ip($_GET['ipnew'])) {
+					cpmsg('members_ipban_invalid', '', 'error');
 				}
 
 				$expiration = TIMESTAMP + $_GET['validitynew'] * 86400;
