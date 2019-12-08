@@ -2191,7 +2191,7 @@ EOF;
 				}
 
 				foreach(C::t('common_banned')->fetch_all_order_dateline() as $banned) {
-					if(cidr::match($banned['ip'], $_GET['ipnew'])) {
+					if($banned['ip'] == $_GET['ipnew']) {
 						cpmsg('members_ipban_invalid', '', 'error');
 					}
 				}

@@ -261,13 +261,13 @@ function ipbanadd($ipnew, $validitynew, &$error) {
 			return FALSE;
 		}
 
-		if(cidr::match($banned['ip'], $_GET['ipnew'])) {
+		if(cidr::match($_G['clientip'], $_GET['ipnew'])) {
 			$error = 2;
 			return FALSE;
 		}
 
 		foreach(C::t('common_banned')->fetch_all_order_dateline() as $banned) {
-			if(cidr::match($banned['ip'], $_GET['ipnew'])) {
+			if($banned['ip'] == $_GET['ipnew']) {
 				$error = 3;
 				return FALSE;
 			}
