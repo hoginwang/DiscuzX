@@ -261,15 +261,16 @@ function ipbanadd($ipnew, $validitynew, &$error) {
 			return FALSE;
 		}
 
-		if($_G['clientip'] == $_GET['ipnew']) {
+		if(cidr::match($banned['ip'], $_GET['ipnew'])) {
 			$error = 2;
 			return FALSE;
 		}
 
-		$query = DB::query("SELECT * FROM ".DB::table('common_banned')." WHERE ip='$ipnew'");
-		if($banned = C::t('common_banned')->fetch_by_ip($ipnew)) {
-			$error = 3;
-			return FALSE;
+		foreach(C::t('common_banned')->fetch_all_order_dateline() as $banned) {
+			if(cidr::match($banned['ip'], $_GET['ipnew'])) {
+				$error = 3;
+				return FALSE;
+			}
 		}
 
 		$expiration = $validitynew > 1 ? (TIMESTAMP + $validitynew * 86400) : TIMESTAMP + 86400;

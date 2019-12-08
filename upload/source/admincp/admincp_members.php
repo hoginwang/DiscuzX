@@ -2186,12 +2186,12 @@ EOF;
 					cpmsg('members_ipban_nopermission', '', 'error');
 				}
 
-				if($_G['clientip'] == $_GET['ipnew']) {
+				if(cidr::match($_G['clientip'], $_GET['ipnew'])) {
 					cpmsg('members_ipban_illegal', '', 'error');
 				}
 
 				foreach(C::t('common_banned')->fetch_all_order_dateline() as $banned) {
-					if ($banned['ip'] == $_GET['ipnew']) {
+					if(cidr::match($banned['ip'], $_GET['ipnew'])) {
 						cpmsg('members_ipban_invalid', '', 'error');
 					}
 				}
