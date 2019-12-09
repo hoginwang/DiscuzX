@@ -3,18 +3,30 @@ branches: {
   }
 fileChange:
   /upload:
-    newFile: !uuid '14641eba722d44a6f1dcbf13b132079f36aad63d'
-    oldFile: !uuid '401426792cc35a95b326f375368d3b8c8fc55b2a'
+    newFile: !uuid '7e473426b478635843ee1c633514b48fc38ce792'
+    oldFile: !uuid '14641eba722d44a6f1dcbf13b132079f36aad63d'
   /upload/source:
-    newFile: !uuid '45f9045918019b4d20ccde6091e435d5078f71d4'
-    oldFile: !uuid '6acefead4c1012f16e17cfacd6ec2941c80aac0f'
-  /upload/source/language:
-    newFile: !uuid '0b4aa4f5b495ed82a10d931b6327d6ae45eadcb1'
-    oldFile: !uuid '6b13d015a8872c58c0387b964c1a095abacb77dc'
-  /upload/source/language/lang_admincp_msg.php:
-    newFile: !uuid 'ae2501de0799566e1122ba6070ef879cdedb823b'
-    oldFile: !uuid '81f0cee33c61054bdb3eee21f0503f1bddbd7728'
-gitCommitId: !uuid '3cad5643055ad354c4bcd8b426b572c509e2c4a5'
+    newFile: !uuid '0832bd55a91eb71cf73da1d22e14df00001616eb'
+    oldFile: !uuid '45f9045918019b4d20ccde6091e435d5078f71d4'
+  /upload/source/class:
+    newFile: !uuid '7fb94f7946bf142f53ce8615333ec509ee0f4dfe'
+    oldFile: !uuid 'ed294aa07cbc0f0b0c0a3978bddb1cc837f0d150'
+  /upload/source/class/discuz:
+    newFile: !uuid '7d779f2ac9021581afc0140d725e9dba74e989ca'
+    oldFile: !uuid 'bc28855d7c8a9bd210c8935506296d142f4da234'
+  /upload/source/class/discuz/discuz_session.php:
+    newFile: !uuid 'cc6188bb792642d8cca4f4615aa1a5e313e500ce'
+    oldFile: !uuid '123380d76e851f163e2d47bf911d605de32063cc'
+  /upload/source/class/discuz/discuz_session_close.php:
+    newFile: !uuid 'a91a7ee3de258e3f05c0f5844be0d261273c89cb'
+    oldFile: !uuid 'baab39bc01a04026da0c95722b4b3a69ed6594ff'
+  /upload/source/class/table:
+    newFile: !uuid '3070b66eea5bea41b568dab5c12796f5f3b2b1f5'
+    oldFile: !uuid '74a6e050be53d142a5ba4544e547c375844aec60'
+  /upload/source/class/table/table_common_session.php:
+    newFile: !uuid 'ee832fe3954fdd416c039474af1402e27467ae2a'
+    oldFile: !uuid '006ac9637ed785d2a0fe2d882663533132fbef31'
+gitCommitId: !uuid 'ba25c5e4d2e15cbf84e988bbd6e1a146f97a2e91'
 renames: {
   }
-revisionId: 395
+revisionId: 396
