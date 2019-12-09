@@ -3,18 +3,24 @@ branches: {
   }
 fileChange:
   /tests:
-    newFile: !uuid '229b82b0a9df8a59571ce1a3a1036d0f009519b9'
-    oldFile: null
+    newFile: !uuid '9d848477eb0ead029986925b0250582a92e96321'
+    oldFile: !uuid '229b82b0a9df8a59571ce1a3a1036d0f009519b9'
   /tests/class:
-    newFile: !uuid '8b9a03e96ac7488deb66234edc5a63041e2101fb'
+    newFile: !uuid 'f679904efa88aa62ed2a2706182fee39b12d4bd3'
+    oldFile: !uuid '8b9a03e96ac7488deb66234edc5a63041e2101fb'
+  /tests/class/filter_var_test.php:
+    newFile: !uuid '2d2454d93ad221f9f30a720eaf235fc3e1095277'
     oldFile: null
   /tests/class/ip_class_test.php:
-    newFile: !uuid 'ba2e1f69fa0d7c6d70428ea506ac5f386f8675eb'
+    newFile: !uuid '81bfc25c3806b4c79a858e43f1dc13986edb4624'
+    oldFile: !uuid 'ba2e1f69fa0d7c6d70428ea506ac5f386f8675eb'
+  /tests/logging.php:
+    newFile: !uuid '1095179701d6ca1c25e17fc572de8c5067705a37'
     oldFile: null
   /tests/runtests.php:
-    newFile: !uuid '9d4bf94c96f535cc1036efe5764599ec8ca73c24'
-    oldFile: null
-gitCommitId: !uuid '599afba0eedc14c0aef362823cb748d36219ce92'
+    newFile: !uuid 'fed5cf6df735356593d398356c7995ae40da6740'
+    oldFile: !uuid '9d4bf94c96f535cc1036efe5764599ec8ca73c24'
+gitCommitId: !uuid '680a12b4c3a198769a4ace00130a5ab9d2dcbfde'
 renames: {
   }
-revisionId: 384
+revisionId: 385
