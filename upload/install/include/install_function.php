@@ -592,6 +592,7 @@ function loginit($logfile) {
 function showjsmessage($message) {
 	if(VIEW_OFF) return;
 	echo '<script type="text/javascript">showmessage(\''.addslashes($message).' \');</script>'."\r\n";
+	echo str_repeat('  ', 1024*4);
 	flush();
 	ob_flush();
 }
