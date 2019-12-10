@@ -3,21 +3,36 @@ branches: {
   }
 fileChange:
   /upload:
-    newFile: !uuid '2e57fbd40dbf1b87a8bf2cdbf0dd111714df1864'
-    oldFile: !uuid '7e473426b478635843ee1c633514b48fc38ce792'
+    newFile: !uuid '65dec60b76458431e3a93d4e1f8b9ce680dc3a5b'
+    oldFile: !uuid '2e57fbd40dbf1b87a8bf2cdbf0dd111714df1864'
+  /upload/install:
+    newFile: !uuid '4d44b0161af03a0a179c6a969db291ada03f27da'
+    oldFile: !uuid '787341406f6758e3029a19733f6ca6027ebee03a'
+  /upload/install/data:
+    newFile: !uuid '0ebe468000060210d2b1372b0227552e403bf052'
+    oldFile: !uuid 'd11e34925720b9e91d8bce3661aae8d2fa2e9380'
+  /upload/install/data/install.sql:
+    newFile: !uuid '57faeccbee84ea0f0b3f06738d20b4186597d1f8'
+    oldFile: !uuid '939bb1a9c9700b81ac5072faebd171d1350e1aac'
   /upload/source:
-    newFile: !uuid 'e26fc1aec76fd1460062fe9360e42061eb61c627'
-    oldFile: !uuid '0832bd55a91eb71cf73da1d22e14df00001616eb'
+    newFile: !uuid 'a0398d3b733ddc810292aaf3419d7f3f604403a6'
+    oldFile: !uuid 'e26fc1aec76fd1460062fe9360e42061eb61c627'
   /upload/source/class:
-    newFile: !uuid '1718e07193d4a5ed100ab1af367987b36d8162e9'
-    oldFile: !uuid '7fb94f7946bf142f53ce8615333ec509ee0f4dfe'
+    newFile: !uuid '80e78ec252c7ea2a2b41b1b4f62e9184f49f12d2'
+    oldFile: !uuid '1718e07193d4a5ed100ab1af367987b36d8162e9'
   /upload/source/class/discuz:
-    newFile: !uuid '7f46d32a2a2e6e3ec6b4217187e7c479816065a8'
-    oldFile: !uuid '7d779f2ac9021581afc0140d725e9dba74e989ca'
+    newFile: !uuid '1875c745e047d4044a82f7ae501fa8c531b46891'
+    oldFile: !uuid '7f46d32a2a2e6e3ec6b4217187e7c479816065a8'
   /upload/source/class/discuz/discuz_database.php:
-    newFile: !uuid '35e4267c997b5ecc8e33e0c422482ff94dafd10f'
-    oldFile: !uuid '820d00b222170306ce10a2ee95efd06ca5fdf89a'
-gitCommitId: !uuid '46fc8bf4bf07a611ddb6c10cf6eaed7a897b6c5f'
+    newFile: !uuid '048b7ca68a14a92258860ec6ceeca2009b19645d'
+    oldFile: !uuid '35e4267c997b5ecc8e33e0c422482ff94dafd10f'
+  /upload/source/class/table:
+    newFile: !uuid '6cc7ecae40941a408d8a2510ac9e9ca89514494b'
+    oldFile: !uuid '3070b66eea5bea41b568dab5c12796f5f3b2b1f5'
+  /upload/source/class/table/table_forum_post.php:
+    newFile: !uuid '78ff92f810c2287d9292e9e7af9561a7f675bde7'
+    oldFile: !uuid 'b00f34e0958ea268824fce97a7fc2f914d89d64f'
+gitCommitId: !uuid '5bcf71b55fccfcc3e23ee4e2e4902d9dcd8f42f7'
 renames: {
   }
-revisionId: 397
+revisionId: 398
