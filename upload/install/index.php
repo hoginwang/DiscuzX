@@ -7,6 +7,7 @@
  *      $Id: index.php 22348 2011-05-04 01:16:02Z monkey $
  */
 
+ini_set('display_errors','On');
 error_reporting(E_ERROR | E_WARNING | E_PARSE);
 @set_time_limit(1000);
 
