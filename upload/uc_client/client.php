@@ -285,7 +285,7 @@ function uc_fopen($url, $limit = 0, $post = '', $cookie = '', $bysocket = FALSE,
 	}
 
 	$fpflag = 0;
-		if(!$fp = @fsocketopen(($scheme == 'https' ? 'ssl://' : '').($scheme == 'https' ? $host : ($ip ? $ip : $host)), $port, $errno, $errstr, $timeout)) {
+	if(!$fp = @fsocketopen(($scheme == 'https' ? 'ssl://' : '').($scheme == 'https' ? $host : ($ip ? $ip : $host)), $port, $errno, $errstr, $timeout)) {
 		$context = array(
 			'http' => array(
 				'method' => $post ? 'POST' : 'GET',
