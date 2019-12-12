@@ -70,6 +70,8 @@
 							<p class="d">
 								<!--{if empty($space['newemail'])}-->
 									{lang email_been_active}
+								<!--{elseif $_G['member']['freeze'] == 2}-->
+									{lang freeze_email_tips}
 								<!--{else}-->
 									$acitvemessage
 								<!--{/if}-->
