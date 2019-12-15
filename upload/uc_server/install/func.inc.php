@@ -741,7 +741,7 @@ function fsocketopen($hostname, $port = 80, &$errno, &$errstr, $timeout = 15) {
 	return $fp;
 }
 
-function dfopen($url, $limit = 0, $post = '', $cookie = '', $bysocket = FALSE, $ip = '', $timeout = 15, $block = TRUE, $allowcurl = TRUE) {
+function dfopen($url, $limit = 0, $post = '', $cookie = '', $bysocket = FALSE, $ip = '', $timeout = 15, $block = TRUE, $encodetype  = 'URLENCODE', $allowcurl = TRUE) {
 	$return = '';
 	$matches = parse_url($url);
 	$scheme = $matches['scheme'];

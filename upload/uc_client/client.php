@@ -213,16 +213,16 @@ function uc_authcode($string, $operation = 'DECODE', $key = '', $expiry = 0) {
 	}
 }
 
-function uc_fopen2($url, $limit = 0, $post = '', $cookie = '', $bysocket = FALSE, $ip = '', $timeout = 15, $block = TRUE, $allowcurl = TRUE) {
+function uc_fopen2($url, $limit = 0, $post = '', $cookie = '', $bysocket = FALSE, $ip = '', $timeout = 15, $block = TRUE, $encodetype  = 'URLENCODE', $allowcurl = TRUE) {
 	$__times__ = isset($_GET['__times__']) ? intval($_GET['__times__']) + 1 : 1;
 	if($__times__ > 2) {
 		return '';
 	}
 	$url .= (strpos($url, '?') === FALSE ? '?' : '&')."__times__=$__times__";
-	return uc_fopen($url, $limit, $post, $cookie, $bysocket, $ip, $timeout, $block, $allowcurl);
+	return uc_fopen($url, $limit, $post, $cookie, $bysocket, $ip, $timeout, $block, $encodetype, $allowcurl);
 }
 
-function uc_fopen($url, $limit = 0, $post = '', $cookie = '', $bysocket = FALSE, $ip = '', $timeout = 15, $block = TRUE, $allowcurl = TRUE) {
+function uc_fopen($url, $limit = 0, $post = '', $cookie = '', $bysocket = FALSE, $ip = '', $timeout = 15, $block = TRUE, $encodetype  = 'URLENCODE', $allowcurl = TRUE) {
 	$return = '';
 	$matches = parse_url($url);
 	$scheme = $matches['scheme'];
