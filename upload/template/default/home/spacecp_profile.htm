@@ -68,10 +68,10 @@
 						<td>
 							<input type="text" name="emailnew" id="emailnew" value="$space[email]" class="px" />
 							<p class="d">
-								<!--{if empty($space['newemail'])}-->
+								<!--{if $_G['member']['freeze'] == 2}-->
+									<p class="xi1">{lang freeze_email_tips}</p>
+								<!--{elseif empty($space['newemail'])}-->
 									{lang email_been_active}
-								<!--{elseif $_G['member']['freeze'] == 2}-->
-									{lang freeze_email_tips}
 								<!--{else}-->
 									$acitvemessage
 								<!--{/if}-->
