@@ -387,7 +387,11 @@ if(submitcheck('profilesubmit')) {
 		C::t('common_member')->update($_G['uid'], $setarr);
 	}
 	if($_G['member']['freeze'] == 2 || $_G['member']['freeze'] == -1) {
-		$result = C::t('common_member_validate')->update($_G['uid'], array('message' => dhtmlspecialchars($_POST['freezereson'])));
+		$result = C::t('common_member_validate')->update($_G['uid'], array(
+			'submitdate' => TIMESTAMP,
+			'status' => 0,
+			'message' => dhtmlspecialchars($_POST['freezereson']),
+		));
 		if(!$result) {
 			C::t('common_member_validate')->insert(array(
 				'uid' => $_G['uid'],
