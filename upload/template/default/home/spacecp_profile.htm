@@ -93,6 +93,16 @@
 					</tr>
 					<!--{/if}-->
 
+					<!--{if ($_G['member']['freeze'] == 2 || $_G['member']['freeze'] == -1) && !empty($space[freezemodremark])}-->
+					<tr>
+						<th>{lang freeze_remark}</th>
+						<td>
+							<textarea rows="3" cols="80" name="freezemodremark" class="pt" disabled="disabled">$space[freezemodremark]</textarea>
+							<p class="d" id="chk_newpassword2">{lang freeze_remark_comment}</p>
+						</td>
+					</tr>
+					<!--{/if}-->
+
 					<tr>
 						<th>{lang security_question}</th>
 						<td>
