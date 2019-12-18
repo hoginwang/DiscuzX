@@ -393,7 +393,7 @@ if(submitcheck('profilesubmit')) {
 				'submitdate' => TIMESTAMP,
 				'submittimes' => $status['submittimes'] + 1,
 				'status' => 0,
-				'message' => dhtmlspecialchars($_POST['freezereson']),
+				'message' => dhtmlspecialchars(addslashes($_POST['freezereson'])),
 			));
 		} else {
 			C::t('common_member_validate')->insert(array(
@@ -403,7 +403,7 @@ if(submitcheck('profilesubmit')) {
 				'admin' => '',
 				'submittimes' => 1,
 				'status' => 0,
-				'message' => dhtmlspecialchars($_POST['freezereson']),
+				'message' => dhtmlspecialchars(addslashes($_POST['freezereson'])),
 				'remark' => '',
 			), false, true);
 		}
