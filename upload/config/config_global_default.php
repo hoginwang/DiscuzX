@@ -30,7 +30,7 @@ $_config = array();
 $_config['db'][1]['dbhost']  		= 'localhost';
 $_config['db'][1]['dbuser']  		= 'root';
 $_config['db'][1]['dbpw'] 	 	= 'root';
-$_config['db'][1]['dbcharset'] 		= 'utf8';
+$_config['db'][1]['dbcharset'] 		= 'utf8mb4';
 $_config['db'][1]['pconnect'] 		= 0;
 $_config['db'][1]['dbname']  		= 'ultrax';
 $_config['db'][1]['tablepre'] 		= 'pre_';
@@ -164,7 +164,7 @@ $_config['security']['querysafe']['afullnote']	= 0;
 $_config['security']['creditsafe']['second'] 	= 0;		// 开启用户积分信息安全，可防止并发刷分，满足 times(次数)/second(秒) 的操作无法提交
 $_config['security']['creditsafe']['times'] 	= 10;
 
-$_config['security']['fsockopensafe']['port']	= array(80);	//fsockopen 有效的端口
+$_config['security']['fsockopensafe']['port']	= array(80, 443);	//fsockopen 有效的端口
 
 $_config['admincp']['founder']			= '1';		// 站点创始人：拥有站点管理后台的最高权限，每个站点可以设置 1名或多名创始人
 								// 可以使用uid，也可以使用用户名；多个创始人之间请使用逗号“,”分开;
@@ -192,6 +192,18 @@ $_config['remote']['cron'] = 0;
 
 // $_GET|$_POST的兼容处理，0为关闭，1为开启；开启后即可使用$_G['gp_xx'](xx为变量名，$_GET和$_POST集合的所有变量名)，值为已经addslashes()处理过
 $_config['input']['compatible'] = 1;
+
+/**
+ * IP数据库扩展
+ * $_config['ipdb']下除setting外均可用作自定义扩展IP库设置选项，也欢迎大家PR自己的扩展IP库。
+ * 扩展IP库的设置，请使用格式：
+ * 		$_config['ipdb']['扩展ip库名称']['设置项名称'] = '值';
+ * 比如：
+ * 		$_config['ipdb']['redis_ip']['server'] = '172.16.1.8';
+ */
+$_config['ipdb']['setting']['default'] = 'tiny';	// 系统使用的默认IP库
+$_config['ipdb']['setting']['ipv4'] = '';	// 系统使用的默认IPv4库，留空为使用默认库
+$_config['ipdb']['setting']['ipv6'] = 'v6wry'; // 系统使用的默认IPv6库，留空为使用默认库
 
 // Addon Setting
 //$_config['addonsource'] = 'xx1';

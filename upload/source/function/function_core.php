@@ -381,7 +381,7 @@ function random($length, $numeric = 0) {
 	}
 	$max = strlen($seed) - 1;
 	for($i = 0; $i < $length; $i++) {
-		$hash .= $seed{mt_rand(0, $max)};
+		$hash .= $seed[mt_rand(0, $max)];
 	}
 	return $hash;
 }
@@ -1461,7 +1461,7 @@ function space_merge(&$values, $tablename, $isarchive = false) {
 			if(($_G[$var] = C::t('common_member_'.$tablename.$ext)->fetch($uid)) !== false) {
 				if($tablename == 'field_home') {
 					$_G['setting']['privacy'] = empty($_G['setting']['privacy']) ? array() : (is_array($_G['setting']['privacy']) ? $_G['setting']['privacy'] : dunserialize($_G['setting']['privacy']));
-					$_G[$var]['privacy'] = empty($_G[$var]['privacy'])? array() : is_array($_G[$var]['privacy']) ? $_G[$var]['privacy'] : dunserialize($_G[$var]['privacy']);
+					$_G[$var]['privacy'] = empty($_G[$var]['privacy']) ? array() : (is_array($_G[$var]['privacy']) ? $_G[$var]['privacy'] : dunserialize($_G[$var]['privacy']));
 					foreach (array('feed','view','profile') as $pkey) {
 						if(empty($_G[$var]['privacy'][$pkey]) && !isset($_G[$var]['privacy'][$pkey])) {
 							$_G[$var]['privacy'][$pkey] = isset($_G['setting']['privacy'][$pkey]) ? $_G['setting']['privacy'][$pkey] : array();
@@ -1514,22 +1514,20 @@ function dreferer($default = '') {
 	}
 
 	$reurl = parse_url($_G['referer']);
+	$hostwithport = $reurl['host'] . (isset($reurl['port']) ? ':' . $reurl['port'] : '');
 
 	if(!$reurl || (isset($reurl['scheme']) && !in_array(strtolower($reurl['scheme']), array('http', 'https')))) {
 		$_G['referer'] = '';
 	}
 
-	// HTTP_HOST变量中有可能有端口号
-	list($http_host,)=explode(':', $_SERVER['HTTP_HOST']);
-
-	if(!empty($reurl['host']) && !in_array($reurl['host'], array($http_host, 'www.'.$http_host)) && !in_array($http_host, array($reurl['host'], 'www.'.$reurl['host']))) {
-		if(!in_array($reurl['host'], $_G['setting']['domain']['app']) && !isset($_G['setting']['domain']['list'][$reurl['host']])) {
-			$domainroot = substr($reurl['host'], strpos($reurl['host'], '.')+1);
+	if(!empty($hostwithport) && !in_array($hostwithport, array($_SERVER['HTTP_HOST'], 'www.'.$_SERVER['HTTP_HOST'])) && !in_array($_SERVER['HTTP_HOST'], array($hostwithport, 'www.'.$hostwithport))) {
+		if(!in_array($hostwithport, $_G['setting']['domain']['app']) && !isset($_G['setting']['domain']['list'][$hostwithport])) {
+			$domainroot = substr($hostwithport, strpos($hostwithport, '.')+1);
 			if(empty($_G['setting']['domain']['root']) || (is_array($_G['setting']['domain']['root']) && !in_array($domainroot, $_G['setting']['domain']['root']))) {
 				$_G['referer'] = $_G['setting']['domain']['defaultindex'] ? $_G['setting']['domain']['defaultindex'] : 'index.php';
 			}
 		}
-	} elseif(empty($reurl['host'])) {
+	} elseif(empty($hostwithport)) {
 		$_G['referer'] = $_G['siteurl'].'./'.$_G['referer'];
 	}
 
@@ -1730,26 +1728,11 @@ function memory($cmd, $key='', $value='', $ttl = 0, $prefix = '') {
 }
 
 function ipaccess($ip, $accesslist) {
-	return preg_match("/^(".str_replace(array("\r\n", ' '), array('|', ''), preg_quote($accesslist, '/')).")/", $ip);
+	return ip::checkaccess($ip, $accesslist);
 }
 
-function ipbanned($onlineip) {
-	global $_G;
-
-	if($_G['setting']['ipaccess'] && !ipaccess($onlineip, $_G['setting']['ipaccess'])) {
-		return TRUE;
-	}
-
-	loadcache('ipbanned');
-	if(empty($_G['cache']['ipbanned'])) {
-		return FALSE;
-	} else {
-		if($_G['cache']['ipbanned']['expiration'] < TIMESTAMP) {
-			require_once libfile('function/cache');
-			updatecache('ipbanned');
-		}
-		return preg_match("/^(".$_G['cache']['ipbanned']['regexp'].")$/", $onlineip);
-	}
+function ipbanned($ip) {
+	return ip::checkbanned($ip);
 }
 
 function getcount($tablename, $condition) {
@@ -1902,7 +1885,7 @@ function getexpiration() {
 }
 
 function return_bytes($val) {
-	$last = strtolower($val{strlen($val)-1});
+	$last = strtolower($val[strlen($val)-1]);
 	if (!is_numeric($val)) {
 		$val = substr(trim($val), 0, -1);
 	}
@@ -1950,7 +1933,7 @@ function getattachtablebyaid($aid) {
 
 function getattachtableid($tid) {
 	$tid = (string)$tid;
-	return intval($tid{strlen($tid)-1});
+	return intval($tid[strlen($tid)-1]);
 }
 
 function getattachtablebytid($tid) {
@@ -2099,17 +2082,14 @@ function currentlang() {
 		return '';
 	}
 }
-if(PHP_VERSION < '7.0.0') {
-	function dpreg_replace($pattern, $replacement, $subject, $limit = -1, &$count) {
+
+function dpreg_replace($pattern, $replacement, $subject, $limit = -1, &$count) {
+	if(PHP_VERSION < '7.0.0') {
 		return preg_replace($pattern, $replacement, $subject, $limit, $count);
-	}
-} else {
-	function dpreg_replace($pattern, $replacement, $subject, $limit = -1, &$count) {
+	} else {
 		require_once libfile('function/preg');
 		return _dpreg_replace($pattern, $replacement, $subject, $limit, $count);
 	}
 }
-
-
 
 ?>

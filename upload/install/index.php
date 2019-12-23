@@ -20,11 +20,7 @@ define('ROOT_PATH', dirname(__FILE__).'/../');
 
 require ROOT_PATH.'./source/discuz_version.php';
 require ROOT_PATH.'./install/include/install_var.php';
-if(function_exists('mysql_connect')) {
-	require ROOT_PATH.'./install/include/install_mysql.php';
-} else {
-	require ROOT_PATH.'./install/include/install_mysqli.php';
-}
+require ROOT_PATH.'./install/include/install_mysqli.php';
 require ROOT_PATH.'./install/include/install_function.php';
 require ROOT_PATH.'./install/include/install_lang.php';
 
@@ -143,7 +139,7 @@ if($method == 'show_license') {
 			if(!$ucip) {
 				$temp = @parse_url($ucapi);
 				$ucip = gethostbyname($temp['host']);
-				if(ip2long($ucip) == -1 || ip2long($ucip) === FALSE) {
+				if(!(filter_var($ucip, FILTER_VALIDATE_IP) !== false)) {
 					show_msg('uc_dns_error', $ucapi, 0);
 				}
 			}
@@ -283,11 +279,11 @@ if($method == 'show_license') {
 		if(empty($dbname)) {
 			show_msg('dbname_invalid', $dbname, 0);
 		} else {
-			$mysqlmode = function_exists("mysql_connect") ? 'mysql' : 'mysqli';
-			$link = ($mysqlmode == 'mysql') ? @mysql_connect($dbhost, $dbuser, $dbpw) : new mysqli($dbhost, $dbuser, $dbpw);
-			if(!$link) {
-				$errno = ($mysqlmode == 'mysql') ? mysql_errno($link) : $link->errno;
-				$error = ($mysqlmode == 'mysql') ? mysql_error($link) : $link->error;
+			if (strpos($dbhost, ":") === FALSE) $dbhost .= ":3306";
+			$link = new mysqli($dbhost, $dbuser, $dbpw);
+			if($link->connect_errno) {
+				$errno = $link->errno;
+				$error = $link->error;
 				if($errno == 1045) {
 					show_msg('database_errno_1045', $error, 0);
 				} elseif($errno == 2003) {
@@ -296,32 +292,20 @@ if($method == 'show_license') {
 					show_msg('database_connect_error', $error, 0);
 				}
 			}
-			$mysql_version = ($mysqlmode == 'mysql') ? mysql_get_server_info() : $link->server_info;
+			$mysql_version = $link->server_info;
 			if($mysql_version > '4.1') {
-				if($mysqlmode == 'mysql') {
-					mysql_query("CREATE DATABASE IF NOT EXISTS `$dbname` DEFAULT CHARACTER SET ".DBCHARSET, $link);
-				} else {
-					$link->query("CREATE DATABASE IF NOT EXISTS `$dbname` DEFAULT CHARACTER SET ".DBCHARSET);
-				}
+				$link->query("CREATE DATABASE IF NOT EXISTS `$dbname` DEFAULT CHARACTER SET ".DBCHARSET);
 			} else {
-				if($mysqlmode == 'mysql') {
-					mysql_query("CREATE DATABASE IF NOT EXISTS `$dbname`", $link);
-				} else {
-					$link->query("CREATE DATABASE IF NOT EXISTS `$dbname`");
-				}
+				$link->query("CREATE DATABASE IF NOT EXISTS `$dbname`");
 			}
 
-			if(($mysqlmode == 'mysql') ? mysql_errno($link) : $link->errno) {
-				show_msg('database_errno_1044', ($mysqlmode == 'mysql') ? mysql_error($link) : $link->error, 0);
+			if($link->errno) {
+				show_msg('database_errno_1044', $link->error, 0);
 			}
-			if($mysqlmode == 'mysql') {
-				mysql_close($link);
-			} else {
-				$link->close();
-			}
+			$link->close();
 		}
 
-		if(strpos($tablepre, '.') !== false || intval($tablepre{0})) {
+		if(strpos($tablepre, '.') !== false || intval($tablepre[0])) {
 			show_msg('tablepre_invalid', $tablepre, 0);
 		}
 
