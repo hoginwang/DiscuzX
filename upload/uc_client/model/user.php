@@ -40,30 +40,12 @@ class usermodel {
 
 	function check_username($username) {
 		$guestexp = '\xA1\xA1|\xAC\xA3|^Guest|^\xD3\xCE\xBF\xCD|\xB9\x43\xAB\xC8';
-		$len = $this->dstrlen($username);
+		$len = mb_strlen($username);
 		if($len > 15 || $len < 3 || preg_match("/\s+|^c:\\con\\con|[%,\*\"\s\<\>\&]|$guestexp/is", $username)) {
 			return FALSE;
 		} else {
 			return TRUE;
 		}
-	}
-
-	function dstrlen($str) {
-		if(strtolower(UC_CHARSET) != 'utf-8') {
-			return strlen($str);
-		}
-		$count = 0;
-		for($i = 0; $i < strlen($str); $i++){
-			$value = ord($str[$i]);
-			if($value > 127) {
-				$count++;
-				if($value >= 192 && $value <= 223) $i++;
-				elseif($value >= 224 && $value <= 239) $i = $i + 2;
-				elseif($value >= 240 && $value <= 247) $i = $i + 3;
-		    	}
-	    		$count++;
-		}
-		return $count;
 	}
 
 	function check_mergeuser($username) {
