@@ -622,7 +622,7 @@ var formdialog = {
 				data:isFormData ? new FormData(formobj[0]) : formobj.serialize(),
 				dataType:'xml',
 				processData:isFormData ? false : true,
-				contentType:isFormData ? false : 'application/x-www-form-urlencoded'
+				contentType:isFormData ? false : 'application/x-www-form-urlencoded; charset=UTF-8'
 			})
 			.success(function(s) {
 				popup.open(s.lastChild.firstChild.nodeValue);
