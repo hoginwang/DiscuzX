@@ -141,7 +141,7 @@ class helper_seccheck {
 				if(class_exists($class)) {
 					$code = new $class();
 					if(method_exists($code, 'check')) {
-						$return = $code->check($value, $idhash, $seccheck, $fromjs, $modid);
+						$return = $code->check($value, $idhash, $seccheck, $fromjs, $modid, $verifyonly);
 					}
 				}
 			} else {
