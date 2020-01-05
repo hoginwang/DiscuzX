@@ -191,12 +191,12 @@ function emailMenuOp(op, e, id) {
 			checkemail(id);
 		}, 500);
 	} else if(op == 4) {
-		e = e ? e : window.event;
-		var obj = $(id);
-		if(e.keyCode == 13 && obj.value.indexOf('@') == -1) {
-			obj.value = obj.value + '@' + emaildomains[emailMenui];
-			doane(e);
-		}
+	       	e = e ? e : window.event;
+                var obj = $(id);
+        	if(e.keyCode == 13 && obj.value.indexOf('@') == -1) {
+                        obj.value = obj.value + '@' + emaildomains[emailMenui];
+                        doane(e);
+        	}
 	} else if(op == 5) {
                 var as = $('emailmore_menu').getElementsByTagName('a');
                 for(i = 0;i < as.length;i++){
