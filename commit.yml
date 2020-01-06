@@ -3,18 +3,18 @@ branches: {
   }
 fileChange:
   /upload:
-    newFile: !uuid 'c4d8576f0b9e75ea09c2008162e4f36272abfcfb'
-    oldFile: !uuid '0f0adf832611b5654286ec166f5d552d03388da6'
+    newFile: !uuid '3b13bb134a0d13796fda7defc5482cf87e664041'
+    oldFile: !uuid 'c4d8576f0b9e75ea09c2008162e4f36272abfcfb'
   /upload/static:
-    newFile: !uuid '2659eb7ec2abfb4c83bf326b8a14d9aafb7e4a44'
-    oldFile: !uuid '20d0af5fc016c87553282d8a1e58099a8ed738a5'
+    newFile: !uuid '666f69943aa8a0e6cc806c5da204822622dae7e9'
+    oldFile: !uuid '2659eb7ec2abfb4c83bf326b8a14d9aafb7e4a44'
   /upload/static/js:
-    newFile: !uuid '8b6f850d32797a4342c4e7428b47b3fab6e8c685'
-    oldFile: !uuid '4f31ea83203a2e02a920ae486478f9e43cdae3af'
-  /upload/static/js/forum_viewthread.js:
-    newFile: !uuid 'cc9098691cd87f3a61f80394577a25dda1a0cb32'
-    oldFile: !uuid '18af32edfc06aebc6dc30c387e0b09388a9db0b2'
-gitCommitId: !uuid '044b16ee2fc658ef8614c4271ab8a0d4c4186b56'
+    newFile: !uuid '679e605b762bdbd863e7e6cf73a0a79753ba8f41'
+    oldFile: !uuid '8b6f850d32797a4342c4e7428b47b3fab6e8c685'
+  /upload/static/js/register.js:
+    newFile: !uuid '744ef111945d2d3acda71aaed0f983ddcb5ba5a1'
+    oldFile: !uuid '13fe9b3c0dd969053d5d027bb8cd13fe6ae1aad4'
+gitCommitId: !uuid '4ce7461786b8102658d2c4a9a9375ebf1e15980d'
 renames: {
   }
-revisionId: 402
+revisionId: 403
