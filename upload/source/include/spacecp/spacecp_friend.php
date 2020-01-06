@@ -515,6 +515,7 @@ if($op == 'add') {
 			}
 		}
 	}
+	header("Content-Type: application/json");
 	$jsstr = "{'userdata':{".implode(',', $json)."}, 'maxfriendnum':'".($count+$count_at)."', 'singlenum':'$singlenum'}";
 
 } elseif($op == 'search') {

@@ -54,6 +54,7 @@ if($_GET['op'] == 'checknewpm') {
 	if(!empty($otherpm)) {
 		$json = array_merge($json, $otherpm);
 	}
+	header("Content-Type: application/json");
 	$jsstr = "{'userdata':{".implode(',', $json)."}}";
 
 } elseif($_GET['op'] == 'showmsg') {
