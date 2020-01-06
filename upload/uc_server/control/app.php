@@ -154,18 +154,18 @@ class appcontrol extends base {
 		$log = dhtmlspecialchars('UCenterAdministrator'."\t".$this->onlineip."\t".$this->time."\t$action\t$extra");
 		$logfile = UC_ROOT.'./data/logs/'.gmdate('Ym', $this->time).'.php';
 		if(@filesize($logfile) > 2048000) {
-				PHP_VERSION < '4.2.0' && mt_srand((double)microtime() * 1000000);
-				$hash = '';
-				$chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789abcdefghijklmnopqrstuvwxyz';
-				for($i = 0; $i < 4; $i++) {
-						$hash .= $chars[mt_rand(0, 61)];
-				}
-				@rename($logfile, UC_ROOT.'./data/logs/'.gmdate('Ym', $this->time).'_'.$hash.'.php');
+			PHP_VERSION < '4.2.0' && mt_srand((double)microtime() * 1000000);
+			$hash = '';
+			$chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789abcdefghijklmnopqrstuvwxyz';
+			for($i = 0; $i < 4; $i++) {
+				$hash .= $chars[mt_rand(0, 61)];
+			}
+			@rename($logfile, UC_ROOT.'./data/logs/'.gmdate('Ym', $this->time).'_'.$hash.'.php');
 		}
 		if($fp = @fopen($logfile, 'a')) {
-				@flock($fp, 2);
-				@fwrite($fp, "<?PHP exit;?>\t".str_replace(array('<?', '?>', '<?php'), '', $log)."\n");
-				@fclose($fp);
+			@flock($fp, 2);
+			@fwrite($fp, "<?PHP exit;?>\t".str_replace(array('<?', '?>', '<?php'), '', $log)."\n");
+			@fclose($fp);
 		}
 	}
 
