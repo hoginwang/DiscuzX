@@ -374,7 +374,12 @@ function parseed2k($url) {
 function parseattachurl($aid, $ext, $ignoretid = 0) {
 	global $_G;
 	$_G['forum_skipaidlist'][] = $aid;
+	if($ext === 'mp3' || $ext === 'flac' || $ext === 'ape' || $ext === 'mp4' || $ext === 'flv' || $ext === 'mov' || $ext === 'avi'){
+	$attach = C::t('forum_attachment_n')->fetch('aid:'.$aid, $aid);
+	}
+	else{
 	return $_G['siteurl'].'forum.php?mod=attachment&aid='.aidencode($aid, $ext, $ignoretid ? '' : $_G['tid']).($ext ? '&request=yes&_f=.'.$ext : '');
+	}
 }
 
 function parseemail($email, $text) {
