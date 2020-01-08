@@ -566,7 +566,7 @@ if($get['method'] == 'export') {
 	}
 	$directory->close();
 	$str .= "</root>";
-	sent_mime_type_header();
+	send_mime_type_header();
 	echo $str;
 	exit;
 
@@ -593,7 +593,7 @@ if($get['method'] == 'export') {
 	}
 	$directory->close();
 	$str .= "</root>";
-	sent_mime_type_header();
+	send_mime_type_header();
 	echo $str;
 	exit;
 
@@ -689,7 +689,7 @@ function api_msg($code, $msg) {
 	$out .= "\t</fileinfo>\n";
 	$out .= "\t<nexturl></nexturl>\n";
 	$out .= "</root>";
-	sent_mime_type_header();
+	send_mime_type_header();
 	echo $out;
 	exit;
 }
@@ -715,7 +715,7 @@ function auto_next($get, $sqlfile) {
 	$out .= "\t</fileinfo>\n";
 	$out .= "\t<nexturl><![CDATA[$next_url]]></nexturl>\n";
 	$out .= "</root>";
-	sent_mime_type_header();
+	send_mime_type_header();
 	echo $out;
 	exit;
 }
@@ -907,6 +907,6 @@ function strexists($haystack, $needle) {
 	return !(strpos($haystack, $needle) === FALSE);
 }
 
-function sent_mime_type_header($type = 'application/xml') {
+function send_mime_type_header($type = 'application/xml') {
 	header("Content-Type: ".$type);
 }

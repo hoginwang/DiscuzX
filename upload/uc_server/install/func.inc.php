@@ -19,7 +19,7 @@ function show_msg($error_no, $error_msg = 'ok', $success = 1, $quit = TRUE) {
 		$str = "<root>\n";
 		$str .= "\t<error errorCode=\"$error_code\" errorMessage=\"$error_msg\" />\n";
 		$str .= "</root>";
-		sent_mime_type_header();
+		send_mime_type_header();
 		echo $str;
 		exit;
 	} else {
@@ -236,7 +236,7 @@ function show_env_result(&$env_items, &$dirfile_items, &$func_items) {
 		$str .= "\t</FileDirs>\n";
 		$str .= "\t<error errorCode=\"$error_code\" errorMessage=\"\" />\n";
 		$str .= "</root>";
-		sent_mime_type_header();
+		send_mime_type_header();
 		echo $str;
 		exit;
 
@@ -1114,6 +1114,6 @@ function dhtmlspecialchars($string, $flags = null) {
 	return $string;
 }
 
-function sent_mime_type_header($type = 'application/xml') {
+function send_mime_type_header($type = 'application/xml') {
 	header("Content-Type: ".$type);
 }
