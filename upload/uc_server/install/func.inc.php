@@ -416,7 +416,7 @@ function createtable($sql) {
 	$type = strtoupper(preg_replace("/^\s*CREATE TABLE\s+.+\s+\(.+?\).*(ENGINE|TYPE)\s*=\s*([a-z]+?).*$/isU", "\\2", $sql));
 	$type = in_array($type, array('INNODB', 'MYISAM', 'HEAP')) ? $type : 'INNODB';
 	return preg_replace("/^\s*(CREATE TABLE\s+.+\s+\(.+?\)).*$/isU", "\\1", $sql).
-	(mysql_get_server_info() > '4.1' ? " ENGINE=$type DEFAULT CHARSET=".DBCHARSET : " TYPE=$type");
+	(" ENGINE=$type DEFAULT CHARSET=".DBCHARSET);// 不考虑低版本MySQL, Git新增
 }
 
 function dir_writeable($dir) {
@@ -643,7 +643,7 @@ function generate_key() {
 		$p = intval($i/2);
 		$return[$i] = $i % 2 ? $random[$p] : $info[$p];
 	}
-	return implode('', $return);
+	return $return;// 原有意义不明的逻辑为 return implode('', $return);
 }
 
 function show_install() {
