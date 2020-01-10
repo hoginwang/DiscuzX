@@ -616,7 +616,7 @@ function addpolloption() {
 		addUploadEvent(imgid, proid)
 
 	} else {
-		$('polloption_new').outerHTML = '<span>已达到最大投票数'+maxoptions+'</span>';
+		showDialog('最多只能存在' + maxoptions + '个投票选项！');
 	}
 }
 
