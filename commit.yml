@@ -3,33 +3,15 @@ branches: {
   }
 fileChange:
   /upload:
-    newFile: !uuid '4535782c7bf18857a71a0fac2c50d8778bf88c24'
-    oldFile: !uuid '957726f2a6813303b90701f92eb6c916e1dc7fc9'
-  /upload/source:
-    newFile: !uuid '4a2c01749929d9ee64f7b7b0e98f11a0ad5651ed'
-    oldFile: !uuid '9ad84c746385e0e8ddd98ee9b0b2e8b5a28e6c40'
-  /upload/source/class:
-    newFile: !uuid '3c77a2c6e0624310cba52bacfd7bcfba6a97a298'
-    oldFile: !uuid 'bf1565106ac4d7238c3886b04e034da800702155'
-  /upload/source/class/discuz:
-    newFile: !uuid '35a17d2140041c7991ffa5c59ad779c9769cedcf'
-    oldFile: !uuid '9742daa5720754661b06627882a10121c6e91b69'
-  /upload/source/class/discuz/discuz_application.php:
-    newFile: !uuid '913557a19890a01357f0bef865216e3e4772a81d'
-    oldFile: !uuid '7c8d757e3655a3247bed996da4489fd9dc10a1ce'
-  /upload/source/class/memory:
-    newFile: !uuid '1b9a568523335370c3584d0bd6673aa3b7cd1f6f'
-    oldFile: !uuid '468ca391f88fb40d2948044d20ebfceac7788af3'
-  /upload/source/class/memory/memory_setting_array.php:
-    newFile: !uuid '05117dd3c99f4e2a1e2d8f449f34da04cd6a7dd7'
-    oldFile: null
-  /upload/source/class/table:
-    newFile: !uuid '4fac2af8ea9b4b7f3b94a347f007107f2b3c59f3'
-    oldFile: !uuid '216eea9a5f98f936e40b8da3b83b562e39d0e481'
-  /upload/source/class/table/table_common_syscache.php:
-    newFile: !uuid '1bff98063f9e57730cb5b8a9343948791bce0572'
-    oldFile: !uuid '4a23b12eb1db1d65632b1d8e95267d72706c7b37'
-gitCommitId: !uuid '7a72d30afbd278da295dac83db7fcfae5af7cb5c'
+    newFile: !uuid 'bce79637e2f75c8c4a1b6effbda49c445e7c800a'
+    oldFile: !uuid '4535782c7bf18857a71a0fac2c50d8778bf88c24'
+  /upload/config:
+    newFile: !uuid '2b3d99f49b3b1563f64f329f87a5869454abdec3'
+    oldFile: !uuid 'a739448f5082def1439e29b2cd1e708a8d30a110'
+  /upload/config/config_global_default.php:
+    newFile: !uuid 'cb98587d486806bbcf5c3d5f2c98139c07b783c2'
+    oldFile: !uuid '8fdc2432ef6b3447f3dc311930bf50db2c2ef66c'
+gitCommitId: !uuid 'f476fd63fdfcf0daecc9d1b7cbca11775e06576e'
 renames: {
   }
-revisionId: 459
+revisionId: 460
