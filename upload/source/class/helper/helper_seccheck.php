@@ -15,10 +15,18 @@ class helper_seccheck {
 
 	private function _check($type) {
 		global $_G;
-		if(!isset($_G['cookie']['sec'.$type])) {
+		if(isset($_GET['idhash']) && $_GET['idhash']) {
+			$secappend = $_GET['idhash'];
+		} elseif(isset($_GET['seccodehash']) && $_GET['seccodehash']) {
+			$secappend = $_GET['seccodehash'];
+		}
+		if(!defined('IN_MOBILE')) {
+			$secappend = str_replace($_G['sid'], '', $secappend);
+		}
+		if(!isset($_G['cookie']['sec'.$type.$secappend])) {
 			return false;
 		}
-		list($ssid, $sign) = explode('.', $_G['cookie']['sec'.$type]);
+		list($ssid, $sign) = explode('.', $_G['cookie']['sec'.$type.$secappend]);
 		if($sign != substr(md5($ssid.$_G['uid'].$_G['authkey']), 8, 18)) {
 			return false;
 		}
@@ -35,13 +43,21 @@ class helper_seccheck {
 
 	function _create($type, $code = '') {
 		global $_G;
+		if(isset($_GET['idhash']) && $_GET['idhash']) {
+			$secappend = $_GET['idhash'];
+		} elseif(isset($_GET['seccodehash']) && $_GET['seccodehash']) {
+			$secappend = $_GET['seccodehash'];
+		}
+		if(!defined('IN_MOBILE')) {
+			$secappend = str_replace($_G['sid'], '', $secappend);
+		}
 		$ssid = C::t('common_seccheck')->insert(array(
 		    'dateline' => TIMESTAMP,
 		    'code' => $code,
 		    'succeed' => 0,
 		    'verified' => 0,
 		), true);
-		dsetcookie('sec'.$type, $ssid.'.'.substr(md5($ssid.$_G['uid'].$_G['authkey']), 8, 18));
+		dsetcookie('sec'.$type.$secappend, $ssid.'.'.substr(md5($ssid.$_G['uid'].$_G['authkey']), 8, 18));
 	}
 
 	public static function make_seccode($seccode = ''){
