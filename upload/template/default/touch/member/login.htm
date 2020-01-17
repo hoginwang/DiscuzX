@@ -28,6 +28,12 @@
 		<!--{if $auth}-->
 			<input type="hidden" name="auth" value="$auth" />
 		<!--{/if}-->
+		<!--{if !empty($_POST['fastloginfield']) && in_array($_POST['fastloginfield'], array('username', 'uid', 'email'))}-->
+			<input type="hidden" name="fastloginfield" value="{$_POST['fastloginfield']}" />
+		<!--{/if}-->
+		<!--{if !empty($_POST['loginfield']) && in_array($_POST['loginfield'], array('username', 'uid', 'email'))}-->
+			<input type="hidden" name="loginfield" value="{$_POST['loginfield']}" />
+		<!--{/if}-->
 	<div class="login_from">
 		<ul>
 			<li><input type="text" value="" tabindex="1" class="px p_fre" size="30" autocomplete="off" value="" name="username" placeholder="{lang inputyourname}" fwin="login"></li>

@@ -44,7 +44,13 @@
 				<!--{if $auth}-->
 					<input type="hidden" name="auth" value="$auth" />
 				<!--{/if}-->
-				
+				<!--{if !empty($_POST['fastloginfield']) && in_array($_POST['fastloginfield'], array('username', 'uid', 'email'))}-->
+					<input type="hidden" name="fastloginfield" value="{$_POST['fastloginfield']}" />
+				<!--{/if}-->
+				<!--{if !empty($_POST['loginfield']) && in_array($_POST['loginfield'], array('username', 'uid', 'email'))}-->
+					<input type="hidden" name="loginfield" value="{$_POST['loginfield']}" />
+				<!--{/if}-->
+
 				<!--{if $invite}-->
 				<div class="rfm">
 					<table>
