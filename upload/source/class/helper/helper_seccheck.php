@@ -15,12 +15,19 @@ class helper_seccheck {
 
 	private function _check($type) {
 		global $_G;
-		if(isset($_GET['idhash']) && $_GET['idhash']) {
-			$secappend = $_GET['idhash'];
-		} elseif(isset($_GET['seccodehash']) && $_GET['seccodehash']) {
-			$secappend = $_GET['seccodehash'];
-		}
+		$secappend = '';
 		if(!defined('IN_MOBILE')) {
+			if(isset($_GET['idhash']) && $_GET['idhash']) {
+				$secappend = $_GET['idhash'];
+			} elseif($type == 'code') {
+				if(isset($_GET['seccodehash']) && $_GET['seccodehash']) {
+					$secappend = $_GET['seccodehash'];
+				}
+			} elseif($type == 'qaa') {
+				if(isset($_GET['secqaahash']) && $_GET['secqaahash']) {
+					$secappend = $_GET['secqaahash'];
+				}
+			}
 			$secappend = str_replace($_G['sid'], '', $secappend);
 		}
 		if(!isset($_G['cookie']['sec'.$type.$secappend])) {
@@ -43,12 +50,19 @@ class helper_seccheck {
 
 	function _create($type, $code = '') {
 		global $_G;
-		if(isset($_GET['idhash']) && $_GET['idhash']) {
-			$secappend = $_GET['idhash'];
-		} elseif(isset($_GET['seccodehash']) && $_GET['seccodehash']) {
-			$secappend = $_GET['seccodehash'];
-		}
+		$secappend = '';
 		if(!defined('IN_MOBILE')) {
+			if(isset($_GET['idhash']) && $_GET['idhash']) {
+				$secappend = $_GET['idhash'];
+			} elseif($type == 'code') {
+				if(isset($_GET['seccodehash']) && $_GET['seccodehash']) {
+					$secappend = $_GET['seccodehash'];
+				}
+			} elseif($type == 'qaa') {
+				if(isset($_GET['secqaahash']) && $_GET['secqaahash']) {
+					$secappend = $_GET['secqaahash'];
+				}
+			}
 			$secappend = str_replace($_G['sid'], '', $secappend);
 		}
 		$ssid = C::t('common_seccheck')->insert(array(
