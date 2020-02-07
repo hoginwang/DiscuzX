@@ -1075,6 +1075,8 @@ $lang = array (
   'author_not_uploadpic' => '楼主暂时没有上传图片',
   'noreply_yourself_error' => '您不能对自己的回帖进行投票',
   'noreply_voted_error' => '您已经对此回帖投过票了',
+
+  'guide_not_exist'=>'导读功能已关闭',
 );
 
 ?>
