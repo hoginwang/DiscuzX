@@ -10,7 +10,9 @@
 if(!defined('IN_DISCUZ')) {
 	exit('Access Denied');
 }
-
+if($_G['setting']['guidestatus']!=1){
+	showmessage('guide_not_exist');
+}
 $view = $_GET['view'];
 loadcache('forum_guide');
 if(!in_array($view, array('hot', 'digest', 'new', 'my', 'newthread', 'sofa'))) {
