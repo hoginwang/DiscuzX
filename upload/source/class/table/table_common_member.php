@@ -269,7 +269,7 @@ class table_common_member extends discuz_table_archive
 		return false;
 	}
 
-	public function insert($uid, $username, $password, $email, $ip, $groupid, $extdata, $adminid = 0) {
+	public function insert($uid, $username, $password, $email, $ip, $groupid, $extdata, $adminid = 0, $port = 0) {
 		if(($uid = dintval($uid))) {
 			$credits = isset($extdata['credits']) ? $extdata['credits'] : array();
 			$profile = isset($extdata['profile']) ? $extdata['profile'] : array();
@@ -290,6 +290,8 @@ class table_common_member extends discuz_table_archive
 				'uid' => $uid,
 				'regip' => (string)$ip,
 				'lastip' => (string)$ip,
+				'port' => (string)$port,
+				'regport' => (string)$port,
 				'lastvisit' => TIMESTAMP,
 				'lastactivity' => TIMESTAMP,
 				'lastpost' => 0,
@@ -344,7 +346,7 @@ class table_common_member extends discuz_table_archive
 		$dateline = TIMESTAMP - 7776000;//60*60*24*90
 		$temptablename = DB::table('common_member_temp___');
 		if(!DB::fetch_first("SHOW TABLES LIKE '$temptablename'")) {
-			DB::query("CREATE TABLE $temptablename (`uid` int(10) NOT NULL DEFAULT 0,PRIMARY KEY (`uid`)) ENGINE=MYISAM;");
+			DB::query("CREATE TABLE $temptablename (`uid` int(10) NOT NULL DEFAULT 0,PRIMARY KEY (`uid`)) ENGINE=INNODB;");
 		}
 		$splitnum = max(1, intval($splitnum));
 		if(!DB::result_first('SELECT COUNT(*) FROM '.$temptablename)) {

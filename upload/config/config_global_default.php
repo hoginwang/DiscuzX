@@ -7,6 +7,8 @@
  *      $Id: config_global_default.php 36362 2017-02-04 02:02:03Z nemohou $
  */
 
+/* 提示：自X3.5版本起，本文件不支持调用系统内任何变量或函数，请依赖此行为的站点修正实现 */
+
 $_config = array();
 
 // ----------------------------  CONFIG DB  ----------------------------- //
@@ -30,7 +32,7 @@ $_config = array();
 $_config['db'][1]['dbhost']  		= 'localhost';
 $_config['db'][1]['dbuser']  		= 'root';
 $_config['db'][1]['dbpw'] 	 	= 'root';
-$_config['db'][1]['dbcharset'] 		= 'utf8';
+$_config['db'][1]['dbcharset'] 		= 'utf8mb4';
 $_config['db'][1]['pconnect'] 		= 0;
 $_config['db'][1]['dbname']  		= 'ultrax';
 $_config['db'][1]['tablepre'] 		= 'pre_';
@@ -90,21 +92,16 @@ $_config['db']['common']['slave_except_table'] = '';
 //内存变量前缀, 可更改,避免同服务器中的程序引用错乱
 $_config['memory']['prefix'] = 'discuz_';
 
-/* reids设置, 需要PHP扩展组件支持, timeout参数的作用没有查证 */
+/* Redis设置, 需要PHP扩展组件支持, timeout参数的作用没有查证 */
 $_config['memory']['redis']['server'] = '';
 $_config['memory']['redis']['port'] = 6379;
 $_config['memory']['redis']['pconnect'] = 1;
 $_config['memory']['redis']['timeout'] = 0;
 $_config['memory']['redis']['requirepass'] = '';
 /**
- * 是否使用 Redis::SERIALIZER_IGBINARY选项,需要igbinary支持,windows下测试时请关闭，否则会出>现错误Reading from client: Connection reset by peer
- * 支持以下选项，默认使用PHP的serializer
- * [重要] 该选项已经取代原来的 $_config['memory']['redis']['igbinary'] 选项
- * Redis::SERIALIZER_IGBINARY =2
- * Redis::SERIALIZER_PHP =1
- * Redis::SERIALIZER_NONE =0 //则不使用serialize,即无法保存array
+ * 此配置现在已经取消，默认对array使用json进行编码保存，其它数据直接原样保存 
  */
-$_config['memory']['redis']['serializer'] = 1;
+// $_config['memory']['redis']['serializer'] = 1;
 
 $_config['memory']['memcache']['server'] = '';			// memcache 服务器地址
 $_config['memory']['memcache']['port'] = 11211;			// memcache 服务器端口
@@ -152,8 +149,11 @@ $_config['cookie']['cookiepath'] 		= '/'; 		// COOKIE作用路径
 $_config['security']['authkey']			= 'asdfasfas';	// 站点加密密钥
 $_config['security']['urlxssdefend']		= true;		// 自身 URL XSS 防御
 $_config['security']['attackevasive']		= 0;		// CC 攻击防御 1|2|4|8
-$_config['security']['onlyremoteaddr']		= 0;		// 用户IP地址获取方式 0=信任HTTP_CLIENT_IP、HTTP_X_FORWARDED_FOR 1=只信任 REMOTE_ADDR
+$_config['security']['onlyremoteaddr']		= 0;		// 用户IP地址获取方式 0=信任HTTP_CLIENT_IP、HTTP_X_FORWARDED_FOR(默认) 1=只信任 REMOTE_ADDR(推荐)
+								// 考虑到防止IP撞库攻击、IP限制策略失效的风险，建议您设置为1。使用CDN的用户可以配置ipgetter选项
+								// 安全提示：由于UCenter、UC_Client独立性原因，您需要单独在两个应用内定义常量，从而开启功能
 
+$_config['security']['useipban']			= 1;		// 是否开启允许/禁止IP功能，高负载站点可以将此功能疏解至HTTP Server/CDN/SLB/WAF上，降低服务器压力
 $_config['security']['querysafe']['status']	= 1;		// 是否开启SQL安全检测，可自动预防SQL注入攻击
 $_config['security']['querysafe']['dfunction']	= array('load_file','hex','substring','if','ord','char');
 $_config['security']['querysafe']['daction']	= array('@','intooutfile','intodumpfile','unionselect','(select', 'unionall', 'uniondistinct');
@@ -164,7 +164,7 @@ $_config['security']['querysafe']['afullnote']	= 0;
 $_config['security']['creditsafe']['second'] 	= 0;		// 开启用户积分信息安全，可防止并发刷分，满足 times(次数)/second(秒) 的操作无法提交
 $_config['security']['creditsafe']['times'] 	= 10;
 
-$_config['security']['fsockopensafe']['port']	= array(80);	//fsockopen 有效的端口
+$_config['security']['fsockopensafe']['port']	= array(80, 443);	//fsockopen 有效的端口
 
 $_config['admincp']['founder']			= '1';		// 站点创始人：拥有站点管理后台的最高权限，每个站点可以设置 1名或多名创始人
 								// 可以使用uid，也可以使用用户名；多个创始人之间请使用逗号“,”分开;
@@ -192,6 +192,40 @@ $_config['remote']['cron'] = 0;
 
 // $_GET|$_POST的兼容处理，0为关闭，1为开启；开启后即可使用$_G['gp_xx'](xx为变量名，$_GET和$_POST集合的所有变量名)，值为已经addslashes()处理过
 $_config['input']['compatible'] = 1;
+
+/**
+ * IP数据库扩展
+ * $_config['ipdb']下除setting外均可用作自定义扩展IP库设置选项，也欢迎大家PR自己的扩展IP库。
+ * 扩展IP库的设置，请使用格式：
+ * 		$_config['ipdb']['扩展ip库名称']['设置项名称'] = '值';
+ * 比如：
+ * 		$_config['ipdb']['redis_ip']['server'] = '172.16.1.8';
+ */
+$_config['ipdb']['setting']['fullstack'] = '';	// 系统使用的全栈IP库，优先级最高
+$_config['ipdb']['setting']['default'] = '';	// 系统使用的默认IP库，优先级最低
+$_config['ipdb']['setting']['ipv4'] = 'tiny';	// 系统使用的默认IPv4库，留空为使用默认库
+$_config['ipdb']['setting']['ipv6'] = 'v6wry'; // 系统使用的默认IPv6库，留空为使用默认库
+
+/**
+ * IP获取扩展
+ * 考虑到不同的CDN服务供应商提供的判断CDN源IP的策略不同，您可以定义自己服务供应商的IP获取扩展。
+ * 为空为使用默认体系，非空情况下会自动调用source/class/ip/getter_值.php内的get方法获取IP地址。
+ * 系统提供dnslist(IP反解析域名白名单)、serverlist(IP地址白名单，支持CIDR)、header扩展，具体请参考扩展文件。
+ * 性能提示：自带的两款工具由于依赖RDNS、CIDR判定等操作，对系统效率有较大影响，建议大流量站点使用HTTP Server
+ * 或CDN/SLB/WAF上的IP黑白名单等逻辑实现CDN IP地址白名单，随后使用header扩展指定服务商提供的IP头的方式实现。
+ * 安全提示：由于UCenter、UC_Client独立性及扩展性原因，您需要单独修改相关文件的相关业务逻辑，从而实现此类功能。
+ * $_config['ipgetter']下除setting外均可用作自定义IP获取模型设置选项，也欢迎大家PR自己的扩展IP获取模型。
+ * 扩展IP获取模型的设置，请使用格式：
+ * 		$_config['ipgetter']['IP获取扩展名称']['设置项名称'] = '值';
+ * 比如：
+ * 		$_config['ipgetter']['onlinechk']['server'] = '100.64.10.24';
+ */
+$_config['ipgetter']['setting'] = '';
+$_config['ipgetter']['header']['header'] = 'HTTP_X_FORWARDED_FOR';
+$_config['ipgetter']['iplist']['header'] = 'HTTP_X_FORWARDED_FOR';
+$_config['ipgetter']['iplist']['list']['0'] = '127.0.0.1';
+$_config['ipgetter']['dnslist']['header'] = 'HTTP_X_FORWARDED_FOR';
+$_config['ipgetter']['dnslist']['list']['0'] = 'comsenz.com';
 
 // Addon Setting
 //$_config['addonsource'] = 'xx1';

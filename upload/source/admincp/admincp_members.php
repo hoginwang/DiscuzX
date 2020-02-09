@@ -30,6 +30,9 @@ foreach($search_condition as $k => $v) {
 	if(in_array($k, array('action', 'operation', 'formhash', 'confirmed', 'submit', 'page', 'deletestart', 'allnum', 'includeuc','includepost','current','pertask','lastprocess','deleteitem')) || $v === '') {
 		unset($search_condition[$k]);
 	}
+	if($k === 'regip') {
+		$search_condition[$k] = ip::to_ip($search_condition[$k]);
+	}
 }
 $search_condition = searchcondition($search_condition);
 $tmpsearch_condition = $search_condition;
@@ -1980,9 +1983,11 @@ EOF;
 		showsetting('members_edit_posts', 'postsnew', $member['posts'], 'text');
 		showsetting('members_edit_digestposts', 'digestpostsnew', $member['digestposts'], 'text');
 		showsetting('members_edit_regip', 'regipnew', $member['regip'], 'text');
+		showsetting('members_edit_regport', 'regportnew', $member['regport'], 'text');
 		showsetting('members_edit_regdate', 'regdatenew', $member['regdate'], 'text');
 		showsetting('members_edit_lastvisit', 'lastvisitnew', $member['lastvisit'], 'text');
 		showsetting('members_edit_lastip', 'lastipnew', $member['lastip'], 'text');
+		showsetting('members_edit_port', 'portnew', $member['port'], 'text');
 		showsetting('members_edit_addsize', 'addsizenew', $member['addsize'], 'text');
 		showsetting('members_edit_addfriend', 'addfriendnew', $member['addfriend'], 'text');
 
@@ -2113,7 +2118,7 @@ EOF;
 		C::t('common_member'.$tableext)->update($uid, $memberupdate);
 		C::t('common_member_field_home'.$tableext)->update($uid, array('addsize' => $addsize, 'addfriend' => $addfriend));
 		C::t('common_member_count'.$tableext)->update($uid, array('posts' => $_GET['postsnew'], 'digestposts' => $_GET['digestpostsnew']));
-		C::t('common_member_status'.$tableext)->update($uid, array('regip' => $_GET['regipnew'], 'lastvisit' => $lastvisitnew, 'lastip' => $_GET['lastipnew'], 'invisible' => $_GET['invisiblenew']));
+		C::t('common_member_status'.$tableext)->update($uid, array('regip' => $_GET['regipnew'], 'regport' => $_GET['regportnew'], 'lastvisit' => $lastvisitnew, 'lastip' => $_GET['lastipnew'], 'port' => $_GET['portnew'], 'invisible' => $_GET['invisiblenew']));
 		C::t('common_member_field_forum'.$tableext)->update($uid, array('customstatus' => $_GET['cstatusnew'], 'sightml' => $sightmlnew));
 		if(!empty($fieldarr)) {
 			C::t('common_member_profile'.$tableext)->update($uid, $fieldarr);
@@ -2127,28 +2132,27 @@ EOF;
 
 } elseif($operation == 'ipban') {
 
+	if (array_key_exists('security', $_G['config']) && array_key_exists('useipban', $_G['config']['security']) && $_G['config']['security']['useipban'] == 0) {
+		cpmsg('members_ipban_closed', '', 'error');
+	}
+
 	if(!$_GET['ipact']) {
 		if(!submitcheck('ipbansubmit')) {
 
 			require_once libfile('function/misc');
 
-			$iptoban = explode('.', getgpc('ip'));
+			$iptoban = getgpc('ip');
 
 			$ipbanned = '';
 			foreach(C::t('common_banned')->fetch_all_order_dateline() as $banned) {
-				for($i = 1; $i <= 4; $i++) {
-					if($banned["ip$i"] == -1) {
-						$banned["ip$i"] = '*';
-					}
-				}
 				$disabled = $_G['adminid'] != 1 && $banned['admin'] != $_G['member']['username'] ? 'disabled' : '';
 				$banned['dateline'] = dgmdate($banned['dateline'], 'Y-m-d');
 				$banned['expiration'] = dgmdate($banned['expiration'], 'Y-m-d');
-				$theip = "$banned[ip1].$banned[ip2].$banned[ip3].$banned[ip4]";
+				$theip = "$banned[ip]";
 				$ipbanned .= showtablerow('', array('class="td25"'), array(
 					"<input class=\"checkbox\" type=\"checkbox\" name=\"delete[$banned[id]]\" value=\"$banned[id]\" $disabled />",
 					$theip,
-					convertip($theip, "./"),
+					convertip($theip),
 					$banned[admin],
 					$banned[dateline],
 					"<input type=\"text\" class=\"txt\" size=\"10\" name=\"expirationnew[$banned[id]]\" value=\"$banned[expiration]\" $disabled />"
@@ -2166,7 +2170,7 @@ EOF;
 			echo $ipbanned;
 			showtablerow('', array('', 'class="td28" colspan="3"', 'class="td28" colspan="2"'), array(
 				$lang['add_new'],
-				'<input type="text" class="txt" name="ip1new" value="'.$iptoban[0].'" size="3" maxlength="3">.<input type="text" class="txt" name="ip2new" value="'.$iptoban[1].'" size="3" maxlength="3">.<input type="text" class="txt" name="ip3new" value="'.$iptoban[2].'" size="3" maxlength="3">.<input type="text" class="txt" name="ip4new" value="'.$iptoban[3].'" size="3" maxlength="3">',
+				'<input type="text" class="txt" name="ipnew" value="'.$iptoban.'" style="width: 200px;">',
 				$lang['validity'].': <input type="text" class="txt" name="validitynew" value="30" size="3"> '.$lang['days']
 			));
 			showsubmit('ipbansubmit', 'submit', 'del');
@@ -2179,48 +2183,33 @@ EOF;
 				C::t('common_banned')->delete_by_id($_GET['delete'], $_G['adminid'], $_G['username']);
 			}
 
-			if($_GET['ip1new'] != '' && $_GET['ip2new'] != '' && $_GET['ip3new'] != '' && $_GET['ip4new'] != '') {
-				$own = 0;
-				$ip = explode('.', $_G['clientip']);
-				for($i = 1; $i <= 4; $i++) {
-					if(!is_numeric($_GET['ip'.$i.'new']) || $_GET['ip'.$i.'new'] < 0) {
-						if($_G['adminid'] != 1) {
-							cpmsg('members_ipban_nopermission', '', 'error');
-						}
-						$_GET['ip'.$i.'new'] = -1;
-						$own++;
-					} elseif($_GET['ip'.$i.'new'] == $ip[$i - 1]) {
-						$own++;
-					}
-					$_GET['ip'.$i.'new'] = intval($_GET['ip'.$i.'new']);
+			if($_GET['ipnew'] != '') {
+				$ipnew = ip::to_ip($_GET['ipnew']);
+				$is_cidr = ip::validate_cidr($ipnew, $ipnew);
+				if (!ip::validate_ip($ipnew) && !$is_cidr) {
+					cpmsg('members_ipban_formaterror', '', 'error');
 				}
 
-				if($own == 4) {
+				if($_G['adminid'] != 1 && $is_cidr) {
+					cpmsg('members_ipban_nopermission', '', 'error');
+				}
+
+				if(ip::check_ip($_G['clientip'], $ipnew)) {
 					cpmsg('members_ipban_illegal', '', 'error');
 				}
 
-				foreach(C::t('common_banned')->fetch_all_order_dateline() as $banned) {
-					$exists = 0;
-					for($i = 1; $i <= 4; $i++) {
-						if($banned["ip$i"] == -1) {
-							$exists++;
-						} elseif($banned["ip$i"] == ${"ip".$i."new"}) {
-							$exists++;
-						}
-					}
-					if($exists == 4) {
-						cpmsg('members_ipban_invalid', '', 'error');
-					}
+				if($banned = C::t('common_banned')->fetch_by_ip($ipnew)) {
+					cpmsg('members_ipban_invalid', '', 'error');
 				}
 
 				$expiration = TIMESTAMP + $_GET['validitynew'] * 86400;
 
-				C::app()->session->update_by_ipban($_GET['ip1new'], $_GET['ip2new'], $_GET['ip3new'], $_GET['ip4new']);
+				list($lower, $upper) = ip::calc_cidr_range($ipnew, true);
+
 				$data = array(
-					'ip1' => $_GET['ip1new'],
-					'ip2' => $_GET['ip2new'],
-					'ip3' => $_GET['ip3new'],
-					'ip4' => $_GET['ip4new'],
+					'ip' => $ipnew,
+					'lowerip' => $lower,
+					'upperip' => $upper,
 					'admin' => $_G['username'],
 					'dateline' => $_G['timestamp'],
 					'expiration' => $expiration,
@@ -2258,6 +2247,7 @@ EOF;
 		} else {
 			$iplist = explode("\n", $_GET['inputipbanlist']);
 			foreach($iplist as $banip) {
+				//TODO: 在批量导入时判断是否有设置CIRD的权限，验证每一段IP和CIDR是否合法，支持 * ，以导入旧版规则
 				if(strpos($banip, ',') !== false) {
 					list($banipaddr, $expiration) = explode(',', $banip);
 					$expiration = strtotime($expiration);
@@ -2269,25 +2259,16 @@ EOF;
 					continue;
 				}
 
-				$ipnew = explode('.', $banipaddr);
-				for($i = 0; $i < 4; $i++) {
-					if(strpos($ipnew[$i], '*') !== false) {
-						$ipnew[$i] = -1;
-					} else {
-						$ipnew[$i] = intval($ipnew[$i]);
-					}
-				}
-				$checkexists = C::t('common_banned')->fetch_by_ip($ipnew[0], $ipnew[1], $ipnew[2], $ipnew[3]);
+				$checkexists = C::t('common_banned')->fetch_by_ip($banipaddr);
 				if($checkexists) {
 					continue;
 				}
+				list($lower, $upper) = ip::calc_cidr_range($banipaddr, true);
 
-				C::app()->session->update_by_ipban($ipnew[0], $ipnew[1], $ipnew[2], $ipnew[3]);
 				$data = array(
-					'ip1' => $ipnew[0],
-					'ip2' => $ipnew[1],
-					'ip3' => $ipnew[2],
-					'ip4' => $ipnew[3],
+					'ip' => $banipaddr,
+					'lowerip' => $lower,
+					'upperip' => $upper,
 					'admin' => $_G['username'],
 					'dateline' => $_G['timestamp'],
 					'expiration' => $expiration,
@@ -2306,11 +2287,8 @@ EOF;
 		dheader('Content-Disposition: attachment; filename=IPBan.csv');
 		dheader('Content-Type: text/plain');
 		foreach(C::t('common_banned')->fetch_all_order_dateline() as $banned) {
-			for($i = 1; $i <= 4; $i++) {
-				$banned['ip'.$i] = $banned['ip'.$i] < 0 ? '*' : $banned['ip'.$i];
-			}
 			$banned['expiration'] = dgmdate($banned['expiration']);
-			echo "$banned[ip1].$banned[ip2].$banned[ip3].$banned[ip4],$banned[expiration]\n";
+			echo "$banned[ip],$banned[expiration]\n";
 		}
 		define('FOOTERDISABLED' , 1);
 		exit();
