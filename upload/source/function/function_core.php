@@ -1420,11 +1420,20 @@ function showmessage($message, $url_forward = '', $values = array(), $extraparam
 }
 
 function submitcheck($var, $allowget = 0, $seccodecheck = 0, $secqaacheck = 0) {
+	global $_G;
 	if(!getgpc($var)) {
 		return FALSE;
 	} else {
-		return helper_form::submitcheck($var, $allowget, $seccodecheck, $secqaacheck);
+		register_shutdown_function('submitcheck_unlock', $var);
+		if(!discuz_process::islocked($var.'_'.$_G['uid'].'_locked')) {
+			return helper_form::submitcheck($var, $allowget, $seccodecheck, $secqaacheck);
+		}
 	}
+}
+
+function submitcheck_unlock($var) {
+	global $_G;
+	discuz_process::unlock($var.'_'.$_G['uid'].'_locked');
 }
 
 function multi($num, $perpage, $curpage, $mpurl, $maxpages = 0, $page = 10, $autogoto = FALSE, $simple = FALSE, $jsfunc = FALSE) {
