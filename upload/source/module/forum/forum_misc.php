@@ -676,9 +676,6 @@ if($_GET['action'] == 'votepoll' && submitcheck('pollsubmit', 1)) {
 		include template('forum/rate');
 
 	} else {
-		if(discuz_process::islocked('ratelock_'.$_G['uid'].'_'.$_GET['pid'])){
-			showmessage('thread_rate_locked','');
-		}
 
 		$reason = checkreasonpm();
 		$rate = $ratetimes = 0;
@@ -768,8 +765,6 @@ if($_GET['action'] == 'votepoll' && submitcheck('pollsubmit', 1)) {
 		update_threadpartake($post['tid']);
 		C::t('forum_postcache')->delete($_GET['pid']);
 		writelog('ratelog', $logs);
-
-		discuz_process::unlock('ratelock_'.$_G['uid'].'_'.$_GET['pid']);
 
 		showmessage('thread_rate_succeed', dreferer());
 	}
