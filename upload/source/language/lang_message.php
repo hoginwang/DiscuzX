@@ -568,6 +568,7 @@ $lang = array (
   'email_check_sucess' => '您的邮箱({email})验证激活成功 ',
   'email_check_account_invalid' => '抱歉，受保护用户或创始人不能使用邮箱验证，直接修改用户信息。',
   'email_check_error' => '抱歉，您输入的邮箱验证链接不正确。您可以在个人资料页面，重新接收新的邮箱验证链接',
+  'email_check_data_not_consistent' => '抱歉，邮箱验证链接内包含的邮箱和个人资料页面包含的邮箱不一致',
 
   'news_does_not_exist' => '抱歉，您指定的信息不存在',
   'proved_to_be_successful' => '验证成功，现在进入查看页面',

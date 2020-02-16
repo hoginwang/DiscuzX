@@ -21,6 +21,9 @@ if($_GET['hash']) {
 
 if($uid && isemail($email) && $time > TIMESTAMP - 86400) {
 	$member = getuserbyuid($uid);
+	if($member['email'] != $email) {
+		showmessage('email_check_data_not_consistent', '', array(), array('return' => true));
+	}
 	$setarr = array('email'=>$email, 'emailstatus'=>'1');
 	if($_G['member']['freeze'] == 2) {
 		$setarr['freeze'] = 0;
