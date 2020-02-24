@@ -1047,6 +1047,7 @@ $lang = array
 	'setting_styles_viewthread_author_onleft_no' => '显示在帖子内部',
 	'setting_styles_viewthread_customauthorinfo' => '设置用户信息显示的位置',
 	'setting_styles_viewthread_userinfo_uid' => 'UID',
+	'setting_styles_viewthread_userinfo_puid' => '纯UID',
 	'setting_styles_viewthread_userinfo_posts' => '帖子',
 	'setting_styles_viewthread_userinfo_threads' => '主题',
 	'setting_styles_viewthread_userinfo_doings' => '记录',
