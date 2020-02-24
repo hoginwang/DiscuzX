@@ -781,7 +781,7 @@ class discuz_application extends discuz_base{
 			}
 		}
 
-		if(strpos($this->var['setting']['domain']['defaultindex'], CURSCRIPT) !== false && CURSCRIPT != 'forum' && !$_GET['mod']) {
+		if(strpos($this->var['setting']['domain']['defaultindex'], CURSCRIPT) !== false && CURSCRIPT != 'forum' && CURSCRIPT != 'plugin' && !$_GET['mod']) {
 			if($this->var['setting']['domain']['app']['mobile']) {
 				$mobileurl = $this->var['scheme'].'://'.$this->var['setting']['domain']['app']['mobile'];
 			} else {
