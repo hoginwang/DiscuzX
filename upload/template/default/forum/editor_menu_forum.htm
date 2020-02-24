@@ -367,7 +367,7 @@
 		var msg = '';
 		<!--{loop $attachs['unused'] $attach}-->
 			<!--{if !empty($attach['aid'])}-->
-				msg += '<p><label><input id="unused$attach[aid]" name="unused[]" value="$attach[aid]" checked type="checkbox" class="pc" /><span title="$attach[filenametitle] $attach[dateline]">$attach[filename]</span></label></p>'
+				msg += '<p><label><input id="unused$attach[aid]" name="unused[]" value="$attach[aid]" checked type="checkbox" class="pc" /><span title="$attach[filenametitle] $attach[dateline]">$attach[filename]</span></label></p>';
 				ATTACHUNUSEDAID[{$attach[aid]}] = '$attach[aid]';
 			<!--{/if}-->
 		<!--{/loop}-->
@@ -379,7 +379,7 @@
 		var msg = '';
 		<!--{loop $imgattachs['unused'] $attach}-->
 			<!--{if !empty($attach['aid'])}-->
-				msg += '<p style="float:left;width:220px;"><label><input id="unused$attach[aid]" name="unused[]" value="$attach[aid]" checked type="checkbox" class="pc" /><span title="$attach[filenametitle] $attach[dateline]">$attach[filename]</span></label></p>'
+				msg += '<p style="float:left;width:220px;"><label><input id="unused$attach[aid]" name="unused[]" value="$attach[aid]" checked type="checkbox" class="pc" /><span title="$attach[filenametitle] $attach[dateline]">$attach[filename]</span></label></p>';
 				IMGUNUSEDAID[{$attach[aid]}] = '$attach[aid]';
 			<!--{/if}-->
 		<!--{/loop}-->
