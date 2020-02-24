@@ -807,7 +807,7 @@ if(!submitcheck('settingsubmit')) {
 		$authorinfoitems = array_merge($authorinfoitems, array(
 			1 => '-',
 			'uid' => 'UID',
-            'puid' => $lang['setting_styles_viewthread_userinfo_puid'],
+			'puid' => $lang['setting_styles_viewthread_userinfo_puid'],
 			'friends' => $lang['setting_styles_viewthread_userinfo_friends'],
 			'doings' => $lang['setting_styles_viewthread_userinfo_doings'],
 			'blogs' => $lang['setting_styles_viewthread_userinfo_blogs'],
