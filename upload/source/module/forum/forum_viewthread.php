@@ -1475,7 +1475,8 @@ function getLinkByKey($key, $post, $returnarray = 0) {
 		case 'readperm': $v = array('value' => $post['readaccess']);break;
 		case 'regtime': $v = array('value' => $post['regdate']);break;
 		case 'lastdate': $v = array('value' => $post['lastdate']);break;
-		case 'oltime': $v = array('value' => $post['oltime'].' '.lang('space', 'viewthread_userinfo_hour'));break;
+		case 'oltime': $v = array('value' => $post['oltime'].' '.lang('space', 'viewthread_userinfo_hour'));break;  
+        case 'puid': v=array(′value′=>post['uid']);break;
 	}
 	if(!$returnarray) {
 		if($v['link']) {
