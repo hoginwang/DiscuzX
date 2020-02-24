@@ -3,30 +3,33 @@ branches: {
   }
 fileChange:
   /upload:
-    newFile: !uuid '4e28dcc2913f88c88d8e62cfd0ad6f082b051b3f'
-    oldFile: !uuid '80b28aedf7b491be98ae337efc3abbc6ff5fe331'
-  /upload/source:
-    newFile: !uuid '93814fcb83b0ef3e02a6bc9dbdacceca61e4541c'
-    oldFile: !uuid '9e4d6e243e2c9c97463a042a23aaf50b634ae149'
-  /upload/source/class:
-    newFile: !uuid '3d8f76054c63b1c03112235de464564376bbd296'
-    oldFile: !uuid '7509544ab292a5fbb82eaadf5a859f4ce65467c2'
-  /upload/source/class/discuz:
-    newFile: !uuid '48fc58bf8b4115d76de411b3b859cd1dd139ba8a'
-    oldFile: !uuid '28625266aceae7ff0b8a5cafd731376cf54a739b'
-  /upload/source/class/discuz/discuz_memory.php:
-    newFile: !uuid '46896b427aec805fd05ff4d38754f6bde1b4c85f'
-    oldFile: !uuid 'f01047c94b20272f43c4cd98e6e8c618d6111ff5'
-  /upload/source/class/memory:
-    newFile: !uuid '9327dacabb55c9bb6e2d4379cdd3a94e59c28fbb'
-    oldFile: !uuid 'e2aa00eaf3b28f0a5c0d08bd888ced11de9d1a8f'
-  /upload/source/class/memory/memory_driver_redis.php:
-    newFile: !uuid '7ed806d05b32621231b88ee9074e1eaa9bcc1d20'
-    oldFile: !uuid '9a7f3584f8c7bd26f5d25e3f6594d58f3052ae99'
-  /upload/source/class/memory/memory_setting_array.php:
-    newFile: !uuid 'd5153cc4eec9d51385079ffd947fe857e03160b2'
-    oldFile: !uuid '67ba18009b852fee0b3587d9b73f972ba9cdce6d'
-gitCommitId: !uuid '79c61eb245f89f1830bcbc9a8bbed79ae263928a'
+    newFile: !uuid 'f7a9241f6d1420f9bfd152791cdf60bcfae8b4f5'
+    oldFile: !uuid '4e28dcc2913f88c88d8e62cfd0ad6f082b051b3f'
+  /upload/install:
+    newFile: !uuid 'f076b3fde69d5fa4895f067727f613986d5ae8c2'
+    oldFile: !uuid '8801f63e7353e2867f07ed42f11c853595f65bc6'
+  /upload/install/images:
+    newFile: !uuid 'c9ee3f7954ee3444fb50dc847c44f0e35f232d42'
+    oldFile: !uuid '10dc1cbd26451d445b36d334739dbe0947c0dc34'
+  /upload/install/images/style.css:
+    newFile: !uuid '102596488c8c5e5bfd560d01fff59a200155a1ab'
+    oldFile: !uuid '78ffd9e205448e68c6fd3239ee6a0ce22bb5fe50'
+  /upload/install/include:
+    newFile: !uuid '86e566a70e5ef3fdbff6b954830301dbaf733b39'
+    oldFile: !uuid 'fcb32422a41a0894dcf3dfcff12849b318e2cc1d'
+  /upload/install/include/install_function.php:
+    newFile: !uuid '6a259f8f373a83f33888c423c8edd70e4ab06506'
+    oldFile: !uuid '0edb57f6cf098bd395dc60d3a4c1edb45cbb2b97'
+  /upload/install/include/install_lang.php:
+    newFile: !uuid 'e68b3bf3c55d30f4c05448bddd02da772d5ccece'
+    oldFile: !uuid '41cf66c8d66783d50fc756d67314c6c268daca05'
+  /upload/install/include/install_mysqli.php:
+    newFile: !uuid 'c4d3ae5b5c25a861ac2610ae85579e372e684eab'
+    oldFile: !uuid '2a4c70bc6cd646671bbb43958df2b29c0928d84e'
+  /upload/install/index.php:
+    newFile: !uuid '35e4f7aa612145de19f4e0c4c59be3209f137201'
+    oldFile: !uuid '2f9be7947fbf1d0635a3e3de53ec336481421b88'
+gitCommitId: !uuid '81faf13a957c39cc717aff41d025bda59737d69d'
 renames: {
   }
-revisionId: 479
+revisionId: 480
