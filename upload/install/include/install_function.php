@@ -608,6 +608,9 @@ function loginit($logfile) {
 function showjsmessage($message) {
 	if(VIEW_OFF) return;
 	append_to_install_log_file($message);
+	echo ' ';
+	flush();
+	ob_flush();
 }
 
 function random($length) {
@@ -812,7 +815,7 @@ function request_log() {
                 }, 2000);
             });
         } else {
-            request_log();
+            window.setTimeout("request_log()", 1000);
         }
     });
 }
@@ -861,8 +864,20 @@ function runquery($sql) {
 					showjsmessage(lang('failed') . "\n");
 					return false;
 				}
-			} else {
-				$db->query($query);
+			} elseif(substr($query, 0, 6) == 'INSERT') {
+				$name = preg_replace("/INSERT\s+INTO\s+[\`]?([a-z0-9_]+)[\`]? .*/is", "\\1", $query);
+				showjsmessage(lang('init_table_data').' '.$name.'  ... ');
+				if ($db->query($query)) {
+					showjsmessage(lang('succeed') . "\n");
+				} else {
+					showjsmessage(lang('failed') . "\n");
+					return false;
+				}
+			}else{
+				if (!$db->query($query)) {
+					showjsmessage(lang('failed') . "\n");
+					return false;
+				}
 			}
 
 		}
