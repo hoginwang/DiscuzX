@@ -389,29 +389,46 @@ if($method == 'show_license') {
 		show_msg('tablepre_exists', $tablepre, 0);
 	}
 } elseif($method == 'do_db_init') {
+    $page=intval(getgpc('page'));
+    $pageinstall=intval(getgpc('pageinstall'));
 	$allinfo = getgpc('allinfo');
+	$filename='install_tmp';
+	
 	extract(unserialize(base64_decode($allinfo)));
 
 	$db = new dbstuff;
 	$db->connect($dbhost, $dbuser, $dbpw, $dbname, DBCHARSET);
 
-	if($dzucfull) {
-		install_uc_server();
+	if($page==0){
+    	if($dzucfull) {
+    		install_uc_server();
+    	}
+    	$sql = file_get_contents($sqlfile);
+    	$sql.= file_get_contents(ROOT_PATH.'./install/data/install_data.sql');
+    	$sql = str_replace("\r\n", "\n", $sql);
+    	make_install_tmp_file($sql,$filename);
+    	echo json_encode(array('page'=>$page+1,'pageinstall'=>0));
+    	exit;
 	}
-
-	$sql = file_get_contents($sqlfile);
-	$sql = str_replace("\r\n", "\n", $sql);
-	if (!runquery($sql)) {
-		exit();
-	}
-
-	showjsmessage(lang('init_table_data') . ' ... ');
-	$sql = file_get_contents(ROOT_PATH.'./install/data/install_data.sql');
-	$sql = str_replace("\r\n", "\n", $sql);
-	if (!runquery($sql)) {
-		exit();
-	}
-	showjsmessage(lang('succeed') . "\n");
+	if($page==1){
+    	include ROOT_PATH.'./install/include/'.$filename.'.php';
+    	if(!$data){
+    	    showjsmessage(lang('failed') . "\n");
+    	    exit;
+    	}
+    	$total=count($data);
+    	$pagenum=ceil($total/100);
+    	if($pagenum<$pageinstall){
+    	    echo json_encode(array('page'=>$page+1,'pageinstall'=>0));
+    	    exit;
+    	}
+    	$data=array_slice($data,$pageinstall*100,100,true);
+    	if(!runsqlnew($data)){
+    	    exit;
+    	}
+    	echo json_encode(array('page'=>1,'pageinstall'=>$pageinstall+1));
+    	exit;
+    }
 
 	$onlineip = $_SERVER['REMOTE_ADDR'];
 	$timestamp = time();

@@ -769,8 +769,13 @@ ajax.get = function (url, data, callback, async) {
     var query = [];for (var key in data) {query.push(encodeURIComponent(key) + '=' + encodeURIComponent(data[key]));}ajax.send(url + (query.length ? '?' + query.join('&') : ''), callback, 'GET', null, async);
 };
 
-function request_do_db_init() {
-    ajax.get('index.php?method=do_db_init&allinfo=<?= $allinfo ?>');
+function request_do_db_init(page,pageinstall) {
+    ajax.get('index.php?method=do_db_init&allinfo=<?= $allinfo ?>&page='+page+'&pageinstall='+pageinstall,"",function(data){
+		data=JSON.parse(data);
+     	if(data.page>0&&data.page<=2){
+     		request_do_db_init(data.page,data.pageinstall);
+         }
+     });
 }
 
 function set_notice(str) {
@@ -812,7 +817,7 @@ function request_log() {
                 }, 2000);
             });
         } else {
-            request_log();
+        	window.setTimeout("request_log()", 1000);
         }
     });
 }
@@ -1871,4 +1876,61 @@ function append_to_install_log_file($message) {
 }
 function send_mime_type_header($type = 'application/xml') {
 	header("Content-Type: ".$type);
+}
+function make_install_tmp_file($sql,$filename) {
+    global $lang, $tablepre, $db;
+     
+    if(!isset($sql) || empty($sql)) return;
+
+    $sql = str_replace("\r", "\n", str_replace(' '.ORIG_TABLEPRE, ' '.$tablepre, $sql));
+    $sql = str_replace("\r", "\n", str_replace(' `'.ORIG_TABLEPRE, ' `'.$tablepre, $sql));
+    $ret = array();
+    $num = 0;
+    foreach(explode(";\n", trim($sql)) as $query) {
+        $ret[$num] = '';
+        $queries = explode("\n", trim($query));
+        foreach($queries as $query) {
+            $ret[$num] .= (isset($query[0]) && $query[0] == '#') || (isset($query[1]) && isset($query[1]) && $query[0].$query[1] == '--') ? '' : $query;
+        }
+        $num++;
+    }
+    $file = __DIR__ . '/'.$filename.'.php';
+    if (file_exists($file)) unlink($file);
+    unset($sql);
+    file_put_contents($file, "<?php \n \$data=".var_export($ret,true)."\n?>");
+}
+function runsqlnew($arr){
+    global $lang, $tablepre, $db;
+    foreach($arr as $query) {
+        $query = trim($query);
+        if($query) {
+
+            if(substr($query, 0, 12) == 'CREATE TABLE') {
+                $name = preg_replace("/CREATE\s+TABLE\s+([a-z0-9_]+) .*/is", "\\1", $query);
+                showjsmessage(lang('create_table').' '.$name.' ... ');
+                if ($db->query(createtable($query, $db->version()))) {
+                    showjsmessage(lang('succeed') . "\n");
+                } else {
+                    showjsmessage(lang('failed') . "\n");
+                    return false;
+                }
+            } elseif(substr($query, 0, 6) == 'INSERT') {
+                $name = preg_replace("/INSERT\s+INTO\s+[\`]?([a-z0-9_]+)[\`]? .*/is", "\\1", $query);
+                showjsmessage(lang('init_table_data').' '.$name.'  ... ');
+                if ($db->query($query)) {
+                    showjsmessage(lang('succeed') . "\n");
+                } else {
+                    showjsmessage(lang('failed') . "\n");
+                    return false;
+                }
+            }else{
+                if (!$db->query($query)) {
+                    showjsmessage(lang('failed') . "\n");
+                    return false;
+                }          
+            }
+
+        }
+    }
+    return true;
 }
