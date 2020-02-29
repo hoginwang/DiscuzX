@@ -35,17 +35,14 @@ if($operation == 'check') {
 	showsubtitle(array('','','membersplit_count', 'membersplit_lasttime_check'));
 
 
-	if($membercount < 20000) {
-		$color = 'green';
+	if($membercount < 50000) {
 		$msg = $lang['membersplit_without_optimization'];
 	} else {
-		$color = empty($_G['cache']['membersplitdata']) || $_G['cache']['membersplitdata']['dateline'] < TIMESTAMP - 86400*10 ?
-			'red' : 'green';
 		$msg = empty($_G['cache']['membersplitdata']) ? $lang['membersplit_has_no_check'] : dgmdate($_G['cache']['membersplitdata']['dateline']);
 	}
-	showtablerow('', '', array('','', number_format($membercount), '<span style="color:'.$color.'">'.$msg.'</span>'));
+	showtablerow('', '', array('','', number_format($membercount), $msg));
 
-	if($membercount >= 20000) {
+	if($membercount >= 50000) {
 		showsubmit('membersplit_check_submit', 'membersplit_check');
 	}
 	showtablefooter();
@@ -71,16 +68,8 @@ if($operation == 'check') {
 		$percentage = round($zombiecount/$membercount, 4)*100;
 
 		showsubtitle(array('','','membersplit_count', 'membersplit_combie_count', 'membersplit_splitnum'));
-		$color = $percentage > 0 ? 'red' : 'green';
-		if($percentage == 0) {
-			$msg = $lang['membersplit_message0'];
-		} else if($percentage < 10) {
-			$msg = $lang['membersplit_message10'];
-		} else {
-			$msg = $lang['membersplit_message100'];
-		}
 		showtablerow('', '',
-				array('','', number_format($membercount), '<span style="color:'.$color.'">'.number_format($zombiecount).'('.$percentage.'%) '.$msg.'</span>', '<input name="splitnum" value="200" type="text" class="txt"/>'));
+				array('','', number_format($membercount), number_format($zombiecount).'('.$percentage.'%) ', '<input name="splitnum" value="200" type="text" class="txt"/>'));
 
 		if($percentage > 0) {
 			showsubmit('membersplit_split_submit', 'membersplit_archive');

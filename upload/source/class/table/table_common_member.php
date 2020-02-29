@@ -335,7 +335,7 @@ class table_common_member extends discuz_table_archive
 	}
 
 	public function count_zombie() {
-		$dateline = TIMESTAMP - 7776000;//60*60*24*90
+		$dateline = TIMESTAMP - 31536000;//60*60*24*365
 		return DB::result_first('SELECT count(*) FROM %t mc, %t ms WHERE mc.posts<5 AND ms.lastvisit<%d AND ms.uid=mc.uid', array('common_member_count', 'common_member_status', $dateline));
 	}
 
@@ -343,7 +343,7 @@ class table_common_member extends discuz_table_archive
 		loadcache('membersplitdata');
 		@set_time_limit(0);
 		discuz_database_safecheck::setconfigstatus(0);
-		$dateline = TIMESTAMP - 7776000;//60*60*24*90
+		$dateline = TIMESTAMP - 31536000;//60*60*24*365
 		$temptablename = DB::table('common_member_temp___');
 		if(!DB::fetch_first("SHOW TABLES LIKE '$temptablename'")) {
 			DB::query("CREATE TABLE $temptablename (`uid` int(10) NOT NULL DEFAULT 0,PRIMARY KEY (`uid`)) ENGINE=INNODB;");
@@ -351,6 +351,13 @@ class table_common_member extends discuz_table_archive
 		$splitnum = max(1, intval($splitnum));
 		if(!DB::result_first('SELECT COUNT(*) FROM '.$temptablename)) {
 			DB::query('INSERT INTO '.$temptablename.' (`uid`) SELECT ms.uid AS uid FROM %t mc, %t ms WHERE mc.posts<5 AND ms.lastvisit<%d AND mc.uid=ms.uid ORDER BY ms.lastvisit LIMIT %d', array('common_member_count', 'common_member_status', $dateline, $splitnum));
+		}
+
+		$lastuid = DB::result_first('SELECT `uid` FROM %t ORDER BY `uid` DESC', array('common_member'));
+
+		if($lastuid == DB::result_first('SELECT `uid` FROM %t ORDER BY `uid` DESC', array('common_member_temp___'))) {
+			DB::query('DELETE FROM %t WHERE `uid` = %d', array('common_member_temp___', $lastuid));
+			$splitnum--;
 		}
 
 		if(DB::result_first('SELECT COUNT(*) FROM '.$temptablename)) {
