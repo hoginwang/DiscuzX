@@ -3,21 +3,42 @@ branches: {
   }
 fileChange:
   /upload:
-    newFile: !uuid 'c72b2b0c2f7a0126a04ea86ab22c44570c241377'
-    oldFile: !uuid '618c41b53d04dc8772b8207a7bde59ee74f75fe2'
-  /upload/api:
-    newFile: !uuid '96c5a7ecbdb1169fd4ca8e3ff8eb2db7a5040ea9'
-    oldFile: !uuid 'd0b88ce601d0ad10fe082fefa1c9a5c01e3dbc2b'
-  /upload/api/javascript:
-    newFile: !uuid 'c9afa256242cffd73b8d74c8d9660836cf63058f'
-    oldFile: !uuid '9b9c5144bf5c8a2ab9134744d76e26244b561fc7'
-  /upload/api/javascript/advertisement.php:
-    newFile: !uuid '8d42d9a8a267b7fb89851a32fc166b4dda96d0da'
-    oldFile: !uuid '7a384b5ec7798c599caec3ef05cf32c7f08ec2d9'
-  /upload/api/javascript/javascript.php:
-    newFile: !uuid 'ef34adfea2936a619f2c2f0c9b2e3f0e1d3eba69'
-    oldFile: !uuid '55282dbb01ad3cc6444850828387850502cb0f76'
-gitCommitId: !uuid '3731c1f8e1d227b8d6897f701d5fdd2f2f5cb0ea'
+    newFile: !uuid 'cd960305e5a26c10cb6d7d83d22a733f083cd61b'
+    oldFile: !uuid 'c72b2b0c2f7a0126a04ea86ab22c44570c241377'
+  /upload/source:
+    newFile: !uuid '9559c874772b98bbeae8724c36c55a12039ed5fd'
+    oldFile: !uuid '3afda1319b25161c6f033ea853146aa7c6f0d519'
+  /upload/source/function:
+    newFile: !uuid '662f35f6514414fbd80fcd03b6e237d9bed0762a'
+    oldFile: !uuid 'a019bd6a64efaaa054baf4233979186dd1218d6c'
+  /upload/source/function/function_ec_credit.php:
+    newFile: !uuid '3607b22cb045b9670230b858d4823a1638f54019'
+    oldFile: !uuid '8944004a0acc629ff34b7179c67ad67651bc33c3'
+  /upload/template:
+    newFile: !uuid 'fb60e5cdce6d2cc121d38959aff2cf342b0ec435'
+    oldFile: !uuid '3ac676dc5e6f9d53d0759a5ed3ccee90abfd2966'
+  /upload/template/default:
+    newFile: !uuid '6a0884ea1f04e559ac2dd10f02eb5160b218c1cd'
+    oldFile: !uuid 'dc4d1235af365849b8bccb871df1075e4896e9a4'
+  /upload/template/default/common:
+    newFile: !uuid '7cfa8bd5f1a6c1938bde1d749194061dd981303f'
+    oldFile: !uuid 'ed089cfb6334e649874363ce17213c73804bb297'
+  /upload/template/default/common/common.css:
+    newFile: !uuid 'a7e38c6db32184f35e0b40f76165021c39d99e84'
+    oldFile: !uuid 'c87c46d5d0377defc1e73b5442a9f75e104695a3'
+  /upload/template/default/home:
+    newFile: !uuid '48e5997f990d0d2aaaa0eb336145ace52dbf98ef'
+    oldFile: !uuid '603ce64b0e61646ddaed6c3a4922fd2174b6ef9a'
+  /upload/template/default/home/space_eccredit.htm:
+    newFile: !uuid '1cea8c2fd82addcd3e270f820b552b2dcf691ab8'
+    oldFile: !uuid '0345c650c53b30ba9c7187b38488c8f9c78910bc'
+  /upload/template/default/home/space_profile_body.htm:
+    newFile: !uuid '3d2db46a79fd25470d11b33d53d8a988e7794285'
+    oldFile: !uuid '2d1f37436a91e858a84c9dc533f28ce0ba5f635b'
+  /upload/template/default/home/space_trade.htm:
+    newFile: !uuid 'd55bdb9d0f6452be5f3d181f13f3d58d04a1de72'
+    oldFile: !uuid '4f41d949a9cb7f7d7296c8f6c5be5f02516f2336'
+gitCommitId: !uuid '7bca3ead67a567c059b7be97d1638555426f8486'
 renames: {
   }
-revisionId: 421
+revisionId: 422
