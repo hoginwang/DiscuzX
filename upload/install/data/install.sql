@@ -377,7 +377,7 @@ CREATE TABLE pre_common_connect_guest (
 
 DROP TABLE IF EXISTS pre_common_credit_log;
 CREATE TABLE pre_common_credit_log (
-  logid int(8) unsigned NOT NULL AUTO_INCREMENT,
+  logid int(10) unsigned NOT NULL AUTO_INCREMENT,
   uid mediumint(8) unsigned NOT NULL DEFAULT '0',
   operation char(3) NOT NULL DEFAULT '',
   relatedid int(10) unsigned NOT NULL,
@@ -680,7 +680,7 @@ CREATE TABLE pre_common_member (
 
 DROP TABLE IF EXISTS pre_common_member_action_log;
 CREATE TABLE pre_common_member_action_log (
-  id int(8) unsigned NOT NULL AUTO_INCREMENT,
+  id int(10) unsigned NOT NULL AUTO_INCREMENT,
   uid mediumint(8) unsigned NOT NULL DEFAULT '0',
   `action` tinyint(5) NOT NULL DEFAULT '0',
   dateline int(10) unsigned NOT NULL DEFAULT '0',
@@ -1390,8 +1390,8 @@ CREATE TABLE pre_common_task (
   `name` varchar(50) NOT NULL DEFAULT '',
   description text NOT NULL,
   icon varchar(150) NOT NULL DEFAULT '',
-  applicants int(8) unsigned NOT NULL DEFAULT '0',
-  achievers int(8) unsigned NOT NULL DEFAULT '0',
+  applicants int(10) unsigned NOT NULL DEFAULT '0',
+  achievers int(10) unsigned NOT NULL DEFAULT '0',
   tasklimits mediumint(8) unsigned NOT NULL DEFAULT '0',
   applyperm text NOT NULL,
   scriptname varchar(50) NOT NULL DEFAULT '',
@@ -2147,7 +2147,7 @@ CREATE TABLE pre_forum_collectionteamworker (
   uid mediumint(8) unsigned NOT NULL DEFAULT '0',
   `name` varchar(50) NOT NULL DEFAULT '',
   username varchar(15) NOT NULL DEFAULT '',
-  lastvisit int(8) unsigned NOT NULL DEFAULT '0',
+  lastvisit int(10) unsigned NOT NULL DEFAULT '0',
   PRIMARY KEY (ctid,uid)
 ) ENGINE=InnoDB;
 
@@ -2378,7 +2378,7 @@ DROP TABLE IF EXISTS pre_forum_groupcreditslog;
 CREATE TABLE pre_forum_groupcreditslog (
   fid mediumint(8) unsigned NOT NULL,
   uid mediumint(8) unsigned NOT NULL,
-  logdate int(8) NOT NULL DEFAULT '0',
+  logdate int(10) NOT NULL DEFAULT '0',
   PRIMARY KEY (fid,uid,logdate)
 ) ENGINE=InnoDB;
 
@@ -2649,7 +2649,7 @@ CREATE TABLE pre_forum_post (
   tags varchar(255) NOT NULL DEFAULT '0',
   `comment` tinyint(1) NOT NULL DEFAULT '0',
   replycredit int(10) NOT NULL DEFAULT '0',
-  position int(8) unsigned NOT NULL,
+  position int(10) unsigned NOT NULL,
   PRIMARY KEY (tid,position),
   UNIQUE KEY pid (pid),
   KEY fid (fid),
@@ -2868,7 +2868,7 @@ CREATE TABLE pre_forum_thread (
   cover smallint(6) NOT NULL DEFAULT '0',
   replycredit smallint(6) NOT NULL DEFAULT '0',
   relatebytag char(255) NOT NULL DEFAULT '0',
-  maxposition int(8) unsigned NOT NULL DEFAULT '0',
+  maxposition int(10) unsigned NOT NULL DEFAULT '0',
   bgcolor char(8) NOT NULL DEFAULT '',
   comments int(10) unsigned NOT NULL DEFAULT '0',
   hidden smallint(6) unsigned NOT NULL DEFAULT '0',
@@ -3613,7 +3613,7 @@ CREATE TABLE pre_home_friendlog (
 
 DROP TABLE IF EXISTS pre_home_notification;
 CREATE TABLE pre_home_notification (
-  id bigint(8) unsigned NOT NULL AUTO_INCREMENT,
+  id bigint(20) unsigned NOT NULL AUTO_INCREMENT,
   uid mediumint(8) unsigned NOT NULL DEFAULT '0',
   `type` varchar(20) NOT NULL DEFAULT '',
   `new` tinyint(1) NOT NULL DEFAULT '0',
