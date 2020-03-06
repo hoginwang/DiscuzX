@@ -44,6 +44,15 @@ CREATE TABLE uc_memberfields (
   PRIMARY KEY(uid)
 ) TYPE=InnoDB;
 
+DROP TABLE IF EXISTS uc_memberlogs;
+CREATE TABLE uc_memberlogs (
+  lid int(10) unsigned NOT NULL AUTO_INCREMENT,
+  uid mediumint(8) unsigned NOT NULL,
+  action varchar(32) NOT NULL DEFAULT '',
+  extra varchar(255) NOT NULL DEFAULT '',
+  PRIMARY KEY(lid)
+) TYPE=InnoDB;
+
 DROP TABLE IF EXISTS uc_newpm;
 CREATE TABLE uc_newpm (
   uid mediumint(8) unsigned NOT NULL,
@@ -103,6 +112,7 @@ REPLACE INTO uc_settings(k, v) VALUES ('pmcenter','1');
 REPLACE INTO uc_settings(k, v) VALUES ('sendpmseccode','1');
 REPLACE INTO uc_settings(k, v) VALUES ('pmsendregdays','0');
 REPLACE INTO uc_settings(k, v) VALUES ('addappbyurl','0');
+REPLACE INTO uc_settings(k, v) VALUES ('insecureuserdelete','0');
 REPLACE INTO uc_settings(k, v) VALUES ('maildefault', 'username@21cn.com');
 REPLACE INTO uc_settings(k, v) VALUES ('mailsend', '1');
 REPLACE INTO uc_settings(k, v) VALUES ('mailserver', 'smtp.21cn.com');
