@@ -348,25 +348,19 @@ class table_common_member extends discuz_table_archive
 		if(!DB::fetch_first("SHOW TABLES LIKE '$temptablename'")) {
 			DB::query("CREATE TABLE $temptablename (`uid` int(10) NOT NULL DEFAULT 0,PRIMARY KEY (`uid`)) ENGINE=INNODB;");
 		}
-		$splitnum = max(1, intval($splitnum));
+		$splitnum = max(0, intval($splitnum));
 		if(!DB::result_first('SELECT COUNT(*) FROM '.$temptablename)) {
-			DB::query('INSERT INTO '.$temptablename.' (`uid`) SELECT ms.uid AS uid FROM %t mc, %t ms WHERE mc.posts<5 AND ms.lastvisit<%d AND mc.uid=ms.uid ORDER BY ms.lastvisit LIMIT %d', array('common_member_count', 'common_member_status', $dateline, $splitnum));
+			DB::query('INSERT INTO '.$temptablename.' (`uid`) SELECT ms.uid AS uid FROM %t mc, %t ms WHERE mc.posts<5 AND ms.lastvisit<%d AND mc.uid=ms.uid ORDER BY ms.uid DESC LIMIT %d', array('common_member_count', 'common_member_status', $dateline, $splitnum));
 		}
 
-		$lastuid = DB::result_first('SELECT `uid` FROM %t ORDER BY `uid` DESC', array('common_member'));
-
-		if($lastuid == DB::result_first('SELECT `uid` FROM %t ORDER BY `uid` DESC', array('common_member_temp___'))) {
-			DB::query('DELETE FROM %t WHERE `uid` = %d', array('common_member_temp___', $lastuid));
-			$splitnum--;
-		}
-
-		if(DB::result_first('SELECT COUNT(*) FROM '.$temptablename)) {
+		if(DB::result_first('SELECT COUNT(*) FROM '.$temptablename) > 1) {
 
 
 			if(!$iscron && getglobal('setting/memberspliting') === null) {
 				$this->switch_keys('disable');
 			}
-			$uidlist = DB::fetch_all('SELECT uid FROM '.$temptablename, null, 'uid');
+			$uidlist = DB::fetch_all('SELECT uid FROM '.$temptablename.' ORDER BY uid DESC', null, 'uid');
+			unset($uidlist[key($uidlist)]);// 考虑到用户分表操作的最后一个用户可能也是数据库中最后一个用户，因此在此固定扣除一个用户，保证最后一个用户不会被移动到归档表，从而避免最后一个用户被移动到归档表导致用户主表自增值异常的问题
 			$uids = dimplode(array_keys($uidlist));
 			$movesql = 'REPLACE INTO %t SELECT * FROM %t WHERE uid IN ('.$uids.')';
 			$deletesql = 'DELETE FROM %t WHERE uid IN ('.$uids.')';
