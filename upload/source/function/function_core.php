@@ -1424,17 +1424,10 @@ function submitcheck($var, $allowget = 0, $seccodecheck = 0, $secqaacheck = 0) {
 	if(!getgpc($var)) {
 		return FALSE;
 	} else {
-		register_shutdown_function('submitcheck_unlock', $var);
-		if(!discuz_process::islocked($var.'_'.$_G['uid'].'_locked')) {
-			return helper_form::submitcheck($var, $allowget, $seccodecheck, $secqaacheck);
-		}
+		return helper_form::submitcheck($var, $allowget, $seccodecheck, $secqaacheck);
 	}
 }
 
-function submitcheck_unlock($var) {
-	global $_G;
-	discuz_process::unlock($var.'_'.$_G['uid'].'_locked');
-}
 
 function multi($num, $perpage, $curpage, $mpurl, $maxpages = 0, $page = 10, $autogoto = FALSE, $simple = FALSE, $jsfunc = FALSE) {
 	return $num > $perpage ? helper_page::multi($num, $perpage, $curpage, $mpurl, $maxpages, $page, $autogoto, $simple, $jsfunc) : '';
