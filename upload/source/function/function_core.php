@@ -1420,14 +1420,12 @@ function showmessage($message, $url_forward = '', $values = array(), $extraparam
 }
 
 function submitcheck($var, $allowget = 0, $seccodecheck = 0, $secqaacheck = 0) {
-	global $_G;
 	if(!getgpc($var)) {
 		return FALSE;
 	} else {
 		return helper_form::submitcheck($var, $allowget, $seccodecheck, $secqaacheck);
 	}
 }
-
 
 function multi($num, $perpage, $curpage, $mpurl, $maxpages = 0, $page = 10, $autogoto = FALSE, $simple = FALSE, $jsfunc = FALSE) {
 	return $num > $perpage ? helper_page::multi($num, $perpage, $curpage, $mpurl, $maxpages, $page, $autogoto, $simple, $jsfunc) : '';

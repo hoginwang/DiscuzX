@@ -20,7 +20,6 @@ class helper_form {
 		} else {
 			global $_G;
 			register_shutdown_function('helper_form::submitcheck_unlock', $var);
-			self::submitcheck_unlock($var);
 			if(!discuz_process::islocked($var.'_'.$_G['uid'].'_locked', 60)) {
 				if($allowget || ($_SERVER['REQUEST_METHOD'] == 'POST' && !empty($_GET['formhash']) && $_GET['formhash'] == formhash() && empty($_SERVER['HTTP_X_FLASH_VERSION']) && (empty($_SERVER['HTTP_REFERER']) ||
 					strncmp($_SERVER['HTTP_REFERER'], 'http://wsq.discuz.com/', 22) === 0 || preg_replace("/https?:\/\/([^\:\/]+).*/i", "\\1", $_SERVER['HTTP_REFERER']) == preg_replace("/([^\:]+).*/", "\\1", $_SERVER['HTTP_HOST'])))) {
