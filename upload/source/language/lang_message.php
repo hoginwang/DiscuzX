@@ -238,6 +238,7 @@ $lang = array (
   'user_banned' => '抱歉，您的 IP 地址不在允许范围内，或您的账号被禁用，无法访问本站点',
   'submit_seccode_invalid' => '抱歉，验证码填写错误',
   'submit_invalid' => '抱歉，您的请求来路不正确或表单验证串不符，无法提交',
+  'submit_islocked' => '抱歉，您当前的请求正在进行中，请勿重复提交',
   'word_banned' => '抱歉，您填写的内容包含不良信息而无法提交',
   'magics_use_success' => '道具 {magicname} 使用成功 ',
   'magicuse_object_once_limit' => '抱歉，已对该对象使用过此道具，不能重复使用',

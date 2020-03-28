@@ -31,11 +31,12 @@ class helper_form {
 							showmessage('submit_seccode_invalid');
 						}
 					}
-					self::submitcheck_unlock($var);
 					return TRUE;
 				} else {
 					showmessage('submit_invalid');
 				}
+			} else {
+				showmessage('submit_islocked');
 			}
 		}
 	}
