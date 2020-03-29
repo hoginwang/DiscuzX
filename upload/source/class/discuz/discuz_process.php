@@ -86,6 +86,7 @@ class discuz_process
 			case 'get':
 				$ret = C::t('common_process')->fetch($name);
 				if(empty($ret) || $ret['expiry'] < time()) {
+					C::t('common_process')->delete_process($name, time());
 					$ret = false;
 				} else {
 					$ret = true;
