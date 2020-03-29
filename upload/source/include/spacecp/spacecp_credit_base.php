@@ -156,8 +156,8 @@ if($_GET['op'] == 'base') {
 			dexit();
 		}
 	} else {
-		if($_G['setting']['card']['open'] && $_G['setting']['seccodestatus'] & 16) {
-			$seccodecheck = 1;
+		if($_G['setting']['card']['open']) {
+			list($seccodecheck) = seccheck('card');
 			$secqaacheck = 0;
 		}
 	}
