@@ -1906,12 +1906,13 @@ EOT;
 		$checktimeformat = array($setting['timeformat'] == 'H:i' ? 24 : 12 => 'checked');
 
 		$setting['userdateformat'] = dateformat($setting['userdateformat']);
-		$setting['dateformat'] = dateformat($setting['dateformat']);
+		$setting['dateformat'] = dateformat($setting['dateformat'], 'formalise', $setting['dateleadingzero']);
 
 		/*search={"setting_datetime":"action=setting&operation=datetime"}*/
 		showtableheader();
 		showtitle('setting_datetime_format');
 		showsetting('setting_datetime_dateformat', 'settingnew[dateformat]', $setting['dateformat'], 'text');
+		showsetting('setting_datetime_dateleadingzero', 'settingnew[dateleadingzero]', $setting['dateleadingzero'], 'radio');
 		showsetting('setting_datetime_timeformat', '', '', '<input class="radio" type="radio" name="settingnew[timeformat]" value="24" '.$checktimeformat[24].'> 24 '.$lang['hour'].' <input class="radio" type="radio" name="settingnew[timeformat]" value="12" '.$checktimeformat[12].'> 12 '.$lang['hour'].'');
 		showsetting('setting_datetime_dateconvert', 'settingnew[dateconvert]', $setting['dateconvert'], 'radio');
 
@@ -3120,7 +3121,7 @@ EOT;
 	}
 
 	if(isset($settingnew['dateformat'])) {
-		$settingnew['dateformat'] = dateformat($settingnew['dateformat'], 'format');
+		$settingnew['dateformat'] = dateformat($settingnew['dateformat'], 'format', isset($settingnew['dateleadingzero']) ? $settingnew['dateleadingzero'] : 0);
 	}
 
 	if($settingnew['accountguard']) {
@@ -3573,9 +3574,10 @@ EOT;
 	cpmsg('setting_update_succeed', 'action=setting&operation='.$operation.(!empty($_GET['anchor']) ? '&anchor='.$_GET['anchor'] : '').(!empty($from) ? '&from='.$from : ''), 'succeed');
 }
 
-function dateformat($string, $operation = 'formalise') {
+function dateformat($string, $operation = 'formalise', $leading_zero = 0) {
 	$string = dhtmlspecialchars(trim($string));
 	$replace = $operation == 'formalise' ? array(array('n', 'j', 'y', 'Y'), array('mm', 'dd', 'yy', 'yyyy')) : array(array('mm', 'dd', 'yyyy', 'yy'), array('n', 'j', 'Y', 'y'));
+	if($leading_zero) $replace = $operation == 'formalise' ? array(array('m', 'd', 'y', 'Y'), array('mm', 'dd', 'yy', 'yyyy')) : array(array('mm', 'dd', 'yyyy', 'yy'), array('m', 'd', 'Y', 'y'));
 	return str_replace($replace[0], $replace[1], $string);
 }
 
