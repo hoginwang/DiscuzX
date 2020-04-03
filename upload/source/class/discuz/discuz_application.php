@@ -854,7 +854,10 @@ class discuz_application extends discuz_base{
 
 		$this->var['setting']['regstatus'] = $this->var['setting']['mobile']['mobileregister'] ? $this->var['setting']['regstatus'] : 0 ;
 
-		$this->var['setting']['thumbquality'] = 50;
+		if(in_array(constant('IN_MOBILE'), array('1', '3'))) {
+			$this->var['setting']['thumbquality'] = 50;
+		}
+
 		$this->var['setting']['avatarmethod'] = 0;
 
 		$this->var['setting']['mobile']['simpletypeurl'] = array();
