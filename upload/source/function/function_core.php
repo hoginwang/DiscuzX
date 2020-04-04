@@ -1858,7 +1858,7 @@ function cknewuser($return=0) {
 		if(empty($return)) showmessage('no_privilege_newbiespan', '', array('newbiespan' => $_G['setting']['newbiespan']), array());
 		$result = false;
 	}
-	if($_G['setting']['need_avatar'] && empty($ckuser['avatarstatus'])) {
+	if($_G['setting']['need_avatar'] && empty($ckuser['avatarstatus']) && !helper_check::check_avatar($_G['uid'])) {
 		if(empty($return)) showmessage('no_privilege_avatar', '', array(), array());
 		$result = false;
 	}
