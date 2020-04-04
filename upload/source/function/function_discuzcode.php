@@ -61,6 +61,7 @@ function codedisp($code) {
 }
 
 function karmaimg($rate, $ratetimes) {
+	global $_G;
 	$karmaimg = '';
 	if($rate && $ratetimes) {
 		$image = $rate > 0 ? 'agree.gif' : 'disagree.gif';
