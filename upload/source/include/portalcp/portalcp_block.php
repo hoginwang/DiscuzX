@@ -993,8 +993,8 @@ function block_convert($bid, $toblockclass) {
 				}
 
 				$fun = function(&$v) {
-                    $v = "{".$v."}";
-                };
+					$v = "{".$v."}";
+				};
 				array_walk($convertrule['searchkeys'], $fun);
 				array_walk($convertrule['replacekeys'], $fun);
 

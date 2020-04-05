@@ -79,13 +79,13 @@ function discuzcode($message, $smileyoff = false, $bbcodeoff = false, $htmlon = 
 	if($pid && strpos($message, '[/password]') !== FALSE) {
 		if($authorid != $_G['uid'] && !$_G['forum']['ismoderator']) {
 			$message = preg_replace_callback(
-                "/\s?\[password\](.+?)\[\/password\]\s?/i",
-                function ($matches) use ($pid) {
-                    return parsepassword($matches[1], intval($pid));
-                },
-                $message
-            );
-            if($_G['forum_discuzcode']['passwordlock'][$pid]) {
+				"/\s?\[password\](.+?)\[\/password\]\s?/i",
+				function ($matches) use ($pid) {
+					return parsepassword($matches[1], intval($pid));
+				},
+				$message
+			);
+			if($_G['forum_discuzcode']['passwordlock'][$pid]) {
 				return '';
 			}
 		} else {
@@ -178,14 +178,14 @@ function discuzcode($message, $smileyoff = false, $bbcodeoff = false, $htmlon = 
 			), $message));
 
 		if($pid && !defined('IN_MOBILE')) {
-            $message = preg_replace_callback(
-                "/\s?\[postbg\]\s*([^\[\<\r\n;'\"\?\(\)]+?)\s*\[\/postbg\]\s?/is",
-                function ($matches) use ($pid) {
-                    return parsepostbg($matches[1], intval($pid));
-                },
-                $message
-            );
-        } else {
+			$message = preg_replace_callback(
+				"/\s?\[postbg\]\s*([^\[\<\r\n;'\"\?\(\)]+?)\s*\[\/postbg\]\s?/is",
+				function ($matches) use ($pid) {
+					return parsepostbg($matches[1], intval($pid));
+				},
+				$message
+			);
+		} else {
 			$message = preg_replace("/\s?\[postbg\]\s*([^\[\<\r\n;'\"\?\(\)]+?)\s*\[\/postbg\]\s?/is", "", $message);
 		}
 
@@ -229,13 +229,13 @@ function discuzcode($message, $smileyoff = false, $bbcodeoff = false, $htmlon = 
 			}
 			if(strpos($msglower, '[hide=d') !== FALSE) {
 				$message = preg_replace_callback(
-                    "/\[hide=(d\d+)?[,]?(\d+)?\]\s*(.*?)\s*\[\/hide\]/is",
-                    function ($matches) use ($pdateline) {
-                        return expirehide($matches[1], $matches[2], $matches[3], intval($pdateline));
-                    },
-                    $message
-                );
-                $msglower = strtolower($message);
+					"/\[hide=(d\d+)?[,]?(\d+)?\]\s*(.*?)\s*\[\/hide\]/is",
+					function ($matches) use ($pdateline) {
+						return expirehide($matches[1], $matches[2], $matches[3], intval($pdateline));
+					},
+					$message
+				);
+				$msglower = strtolower($message);
 			}
 			if(strpos($msglower, '[hide]') !== FALSE) {
 				if($authorreplyexist === null) {
@@ -256,14 +256,14 @@ function discuzcode($message, $smileyoff = false, $bbcodeoff = false, $htmlon = 
 				}
 			}
 			if(strpos($msglower, '[hide=') !== FALSE) {
-                $message = preg_replace_callback(
-                    "/\[hide=(\d+)\]\s*(.*?)\s*\[\/hide\]/is",
-                    function ($matches) use ($pid, $authorid) {
-                        return creditshide($matches[1], $matches[2], intval($pid), intval($authorid));
-                    },
-                    $message
-                );
-            }
+				$message = preg_replace_callback(
+					"/\[hide=(\d+)\]\s*(.*?)\s*\[\/hide\]/is",
+					function ($matches) use ($pid, $authorid) {
+						return creditshide($matches[1], $matches[2], intval($pid), intval($authorid));
+					},
+					$message
+				);
+			}
 		}
 	}
 
@@ -273,27 +273,27 @@ function discuzcode($message, $smileyoff = false, $bbcodeoff = false, $htmlon = 
 		}
 		$attrsrc = !IS_ROBOT && $lazyload ? 'file' : 'src';
 		if(strpos($msglower, '[/img]') !== FALSE) {
-            $message = preg_replace_callback(
-                "/\[img\]\s*([^\[\<\r\n]+?)\s*\[\/img\]/is",
-                function ($matches) use ($allowimgcode, $lazyload, $pid, $allowbbcode) {
-                    if (intval($allowimgcode)) {
-                        return parseimg(0, 0, $matches[1], intval($lazyload), intval($pid), 'onmouseover="img_onmouseoverfunc(this)" '.(intval($lazyload) ? 'lazyloadthumb="1"' : 'onload="thumbImg(this)"'));
-                    }
-                    return (intval($allowbbcode) ? (!defined('IN_MOBILE') ? bbcodeurl($matches[1], '<a href="{url}" target="_blank">{url}</a>') : bbcodeurl($matches[1], '')) : bbcodeurl($matches[1], '{url}'));
-                },
-                $message
-            );
-            $message = preg_replace_callback(
-                "/\[img=(\d{1,4})[x|\,](\d{1,4})\]\s*([^\[\<\r\n]+?)\s*\[\/img\]/is",
-                function ($matches) use ($allowimgcode, $lazyload, $pid, $allowbbcode) {
-                    if (intval($allowimgcode))  {
-                        return parseimg($matches[1], $matches[2], $matches[3], intval($lazyload), intval($pid));
-                    }
-                    return (intval($allowbbcode) ? (!defined('IN_MOBILE') ? bbcodeurl($matches[3], '<a href="{url}" target="_blank">{url}</a>') : bbcodeurl($matches[3], '')) : bbcodeurl($matches[3], '{url}'));
-                },
-                $message
-            );
-        }
+			$message = preg_replace_callback(
+				"/\[img\]\s*([^\[\<\r\n]+?)\s*\[\/img\]/is",
+				function ($matches) use ($allowimgcode, $lazyload, $pid, $allowbbcode) {
+					if (intval($allowimgcode)) {
+						return parseimg(0, 0, $matches[1], intval($lazyload), intval($pid), 'onmouseover="img_onmouseoverfunc(this)" '.(intval($lazyload) ? 'lazyloadthumb="1"' : 'onload="thumbImg(this)"'));
+					}
+					return (intval($allowbbcode) ? (!defined('IN_MOBILE') ? bbcodeurl($matches[1], '<a href="{url}" target="_blank">{url}</a>') : bbcodeurl($matches[1], '')) : bbcodeurl($matches[1], '{url}'));
+				},
+				$message
+			);
+			$message = preg_replace_callback(
+				"/\[img=(\d{1,4})[x|\,](\d{1,4})\]\s*([^\[\<\r\n]+?)\s*\[\/img\]/is",
+				function ($matches) use ($allowimgcode, $lazyload, $pid, $allowbbcode) {
+					if (intval($allowimgcode))  {
+						return parseimg($matches[1], $matches[2], $matches[3], intval($lazyload), intval($pid));
+					}
+					return (intval($allowbbcode) ? (!defined('IN_MOBILE') ? bbcodeurl($matches[3], '<a href="{url}" target="_blank">{url}</a>') : bbcodeurl($matches[3], '')) : bbcodeurl($matches[3], '{url}'));
+				},
+				$message
+			);
+		}
 	}
 
 	for($i = 0; $i <= $_G['forum_discuzcode']['pcodecount']; $i++) {

@@ -294,28 +294,28 @@ function showsorttemplate($sortid, $fid, $sortoptionarray, $templatearray, $thre
 								$sortdata[$tid]['subject'],
 								"<a href=\"forum.php?mod=viewthread&tid=$tid\">\\1</a>"
 							), stripslashes($templatearray[$sortid]));
-            $stemplate[$sortid][$tid] = preg_replace_callback(
-                $searchtitle[$sortid],
-                function ($matches) use ($tid, $sortid) {
-                    return showlistoption($matches[1], 'title', intval($tid), intval($sortid));
-                },
-                $stemplate[$sortid][$tid]
-            );
-            $stemplate[$sortid][$tid] = preg_replace_callback(
-                $searchvalue[$sortid],
-                function ($matches) use ($tid, $sortid) {
-                    return showlistoption($matches[1], 'value', intval($tid), intval($sortid));
-                },
-                $stemplate[$sortid][$tid]
-            );
-            $stemplate[$sortid][$tid] = preg_replace_callback(
-                $searchunit[$sortid],
-                function ($matches) use ($tid, $sortid) {
-                    return showlistoption($matches[1], 'unit', intval($tid), intval($sortid));
-                },
-                $stemplate[$sortid][$tid]
-            );
-        }
+			$stemplate[$sortid][$tid] = preg_replace_callback(
+				$searchtitle[$sortid],
+				function ($matches) use ($tid, $sortid) {
+					return showlistoption($matches[1], 'title', intval($tid), intval($sortid));
+				},
+				$stemplate[$sortid][$tid]
+			);
+			$stemplate[$sortid][$tid] = preg_replace_callback(
+				$searchvalue[$sortid],
+				function ($matches) use ($tid, $sortid) {
+					return showlistoption($matches[1], 'value', intval($tid), intval($sortid));
+				},
+				$stemplate[$sortid][$tid]
+			);
+			$stemplate[$sortid][$tid] = preg_replace_callback(
+				$searchunit[$sortid],
+				function ($matches) use ($tid, $sortid) {
+					return showlistoption($matches[1], 'unit', intval($tid), intval($sortid));
+				},
+				$stemplate[$sortid][$tid]
+			);
+		}
 	}
 
 	$sortlistarray['template'] = $stemplate;
@@ -677,15 +677,14 @@ function threadsort_optiondata($pid, $sortid, $sortoptionarray, $templatearray) 
 	if($templatearray['post']) {
 		$typetemplate = $templatearray['post'];
 		foreach($searchcontent as $key => $content) {
-            $typetemplate = preg_replace_callback(
-                $searchcontent[$key],
-                function ($matches) use ($key) {
-                    return showoption($matches[1], ''.addslashes($key).'');
-                },
-                stripslashes($typetemplate)
-            );
-        }
-
+			$typetemplate = preg_replace_callback(
+				$searchcontent[$key],
+				function ($matches) use ($key) {
+					return showoption($matches[1], ''.addslashes($key).'');
+				},
+				stripslashes($typetemplate)
+			);
+		}
 		$_G['forum_typetemplate'] = $typetemplate;
 	}
 }
