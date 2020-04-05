@@ -48,7 +48,7 @@ class helper_seccheck {
 		return $seccheck;
 	}
 
-	function _create($type, $code = '') {
+	static function _create($type, $code = '') {
 		global $_G;
 		$secappend = '';
 		if(!defined('IN_MOBILE')) {
