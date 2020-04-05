@@ -33,7 +33,11 @@
 	</div>
 </div>														
 
-<script src="{STATICURL}js/mobile/jquery.min.js?{VERHASH}"></script>
+<script>
+if (typeof jQuery == "undefined") {
+document.write("<script type=\"text/javascript\" src=\"{STATICURL}js/mobile/jquery.min.js?{VERHASH}\"><\/script>");
+}
+</script>
 <script type="text/javascript">
 	jQuery.noConflict();
 	var data = "{echo implode(",", $uc_avatarflash);}".split(',');
