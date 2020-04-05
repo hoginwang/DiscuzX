@@ -132,9 +132,21 @@ function followcode($message, $tid = 0, $pid = 0, $length = 0, $allowimg = true)
 	}
 
 	if(strpos($msglower, '[/img]') !== FALSE) {
-		$message = preg_replace_callback("/\[img\]\s*([^\[\<\r\n]+?)\s*\[\/img\]/is", create_function('$matches', 'return '.intval($allowimg).' ? fparseimg($matches[1], \''.addslashes($extra).'\') : \'\';'), $message);
-		$message = preg_replace_callback("/\[img=(\d{1,4})[x|\,](\d{1,4})\]\s*([^\[\<\r\n]+?)\s*\[\/img\]/is", create_function('$matches', 'return '.intval($allowimg).' ? fparseimg($matches[3], \''.addslashes($extra).'\') : \'\';'), $message);
-	}
+        $message = preg_replace_callback(
+            "/\[img\]\s*([^\[\<\r\n]+?)\s*\[\/img\]/is",
+            function ($matches) use ($allowimg, $extra) {
+                return intval($allowimg) ? fparseimg($matches[1], ''.addslashes($extra).'') : '';
+            },
+            $message
+        );
+        $message = preg_replace_callback(
+            "/\[img=(\d{1,4})[x|\,](\d{1,4})\]\s*([^\[\<\r\n]+?)\s*\[\/img\]/is",
+            function ($matches) use($allowimg, $extra) {
+                return intval($allowimg) ? fparseimg($matches[3], ''.addslashes($extra).'') : '';
+            },
+            $message
+        );
+    }
 
 	if($tid && $pid) {
 		$_G['post_attach'] = C::t('forum_attachment_n')->fetch_all_by_id(getattachtableid($tid), 'pid', $pid);
