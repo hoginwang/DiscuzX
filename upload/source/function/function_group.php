@@ -272,6 +272,7 @@ function getgroupranking($fid = '', $nowranking = '') {
 }
 
 function grouponline($fid, $getlist = '') {
+	global $_G;
 	$fid = intval($fid);
 	if(empty($getlist)) {
 		$onlinemember = C::app()->session->count_by_fid($fid);
