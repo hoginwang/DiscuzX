@@ -279,8 +279,8 @@ class base {
 			$message = $lang[$message] ? str_replace(array_keys($vars), array_values($vars), $lang[$message]) : $message;
 		}
 		$this->view->assign('message', $message);
-		if(!strpos($redirect, 'sid=') && (!strpos($redirect, 'ttp://'))) {
-			if(!strpos($redirect, '?')) {
+		if($redirect != 'BACK' && !preg_match('/^https?:\/\//is', $redirect) && strpos($redirect, 'sid=') === FALSE) {
+			if(strpos($redirect, '?') === FALSE) {
 				$redirect .= '?sid='.$this->sid;
 			} else {
 				$redirect .= '&sid='.$this->sid;
