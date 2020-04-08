@@ -14,7 +14,8 @@ if(!defined('IN_DISCUZ')) {
 require_once libfile('block_album', 'class/block/space');
 
 class block_albumnew extends block_album {
-	function block_albumnew() {
+	function __construct() {
+		parent::__construct();
 		$this->setting = array(
 			'catid' => array(
 				'title' => 'albumlist_catid',

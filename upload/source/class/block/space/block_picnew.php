@@ -14,7 +14,8 @@ if(!defined('IN_DISCUZ')) {
 require_once libfile('block_pic', 'class/block/space');
 
 class block_picnew extends block_pic {
-	function block_picnew() {
+	function __construct() {
+		parent::__construct();
 		$this->setting = array(
 			'titlelength' => array(
 				'title' => 'piclist_titlelength',

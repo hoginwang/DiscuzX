@@ -14,7 +14,8 @@ if(!defined('IN_DISCUZ')) {
 require_once libfile('block_member', 'class/block/member');
 
 class block_memberposts extends block_member {
-	function block_memberposts() {
+	function __construct() {
+		parent::__construct();
 		$this->setting = array(
 			'orderby' => array(
 				'title' => 'memberlist_orderby',

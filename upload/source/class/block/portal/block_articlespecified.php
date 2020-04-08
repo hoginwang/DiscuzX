@@ -14,7 +14,8 @@ if(!defined('IN_DISCUZ')) {
 require_once libfile('block_article', 'class/block/portal');
 
 class block_articlespecified extends block_article {
-	function block_articlespecified() {
+	function __construct() {
+		parent::__construct();
 		$this->setting = array(
 			'aids'	=> array(
 				'title' => 'articlelist_aids',

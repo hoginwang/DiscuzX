@@ -14,7 +14,8 @@ if(!defined('IN_DISCUZ')) {
 require_once libfile('block_member', 'class/block/member');
 
 class block_memberspecial extends block_member {
-	function block_memberspecial() {
+	function __construct() {
+		parent::__construct();
 		$this->setting = array(
 			'special' => array(
 				'title' => 'memberlist_special',
