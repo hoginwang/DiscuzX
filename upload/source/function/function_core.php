@@ -1095,7 +1095,40 @@ function output_replace($content) {
 		}
 
 		foreach($_G['setting']['output']['preg']['search'] as $key => $value) {
-			$content = preg_replace_callback($value, create_function('$matches', 'return '.$_G['setting']['output']['preg']['replace'][$key].';'), $content);
+			$content = preg_replace_callback(
+				$value,
+				function ($matches) use ($_G, $key) {
+					$replace_string = $_G['setting']['output']['preg']['replace'][$key];
+					if (strpos($replace_string, 'forum_forumdisplay') !== false) {
+						return rewriteoutput('forum_forumdisplay', 0, $matches[1], $matches[3], $matches[5], $matches[6]);
+					}
+					if (strpos($replace_string, 'forum_viewthread') !== false) {
+						return rewriteoutput('forum_viewthread', 0, $matches[1], $matches[3], $matches[8], $matches[6], $matches[9]);
+					}
+					if (strpos($replace_string, 'home_space') !== false) {
+						return rewriteoutput('home_space', 0, $matches[1], $matches[4], $matches[5], $matches[6]);
+					}
+					if (strpos($replace_string, 'home_blog') !== false) {
+						return rewriteoutput('home_blog', 0, $matches[1], $matches[3], $matches[6], $matches[7]);
+					}
+					if (strpos($replace_string, 'group_group') !== false) {
+						return rewriteoutput('group_group', 0, $matches[1], $matches[3], $matches[5], $matches[6]);
+					}
+					if (strpos($replace_string, 'portal_topic') !== false) {
+						return rewriteoutput('portal_topic', 0, $matches[1], $matches[3], $matches[4]);
+					}
+					if (strpos($replace_string, 'portal_article') !== false) {
+						return rewriteoutput('portal_article', 0, $matches[1], $matches[3], $matches[5], $matches[6]);
+					}
+					if (strpos($replace_string, 'forum_archiver') !== false) {
+						return rewriteoutput('forum_archiver', 0, $matches[1], $matches[2], $matches[4], $matches[5]);
+					}
+					if (strpos($replace_string, 'plugin') !== false) {
+						return rewriteoutput('plugin', 0, $matches[1], $matches[2], $matches[3], $matches[4], $matches[5]);
+					}
+				},
+				$content
+			);
 		}
 	}
 
