@@ -3,27 +3,21 @@ branches: {
   }
 fileChange:
   /upload:
-    newFile: !uuid '756cb4a3c8cccdbc3b348e6fcaf42a501fd37891'
-    oldFile: !uuid '86eb1e1f90a746d288ddeac476267d6444e2ae63'
-  /upload/install:
-    newFile: !uuid '611de46879c113927f28259f61fe232c4d94070f'
-    oldFile: !uuid 'e3c237bbbd0865dc5e641856948bbb431de2aae9'
-  /upload/install/include:
-    newFile: !uuid '60d0bd04b0ebb71cd9a569d1a4793457c99bfeb1'
-    oldFile: !uuid 'e2fcaa63860634253e2eef230f7b0861582df906'
-  /upload/install/include/install_function.php:
-    newFile: !uuid '88334baf7fb53318252aef3002e122d62fde5d6d'
-    oldFile: !uuid '1148700ca5fb080078dc977a66b5749fbab1d78a'
-  /upload/source:
-    newFile: !uuid 'e76a2e5d772c05e7fc139145d111b375ec4acbd2'
-    oldFile: !uuid '362bef83ca1098cd6d33e54a4be6c61590bc2977'
-  /upload/source/function:
-    newFile: !uuid '16ac3c016e87f77594690d9eb4712c9402a3c480'
-    oldFile: !uuid '8db37b23a442eb67a29b14e339b3b08acd7e6436'
-  /upload/source/function/function_core.php:
-    newFile: !uuid '617dcf63d5252cc879c78cdb83c39ad59136c75a'
-    oldFile: !uuid '5de21fbe46edfbf6b93723cdb2c0446db6fd11b9'
-gitCommitId: !uuid '34d83a7989e32fea53881095102e3d1c8383a384'
+    newFile: !uuid 'd36ff46150bc6803c850e2feb58c77ea4d75d18b'
+    oldFile: !uuid '756cb4a3c8cccdbc3b348e6fcaf42a501fd37891'
+  /upload/static:
+    newFile: !uuid '13f7cf0997dff22cde87e12f566cd3c153b9c631'
+    oldFile: !uuid 'cdf201cb8f402f66d53717ec327b32c6f2331eeb'
+  /upload/static/js:
+    newFile: !uuid '93ff41a76cbeaf76d5237513f3cc9fc11e5b0deb'
+    oldFile: !uuid '39a06f99dd0ac186df1589dea3e48dc915faafed'
+  /upload/static/js/forum.js:
+    newFile: !uuid '061621d013ac277f73da796f75e5d0283e71c9cb'
+    oldFile: !uuid 'acafc453182fc16fa45e13dafdc210878bb4ac00'
+  /upload/static/js/forum_viewthread.js:
+    newFile: !uuid 'bf5340b6e2bf64dbb4d2218e9a8bc3285ffce701'
+    oldFile: !uuid 'cc9098691cd87f3a61f80394577a25dda1a0cb32'
+gitCommitId: !uuid '2540d455ddc4350d88b5351d3d26f0e63c4e35af'
 renames: {
   }
-revisionId: 434
+revisionId: 435
