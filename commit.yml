@@ -3,21 +3,21 @@ branches: {
   }
 fileChange:
   /upload:
-    newFile: !uuid 'a1ddeb9bdba29f534906b5fa5fe0b668b0e0c3db'
-    oldFile: !uuid '15c64dee41ad7e1c0e2557ec05cebb65cb67a46c'
+    newFile: !uuid 'a064dda1451d618502d791a8c10927cfd79fd07a'
+    oldFile: !uuid 'a1ddeb9bdba29f534906b5fa5fe0b668b0e0c3db'
   /upload/template:
-    newFile: !uuid '6c0561a41576904fd405328d1c8510828c7be280'
-    oldFile: !uuid '427f006953a5184384ef547a5bc1bbd3ff849030'
+    newFile: !uuid '5ccd61773e7550f64c121b567e55cf618e73a67e'
+    oldFile: !uuid '6c0561a41576904fd405328d1c8510828c7be280'
   /upload/template/default:
-    newFile: !uuid 'f6d3d187b0bea5cf5a107a19b1b21892613cae1c'
-    oldFile: !uuid '79d373aa2fda177813b70285736922cf77806e9e'
-  /upload/template/default/forum:
-    newFile: !uuid 'c3a1a1547fb18bc319d2559b64fa9cc8627e40a2'
-    oldFile: !uuid 'e11a5dff37536672420b40d91aed44eaa12623b5'
-  /upload/template/default/forum/darkroom.htm:
-    newFile: !uuid '9f93421e859ee73634b57346a803af1d1b8ef8ff'
-    oldFile: !uuid '149f0752ae605473d8f644ee4a61def1ae4be171'
-gitCommitId: !uuid '7854056e5118cfe7c8a1a556663316a398664378'
+    newFile: !uuid '33dc119372dbd0e63a916428a4a1cd72b0a88d66'
+    oldFile: !uuid 'f6d3d187b0bea5cf5a107a19b1b21892613cae1c'
+  /upload/template/default/portal:
+    newFile: !uuid '093a03b85aff4ee5015df2c63530281379645798'
+    oldFile: !uuid '9d2b126321f988e79a84889483ee1c6775d2f147'
+  /upload/template/default/portal/portalcp_nav.htm:
+    newFile: !uuid '08efcd6c38d7deea9b4877a9c346ba312d4a8c46'
+    oldFile: !uuid '1d66db71002cd560a9d214298c2b4decfa0bbd1d'
+gitCommitId: !uuid '327eb1e811e57e87342ad71dd315d1cd8391ba29'
 renames: {
   }
-revisionId: 438
+revisionId: 439
