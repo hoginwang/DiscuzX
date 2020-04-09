@@ -677,6 +677,14 @@ if($_GET['action'] == 'votepoll' && submitcheck('pollsubmit', 1)) {
 
 	} else {
 
+		$lockid = 'rate_'.$_GET['pid'].'_'.$_G['uid'];
+		if(discuz_process::islocked($lockid)) {
+			showmessage('thread_rate_duplicate', NULL);
+		}
+		register_shutdown_function(function() use ($lockid) {
+			discuz_process::unlock($lockid);
+		});
+
 		$reason = checkreasonpm();
 		$rate = $ratetimes = 0;
 		$creditsarray = $sub_self_credit = array();
