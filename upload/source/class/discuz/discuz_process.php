@@ -49,8 +49,8 @@ class discuz_process
 	private static function _cmd($cmd, $name, $ttl = 0) {
 		static $allowmem;
 		if($allowmem === null) {
-			$mc = memory('check');
-			$allowmem = $mc == 'memcache' || $mc == 'redis';
+			$mc = strtolower(memory('check'));
+			$allowmem = $mc == 'memcache' || $mc == 'redis' || $mc == 'memcached';
 		}
 		if($allowmem) {
 			return discuz_process::_process_cmd_memory($cmd, $name, $ttl);
