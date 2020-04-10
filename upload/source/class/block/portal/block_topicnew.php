@@ -14,7 +14,8 @@ if(!defined('IN_DISCUZ')) {
 require_once libfile('block_topic', 'class/block/portal');
 
 class block_topicnew extends block_topic {
-	function block_topicnew() {
+	function __construct() {
+		parent::__construct();
 		$this->setting = array(
 			'picrequired' => array(
 				'title' => 'topiclist_picrequired',
