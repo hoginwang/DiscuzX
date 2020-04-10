@@ -51,6 +51,13 @@ class control extends adminbase {
 		$this->view->assign('pms', $pms);
 		$this->view->assign('iframe', getgpc('iframe', 'G'));
 
+		if(@file_exists(constant('UC_ROOT').'./install/index.php') && !constant('UC_DEBUG')) {
+			@unlink(constant('UC_ROOT').'./install/index.php');
+			if(@file_exists(constant('UC_ROOT').'./install/index.php')) {
+				exit('Please delete ./install/index.php via FTP!');
+			}
+		}
+
 		$serverinfo = PHP_OS.' / PHP v'.PHP_VERSION;
 		$serverinfo .= @ini_get('safe_mode') ? ' Safe Mode' : NULL;
 		$dbversion = $this->db->result_first("SELECT VERSION()");
