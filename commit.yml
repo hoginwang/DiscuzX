@@ -3,18 +3,18 @@ branches: {
   }
 fileChange:
   /upload:
-    newFile: !uuid '0483135e5807d63ddc83456f2c4891c9f3b1a4fb'
-    oldFile: !uuid '2ace6a0c06a9d43b977f371a905086e4e743e0fb'
-  /upload/static:
-    newFile: !uuid '4c6e5fcdd0d546bebccde9a2bbd8db5d286e843c'
-    oldFile: !uuid 'e222b0b653c4de5e43e7299960460ac6f105fc2b'
-  /upload/static/js:
-    newFile: !uuid 'cbc91297b0e3f9acbd50e962ce22a57f5be9a0d2'
-    oldFile: !uuid 'd09caaf61b17901116c8ff5c8a36472c9f98eb8b'
-  /upload/static/js/common.js:
-    newFile: !uuid '5c57641607f772ab6ed8c929d68d837508190a57'
-    oldFile: !uuid 'c1a28690f11c7e73e77f6d35849f80788b4563d5'
-gitCommitId: !uuid '26674a0086f96691e22f645da06c12fc6d01d4b4'
+    newFile: !uuid 'abc7427e4125b3270535de732ab9bd97bfe1017f'
+    oldFile: !uuid '0483135e5807d63ddc83456f2c4891c9f3b1a4fb'
+  /upload/source:
+    newFile: !uuid '104d896c7852b8ef53396a0c4872268e8e876f18'
+    oldFile: !uuid '300a905a9cf19cf49add68d09e63020e360bf887'
+  /upload/source/admincp:
+    newFile: !uuid '44cde40af116ff40e6691487006fb1a04d00a6b1'
+    oldFile: !uuid 'db766a8c76743cc24c60d2596cf81c51bbaf850d'
+  /upload/source/admincp/admincp_styles.php:
+    newFile: !uuid '7bd9984722bac052628bb35c5228f0aa648898e3'
+    oldFile: !uuid 'd5fb7666ebcc3c24f8c8d6182a2f209f0be22a58'
+gitCommitId: !uuid 'bb342aaca05e984da5a265d14b10cb9f4f7424b9'
 renames: {
   }
-revisionId: 441
+revisionId: 442
