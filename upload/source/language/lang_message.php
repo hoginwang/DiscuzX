@@ -336,6 +336,7 @@ $lang = array (
   'thread_rate_duplicate' => '抱歉，您不能对同一个帖子重复评分',
   'thread_rate_range_self_invalid' => '抱歉，您的{extcreditstitle}不足，无法评分',
   'thread_rate_ctrl' => '抱歉，24 小时评分数超过限制',
+  'thread_rate_locked' => '抱歉，当前评分正在进行中，请稍后再试',
   'thread_rate_succeed' => '感谢您的参与，现在将转入评分前页面',
   'no_privilege_removerate' => '抱歉，您没有权限撤销评分',
   'thread_rate_removesucceed' => '评分撤销成功 ',
@@ -450,6 +451,7 @@ $lang = array (
   'task_failed' => '抱歉，您没能在指定时间内完成任务',
   'task_completed' => '恭喜您，任务已成功完成，您将收到奖励通知，请注意查收',
   'task_giveup' => '您已放弃此任务',
+  'task_locked' => '抱歉，当前任务正在领取奖励中，请稍后再试。',
 
   'activate_succeed' => '您好，{username}，您的帐号已被成功激活，现在将转入站点首页',
 
@@ -718,6 +720,7 @@ $lang = array (
   'memcp_credits_card_msg_succeed' => '<span class="xi1">{extcreditsval}{extcreditstitle}</span>，充值成功 ',
   'memcp_credits_addfunds_msg_incorrect' => '抱歉，您尚未输入需要充值的数量',
   'memcp_credits_addfunds_msg_notype' => '抱歉，您尚未选择支付方式',
+  'memcp_credits_exchange_msg_locked' => '抱歉，正在进行其他的积分兑换操作，兑换失败，请稍后再试',
   'credits_addfunds_amount_invalid' => '您单次购买的积分数量超出最大值 {ec_maxcredits} 或最小值 {ec_mincredits} 的限制',
   'memcp_credits_transfer_msg_self_incorrect' => '您无需给自己转账',
   'credits_transfer_balance_insufficient' => '抱歉，转账后 {title}不足 {minbalance}',

@@ -18,32 +18,22 @@ class helper_form {
 		if(!getgpc($var)) {
 			return FALSE;
 		} else {
-			global $_G;
-			register_shutdown_function('helper_form::submitcheck_unlock', $var);
-			if($_G['setting']['submitlock'] && discuz_process::islocked($var.'_'.$_G['uid'].'_locked', 60)) {
-				showmessage('submit_islocked');
-			} else {
-				if($allowget || ($_SERVER['REQUEST_METHOD'] == 'POST' && !empty($_GET['formhash']) && $_GET['formhash'] == formhash() && empty($_SERVER['HTTP_X_FLASH_VERSION']) && (empty($_SERVER['HTTP_REFERER']) ||
-					strncmp($_SERVER['HTTP_REFERER'], 'http://wsq.discuz.com/', 22) === 0 || preg_replace("/https?:\/\/([^\:\/]+).*/i", "\\1", $_SERVER['HTTP_REFERER']) == preg_replace("/([^\:]+).*/", "\\1", $_SERVER['HTTP_HOST'])))) {
-					if(checkperm('seccode')) {
-						if($secqaacheck && !check_secqaa($_GET['secanswer'], $_GET['secqaahash'])) {
-							showmessage('submit_secqaa_invalid');
-						}
-						if($seccodecheck && !check_seccode($_GET['seccodeverify'], $_GET['seccodehash'], 0, $_GET['seccodemodid'])) {
-							showmessage('submit_seccode_invalid');
-						}
+			if($allowget || ($_SERVER['REQUEST_METHOD'] == 'POST' && !empty($_GET['formhash']) && $_GET['formhash'] == formhash() && empty($_SERVER['HTTP_X_FLASH_VERSION']) && (empty($_SERVER['HTTP_REFERER']) ||
+				strncmp($_SERVER['HTTP_REFERER'], 'http://wsq.discuz.com/', 22) === 0 || preg_replace("/https?:\/\/([^\:\/]+).*/i", "\\1", $_SERVER['HTTP_REFERER']) == preg_replace("/([^\:]+).*/", "\\1", $_SERVER['HTTP_HOST'])))) {
+				if(checkperm('seccode')) {
+					if($secqaacheck && !check_secqaa($_GET['secanswer'], $_GET['secqaahash'])) {
+						showmessage('submit_secqaa_invalid');
 					}
-					return TRUE;
-				} else {
-					showmessage('submit_invalid');
+					if($seccodecheck && !check_seccode($_GET['seccodeverify'], $_GET['seccodehash'], 0, $_GET['seccodemodid'])) {
+						showmessage('submit_seccode_invalid');
+					}
 				}
+				return TRUE;
+			} else {
+				showmessage('submit_invalid');
 			}
+			
 		}
-	}
-
-	private static function submitcheck_unlock($var) {
-		global $_G;
-		discuz_process::unlock($var.'_'.$_G['uid'].'_locked');
 	}
 
 	public static function censor($message, $modword = NULL, $return = FALSE) {

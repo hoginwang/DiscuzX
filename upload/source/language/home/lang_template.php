@@ -560,6 +560,7 @@ $lang = array (
   'magics_outofperoid_4' => '24 小时内',
   'magics_outofperoid_noperm' => '您无法再使用本道具了',
   'magics_outofperoid_value' => '您还能使用 $useperoid 次本道具',
+  'magics_locked' => '当前道具正在使用/卖出/赠送中，请稍后再试。',
   'magics_present_message' => '赠送留言',
   'magics_present_message_text' => '送您一个{$magic[name]}，{$magic[description]}，希望您能喜欢 ',
   'magics_select' => '选择道具',
