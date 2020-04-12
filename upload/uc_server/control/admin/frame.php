@@ -97,7 +97,8 @@ class control extends adminbase {
 			'XSPACE' => 'admincp.php',
 			'SUPEV' => 'admincp.php',
 			'ECSHOP' => 'admin/index.php',
-			'ECMALL' => 'admin.php'
+			'ECMALL' => 'admin.php',
+			'DISCUZX' => 'admin.php'
 		);
 		$admincp = '';
 		if(is_array($applist)) {
