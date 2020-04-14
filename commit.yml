@@ -3,54 +3,21 @@ branches: {
   }
 fileChange:
   /upload:
-    newFile: !uuid '325a5aa4e05312e798f937037e6698dae67e0571'
-    oldFile: !uuid 'd97616ca40fc9ec82e42ad574fd1f3f425206aed'
+    newFile: !uuid '7f653d6ce6e56e2d1262337c0987db736f34df9f'
+    oldFile: !uuid '325a5aa4e05312e798f937037e6698dae67e0571'
   /upload/source:
-    newFile: !uuid 'f326c55b73c87b8ea1121631fadb0a6b3ff49740'
-    oldFile: !uuid '104d896c7852b8ef53396a0c4872268e8e876f18'
-  /upload/source/class:
-    newFile: !uuid '16c7388de2b54184767aebedbe9642fdf1c2b5fc'
-    oldFile: !uuid 'df1914ee1e25522ab8ffd3b353b370ee51a7d29f'
-  /upload/source/class/class_member.php:
-    newFile: !uuid '2fb06082232c15c2b35182e0ef2d1d581b5a9461'
-    oldFile: !uuid 'd79ea87bd4bb255d6ea296ce859d2ee287cc3202'
-  /upload/source/function:
-    newFile: !uuid 'ab5a8e9eb8453a0bdff524297a080d9aca92db0a'
-    oldFile: !uuid '16ac3c016e87f77594690d9eb4712c9402a3c480'
-  /upload/source/function/cache:
-    newFile: !uuid '7c3616380e64fa40ec7a1c78cba997e7eda28f47'
-    oldFile: !uuid 'e49ab294e7cce76f6fe2ad5a261efbf9860b1447'
-  /upload/source/function/cache/cache_setting.php:
-    newFile: !uuid '4b776f647472a6285acf9aa3b80ad16eb671e43d'
-    oldFile: !uuid '949e70de13045c064c8caea2b4017e9020a22f99'
-  /upload/source/function/function_mail.php:
-    newFile: !uuid 'f3b281aefce09d1bc8b9142b91557bbb6b87839b'
-    oldFile: !uuid '3b4020d92fe2d354309a4070d2bbc1ca9c3a430d'
-  /upload/source/function/function_spacecp.php:
-    newFile: !uuid '0a2122b258260ec5458260784ef631af8c9051ef'
-    oldFile: !uuid '0310c5b59480e536321c18b06dc125f772ddf8ae'
-  /upload/source/include:
-    newFile: !uuid '34e93b6a4feb55cd5e06f8f249444d6ce4eb01f3'
-    oldFile: !uuid '24209137d1b312897b8528709d32a9474afb557c'
-  /upload/source/include/spacecp:
-    newFile: !uuid '3c92eb23569c6e431db0483d180dfe1427301a0f'
-    oldFile: !uuid 'd965bf8358af721223eaeebfcc2f7fe0cd83fd2b'
-  /upload/source/include/spacecp/spacecp_friend.php:
-    newFile: !uuid '794943823a1974259d12a9955525f21d808b937a'
-    oldFile: !uuid '27ec06fc8d8028b48c783f40edd165d028c7872e'
-  /upload/source/module:
-    newFile: !uuid '1d6ada0bb850ac0691e17caabc4ef5a42e8a3c3c'
-    oldFile: !uuid '9c93b73e101254bdee5cd85f5da2ead0366923d9'
-  /upload/source/module/member:
-    newFile: !uuid '771739ab03305f4bdb7c07eccb9bdc06eeb530dd'
-    oldFile: !uuid '4214b57e17aadeabdad73811297c37ffa310b4bc'
-  /upload/source/module/member/member_emailverify.php:
-    newFile: !uuid '1cc9ed2b6b8cc0e9bc34b547e686cd0918cfda3f'
-    oldFile: !uuid 'c9d791827d4434dfd1cfbe17fbb2fe5e33713b16'
-  /upload/source/module/member/member_lostpasswd.php:
-    newFile: !uuid '70b688b9de35642b0427f5c70083e28f3897de67'
-    oldFile: !uuid '72780e37c62f5a0e6d09ee91b31557f7bb18014c'
-gitCommitId: !uuid '6f5bcbf2fac46c4761db8f0e064cfc9e4f237727'
+    newFile: !uuid 'c3134eb10bf4fe0b6e4e197084045721823da632'
+    oldFile: !uuid 'f326c55b73c87b8ea1121631fadb0a6b3ff49740'
+  /upload/source/plugin:
+    newFile: !uuid '11b8524a8d26947907320e7f37e68a721c9362ba'
+    oldFile: !uuid '073385a6faa8c743d21547fa792dd806ec5c00ed'
+  /upload/source/plugin/wechat:
+    newFile: !uuid '5a5ad62365bbf8b77b580494fbd676419e60f73a'
+    oldFile: !uuid '4dc2e736110d289de1ccc5ea04b165b389a6957a'
+  /upload/source/plugin/wechat/wechat.lib.class.php:
+    newFile: !uuid '1b519e1bb554cebfda94e0bd8a5c526023c0d613'
+    oldFile: !uuid '4a22508056b2538164b551b8dd721bcc57b36140'
+gitCommitId: !uuid '3f1e068ab874bb8bb95537c7de4f2719f4490d04'
 renames: {
   }
-revisionId: 445
+revisionId: 446
