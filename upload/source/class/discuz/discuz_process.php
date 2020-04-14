@@ -87,7 +87,7 @@ class discuz_process
 		$ret = '';
 		switch ($cmd) {
 			case 'add':
-				$ret = C::t('common_process')->insert($name, (time() + $ttl));
+				$ret = C::t('common_process')->insert(array('processid' => $name, 'expiry' => time() + $ttl), FALSE, true);
 				break;
 			case 'get':
 				$ret = C::t('common_process')->fetch($name);
