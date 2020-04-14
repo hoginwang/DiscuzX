@@ -394,6 +394,7 @@ class task {
 		}
 
 		if($result === TRUE) {
+
 			if($this->task['reward']) {
 				$rewards = $this->reward();
 				$notification = $this->task['reward'];
