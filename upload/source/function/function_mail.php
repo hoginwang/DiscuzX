@@ -208,6 +208,10 @@ EOT;
 }
 
 function sendmail_cron($toemail, $subject, $message) {
+	
+	if(preg_match("/@\w+\.null/i", $toemail)){
+		return false;
+	}
 
 	$toemail = addslashes($toemail);
 
