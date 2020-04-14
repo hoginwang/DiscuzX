@@ -25,15 +25,6 @@ class table_common_process extends discuz_table
 		$name = addslashes($name);
 		return DB::delete('common_process', "processid='$name' OR expiry<".intval($time));
 	}
-
-	public function insert($name, $expiry) {
-		try{
-			DB::query('INSERT '.DB::table($this->_table)." (`processid`, `expiry`) VALUES ('$name', '$expiry') ");
-			return true;
-		}catch(Exception $exc){
-			return false;
-		}
-	}
 }
 
 ?>

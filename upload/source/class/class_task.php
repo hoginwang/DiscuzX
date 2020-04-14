@@ -394,10 +394,7 @@ class task {
 		}
 
 		if($result === TRUE) {
-			if($_G['setting']['submitlock'] && discuz_process::islocked('task_'.$_G['uid'].'_'.$id, 0, 1)) {
-				showmessage('task_locked', 'home.php?mod=task&do=view&id='.$id);
-			}
-
+			
 			if($this->task['reward']) {
 				$rewards = $this->reward();
 				$notification = $this->task['reward'];

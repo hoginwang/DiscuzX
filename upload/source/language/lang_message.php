@@ -161,6 +161,7 @@ $lang = array (
   'credits_addfunds_toomuch' => '抱歉，您超出本月允许购买 {ec_maxcreditspermonth} 的限额',
   'credits_transaction_amount_invalid' => '抱歉，您要转账或兑换的积分数量输入有误',
   'credits_password_invalid' => '抱歉，您输入的密码错误',
+  'credits_transfer_msg_locked' => '抱歉，正在进行其他的积分转账操作，转账失败，请稍后再试',
   'extcredits_dataerror' => '抱歉，兑换失败，请与管理员联系',
   'start_time_is_greater_than_end_time' => '开始日期不能大于结束日期',
   'should_write_that' => '至少应该写点东西',
@@ -451,7 +452,6 @@ $lang = array (
   'task_failed' => '抱歉，您没能在指定时间内完成任务',
   'task_completed' => '恭喜您，任务已成功完成，您将收到奖励通知，请注意查收',
   'task_giveup' => '您已放弃此任务',
-  'task_locked' => '抱歉，当前任务正在领取奖励中，请稍后再试。',
 
   'activate_succeed' => '您好，{username}，您的帐号已被成功激活，现在将转入站点首页',
 
@@ -982,6 +982,7 @@ $lang = array (
   'magic_is_closed' => '此道具已被禁用',
   'magic_not_for_sale' => '此道具不能通过购买获得',
   'magic_groupid_limit' => '抱歉，您当前所在的用户组没有权限购买本道具',
+  'magics_locked' => '当前道具正在使用/卖出/赠送中，请稍后再试。',
   'bad_buynum' => '抱歉，您输入的购买数目有误',
   'not_enough_coupon' => '抱歉，您的代金券数目不足',
   'credit_is_not_enough' => '抱歉，您的积分不足购买此道具',
