@@ -37,7 +37,7 @@ class wsq {
 		$code = $data['code'];
 		sort($data, SORT_STRING);
 		$data[] = $token;
-		$data = implode($data);
+		$data = implode('', $data);
 		$tmpstr = sha1($data);
 
 		if($tmpstr === $signature && empty($code)){
@@ -50,7 +50,7 @@ class wsq {
 	private static function _make_sign($data, $token) {
 		sort($data, SORT_STRING);
 		$data[] = $token;
-		$data = implode($data);
+		$data = implode('', $data);
 		$tmpstr = sha1($data);
 
 		return $tmpstr;
