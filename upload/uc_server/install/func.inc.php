@@ -64,8 +64,8 @@ function check_db($dbhost, $dbuser, $dbpw, $dbname, $tablepre) {
 	}
 	$link = new mysqli($dbhost, $dbuser, $dbpw);
 	if(!$link) {
-		$errno = mysqli_errno();
-		$error = mysqli_error();
+		$errno = mysqli_errno($link);
+		$error = mysqli_error($link);
 		if($errno == 1045) {
 			show_msg('database_errno_1045', $error, 0);
 		} elseif($errno == 2003) {
