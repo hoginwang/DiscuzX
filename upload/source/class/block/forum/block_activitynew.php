@@ -15,7 +15,6 @@ require_once libfile('block_activity', 'class/block/forum');
 
 class block_activitynew extends block_activity {
 	function __construct() {
-		parent::__construct();
 		$this->setting = array(
 			'fids'	=> array(
 				'title' => 'activitylist_fids',

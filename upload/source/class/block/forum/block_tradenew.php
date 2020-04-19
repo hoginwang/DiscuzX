@@ -15,7 +15,6 @@ require_once libfile('block_trade', 'class/block/forum');
 
 class block_tradenew extends block_trade {
 	function __construct() {
-		parent::__construct();
 		$this->setting = array(
 			'fids'	=> array(
 				'title' => 'tradelist_fids',

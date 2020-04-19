@@ -15,7 +15,6 @@ require_once libfile('block_blog', 'class/block/space');
 
 class block_blogspecified extends block_blog {
 	function __construct() {
-		parent::__construct();
 		$this->setting = array(
 			'blogids'	=> array(
 				'title' => 'bloglist_blogids',

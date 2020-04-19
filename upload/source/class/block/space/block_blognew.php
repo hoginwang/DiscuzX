@@ -17,7 +17,6 @@ class block_blognew extends block_blog {
 	var $setting = array();
 
 	function __construct() {
-		parent::__construct();
 		$this->setting = array(
 			'catid' => array(
 				'title' => 'bloglist_catid',

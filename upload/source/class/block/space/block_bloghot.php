@@ -17,7 +17,6 @@ class block_bloghot extends block_blog {
 	var $setting = array();
 
 	function __construct() {
-		parent::__construct();
 		$this->setting = array(
 			'hours' => array(
 				'title' => 'bloglist_hours',

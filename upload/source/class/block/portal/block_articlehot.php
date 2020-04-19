@@ -15,7 +15,6 @@ require_once libfile('block_article', 'class/block/portal');
 
 class block_articlehot extends block_article {
 	function __construct() {
-		parent::__construct();
 		$this->setting = array(
 			'catid' => array(
 				'title' => 'articlelist_catid',

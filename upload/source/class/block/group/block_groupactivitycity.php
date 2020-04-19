@@ -15,7 +15,6 @@ require_once libfile('block_groupactivity', 'class/block/group');
 
 class block_groupactivitycity extends block_groupactivity {
 	function __construct() {
-		parent::__construct();
 		$this->setting = array(
 			'gtids' => array(
 				'title' => 'groupactivity_gtids',

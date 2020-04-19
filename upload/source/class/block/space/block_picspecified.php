@@ -15,7 +15,6 @@ require_once libfile('block_pic', 'class/block/space');
 
 class block_picspecified extends block_pic {
 	function __construct() {
-		parent::__construct();
 		$this->setting = array(
 			'picids'	=> array(
 				'title' => 'piclist_picids',

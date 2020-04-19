@@ -15,7 +15,6 @@ require_once libfile('block_groupthread', 'class/block/group');
 
 class block_groupthreadspecified extends block_groupthread {
 	function __construct() {
-		parent::__construct();
 		$this->setting = array(
 			'tids' => array(
 				'title' => 'groupthread_tids',

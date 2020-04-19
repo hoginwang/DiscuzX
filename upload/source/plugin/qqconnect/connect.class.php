@@ -138,7 +138,7 @@ class plugin_qqconnect extends plugin_qqconnect_base {
 	function _viewthread_share_method_output() {
 		global $_G;
 		$_G['connect']['qq_share_url'] = $_G['siteurl'] . 'home.php?mod=spacecp&ac=plugin&id=qqconnect:spacecp&pluginop=share&sh_type=4&thread_id=' . $_G['tid'];
-		return tpl_viewthread_share_method($jsurl);
+		return tpl_viewthread_share_method($jsurl);		
 	}
 
 }

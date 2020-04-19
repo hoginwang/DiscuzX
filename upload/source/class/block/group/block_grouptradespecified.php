@@ -15,7 +15,6 @@ require_once libfile('block_grouptrade', 'class/block/group');
 
 class block_grouptradespecified extends block_grouptrade {
 	function __construct() {
-		parent::__construct();
 		$this->setting = array(
 			'tids' => array(
 				'title' => 'grouptrade_tids',

@@ -15,7 +15,6 @@ require_once libfile('block_topic', 'class/block/portal');
 
 class block_topicspecified extends block_topic {
 	function __construct() {
-		parent::__construct();
 		$this->setting = array(
 			'topicids'	=> array(
 				'title' => 'topiclist_topicids',

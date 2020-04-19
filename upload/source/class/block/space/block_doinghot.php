@@ -17,7 +17,6 @@ class block_doinghot extends block_doing {
 	var $setting = array();
 
 	function __construct() {
-		parent::__construct();
 		$this->setting = array(
 			'titlelength' => array(
 				'title' => 'doinglist_titlelength',

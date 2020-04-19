@@ -16,7 +16,6 @@ require_once libfile('block_thread', 'class/block/forum');
 class block_threaddigest extends block_thread {
 
 	function __construct() {
-		parent::__construct();
 		$this->setting = array(
 			'fids'	=> array(
 				'title' => 'threadlist_fids',
