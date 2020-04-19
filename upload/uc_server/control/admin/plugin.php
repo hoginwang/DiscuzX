@@ -17,7 +17,7 @@ class pluginbase extends adminbase {
 	var $plugins = array();
 
 	function __construct() {
-		parent::__construct();
+		$this->control();
 	}
 
 	function pluginbase() {
