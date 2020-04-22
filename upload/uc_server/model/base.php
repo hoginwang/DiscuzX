@@ -447,7 +447,7 @@ class base {
 		(!defined('UC_COOKIEPATH')) && define('UC_COOKIEPATH', '/');
 		(!defined('UC_COOKIEDOMAIN')) && define('UC_COOKIEDOMAIN', '');
 
-		if($value == '' || $life < 0) {
+		if($value === '' || $life < 0) {
 			$value = '';
 			$life = -1;
 		}
