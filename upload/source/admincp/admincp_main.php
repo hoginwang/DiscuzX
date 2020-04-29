@@ -120,9 +120,6 @@ echo <<<EOT
 </td>
 </tr>
 </table>
-<div id="scrolllink" style="display: none">
-	<span onclick="menuScroll(1)"><img src="static/image/admincp/scrollu.gif" /></span><span onclick="menuScroll(2)"><img src="static/image/admincp/scrolld.gif" /></span>
-</div>
 <div class="copyright">
 	<p>Powered by <a href="http://www.discuz.net/" target="_blank">Discuz!</a> {$_G['setting']['version']}</p>
 	<p>Copyright &copy; 2001-$now</p>
@@ -192,13 +189,11 @@ echo <<<EOT
 			return;
 		}
 		var scrollh = document.body.offsetHeight - 160;
-		obj.style.overflow = 'visible';
+		obj.style.overflowY = 'visible';
 		obj.style.height = '';
-		$('scrolllink').style.display = 'none';
 		if(obj.offsetHeight + 150 > document.body.offsetHeight && scrollh > 0) {
-			obj.style.overflow = 'hidden';
+			obj.style.overflowY = 'auto';
 			obj.style.height = scrollh + 'px';
-			$('scrolllink').style.display = '';
 		}
 	}
 	function resizeHeadermenu() {
