@@ -114,7 +114,7 @@ Class discuz_upload{
 		} elseif($imageinfo = @getimagesize($target)) {
 			list($width, $height, $type) = !empty($imageinfo) ? $imageinfo : array('', '', '');
 			$size = $width * $height;
-			if($size > 16777216 || $size < 16 ) {
+			if($size > 67108864 || $size < 16 ) {
 				return false;
 			} elseif($ext == 'swf' && $type != 4 && $type != 13) {
 				return false;
