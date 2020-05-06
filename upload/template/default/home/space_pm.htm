@@ -36,7 +36,7 @@
 
 			<!--{if $_GET['subop'] == 'view'}-->
 
-				<!--{if !$type && $plid}-->
+				<!--{if $_GET['ac'] == 'pm' && empty($_GET['type']) && $plid}-->
 					<div class="tbmu pml pm_op_r cl">
 						<div class="y pm_o">
 							<a href="javascript:;" id="pm_operation" class="o" onmouseover="showMenu({'ctrlid':this.id, 'pos':'34'})">{lang menu}</a>
