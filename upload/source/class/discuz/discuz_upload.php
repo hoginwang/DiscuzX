@@ -12,7 +12,7 @@ if(!defined('IN_DISCUZ')) {
 }
 
 
-Class discuz_upload{
+class discuz_upload{
 
 	var $attach = array();
 	var $type = '';
@@ -143,8 +143,10 @@ Class discuz_upload{
 	}
 
 	function get_target_extension($ext) {
-		static $safeext  = array('attach', 'jpg', 'jpeg', 'gif', 'png', 'swf', 'bmp', 'txt', 'zip', 'rar', 'mp3');
-		return strtolower(!in_array(strtolower($ext), $safeext) ? 'attach' : $ext);
+		global $_G;
+		loadcache('attachtype');
+		$safeext = array_merge(array('jpg', 'jpeg', 'gif', 'png', 'swf', 'bmp', 'txt', 'zip', 'rar', 'mp3'), array_keys($_G['cache']['attachtype'][0]));
+		return !in_array(strtolower($ext), $safeext) ? 'attach' : strtolower($ext);
 	}
 
 	function get_target_dir($type, $extid = '', $check_exists = true) {
