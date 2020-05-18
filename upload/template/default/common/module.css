@@ -98,7 +98,7 @@ Created & Modified by Alice, Monkey, Lushnis, Pony, Dfox & DragonLee.
 			#category_grid td:first-child { border-left: 0; }
 		.category_l1, .category_l2, .category_l3, .category_l4 { line-height: 25px; background: #fff; overflow: hidden; }
 			.category_l1 { line-height: normal; }
-			.ie6 .category_l4 { margin-right: -3px; }
+			.ie6 .category_l4 { margin-right: -3px; }/*iefix*/
 			.slidebox_grid { position: relative; margin: 10px; border: 1px #ccc solid; }
 			#category_grid h4 { width:100%; height: 30px; line-height: 30px; text-indent:10px; font-size: 12px; cursor: pointer; {TITLEBGCODE}; position:relative; }
 		.category_newlist { padding: 10px; }
@@ -147,18 +147,18 @@ Created & Modified by Alice, Monkey, Lushnis, Pony, Dfox & DragonLee.
 	.el {}
 		.et { margin: 20px 0 10px; }
 		.el li { padding: 10px 20px; min-height: 20px; border-bottom: 1px dashed {COMMONBORDER}; }
-			.ie6 .el, .ie6 .el li { zoom: 1; }
+			.ie6 .el, .ie6 .el li { zoom: 1; }/*iefix*/
 		.el .t { position: absolute; margin: 1px 0 0 -20px; }
 		.el .o { overflow: hidden; float: right; margin: 4px -20px -4px 0; width: 16px; height: 16px; font-size: 16px; line-height: 16px; font-family: dzicon; text-align: center; color: #FF9A9A; }
 			/* 外宽改变时 .ie6 .el .o, .ie6 .xlda .el .o 的 margin 值需要更改 */
-			.ie6 .el .o { position: absolute; margin: 2px 0 0 525px; }
+			.ie6 .el .o { position: absolute; margin: 2px 0 0 525px; }/*iefix*/
 			.el .o:before { content: "\f149"; }
 			.el .o:hover { text-decoration: none; }
 			.el .del:before { content: "\f116"; }
 		.el .d { padding-top: 10px; color: {MIDTEXT}; }
 		.ec .tn { margin: 10px 10px 0 0; cursor: pointer; }
 		.ec a .tn { float: left; padding: 2px; max-width: 90px; max-height: 90px; border: 1px solid {COMMONBORDER}; }
-			.ie6 .ec a .tn { width: expression(this.width > 90 && this.width >= this.height ? 90 : true); height: expression(this.height > 90 && this.width <= this.height ? 90 : true); }
+			.ie6 .ec a .tn { width: expression(this.width > 90 && this.width >= this.height ? 90 : true); height: expression(this.height > 90 && this.width <= this.height ? 90 : true); }/*iefix*/
 		.el .ec .hot { float: right; margin: 10px 0 0 10px; width: 55px; height: 50px; background: linear-gradient(0deg, #B2C0DC 40%, #D8DEEA 40%) no-repeat; border-radius: 3px; }
 			.el .ec .hot a { display: block; line-height: 20px; text-align: center; color: #FFF; }
 				.el .ec .hot a:hover { text-decoration: none; }
@@ -167,7 +167,7 @@ Created & Modified by Alice, Monkey, Lushnis, Pony, Dfox & DragonLee.
 		/* 有头像的动态列表 */
 		.xlda .el { overflow: hidden; float: left; margin-top: -4px; width: 100%; }
 			.xlda .el li { margin-bottom: -4px; padding-top: 14px; }
-				.ie6 .xlda .el .o { margin: 2px 0 0 460px; }
+				.ie6 .xlda .el .o { margin: 2px 0 0 460px; }/*iefix*/
 		#share_preview .h { display: none; }
 /** end **/
 
@@ -208,7 +208,7 @@ Created & Modified by Alice, Monkey, Lushnis, Pony, Dfox & DragonLee.
 	.pgbtn a:hover { background: #fff; text-decoration: none; }
 	/* 贴子页开启半闭左右列表 by Alice */
 	.side_btn { position:relative; display:block; }
-	.ie6 .side_btn, .ie7 .side_btn { display:inline; }
+	.ie6 .side_btn, .ie7 .side_btn { display:inline; }/*iefix*/
 	.side_btn a { position:absolute; left:-21px; top:-10px; display:block; width:7px; height:38px; overflow:hidden; }
 	.side_btn a svg { fill: {MENUBGCOLOR}; }
 	.side_btn a.btn_s_close { left:-27px; top:-11px; }
@@ -223,20 +223,21 @@ Created & Modified by Alice, Monkey, Lushnis, Pony, Dfox & DragonLee.
 			.m_c .quote { width: 585px; }
 		.blockcode { overflow: hidden; margin: 10px 0; padding: 5px 10px; background: #F7F7F7; color: {MIDTEXT}; }
 			.blockcode code { font-family: Monaco, Consolas, 'Lucida Console', 'Courier New', serif; font-size: 12px; line-height: 1.8em; }
-			* html .blockcode code { font-family: 'Courier New', serif; }
+			* html .blockcode code { font-family: 'Courier New', serif; }/*iefix*/
 /** end **/
 
 /** forum::modcp,misc::stat **/
 	/* 版块管理 */
 		.mdcp {}
 			.stl { float: left; width: 15%; }
-			.str { float: left; overflow: auto; overflow-y: hidden; width: 84%; *padding-bottom: 17px; }
+			.str { float: left; overflow: auto; overflow-y: hidden; width: 84%; }
+			.str { *padding-bottom: 17px; }/*iefix*/
 /** end **/
 
 /** misc::tag **/
 /* 标签列表 by Pony */
 	.taglist { min-height: 270px; }
-		.ie6 .taglist { height: 270px; }
+		.ie6 .taglist { height: 270px; }/*iefix*/
 		.taglist a { margin-right: 20px; line-height: 30px; white-space: nowrap; }
 /** end **/
 
@@ -247,13 +248,14 @@ Created & Modified by Alice, Monkey, Lushnis, Pony, Dfox & DragonLee.
 .ct2_a .mn { float: left; }
 .appl { float: right; margin-top: 8px; border: none; background-color: transparent; }
 .upf { width: 500px; }
-*+html .upf { width: 520px; }
+*+html .upf { width: 520px; }/*iefix*/
 
 .upnf { white-space: normal; }
 .upbk { zoom: 1; }
 	.fldt { margin-bottom: 8px; }
 
-.p_pop .flb { position: absolute; right: 10px; top: 18px; *top: 13px; }
+.p_pop .flb { position: absolute; right: 10px; top: 18px; }
+.p_pop .flb { *top: 13px; }/*iefix*/
 
 .fnm { width: 130px !important; }
 .fszm { width: 55px !important; line-height: normal; }
@@ -288,7 +290,7 @@ Created & Modified by Alice, Monkey, Lushnis, Pony, Dfox & DragonLee.
 
 /** forum::post,forum::forumdisplay,forum::viewthread,group::post,group::forumdisplay,group::viewthread,portal::portalcp,home::spacecp **/
 .p_tbl { height: auto; line-height: 160%; border-bottom: none; }
-	.p_tbl table { *table-layout: fixed; }
+	.p_tbl table { *table-layout: fixed; }/*iefix*/
 		.p_tbl table td { height: 28px; line-height: 28px; border-bottom: 1px solid {COMMONBG}; }
 			.atnu { width: 16px; }
 			/*.attachctrl { width: 40px; }*/
@@ -300,12 +302,12 @@ Created & Modified by Alice, Monkey, Lushnis, Pony, Dfox & DragonLee.
 				.attv { width: 100px; }
 			.atturl img { height: 20px !important; }
 			.attc { width: 20px }
-			*+html .attc { width: 40px; }
+			*+html .attc { width: 40px; }/*iefix*/
 			.atds { width: 80px; text-align: center; }
 				.atds .px { width: 60px; }
 			.attp { text-align: center; width: 40px; }
 			.attach_preview { border: 1px solid {COMMONBORDER}; box-shadow: 0 0 5px rgba(96, 96, 96, 0.3); }
-				.ie8 .attach_preview, .ie9 .attach_preview { top: 57px; right: 18px; }
+				.ie8 .attach_preview, .ie9 .attach_preview { top: 57px; right: 18px; }/*iefix*/
 /** end **/
 
 
@@ -314,14 +316,16 @@ Created & Modified by Alice, Monkey, Lushnis, Pony, Dfox & DragonLee.
 .upfl { margin-top: -1px; height: auto !important; height: 165px; max-height: 300px; overflow: auto; overflow-x: hidden; }
 	.upfl a, #imgattachlist a { color: {HIGHLIGHTLINK}; }
 	.upfl table td { border-bottom: 1px solid {COMMONBORDER}; height: 30px; line-height: 24px; }
-.imgl { margin-bottom: 5px; width: 100%; *width: 99.6%; }
+.imgl { margin-bottom: 5px; width: 100%; }
+.imgl { *width: 99.6%; }/*iefix*/
 	.imgl td { padding: 8px 0; text-align: center; vertical-align: bottom; }
 		.imgl tr:last-child td { border-bottom: none; }
 	.imgl img { border: 1px solid {LIGHTTEXT}; max-width: 110px; }
-		.ie6 .imgl img { width: expression(this.width > 110 ? 110 : true); }
+		.ie6 .imgl img { width: expression(this.width > 110 ? 110 : true); }/*iefix*/
 
 	.imgf .px { width: 106px; padding: 2px; height: 14px; line-height: 14px; }
-	.imgdeleted { opacity: 0.3; filter: alpha(opacity=30); }
+	.imgdeleted { opacity: 0.3; }
+	.imgdeleted { filter: alpha(opacity=30); }/*iefix*/
 
 /*
 	Name:			mod_opattach
@@ -331,7 +335,8 @@ Created & Modified by Alice, Monkey, Lushnis, Pony, Dfox & DragonLee.
 */
 	.opattach { display: block; position: relative; margin: 0 auto; width: 110px; border: 1px solid #CDCDCD; }
 		.opattach:hover { text-decoration: none; }
-		.opattach_ctrl { display: none; position: absolute; bottom: 0; left: 0; width: 100%; color: #FFF; background: transparent; background: rgba(0, 0, 0, 0.3); filter:progid:DXImageTransform.Microsoft.gradient(startColorstr = #30000000, endColorstr = #30000000); }
+		.opattach_ctrl { display: none; position: absolute; bottom: 0; left: 0; width: 100%; color: #FFF; background: transparent; background: rgba(0, 0, 0, 0.3); }
+		.opattach_ctrl { filter:progid:DXImageTransform.Microsoft.gradient(startColorstr = #30000000, endColorstr = #30000000); }/*iefix*/
 		.opattach:hover .opattach_ctrl { display: block; }
 		.opattach img { border: none; }
 
@@ -365,7 +370,7 @@ Created & Modified by Alice, Monkey, Lushnis, Pony, Dfox & DragonLee.
 /* 提交表单 */
 	.exfm { margin: 10px 0; padding: 10px 14px; border: 1px dashed {SPECIALBORDER}; background: {SPECIALBG}; }
 		.exfm .pn { height: 22px; font-size: 12px; }
-		.ie6 .exfm .pn, .ie7 .exfm .pn { line-height: 16px; }
+		.ie6 .exfm .pn, .ie7 .exfm .pn { line-height: 16px; }/*iefix*/
 		.exfm .rq { float: right; padding-right: 2px; }
 		.exfm table { width: 100%; }
 			.exfm table th, .exfm table td { padding: 4px 2px; }
@@ -382,7 +387,8 @@ Created & Modified by Alice, Monkey, Lushnis, Pony, Dfox & DragonLee.
 		.onum { float: left; margin-right: 6px; width: 16px; }
 		.oinf { width: 270px !important; }
 			.sinf dl, .sadd dl { overflow: hidden; }
-			.sinf dl dt, .sadd dl dt { float: left; padding-top: 3px\9; width: 75px; clear: left; }
+			.sinf dl dt, .sadd dl dt { float: left; width: 75px; clear: left; }
+			.sinf dl dt, .sadd dl dt { padding-top: 3px\9; }/*iefix*/
 			.sinf dl dd, .sadd dl dd { margin-bottom: 10px; overflow: hidden; }
 			.sinf dl dd { width: 300px; }
 			.sinf span.fb, .sadd span.fb { display: block; float: left; margin-right: 6px; height: 26px; line-height: 26px; white-space: nowrap; }
@@ -396,7 +402,8 @@ Created & Modified by Alice, Monkey, Lushnis, Pony, Dfox & DragonLee.
 	.spimg { margin: 0 10px 0 0; width: 200px; border: 1px solid #AAA; }
 	.spmp { width: 30px; }
 	.spmf { width: 300px; }
-		.spmf, .spmf3 { overflow: hidden; _height: 1%; }
+		.spmf, .spmf3 { overflow: hidden; }
+		.spmf, .spmf3 { _height: 1%; }/*iefix*/
 		.spmf label, .spmf3 label{ display: block; padding-top: 5px; }
 			.spmf em{ float: left; width: 150px;  }
 			.spmf3 em{ float: left; margin-right: 12px; }
@@ -422,12 +429,12 @@ Created & Modified by Alice, Monkey, Lushnis, Pony, Dfox & DragonLee.
 		Last Modify:	Pony 1204111343
 	*/
 	.mobile-type { position: absolute; margin: -5px 0 -85px 103px; width: 58px; height: 80px; background: url({IMGDIR}/mobile-type.png) no-repeat 100% 100%; }
-		.ie6 .mobile-type, .ie7 .mobile-type { margin-left: 88px; }
+		.ie6 .mobile-type, .ie7 .mobile-type { margin-left: 88px; }/*iefix*/
 		.mobile-type a { display: block; width: 46px; height: 80px; background: url({IMGDIR}/mobile-type.png) no-repeat 0 0; }
 			.mobile-type-2 a { background-position: 0 -80px; }
 			.mobile-type-3 a { background-position: 0 -160px; }
 			.mobile-type-4 a { background-position: 0 -240px; }
-		.ie6 .mobile-type, .ie6 .mobile-type a { background-image: url({IMGDIR}/mobile-type-ie6.png) !important; }
+		.ie6 .mobile-type, .ie6 .mobile-type a { background-image: url({IMGDIR}/mobile-type-ie6.png) !important; }/*iefix*/
 	.mobile-location { padding-left: 20px; background: url({IMGDIR}/mobile-attach-2.png) no-repeat 0 0; }
 	/*
 		Name:			threadbeginid
@@ -438,7 +445,8 @@ Created & Modified by Alice, Monkey, Lushnis, Pony, Dfox & DragonLee.
 	*/
 	#threadbeginid { position: fixed; top: 0px; left: 0px; z-index: 999; }
 		#threadbeginid .beginidin { position: absolute; top: 0; right: 0px; z-index: 999; }
-		#threadbeginid .beginidimg { background: white; filter:alpha(opacity=0); opacity: 0; }
+		#threadbeginid .beginidimg { background: white; opacity: 0; }
+		#threadbeginid .beginidimg { filter:alpha(opacity=0); }/*iefix*/
 /** end **/
 
 
@@ -450,6 +458,7 @@ Created & Modified by Alice, Monkey, Lushnis, Pony, Dfox & DragonLee.
 	.fl_tb { width: 100%; }
 		.fl_tb td { padding: 10px 0; }
 		.fl_icn { padding-right: 10px !important; width: 31px; }
+		.ie_all .fl_icn { background: url({IMGDIR}/forum.gif) no-repeat left center; }/*iefix*/
 		.fl_by { width: 220px; }
 			.fl_by div { margin-left: 10px; width: 210px; padding-left: 8px; word-break: keep-all; word-wrap: normal; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
 				.fl_by div .xi2 { zoom: 1; }
@@ -481,7 +490,7 @@ Created & Modified by Alice, Monkey, Lushnis, Pony, Dfox & DragonLee.
 	Last Modify:	Jane
 */
 .bdl { float: left; overflow: hidden; border: 1px solid #BDD7E3; background-color: #F5F9FB; }
-	.ie6 .bdl { position: relative; }
+	.ie6 .bdl { position: relative; }/*iefix*/
 	.bdl_h { height: 32px; line-height: 22px; }
 .bdl .tbn { margin: 10px; }
 	/* 分区 */
@@ -505,9 +514,11 @@ Created & Modified by Alice, Monkey, Lushnis, Pony, Dfox & DragonLee.
 	#autopbn:hover { background: #fff; text-decoration: none; }
 	/* 上涨和下降图标样式 */
 	.ico_increase, .ico_fall { font-family: dzicon; display: inline-block; width: 12px; height: 16px; line-height: 16px; transform: scale(1.5); color: #F6271E; margin: 0 8px; text-align: center; }
-	.ie_all .ico_increase, .ie_all .ico_fall { width: 16px; font-size: 18px; margin: 0 5px; }
+	.ie_all .ico_increase, .ie_all .ico_fall { width: 16px; font-size: 18px; margin: 0 5px; }/*iefix*/
 	.ico_increase:before { content: "\f124"; }
+	.ico_increase { *zoom: expression( this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#xf124;&nbsp;'); }/*iefix*/
 	.ico_fall:before { content: "\f125"; }
+	.ico_fall { *zoom: expression( this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#xf125;&nbsp;'); }/*iefix*/
 	/* 版块热帖日历样式 */
 	#ReTie_review h6 { padding: 0 10px; line-height: 27px; }
 	.review_this { padding: 5px 0 10px; }
@@ -558,7 +569,7 @@ Created & Modified by Alice, Monkey, Lushnis, Pony, Dfox & DragonLee.
 /* fct --> froumatction 板块功能按钮 */
 	.fct a { float: left; margin-left: 8px; }
 	.fa_fav_0:before, .fa_fav:before, .fa_rss:before, .fa_achv:before, .fa_bin:before, .fa_ivt:before { font-family: dzicon; display: inline-block; line-height: 14px; width: 16px; margin-left: 4px; transform: scale(1.5); }
-	.ie_all .fa_fav_0:before, .ie_all .fa_fav:before, .ie_all .fa_rss:before, .ie_all .fa_achv:before, .ie_all .fa_bin:before, .ie_all .fa_ivt:before { font-size: 18px; margin-left: 0; margin-right: 4px; }
+	.ie_all .fa_fav_0:before, .ie_all .fa_fav:before, .ie_all .fa_rss:before, .ie_all .fa_achv:before, .ie_all .fa_bin:before, .ie_all .fa_ivt:before { font-size: 18px; margin-left: 0; margin-right: 4px; }/*iefix*/
 		.fa_fav_0:hover, .fa_fav:hover, .fa_rss:hover, .fa_achv:hover, .fa_bin:hover, .fa_ivt:hover { text-decoration: none; }
 		.fa_fav_0:before { content: "\f12d"; color: #BBB; }
 		.fa_fav:before { content: "\f12d"; color: #FF9C00; }
@@ -605,7 +616,7 @@ Created & Modified by Alice, Monkey, Lushnis, Pony, Dfox & DragonLee.
 			.tl th .tdpre, .tl td.fn .tdpre { visibility: hidden; display: inline; padding: 0 3px; height: 17px; line-height: 17px; margin-top: 3px; background: #548BF6; color: #FFF; text-align: center; text-decoration: none; border-radius: 2px; }
 			.tl th:hover .tdpre, .tl td.fn:hover .tdpre  { visibility: visible; }
 			.tl th .tdpre:visited, .tl td.fn .tdpre:visited { color: #FFF; }
-			.ie6 .tl th .tdpre, .ie6 .tl td.fn .tdpre { display: none; }
+			.ie6 .tl th .tdpre, .ie6 .tl td.fn .tdpre { display: none; }/*iefix*/
 			.tbox { display: inline-block; color: #FFF; height: 17px; line-height: 17px; padding: 0 2px; border-radius: 2px; }
 			.tl .tbox { vertical-align: middle; }
 			.rushrep { background: #904B21; }
@@ -622,7 +633,7 @@ Created & Modified by Alice, Monkey, Lushnis, Pony, Dfox & DragonLee.
 			.tl th, .tl td.fn { padding-right: 1.5em; zoom: 1; }
 				.tl th a:visited, .tl td.fn a:visited { color: {MIDTEXT}; }
 				.fromg { visibility: hidden; }
-				.ie6 .fromg, tr:hover .fromg { visibility: visible; }
+				.ie6 .fromg, tr:hover .fromg { visibility: visible; }/*iefix*/
 			.tl .icn { padding-left: 5px; width: 25px; text-align: left; }
 				.tl .icn a:hover { text-decoration: none; }
 				.tl .tpin { position: relative; }
@@ -635,6 +646,11 @@ Created & Modified by Alice, Monkey, Lushnis, Pony, Dfox & DragonLee.
 				.tl .tpin2 svg { fill: #00ABDE; }
 				.tl .tpin3 svg { fill: #F90; }
 				.tl .tpin4 svg { fill: #F26C4F; }
+				.ie_all .tl .tpin { display: block; width: 18px; height: 18px; }/*iefix*/
+				.ie_all .tl .tpin1 { background: url({IMGDIR}/pin_1.gif); }/*iefix*/
+				.ie_all .tl .tpin2 { background: url({IMGDIR}/pin_2.gif); }/*iefix*/
+				.ie_all .tl .tpin3 { background: url({IMGDIR}/pin_3.gif); }/*iefix*/
+				.ie_all .tl .tpin4 { background: url({IMGDIR}/pin_4.gif); }/*iefix*/
 			.tl .new {}
 			.tl .comm {}
 			.tl .frm { width: 150px; }
@@ -673,7 +689,7 @@ Created & Modified by Alice, Monkey, Lushnis, Pony, Dfox & DragonLee.
 	Last Modify:	Pony 12020309
 */
 .tsm { overflow: hidden; margin-bottom: -10px; width: 100%; border-collapse: collapse !important; }
-	.ie6 .tsm, .ie7 .tsm { margin-bottom: 0; }
+	.ie6 .tsm, .ie7 .tsm { margin-bottom: 0; }/*iefix*/
 	.tsm th { padding: 5px 0 5px 10px; border: none; vertical-align: top; }
 	.tsm td { padding: 5px 10px 5px 0; border: none; vertical-align: top; }
 	.tsm tr:hover th, .tsm tr:hover td { background: none !important; }
@@ -727,12 +743,12 @@ Created & Modified by Alice, Monkey, Lushnis, Pony, Dfox & DragonLee.
 .pattl_c .tip { margin-top: 30px; padding: 5px; width: 88px; }
 .pattimg { float: left; margin: 0 10px 10px 0; width: 100px; height: 100px; overflow: hidden; }
 .pattimg_zoom { position: absolute; display: block; width: 100px; height: 100px; line-height: 300px; overflow: hidden; }
-	.ie_all .pattimg_zoom { background-color: #FFF; filter:alpha(opacity=0); opacity:0; }
+	.ie_all .pattimg_zoom { background-color: #FFF; filter:alpha(opacity=0); opacity:0; }/*iefix*/
 .attl_g, .attl_m { margin-left: 10px; padding-left: 16px; background: url({IMGDIR}/attl_icon.png) no-repeat 0 3px; }
 	.attl_m { background-position: -100px 3px; }
 
 /* 默认分类信息 by michael */
-.ie6 .cgtl { width: auto; }
+.ie6 .cgtl { width: auto; }/*iefix*/
 	.cgtl { overflow: hidden; }
 	.cgtl td, .cgtl th, .cgtl caption { padding: 5px; border-bottom: 1px solid {SPECIALBORDER}; }
 	.cgtl caption { background: {SPECIALBG}; border-top: 1px solid {SPECIALBORDER}; font-size: 14px; font-weight: 700; }
@@ -779,8 +795,8 @@ a.thread_mod { height: 19px; line-height: 19px; display: inline-block; color: #4
 	#imagelist_nav .imagelist_album div.left li div { height: 110px; position: relative; overflow: hidden; cursor: pointer; width: 110px; }
 	#imagelist_nav .imagelist_album div.left li div span { background-color: #000000; bottom: 2px; color: #FFFFFF; display: block; font-size: 12px; height: 14px; line-height: 14px; position: absolute; right: 5px; text-align: center; top:86px; padding: 0 6px; }
 	.photo_pic { width:780px; }
-	.ie6 #photo_pic img { width: expression(this.width > 620 ? 620:true); }
-	.ie6 .photo_pic { width:780px; margin:0 auto; }
+	.ie6 #photo_pic img { width: expression(this.width > 620 ? 620:true); }/*iefix*/
+	.ie6 .photo_pic { width:780px; margin:0 auto; }/*iefix*/
 	.album_side_r { border-left:1px dashed #CDCDCD; }
 	.album_side { padding:20px 10px; font-size:12px; }
 	.album_side .hm { padding:0 0 10px; }
@@ -796,8 +812,8 @@ a.thread_mod { height: 19px; line-height: 19px; display: inline-block; color: #4
 	.authi .show { display:none; }
 	.authi:hover .none { display:none; }
 	.authi:hover .show { display:inline-block; }
-	.ie6 .authi .none { display:none; }
-	.ie6 .authi .show { display:inline-block; }
+	.ie6 .authi .none { display:none; }/*iefix*/
+	.ie6 .authi .show { display:inline-block; }/*iefix*/
 		
 /** end **/
 
@@ -807,7 +823,7 @@ a.thread_mod { height: 19px; line-height: 19px; display: inline-block; color: #4
 	#atarget:before, .unchk:before, .chked:before { font-family: dzicon; display: inline-block; width: 14px; height: 14px; line-height: 14px; font-size: 14px; margin-right: 2px; color: {LIGHTTEXT}; }
 		#atarget:before, .unchk:before { content: "\f12e"; }
 		#atarget.atarget_1:before, .chked:before { content: "\f12f";}
-		.ie_all #atarget, .ie_all .unchk, .ie_all .chked { display: inline-block; height: 20px; line-height: 20px; }
+		.ie_all #atarget, .ie_all .unchk, .ie_all .chked { display: inline-block; height: 20px; line-height: 20px; }/*iefix*/
 		.unchk:hover, .chked:hover { text-decoration: none; }
 
 #a_magic_doodle { padding-left: 20px; background: url({STATICURL}image/magic/doodle.small.gif) 0 50% no-repeat; }
@@ -859,11 +875,12 @@ a.thread_mod { height: 19px; line-height: 19px; display: inline-block; color: #4
 .showhide:hover { background: #09C; }
 .showhide:before { content: "\d7"; font-weight: 700; color: #CCC; }
 .showhide:hover:before { color: #FFF;} 
-.ie6 .showhide { display: none; }
+.ie6 .showhide { display: none; }/*iefix*/
 .pcb .jammer { font-size: 10px; color: {WRAPBG}; }
 /* 屏蔽提示 */
 #hiddenthread { border-top: 1px solid #C2D5E3; border-bottom: 1px solid #C2D5E3; line-height:40px;padding-left:20px;background: #FFFAF3; font-size: 12px; text-align: center; }
-#hiddenthread.last, .ie6 #hiddenthread, .ie7 #hiddenthread, .ie8 #hiddenthread { border-top: none; }
+#hiddenthread.last { border-top: none; }
+.ie_all #hiddenthread { border-top: none; }/*iefix*/
 #hiddenthread a { display: block; text-indent: 25px; height: 29px; line-height: 29px; color: #EFAA00; }
 #hiddenthread a:hover { text-decoration: none; }
 /** end **/
@@ -890,7 +907,7 @@ a.thread_mod { height: 19px; line-height: 19px; display: inline-block; color: #4
 				.pls dt { margin-right: 3px; width: 55px; }
 				.pls dd { width: 70px; }
 					.pls dd img { margin-top: -2px; max-width: 65px; }
-						.ie6 .pls dd img, .ie7 .pls dd img { margin-top: 2px; width: expression(this.width > 65 ? 65 : true); }
+						.ie6 .pls dd img, .ie7 .pls dd img { margin-top: 2px; width: expression(this.width > 65 ? 65 : true); }/*iefix*/
 	.ad .pls { background: {CONTENTSEPARATE}; padding: 0; height: 4px; }
 	.ad .plc { background: {SPECIALBG}; padding: 0; overflow: hidden; }
 	.pl .pnv .pls { background: {SPECIALBG}; border: solid {SPECIALBORDER}; border-width: 0 1px 1px 0; line-height: 16px; }
@@ -925,7 +942,7 @@ a.thread_mod { height: 19px; line-height: 19px; display: inline-block; color: #4
 
 /* 帖子正文区块 */
 	.pcb { clear: left; margin-right: 130px; }
-		.ie6 .pcbs table, .ie6 .t_fsz table { width: auto; }
+		.ie6 .pcbs table, .ie6 .t_fsz table { width: auto; }/*iefix*/
 		.pcb h1, .pcb h2 { margin: 8px 0; font-size: 1.17em; }
 			.pcb h1 a { font-weight: 400; }
 			.pcb h2 em { float: right; font-size: 12px; font-weight: 400; }
@@ -941,7 +958,7 @@ a.thread_mod { height: 19px; line-height: 19px; display: inline-block; color: #4
 			.pcb span.t_tag:hover { border-bottom: 1px solid {NOTICETEXT}; }
 		.pct { padding-bottom: 1em; }
 		.t_fsz { min-height: 100px; }
-			* html .t_fsz { height: 100px; overflow: visible; }
+			* html .t_fsz { height: 100px; overflow: visible; }/*iefix*/
 		.t_f, .t_f td { font-size: {MSGFONTSIZE}; }
 			.t_f a { color: {HIGHLIGHTLINK}; text-decoration: underline; }
 		.t_f ul { margin-left: 14px; }
@@ -953,7 +970,7 @@ a.thread_mod { height: 19px; line-height: 19px; display: inline-block; color: #4
 		.t_f i { font-style: italic; }
 		.sign { overflow: hidden; margin-bottom: 10px; padding-top: 16px; border-top: 1px dashed #CCC; line-height: 1.6em; }
 			.sign::before { content: "SIGNATURE"; float: left; margin-top: -20px; margin-left: -8px; color: #7FCCE5; transform: scale(0.8); letter-spacing: 2px; }
-			* html .sign { height: expression(signature(this)); }
+			* html .sign { height: expression(signature(this)); }/*iefix*/
 			.sign * { line-height: normal; }
 		.po { border-top: 1px dashed {COMMONBORDER}; }
 			.po .y { margin: 8px 0 0 5px; }
@@ -965,7 +982,7 @@ a.thread_mod { height: 19px; line-height: 19px; display: inline-block; color: #4
 			.pob em { float: left;}
 				.pob em a { display: block; float: left; height: 36px; margin-right: 14px; }
 				.pob em a:before { font-family: dzicon; display: inline-block; height: 36px; width: 16px; transform: scale(1.3); margin-left: 2px; margin-right: 4px; color: #FF9C00; }
-				.ie_all .pob em a:before { font-size: 16px; margin-left: 0; margin-right: 6px; }
+				.ie_all .pob em a:before { font-size: 16px; margin-left: 0; margin-right: 6px; }/*iefix*/
 			.cmmnt:before { content: "\f120"; }
 			.fastre:before { content: "\f10d"; }
 			.followp { background: url({IMGDIR}/rt.png) no-repeat 0 50%; }
@@ -1117,13 +1134,13 @@ i.pstatus { display: block; margin-bottom: -30px; font-size: 12px; text-align: c
 	.pl .quote, .pl .blockcode { margin: 10px 0; padding: 10px 10px 10px 65px; zoom: 1; }
 	.pl .quote { padding-bottom: 5px; background: #F9F9F9 url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' width='28' height='27'%3e%3cpath fill='%23d8e7f2' d='M11 16v10H1V16C1 10 7 1 11 1v5c-2 0-5 6-5 10h5zm16 0v10H17V16c0-6 6-15 10-15v5c-2 0-5 6-5 10h5z'/%3e%3c/svg%3e") no-repeat 20px 6px; }
 		.pl .quote blockquote { display: inline-block; margin: 0; padding: 0 65px 5px 0; background: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' width='28' height='27'%3e%3cpath fill='%23d8e7f2' d='M17 11V1h10v10c0 6-6 15-10 15v-5c2 0 5-6 5-10h-5zM1 11V1h10v10c0 6-6 15-10 15v-5c2 0 5-6 5-10H1z'/%3e%3c/svg%3e") no-repeat 100% 100%; line-height: 1.6; zoom: 1; }
-			.ie6 .pl .quote blockquote, .ie7 .pl .quote blockquote { display: inline }
+			.ie6 .pl .quote blockquote, .ie7 .pl .quote blockquote { display: inline }/*iefix*/
 
 	.pl .blockcode { padding: 10px 0 5px 10px; border: 1px solid {WRAPBORDERCOLOR}; background: #F7F7F7 repeat-y 0 0; background-image: linear-gradient(90deg, #EDEDED, #EDEDED); background-size: 43px; overflow: hidden; }
 		.pl .blockcode ol { margin: 0 0 0 10px !important; padding: 0 !important; }
 			.pl .blockcode ol li { padding-left: 10px; list-style-type: decimal-leading-zero; font-family: Monaco,Consolas,'Lucida Console','Courier New',serif; font-size: 12px; line-height: 1.8em; }
 				.pl .blockcode ol li:hover { background: {WRAPBG}; color: {HIGHLIGHTLINK}; }
-			* html .pl .blockcode ol li { font-family: 'Courier New',serif; }
+			* html .pl .blockcode ol li { font-family: 'Courier New',serif; }/*iefix*/
 		.pl .blockcode em { margin-left: 43px; color: {HIGHLIGHTLINK} !important; font-size: 12px; cursor: pointer; user-select: none; }
 		.pl .tindex { padding: 5px; width: 500px; line-height: 22px; border: 1px solid {WRAPBORDERCOLOR}; }
 			.pl .tindex h3 { border-bottom: 1px #ccc dotted; margin-bottom: 10px; padding-left: 10px; }
@@ -1187,7 +1204,7 @@ i.pstatus { display: block; margin-bottom: -30px; font-size: 12px; text-align: c
 			.actl th { width: 60px; }
 		.actfm { height: auto !important; height: 220px; max-height: 220px; overflow-x: hidden; overflow-y: auto; }
 		.actl_pop { overflow: auto; max-width: 200px; max-height: 300px; }
-			.ie6 .actl_pop { width: 200px !important; height: expression(this.offsetHeight > 300 ? 300 : 'auto'); }
+			.ie6 .actl_pop { width: 200px !important; height: expression(this.offsetHeight > 300 ? 300 : 'auto'); }/*iefix*/
 			.actl_pop li { display: block; padding: 3px 0; border-bottom: 1px dashed {COMMONBORDER}; }
 			/* 重定义弹窗里的链接 */
 			.actl_pop a { display: inline; position: static; padding: 0; border: none; white-space: normal; }
@@ -1197,7 +1214,8 @@ i.pstatus { display: block; margin-bottom: -30px; font-size: 12px; text-align: c
 	.rwd {}
 		.rsld, .rusld { width: 90px; height: 114px; padding-top: 4px; background: #FFF3D9; text-align: center; color: #F30; position: relative; border-radius: 8px; }
 		.rsld { background: #EEE; color: {LIGHTTEXT}; }
-			.rsld cite, .rusld cite { display: block; margin: 4px auto 6px; _margin-bottom: -6px; height: 30px; font-size: 28px; }
+			.rsld cite, .rusld cite { display: block; margin: 4px auto 6px; height: 30px; font-size: 28px; }
+			.rsld cite, .rusld cite { _margin-bottom: -6px; }/*iefix*/
 			.rsld em, .rusld em { position: absolute; bottom: 7px; left: 6px; height: 23px; line-height: 23px; text-align: center; width: 78px; color: {LIGHTLINK}; background: #E85500; border-radius: 5px; }
 			.rsld em { background: #009DD0; }
 		.rwdn { margin-left: 110px; }
@@ -1246,7 +1264,7 @@ i.pstatus { display: block; margin-bottom: -30px; font-size: 12px; text-align: c
 	.vw dd .rate { padding-left: 0; }
 	.vw .pcb table { table-layout: fixed; width: 100%; overflow: hidden; }
 		.vw .t_fsz { min-height: 30px; }
-			.ie6 .vw .t_fsz { height: 30px; }
+			.ie6 .vw .t_fsz { height: 30px; }/*iefix*/
 	.vw .pstl { margin-bottom: 1.4em; }
 		.vw .psth { margin-left: 0; }
 	.vw .pdbts { margin-right: 10px; height: 20px; line-height: 20px; background: url({IMGDIR}/pdbtm.gif) no-repeat 0 0; }
@@ -1310,7 +1328,7 @@ i.pstatus { display: block; margin-bottom: -30px; font-size: 12px; text-align: c
 		.tradl .nophoto { height: 130px; line-height: 130px; }
 		.tradl.trads img { max-width: 90px; max-height: 90px; }
 		.tradl.trads .nophoto { width: 90px; height: 90px; line-height: 90px; }
-			* html .tradl img { width: expression(this.width > 130 && this.width>=this.height ? 130 : true); height: expression(this.height > 130 && this.width<=this.height ? 130 : true); }
+			* html .tradl img { width: expression(this.width > 130 && this.width>=this.height ? 130 : true); height: expression(this.height > 130 && this.width<=this.height ? 130 : true); }/*iefix*/
 	.tradl .p { font-family: Arial, sans-serif; font-size: 16px; color: {LIGHTTEXT}; }
 	.tradl .stat { background: url({IMGDIR}/closed.png); color: {LIGHTLINK}; }
 /** end **/
@@ -1504,7 +1522,7 @@ i.pstatus { display: block; margin-bottom: -30px; font-size: 12px; text-align: c
 		.vw .d { margin: 15px 0; min-height: 100px; font-size: 14px; line-height: 1.8; color: #000; }
 			.vw .d i { font-style: italic; }
 			.vw .d img { max-width: 620px; }
-			.ie6 .vw .d img { width: expression(this.width > 620 ? 620:true); }
+			.ie6 .vw .d img { width: expression(this.width > 620 ? 620:true); }/*iefix*/
 			.vwtb { table-layout: fixed; width: 100%; height: 300px; }
 			.vw .pattl_c .tip { line-height: 1.5; }
 			#article_content { vertical-align: top; }
@@ -1577,9 +1595,10 @@ i.pstatus { display: block; margin-bottom: -30px; font-size: 12px; text-align: c
 		.mi th, .mi td { vertical-align: top; }
 		.mi th { width: 145px; }
 		.mi .avatar a { position: relative; }
-			.ie6 .avatar a { float: left; }
+			.ie6 .avatar a { float: left; }/*iefix*/
 			.mi .avatar a:hover { text-decoration: none; }
-			.mi .avatar a span { display: none; position: absolute; bottom: 2px; padding: 5px 0; width: 100%; text-align: center; background: transparent; background: rgba(255, 255, 255, 0.5); cursor: pointer; filter:progid:DXImageTransform.Microsoft.gradient(startColorstr = #50FFFFFF, endColorstr = #50FFFFFF); }
+			.mi .avatar a span { display: none; position: absolute; bottom: 2px; padding: 5px 0; width: 100%; text-align: center; background: transparent; background: rgba(255, 255, 255, 0.5); cursor: pointer; }
+			.mi .avatar a span { filter:progid:DXImageTransform.Microsoft.gradient(startColorstr = #50FFFFFF, endColorstr = #50FFFFFF); }/*iefix*/
 				.mi .avatar a:hover span { display: block; }
 				.mi .avatar img { padding: 3px; border: 1px solid {COMMONBORDER}; }
 		.mifm { position: relative; margin: 10px 0 20px; padding: 5px; width: 370px; background: {COMMONBG}; zoom: 1; }
@@ -1615,13 +1634,14 @@ i.pstatus { display: block; margin-bottom: -30px; font-size: 12px; text-align: c
 	.pic {}
 		.pic .c { margin-top: 20px; text-align: center; }
 			.pic .c img { max-width: 764px; }
-			* html .pic .c img { width: expression(this.width > 764 ? 764 : true); }
+			* html .pic .c img { width: expression(this.width > 764 ? 764 : true); }/*iefix*/
 		.pic p { margin: 5px 0; }
 	.albim_pic_title { padding: 5px; border-top: 1px dashed {COMMONBORDER}; background: {COMMONBG}; }
 
 /* 侧边图片导航 Media list navigation */
 	.mlnv { text-align: center; }
-		.mlnv img { margin: 0 5px; padding: 2px; max-width: 100px; max-height: 100px; _width: expression(this.width > 100 && this.width>=this.height ? 100 : true); height: expression(this._height > 100 && this.width<=this.height ? 100 : true); border: 1px solid {WRAPBORDERCOLOR}; background: {WRAPBG};}
+		.mlnv img { margin: 0 5px; padding: 2px; max-width: 100px; max-height: 100px; border: 1px solid {WRAPBORDERCOLOR}; background: {WRAPBG};}
+		.mlnv img { _width: expression(this.width > 100 && this.width>=this.height ? 100 : true); height: expression(this._height > 100 && this.width<=this.height ? 100 : true); }/*iefix*/
 			.mlnv img.a { border-color: {NOTICETEXT}; background: #FFEAA8; }
 		.mlnv .btn img { padding: 0; border: 0; background: none;  }
 
@@ -1629,13 +1649,14 @@ i.pstatus { display: block; margin-bottom: -30px; font-size: 12px; text-align: c
 /* .sl -> share_list 分享列表 by Pony */
 	.sl {}
 		.sl li { padding: 10px 0; border-bottom: none; }
-		.sl .h { padding: 6px 10px; _height: 1%; background: {COMMONBG}; border-bottom: 1px solid {COMMONBORDER}; }
+		.sl .h { padding: 6px 10px; background: {COMMONBG}; border-bottom: 1px solid {COMMONBORDER}; }
+		.sl .h { _height: 1%; }/*iefix*/
 
 /* .favl -> fav_list 收藏列表 by Pony */
 	.favl .o { background: url({IMGDIR}/op.png) no-repeat -4px -2px; }
 		.favl .o:hover { background-position: -4px -22px; }
-		.ie6 .favl li { position: relative; }
-			.ie6 .favl .o { margin: 0; right: 0; top: 12px; }
+		.ie6 .favl li { position: relative; }/*iefix*/
+			.ie6 .favl .o { margin: 0; right: 0; top: 12px; }/*iefix*/
 
 /* .cmt -> comment feed中的评论区域 by Pony */
 	.cmt { margin: 10px 24px 0 0; padding: 10px; border: 1px solid #EAEAEA; background: {COMMONBG}; zoom: 1; }
@@ -1662,8 +1683,8 @@ i.pstatus { display: block; margin-bottom: -30px; font-size: 12px; text-align: c
 			.pll .h span { font-weight: 400; }
 		.pll .c { margin: 0 84px 0 74px; }
 		.pll ol { margin: 5px 0 0 20px; }
-			* html .pll ol { margin-left: 25px; }
-			*+html .pll ol { margin-left: 25px; }
+			* html .pll ol { margin-left: 25px; }/*iefix*/
+			*+html .pll ol { margin-left: 25px; }/*iefix*/
 			.pll ol li { list-style-type: decimal; padding: 0; border-bottom: none; }
 		.pll .u { overflow: hidden; width: 74px; text-align: center; }
 			.pll .u p { white-space: nowrap; }
@@ -1694,9 +1715,10 @@ i.pstatus { display: block; margin-bottom: -30px; font-size: 12px; text-align: c
 		.rwdl .uslvd { position: absolute; margin-left: -100px; width: 90px; height: 92px; background: #FFF3D9; border-radius: 8px; }
 			.rwdl .uslvd cite { display: block; line-height: 28px; font-size: 28px; margin-top: 10px; text-align: center; color: {NOTICETEXT}; }
 			.rwdl .uslvd span { display: block; line-height: 12px; font-size: 12px; }
-			.rwdl .uslvd em { position: absolute; bottom: 7px; bottom /*\**/: 9px\9; left: 6px; height: 23px; line-height: 23px; text-align: center; width: 78px; color: {LIGHTLINK}; background: #E85500; border-radius: 5px; }
-				* html .rwdl .uslvd em { bottom: 11px; }
-				*+html .rwdl .uslvd em { bottom: 9px; }
+			.rwdl .uslvd em { position: absolute; bottom: 7px; left: 6px; height: 23px; line-height: 23px; text-align: center; width: 78px; color: {LIGHTLINK}; background: #E85500; border-radius: 5px; }
+			.rwdl .uslvd em { bottom /*\**/: 9px\9; }/*iefix*/
+				* html .rwdl .uslvd em { bottom: 11px; }/*iefix*/
+				*+html .rwdl .uslvd em { bottom: 9px; }/*iefix*/
 		.rwdl .slvd { background: #EEE; }
 			.rwdl .slvd cite { color: {LIGHTTEXT}; }
 			.rwdl .slvd em { background: #009DD0; }
@@ -1762,7 +1784,7 @@ i.pstatus { display: block; margin-bottom: -30px; font-size: 12px; text-align: c
 		.pml .newpm .newpm_avt { position: absolute; margin: -5px 0 0 46px; width: 12px; height: 12px; font-size: 12px; background: #C00; border-radius: 6px; }
 		.pm_c { padding-left: 25px; line-height: 22px; }
 			.pm_c .o { float: left; display: inline; margin: 5px 0 0 -25px; }
-			.ie7 .pm_c .o { margin-top: -2px; }
+			.ie7 .pm_c .o { margin-top: -2px; }/*iefix*/
 		.pm_op { padding-left: 75px; }
 		.pm_op_r { padding-right: 110px; }
 		.pm_o a.o { margin: 2px 5px 0}
@@ -1778,7 +1800,7 @@ i.pstatus { display: block; margin-bottom: -30px; font-size: 12px; text-align: c
 				.pm_mn dl { padding: 0; }
 				.pm_mn dd.ptm { margin-top: -1px; padding-top: 0 !important; }
 				.pm_mn .tedt { margin-bottom: 5px; width: 591px; }
-					.ie6 .pm_mn .tedt { width: 587px; }
+					.ie6 .pm_mn .tedt { width: 587px; }/*iefix*/
 					.pm_mn .area { height: 70px; }
 					.pm_mn .tedt .pt { height: 68px; }
 				.pm_mn .avt { display: none; }
@@ -1789,7 +1811,8 @@ i.pstatus { display: block; margin-bottom: -30px; font-size: 12px; text-align: c
 				.pm_add { padding: 10px; }
 					.pm_add .px { width: 90px; }
 		.pm_b { overflow-x: hidden; overflow-y: auto; padding: 10px; height: 300px; }
-			.pm_b img { padding: 2px; max-width: 575px; height: expression(this.height > 575 ? 575 : true); }
+			.pm_b img { padding: 2px; max-width: 575px; }
+			.pm_b img { height: expression(this.height > 575 ? 575 : true); }/*iefix*/
 	.syn_signature, .syn_signature_check { background: url({IMGDIR}/connect_post_syn.png) no-repeat scroll 0 0 transparent; cursor: pointer; display: inline-block; height: 19px; line-height: 64px; opacity: 1; overflow: hidden; vertical-align: -6px; width: 19px; }
 	.syn_signature { background-position: 0 -66px }
 	.syn_signature_check { background-position: -22px -66px; }
@@ -1835,7 +1858,8 @@ i.pstatus { display: block; margin-bottom: -30px; font-size: 12px; text-align: c
 	.scf h2 { line-height: 2.2; font-weight: 700; font-size: 14px; }
 	.scf h2:before { content: "\f101"; font-family: dzicon; line-height: 20px; font-size: 18px; margin-right: 2px; }
 /* 用来展示复杂统计数据的表格，目前仅用户组页面用到 */
-	.tdats { overflow: hidden; zoom: 1; margin: 10px 0; *padding-bottom: 10px; }
+	.tdats { overflow: hidden; zoom: 1; margin: 10px 0; }
+	.tdats { *padding-bottom: 10px; }/*iefix*/
 		.tdats i { font-size: 14px; }
 		.tdats i:before { height: 18px; line-height: 18px; margin-right: 2px; }
 		.tdats th, .tdats td { overflow: hidden; padding: 0 5px; height: 26px; border-width: 0 1px 0 0; border-color: {WRAPBG}; white-space: nowrap; }
@@ -1925,7 +1949,7 @@ i.pstatus { display: block; margin-bottom: -30px; font-size: 12px; text-align: c
 */
 	.un_selector { height: auto; cursor: text; overflow: hidden; }
 		.un_selector input { width: 95px; height: 19px; border-width: 0; outline: none; }
-			.ie6 .un_selector input, .ie7 .un_selector input { height: 17px; }
+			.ie6 .un_selector input, .ie7 .un_selector input { height: 17px; }/*iefix*/
 			.un_selector #subject { width: 408px; }
 		.un_selector span { float: left; margin: 1px 2px 1px 0; width: 100px; height: 19px; line-height: 19px; background: #F7F6ED; color: {HIGHLIGHTLINK}; overflow: hidden; }
 			.un_selector em { padding-left: 5px; width: 80px; }
@@ -1935,7 +1959,7 @@ i.pstatus { display: block; margin-bottom: -30px; font-size: 12px; text-align: c
 		a.appendmb, a.appendmb span { height: 25px; line-height: 25px !important; }
 	/* 发短消息时根据输入显示出的用户名列表样式 */
 	.pmfrndl { position: absolute; margin-top: 3px; padding: 4px; width: 120px; border: solid {DROPMENUBORDER}; border-width: 0 1px 1px; background: #FFF; }
-		.ie6 .pmfrndl, .ie7 .pmfrndl { margin-top: 4px; }
+		.ie6 .pmfrndl, .ie7 .pmfrndl { margin-top: 4px; }/*iefix*/
 		.pmfrndl li { display: inline; }
 			.pmfrndl a { display: block; padding: 4px 2px; color: {HIGHLIGHTLINK}; }
 				.pmfrndl a:hover { text-decoration: none; }
@@ -1984,7 +2008,8 @@ i.pstatus { display: block; margin-bottom: -30px; font-size: 12px; text-align: c
 		.apps img { vertical-align: middle; }
 		.apps .y a { margin-right: 20px; }
 	.note { padding: 0 15px; }
-		.note li { margin-left: 20px; *margin-left: 25px; }
+		.note li { margin-left: 20px; }
+		.note li { *margin-left: 25px; }/*iefix*/
 
 /* 应用首页应用列表定高 by Pony */
 	.appmaxh .bm_c { height: 140px; }
@@ -1992,7 +2017,7 @@ i.pstatus { display: block; margin-bottom: -30px; font-size: 12px; text-align: c
 
 /* 应用列表中新应用和热门应用图标 by Pony */
 	.appl li { position: relative; }
-		.ie6 .appl li { width: 100%; }
+		.ie6 .appl li { width: 100%; }/*iefix*/
 		.appnew, .apphot { position: absolute; right: 0; width: 20px; height: 100%; background-color: {SIDEBGCOLOR}; background-repeat: no-repeat; background-position: 100% 50%; }
 			.appnew { background-image: url({IMGDIR}/appnew.png); }
 			.apphot { background-image: url({IMGDIR}/apphot.png); }
@@ -2025,6 +2050,7 @@ body { background: none !important; }
 		#scform_submit { width: 100px; height: 35px; background: {MENUBGCOLOR}; border: 0; color: #FFF; cursor: pointer; font-size: 18px; border-radius: 0 5px 5px 0; }
 			#scform_submit:before { content: "\f101"; font-family: dzicon; }
 			#scform_submit strong { display: none; }
+			.ie6 #scform_submit strong, .ie7 #scform_submit strong { display: inline; }/*iefix*/
 			#scform_submit:focus { outline: 0; }
 	.sttl { margin: 10px 0; padding: 5px; border-bottom: 1px solid #CCC; background: #F5F5F5; }
 	.slst { width: 760px; }
@@ -2053,10 +2079,10 @@ body { background: none !important; }
 .rnk1 {}
 	.rnk1 .mlp .d { width: 120px; height: 120px; }
 	.rnk1 .mlp img { max-width: 100px; max-height: 75px; }
-		.ie6 .rnk1 .mlp img { width: expression(this.width > 100 && this.width>=this.height ? 100 : true); height: expression(this.height > 75 && this.width<=this.height ? 75 : true); }
+		.ie6 .rnk1 .mlp img { width: expression(this.width > 100 && this.width>=this.height ? 100 : true); height: expression(this.height > 75 && this.width<=this.height ? 75 : true); }/*iefix*/
 	.rnk1 .mlp .bigpic { width: 295px; height: 240px; }
 		.rnk1 .bigpic img { max-width: 286px; max-height: 200px; }
-			.ie6 .rnk1 .bigpic img { width: expression(this.width > 286 && this.width>=this.height ? 286 : true); height: expression(this.height > 200 && this.width<=this.height ? 200 : true); }
+			.ie6 .rnk1 .bigpic img { width: expression(this.width > 286 && this.width>=this.height ? 286 : true); height: expression(this.height > 200 && this.width<=this.height ? 200 : true); }/*iefix*/
 
 /* 图片排名上的序号 */
 .picrank { position: absolute; margin: -10px 0 0 -10px !important; }
@@ -2105,6 +2131,7 @@ body { background: none !important; }
 .clct_list .xld { float: left; margin-bottom: 5px; width: 49.9%; height: 105px; overflow: hidden; }
 	.clct_list .xld .m, .clct_list .xld .m a { width: 55px; height: 50px; overflow: hidden; cursor: pointer; }
 		.clct_list .xld .m { background: linear-gradient(0deg, #B2C0DC 40%, #D8DEEA 40%) no-repeat 100% 0; border-radius: 3px; }
+		.clct_list .xld .m { background-color: #D8DEEA; }/*iefix*/
 		.clct_list .xld .m a:hover { text-decoration: none; }
 		.clct_list .xld .m strong { display: block; height: 32px; line-height: 32px; }
 		.clct_list .xld .m span { display: block; color: #FFF; }
@@ -2152,7 +2179,7 @@ body { background: none !important; }
 .flw_author, .flw_author a { color: #79869E; }
 .flw_article .c { font-size: 14px; line-height: 1.8; }
 	.flw_article .c img { display: block; margin: 10px 0; max-width: 600px; }
-		.ie6 .flw_article .c img { width: expression(this.width > 600 ? 600 : true); }
+		.ie6 .flw_article .c img { width: expression(this.width > 600 ? 600 : true); }/*iefix*/
 	.flw_article .c .s { display: inline; margin: 0; }
 	.unread .flw_article { background-color: #FEFEEE; }
 		.unread .flw_article h2 a { color: {HIGHLIGHTLINK}; font-weight: 700; }
@@ -2174,7 +2201,7 @@ body { background: none !important; }
 .flw_readfull { padding: 3px 5px; border: 1px solid #DDD; border-radius: 3px; background: #FFF; }
 	.flw_readfull:hover { border-color: #9EB4C2; text-decoration: none; }
 .flw_delete { visibility: hidden; float: right; width: 20px; height: 20px; background: #AAA; overflow: hidden; font-size: 16px; text-align: center; line-height: 20px; border-radius: 2px; }
-	.ie8 .flw_delete { position: relative; z-index: 1; }
+	.ie8 .flw_delete { position: relative; z-index: 1; }/*iefix*/
 	.flw_delete:before { content: "\d7"; color: #fff; font-weight: 700; }
 	.flw_delete:hover { background: #15AFDB; text-decoration: none; }
 	.flw_feed_hover .flw_delete { visibility: visible; }
@@ -2187,7 +2214,7 @@ body { background: none !important; }
 .flw_btn_fo, .flw_btn_unfo { float: right; width: 68px; height: 19px; line-height: 19px; background: #f4f1c4; text-align: center; overflow: hidden; color: #B3AC5C; border: 1px solid; }
 	.flw_btn_unfo { background: #EEE; }
 	.flw_btn_fo:before { font-family: dzicon; font-size: 16px; margin-right: 4px; content: "\f108"; }
-	.ie6 .flw_btn_fo, .ie7 .flw_btn_fo { position: relative; z-index: 1; }
+	.ie6 .flw_btn_fo, .ie7 .flw_btn_fo { position: relative; z-index: 1; }/*iefix*/
 	.flw_uheader .flw_btn_fo, .flw_uheader .flw_btn_unfo, .flw_hd .flw_btn_fo, .flw_hd .flw_btn_unfo { float: left; }
 
 /* 发广播 */
@@ -2250,7 +2277,7 @@ body { background: none !important; }
 		.flw_autopt { display: inline-block; vertical-align: top; margin: 0 5px 0 0; padding: 0 5px; width: 420px; }
 			td.flw_autopt { margin-right: 0; }
 			.flw_autopt .pts { padding: 5px; margin: 0 -5px; width: 100%; height: 19px; min-height: 19px; border: 0; }
-			.ie8 .flw_autopt .pts, .ie9 .flw_autopt .pts { min-height: 21px; }
+			.ie8 .flw_autopt .pts, .ie9 .flw_autopt .pts { min-height: 21px; }/*iefix*/
 	.flw_replybox .pnc { width: 77px; height: 33px; border: none; background: transparent url({IMGDIR}/pn_reply.png) no-repeat 0 0; }
 		.flw_replybox .pnc span { line-height: 99px; }
 		.flw_replybox td table .pnc { background-image: url({IMGDIR}/pn_rt.png); }
@@ -2282,9 +2309,9 @@ body { background: none !important; }
 	.my_flw_stats li { margin-bottom: 7px; padding-bottom: 7px; border-bottom: 1px solid {COMMONBORDER}; }
 		.my_flw_stats .xg1 { padding-right: 10px; }
 
-.ie6 .tb .a { position: static; }
+.ie6 .tb .a { position: static; }/*iefix*/
 #flw_bar .fpd { position: relative; zoom: 1; }
-.ie6 #flw_bar object { position: absolute; }
+.ie6 #flw_bar object { position: absolute; }/*iefix*/
 
 /*
 	Name:			mod_follow_flashupload
@@ -2317,7 +2344,7 @@ body { background: none !important; }
 		#livereplycontent dl dd a { color:{HIGHLIGHTLINK}; }
 	#livereplycontent dl dd.dateline { position: absolute; top: 10px; right: 0; padding: 0; color: #999; }
 #livereplymessage{ width: 100%; line-height:28px; height: 33px; padding: 0px !important; border: none; outline: 0px; background: white none; overflow-y: auto; }
-	.ie6 #livereplycontent dl, .ie7 #livereplycontent dl { width: 97%; }
+	.ie6 #livereplycontent dl, .ie7 #livereplycontent dl { width: 97%; }/*iefix*/
 	#livethread { background: #F5F9FB; border-top:2px solid #BDD7E3; }
 .livethreadtitle { margin-bottom:5px; }
 	.livethreadtitle a { color:{HIGHLIGHTLINK}; font-size: 14px; }
