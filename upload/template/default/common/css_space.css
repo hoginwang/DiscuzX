@@ -5,7 +5,6 @@ body { background-color: transparent; }
 			#hd h2 strong { display: block; }
 		#nv { position: absolute; left: 10px; height: auto; bottom: 0; background: transparent none; }
 			#nv li, #home { margin-right: 1px; padding: 0 6px; border: none; height: 30px; background: rgba(255, 255, 255, 0.7); line-height: 30px; font-size: 12px; }
-			#space #nv li, #space #home { filter:progid:DXImageTransform.Microsoft.gradient(startColorstr = #70FFFFFF, endColorstr = #70FFFFFF); }/*iefix*/
 				#nv a, #nv a:visited { padding: 0 14px; color: #333; }
 		#ct, .n, .w { padding-top: 15px; border: none; background: transparent none !important; }
 		.area { padding: 0 5px; }
@@ -43,7 +42,6 @@ body { background-color: transparent; }
 	.mla li, .mlp li { width: 133px; }
 	.buddy li { width: 156px; }
 	.pic .c img { max-width: 714px; }
-		* html #space .pic .c img { width: expression(this.width > 714 ? 714 : true); }/*iefix*/
 	.ul_list {}
 		.ul_list a { padding: 2px 0; }
 		.ul_list li:before { font-family: dzicon; line-height: 14px; font-size: 16px; color: #7DA0CC; margin-right: 4px; }

@@ -121,8 +121,6 @@ CSS 写作注意事项：
 	[class^="fico-"]:before, [class*=" fico-"]:before { font-family: "dzicon"; font-style: normal; font-weight: normal; speak: none; display: inline-block; text-decoration: inherit; width: 1em; margin-right: .2em; text-align: center; font-variant: normal; text-transform: none; line-height: 1em; font-size: 120%; }
 	/* font icon size */
 	.fic4 { font-size: 14px; }.fic6 { font-size: 16px; }.fic8 { font-size: 18px; }
-	.ie_all .fic4 { font-size: 17px; }.ie_all .fic6 { font-size: 19px; }.ie_all .fic8 { font-size: 22px; }/*iefix*/
-	.ie8 .fic4:before { font-size: 17px; }.ie8 .fic6:before { font-size: 19px; }.ie8 .fic8:before { font-size: 22px; }/*iefix*/
 	/* flip x */
 	.fifx::before { transform: scale(-1,1); }
 	/* font rotate */
@@ -154,7 +152,6 @@ CSS 写作注意事项：
 	Last Modify:	lushnis
 */
 	hr { display: block; clear: both; }
-	hr { *margin-top: -8px !important; *margin-bottom: -8px !important; }/*iefix*/
 		.mn hr, .sd hr { margin: 0 10px; }
 		.area hr { margin-left: 0 !important; margin-right: 0 !important; }
 /*
@@ -180,7 +177,6 @@ CSS 写作注意事项：
 
 	/* [!]使用注意 */
 	hr.bk { margin-bottom: 10px !important; height: 0; border: none; border-top: 1px solid {WRAPBG}; background: transparent; color: transparent; }
-	hr.bk { *margin-bottom: 2px !important; }/*iefix*/
 		.n .sd hr.bk { border-top-color: #F9F9F9; }
 	/* 清除Margin */
 	hr.m0 { margin-left: 0; margin-right: 0; }
@@ -396,7 +392,6 @@ CSS 写作注意事项：
 	.cur1 { cursor: pointer; }
 
 /* 如果验证码有错乱，可添加此样式.sec（全局，修改时要小心，会涉及分享、快速回复和 feed日志相册中的评论等地方） by Pony */
-.ie6 .sec .p_pop { white-space: expression(this.offsetWidth >= 220 ? 'normal' : 'nowrap'); width: expression(this.offsetWidth >= 220 ? 200 : 'auto'); }/*iefix*/
 
 
 /* ------------------------------------------------------------------------ 表单及表单元素 */
@@ -449,17 +444,12 @@ CSS 写作注意事项：
 	.pn { vertical-align: middle; overflow: hidden; margin-right: 3px; padding: 0; height: 23px; border: 1px solid #999; background: #EEE; cursor: pointer; -moz-box-shadow: 0 1px 0 #E5E5E5; -webkit-box-shadow: 0 1px 0 #E5E5E5; box-shadow: 0 1px 0 #E5E5E5; border-radius: 3px; }
 		.pn:active { background: #dbdbdb; }
 		.pn:focus { box-shadow: 0 0 0 2px rgba(153, 153, 153, 0.25); outline: 0; }
-		.ie6 .pn { overflow-x: visible; width: 0; }/*iefix*/
 
 		.pn em, .pn span, .pn strong { padding: 0 10px; line-height: 21px; }
 			.pn em, .pn strong  { font-weight: 700; }
-		.ie7 .pn em, .ie7 .pn span, .ie7 .pn strong { padding: 0 5px; line-height: 18px; }/*iefix*/
 
 	a.pn { height: 21px; line-height: 21px; color: {TABLETEXT} !important; }
 		a.pn:hover { text-decoration: none; }
-		.ie6 a.pn { width: auto; }/*iefix*/
-		.ie6 a.pn em, .ie6 a.pn span, .ie6 a.pn strong { display: block; }/*iefix*/
-		.ie7 a.pn em, .ie7 a.pn span, .ie7 a.pn strong { line-height: 21px; }/*iefix*/
 
 	.pnc, a.pnc { border-color: #235994; background-color: #06C; color: #FFF !important; }
 		.pnc:active { background: #2458A7; }
@@ -475,7 +465,6 @@ CSS 写作注意事项：
 	Last Modify:	Pony
 */
 	.pr, .pc { vertical-align: middle; margin: 0 5px 1px 0; padding: 0; }
-		.ie6 .pr, .ie6 .pc, .ie7 .pr, .ie7 .pc { margin-right: 2px; }/*iefix*/
 	.lb { margin-right: 20px; }
 
 
@@ -560,7 +549,6 @@ CSS 写作注意事项：
 	Last Modify:	Pony
 */
 .pbt { margin-bottom: 10px; }
-	.ie6 .pbt .ftid a, .ie7 .pbt .ftid a { margin-top: 1px; }/*iefix*/
 	#custominfo.mtn { margin-bottom: -5px; }
 
 /* 提示信息 alert_win － altw*/
@@ -569,12 +557,9 @@ CSS 写作注意事项：
 		.alert_right, .alert_error, .alert_info { padding: 6px 0 6px 58px; min-height: 40px; height: auto !important; height: 40px; line-height: 160%; font-size: 14px; position: relative; }
 			.alert_right:before, .alert_error:before, .alert_info:before { display: block; position: absolute; left: 6px; height: 38px; width: 38px; font-family: dzicon; font-size: 38px; line-height: 38px; }
 		.alert_right:before { content: "\f115"; color: #18BD9D; }
-		.ie6 .alert_right, .ie7 .alert_right { background: url({IMGDIR}/right.gif) no-repeat 8px 8px; }/*iefix*/
 		.alert_error:before { content: "\f116"; color: #F7A21D; }
-		.ie6 .alert_error, .ie7 .alert_error { background: url({IMGDIR}/error.gif) no-repeat 8px 8px; }/*iefix*/
 			.alert_error a { font-weight: 700; color: {HIGHLIGHTLINK}; }
 		.alert_info:before { content: "\f117"; color: #2F92D4; }
-		.ie6 .alert_info, .ie7 .alert_info { background: url({IMGDIR}/info.gif) no-repeat 8px 8px; }/*iefix*/
 		.alert_btnleft { margin-top: 8px; }
 		.alert_btn { margin-top: 20px; text-align: center; }
 		.alert_act { margin-top: 20px; padding-left: 58px; }
@@ -623,7 +608,6 @@ CSS 写作注意事项：
 		#hd .wp { padding: 10px 0 0; }
 
 			.hdc { min-height: 70px; }
-				.ie6 .hdc { height: 70px; }/*iefix*/
 			#hd h2 { padding: 0 20px 12px 0; float: left; }
 				#space #hd h2 { margin-top: 0; }
 			#hd .fastlg { padding-top: 10px; }
@@ -635,19 +619,14 @@ CSS 写作注意事项：
 					.scbar_narrow #scbar_txt { width: 260px; }
 				.scbar_btn_td { width: 38px; }
 					#scbar_btn { display: block; margin: 0 0 0 8px; padding: 0 0 0 2px; border: none; height: 28px; width: 28px; {MENUBGCODE}; font-size: 18px; line-height: 28px; }
-					#scbar_btn { *font-family: 'dzicon'; *text-align: center; *zoom: expression( this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#xf101;&nbsp;'); }/*iefix*/
 						#scbar_btn:before { content: "\f101"; font-family: dzicon; }
 				.scbar_type_td { width: 61px; }
 					#scbar_type { display: block; padding-left: 12px; margin-left: -2px; text-align: left; text-decoration: none; height: 28px; line-height: 28px; border: 1px solid #cfdee3; border-left: 0; background: #fff; }
-					.ie8 #scbar_txt { display: block; }/*iefix*/
-					.ie8 #scbar_type { margin-left: 0; }/*iefix*/
 				#scbar_hot { padding-left: 8px; height: 45px; overflow: hidden; }
 					#scbar_hot strong, #scbar_hot a { float: left; margin-right: 8px; white-space: nowrap; }
 
 			#nv { overflow: hidden; height: 33px; {MENUBGCODE}; }
 				#nv li { float: left; padding-right: 1px; height: 33px; line-height: 33px; background: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' width='1' height='33'%3e%3cpath fill='%23fff' fill-opacity='0.2' d='M0 7h1v20H0z'/%3e%3c/svg%3e") no-repeat 100% 0; font-weight: 700; font-size: 14px; }
-					.ie_all #nv li { line-height: 36px; }/*iefix*/
-					.ie6 #nv li { line-height: 33px; }/*iefix*/
 					#nv li a { float: left; padding: 0 15px; height: 33px; }
 						#nv li a { color: {MENUTEXT}; }
 						#nv li span { display: none; }
@@ -656,22 +635,18 @@ CSS 写作注意事项：
 						#nv li a:hover { background: {MENUHOVERBGCOLOR}; }
 						#nv li.hover a:hover, #nv li.hover a { background: {MENUHOVERBGCOLOR} url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' width='8' height='4'%3e%3cpath fill='%23fff' d='M0 4h8L4 0z'/%3e%3c/svg%3e") no-repeat bottom center; }
 			#mu { position: relative; z-index: 1; }
-				.ie6 #mu, .ie7 #mu { line-height: 0; font-size: 0; }/*iefix*/
 				#mu ul { line-height: 22px; z-index: 2; font-size: 12px; }
 					#mu li { float: left; height: 32px }
 						#mu a { float: left; display: inline; margin: 5px 6px; padding: 0 10px; white-space: nowrap; }
 							#mu a:hover { margin: 4px 5px; border: 1px solid {SPECIALBORDER}; background: {SPECIALBG}; color: {HIGHLIGHTLINK}; text-decoration: none; }
 				.floatmu { position: absolute; left: 0; top: 0; }
 			#um { padding-top: 10px; padding-right: 60px; padding-bottom: 14px; line-height: 2.3; zoom: 1; }
-			#um { _padding-right: 54px; }/*iefix*/
 				#um, #um a { color: {HEADERTEXT}; }
 				#um p { text-align: right; }
 				#um .avt { display: inline; margin-right: -60px; }
 				/* .vwmy */
 					.vwmy:before { font-family: dzicon; content: "\f100"; display: inline-block; height: 14px; line-height: 14px; font-size: 16px; color: #7DA0CC; margin-right: 2px; }
-					.vwmy { *font-family: dzicon,{FONT}; *zoom: expression( this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#xf100;&nbsp;'+this.innerHTML); }/*iefix*/
 					.vwmy.qq:before { content: "\f118"; }
-					.vwmy.qq { *zoom: expression( this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#xf118;&nbsp;'+this.innerHTML); }/*iefix*/
 				/* .topnav .new, .sch .new 分别为为个人中心和搜索页面头部新消息样式 */
 				#um .new, .topnav .new, .sch .new, #toptb .new { color: {HIGHLIGHTLINK}; font-weight: 700; }
 				#um .new:before, .topnav .new:before, .sch .new:before, #toptb .new:before { display: inline-block; width: 16px; height: 14px; line-height: 14px; font-size: 16px; font-family: dzicon; margin-right: 2px; color: {NOTICETEXT}; }
@@ -682,7 +657,6 @@ CSS 写作注意事项：
 
 				#extcreditmenu, #g_upmine { margin-right: 2px !important; padding-top: 3px; padding-bottom: 3px; padding-left: 10px; }
 					#g_upmine { margin-right: 1px !important; border: 1px solid transparent; }
-						.ie6 #g_upmine { border: 0; }/*iefix*/
 					#extcreditmenu.a, #g_upmine.a { position: relative; z-index: 302; margin-right: 1px !important; border: 1px solid; border-color: {DROPMENUBORDER}; border-bottom: none; background-color: {WRAPBG}; }
 					#extcreditmenu_menu, #g_upmine_menu { margin-top: -1px; width: auto; }
 						#extcreditmenu_menu li { float: none; display: block; padding-left: 5px !important; padding-right: 1em !important; }
@@ -696,7 +670,6 @@ CSS 写作注意事项：
 					#qmenu.a::after { border-top: 0; border-bottom: 0.3em solid; }
 				#qmenu_menu { margin-top: -2px; padding: 20px 5px 10px; width: 610px; border-color: #DCE4EB; }
 					#qmenu_menu ul.nav li { float: left; }
-						.ie6 #qmenu_menu ul.nav li { clear: none !important; width: auto !important; }/*iefix*/
 					#qmenu_menu ul.nav a { margin-bottom: 10px; padding: 47px 0 0; width: 60px; border: none; border-radius: 4px; background: no-repeat 50% 5px; background-image: linear-gradient(0deg, #e8eff5, #e8eff5); background-size: 40px 40px; text-align: center; }
 						#qmenu_menu ul.nav a:hover { background-color: {SPECIALBG}; color: {HIGHLIGHTLINK}; text-shadow: none; }
 				#shortcut { position: relative; display: none; height: 30px; line-height: 30px; background-color: #3A83F1; color: white; text-align: center; }
@@ -705,17 +678,14 @@ CSS 写作注意事项：
 						#shortcutcloseid:before { content: "\d7"; color: #fff; font-weight: 700; }
 /* 页面主区域 */
 	#ct { min-height: 300px; }
-		.ie6 #ct { height: 300px; }/*iefix*/
 		.mn { overflow: hidden; }
 		.ct1 { border: 1px solid {WRAPBORDERCOLOR}; border-top: none; }
 		.ct2 .mn { float: left; width: 730px; margin-bottom: 1em; }
 		.ct2 .sd { float: right; width: 220px; overflow: hidden; }
-		.ct2 .sd { _overflow-y: visible; }/*iefix*/
 
 		.appl { float: left; overflow: hidden; margin-bottom: 10px; padding: 6px 10px; width: 117px; }
 
 		.ct2_a, .ct3_a { border: 1px solid {WRAPBORDERCOLOR}; background: repeat-y 0 0; background-image: linear-gradient(0deg, {SIDEBGCOLOR}, {SIDEBGCOLOR}); background-size: 137px; }
-		.ct2_a, .ct3_a { background-image: url({IMGDIR}/vlineb.png); }/*iefix*/
 			.ct2_a_r { border: none; background-image: none; }
 			 .ct2_a h1.mt { display: none; }
 			 .ct2_a .tb { margin-top: 3px; }
@@ -738,17 +708,12 @@ CSS 写作注意事项：
 			#flk img { vertical-align: middle; }
 		#scrolltop { visibility: hidden; position: fixed; bottom: 100px; display: block; margin: -30px 0 0 2px; width: 40px; background: #f4f4f4; border: 1px #cdcdcd solid; border-radius: 3px; border-top: 0; cursor: pointer; }
 			#scrolltop:hover { text-decoration: none; }
-		.ie6 #scrolltop { position: absolute; bottom: auto; }/*iefix*/
 			#scrolltop a { display: block; width: 30px; height: 24px; padding: 3px 5px; line-height: 12px; text-align: center; color: #BBB; text-decoration: none; border-top: 1px #cdcdcd solid; }
-			#scrolltop a { *font-family: dzicon; *font-size: 24px; *line-height: 24px; }/*iefix*/
 			#scrolltop a:before { display: inline-block; font-family: dzicon; width: 24px; font-size: 24px; line-height: 24px; }
 			#scrolltop a:hover { color: #72A3D3; }
 				#scrolltop a.scrolltopa:before { content: "\f11b"; }
-				#scrolltop a.scrolltopa { *zoom: expression( this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#xf11b;&nbsp;'); }/*iefix*/
 				#scrolltop a.replyfast:before { content: "\f11c"; }
-				#scrolltop a.replyfast { *zoom: expression( this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#xf11c;&nbsp;'); }/*iefix*/
 				#scrolltop a.returnlist:before, #scrolltop a.returnboard:before { content: "\f11d"; }
-				#scrolltop a.returnlist, #scrolltop a.returnboard { *zoom: expression( this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#xf11d;&nbsp;'); }/*iefix*/
 					#scrolltop a b { visibility: hidden; font-weight: normal; }
 
 		/*	#scrolltop span { visibility: hidden; }*/
@@ -803,7 +768,6 @@ CSS 写作注意事项：
 		#pt .z a, #pt .z em, #pt .z span { float: left; height: 29px; }
 		#pt .z em { width: 20px; height: 29px; text-align: center; color: #bdbdbd; }
 		.nvhm { width: 16px; font-family: dzicon; text-align: center; font-size: 16px; color: #C5D7E3; overflow: hidden; }
-		.nvhm { *zoom: expression( this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#xf103;&nbsp;'); }/*iefix*/
 			.nvhm:before { content: "\f103"; }
 			.nvhm:hover { text-decoration: none; }
 /*
@@ -816,7 +780,6 @@ CSS 写作注意事项：
 #uhd { padding-top: 10px;border: 1px solid #CCC; border-bottom: none; background: {SPECIALBG}; }
 	#uhd .tb a { border-width: 1px 0; border-top-color: {SPECIALBG}; border-bottom-color: {WRAPBORDERCOLOR}; }
 	#uhd .tb .a a { border: 1px solid #CCC; border-bottom-color: #FFF; }
-	.ie6 #uhd .tb .a { position: relative; }/*iefix*/
 	#uhd .mn { float: right; margin-right: 15px; margin-bottom: -30px; width: auto; line-height: 28px; }
 		#uhd .mn li:before { font-family: dzicon; line-height: 14px; font-size: 16px; color: #7DA0CC; }
 		#uhd .mn a { padding: 2px 0; color: {MIDTEXT}; }
@@ -860,7 +823,6 @@ CSS 写作注意事项：
 */
 .tb { margin-top: 10px; padding-left: 5px; line-height: 30px; border-bottom: 1px solid {COMMONBORDER}; }
 	.tb li { float: left; margin: 0 3px -1px 0; }
-		.ie6 .tb .a, .ie6 .tb .current { position: relative; }/*iefix*/
 	.tb a { display: block; padding: 0 10px; border: 1px solid {COMMONBORDER}; background: {SPECIALBG}; }
 		.tb .a a, .tb .current a { border-bottom-color: {WRAPBG}; background: {WRAPBG}; font-weight: 700;}
 		.tb a:hover { text-decoration: none; }
@@ -870,7 +832,6 @@ CSS 写作注意事项：
 	.tb .o { margin: 1px 4px 0 2px; border: 1px solid #235994; }
 	.tb .o, .tb .o a { height: 23px; line-height: 23px; background: #06C; }
 		.tb .o a { padding: 0 15px; border: none; font-weight: 700; color: #FFF; }
-		.ie6 .tb .o a { float: left; }/*iefix*/
 	.tb_h { margin: 0; padding: 0; background-color: {SPECIALBG}; }
 		.tb_h li { margin-right: 0; }
 		.tb_h a { border-top: none; border-left: none; }
@@ -907,12 +868,9 @@ CSS 写作注意事项：
 	/* 漂浮广告 */ .a_fl, .a_fr { float: right; position: fixed; top: 350px; z-index: 100; }
 		.a_fl { left: 0; }
 		.a_fr { right: 0; text-align: right; }
-		* html .a_fl, * html .a_fr { position: absolute; top: expression(offsetParent.scrollTop+350); }/*iefix*/
 	/* 对联广告 */ .a_cb { top: 20px }
-		* html .a_cb { top: expression(offsetParent.scrollTop+20); }/*iefix*/
 	/* 文章漂浮广告 */ .a_af { float:left; margin-right: 10px; margin-bottom: 10px; }
 	/* 右下角广告 */ .a_cn { position: fixed; right: 10px; bottom: 10px; z-index: 300; }
-		* html .a_cn { position: absolute; top: expression(offsetParent.scrollTop+document.documentElement.clientHeight-this.offsetHeight); }/*iefix*/
 		.a_cn .close { text-align: right; }
 
 	.a_h, .a_mu, .a_c, .a_p, .a_f, .a_t { text-align: center; }
@@ -949,9 +907,7 @@ CSS 写作注意事项：
 		/* text with thumbnail image ( must with the additional class .cl ) */
 		.xld .m { float: left; margin: 8px 8px 10px 0; }
 		.xld .atc { float: right; margin-left: 20px; }
-			.ie8 .xld .atc { max-width: 86px; }/*iefix*/
 			.xld .atc img { padding: 2px; max-width: 80px; max-height: 80px; border: 1px solid #CCC; background: {WRAPBG}; }
-				.ie6 .xld .atc img { width: expression(this.width > 80 && this.width>=this.height ? 80 : true); height: expression(this.height > 80 && this.width<=this.height ? 80 : true); }/*iefix*/
 		.xld a.d, .xl a.d, .attc a.d, .c a.d, .sinf a.d { float: right; width: 14px; height: 14px; border-radius: 7px; margin-left: 3px; margin-right: 3px; overflow: hidden; line-height: 14px; text-align: center; background: #ccc; }
 			.attc a.d { float: left; }
 		.xld a.d:hover, .xl a.d:hover, .attc a.d:hover, .c a.d:hover, .sinf a.d:hover { background-color: #f99; text-decoration: none; }
@@ -962,7 +918,6 @@ CSS 写作注意事项：
 		.xlda .m { display: inline; margin: 8px 0 8px -65px; }
 		.xlda .avt img { display: block; }
 		.xlda dd img { max-width: 550px; }
-			* html .xlda dd img { width: expression(this.width > 550 ? 550 : true); }/*iefix*/
 		.xlda dd a { color: {HIGHLIGHTLINK}; }
 		.xlda dd .hot { color: {NOTICETEXT}; }
 
@@ -986,11 +941,9 @@ CSS 写作注意事项：
 			.mla .c a:hover { text-decoration: none; }
 			.mla .c .nophoto { height: 120px; line-height: 120px; }
 		.mla img { max-width: 120px; max-height: 120px; }
-		.mla img { _width: expression(this.width > 120 && this.width>=this.height ? 120 : true); _height: expression(this.height > 120 && this.width<=this.height ? 120 : true); }/*iefix*/
 	.mlp li { width: 140px; height: 140px; }
 	.mlp .d { padding: 0 0 5px; width: 150px; height: 180px; }
 		.mlp img { padding: 2px; max-width: 120px; max-height: 120px; border: 1px solid #CCC; background: {WRAPBG}; }
-		* html .mlp img { width: expression(this.width > 120 && this.width>=this.height ? 120 : true); height: expression(this.height > 120 && this.width<=this.height ? 120 : true); }/*iefix*/
 
 /* 用户头像列表时，各种状态图标。.gm -> 管理员; .gs -> 明星会员 ; .gol -> 在线会员; .god -> 删除标记 */
 .gm, .gs, .gol, .god { position: absolute; overflow: hidden; margin: -3px 0 0 -3px; width: 60px; height: 18px; display: block;/* ie6 */ }
@@ -1050,7 +1003,6 @@ CSS 写作注意事项：
 	.lk p { color: {MIDTEXT}; }
 	.lk .m li { clear: left; padding: 0 0 10px 98px; }
 		.lk .m img { display: inline; margin-left: -98px; }
-		.lk .m img { margin-top: 4px; margin-top/*\**/: 1px\9; }/*iefix*/
 	.lk .x li { float: left; margin-right: 5px; width: 88px; height: 1.5em; overflow: hidden; }
 	.lk_logo .lk_content { float: left; }
 
@@ -1076,10 +1028,8 @@ CSS 写作注意事项：
 .sllt { padding: 10px 5px 5px !important; }
 	.sllt td { padding: 8px; border: none; cursor: pointer; }
 	.sllt_p { text-align: right; }
-	.sllt_p { *float: left; }/*iefix*/
 		.sllt_p a { margin-right: 5px; color: #069; text-decoration: underline; }
 	.sl_pv { margin-top: 5px; padding: 8px; background: #FAFAFA; border: 1px solid #CCC; }
-	.ie6 .slg, .ie7 .slg { width: expression(this.parentNode.offsetWidth); }/*iefix*/
 
 /*
 	Name:			mod_diy_button
@@ -1102,24 +1052,19 @@ CSS 写作注意事项：
 	#toptb a#sslct, .switchwidth, #toptb a.switchblind { margin-top: 5px; margin-left: 5px; padding: 0 !important; width: 18px; height: 18px !important; line-height: 18px; font-family: dzicon; font-size: 18px; text-align: center; text-decoration: none; color: #aaa; overflow: hidden; }
 	#toptb a#sslct:hover, .switchwidth:hover, #toptb a.switchblind:hover { color: #888; text-decoration: none; }
 	.switchwidth:before { content: "\f106"; }
-	.switchwidth { *zoom: expression( this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#xf106;&nbsp;'); }/*iefix*/
 	#sslct:before { content: "\f107"; }
-	#sslct { *zoom: expression( this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#xf107;&nbsp;'); }/*iefix*/
 	#sslct_menu { padding: 6px 10px 10px; }
 		 .sslct_btn { float: left; margin: 4px 4px 0 0; width: 12px; height: 12px; border: 1px solid {COMMONBORDER}; cursor: pointer; }
 			.sslct_btn i { float: left; display: inline; margin: 1px; width: 10px; height: 10px; background: #2E80D1; overflow: hidden; font-style: normal; }
 	#toptb a.switchblind{ width: 10px; background-image: none; text-indent: -9999px; }
 /* 弹出菜单、弹出层及弹出窗口 */
 	.p_pop, .p_pof, .sllt { padding: 4px; border: 1px solid; min-width: 60px; border-color: {DROPMENUBORDER}; {DROPMENUBGCODE}; box-shadow: 2px 4px 4px rgba(0,0,0,0.2); }
-		.ie6 .p_pop { width: 100px; }/*iefix*/
 		.p_pof .p_pop { padding: 0; border: none; box-shadow: none; }
 		.p_pof { width: 500px; }
 		.p_opt { padding: 10px; }
 		.p_pop li { display: inline; }
 		.p_pop a { display: block; padding: 3px 5px; border-bottom: 1px solid {SPECIALBG}; white-space: nowrap; }
 			.p_pop li:last-child a { border: none; }
-			.ie6 .p_pop li { zoom: 1; clear: both; width: 100%; }/*iefix*/
-			.ie6 .p_pop a { position: relative; }/*iefix*/
 			.p_pop a:hover, .p_pop a.a, #sctype_menu .sca { background-color: {SPECIALBG}; color: {HIGHLIGHTLINK}; text-decoration: none; }
 			.prompt_news, .prompt_follower,.prompt_news_0, .prompt_follower_0, .ignore_notice, .prompt_concern { float: left; width: 18px; height: 14px; line-height: 14px; font-family: dzicon; font-size: 18px; margin: 3px 3px 5px 0; display: inline; }
 				.prompt_news:before, .prompt_news_0:before { content: "\f119"; }
@@ -1131,7 +1076,6 @@ CSS 写作注意事项：
 				.ignore_notice:before { content: "\d7"; font-weight: 700; }
 			.p_pop .ignore_noticeli a,.p_pop .ignore_noticeli a:hover,.p_pop .ignore_noticeli a.a { background:none; border-bottom:0; }
 			.p_pop .notice_interactive, .p_pop .notice_system, .p_pop .notice_manage, .p_pop .notice_app, .p_pop .notice_mypost { margin: 3px 2px 5px 0;}
-			.ie6 .ignore_notice { display: none; }/*iefix*/
 
 		/* .blk -> block 内容较为复杂的弹出层使用 .blk 的 class，内部的 a 标签重新定义 */
 		.blk a, .inlinelist a { display: inline; padding: 0; border: none; }
@@ -1146,7 +1090,6 @@ CSS 写作注意事项：
 /* 弹出层 以下 class 都可以分开写，单独定义，以便个性化 */
 	/* 四条边、四个角的公用样式 */
 	.t_l, .t_c, .t_r, .m_l, .m_r, .b_l, .b_c, .b_r { overflow: hidden; {FLOATMASKBGCODE}; opacity: 0.2; }
-	.t_l, .t_c, .t_r, .m_l, .m_r, .b_l, .b_c, .b_r { filter: alpha(opacity=20); }/*iefix*/
 	/* 四个角 */
 	.t_l, .t_r, .b_l, .b_r { width: 8px; height: 8px; }
 	/* 上下两条边 */
@@ -1183,7 +1126,6 @@ CSS 写作注意事项：
 			.flbc { float: left; width: 20px; height: 20px; overflow: hidden; background: #AAA; cursor: pointer; font-size: 16px; text-align: center; line-height: 20px; border-radius: 2px; }
 				.flbc:hover { background: #15afdb; text-decoration: none; }
 				.flbc:before { content: "\d7"; color: #fff; font-weight: 700; }
-				.flbc { *zoom: expression( this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#xd7;&nbsp;'); }/*iefix*/
 
 			.floatwrap { overflow: auto; overflow-x: hidden; margin-bottom: 10px; height: 280px; }
 
@@ -1234,7 +1176,6 @@ CSS 写作注意事项：
 /* 短消息对话框 .pm -> personal_message (window) by Pony */
 	.pm { overflow: hidden; width: 400px; }
 		.pm .flb { margin-bottom: 0; padding: 1px 5px 4px; background: #CCC; }
-			* html .pm .flb { padding: 4px 5px 1px; }/*iefix*/
 			.pm .flb em { text-shadow: 1px 1px 1px {WRAPBG}; color: {LINK}; font-size: 12px; }
 			.pm .flb em::before { display: inline-block; margin-right: 6px; vertical-align: 0.3em; content: ""; border-top: 0.4em solid; border-right: 0.4em solid transparent; border-bottom: 0; border-left: 0.4em solid transparent; }
 			.pm .flbc { background: transparent; }
@@ -1247,14 +1188,11 @@ CSS 写作注意事项：
 				.pmt { overflow: hidden; position: absolute; bottom: 1px; left: -5px; text-indent: -999px; width: 0; height: 0; zoom: 1; border-bottom: 6px solid #F0F0F0; border-left: 6px solid transparent; box-shadow: 0px 1px 0 0px #999; }
 				.pmd { float: left; padding: 5px 8px; background: #F0F0F0 repeat-x; border: 1px solid; border-color: #E7E7E7 #BBB #999 #E7E7E7; word-wrap: break-word; -moz-box-shadow: 2px 2px 4px #DDD; -webkit-box-shadow: 2px 2px 4px #DDD; box-shadow: 2px 2px 4px #DDD; -moz-border-radius: 10px 10px 10px 0; -webkit-border-radius: 10px 10px 10px 0; border-radius: 10px 10px 10px 0; }
 					.pmd, .pmd img { max-width: 292px; }
-					* html .pmd { width: expression(this.offsetWidth > 292 ? 292+'px':'auto'); }/*iefix*/
-						* html .pmd img { width: expression(this.width > 292 ? 292 : true); }/*iefix*/
 					/* 短消息下的引用和代码样式 */
 					.pmd .quote { overflow: hidden; margin: 0; padding-left: 16px; background: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' width='14' height='10'%3e%3cpath fill='%23ddd' d='M4 2l2 1-2 3h2v4H1V6zM11 2l2 1-2 3h2v4h-5V6z'/%3e%3c/svg%3e") no-repeat 0 0; color: {MIDTEXT}; }
 						.pmd .quote blockquote { display: inline; margin: 0; padding-right: 16px; background: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' width='14' height='10'%3e%3cpath fill='%23ddd' d='M1 7l2 1 3-4V0H1v4h2zM8 7l2 1 3-4V0H8v4h2z'/%3e%3c/svg%3e") no-repeat 100% 100%; }
 					.pmd .blockcode { overflow: hidden; margin: 0; padding: 0; background: transparent; color: {MIDTEXT}; }
 						.pmd .blockcode code { font-family: Monaco, Consolas, 'Lucida Console', 'Courier New', serif; font-size: 12px; line-height: 1.8em; }
-						* html .pmd .blockcode code { font-family: 'Courier New', serif; }/*iefix*/
 				.pmm .pmt { right: -6px; bottom: 0; left: auto; border: 0; width: 7px; height: 7px; box-shadow: none; background: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' width='7' height='7'%3e%3cpath fill='%23fef5e7' stroke='%23f3bb65' d='M-.7 0L5.8 6.5H0'/%3e%3c/svg%3e"); }
 				.pmm .pmd { float: right; background: #FEF5E7 repeat-x; border-color: #FFC68C #F3BB65 #F3BB65 #DDC4A9; -moz-box-shadow: -2px 2px 4px #DDD; -webkit-box-shadow: -2px 2px 4px #DDD; box-shadow: -2px 2px 4px #DDD; -moz-border-radius: 10px 10px 0 10px; -webkit-border-radius: 10px 10px 0 10px; border-radius: 10px 10px 0 10px; }
 			.pmb h4 { text-align: center; }
@@ -1266,7 +1204,6 @@ CSS 写作注意事项：
 
 /* 短消息联系人列表 by Pony */
 	.pmo { position: absolute; top: 8px; right: 10px; overflow: hidden; padding-left: 10px; width: 130px; height: 31px; line-height: 24px; background: url({IMGDIR}/pn.png) repeat-x 0 -320px; text-shadow: 1px 1px 1px {WRAPBG}; }
-	.pmo { line-height /*\**/: 26px\9; }/*iefix*/
 		.pmo em { display: block; padding: 3px 5px 4px 0; background: url({IMGDIR}/pn.png) no-repeat 100% -360px; }
 		.pmo a { overflow: hidden; white-space: nowrap; display: block; padding-right: 10px; background: url({IMGDIR}/pm.png) no-repeat 100% -222px; outline: none; }
 		.pmo .b { background-position: 100% -278px; }
@@ -1330,7 +1267,6 @@ CSS 写作注意事项：
 .blr { width: 580px; margin: 20px auto 30px; }
 	.m_c .blr { margin: 0 auto; }
 .lgfm { font: {FONTSIZE} {FONT}; float: left; margin-bottom: 10px; padding: 20px 0; width: 280px; border-right: 1px solid #CCC; }
-.lgfm { *margin-bottom: -10px; }/*iefix*/
 	.rgs { margin-bottom: 10px; }
 	.lgfm label, .lgfm p, .reginfo { clear: both; overflow: hidden; display: block; margin-bottom: 10px; line-height: 22px; }
 		/* 自定义的注册信息 */
@@ -1344,7 +1280,6 @@ CSS 写作注意事项：
 	.m_c .fsb { background: {COMMONBG}; border-top: 1px solid #CCC; }
 		.fsb .pns { margin-right: 8px; }
 		.lgfm em, .fsb em { float: left; width: 60px; }
-			.fsb .pnr { *margin-top: 4px; }/*iefix*/
 .nlf .txt{ width: 230px; }
 .brls { overflow: auto; margin-bottom: 10px; width: 470px; height: 240px; }
 .sipt { float: none; margin: 0 0 10px; width: 234px; height: 20px; background-color: {WRAPBG}; border: 1px solid; border-color: {INPUTBORDERDARKCOLOR} {INPUTBORDER} {INPUTBORDER} {INPUTBORDERDARKCOLOR}; clear: left; }
@@ -1447,7 +1382,6 @@ CSS 写作注意事项：
 		.pgb a { padding-left: 15px; }
 			.pgb a::before { display: inline-block; margin-right: 5px; content: ""; border-left: 0; border-top: 0.4em solid transparent; border-right: 0.4em solid #666; border-bottom: 0.4em solid transparent; }
 		.pg label { cursor: text; }
-			.ie6 .pg label { padding-top: 3px; height: 23px; }/*iefix*/
 			.pg label .px { padding: 0; width: 25px; height: 16px; line-height: 16px; }
 	#pgt .pg, #pgt .pgb { margin-top: 5px; }
 /* 用于行动的按钮 button action */
@@ -1461,7 +1395,6 @@ CSS 写作注意事项：
 	.pc_inner { background: #F60; background-image: linear-gradient(90deg, #F60,#FF9800,#F60); border-radius: 5px; border: 1px solid #FECB02; min-width: 240px; height: 38px; padding-left: 15px; padding-right: 15px; box-shadow: 3px 4px 2px rgba(0, 0, 0, 0.2); line-height: 37px; box-sizing: border-box; text-align: center; white-space: nowrap; }
 		.pc_inner i { font-size: 12px; font-style: normal; color: {LIGHTLINK}; font-weight: 400; }
 		.pc_inner span { color: #FFEA97; font-size: 14px; font-weight: 700; }
-		* html .pc_inner span { display: inline-block; }/*iefix*/
 			.pc_inner span a { color: #FFEA97; text-decoration: underline; }
 			.pc_inner span em { color: {LIGHTLINK}; font-size: 18px; font-weight: 400; }
 			.pc_inner span u { font-size: 10px; text-decoration: none; }
@@ -1475,7 +1408,6 @@ CSS 写作注意事项：
 	#fjump_menu .sch { position: absolute; top: 6px; right: 10px; }
 .jump_bdl { overflow: hidden; }
 	.jump_bdl li { float: left; overflow-x: hidden; overflow-y: auto; margin-right: 10px; padding: 5px; width: 178px; height: 300px; border: 1px solid {WRAPBORDERCOLOR}; background: {WRAPBG}; }
-		.ie6 .jump_bdl li { clear: none !important; float: left !important; width: 178px !important; }/*iefix*/
 	.bdl_title li { float: left; margin-right: 9px; padding: 0 1px; width: 189px; height: 33px; line-height: 23px; font-weight: 700; }
 		.bdl_title .px { width: 80px; }
 	.jump_bdl p { overflow: hidden; height: 25px; line-height: 25px; }
@@ -1496,7 +1428,6 @@ CSS 写作注意事项：
 
 /* 热点：站长推荐内容，在页面右下角弹出 */
 .focus { position: fixed; right: 10px; bottom: 0; z-index: 300; overflow: hidden; width: 270px; background: {WRAPBG}; }
-	* html .focus { position: absolute; top: expression(offsetParent.scrollTop+document.documentElement.clientHeight-this.offsetHeight); }/*iefix*/
 	.fctrl { margin-left: 10px; font-weight: 400; }
 		.fctrl img { margin-bottom: -4px; }
 		.fctrl em { display: inline-block; }
@@ -1531,7 +1462,6 @@ CSS 写作注意事项：
 */
 .filebtn { position: relative; margin: 0 auto; width: 60px; overflow: hidden; }
 	.filebtn .pf { position: absolute; right: 0; height: 23px; opacity: 0; }
-	.filebtn .pf { filter:alpha(opacity=0); }/*iefix*/
 
 /* 上传弹出层 */
 .upfile { width: 220px; }
@@ -1577,7 +1507,6 @@ a.progressCancel { display: block; float: right; width: 14px; height: 14px; line
 	/* X1 之前的框架结构 */
 	.frame .mn { margin-bottom: 0; }
 	.frame .sd { min-height: 0; }
-	.frame .sd { _height: auto; }/*iefix*/
 
 	.frame-1-1 .col-r { float: right; width: 49.9%; }
 	.frame-1-1 .col-l { float: left; width: 49.9%; }
@@ -1608,7 +1537,6 @@ a.progressCancel { display: block; float: right; width: 14px; height: 14px; line
 		.frame-tab .tb { margin-top: 0; padding-left: 15px; line-height: 32px; border: none; }
 			.frame-tab .tb li { margin: 0; margin-left: -1px; font-weight: 400; }
 			.frame-tab .tb li, .frame-tab .tb li a { -moz-border-radius: 0; -webkit-border-radius: 0; border-radius: 0; border-top: none; background: transparent none; }
-				* html .frame-tab .tb li a { float: left; }/*iefix*/
 				.frame-tab .tb .a a { background: #FFF; font-weight: 700; }
 		.frame-tab .tb-c { padding: 10px 16px; }
 
@@ -1711,10 +1639,8 @@ a.progressCancel { display: block; float: right; width: 14px; height: 14px; line
 		.slideshow li { position: relative; overflow: hidden; }
 			.slideshow span.title { position: absolute; bottom: 0; left: 0; margin-bottom: 0; width: 100%; height: 32px; line-height: 32px; font-size: 14px; text-indent: 10px; }
 			.slideshow span.title, .slidebar li { background: rgba(0, 0, 0, 0.3); color: {LIGHTLINK}; overflow: hidden; }
-			.slideshow span.title, .slidebar li { filter:progid:DXImageTransform.Microsoft.gradient(startColorstr = #30000000, endColorstr = #30000000); }/*iefix*/
 			.slidebar li { float: left; margin-right: 1px; width: 20px; height: 20px; line-height: 20px; text-align: center; font-size: 10px; cursor: pointer; }
 				.slidebar li.on { background: rgba(255, 255, 255, 0.5); color: #000; font-weight: 700; }
-				.slidebar li.on { filter:progid:DXImageTransform.Microsoft.gradient(startColorstr = #50FFFFFF, endColorstr = #50FFFFFF); }/*iefix*/
 
 /* 清除DIY产生的多余样式使用的公共样式 */
 .cl_frame_bm { margin: 0 !important; border: 0 !important;}
@@ -1771,14 +1697,12 @@ em.hot { position: absolute; left: -2px; top: -2px; text-indent: -9999px; overfl
 	.card .avt { position: absolute; display: inline; margin-left: -70px; width: 70px; }
 	.card_mn, .card_info { padding: 10px 10px 10px 80px; }
 		.card_mn { min-height: 56px; }
-			.ie6 .card_mn { height: 56px; }/*iefix*/
 		.card_info { border: dashed {COMMONBORDER}; border-width: 1px 0; }
 		.card_msg { width: 95%; height: 4em; }
 	.card a { padding: 0; display: inline !important; white-space: normal; border-bottom: none; }
 		.card a:hover { background-color: transparent !important; color: {TABLETEXT}; text-shadow: none; }
 	.card .o { clear: both; padding: 5px 10px; }
 		.card .o a { float: left; margin: 3px 5px 3px 0; padding: 2px 0; width: 5em; border: 1px solid {SPECIALBORDER}; background: {SPECIALBG}; line-height: 14px; text-align: center; }
-		.ie_all .card .o a { padding: 3px 0 0; }/*iefix*/
 	.card .mgc, .card .f { padding: 0 10px 5px; }
 		.card .f li { display: block; }
 		.card_gender_0 { background: #efefef; }
@@ -1798,8 +1722,6 @@ em.hot { position: absolute; left: -2px; top: -2px; text-indent: -9999px; overfl
 	.dopt .cnt { border: 1px solid #999; background-color: {WRAPBG}; }
 .colorwd { margin-left: 3px; width: 23px !important; background-color: {MIDTEXT}; background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' width='21' height='21'%3e%3cpath fill='%23fff' d='M0 0v21h21V0zm18 14h-5v4H3V3h15z'/%3e%3cpath fill='%23666' d='M15 16h5l-2.5 3z'/%3e%3c/svg%3e") !important; background-repeat: no-repeat; background-position: 0 0; }
 	.colorwd:active { background-position: 0 0; }
-	.ie6 .colorwd, .ie7 .colorwd { background-position: -1px -1px; }/*iefix*/
-	.ie6 a.colorwd, .ie7 a.colorwd { background-position: 0 0; }/*iefix*/
 .colorpx { margin: 0 -3px 0 3px; border-right: none; }
 
 /*
@@ -1810,8 +1732,6 @@ DIY图片幻灯片未加载时隐藏,模块标识隐藏
 .imgzoom_title { padding: 10px 0 0; color: #666; }
 .imgzoom_exif { position: absolute; left: 10px; bottom: 24px; padding: 0 6px; height: 18px; background: rgba(0,0,0,.6); text-align: left; line-height: 1.5; color: white;  overflow: hidden;}
 .imgzoom_exif_hover { height: auto; }
-.ie_all .imgzoom_exif, .imgzoom_exif_hover { background: #000; }/*iefix*/
-.ie6 .imgzoom_exif { bottom: 39px; }/*iefix*/
 
 .patch { width: 300px; }
 	.patch .bm { border-color: #F26C4F; background: #FFF; }
