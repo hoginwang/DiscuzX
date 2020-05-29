@@ -100,6 +100,7 @@ CSS 写作注意事项：
 	a { color: {LINK}; text-decoration: none; }
 		a:hover { text-decoration: underline; }
 		a img { border: none; }
+	:focus { outline-color: {MENUBGCOLOR}; }
 	label { cursor: pointer; }
 	/* 消除修改DOCTYPE为HTML5以后造成的img基线问题 */
 	img, svg { vertical-align: bottom; }
@@ -420,6 +421,8 @@ CSS 写作注意事项：
 	Last Modify:	Pony
 */
 	.px, .pt, .ps, select { border: 1px solid; border-color: {INPUTBORDERDARKCOLOR} {INPUTBORDER} {INPUTBORDER} {INPUTBORDERDARKCOLOR}; background: {INPUTBG}; }
+		.px:focus, .ps:focus, select:focus, .ftid a:focus { outline: 0; border-color: {MENUBGCOLOR}; box-shadow: 0 0 2px {MENUBGCOLOR}; }
+		.pt:focus { outline: 0; border-color: {MENUBGCOLOR}; }
 		.px, .pt { padding: 2px 4px; line-height: 17px; }
 		.px { height: 17px; }
 			.pxs { width: 30px !important; }

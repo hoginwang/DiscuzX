@@ -6,6 +6,7 @@ Powered by Discuz! X
 
 html { background: #FAF6ED url(background.jpg); }
 ::selection{ background-color: #BA350F; color: #FFF; }
+:focus { outline-color: #C00; }
 body { background: transparent url(bgimg.jpg) no-repeat 50% 0; background-size: 970px; }
 @media(min-resolution:120dpi){ body { background-image: url(bgimg2x.jpg); }}
 .fc-p { color: #C00; }

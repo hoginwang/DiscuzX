@@ -5,6 +5,7 @@ Powered by Discuz! X
 */
 
 ::selection{ background-color: #FE9500; color: #FFF; }
+:focus { outline-color: #FE9500; }
 body { background: #FCFAF0 url(bgimg.jpg) no-repeat 50% 0; background-size: 1400px; }
 @media(min-resolution:120dpi){ body { background-image: url(bgimg2x.jpg); }}
 .fc-p { color: #FE9500; }
