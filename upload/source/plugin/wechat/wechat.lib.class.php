@@ -58,7 +58,7 @@ class WeChatServer {
 		$token = $this->_token;
 		$tmpArr = array($token, $timestamp, $nonce);
 		sort($tmpArr, SORT_STRING);
-		$tmpStr = implode($tmpArr);
+		$tmpStr = implode('', $tmpArr);
 		$tmpStr = sha1($tmpStr);
 
 		return $tmpStr == $signature;
