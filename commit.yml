@@ -3,18 +3,27 @@ branches: {
   }
 fileChange:
   /upload:
-    newFile: !uuid 'f7bc22a1468269c5642fb09e9edbbb471535b276'
-    oldFile: !uuid 'b04209dfa6c83705fd86f83a22e5df6be4c9276e'
-  /upload/static:
-    newFile: !uuid 'ddc9bd8c4a7014b2ba00b515d7b17406ab8a95c7'
-    oldFile: !uuid 'b9b8372722c66bf7552bb6bdba713524c9c65ffa'
-  /upload/static/js:
-    newFile: !uuid '3c7595c412082d3e04b06b3f989bc73a4763a0c2'
-    oldFile: !uuid 'ac3edc681f5afd32e2c60907210c131db978e681'
-  /upload/static/js/editor.js:
-    newFile: !uuid '23f56e6978db8d5f0a327964f5a740c5cf20c3d4'
-    oldFile: !uuid '7e10eda8dc072d67321dad13d5e16c2d72086d84'
-gitCommitId: !uuid 'aa672b7ca836dbfa44ebf3877bb0df83468c52da'
+    newFile: !uuid '4e4af0aea5c4e9a4bdb527e7e121c99bb7db8caf'
+    oldFile: !uuid 'f7bc22a1468269c5642fb09e9edbbb471535b276'
+  /upload/config:
+    newFile: !uuid '44ee4745633bd610eb664e7661e048ac1f4f6379'
+    oldFile: !uuid 'aa6a89b20bf839ae45aafc3615063f5d002e8b59'
+  /upload/config/config_global_default.php:
+    newFile: !uuid '7aa42023ebaec834fbdccce482a2bee6bfba2c3b'
+    oldFile: !uuid '1233f2a4b2e3046d62ab8d1cd446473efe8b801a'
+  /upload/source:
+    newFile: !uuid '0085a27dca3cf72b45a45b557bc8ae8dab585991'
+    oldFile: !uuid 'd0288c127349d90baca63e5f7f2b1dd319215d7c'
+  /upload/source/class:
+    newFile: !uuid '59e912cc33e1d38c2e4110a2d4b7c742e13d2cdf'
+    oldFile: !uuid '202d3687e56e21209d177997cc90b0845d4f0383'
+  /upload/source/class/discuz:
+    newFile: !uuid '45a3ef2956fd22d16bea254dc12f679de5db4244'
+    oldFile: !uuid 'db902d88ae2b0a79aa38ee265542d0c22d5e36c6'
+  /upload/source/class/discuz/discuz_application.php:
+    newFile: !uuid '9d8c5b8846fab4b2f8807b2c7577e81c884c624f'
+    oldFile: !uuid '5f14a2a36ff3cda8c264766ff14bbb0649c98c4c'
+gitCommitId: !uuid '8115a1d426a195323af2c44ba965fae8498bf899'
 renames: {
   }
-revisionId: 459
+revisionId: 460
