@@ -126,6 +126,10 @@ function category_get_list($cat, $wheresql, $page = 1, $perpage = 0) {
 			$value['onerror'] = '';
 			if($value['pic']) {
 				$value['pic'] = pic_get($value['pic'], '', $value['thumb'], $value['remote'], 1, 1);
+			}else{
+				require_once libfile('function/blog');
+           		preg_match_all('/<img.*?(?: |\\t|\\r|\\n)?src=[\'"]?(.+?)[\'"]?(?:(?: |\\t|\\r|\\n)+.*?)?>/sim', blog_bbcode(C::t('portal_article_content')->fetch($value['aid'])['content']), $thumbResult, PREG_PATTERN_ORDER); 
+				$value['pic'] = !empty($thumbResult[1][0]) ? $thumbResult[1][0] : 'static/image/common/nophoto.gif';
 			}
 			$value['dateline'] = dgmdate($value['dateline']);
 			if($value['status'] == 0 || $value['uid'] == $_G['uid'] || $_G['adminid'] == 1) {
