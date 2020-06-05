@@ -61,9 +61,6 @@ if(in_array($m, array('admin', 'app', 'badword', 'cache', 'db', 'domain', 'frame
 	exit('Module not found!');
 }
 
-$mtime = explode(' ', microtime());
-$endtime = $mtime[1] + $mtime[0];
-
 function daddslashes($string, $force = 0, $strip = FALSE) {
 	if(!MAGIC_QUOTES_GPC || $force) {
 		if(is_array($string)) {
