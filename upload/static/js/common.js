@@ -1210,7 +1210,7 @@ function showWindow(k, url, mode, cache, menuv) {
 		if(!BROWSER.ie) {
 			hidedom = '<style type="text/css">object{visibility:hidden;}</style>';
 		}
-		menuObj.innerHTML = hidedom + '<table cellpadding="0" cellspacing="0" class="fwin"><tr><td class="t_l"></td><td class="t_c"' + evt + '></td><td class="t_r"></td></tr><tr><td class="m_l"' + evt + ')">&nbsp;&nbsp;</td><td class="m_c" id="fwin_content_' + k + '">'
+		menuObj.innerHTML = hidedom + '<table cellpadding="0" cellspacing="0" class="fwin"><tr><td class="t_l"></td><td class="t_c"' + evt + '></td><td class="t_r"></td></tr><tr><td class="m_l"' + evt + ')"></td><td class="m_c" id="fwin_content_' + k + '">'
 			+ '</td><td class="m_r"' + evt + '"></td></tr><tr><td class="b_l"></td><td class="b_c"' + evt + '></td><td class="b_r"></td></tr></table>';
 		if(mode == 'html') {
 			$('fwin_content_' + k).innerHTML = url;
