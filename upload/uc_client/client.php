@@ -69,7 +69,7 @@ if(!function_exists('dhtmlspecialchars')) {
 	}
 }
 if(!function_exists('fsocketopen')) {
-	function fsocketopen($hostname, $port = 80, &$errno, &$errstr, $timeout = 15) {
+	function fsocketopen($hostname, $port = 80, &$errno = null, &$errstr = null, $timeout = 15) {
 		$fp = '';
 		if(function_exists('fsockopen')) {
 			$fp = @fsockopen($hostname, $port, $errno, $errstr, $timeout);

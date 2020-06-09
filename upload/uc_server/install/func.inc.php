@@ -747,7 +747,7 @@ function var_to_hidden($k, $v) {
 	return "<input type=\"hidden\" name=\"$k\" value=\"$v\" />\n";
 }
 
-function fsocketopen($hostname, $port = 80, &$errno, &$errstr, $timeout = 15) {
+function fsocketopen($hostname, $port = 80, &$errno = null, &$errstr = null, $timeout = 15) {
 	$fp = '';
 	if(function_exists('fsockopen')) {
 		$fp = @fsockopen($hostname, $port, $errno, $errstr, $timeout);

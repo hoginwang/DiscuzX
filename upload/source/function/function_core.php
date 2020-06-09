@@ -197,7 +197,7 @@ function authcode($string, $operation = 'DECODE', $key = '', $expiry = 0) {
 
 }
 
-function fsocketopen($hostname, $port = 80, &$errno, &$errstr, $timeout = 15) {
+function fsocketopen($hostname, $port = 80, &$errno = null, &$errstr = null, $timeout = 15) {
 	$fp = '';
 	if(function_exists('fsockopen')) {
 		$fp = @fsockopen($hostname, $port, $errno, $errstr, $timeout);
@@ -2155,7 +2155,7 @@ function currentlang() {
 	}
 }
 
-function dpreg_replace($pattern, $replacement, $subject, $limit = -1, &$count) {
+function dpreg_replace($pattern, $replacement, $subject, $limit = -1, &$count = null) {
 	if(PHP_VERSION < '7.0.0') {
 		return preg_replace($pattern, $replacement, $subject, $limit, $count);
 	} else {

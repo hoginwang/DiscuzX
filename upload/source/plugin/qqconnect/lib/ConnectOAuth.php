@@ -174,7 +174,7 @@ class Cloud_Service_Client_ConnectOAuth extends Cloud_Service_Client_OAuth {
 		}
 	}
 
-	private function _request($requestURL, $extra = array(), $oauthMethod = 'GET', $multi) {
+	private function _request($requestURL, $extra = array(), $oauthMethod = 'GET', $multi = array()) {
 
 		if(!$this->_appKey || !$this->_appSecret) {
 			throw new Exception('appKey or appSecret not init');
