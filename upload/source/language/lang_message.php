@@ -64,6 +64,7 @@ $lang = array (
   'not_loggedin' => '抱歉，您尚未登录，无法进行此操作',
   'activity_is_not_manager' => '抱歉，您不是此活动的管理者，没有权限进行此操作',
   'activity_is_not_exists' => '抱歉，指定的活动不存在',
+  'thread_lastpost_too_long' => '本主题因久无人应已关闭浏览',
   'thread_poll_closed' => '抱歉，本主题已关闭，无法继续投票',
   'debate_nofound' => '抱歉，该辩论主题不存在',
   'debate_poll_voted' => '您已投过票',

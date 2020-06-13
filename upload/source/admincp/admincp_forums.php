@@ -937,6 +937,10 @@ var rowtypedata = [
 					array(1, cplang('forums_edit_posts_autoclose_dateline'), array('autoclose_time' => '')),
 					array(-1, cplang('forums_edit_posts_autoclose_lastpost'), array('autoclose_time' => ''))
 				)), $forum['autoclose'], 'mradio');
+				showsetting('forums_edit_posts_disableoldthreadview', 'disableoldthreadviewnew', $forum['disableoldthreadview'], 'text');
+				showsetting('forums_edit_posts_dotvwithoutdisplayorder', 'dotvwithoutdisplayordernew', $forum['dotvwithoutdisplayorder'], 'radio');
+				showsetting('forums_edit_posts_dotvwithoutdigest', 'dotvwithoutdigestnew', $forum['dotvwithoutdigest'], 'radio');
+				showsetting('forums_edit_posts_dotvwithoutuids', 'dotvwithoutuidsnew', $forum['dotvwithoutuids'], 'text');
 				showtagheader('tbody', 'autoclose_time', $forum['autoclose'], 'sub');
 				showsetting('forums_edit_posts_autoclose_time', 'autoclosetimenew', $forum['autoclosetime'], 'text');
 				showtagfooter('tbody');
@@ -1532,6 +1536,10 @@ EOT;
 				'disablethumb' => $_GET['disablethumbnew'],
 				'disablewatermark' => $_GET['disablewatermarknew'],
 				'autoclose' => intval($_GET['autoclosenew'] * $_GET['autoclosetimenew']),
+				'disableoldthreadview' => intval($_GET['disableoldthreadviewnew']),
+				'dotvwithoutdisplayorder' => $_GET['dotvwithoutdisplayordernew'] == 1 ? 1 : 0,
+				'dotvwithoutdigest' => $_GET['dotvwithoutdigestnew'] == 1 ? 1 : 0,
+				'dotvwithoutuids' => preg_match('/^[0-9,]+$/', $_GET['dotvwithoutuidsnew']) ? $_GET['dotvwithoutuidsnew'] : '',
 				'allowfeed' => $_GET['allowfeednew'],
 				'domain' => $domain,
 			));
