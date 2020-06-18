@@ -9,7 +9,7 @@ function Html5notification() {
 	var h5n = new Object();
 
 	h5n.issupport = function() {
-		return "Notification" in window;
+		return 'Notification' in window;
 	};
 
 	h5n.shownotification = function(replaceid, url, imgurl, subject, message) {
@@ -31,7 +31,7 @@ function Html5notification() {
 			n.onclick = function (e) {
 				e.preventDefault();
 				window.open(url, '_blank');
-			}
+			};
 		}
 	};
 
