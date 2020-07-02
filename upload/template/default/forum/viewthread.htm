@@ -329,7 +329,7 @@
 	<!--{/loop}-->
 	<div id="postlistreply" class="pl"><div id="post_new" class="viewthread_table" style="display: none"></div></div>
 	<!--{if $_G['blockedpids']}-->
-		<div id='hiddenpoststip'><a href='javascript:display_blocked_post();'>{lang other_reply_hide}</a></div>
+		<div id='hiddenpoststip'><a href='javascript:display_blocked_post();'>{if $post['inblacklist']}{lang inblacklist_reply_hide}{else}{lang other_reply_hide}{/if}</a></div>
 		<div id="hiddenposts"></div>
 	<!--{/if}-->
 </div>

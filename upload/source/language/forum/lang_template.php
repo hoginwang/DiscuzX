@@ -1290,6 +1290,7 @@ $lang = array (
   'collapse_the_left' => '收起左侧',
   'open_the_left' => '开启左侧',
   'other_reply_hide' => '还有一些帖子被系统自动隐藏，点此展开',
+  'inblacklist_reply_hide' => '还有一些帖子被系统自动隐藏（作者在您的黑名单中），点此展开',
   'keyboard_tip' => '提示：支持键盘翻页&lt;-左 右-&gt;',
   'lightclose' => '关灯',
   'lightopen' => '开灯',
