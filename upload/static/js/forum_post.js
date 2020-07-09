@@ -840,6 +840,6 @@ function deleteThread() {
 
 function hideAttachMenu(id) {
 	if($(editorid + '_' + id + '_menu')) {
-		$(editorid + '_' + id + '_menu').style.visibility = 'hidden';
+		$(editorid + '_' + id + '_menu').style.display = 'none';
 	}
 }
