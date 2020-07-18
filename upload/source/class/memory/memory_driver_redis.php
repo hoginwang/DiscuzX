@@ -43,6 +43,7 @@ class memory_driver_redis {
 					$this->obj->auth($config['requirepass']);
 				}
 				@$this->obj->setOption(Redis::OPT_SERIALIZER, $config['serializer']);
+				$this->select($config['db']);
 			}
 		}
 	}
@@ -180,7 +181,7 @@ class memory_driver_redis {
 	}
 
 	function clear() {
-		return $this->obj->flushAll();
+		return $this->obj->flushdb();
 	}
 
 }
