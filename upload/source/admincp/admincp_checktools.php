@@ -301,6 +301,9 @@ if($operation == 'filecheck') {
 	if(!$alertmsg) {
 		$settingnew = $_GET['settingnew'];
 		$settings['ftp'] = C::t('common_setting')->fetch('ftp', true);
+		if ($settingnew['ftp']['tencentcos'] !== '0') {
+		    $alertmsg = cplang('setting_attach_remote_ftp_close');
+		}
 		$settings['ftp']['password'] = authcode($settings['ftp']['password'], 'DECODE', md5($_G['config']['security']['authkey']));
 		$pwlen = strlen($settingnew['ftp']['password']);
 		if($settingnew['ftp']['password'][0] == $settings['ftp']['password'][0] && $settingnew['ftp']['password'][$pwlen - 1] == $settings['ftp']['password'][strlen($settings['ftp']['password']) - 1] && substr($settingnew['ftp']['password'], 1, $pwlen - 2) == '********') {
@@ -310,10 +313,12 @@ if($operation == 'filecheck') {
 		$settingnew['ftp']['attachurl'] .= substr($settingnew['ftp']['attachurl'], -1, 1) != '/' ? '/' : '';
 		$_G['setting']['ftp'] = $settingnew['ftp'];
 
-		ftpcmd('upload', $testfile);
-		$ftp = ftpcmd('object');
-		if(ftpcmd('error')) {
-			$alertmsg = cplang('setting_attach_remote_'.ftpcmd('error'));
+		if(!$alertmsg) {
+		    ftpcmd('upload', $testfile);
+		    $ftp = ftpcmd('object');
+		    if(ftpcmd('error')) {
+		        $alertmsg = cplang('setting_attach_remote_'.ftpcmd('error'));
+		    }
 		}
 		if(!$alertmsg) {
 			$str = getremotefile($_G['setting']['ftp']['attachurl'].$testfile);
@@ -338,7 +343,23 @@ if($operation == 'filecheck') {
 	}
 
 	echo '<script language="javascript">alert(\''.str_replace('\'', '\\\'', $alertmsg).'\');parent.$(\'cpform\').action=\''.ADMINSCRIPT.'?action=setting&edit=yes\';parent.$(\'cpform\').target=\'_self\'</script>';
+} elseif ($operation == 'ftptencentcoscheck') {
+    $settingnew = $_GET['settingnew'];
+    if ($settingnew['ftp']['tencentcos'] !== '1') {
+        $alertmsg = cplang('setting_attach_remote_tencentcos_close');
+    }
+    if (!$alertmsg) {
+        ftpcmd('check', $settingnew);
+        if (ftpcmd('error', $settingnew)) {
+            $alertmsg = cplang('setting_attach_remote_'.ftpcmd('error', $settingnew));
+        }
+    }
 
+    if(!$alertmsg) {
+        $alertmsg = cplang('setting_attach_remote_ok');
+    }
+
+    echo '<script language="javascript">alert(\''.str_replace('\'', '\\\'', $alertmsg).'\');parent.$(\'cpform\').action=\''.ADMINSCRIPT.'?action=setting&edit=yes\';parent.$(\'cpform\').target=\'_self\'</script>';
 } elseif($operation == 'mailcheck') {
 	$oldmail = dunserialize($_G['setting']['mail']);
 	$settingnew = $_GET['settingnew'];
