@@ -51,7 +51,7 @@ class discuz_ftp_ext extends discuz_ftp
                 $this->curstorage = self::FTP_CURSTORAGE;
                 C::import('storage/'.$this->curstorage, 'vendor', true, true);
                 $this->curobj = new QcloudBass($this->config['secretid'], $this->config['secretkey'], $this->config['region'], $this->config['bucket']);
-                $this->curobj->set_debug_mode(FALSE);
+                $this->curobj->set_debug_mode(false);
                 !empty($this->curobj) && $this->enabled = true;
                 return true;
             }
@@ -136,8 +136,9 @@ class discuz_ftp_ext extends discuz_ftp
 		if(!$this->enabled || empty($this->config)) {
 			return 0;
 		} else {
-
-            if($this->curstorage) return true;
+            if($this->curstorage) {
+                return true;
+            }
 			return $this->ftp_connect(
 				$this->config['host'],
 				$this->config['username'],
@@ -153,7 +154,9 @@ class discuz_ftp_ext extends discuz_ftp
 	}
 
 	function ftp_close() {
-		if($this->curstorage) return true;
+		if($this->curstorage) {
+            return true;
+        }
 		return @ftp_close($this->connectid);
 	}
 
