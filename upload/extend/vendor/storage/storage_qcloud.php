@@ -25,7 +25,7 @@ class QcloudBass
     private $debug_mode;
     private $site_id = '';
     private $site_url = '';
-    private $site_app = 'Discuz! X';
+    private $site_app = 'DiscuzX';
     private $action = 'save_config';
     private $plugin_type = 'cos';
     private $upload_url = 'https://openapp.qq.com/api/public/index.php/upload';
