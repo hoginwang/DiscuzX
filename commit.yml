@@ -3,18 +3,18 @@ branches: {
   }
 fileChange:
   /upload:
-    newFile: !uuid '260db5325a749cb0215ff02a59c0579d866174bb'
-    oldFile: !uuid '9880e6f311edd7d22bca715a968a1653798161a6'
+    newFile: !uuid '1023c56742158ffdc04794ecc05889aab7158182'
+    oldFile: !uuid '260db5325a749cb0215ff02a59c0579d866174bb'
   /upload/static:
-    newFile: !uuid 'fcb30312883ed1d61b94f8d3ab650fe49deb7546'
-    oldFile: !uuid '6fe19631e36fd68d520f4f6b532bc053ab454a53'
+    newFile: !uuid '346e8b396176443e1efe01f8c6a053caf64e9122'
+    oldFile: !uuid 'fcb30312883ed1d61b94f8d3ab650fe49deb7546'
   /upload/static/js:
-    newFile: !uuid 'e7b4290852f9c697457d1ecca5e39b37578008eb'
-    oldFile: !uuid '9762ff18d84017bc53f094370b56a38d44354e9f'
-  /upload/static/js/autoloadpage.js:
-    newFile: !uuid '32c624fec50239de6888b80f11cdc72627b111d1'
-    oldFile: !uuid '68683108b870d79fae7d2f863c556f55f3b269b8'
-gitCommitId: !uuid '80504cb563100eabe7c25e92b5bbb6ff7fc4c214'
+    newFile: !uuid '630153d5e8e41696d3990a37072670fc40fc17aa'
+    oldFile: !uuid 'e7b4290852f9c697457d1ecca5e39b37578008eb'
+  /upload/static/js/forum.js:
+    newFile: !uuid 'eafa881d52bfde398f6ec8609348ec26ad154f7c'
+    oldFile: !uuid '061621d013ac277f73da796f75e5d0283e71c9cb'
+gitCommitId: !uuid '6805b85ae67f8c0845dc6532a2a69191c090ec09'
 renames: {
   }
-revisionId: 469
+revisionId: 470
