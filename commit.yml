@@ -3,18 +3,21 @@ branches: {
   }
 fileChange:
   /upload:
-    newFile: !uuid '1023c56742158ffdc04794ecc05889aab7158182'
-    oldFile: !uuid '260db5325a749cb0215ff02a59c0579d866174bb'
-  /upload/static:
-    newFile: !uuid '346e8b396176443e1efe01f8c6a053caf64e9122'
-    oldFile: !uuid 'fcb30312883ed1d61b94f8d3ab650fe49deb7546'
-  /upload/static/js:
-    newFile: !uuid '630153d5e8e41696d3990a37072670fc40fc17aa'
-    oldFile: !uuid 'e7b4290852f9c697457d1ecca5e39b37578008eb'
-  /upload/static/js/forum.js:
-    newFile: !uuid 'eafa881d52bfde398f6ec8609348ec26ad154f7c'
-    oldFile: !uuid '061621d013ac277f73da796f75e5d0283e71c9cb'
-gitCommitId: !uuid '6805b85ae67f8c0845dc6532a2a69191c090ec09'
+    newFile: !uuid 'd395576b1a7e9a39e73f9b76048d490e49a23357'
+    oldFile: !uuid '1023c56742158ffdc04794ecc05889aab7158182'
+  /upload/template:
+    newFile: !uuid 'c6775870b150c2380f0fed4a6eaf0f2800da264d'
+    oldFile: !uuid '20119b9936e40c604b261f1e62455fc0f309d4b5'
+  /upload/template/default:
+    newFile: !uuid 'f0ed4a0aa7fd799a27547a436efd0d2b213d5cae'
+    oldFile: !uuid '0e3beedb46bbe043e1b69f972c62926dd61d6d7f'
+  /upload/template/default/forum:
+    newFile: !uuid '4ab43a1fd18bb0055e074ece038ea3a278d13fe3'
+    oldFile: !uuid 'bd43b9d3e654289f209182be6abd42ff03711e52'
+  /upload/template/default/forum/darkroom.htm:
+    newFile: !uuid '78631a392653f92a40bdf40bd68d36b8b814529f'
+    oldFile: !uuid '9f93421e859ee73634b57346a803af1d1b8ef8ff'
+gitCommitId: !uuid 'eb0e82bf3f858d9a6cf473aadc3d637a135fdbd9'
 renames: {
   }
-revisionId: 470
+revisionId: 471
