@@ -1539,11 +1539,19 @@ function dreferer($default = '') {
 
 function ftpcmd($cmd, $arg1 = '') {
 	static $ftp;
-	$ftpon = getglobal('setting/ftp/on');
+	if (!empty($arg1) && isset($arg1['ftp']['tencentcos'])) {
+	    $ftpon = $arg1['ftp']['tencentcos'];
+	} else {
+	    $ftpon = getglobal('setting/ftp/on');
+	}
 	if(!$ftpon) {
 		return $cmd == 'error' ? -101 : 0;
 	} elseif($ftp == null) {
-		$ftp = & discuz_ftp::instance();
+	    if (!empty($arg1) && isset($arg1['ftp']['tencentcos'])) {
+	        $ftp = & discuz_ftp::instance($arg1['ftp']);
+	    } else {
+	        $ftp = & discuz_ftp::instance();
+	    }
 	}
 	if(!$ftp->enabled) {
 		return $ftp->error();
@@ -1556,6 +1564,7 @@ function ftpcmd($cmd, $arg1 = '') {
 		case 'close'  : return $ftp->ftp_close(); break;
 		case 'error'  : return $ftp->error(); break;
 		case 'object' : return $ftp; break;
+		case 'check'  : return $ftp->check_connect($arg1); break;
 		default       : return false;
 	}
 
