@@ -3,45 +3,15 @@ branches: {
   }
 fileChange:
   /upload:
-    newFile: !uuid 'e3a93cc5bb577c9b1ff07a31d02e0623bb1330ae'
-    oldFile: !uuid 'eb8578ccb655d8b8bf3ff13a75d24c0aafb642a5'
-  /upload/source:
-    newFile: !uuid '6a3a900a1c0cf53a93755f5db4b7944c0b104972'
-    oldFile: !uuid 'd60231cc4696955c31713780280c02c4727d2f29'
-  /upload/source/language:
-    newFile: !uuid '4c52637dd33f7c16225b8d41d9b9a89f1e2dd8a4'
-    oldFile: !uuid '33ffe0d93b5f4e87dba67b069757e51742ce760e'
-  /upload/source/language/forum:
-    newFile: !uuid '2f644a535941a9ecec18a5e6af52ded1f278f1d5'
-    oldFile: !uuid 'c4d368826d397a4b2829b89b62d80903be27a5f7'
-  /upload/source/language/forum/lang_misc.php:
-    newFile: !uuid '695a2cf232e0c3a5895af14ca2bb4367e8886f78'
-    oldFile: !uuid '68212633a9cd0a490b9d6dee524214bf9912cab9'
-  /upload/source/module:
-    newFile: !uuid 'e476a3a9ca51668098ad528fc90c13b15673a5e0'
-    oldFile: !uuid '970efb98631f34b2b575495ebbb6facd90c05fd7'
-  /upload/source/module/misc:
-    newFile: !uuid 'ed09a1e38a126fcf67d0fa3d7be9d23e137a1190'
-    oldFile: !uuid '17fcf145fc1d381b446e2fba14a9a5cb5642222b'
-  /upload/source/module/misc/misc_seccode.php:
-    newFile: !uuid 'f1cdc49e5f184598ff4181478fbb52b1e8c30a86'
-    oldFile: !uuid '1875e8623436f5c78eb51289f435d744a4d88962'
-  /upload/static:
-    newFile: !uuid 'b3e3fa3a60d804adcefe8b78e76f4295c9dc9c6f'
-    oldFile: !uuid '346e8b396176443e1efe01f8c6a053caf64e9122'
-  /upload/static/image:
-    newFile: !uuid 'eef3c497843ba52e9678c9d50228d1bead632ae4'
-    oldFile: !uuid '5e7d7dee21f0da12a9bcf0e6721a49cd68e14fa6'
-  /upload/static/image/seccode:
-    newFile: !uuid '52b9f038eafb853be8f0662ce2dad58bbe79249c'
-    oldFile: !uuid 'dfa0bf864481fc6926d08c8b9c529653ee23608d'
-  /upload/static/image/seccode/flash:
-    newFile: !uuid '1042b01c6250b04f1d90120a8ac3fd800ad4a288'
-    oldFile: !uuid '7e524785790f29611a9eb11fd0b2115a688c5d80'
-  /upload/static/image/seccode/flash/flash1.swf:
-    newFile: null
-    oldFile: !uuid '0f5fcd17385b72fc7acc2a0068f65dfbd4e67ceb'
-gitCommitId: !uuid '11a88a946980783210f7f473e063730a99ea7876'
+    newFile: !uuid 'e23e38f66bd44ca19627c9573700363475b2e9a4'
+    oldFile: !uuid 'e3a93cc5bb577c9b1ff07a31d02e0623bb1330ae'
+  /upload/uc_server:
+    newFile: !uuid '4be5c13110557d3893ce99d873d1f5fd0bf59a76'
+    oldFile: !uuid '9c9da9daa09b27986030aef6f1236746e1222c5b'
+  /upload/uc_server/admin.php:
+    newFile: !uuid '3787a1c51449525f904e96f83bf966c996dbc422'
+    oldFile: !uuid 'fba47fed3203cb6ff706a82a39af7026d942ce06'
+gitCommitId: !uuid '476e45391f7d459c02e17945ca5ffb44cff07dbd'
 renames: {
   }
-revisionId: 473
+revisionId: 474
