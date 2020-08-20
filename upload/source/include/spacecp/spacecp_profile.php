@@ -422,13 +422,12 @@ if($operation == 'password') {
 	$resend = getcookie('resendemail');
 	$resend = empty($resend) ? true : (TIMESTAMP - $resend) > 300;
 
-  //其他端激活后刷新再次判断状态以便显示已经激活状态
-  if($space['emailstatus'] && !$space['freeze'])
-  {
+    //其他端激活后刷新再次判断状态以便显示已经激活状态
+    if($space['emailstatus'] && !$space['freeze'])
+    {
       dsetcookie('newemail', "", -1);
-  }
-
-
+    }
+    
 	$newemail = getcookie('newemail');
 	$space['newemail'] = !$space['emailstatus'] ? $space['email'] : '';
 	if(!empty($newemail)) {
