@@ -117,12 +117,12 @@ cpheader();
 shownav();
 
 require_once libfile('function/cloudaddons');
-$newversion = dunserialize($_G['setting']['cloudaddons_newversion']);
+$newversion = (CHARSET == 'gbk') ? json_decode($_G['setting']['cloudaddons_newversion'],true) : dunserialize($_G['setting']['cloudaddons_newversion']);
 if(empty($newversion['newversion']) || !is_array($newversion['newversion']) || abs($_G['timestamp'] - $newversion['updatetime']) > 86400 || (isset($_GET['checknewversion']) && $_G['formhash'] == $_GET['formhash'])) {
 	$newversion = json_decode(cloudaddons_open('&mod=app&ac=upgrade'), true);
 	if(!empty($newversion['newversion'])){
 		$newversion['updatetime'] = $_G['timestamp'];
-		C::t('common_setting')->update('cloudaddons_newversion', $newversion);
+		C::t('common_setting')->update('cloudaddons_newversion', ((CHARSET == 'gbk') ? json_encode($newversion) : $newversion));
 		updatecache('setting');
 	}else{
 		$newversion = array();
