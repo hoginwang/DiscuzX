@@ -36,7 +36,7 @@ define('CURSCRIPT', 'api');
 
 
 if(!defined('IN_UC')) {
-	require_once '../source/class/class_core.php';
+	require_once '../source/class/class_core.php'; if (method_exists("C", "app")) { $discuz = C::app(); $discuz->init(); }
 
 	$discuz = C::app();
 	$discuz->init();
@@ -270,7 +270,7 @@ class uc_note {
 		return API_RETURN_SUCCEED;
 	}
 
-	function updateapps($get, $post) {
+	function updateapps($get, $post) { if($post['UC_API']) { $post['UC_API'] = addslashes($post['UC_API']); }
 		global $_G;
 
 		if(!API_UPDATEAPPS) {
