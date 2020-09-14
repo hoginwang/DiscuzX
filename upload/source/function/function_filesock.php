@@ -68,7 +68,6 @@ function _dfsockopen($url, $limit = 0, $post = '', $cookie = '', $bysocket = FAL
 	if(!$matches) {
 		return '';
 	}
-	$ip = isset($matches['ip']) ? $matches['ip'] : $ip;
 	$scheme = $matches['scheme'];
 	$host = $matches['host'];
 	if($ip && _isLocalip($ip)) {
