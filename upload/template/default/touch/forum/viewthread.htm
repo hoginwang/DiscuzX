@@ -102,7 +102,7 @@
                 	<!--{if $post['warned']}-->
                         <span class="grey quote">{lang warn_get}</span>
                     <!--{/if}-->
-                    <!--{if !$post['first'] && !empty($post[subject])}-->
+                    <!--{if !$post['first'] && !empty($post[subject]) && (!$needhiddenreply)}-->
                         <h2><strong>$post[subject]</strong></h2>
                     <!--{/if}-->
                     <!--{if $_G['adminid'] != 1 && $_G['setting']['bannedmessages'] & 1 && (($post['authorid'] && !$post['username']) || ($post['groupid'] == 4 || $post['groupid'] == 5) || $post['status'] == -1 || $post['memberstatus'])}-->
