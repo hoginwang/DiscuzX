@@ -476,9 +476,9 @@ function checkFocus() {
 			return;
 		}
 		try {
-			editwin.focus();
-		} catch(e) {
 			editwin.document.body.focus();
+		} catch(e) {
+			editwin.focus();
 		}
 	} else {
 		textobj.focus();
