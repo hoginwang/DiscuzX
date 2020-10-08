@@ -726,7 +726,7 @@ if($_GET['action'] == 'votepoll' && submitcheck('pollsubmit', 1)) {
 		}
 		C::t('forum_post')->increase_rate_by_pid('tid:'.$_G['tid'], $_GET['pid'], $rate, $ratetimes);
 		if($post['first']) {
-			$threadrate = intval(@($post['rate'] + $rate) / abs($post['rate'] + $rate));
+			$threadrate = intval((abs($post['rate'] + $rate) ? (($post['rate'] + $rate) / abs($post['rate'] + $rate)) : 0));
 			C::t('forum_thread')->update($_G['tid'], array('rate'=>$threadrate));
 
 		}
@@ -862,7 +862,7 @@ if($_GET['action'] == 'votepoll' && submitcheck('pollsubmit', 1)) {
 			}
 			C::t('forum_post')->increase_rate_by_pid('tid:'.$_G['tid'], $_GET['pid'], $rate, $ratetimes);
 			if($post['first']) {
-				$threadrate = @intval(@($post['rate'] + $rate) / abs($post['rate'] + $rate));
+				$threadrate = intval((abs($post['rate'] + $rate) ? (($post['rate'] + $rate) / abs($post['rate'] + $rate)) : 0));
 				C::t('forum_thread')->update($_G['tid'], array('rate'=>$threadrate));
 			}
 
