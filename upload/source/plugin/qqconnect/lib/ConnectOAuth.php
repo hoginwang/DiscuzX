@@ -211,7 +211,7 @@ class Cloud_Service_Client_ConnectOAuth extends Cloud_Service_Client_OAuth {
 	private function _iconv($data, $inputCharset, $outputCharset) {
 		if (is_array($data)) {
 			foreach($data as $key => $val) {
-				$value = array_map(array(__CLASS__, '_iconv'), array($val), array($inputCharset), array($outputCharset));
+				$value = array_map(array($this, '_iconv'), array($val), array($inputCharset), array($outputCharset));
 				$result[$key] = $value[0];
 			}
 		} else {
