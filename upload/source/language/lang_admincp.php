@@ -1890,6 +1890,7 @@ $lang = array
 	'setting_permissions_allowmoderatingthread' => '是否提示用户自己有未审核的主题或者帖子',
 	'setting_permissions_allowmoderatingthread_comment' => '选择“是”，用户如果有正在审核的主题，将可以在帖子列表页看到提示',
 	'setting_permissions_guestviewprofile' => '允许游客浏览用户资料及空间页',
+	'setting_permissions_guestviewprofile_comment' => '选择“是”，则允许游客浏览未设置访问权限的用户的资料页及空间首页等',
 	'setting_permissions_memliststatus' => '允许查看会员列表',
 	'setting_permissions_modratelimit' => '版主评分限制',
 	'setting_permissions_modratelimit_comment' => '设置版主只能在自身所管辖的版块范围内对帖子进行评分。本限制只对版主有效，允许评分的普通用户及超级版主、管理员不受此限制，因此如果赋予这些用户评分权限，他们仍将可以在全版块范围内进行评分',
