@@ -50,7 +50,11 @@ class table_common_syscache extends discuz_table
 				if(!@include_once(DISCUZ_ROOT.'./data/cache/cache_'.$cachename.'.php')) {
 					$lostcaches[] = $cachename;
 				} elseif($this->_allowmem) {
-					memory('set', $cachename, $data[$cachename]);
+					 if ($cachename === 'setting') {
+                        memory_setting_array::save($data[$cachename]);
+                    } else {
+                        memory('set', $cachename, $data[$cachename]);
+                    }
 				}
 			}
 			if(!$lostcaches) {
