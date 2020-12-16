@@ -3,21 +3,27 @@ branches: {
   }
 fileChange:
   /upload:
-    newFile: !uuid '291118c00dcc2637457cded09f354a249f272cee'
-    oldFile: !uuid 'e0abf71ff904a336698eb7efb9cdd1db0ef455b1'
+    newFile: !uuid '5afcba0e7c8993fa4af7b95e0d442b93d07493e5'
+    oldFile: !uuid '291118c00dcc2637457cded09f354a249f272cee'
   /upload/source:
-    newFile: !uuid 'e8ef36cfa23ec4fbc2631d04f72adbe38d40bc28'
-    oldFile: !uuid 'b2ab829674ab0efa0b85ae25f528d5ffbe0f0396'
-  /upload/source/function:
-    newFile: !uuid '84180473eea95ddf4dbb28c4d1c677458d69d3fe'
-    oldFile: !uuid '42f219d3208d12f2041f5bc457fc9745b1740c66'
-  /upload/source/function/cache:
-    newFile: !uuid '4d17a04f5a4df92b9f8a0d33f557614d727c8675'
-    oldFile: !uuid '8bec106a4825ab7571cfeb4f82dec91f0146f738'
-  /upload/source/function/cache/cache_bbcodes.php:
-    newFile: !uuid 'e376c27b941f79b858a845c7f8c3dd91e2a91f59'
-    oldFile: !uuid '0a7a2cb391791b8d0951ef6fbc3157fc8e8c3c40'
-gitCommitId: !uuid 'a1087b9b44ef044330e38fb2f36ac376e9728aca'
+    newFile: !uuid '0458429cd26b5c3fb9444075a7c5de62dc984b6b'
+    oldFile: !uuid 'e8ef36cfa23ec4fbc2631d04f72adbe38d40bc28'
+  /upload/source/language:
+    newFile: !uuid '45f9e639d63a9a50de04d1c645ca2a77f7a7ea06'
+    oldFile: !uuid 'c9d4bc256a44515484fb65e9abd64879f088070b'
+  /upload/source/language/lang_message.php:
+    newFile: !uuid '37a48bc0c44f17d425629faac90b57421c7c0ed5'
+    oldFile: !uuid 'f98de2f3949308aa9809f97f35d930045e519aaa'
+  /upload/source/module:
+    newFile: !uuid 'c9da6eea18b46beba6627129fc3116f30968ad36'
+    oldFile: !uuid '9df6e69664b3dda5dda9df9fec37a1034bd7aa72'
+  /upload/source/module/member:
+    newFile: !uuid '4ab14e7d76927a05fcaa4ce1ae946712c99726aa'
+    oldFile: !uuid '771739ab03305f4bdb7c07eccb9bdc06eeb530dd'
+  /upload/source/module/member/member_lostpasswd.php:
+    newFile: !uuid 'beede2bd0fda412370750759cefc1d6f0a02dd43'
+    oldFile: !uuid '70b688b9de35642b0427f5c70083e28f3897de67'
+gitCommitId: !uuid '0f17aad92509b209407114c4da822e3dde202120'
 renames: {
   }
-revisionId: 506
+revisionId: 507
