@@ -18,12 +18,8 @@ if(submitcheck('avatarsubmit')) {
 loaducenter();
 $uc_avatarflash = uc_avatar($_G['uid'], 'virtual', 0);
 
-if(empty($space['avatarstatus']) && uc_check_avatar($_G['uid'], 'middle')) {
-	C::t('common_member')->update($_G['uid'], array('avatarstatus'=>'1'));
-
-	updatecreditbyaction('setavatar');
-
-	manyoulog('user', $_G['uid'], 'update');
+if(empty($space['avatarstatus'])) {
+	helper_check::check_avatar($_G['uid']);
 }
 $reload = intval($_GET['reload']);
 $actives = array('avatar' =>' class="a"');

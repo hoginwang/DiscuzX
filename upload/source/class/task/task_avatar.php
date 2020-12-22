@@ -25,7 +25,7 @@ class task_avatar {
 	function csc($task = array()) {
 		global $_G;
 
-		if(!empty($_G['member']['avatarstatus'])) {
+		if(!empty($_G['member']['avatarstatus']) || helper_check::check_avatar($_G['uid'])) {
 			return true;
 		} else {
 			return array('csc' => 0, 'remaintime' => 0);
