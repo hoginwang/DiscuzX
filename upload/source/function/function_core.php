@@ -684,6 +684,13 @@ function getcurrentnav() {
 			}
 		}
 	}
+	if(!$mnid && strpos($_SERVER['REQUEST_URI'],'.html')) {
+		foreach($_G['setting']['navmn'] as $navdm => $navid) {
+			if(strpos($_SERVER['REQUEST_URI'],$navdm)) {
+				$mnid = $navid;
+			}
+		}
+	}
 	if(!$mnid && isset($_G['setting']['navmn'][$_G['basefilename']])) {
 		$mnid = $_G['setting']['navmn'][$_G['basefilename']];
 	}
