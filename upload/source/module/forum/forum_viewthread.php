@@ -1307,8 +1307,12 @@ function viewthread_loadcache() {
 			readfile($threadcache['filename']);
 			viewthread_updateviews($_G['forum_thread']['threadtableid']);
 			$updatetime = dgmdate($filemtime, 'Y-m-d H:i:s');
-			$gzip = $_G['gzipcompress'] ? ', Gzip On' : '';
-			echo '<script type="text/javascript">$("debuginfo") ? $("debuginfo").innerHTML = ", Updated at '.$updatetime.', Processed in '.sprintf("%0.6f", microtime(TRUE) - $start_time).' second(s)'.$gzip.'." : "";</script></body></html>';
+			$debuginfo = ", Updated at $updatetime";
+			if(getglobal('setting/debug')) {
+				$gzip = $_G['gzipcompress'] ? ', Gzip On' : '';
+				$debuginfo .= ', Processed in '.sprintf("%0.6f", microtime(TRUE) - $start_time).' second(s)'.$gzip;
+			}
+			echo '<script type="text/javascript">$("debuginfo") ? $("debuginfo").innerHTML = "'.$debuginfo.'." : "";</script></body></html>';
 			ob_end_flush();
 			exit();
 		}
