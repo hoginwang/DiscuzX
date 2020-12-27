@@ -112,7 +112,7 @@ if(empty($operation)) {
 				'type' => $_GET['newtype'],
 				'starttime' => $newstarttime,
 				'endtime' => $newendtime,
-				'message' => $newmessage[0],
+				'message' => dhtmlspecialchars($newmessage[0]),
 			);
 			C::t('forum_announcement')->insert($data);
 			updatecache(array('announcements', 'announcements_forum'));

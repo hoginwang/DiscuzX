@@ -124,13 +124,13 @@ function save_announce($id = 0, $starttime, $endtime, $subject, $type, $message,
 
 	$subject = dhtmlspecialchars(trim($subject));
 
+	$message = trim($message);
 	if($type == 1) {
 		list($message) = explode("\n", trim($message));
-		$message = dhtmlspecialchars($message);
 	} else {
 		$type = 0;
-		$message = trim($message);
 	}
+	$message = dhtmlspecialchars($message);
 
 	if(empty($subject) || empty($message)) {
 		acpmsg('modcp_ann_empty');
