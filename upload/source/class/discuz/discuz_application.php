@@ -815,7 +815,7 @@ class discuz_application extends discuz_base{
 			}
 		}
 
-		if(strpos($this->var['setting']['domain']['defaultindex'], CURSCRIPT) !== false && CURSCRIPT != 'forum' && !$_GET['mod']) {
+		if(strpos($this->var['setting']['domain']['defaultindex'], CURSCRIPT) !== false && CURSCRIPT != 'forum' && !$_GET['mod'] && !$this->var['setting']['mobile']['otherindex']) {
 			if($this->var['setting']['domain']['app']['mobile']) {
 				$mobileurl = $this->var['scheme'].'://'.$this->var['setting']['domain']['app']['mobile'];
 			} else {
@@ -824,9 +824,6 @@ class discuz_application extends discuz_base{
 				} else {
 					$mobileurl = $this->var['siteurl'].'forum.php?mobile=yes';
 				}
-			}
-			if(!$this->var['setting']['mobile']['otherindex']){
-				dheader("location:$mobileurl");
 			}
 		}
 		if($this->var['setting']['mobile']['allowmnew'] && !defined('IN_MOBILE_API') && !defined('NOT_IN_MOBILE_API')) {
