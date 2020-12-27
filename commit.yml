@@ -3,30 +3,18 @@ branches: {
   }
 fileChange:
   /upload:
-    newFile: !uuid '3139dfffeafd8ab8f66c95c7c94eb946b84a70df'
-    oldFile: !uuid '3c5f2302faddfed9dd4eef4accd4383440c4bc26'
+    newFile: !uuid '79b36a2d93a1650482b14f9db91605e8370f1eb7'
+    oldFile: !uuid '3139dfffeafd8ab8f66c95c7c94eb946b84a70df'
   /upload/source:
-    newFile: !uuid 'b7814b9ce34e326638ede7f7ba7d1b6ab581fdc0'
-    oldFile: !uuid 'd696067ffd641086007c2e6f7dc3bc486c7b9fb7'
-  /upload/source/class:
-    newFile: !uuid '708538c5bccc796c7ab82cc26a61f2f0da05a9b0'
-    oldFile: !uuid '680b02c8ee52274ff303905d08814f64910ee44e'
-  /upload/source/class/discuz:
-    newFile: !uuid '7e4adf6c4917c8ad01ef048c2e8dd34b51d47750'
-    oldFile: !uuid '6803d6ea276943f2b50870a39f55ac70f10fcf37'
-  /upload/source/class/discuz/discuz_application.php:
-    newFile: !uuid '0ce5b1b4b9991748c3772953b6b909f0607187d4'
-    oldFile: !uuid '558825e19bd14d03ead631c56e32819ed94ef0b0'
-  /upload/source/module:
-    newFile: !uuid 'e4fd04e459fa798faf1990fa7897435d1baf44ed'
-    oldFile: !uuid 'c9da6eea18b46beba6627129fc3116f30968ad36'
-  /upload/source/module/home:
-    newFile: !uuid '45b200ac69c9db589f1d9b33dd644bf6ecc00f6b'
-    oldFile: !uuid 'a2a34742b0ad8897430017c4a43bdb2ff55d3f7e'
-  /upload/source/module/home/home_misc.php:
-    newFile: !uuid '2532ae65cf060fc7a45b29fd5ee95d52afb147ca'
-    oldFile: !uuid 'e4c03d91772e2f4f1b41d474b459b60b3f08ae6d'
-gitCommitId: !uuid '62ed52170d6b3d3d63ab1d8c07f209dcb70b465d'
+    newFile: !uuid '187fc55609513cf69bbf6617d1dde21dbb2d261d'
+    oldFile: !uuid 'b7814b9ce34e326638ede7f7ba7d1b6ab581fdc0'
+  /upload/source/admincp:
+    newFile: !uuid 'e1ee0aba25f4d06a6317c73c0285670c2e7d9084'
+    oldFile: !uuid 'ff7ee4466724c6267d5c86e9cba0194a8004f4b5'
+  /upload/source/admincp/admincp_members.php:
+    newFile: !uuid '44fccea91e967e331d880d229e81496a65c36034'
+    oldFile: !uuid '822c9adb8568b5bdcd076b64a0d45137c2a59d55'
+gitCommitId: !uuid '7cf2d38acdbf63dd612710bcc228d364d2597e04'
 renames: {
   }
-revisionId: 523
+revisionId: 524
