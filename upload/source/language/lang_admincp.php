@@ -1147,7 +1147,7 @@ $lang = array
 	'setting_styles_viewthread_guestviewthumb_height_comment' => '指定小图的高度，默认值为100',
 	'setting_styles_viewthread_guesttipsinthread' => '帖内游客登录提示',
 	'setting_styles_viewthread_guesttipsinthread_comment' => '游客在浏览主题时，在主题的顶部显示提示文字',
-	'setting_styles_viewthread_guesttipsinthread_text' => '登录提示提示文字',
+	'setting_styles_viewthread_guesttipsinthread_text' => '登录提示文字',
 	'setting_styles_viewthread_guesttipsinthread_text_comment' => '自定义显示提示文字,默认为：马上注册，结交更多好友，享用更多功能，让你轻松玩转社区。',
 
 	'setting_styles_viewthread_vtonlinestatus' => '显示作者在线状态',
