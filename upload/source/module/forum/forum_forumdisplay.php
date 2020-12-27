@@ -683,6 +683,17 @@ $_G['showrows'] = $_G['hiddenexists'] = 0;
 
 $threadindex = 0;
 foreach($threadlist as $thread) {
+	// 本模块为 Discuz! 经典模块，在此基础上开发新功能需要留下此功能的详细介绍以便后续维护和二次开发人员理解
+	// 根据 DxGit Forker 群讨论并考虑到合规性需求，需要增加屏蔽超过一定时间历史帖子访问的功能
+	// 必选条件：帖子为锁定状态，最后回复日期距今 > 配置的时间
+	// 可选配置：置顶帖忽略、精华帖忽略、指定 UID 忽略
+	// 当忽略帖子时，除管理员之外帖子列表中的帖子更改为已屏蔽提示信息，帖子页面不允许除管理员之外的人员打开
+	if(!$_G['adminid'] && $_G['forum']['disableoldthreadview']) {
+		if($thread['closed'] && ($thread['lastpost'] + $_G['forum']['disableoldthreadview'] < time()) && !($_G['forum']['dotvwithoutdisplayorder'] && in_array($thread['displayorder'], array(1, 2, 3, 4))) && !($_G['forum']['dotvwithoutdigest'] && $thread['digest']) && !(!empty($_G['forum']['dotvwithoutuids']) && in_array($thread['authorid'], explode(',', $_G['forum']['dotvwithoutuids'])))) {
+			$thread['subject'] = lang('forum/misc', 'thread_lastpost_too_long');
+			$thread['author'] = $thread['lastposter'] = $thread['authorid'] = $thread['lastpost'] = $thread['dateline'] = $thread['lastpost'] = $thread['views'] = $thread['replies'] = 0;
+		}
+	}
 	$thread['allreplies'] = $thread['replies'] + $thread['comments'];
 	$thread['ordertype'] = getstatus($thread['status'], 4);
 	if($_G['forum']['picstyle'] && empty($_G['cookie']['forumdefstyle'])) {

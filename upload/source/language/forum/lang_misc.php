@@ -327,6 +327,7 @@ $lang = array
 	'secqaa' => '验证问答',
 
 	'mobileoem_creditrule' => '掌上论坛签到',
+	'thread_lastpost_too_long' => '本主题因久无人应已关闭浏览',
 
 );
 
