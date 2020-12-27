@@ -3,8 +3,8 @@
 /**
  *      [Discuz!] (C)2001-2099 Comsenz Inc.
  *      This is NOT a freeware, use is subject to license terms
- *
- *      $Id: db_driver_mysqli.php 36278 2016-12-09 07:52:35Z nemohou $
+ *		https://github.com/xluohome/php-cp-for-discuz
+ *      $Id: db_driver_mysqli.php 2016年11月9日  phposs@qq.com $
  */
 
 if(!defined('IN_DISCUZ')) {
@@ -87,8 +87,7 @@ class db_driver_mysqli
 			$link->options(MYSQLI_OPT_LOCAL_INFILE, false);
 			if($this->version() > '4.1') {
 				$link->set_charset($dbcharset ? $dbcharset : $this->config[1]['dbcharset']);
-				$serverset = $this->version() > '5.0.1' ? 'sql_mode=\'\',' : '';
-				$serverset .= 'character_set_client=binary';
+				$serverset = $this->version() > '5.0.1' ? 'sql_mode=\'\'' : '';
 				$serverset && $link->query("SET $serverset");
 			}
 		}
@@ -113,6 +112,7 @@ class db_driver_mysqli
 	}
 
 	function fetch_array($query, $result_type = MYSQLI_ASSOC) {
+		if($result_type == 'MYSQL_ASSOC') $result_type = MYSQLI_ASSOC;
 		return $query ? $query->fetch_array($result_type) : null;
 	}
 
@@ -222,7 +222,52 @@ class db_driver_mysqli
 	function halt($message = '', $code = 0, $sql = '') {
 		throw new DbException($message, $code, $sql);
 	}
+        
+              /**
+         * 开启DB事务
+         */
+        function beginTransaction() {
+
+            if ($this->curlink->begin_transaction()) {
+                return true;
+            }
+        }
+
+        /**
+         * 提交DB事务
+         */
+        function commit() {
+
+            if ($this->curlink->commit()) {
+                return true;
+            }
+        }
+
+        /**
+         * 回滚一个DB事务
+         *  
+         */
+        function rollBack() {
+
+            if ($this->curlink->rollback()) {
+                return true;
+            }
+        }
 
 }
 
-?>
+/**
+ * 当php未启用 mysql 原生驱动时 ，discuz_database.php 文件里面的
+ * 
+ * DB::quote() 中需要使用到mysql_escape_string函数；
+ * 
+ * ref : http://php.net/manual/zh/intro.mysql.php
+ */
+if(!function_exists('mysql_escape_string')){
+    
+    function mysql_escape_string($str){
+               
+        return DB::object()->escape_string($str);
+    }
+            
+}

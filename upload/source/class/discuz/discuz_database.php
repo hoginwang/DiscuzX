@@ -180,7 +180,7 @@ class discuz_database {
 			return '\'' . self::$db->escape_string($str) . '\'';
 
 		if (is_int($str) or is_float($str))
-			return '\'' . $str . '\'';
+			return $str;
 
 		if (is_array($str)) {
 			if($noarray === false) {
@@ -194,7 +194,7 @@ class discuz_database {
 		}
 
 		if (is_bool($str))
-			return $str ? '1' : '0';
+			return $str ? 1:0;
 
 		return '\'\'';
 	}
