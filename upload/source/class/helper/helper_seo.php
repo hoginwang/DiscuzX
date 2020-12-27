@@ -92,11 +92,31 @@ class helper_seo {
 			if($searcharray && $replacearray) {
 				$_G['trunsform_tmp'] = array();
 				$content = preg_replace_callback("/(<script\s+.*?>.*?<\/script>)|(<a\s+.*?>.*?<\/a>)|(<img\s+.*?[\/]?>)|(\[attach\](\d+)\[\/attach\])/is", array(__CLASS__, 'parse_related_link_callback_base64_transform_1234'), $content);
-				$content = preg_replace($searcharray, $replacearray, $content, 1);
+				foreach ($searcharray as $key => $search) {
+					$_G['parse_related_link_replace_tmp'] = array(
+						'search' => $search,
+						'replace' => $replacearray[$key],
+						'found' => false,
+					);
+					$content = preg_replace_callback('/>.*?</s', array(__CLASS__, 'parse_related_link_callback_replace_only_tag_text'), $content);
+				}
+				unset($_G['parse_related_link_replace_tmp']);
 				$content = preg_replace_callback("/<relatedlink>(.*?)<\/relatedlink>/is", array(__CLASS__, 'parse_related_link_callback_base64_transform_1'), $content);
 			}
 		}
 		return $content;
+	}
+
+	static public function parse_related_link_callback_replace_only_tag_text($matches) {
+		global $_G;
+		if ($_G['parse_related_link_replace_tmp']['found']) {
+			return $matches[0];
+		}
+		$result = preg_replace($_G['parse_related_link_replace_tmp']['search'], $_G['parse_related_link_replace_tmp']['replace'], $matches[0], 1, $count);
+		if ($count) {
+			$_G['parse_related_link_replace_tmp']['found'] = true;
+		}
+		return $result;
 	}
 
 	static public function parse_related_link_callback_base64_transform_1234($matches) {
