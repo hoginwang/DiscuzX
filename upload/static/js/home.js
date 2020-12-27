@@ -256,30 +256,6 @@ function showFlash(host, flashvar, obj, shareid) {
 	return detectPlayer('flash_div_' + shareid, ext, flashvar, 480, 400);
 }
 
-function userapp_open() {
-	var x = new Ajax();
-	x.get('home.php?mod=spacecp&ac=common&op=getuserapp&inajax=1', function(s){
-		$('my_userapp').innerHTML = s;
-		$('a_app_more').className = 'fold';
-		$('a_app_more').innerHTML = '收起';
-		$('a_app_more').onclick = function() {
-			userapp_close();
-		};
-	});
-}
-
-function userapp_close() {
-	var x = new Ajax();
-	x.get('home.php?mod=spacecp&ac=common&op=getuserapp&subop=off&inajax=1', function(s){
-		$('my_userapp').innerHTML = s;
-		$('a_app_more').className = 'unfold';
-		$('a_app_more').innerHTML = '展开';
-		$('a_app_more').onclick = function() {
-			userapp_open();
-		};
-	});
-}
-
 function startMarquee(h, speed, delay, sid) {
 	var t = null;
 	var p = false;
@@ -688,14 +664,6 @@ function resend_mail(mid) {
 	if(mid) {
 		var obj = $('sendmail_'+ mid +'_li');
 		obj.style.display = "none";
-	}
-}
-
-function userapp_delete(id, result) {
-	if(result) {
-		var ids = explode('_', id);
-		var appid = ids[1];
-		$('space_app_'+appid).style.display = "none";
 	}
 }
 
