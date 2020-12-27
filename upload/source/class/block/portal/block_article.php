@@ -73,15 +73,8 @@ class block_article extends discuz_block {
 			),
 			'publishdateline' => array(
 				'title' => 'articlelist_publishdateline',
-				'type'=> 'mradio',
-				'value' => array(
-					array('0', 'articlelist_publishdateline_nolimit'),
-					array('3600', 'articlelist_publishdateline_hour'),
-					array('86400', 'articlelist_publishdateline_day'),
-					array('604800', 'articlelist_publishdateline_week'),
-					array('2592000', 'articlelist_publishdateline_month'),
-				),
-				'default' => '0'
+				'type' => 'text',
+				'default' => 0
 			),
 			'titlelength' => array(
 				'title' => 'articlelist_titlelength',
