@@ -16,6 +16,7 @@ $lang = array
 	'nextpage' => '下一页',
 	'prevpage' => '上一页',
 	'pageunit' => '页',
+	'pageavailable' => '可浏览',
 	'total' => '共',
 	'10k' => '万',
 	'pagejumptip' => '输入页码，按回车快速跳转',
