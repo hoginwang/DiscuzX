@@ -2774,10 +2774,10 @@ CREATE TABLE pre_forum_relatedthread (
 DROP TABLE IF EXISTS pre_forum_replycredit;
 CREATE TABLE pre_forum_replycredit (
   tid int(10) unsigned NOT NULL,
-  extcredits mediumint(6) unsigned NOT NULL DEFAULT '0',
+  extcredits int(10) unsigned NOT NULL DEFAULT '0',
   extcreditstype tinyint(1) NOT NULL DEFAULT '0',
-  times smallint(6) unsigned NOT NULL DEFAULT '0',
-  membertimes smallint(6) unsigned NOT NULL DEFAULT '0',
+  times int(10) unsigned NOT NULL DEFAULT '0',
+  membertimes int(10) unsigned NOT NULL DEFAULT '0',
   random tinyint(1) NOT NULL DEFAULT '0',
   PRIMARY KEY (tid)
 ) ENGINE=InnoDB;
@@ -2861,7 +2861,7 @@ CREATE TABLE pre_forum_thread (
   icon tinyint(3) NOT NULL DEFAULT '-1',
   pushedaid mediumint(8) NOT NULL DEFAULT '0',
   cover smallint(6) NOT NULL DEFAULT '0',
-  replycredit smallint(6) NOT NULL DEFAULT '0',
+  replycredit int(10) NOT NULL DEFAULT '0',
   relatebytag char(255) NOT NULL DEFAULT '0',
   maxposition int(10) unsigned NOT NULL DEFAULT '0',
   bgcolor char(8) NOT NULL DEFAULT '',
