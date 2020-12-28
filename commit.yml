@@ -3,36 +3,18 @@ branches: {
   }
 fileChange:
   /upload:
-    newFile: !uuid '7fff1296f30665395ff764791997750560513ce9'
-    oldFile: !uuid '31e9eaff813be010bd941df404bf5f707206a01d'
-  /upload/source:
-    newFile: !uuid '5bd113267e196b650ff0e7dd096ef5c249a9d3b6'
-    oldFile: !uuid '890269bb28814ed3b75e2053013007fb45edc23c'
-  /upload/source/admincp:
-    newFile: !uuid '33147df41c0519abf0933aad952cd79d0ba75736'
-    oldFile: !uuid '078e2d192e7b292c4090e27e76029dd3b14de833'
-  /upload/source/admincp/admincp_setting.php:
-    newFile: !uuid 'ff77a4186148f37b4e547dc258dc0c4f7964e781'
-    oldFile: !uuid '64526f07f71a363259be0dc54504d0d50f01377d'
-  /upload/source/include:
-    newFile: !uuid '3bacf7359c4c5f5a0a2d9723afa9d82371465f6e'
-    oldFile: !uuid '21aa0003bf4daf8e4abf1ca94c0ef5b33565e84c'
-  /upload/source/include/spacecp:
-    newFile: !uuid '51a05b9a5006c731816dadab229d878febb2108a'
-    oldFile: !uuid '8d78a0d924966428e28d17ea1687bcad3f300b6b'
-  /upload/source/include/spacecp/spacecp_profile.php:
-    newFile: !uuid '81eaf6161e08bbf21271571a480993a636a8a8e9'
-    oldFile: !uuid 'f82afa97240d48cf361f13ba5f080c294d2670da'
-  /upload/source/language:
-    newFile: !uuid '13718dd9377bbe89506015253f5c63a65367230a'
-    oldFile: !uuid 'c47a9f1dad62aafd58ef7f76ca200539312e2305'
-  /upload/source/language/lang_admincp.php:
-    newFile: !uuid 'd5c2d0b7e8b929fff7165f2738e93222b0f40fcc'
-    oldFile: !uuid '3d84d0cbbe3ba14a904aba30aeb1a04f7e98396c'
-  /upload/source/language/lang_message.php:
-    newFile: !uuid 'a7269ef645ba2bed85c8bea8454ad4e4d0d77a9d'
-    oldFile: !uuid '486aa472a7e7d699d43e7fac94612935ca57ee08'
-gitCommitId: !uuid '0bdfd190325e6bd99cbc7b1c27c24470e642f076'
+    newFile: !uuid 'a894ebba6b3ea5f80a4495baa2dcf19e5410bf80'
+    oldFile: !uuid '7fff1296f30665395ff764791997750560513ce9'
+  /upload/install:
+    newFile: !uuid '486be4cdac0ba868f67e0a7b20601c0c0715a007'
+    oldFile: !uuid '06eb50777517505932b40fcd09a6cc94057811aa'
+  /upload/install/data:
+    newFile: !uuid '377ef1fa308e4818ac5b45fbca23e06a7cf829c7'
+    oldFile: !uuid '5e7f47d61def1d81f1880dba48f555b48bc138ca'
+  /upload/install/data/install.sql:
+    newFile: !uuid 'aeea2a45bf8b7b5a800582b2f5ff17f96ce6bf72'
+    oldFile: !uuid '5daeaa6fa0f8642dec8202f81433069daa172ca4'
+gitCommitId: !uuid '50a908fc91857a1c4f53266e07b39df94e8154bc'
 renames: {
   }
-revisionId: 541
+revisionId: 542
