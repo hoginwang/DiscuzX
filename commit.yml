@@ -3,18 +3,36 @@ branches: {
   }
 fileChange:
   /upload:
-    newFile: !uuid '79b36a2d93a1650482b14f9db91605e8370f1eb7'
-    oldFile: !uuid '3139dfffeafd8ab8f66c95c7c94eb946b84a70df'
+    newFile: !uuid '00713cdffe40f10ad6f73756c721550d7a750c5d'
+    oldFile: !uuid '79b36a2d93a1650482b14f9db91605e8370f1eb7'
   /upload/source:
-    newFile: !uuid '187fc55609513cf69bbf6617d1dde21dbb2d261d'
-    oldFile: !uuid 'b7814b9ce34e326638ede7f7ba7d1b6ab581fdc0'
+    newFile: !uuid '2d3a717f99e2be02f4fcab6b5d01962792e2c10b'
+    oldFile: !uuid '187fc55609513cf69bbf6617d1dde21dbb2d261d'
   /upload/source/admincp:
-    newFile: !uuid 'e1ee0aba25f4d06a6317c73c0285670c2e7d9084'
-    oldFile: !uuid 'ff7ee4466724c6267d5c86e9cba0194a8004f4b5'
-  /upload/source/admincp/admincp_members.php:
-    newFile: !uuid '44fccea91e967e331d880d229e81496a65c36034'
-    oldFile: !uuid '822c9adb8568b5bdcd076b64a0d45137c2a59d55'
-gitCommitId: !uuid '7cf2d38acdbf63dd612710bcc228d364d2597e04'
+    newFile: !uuid '19aadd5e6ebe6f87d4b90574d25ebe027eaf064b'
+    oldFile: !uuid 'e1ee0aba25f4d06a6317c73c0285670c2e7d9084'
+  /upload/source/admincp/admincp_setting.php:
+    newFile: !uuid '3c3aed8226dd347aca007b6a86acec39f5bad553'
+    oldFile: !uuid '98e2f17f6b6ed833e9bdcc612681b94874220b7a'
+  /upload/source/language:
+    newFile: !uuid '2fcf4462b72f81c969f4f87419c2aa5f7b8b40eb'
+    oldFile: !uuid '97dbbe638ee1896c5df12ec8f91233d74317e684'
+  /upload/source/language/lang_admincp.php:
+    newFile: !uuid 'c3cc58421073aa40eedf49749d4dfaf58d296d2b'
+    oldFile: !uuid 'a4c368284265350201d937a58736dcb6e123b70a'
+  /upload/template:
+    newFile: !uuid '8cc52f3310d71e4e4388e0e2c779969763ce94d7'
+    oldFile: !uuid '73694f0ee1e325e549bb743fe412a3db2358aae4'
+  /upload/template/default:
+    newFile: !uuid '5852785b066a06855f3f509a026dd57e9d86d1c0'
+    oldFile: !uuid 'a933b1ea8b3afa0b933955d7c4da570272dcf645'
+  /upload/template/default/forum:
+    newFile: !uuid '3a193d745f1ecf7eb02466be5ef6408d180e7d3b'
+    oldFile: !uuid 'cf95e02aff2590e0eb8e9e6675cc2bf703cbc15b'
+  /upload/template/default/forum/viewthread_node.htm:
+    newFile: !uuid 'b770bea7e30a31870e463f3539a53c852f5d9f08'
+    oldFile: !uuid '52475499f78881819a98607d2ca02374e3442c9b'
+gitCommitId: !uuid 'd1056bd8a0e29a08a13e59852c71ba86b47b4bb3'
 renames: {
   }
-revisionId: 524
+revisionId: 525
