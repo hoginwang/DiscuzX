@@ -26,10 +26,10 @@ function convertip($ip) {
 		} else {
 			$tinyipfile = DISCUZ_ROOT.'./data/ipdata/tinyipdata.dat';
 			$fullipfile = DISCUZ_ROOT.'./data/ipdata/wry.dat';
-			if(@file_exists($tinyipfile)) {
-				$return = convertip_tiny($ip, $tinyipfile);
-			} elseif(@file_exists($fullipfile)) {
+			if(@file_exists($fullipfile)) {
 				$return = convertip_full($ip, $fullipfile);
+			} elseif(@file_exists($tinyipfile)) {
+				$return = convertip_tiny($ip, $tinyipfile);
 			}
 		}
 	}
