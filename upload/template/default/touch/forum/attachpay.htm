@@ -1,11 +1,9 @@
 <!--{template common/header}-->
 <header class="header">
-
 	<div class="nav">
 		<a href="forum.php?mod=viewthread&tid=$_G[tid]" class="z"><img src="{STATICURL}image/mobile/images/icon_back.png" /></a>
 		<span class="name">{lang pay_attachment}</span>
 	</div>
-
 </header>
 
 <form id="attachpayform" method="post" autocomplete="off" action="forum.php?mod=misc&action=attachpay&tid={$_G[tid]}{if !empty($_GET['infloat'])}&paysubmit=yes&infloat=yes" onsubmit="ajaxpost('attachpayform', 'return_$_GET['handlekey']', 'return_$_GET['handlekey']', 'onerror');return false;"{else}"{/if}>
