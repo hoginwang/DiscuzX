@@ -95,7 +95,7 @@ class core
 	public static function import($name, $folder = '', $force = true) {
 		$key = $folder.$name;
 		if(!isset(self::$_imports[$key])) {
-			$path = DISCUZ_ROOT.'/source/'.$folder;
+			$path = DISCUZ_ROOT.'/source'.($folder ? '/'.$folder : '');
 			if(strpos($name, '/') !== false) {
 				$pre = basename(dirname($name));
 				$filename = dirname($name).'/'.$pre.'_'.basename($name).'.php';
@@ -110,7 +110,7 @@ class core
 				return true;
 			} elseif(!$force) {
 				return false;
-			} else {
+			} elseif(DISCUZ_CORE_DEBUG || is_dir(dirname($path.'/'.$filename))) {
 				throw new Exception('Oops! System file lost: '.$filename);
 			}
 		}
