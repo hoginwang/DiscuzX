@@ -231,7 +231,7 @@ if(!submitcheck('modsubmit') && !$_GET['fast']) {
 			$pm = 'pm_'.$post['pid'];
 			if($post['authorid'] && $post['authorid'] != $_G['uid']) {
 				$pmlist[] = array(
-					'action' => $_GET[''.$pm] ? 'modreplies_delete_reason' : 'modreplies_delete',
+					'action' => 'modreplies_delete',
 					'notevar' => array('pid' => $post['pid'], 'post' => dhtmlspecialchars(cutstr($post['message'], 30)), 'reason' => dhtmlspecialchars($_GET[''.$pm])),
 					'authorid' => $post['authorid'],
 				);

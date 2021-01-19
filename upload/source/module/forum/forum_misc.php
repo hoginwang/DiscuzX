@@ -155,15 +155,11 @@ if($_GET['action'] == 'paysucceed') {
 			$aidencode = aidencode($aid, 0, $_GET['tid']);
 		}
 		discuz_process::unlock($lockid);
-		if(defined('IN_MOBILE')) {
-			showmessage('attachment_mobile_buy', 'forum.php?mod=redirect&goto=findpost&ptid='.$attach['tid'].'&pid='.$attach['pid']);
+		if(count($aids) > 1) {
+			showmessage('attachment_buyall', 'forum.php?mod=redirect&goto=findpost&ptid='.$attach['tid'].'&pid='.$attach['pid']);
 		} else {
-			if(count($aids) > 1) {
-				showmessage('attachment_buyall', 'forum.php?mod=redirect&goto=findpost&ptid='.$attach['tid'].'&pid='.$attach['pid']);
-			} else {
-				$_G['forum_attach_filename'] = $attach['filename'];
-				showmessage('attachment_buy', "forum.php?mod=attachment&aid=$aidencode", array('filename' => $_G['forum_attach_filename']), array('redirectmsg' => 1));
-			}
+			$_G['forum_attach_filename'] = $attach['filename'];
+			showmessage('attachment_buy', "forum.php?mod=attachment&aid=$aidencode", array('filename' => $_G['forum_attach_filename']), array('redirectmsg' => 1));
 		}
 	}
 
