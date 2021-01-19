@@ -11,6 +11,9 @@ if(!defined('IN_DISCUZ') || !defined('IN_MODCP')) {
 	exit('Access Denied');
 }
 
+if(!$_G['setting']['forumstatus'] && $op != 'members') {
+	showmessage('forum_status_off');
+}
 
 $modact = empty($_GET['modact']) || !in_array($_GET['modact'] , array('delete', 'ignore', 'validate')) ? 'ignore' : $_GET['modact'];
 
@@ -227,6 +230,7 @@ if($op == 'replies') {
 		}
 
 		if($deletepids = dimplode($moderation['delete'])) {
+			$deleteauthorids = array();
 			$recyclebinpids = array();
 			$pids = array();
 			foreach(C::t('forum_post')->fetch_all($posttableid, $moderation['delete']) as $post) {
@@ -245,6 +249,11 @@ if($op == 'replies') {
 						'authorid' => $post['authorid'],
 					);
 				}
+				if($_GET['crimerecord']) {
+					require_once libfile('function/member');
+					crime('recordaction', $post['authorid'], 'crime_delpost', lang('forum/misc', 'crime_postreason', array('reason' => dhtmlspecialchars($_GET['reason']), 'tid' => $post['tid'], 'pid' => $post['pid'])));
+				}
+				$deleteauthorids[$post['authorid']] = $post['authorid'];
 			}
 
 			if($recyclebinpids) {
@@ -255,6 +264,30 @@ if($op == 'replies') {
 				require_once libfile('function/delete');
 				deletepost($pids, 'pid', false, $posttableid);
 			}
+
+			if($_G['group']['allowbanuser'] && ($_GET['banuser'] || $_GET['userdelpost']) && $deleteauthorids) {
+				$members = C::t('common_member')->fetch_all($deleteauthorids);
+				$banuins = array();
+				foreach($members as $member) {
+					if(($_G['cache']['usergroups'][$member['groupid']]['type'] == 'system' &&
+						in_array($member['groupid'], array(1, 2, 3, 6, 7, 8))) || $_G['cache']['usergroups'][$member['groupid']]['type'] == 'special') {
+						continue;
+					}
+					$banuins[$member['uid']] = $member['uid'];
+				}
+
+				if($banuins) {
+					if($_GET['banuser']) {
+						C::t('common_member')->update($banuins, array('groupid' => 4));
+					}
+
+					if($_GET['userdelpost']) {
+						require_once libfile('function/delete');
+						deletememberpost($banuins);
+					}
+				}
+			}
+
 			updatemodworks('DLP', count($moderation['delete']));
 			updatemoderate('pid', $moderation['delete'], 2);
 		}
@@ -353,7 +386,7 @@ if($op == 'replies') {
 	$start_limit = ($page - 1) * $ppp;
 
 	$modcount = C::t('common_moderate')->count_by_search_for_post($posttable, $moderatestatus, 0, ($modfids ? explode(',', $modfids) : null));
-	$multipage = multi($modcount, $ppp, $page, "{$cpscript}?mod=modcp&action=$_GET[action]&op=$op&filter=$filter&fid=$_G[fid]");
+	$multipage = multi($modcount, $ppp, $page, "{$cpscript}?mod=modcp&action=$_GET[action]&op=$op&filter=$filter&fid=$_G[fid]&showcensor=$_GET[showcensor]");
 
 	if($modcount) {
 
@@ -366,6 +399,18 @@ if($op == 'replies') {
 			$post['dateline'] = dgmdate($post['dateline']);
 			$post['subject'] = $post['subject'] ? '<b>'.$post['subject'].'</b>' : '';
 			$post['message'] = nl2br(dhtmlspecialchars($post['message']));
+
+			if(!empty($_GET['showcensor'])) {
+				$censor = & discuz_censor::instance();
+				$censor->highlight = '#FF0000';
+				$censor->check($post['subject']);
+				$censor->check($post['message']);
+				$censor_words = $censor->words_found;
+				if(count($censor_words) > 3) {
+					$censor_words = array_slice($censor_words, 0, 3);
+				}
+				$post['censorwords'] = implode(', ', $censor_words);		
+			}
 
 			if($post['attachment']) {
 				$attachtable = getattachtableid($post['tid']);
@@ -421,6 +466,7 @@ if($op == 'replies') {
 		$reason = trim($_GET['reason']);
 
 		if(!empty($moderation['delete'])) {
+			$deleteauthorids = array();
 			$deletetids = array();
 			$recyclebintids = '0';
 			foreach(C::t('forum_thread')->fetch_all_by_tid_displayorder($moderation['delete'], $pstat, '=', ($modfids ? explode(',', $modfids) : null)) as $thread) {
@@ -437,6 +483,14 @@ if($op == 'replies') {
 						'authorid' => $thread['authorid'],
 					);
 				}
+
+				if($_GET['crimerecord']) {
+					require_once libfile('function/member');
+					crime('recordaction', $thread['authorid'], 'crime_delpost', lang('forum/misc', 'crime_postreason', array('reason' => dhtmlspecialchars($_GET['reason']), 'tid' => $thread['tid'], 'pid' => $thread['pid'])));
+				}
+
+				$deleteauthorids[$thread['authorid']] = $thread['authorid'];
+
 			}
 
 			if($recyclebintids) {
@@ -449,6 +503,28 @@ if($op == 'replies') {
 
 			require_once libfile('function/delete');
 			deletethread($deletetids);
+
+			if($_G['group']['allowbanuser'] && ($_GET['banuser'] || $_GET['userdelpost']) && $deleteauthorids) {
+				$members = C::t('common_member')->fetch_all($deleteauthorids);
+				$banuins = array();
+				foreach($members as $member) {
+					if(($_G['cache']['usergroups'][$member['groupid']]['type'] == 'system' &&
+						in_array($member['groupid'], array(1, 2, 3, 6, 7, 8))) || $_G['cache']['usergroups'][$member['groupid']]['type'] == 'special') {
+						continue;
+					}
+					$banuins[$member['uid']] = $member['uid'];
+				}
+				if($banuins) {
+					if($_GET['banuser']) {
+						C::t('common_member')->update($banuins, array('groupid' => 4));
+					}
+
+					if($_GET['userdelpost']) {
+						deletememberpost($banuins);
+					}
+				}
+			}
+
 			updatemoderate('tid', $moderation['delete'], 2);
 		}
 
@@ -510,7 +586,7 @@ if($op == 'replies') {
 	}
 
 	$modcount = C::t('common_moderate')->count_by_seach_for_thread($moderatestatus, ($modfids ? explode(',', $modfids) : null));
-	$multipage = multi($modcount, $_G['tpp'], $page, "{$cpscript}?mod=modcp&action=$_GET[action]&op=$op&filter=$filter&fid=$_G[fid]");
+	$multipage = multi($modcount, $_G['tpp'], $page, "{$cpscript}?mod=modcp&action=$_GET[action]&op=$op&filter=$filter&fid=$_G[fid]&showcensor=$_GET[showcensor]");
 
 	if($modcount) {
 		$posttablearr = array();
@@ -539,6 +615,18 @@ if($op == 'replies') {
 			foreach(C::t('forum_post')->fetch_all_by_tid($posttable, $tids, true, '', 0, 0, 1) as $post) {
 				$thread = $postlist[$post['tid']] + $post;
 				$thread['message'] = nl2br(dhtmlspecialchars($thread['message']));
+
+				if(!empty($_GET['showcensor'])) {
+					$censor = & discuz_censor::instance();
+					$censor->highlight = '#FF0000';
+					$censor->check($thread['subject']);
+					$censor->check($thread['message']);
+					$censor_words = $censor->words_found;
+					if(count($censor_words) > 3) {
+						$censor_words = array_slice($censor_words, 0, 3);
+					}
+					$thread['censorwords'] = implode(', ', $censor_words);		
+				}
 
 				if($thread['attachment']) {
 					$attachtable = getattachtableid($thread['tid']);

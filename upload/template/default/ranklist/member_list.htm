@@ -42,7 +42,7 @@
 	<div class="xld xlda hasrank">
 		<!--{loop $list $key $value}-->
 		<dl class="bbda cl">
-			<dd class="ranknum"><!--{if $value[rank] <= 3}--><img src="{IMGDIR}/rank_$value[rank].gif" alt="$value[rank]" /><!--{else}-->$value[rank]<!--{/if}--></dd>
+			<dd class="ranknum"><span class="ranks{if $value[rank] <= 3} ranks_$value[rank]{/if}">$value[rank]</span></dd>
 			<dd class="m avt"><a href="home.php?mod=space&uid=$value[uid]" target="_blank" c="1"><!--{avatar($value[uid],small)}--></a></dd>
 			<dt class="y">
 				<p class="xw0"><a href="home.php?mod=space&uid=$value[uid]" target="_blank">{lang visit_friend}</a></p>
@@ -52,7 +52,7 @@
 			</dt>
 			<dt>
 				<a href="home.php?mod=space&uid=$value[uid]" target="_blank"{eval g_color($value[groupid]);}>$value[username]</a>
-				<!--{if $ols[$value[uid]]}--><img src="{IMGDIR}/ol.gif" alt="online" title="{lang online}" class="vm" /> <!--{/if}-->
+				<!--{if $ols[$value[uid]]}--><span class="olicon vm" title="{lang online}"></span> <!--{/if}-->
 			</dt>
 			<dd>
 				<p>
@@ -63,7 +63,7 @@
 					<!--{if $value['posts']}-->{lang posts_num}: <a href="home.php?mod=space&uid=$value[uid]&do=thread&view=me&from=space" target="_blank">$value[posts]</a><!--{/if}-->
 					<!--{if $value['blogs']}-->{lang blogs_num}: <a href="home.php?mod=space&uid=$value[uid]&do=blog&view=me&from=space" target="_blank">$value[blogs]</a><!--{/if}-->
 					<!--{if $value['views']}-->{lang views} $value[views]<!--{/if}-->
-					<!--{if $value['onlinetime']}-->{lang online_time}: $value[onlinetime] {lang minute}<!--{/if}-->
+					<!--{if $value['onlinetime'] && !$_G['setting']['sessionclose']}-->{lang online_time}: $value[onlinetime] {lang minute}<!--{/if}-->
 				</p>
 
 				<!--{if $value['friends']}--><p>{lang friends_num}: $value[friends]</p><!--{/if}-->

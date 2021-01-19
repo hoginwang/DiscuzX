@@ -36,9 +36,6 @@ $lang = array(
 	'nodir' => '目录不存在',
 	'redirect' => '浏览器会自动跳转页面，无需人工干预。<br>除非当您的浏览器没有自动跳转时，请点击这里',
 	'auto_redirect' => '浏览器会自动跳转页面，无需人工干预',
-	'database_errno_2003' => '无法连接数据库，请检查数据库是否启动，数据库服务器地址是否正确',
-	'database_errno_1044' => '无法创建新的数据库，请检查数据库名称填写是否正确',
-	'database_errno_1045' => '无法连接数据库，请检查数据库用户名或者密码是否正确',
 	'database_errno_1064' => 'SQL 语法错误',
 
 	'dbpriv_createtable' => '没有CREATE TABLE权限，无法继续安装',
@@ -119,6 +116,8 @@ $lang = array(
 	'dbhost_comment' => '数据库服务器地址, 一般为 localhost',
 	'tablepre_comment' => '同一数据库运行多个论坛时，请修改前缀',
 	'forceinstall_check_label' => '我要删除数据，强制安装 !!!',
+	'initdbresult_succ' => '数据库安装完成',
+	'initsys' => '正在系统初始化',
 
 	'uc_url_empty' => '您没有填写 UCenter 的 URL，请返回填写',
 	'uc_url_invalid' => 'URL 格式错误',
@@ -250,9 +249,11 @@ $lang = array(
 	'init_gift_task' => '红包类任务',
 	'init_avatar_task' => '头像类任务',
 
+	'copyright' => 'Copyright &copy; 2001-'.date('Y').' Tencent Cloud.',
+
 	'license' => '<div class="license"><h1>中文版授权协议 适用于中文用户</h1>
 
-<p>版权所有 (c) 2001-2020，腾讯云计算（北京）有限责任公司(原北京康盛新创科技有限责任公司)保留所有权利。</p>
+<p>版权所有 (c) 2001-'.date('Y').'，腾讯云计算（北京）有限责任公司(原北京康盛新创科技有限责任公司)保留所有权利。</p>
 
 <p>感谢您选择康盛产品。希望我们的努力能为您提供一个高效快速、强大的站点解决方案，和强大的社区论坛解决方案。康盛公司网址为 http://www.comsenz.com，产品官方讨论区网址为 http://www.discuz.net。</p>
 
@@ -332,7 +333,6 @@ $lang = array(
 	'suggestion' => '建议',
 	'advice_mysql' => '请检查 mysql 模块是否正确加载',
 	'advice_fopen' => '该函数需要 php.ini 中 allow_url_fopen 选项开启。请联系空间商，确定开启了此项功能',
-	'advice_file_get_contents' => '该函数需要 php.ini 中 allow_url_fopen 选项开启。请联系空间商，确定开启了此项功能',
 	'advice_xml' => '该函数需要 PHP 支持 XML。请联系空间商，确定开启了此项功能',
 	'none' => '无',
 
@@ -349,8 +349,10 @@ $lang = array(
 	'clear_dir' => '清空目录',
 	'select_db' => '选择数据库',
 	'create_table' => '建立数据表',
-	'succeed' => '成功 ',
+	'succeed' => '成功',
+	'failed' => '失败',
 
+	'init_table_data' => '正在初始化数据表中的数据',
 	'install_data' => '正在安装数据',
 	'install_test_data' => '正在安装附加数据',
 

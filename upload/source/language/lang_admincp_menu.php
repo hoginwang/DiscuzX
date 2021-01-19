@@ -64,6 +64,7 @@ $lang = array
 	'menu_setting_mobile' => '手机版访问设置',
 	'menu_setting_tag' => '标签管理',
 	'menu_setting_antitheft' => '防采集设置',
+	'menu_setting_runtests' => '测试用例',
 
 	'menu_forums' => '版块管理',
 	'menu_forums_merge' => '版块合并',
@@ -90,6 +91,7 @@ $lang = array
 	'menu_usergroups' => '用户组',
 	'menu_follow' => '推荐关注',
 	'menu_defaultuser' => '推荐好友',
+	'menu_members_verify_profile' => '资料审核',
 
 	'menu_moderate_posts' => '内容审核',
 	'menu_moderate_blogs' => '审核日志',
@@ -173,7 +175,7 @@ $lang = array
 	'menu_db' => '数据库',
 	'menu_postsplit' => '帖子分表',
 	'menu_threadsplit' => '主题分表',
-	'menu_membersplit' => '用户表优化',
+	'menu_membersplit' => '用户分表',
 	'menu_logs' => '运行记录',
 	'menu_custommenu_manage' => '常用操作管理',
 	'menu_misc_cron' => '计划任务',

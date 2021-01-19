@@ -54,6 +54,7 @@ class discuz_application extends discuz_base{
 	}
 
 	public function __construct() {
+		$this->_init_cnf();
 		$this->_init_env();
 		$this->_init_config();
 		$this->_init_input();
@@ -76,11 +77,17 @@ class discuz_application extends discuz_base{
 	private function _init_env() {
 
 		error_reporting(E_ERROR);
+
 		if(PHP_VERSION < '5.3.0') {
 			set_magic_quotes_runtime(0);
 		}
 
-		define('MAGIC_QUOTES_GPC', function_exists('get_magic_quotes_gpc') && get_magic_quotes_gpc());
+		if (PHP_VERSION < '5.4.0') {
+			define('MAGIC_QUOTES_GPC', function_exists('get_magic_quotes_gpc') && get_magic_quotes_gpc());
+		} else {
+			define('MAGIC_QUOTES_GPC', FALSE);
+		}
+
 		define('ICONV_ENABLE', function_exists('iconv'));
 		define('MB_ENABLE', function_exists('mb_convert_encoding'));
 		define('EXT_OBGZIP', function_exists('ob_gzhandler'));
@@ -135,7 +142,7 @@ class discuz_application extends discuz_base{
 
 			'pluginrunlist' => !defined('PLUGINRUNLIST') ? array() : explode(',', PLUGINRUNLIST),
 
-			'config' => array(),
+			'config' => & $this->config,
 			'setting' => array(),
 			'member' => array(),
 			'group' => array(),
@@ -275,7 +282,7 @@ class discuz_application extends discuz_base{
 
 	}
 
-	private function _init_config() {
+	private function _init_cnf() {// 新增本方法用于预先加载配置文件，便于在初始化环境时通过$this->config使用配置文件内选项控制初始化流程
 
 		$_config = array();
 		@include DISCUZ_ROOT.'./config/config_global.php';
@@ -288,30 +295,33 @@ class discuz_application extends discuz_base{
 			}
 		}
 
-		if(empty($_config['security']['authkey'])) {
-			$_config['security']['authkey'] = md5($_config['cookie']['cookiepre'].$_config['db'][1]['dbname']);
+		$this->config = & $_config;
+
+	}
+
+	private function _init_config() {// 原有的基于配置文件设置站点的方法保留原方法名，改为使用$this->var['config']对config进行读写
+
+		if(empty($this->var['config']['security']['authkey'])) {
+			$this->var['config']['security']['authkey'] = md5($this->var['config']['cookie']['cookiepre'].$this->var['config']['db'][1]['dbname']);
 		}
 
-		if(empty($_config['debug']) || !file_exists(libfile('function/debug'))) {
+		if(empty($this->var['config']['debug']) || !file_exists(libfile('function/debug'))) {
 			define('DISCUZ_DEBUG', false);
 			error_reporting(0);
-		} elseif($_config['debug'] === 1 || $_config['debug'] === 2 || !empty($_REQUEST['debug']) && $_REQUEST['debug'] === $_config['debug']) {
+		} elseif($this->var['config']['debug'] === 1 || $this->var['config']['debug'] === 2 || !empty($_REQUEST['debug']) && $_REQUEST['debug'] === $this->var['config']['debug']) {
 			define('DISCUZ_DEBUG', true);
 			error_reporting(E_ERROR);
-			if($_config['debug'] === 2) {
+			if($this->var['config']['debug'] === 2) {
 				error_reporting(E_ALL);
 			}
 		} else {
 			define('DISCUZ_DEBUG', false);
 			error_reporting(0);
 		}
-		define('STATICURL', !empty($_config['output']['staticurl']) ? $_config['output']['staticurl'] : 'static/');
+		define('STATICURL', !empty($this->var['config']['output']['staticurl']) ? $this->var['config']['output']['staticurl'] : 'static/');
 		$this->var['staticurl'] = STATICURL;
 
-		$this->config = & $_config;
-		$this->var['config'] = & $_config;
-
-		if(substr($_config['cookie']['cookiepath'], 0, 1) != '/') {
+		if(substr($this->var['config']['cookie']['cookiepath'], 0, 1) != '/') {
 			$this->var['config']['cookie']['cookiepath'] = '/'.$this->var['config']['cookie']['cookiepath'];
 		}
 		$this->var['config']['cookie']['cookiepre'] = $this->var['config']['cookie']['cookiepre'].substr(md5($this->var['config']['cookie']['cookiepath'].'|'.$this->var['config']['cookie']['cookiedomain']), 0, 4).'_';
@@ -410,26 +420,31 @@ class discuz_application extends discuz_base{
 
 	private function _get_client_ip() {
 		$ip = $_SERVER['REMOTE_ADDR'];
-		if (!$this->config['security']['onlyremoteaddr']) {
-			if (isset($_SERVER['HTTP_CLIENT_IP']) && preg_match('/^([0-9]{1,3}\.){3}[0-9]{1,3}$/', $_SERVER['HTTP_CLIENT_IP'])) {
+		if (!array_key_exists('security', $this->config) || !$this->config['security']['onlyremoteaddr']) {
+			if (array_key_exists('ipgetter', $this->config) && !empty($this->config['ipgetter']['setting'])) {
+				$s = empty($this->config['ipgetter'][$this->config['ipgetter']['setting']]) ? array() : $this->config['ipgetter'][$this->config['ipgetter']['setting']];
+				$c = 'ip_getter_'.$this->config['ipgetter']['setting'];
+				$r = $c::get($s);
+				$ip = ip::validate_ip($r) ? $r : $ip;
+			} elseif (isset($_SERVER['HTTP_CLIENT_IP']) && ip::validate_ip($_SERVER['HTTP_CLIENT_IP'])) {
 				$ip = $_SERVER['HTTP_CLIENT_IP'];
-			} elseif(isset($_SERVER['HTTP_X_FORWARDED_FOR']) AND preg_match_all('#\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}#s', $_SERVER['HTTP_X_FORWARDED_FOR'], $matches)) {
-				foreach ($matches[0] AS $xip) {
-					if (!preg_match('#^(10|172\.16|192\.168)\.#', $xip)) {
-						$ip = $xip;
-						break;
-					}
+			} elseif(isset($_SERVER['HTTP_X_FORWARDED_FOR'])) {
+				if (strpos($_SERVER['HTTP_X_FORWARDED_FOR'], ",") > 0) {
+					$exp = explode(",", $_SERVER['HTTP_X_FORWARDED_FOR']);
+					$ip = ip::validate_ip(trim($exp[0])) ? $exp[0] : $ip;
+				} else {
+					$ip = ip::validate_ip($_SERVER['HTTP_X_FORWARDED_FOR']) ? $_SERVER['HTTP_X_FORWARDED_FOR'] : $ip;
 				}
 			}
 		}
-		return $ip == '::1' ? '127.0.0.1' : $ip;
+		return $ip;
 	}
 
 	private function _init_db() {
 		if($this->init_db) {
-			$driver = function_exists('mysql_connect') ? 'db_driver_mysql' : 'db_driver_mysqli';
+			$driver = 'db_driver_mysqli';
 			if(getglobal('config/db/slave')) {
-				$driver = function_exists('mysql_connect') ? 'db_driver_mysql_slave' : 'db_driver_mysqli_slave';
+				$driver = 'db_driver_mysqli_slave';
 			}
 			DB::init($driver, $this->config['db']);
 		}
@@ -449,10 +464,8 @@ class discuz_application extends discuz_base{
 				dsetcookie('sid', $this->var['sid'], 86400);
 			}
 
-			if($this->session->isnew) {
-				if(ipbanned($this->var['clientip'])) {
-					$this->session->set('groupid', 6);
-				}
+			if(ip::checkbanned($this->var['clientip'])) {
+				$this->session->set('groupid', 6);
 			}
 
 			if($this->session->get('groupid') == 6) {
@@ -727,7 +740,7 @@ class discuz_application extends discuz_base{
 
 		!empty($this->cachelist) && loadcache($this->cachelist);
 
-		if(!is_array($this->var['setting'])) {
+		if(!is_array($this->var['setting']) && !is_a($this->var['setting'], 'memory_setting_array')) {
 			$this->var['setting'] = array();
 		}
 
@@ -800,10 +813,13 @@ class discuz_application extends discuz_base{
 			$mobile = isset($mobile_) ? $mobile_ : 2;
 		}
 
-		if(!$this->var['mobile'] && !$unallowmobile) {
-			if($mobileflag) {
-				dheader("Location:misc.php?mod=mobile");
-			}
+		if(!$this->var['mobile'] && !$unallowmobile && $mobileflag) {
+			parse_str($_SERVER['QUERY_STRING'], $query);
+			$query['mobile'] = 'no';
+			unset($query['simpletype']);
+			$query_sting_tmp = http_build_query($query);
+			$redirect = ($this->var['setting']['domain']['app']['forum'] ? $this->var['scheme'].'://'.$this->var['setting']['domain']['app']['forum'].'/' : $this->var['siteurl']).$this->var['basefilename'].'?'.$query_sting_tmp;
+			dheader('Location: '.$redirect);
 		}
 
 		if($nomobile || (!$this->var['setting']['mobile']['mobileforward'] && !$mobileflag)) {
@@ -829,7 +845,7 @@ class discuz_application extends discuz_base{
 				dheader("location:$mobileurl");
 			}
 		}
-		if($this->var['setting']['mobile']['allowmnew'] && !defined('IN_MOBILE_API') && !defined('NOT_IN_MOBILE_API')) {
+		if($this->var['setting']['mobile']['allowmnew'] && !defined('IN_MOBILE_API') && !defined('NOT_IN_MOBILE_API') && !defined("IS_ROBOT")) {
 			$modid = $this->var['basescript'].'::'.CURMODULE;
 			if(($modid == 'forum::viewthread' || $modid == 'group::viewthread') && !empty($_GET['tid'])) {
 				dheader('location: '.$this->var['siteurl'].'m/?a=viewthread&tid='.$_GET['tid']);
@@ -850,11 +866,12 @@ class discuz_application extends discuz_base{
 			$arr[] = '&mobile='.$mobiletype;
 			$arr[] = 'mobile='.$mobiletype;
 		}
-                parse_str($_SERVER['QUERY_STRING'], $query);
-                $query['mobile'] = 'no';
-                unset($query['simpletype']);
-                $query_sting_tmp = http_build_query($query);
-                $this->var['setting']['mobile']['nomobileurl'] = ($this->var['setting']['domain']['app']['forum'] ? $this->var['scheme'].'://'.$this->var['setting']['domain']['app']['forum'].'/' : $this->var['siteurl']).$this->var['basefilename'].'?'.$query_sting_tmp;
+
+		parse_str($_SERVER['QUERY_STRING'], $query);
+		$query['mobile'] = 'no';
+		unset($query['simpletype']);
+		$query_sting_tmp = http_build_query($query);
+		$this->var['setting']['mobile']['nomobileurl'] = ($this->var['setting']['domain']['app']['forum'] ? $this->var['scheme'].'://'.$this->var['setting']['domain']['app']['forum'].'/' : $this->var['siteurl']).$this->var['basefilename'].'?'.$query_sting_tmp;
 
 		$this->var['setting']['lazyload'] = 0;
 
@@ -878,7 +895,10 @@ class discuz_application extends discuz_base{
 
 		$this->var['setting']['regstatus'] = $this->var['setting']['mobile']['mobileregister'] ? $this->var['setting']['regstatus'] : 0 ;
 
-		$this->var['setting']['thumbquality'] = 50;
+		if(in_array(constant('IN_MOBILE'), array('1', '3'))) {
+			$this->var['setting']['thumbquality'] = 50;
+		}
+
 		$this->var['setting']['avatarmethod'] = 0;
 
 		$this->var['setting']['mobile']['simpletypeurl'] = array();

@@ -34,6 +34,7 @@ $topmenu = array (
 $menu['index'] = array(
 	array('menu_home', 'index'),
 	array('menu_custommenu_manage', 'misc_custommenu'),
+	$isfounder ? array('menu_setting_runtests', 'runtests') : null,
 );
 
 $custommenu = get_custommenu();
@@ -123,7 +124,7 @@ $menu['user'] = array(
 	array('menu_usergroups', 'usergroups'),
 	array('menu_follow', 'specialuser_follow'),
 	array('menu_defaultuser', 'specialuser_defaultuser'),
-	array('members_verify_profile', 'verify_verify'),
+	array('menu_members_verify_profile', 'verify_verify'),
 	array('menu_members_verify_setting', 'verify'),
 );
 

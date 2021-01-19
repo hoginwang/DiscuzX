@@ -12,6 +12,10 @@ if(!defined('IN_DISCUZ')) {
 }
 define('NOROBOT', TRUE);
 
+if(!in_array($_GET['action'], array('paysucceed', 'showdarkroom')) && !$_G['setting']['forumstatus']) {
+	showmessage('forum_status_off');
+}
+
 require_once libfile('function/post');
 
 $feed = array();
@@ -259,7 +263,7 @@ if($_GET['action'] == 'paysucceed') {
 		if($action == 1) {
 			$cic = $matches;
 		} else {
-			return '<i class="cmstarv" style="background-position:20px -'.(intval($matches[1]) * 16).'px">'.sprintf('%1.1f', $matches[1]).'</i>'.($cic++ % 2 ? '<br />' : '');
+			return '<i class="cmstarv">'.sprintf('%1.1f', $matches[1]).'</i>'.str_repeat('<span class="fico-star fc-l fnmr"></span>',intval($matches[1])).str_repeat('<span class="fico-star fc-s fnmr"></span>',(5-intval($matches[1]))).($cic++ % 2 ? '<br />' : '');
 		}
 	}
 
