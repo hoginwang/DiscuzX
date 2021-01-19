@@ -417,7 +417,7 @@ function avatar($uid, $size = 'middle', $returnsrc = FALSE, $real = FALSE, $stat
 		$dir2 = substr($uid, 3, 2);
 		$dir3 = substr($uid, 5, 2);
 		$file = $ucenterurl.'/data/avatar/'.$dir1.'/'.$dir2.'/'.$dir3.'/'.substr($uid, -2).($real ? '_real' : '').'_avatar_'.$size.'.jpg';
-		return $returnsrc ? $file : '<img src="'.$file.'" onerror="this.onerror=null;this.src=\''.$ucenterurl.'/images/noavatar_'.$size.'.gif\'" />';
+		return $returnsrc ? $file : '<img src="'.$file.'" onerror="this.onerror=null;this.src=\''.$ucenterurl.'/images/noavatar.svg\'" />';
 	}
 }
 
@@ -629,6 +629,7 @@ function template($file, $templateid = 0, $tpldir = '', $gettplfile = 0, $primal
 				$tplfile = str_replace($_G['mobiletpl'][IN_MOBILE].'/', '', $tplfile);
 				$file = str_replace($_G['mobiletpl'][IN_MOBILE].'/', '', $file);
 				define('TPL_DEFAULT', true);
+				define('TPL_DEFAULT_FILE', $mobiletplfile);
 			} else {
 				$tplfile = $mobiletplfile;
 			}
@@ -1347,12 +1348,12 @@ function getfocus_rand($module) {
 	return $focusid;
 }
 
-function check_seccode($value, $idhash, $fromjs = 0, $modid = '') {
-	return helper_seccheck::check_seccode($value, $idhash, $fromjs, $modid);
+function check_seccode($value, $idhash, $fromjs = 0, $modid = '', $verifyonly = false) {
+	return helper_seccheck::check_seccode($value, $idhash, $fromjs, $modid, $verifyonly);
 }
 
-function check_secqaa($value, $idhash) {
-	return helper_seccheck::check_secqaa($value, $idhash);
+function check_secqaa($value, $idhash, $verifyonly = false) {
+	return helper_seccheck::check_secqaa($value, $idhash, $verifyonly);
 }
 
 function seccheck($rule, $param = array()) {
@@ -1461,7 +1462,7 @@ function space_merge(&$values, $tablename, $isarchive = false) {
 			if(($_G[$var] = C::t('common_member_'.$tablename.$ext)->fetch($uid)) !== false) {
 				if($tablename == 'field_home') {
 					$_G['setting']['privacy'] = empty($_G['setting']['privacy']) ? array() : (is_array($_G['setting']['privacy']) ? $_G['setting']['privacy'] : dunserialize($_G['setting']['privacy']));
-					$_G[$var]['privacy'] = empty($_G[$var]['privacy'])? array() : is_array($_G[$var]['privacy']) ? $_G[$var]['privacy'] : dunserialize($_G[$var]['privacy']);
+					$_G[$var]['privacy'] = empty($_G[$var]['privacy']) ? array() : (is_array($_G[$var]['privacy']) ? $_G[$var]['privacy'] : dunserialize($_G[$var]['privacy']));
 					foreach (array('feed','view','profile') as $pkey) {
 						if(empty($_G[$var]['privacy'][$pkey]) && !isset($_G[$var]['privacy'][$pkey])) {
 							$_G[$var]['privacy'][$pkey] = isset($_G['setting']['privacy'][$pkey]) ? $_G['setting']['privacy'][$pkey] : array();
@@ -1514,22 +1515,20 @@ function dreferer($default = '') {
 	}
 
 	$reurl = parse_url($_G['referer']);
+	$hostwithport = $reurl['host'] . (isset($reurl['port']) ? ':' . $reurl['port'] : '');
 
 	if(!$reurl || (isset($reurl['scheme']) && !in_array(strtolower($reurl['scheme']), array('http', 'https')))) {
 		$_G['referer'] = '';
 	}
 
-	// HTTP_HOST变量中有可能有端口号
-	list($http_host,)=explode(':', $_SERVER['HTTP_HOST']);
-
-	if(!empty($reurl['host']) && !in_array($reurl['host'], array($http_host, 'www.'.$http_host)) && !in_array($http_host, array($reurl['host'], 'www.'.$reurl['host']))) {
-		if(!in_array($reurl['host'], $_G['setting']['domain']['app']) && !isset($_G['setting']['domain']['list'][$reurl['host']])) {
-			$domainroot = substr($reurl['host'], strpos($reurl['host'], '.')+1);
+	if(!empty($hostwithport) && !in_array($hostwithport, array($_SERVER['HTTP_HOST'], 'www.'.$_SERVER['HTTP_HOST'])) && !in_array($_SERVER['HTTP_HOST'], array($hostwithport, 'www.'.$hostwithport))) {
+		if(!in_array($hostwithport, $_G['setting']['domain']['app']) && !isset($_G['setting']['domain']['list'][$hostwithport])) {
+			$domainroot = substr($hostwithport, strpos($hostwithport, '.')+1);
 			if(empty($_G['setting']['domain']['root']) || (is_array($_G['setting']['domain']['root']) && !in_array($domainroot, $_G['setting']['domain']['root']))) {
 				$_G['referer'] = $_G['setting']['domain']['defaultindex'] ? $_G['setting']['domain']['defaultindex'] : 'index.php';
 			}
 		}
-	} elseif(empty($reurl['host'])) {
+	} elseif(empty($hostwithport)) {
 		$_G['referer'] = $_G['siteurl'].'./'.$_G['referer'];
 	}
 
@@ -1705,52 +1704,89 @@ function getposttable($tableid = 0, $prefix = false) {
 	return table_forum_post::getposttable($tableid, $prefix);
 }
 
+/*
+ * 以下命令，$value传入的是prefix，其它命令prefix都是最后一个参数
+ * 		get, rm, scard, smembers, hgetall, zcard, exists
+ * eval 时，传入参数如下：
+ * 		$cmd = 'eval', $key = script, $value = argv, 
+ * 		$ttl = 用于存储script hash的key, $prefix 会自动成为脚本的第一个参数，其余参数序号顺延
+ * zadd 时，参数如下：
+ * 		$cmd = 'zadd', $key = key, $value = member, $ttl = score
+ * zincrby 时，参数如下：
+ * 		$cmd = 'zincrby', $key = key, $value = member, $ttl = value to increase
+ * zrevrange 和 zrevrangewithscore 时，参数如下；
+ * 		$cmd = 'zrevrange', $key = key, $value = start, $ttl = end
+ * inc, dec, incex 的 $ttl 无效
+ */
 function memory($cmd, $key='', $value='', $ttl = 0, $prefix = '') {
+	static $supported_command = array(
+		'set', 'add', 'get', 'rm', 'inc', 'dec', 'exists',
+		'incex', /* 存在时才inc */
+		'sadd', 'srem', 'scard', 'smembers', 'sismember',
+		'hmset', 'hgetall', 'hexists', 'hget',
+		'eval', 
+		'zadd', 'zcard', 'zrem', 'zscore', 'zrevrange', 'zincrby', 'zrevrangewithscore' /* 带score返回 */,
+		'pipeline', 'commit', 'discard'
+	);
+
 	if($cmd == 'check') {
 		return  C::memory()->enable ? C::memory()->type : '';
-	} elseif(C::memory()->enable && in_array($cmd, array('set', 'add', 'get', 'rm', 'inc', 'dec'))) {
+	} elseif(C::memory()->enable && in_array($cmd, $supported_command)) {
 		if(defined('DISCUZ_DEBUG') && DISCUZ_DEBUG) {
 			if(is_array($key)) {
 				foreach($key as $k) {
 					C::memory()->debug[$cmd][] = ($cmd == 'get' || $cmd == 'rm' || $cmd == 'add' ? $value : '').$prefix.$k;
 				}
 			} else {
-				C::memory()->debug[$cmd][] = ($cmd == 'get' || $cmd == 'rm' || $cmd == 'add' ? $value : '').$prefix.$key;
+				if ($cmd === 'hget') {
+					C::memory()->debug[$cmd][] = $prefix . $key . "->" . $value;
+				} elseif ($cmd === 'eval') {
+					C::memory()->debug[$cmd][] = $key . "->" . $ttl;
+				} else {
+					C::memory()->debug[$cmd][] = ($cmd == 'get' || $cmd == 'rm' || $cmd == 'add' ? $value : '').$prefix.$key;
+				}
 			}
 		}
 		switch ($cmd) {
 			case 'set': return C::memory()->set($key, $value, $ttl, $prefix); break;
 			case 'add': return C::memory()->add($key, $value, $ttl, $prefix); break;
-			case 'get': return C::memory()->get($key, $value); break;
-			case 'rm': return C::memory()->rm($key, $value); break;
-			case 'inc': return C::memory()->inc($key, $value ? $value : 1); break;
-			case 'dec': return C::memory()->dec($key, $value ? $value : -1); break;
+			case 'get': return C::memory()->get($key, $value/*prefix*/); break;
+			case 'rm': return C::memory()->rm($key, $value/*prefix*/); break;
+			case 'exists': return C::memory()->exists($key, $value/*prefix*/); break;
+			case 'inc': return C::memory()->inc($key, $value ? $value : 1, $prefix); break;
+			case 'incex': return C::memory()->incex($key, $value ? $value : 1, $prefix); break;
+			case 'dec': return C::memory()->dec($key, $value ? $value : 1, $prefix); break;
+			case 'sadd': return C::memory()->sadd($key, $value, $prefix); break;
+			case 'srem': return C::memory()->srem($key, $value, $prefix); break;
+			case 'scard': return C::memory()->scard($key, $value/*prefix*/); break;
+			case 'smembers': return C::memory()->smembers($key, $value/*prefix*/); break;
+			case 'sismember': return C::memory()->sismember($key, $value, $prefix); break;
+			case 'hmset': return C::memory()->hmset($key, $value, $prefix); break;
+			case 'hgetall': return C::memory()->hgetall($key, $value/*prefix*/); break;
+			case 'hexists': return C::memory()->hexists($key, $value/*field*/, $prefix); break;
+			case 'hget': return C::memory()->hget($key, $value/*field*/, $prefix); break;
+			case 'eval': return C::memory()->evalscript($key/*script*/, $value/*args*/, $ttl/*sha key*/, $prefix); break;
+			case 'zadd': return C::memory()->zadd($key, $value, $ttl/*score*/, $prefix); break;
+			case 'zrem': return C::memory()->zrem($key, $value, $prefix); break;
+			case 'zscore': return C::memory()->zscore($key, $value, $prefix); break;
+			case 'zcard': return C::memory()->zcard($key, $value/*prefix*/); break;
+			case 'zrevrange': return C::memory()->zrevrange($key, $value/*start*/, $ttl/*end*/, $prefix); break;
+			case 'zrevrangewithscore': return C::memory()->zrevrange($key, $value/*start*/, $ttl/*end*/, $prefix, true); break;
+			case 'zincrby': return C::memory()->zincrby($key, $value/*member*/, $ttl ? $ttl : 1/*to increase*/, $prefix); break;
+			case 'pipeline': return C::memory()->pipeline(); break;
+			case 'commit': return C::memory()->commit(); break;
+			case 'discard': return C::memory()->discard(); break;
 		}
 	}
 	return null;
 }
 
 function ipaccess($ip, $accesslist) {
-	return preg_match("/^(".str_replace(array("\r\n", ' '), array('|', ''), preg_quote($accesslist, '/')).")/", $ip);
+	return ip::checkaccess($ip, $accesslist);
 }
 
-function ipbanned($onlineip) {
-	global $_G;
-
-	if($_G['setting']['ipaccess'] && !ipaccess($onlineip, $_G['setting']['ipaccess'])) {
-		return TRUE;
-	}
-
-	loadcache('ipbanned');
-	if(empty($_G['cache']['ipbanned'])) {
-		return FALSE;
-	} else {
-		if($_G['cache']['ipbanned']['expiration'] < TIMESTAMP) {
-			require_once libfile('function/cache');
-			updatecache('ipbanned');
-		}
-		return preg_match("/^(".$_G['cache']['ipbanned']['regexp'].")$/", $onlineip);
-	}
+function ipbanned($ip) {
+	return ip::checkbanned($ip);
 }
 
 function getcount($tablename, $condition) {
@@ -2100,17 +2136,14 @@ function currentlang() {
 		return '';
 	}
 }
-if(PHP_VERSION < '7.0.0') {
-	function dpreg_replace($pattern, $replacement, $subject, $limit = -1, &$count) {
+
+function dpreg_replace($pattern, $replacement, $subject, $limit = -1, &$count) {
+	if(PHP_VERSION < '7.0.0') {
 		return preg_replace($pattern, $replacement, $subject, $limit, $count);
-	}
-} else {
-	function dpreg_replace($pattern, $replacement, $subject, $limit = -1, &$count) {
+	} else {
 		require_once libfile('function/preg');
 		return _dpreg_replace($pattern, $replacement, $subject, $limit, $count);
 	}
 }
-
-
 
 ?>

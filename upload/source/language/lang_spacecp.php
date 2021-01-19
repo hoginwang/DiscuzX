@@ -308,6 +308,8 @@ $lang = array(
 	'invite_you_to_visit' => '{user}邀请您访问{bbname}',
 
 	'portal' => '门户',
+	'forum' => '论坛',
+	'friend' => '好友',
 	'group' => '群组',
 	'follow' => '广播',
 	'collection' => '淘帖',
@@ -318,6 +320,10 @@ $lang = array(
 	'wall' => '留言板',
 	'homepage' => '个人主页',
 	'ranklist' => '排行榜',
+	'medal' => '勋章',
+	'task' => '任务',
+	'magic' => '道具',
+	'favorite' => '收藏',
 	'select_the_navigation_position' => '选择{type}导航位置',
 	'close_module' => '关闭{type}功能',
 
@@ -330,7 +336,7 @@ $lang = array(
 
 	'spacecp_message_prompt' => '(支持 {msg} 代码,最大 1000 字)',
 	'card_update_doing' => ' <a class="xi2" href="###">[更新记录]</a>',
-	'email_acitve_message' => '<img src="{imgdir}/mail_inactive.png" alt="未验证" class="vm" /> <span class="xi1">新邮箱({newemail})等待验证中...</span><br />
+	'email_acitve_message' => '<i class="fico-email vm fc-i" title="未验证"></i><span class="xi1 vm">新邮箱({newemail})等待验证中...</span><br />
 								系统已经向该邮箱发送了一封验证激活邮件，请查收邮件，进行验证激活。<br>
 								如果没有收到验证邮件，您可以更换一个邮箱，或者<a href="home.php?mod=spacecp&ac=profile&op=password&resend=1" class="xi2">重新接收验证邮件</a>',
 	'qq_set_status' => '设置我的QQ在线状态',

@@ -262,7 +262,7 @@ if($_GET['step'] == 'start') {
 		if($maths[3] == 'MEMORY' || $maths[3] == 'HEAP') {
 			$type = helper_dbtool::dbversion() > '4.1' ? " ENGINE=MEMORY".(empty($config['dbcharset'])?'':" DEFAULT CHARSET=$config[dbcharset]" ): " TYPE=HEAP";
 		} else {
-			$type = helper_dbtool::dbversion() > '4.1' ? " ENGINE=MYISAM".(empty($config['dbcharset'])?'':" DEFAULT CHARSET=$config[dbcharset]" ): " TYPE=MYISAM";
+			$type = helper_dbtool::dbversion() > '4.1' ? " ENGINE=INNODB".(empty($config['dbcharset'])?'':" DEFAULT CHARSET=$config[dbcharset]" ): " TYPE=MYISAM";
 		}
 		$usql = $maths[1].$type;
 
@@ -2051,9 +2051,12 @@ END;
 }
 
 function show_footer() {
+
+	$now = date('Y');
+
 	print<<<END
 	</div>
-	<div id="footer">Copyright &copy; 2001-2020, Tencent Cloud.</div>
+	<div id="footer">Copyright &copy; 2001-$now Tencent Cloud.</div>
 	</div>
 	<br>
 	</body>
@@ -2275,7 +2278,7 @@ function block_style_conver_to_thread($style, $blockclass) {
 
 function create_table($sql, $dbcharset) {
 	$type = strtoupper(preg_replace("/^\s*CREATE TABLE\s+.+\s+\(.+?\).*(ENGINE|TYPE)\s*=\s*([a-z]+?).*$/isU", "\\2", $sql));
-	$type = in_array($type, array('MYISAM', 'HEAP', 'MEMORY')) ? $type : 'MYISAM';
+	$type = in_array($type, array('INNODB', 'MYISAM', 'HEAP', 'MEMORY')) ? $type : 'INNODB';
 	return preg_replace("/^\s*(CREATE TABLE\s+.+\s+\(.+?\)).*$/isU", "\\1", $sql).
 	(helper_dbtool::dbversion() > '4.1' ? " ENGINE=$type DEFAULT CHARSET=".$dbcharset : " TYPE=$type");
 }

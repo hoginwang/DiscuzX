@@ -78,7 +78,7 @@ class db_driver_mysqli
 	}
 
 	function _dbconnect($dbhost, $dbuser, $dbpw, $dbcharset, $dbname, $pconnect, $halt = true) {
-		if ($pconnect === '1') $dbhost = 'p:' . $dbhost; // 前面加p:，表示persistent connection
+		if (intval($pconnect) === 1) $dbhost = 'p:' . $dbhost; // 前面加p:，表示persistent connection
 		$link = new mysqli();
 		if(!$link->real_connect($dbhost, $dbuser, $dbpw, $dbname, null, null, MYSQLI_CLIENT_COMPRESS)) {
 			$halt && $this->halt('notconnect', $this->errno());
@@ -221,6 +221,29 @@ class db_driver_mysqli
 
 	function halt($message = '', $code = 0, $sql = '') {
 		throw new DbException($message, $code, $sql);
+	}
+
+	function begin_transaction() {
+		if (PHP_VERSION < '5.5') {
+			return $this->curlink->autocommit(false);
+		}
+		return $this->curlink->begin_transaction();
+	}
+
+	function commit() {
+		$cr = $this->curlink->commit();
+		if (PHP_VERSION < '5.5') {
+			$this->curlink->autocommit(true);
+		}
+		return $cr;
+	}
+
+	function rollback() {
+		$rr = $this->curlink->rollback();
+		if (PHP_VERSION < '5.5') {
+			$this->curlink->autocommit(true);
+		}
+		return $rr;
 	}
 
 }

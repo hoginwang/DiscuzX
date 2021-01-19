@@ -38,6 +38,10 @@ define('CURMODULE', $mod);
 
 runhooks();
 
+if (!$_G['setting'][($mod == 'curforum' ? 'forum' : ($mod == 'user' ? 'friend' : $mod)).'status']) {
+	showmessage(($mod == 'curforum' ? 'forum' : ($mod == 'user' ? 'friend' : ($mod == 'group' ? 'group_module' : $mod))).'_status_off');
+}
+
 require_once libfile('function/search');
 
 

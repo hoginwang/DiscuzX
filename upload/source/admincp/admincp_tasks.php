@@ -36,9 +36,6 @@ if(!($operation)) {
 			array('nav_task_type', 'tasks&operation=type', 0)
 		));
 		showformheader('tasks');
-		showtableheader();
-		showsetting('tasks_on', 'taskonnew', $_G['setting']['taskon'], 'radio');
-		showtablefooter();
 		showtableheader('tasks_list', 'fixpadding');
 		showsubtitle(array('display_order', 'available', 'name', 'tasks_reward', 'time', ''));
 
@@ -109,10 +106,6 @@ if(!($operation)) {
 				}
 				C::t('common_task')->update($id, $update);
 			}
-		}
-
-		if($_GET['taskonnew'] != $_G['setting']['taskon']) {
-			C::t('common_setting')->update('taskon', $_GET['taskonnew']);
 		}
 
 		updatecache('setting');
@@ -297,6 +290,7 @@ if(!($operation)) {
 		}
 		$data = array(
 			'relatedtaskid' => $_GET['relatedtaskid'],
+			'exclusivetaskid' => $_GET['exclusivetaskid'],
 			'available' => 0,
 			'name' => $_GET['name'],
 			'description' => $_GET['description'],
@@ -431,6 +425,7 @@ if(!($operation)) {
 			}
 		}
 		showsetting('tasks_add_relatedtask', array('relatedtaskid', $tasklist), $task['relatedtaskid'], 'select');
+		showsetting('tasks_add_exclusivetask', array('exclusivetaskid', $tasklist), $task['exclusivetaskid'], 'select');
 		showsetting('tasks_add_maxnum', 'tasklimits', $task['tasklimits'], 'text');
 
 		$taskvars = array();
@@ -515,6 +510,7 @@ if(!($operation)) {
 		}
 		C::t('common_task')->update($id, array(
 			'relatedtaskid' => $_GET['relatedtaskid'],
+			'exclusivetaskid' => $_GET['exclusivetaskid'],			
 			'name' => $_GET['name'],
 			'description' => $_GET['description'],
 			'icon' => $_GET['iconnew'],

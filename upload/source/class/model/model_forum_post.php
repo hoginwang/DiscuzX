@@ -81,6 +81,8 @@ class model_forum_post extends discuz_model {
 			return $this->showmessage('post_flood_ctrl', '', array('floodctrl' => $this->setting['floodctrl']));
 		} elseif(checkmaxperhour('pid')) {
 			return $this->showmessage('post_flood_ctrl_posts_per_hour', '', array('posts_per_hour' => $this->group['maxpostsperhour']));
+		} elseif($this->thread['displayorder'] == -4 && !$this->group['allowsavereply']) {
+			return $this->showmessage('post_not_allow_reply_save');
 		}
 
 
@@ -372,7 +374,7 @@ class model_forum_post extends discuz_model {
 
 			$publishdate = null;
 			if ($this->group['allowsetpublishdate'] && $this->thread['displayorder'] == -4) {
-				$cron_publish_ids = dunserialize($this->cache('cronpublish'));
+				$cron_publish_ids = $this->cache('cronpublish');
 				if (!$this->param['cronpublish'] && in_array($this->thread['tid'], $cron_publish_ids) || $this->param['modnewthreads']) {
 					$this->param['threadupdatearr']['dateline'] = $publishdate = TIMESTAMP;
 					unset($cron_publish_ids[$this->thread['tid']]);
@@ -383,7 +385,6 @@ class model_forum_post extends discuz_model {
 					$this->param['save'] = 1;
 					if (!in_array($this->thread['tid'], $cron_publish_ids)) {
 						$cron_publish_ids[$this->thread['tid']] = $this->thread['tid'];
-						$cron_publish_ids = serialize($cron_publish_ids);
 						savecache('cronpublish', $cron_publish_ids);
 					}
 				}

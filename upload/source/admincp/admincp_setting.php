@@ -205,6 +205,7 @@ if(!submitcheck('settingsubmit')) {
 		showsetting('setting_basic_adminemail', 'settingnew[adminemail]', $setting['adminemail'], 'text');
 		showsetting('setting_basic_site_qq', 'settingnew[site_qq]', $setting['site_qq'], 'text',$disabled = '', $hidden = 0, $comment = '', $extra = 'id="settingnew[site_qq]"');
 		showsetting('setting_basic_icp', 'settingnew[icp]', $setting['icp'], 'text');
+		showsetting('setting_basic_mps', 'settingnew[mps]', $setting['mps'], 'text');
 		showsetting('setting_basic_boardlicensed', 'settingnew[boardlicensed]', $setting['boardlicensed'], 'radio');
 		showsetting('setting_basic_stat', 'settingnew[statcode]', $setting['statcode'], 'textarea');
 		showtablefooter();
@@ -1172,13 +1173,14 @@ EOF;
 		/*search*/
 
 	} elseif($operation == 'functions') {
-		$allowfuntype = array('portal', 'group', 'follow', 'collection', 'guide', 'feed', 'blog', 'doing', 'album', 'share', 'wall', 'homepage', 'ranklist');
+		$allowfuntype = array('portal', 'forum', 'friend', 'group', 'follow', 'collection', 'guide', 'feed', 'blog', 'doing', 'album', 'share', 'wall', 'homepage', 'ranklist', 'medal', 'task', 'magic', 'favorite');
 		$_GET['type'] = in_array($_GET['type'], $allowfuntype) ? trim($_GET['type']) : '';
 		echo "<script>disallowfloat = '{$_G[setting][disallowfloat]}';</script>";
 
 		/*search={"setting_functions":"action=setting&operation=functions","setting_functions_curscript":"action=setting&operation=functions&anchor=curscript"}*/
 		showtableheader('setting_functions_curscript_list', 'nobottom', 'id="curscript"'.($_GET['anchor'] != 'curscript' ? ' style="display: none"' : ''));
 		$modulehtml = array();
+		$modulehtml[] = '<td class="td25"><img src="'.STATICURL.'image/feed/dzwap_b.png"/></td><td class="td23">'.$lang['setting_functions_curscript_forum'].'</td><td width="370">'.$lang['setting_functions_curscript_forum_intro'].'</td><td class="td30"><img class="vm" src="'.$_G['style']['imgdir'].'/data_'.($setting['forumstatus'] ? 'valid':'invalid').'.gif"></td><td><a href="forum.php?mod=ajax&action=setnav&do='.($setting['forumstatus'] ? 'close':'open').'&type=forum" onclick="showWindow(\'setnav\', this.href, \'get\', 0);return false;">'.($setting['forumstatus'] ? $lang['setting_functions_curscript_close']:$lang['setting_functions_curscript_open']).'</a></td>';
 		$modulehtml[] = '<td class="td25"><img src="'.STATICURL.'image/feed/portal_b.png"/></td><td class="td23">'.$lang['setting_functions_curscript_portal'].'</td><td width="370">'.$lang['setting_functions_curscript_portal_intro'].'</td><td class="td30"><img class="vm" src="'.$_G['style']['imgdir'].'/data_'.($setting['portalstatus'] ? 'valid':'invalid').'.gif"></td><td><a href="forum.php?mod=ajax&action=setnav&do='.($setting['portalstatus'] ? 'close':'open').'&type=portal" onclick="showWindow(\'setnav\', this.href, \'get\', 0);return false;">'.($setting['portalstatus'] ? $lang['setting_functions_curscript_close']:$lang['setting_functions_curscript_open']).'</a></td>';
 		$modulehtml[] = '<td class="td25"><img src="'.STATICURL.'image/feed/group_b.png"/></td><td class="td23">'.$lang['setting_functions_curscript_group'].'</td><td width="370">'.$lang['setting_functions_curscript_group_intro'].'</td><td class="td30"><img class="vm" src="'.$_G['style']['imgdir'].'/data_'.($setting['groupstatus'] ? 'valid':'invalid').'.gif"></td><td><a href="forum.php?mod=ajax&action=setnav&do='.($setting['groupstatus'] ? 'close':'open').'&type=group" onclick="showWindow(\'setnav\', this.href, \'get\', 0);return false;">'.($setting['groupstatus'] ? $lang['setting_functions_curscript_close']:$lang['setting_functions_curscript_open']).'</a></td>';
 		$modulehtml[] = '<td class="td25"><img src="'.STATICURL.'image/feed/follow_b.png"/></td><td class="td23">'.$lang['setting_functions_curscript_follow'].'</td><td width="370">'.$lang['setting_functions_curscript_follow_intro'].'</td><td class="td30"><img class="vm" src="'.$_G['style']['imgdir'].'/data_'.($setting['followstatus'] ? 'valid':'invalid').'.gif"></td><td><a href="forum.php?mod=ajax&action=setnav&do='.($setting['followstatus'] ? 'close':'open').'&type=follow" onclick="showWindow(\'setnav\', this.href, \'get\', 0);return false;">'.($setting['followstatus'] ? $lang['setting_functions_curscript_close']:$lang['setting_functions_curscript_open']).'</a></td>';
@@ -1186,11 +1188,16 @@ EOF;
 		$modulehtml[] = '<td class="td25"><img src="'.STATICURL.'image/feed/guide_b.png"/></td><td class="td23">'.$lang['setting_functions_curscript_guide'].'</td><td width="370">'.$lang['setting_functions_curscript_guide_intro'].'</td><td class="td30"><img class="vm" src="'.$_G['style']['imgdir'].'/data_'.($setting['guidestatus'] ? 'valid':'invalid').'.gif"></td><td><a href="forum.php?mod=ajax&action=setnav&do='.($setting['guidestatus'] ? 'close':'open').'&type=guide" onclick="showWindow(\'setnav\', this.href, \'get\', 0);return false;">'.($setting['guidestatus'] ? $lang['setting_functions_curscript_close']:$lang['setting_functions_curscript_open']).'</a></td>';
 		$modulehtml[] = '<td class="td25"><img src="'.STATICURL.'image/feed/feed_b.png"/></td><td class="td23">'.$lang['setting_functions_curscript_feed'].'</td><td width="370">'.$lang['setting_functions_curscript_feed_intro'].'</td><td class="td30"><img class="vm" src="'.$_G['style']['imgdir'].'/data_'.($setting['feedstatus'] ? 'valid':'invalid').'.gif"></td><td><a href="forum.php?mod=ajax&action=setnav&do='.($setting['feedstatus'] ? 'close':'open').'&type=feed" onclick="showWindow(\'setnav\', this.href, \'get\', 0);return false;">'.($setting['feedstatus'] ? $lang['setting_functions_curscript_close']:$lang['setting_functions_curscript_open']).'</a></td>';
 		$modulehtml[] = '<td class="td25"><img src="'.STATICURL.'image/feed/blog_b.png"/></td><td class="td23">'.$lang['setting_functions_curscript_blog'].'</td><td width="370">'.$lang['setting_functions_curscript_blog_intro'].'</td><td class="td30"><img class="vm" src="'.$_G['style']['imgdir'].'/data_'.($setting['blogstatus'] ? 'valid':'invalid').'.gif"></td><td><a href="forum.php?mod=ajax&action=setnav&do='.($setting['blogstatus'] ? 'close':'open').'&type=blog" onclick="showWindow(\'setnav\', this.href, \'get\', 0);return false;">'.($setting['blogstatus'] ? $lang['setting_functions_curscript_close']:$lang['setting_functions_curscript_open']).'</a></td>';
+		$modulehtml[] = '<td class="td25"><img src="'.STATICURL.'image/feed/friend_b.png"/></td><td class="td23">'.$lang['setting_functions_curscript_friend'].'</td><td width="370">'.$lang['setting_functions_curscript_friend_intro'].'</td><td class="td30"><img class="vm" src="'.$_G['style']['imgdir'].'/data_'.($setting['friendstatus'] ? 'valid':'invalid').'.gif"></td><td><a href="forum.php?mod=ajax&action=setnav&do='.($setting['friendstatus'] ? 'close':'open').'&type=friend" onclick="showWindow(\'setnav\', this.href, \'get\', 0);return false;">'.($setting['friendstatus'] ? $lang['setting_functions_curscript_close']:$lang['setting_functions_curscript_open']).'</a></td>';
 		$modulehtml[] = '<td class="td25"><img src="'.STATICURL.'image/feed/album_b.png"/></td><td class="td23">'.$lang['setting_functions_curscript_album'].'</td><td width="370">'.$lang['setting_functions_curscript_album_intro'].'</td><td class="td30"><img class="vm" src="'.$_G['style']['imgdir'].'/data_'.($setting['albumstatus'] ? 'valid':'invalid').'.gif"></td><td><a href="forum.php?mod=ajax&action=setnav&do='.($setting['albumstatus'] ? 'close':'open').'&type=album" onclick="showWindow(\'setnav\', this.href, \'get\', 0);return false;">'.($setting['albumstatus'] ? $lang['setting_functions_curscript_close']:$lang['setting_functions_curscript_open']).'</a></td>';
 		$modulehtml[] = '<td class="td25"><img src="'.STATICURL.'image/feed/share_b.png"/></td><td class="td23">'.$lang['setting_functions_curscript_share'].'</td><td width="370">'.$lang['setting_functions_curscript_share_intro'].'</td><td class="td30"><img class="vm" src="'.$_G['style']['imgdir'].'/data_'.($setting['sharestatus'] ? 'valid':'invalid').'.gif"></td><td><a href="forum.php?mod=ajax&action=setnav&do='.($setting['sharestatus'] ? 'close':'open').'&type=share" onclick="showWindow(\'setnav\', this.href, \'get\', 0);return false;">'.($setting['sharestatus'] ? $lang['setting_functions_curscript_close']:$lang['setting_functions_curscript_open']).'</a></td>';
 		$modulehtml[] = '<td class="td25"><img src="'.STATICURL.'image/feed/doing_b.png"/></td><td class="td23">'.$lang['setting_functions_curscript_doing'].'</td><td width="370">'.$lang['setting_functions_curscript_doing_intro'].'</td><td class="td30"><img class="vm" src="'.$_G['style']['imgdir'].'/data_'.($setting['doingstatus'] ? 'valid':'invalid').'.gif"></td><td><a href="forum.php?mod=ajax&action=setnav&do='.($setting['doingstatus'] ? 'close':'open').'&type=doing" onclick="showWindow(\'setnav\', this.href, \'get\', 0);return false;">'.($setting['doingstatus'] ? $lang['setting_functions_curscript_close']:$lang['setting_functions_curscript_open']).'</a></td>';
 		$modulehtml[] = '<td class="td25"><img src="'.STATICURL.'image/feed/wall_b.png"/></td><td class="td23">'.$lang['setting_functions_curscript_message'].'</td><td width="370">'.$lang['setting_functions_curscript_message_intro'].'</td><td class="td30"><img class="vm" src="'.$_G['style']['imgdir'].'/data_'.($setting['wallstatus'] ? 'valid':'invalid').'.gif"></td><td><a href="forum.php?mod=ajax&action=setnav&do='.($setting['wallstatus'] ? 'close':'open').'&type=wall" onclick="showWindow(\'setnav\', this.href, \'get\', 0);return false;">'.($setting['wallstatus'] ? $lang['setting_functions_curscript_close']:$lang['setting_functions_curscript_open']).'</a></td>';
 		$modulehtml[] = '<td class="td25"><img src="'.STATICURL.'image/feed/ranklist_b.png"/></td><td class="td23">'.$lang['setting_functions_curscript_ranklist'].'</td><td width="370">'.$lang['setting_functions_curscript_ranklist_intro'].'</td><td class="td30"><img class="vm" src="'.$_G['style']['imgdir'].'/data_'.($setting['rankliststatus'] ? 'valid':'invalid').'.gif"></td><td><a href="forum.php?mod=ajax&action=setnav&do='.($setting['rankliststatus'] ? 'close':'open').'&type=ranklist" onclick="showWindow(\'setnav\', this.href, \'get\', 0);return false;">'.($setting['rankliststatus'] ? $lang['setting_functions_curscript_close']:$lang['setting_functions_curscript_open']).'</a></td>';
+		$modulehtml[] = '<td class="td25"><img src="'.STATICURL.'image/feed/task_b.png"/></td><td class="td23">'.$lang['setting_functions_curscript_task'].'</td><td width="370">'.$lang['setting_functions_curscript_task_intro'].'</td><td class="td30"><img class="vm" src="'.$_G['style']['imgdir'].'/data_'.($setting['taskstatus'] ? 'valid':'invalid').'.gif"></td><td><a href="forum.php?mod=ajax&action=setnav&do='.($setting['taskstatus'] ? 'close':'open').'&type=task" onclick="showWindow(\'setnav\', this.href, \'get\', 0);return false;">'.($setting['taskstatus'] ? $lang['setting_functions_curscript_close']:$lang['setting_functions_curscript_open']).'</a></td>';
+		$modulehtml[] = '<td class="td25"><img src="'.STATICURL.'image/feed/medal_b.png"/></td><td class="td23">'.$lang['setting_functions_curscript_medal'].'</td><td width="370">'.$lang['setting_functions_curscript_medal_intro'].'</td><td class="td30"><img class="vm" src="'.$_G['style']['imgdir'].'/data_'.($setting['medalstatus'] ? 'valid':'invalid').'.gif"></td><td><a href="forum.php?mod=ajax&action=setnav&do='.($setting['medalstatus'] ? 'close':'open').'&type=medal" onclick="showWindow(\'setnav\', this.href, \'get\', 0);return false;">'.($setting['medalstatus'] ? $lang['setting_functions_curscript_close']:$lang['setting_functions_curscript_open']).'</a></td>';
+		$modulehtml[] = '<td class="td25"><img src="'.STATICURL.'image/feed/magic_b.png"/></td><td class="td23">'.$lang['setting_functions_curscript_magic'].'</td><td width="370">'.$lang['setting_functions_curscript_magic_intro'].'</td><td class="td30"><img class="vm" src="'.$_G['style']['imgdir'].'/data_'.($setting['magicstatus'] ? 'valid':'invalid').'.gif"></td><td><a href="forum.php?mod=ajax&action=setnav&do='.($setting['magicstatus'] ? 'close':'open').'&type=magic" onclick="showWindow(\'setnav\', this.href, \'get\', 0);return false;">'.($setting['magicstatus'] ? $lang['setting_functions_curscript_close']:$lang['setting_functions_curscript_open']).'</a></td>';
+		$modulehtml[] = '<td class="td25"><img src="'.STATICURL.'image/feed/favorite_b.png"/></td><td class="td23">'.$lang['setting_functions_curscript_favorite'].'</td><td width="370">'.$lang['setting_functions_curscript_favorite_intro'].'</td><td class="td30"><img class="vm" src="'.$_G['style']['imgdir'].'/data_'.($setting['favoritestatus'] ? 'valid':'invalid').'.gif"></td><td><a href="forum.php?mod=ajax&action=setnav&do='.($setting['favoritestatus'] ? 'close':'open').'&type=favorite" onclick="showWindow(\'setnav\', this.href, \'get\', 0);return false;">'.($setting['favoritestatus'] ? $lang['setting_functions_curscript_close']:$lang['setting_functions_curscript_open']).'</a></td>';
 		echo '<tr>'.implode('</tr><tr>', $modulehtml).'</tr>';
 		showtablefooter();
 		/*search*/
@@ -1877,6 +1884,7 @@ EOT;
 		showsetting('setting_sec_floodctrl', 'settingnew[floodctrl]', $setting['floodctrl'], 'text');
 		showsetting('setting_sec_base_need_email', 'settingnew[need_email]', $setting['need_email'], 'radio');
 		showsetting('setting_sec_base_need_avatar', 'settingnew[need_avatar]', $setting['need_avatar'], 'radio');
+		showsetting('setting_sec_base_change_email', 'settingnew[change_email]', $setting['change_email'], 'radio');
 		showsetting('setting_sec_base_need_friendnum', 'settingnew[need_friendnum]', $setting['need_friendnum'], 'text');
 		showtablefooter();
 		/*search*/
@@ -1930,7 +1938,7 @@ EOT;
 		showsetting('setting_datetime_visitbanperiods', 'settingnew[visitbanperiods]', $setting['visitbanperiods'], 'textarea');
 		showsetting('setting_datetime_ban_downtime', 'settingnew[attachbanperiods]', $setting['attachbanperiods'], 'textarea');
 		showsetting('setting_datetime_searchbanperiods', 'settingnew[searchbanperiods]', $setting['searchbanperiods'], 'textarea');
-		/*search}*/
+		/*search*/
 
 	} elseif($operation == 'attach') {
 
@@ -2411,7 +2419,6 @@ EOT;
 		/*search={"setting_ranklist":"action=setting&operation=ranklist"}*/
 		$setting['ranklist'] = dunserialize($setting['ranklist']);
 		showtableheader('', 'nobottom', 'id="all"');
-		showsetting('setting_ranklist_status', 'settingnew[ranklist][status]', $setting['ranklist']['status'], 'radio');
 		showsetting('setting_ranklist_index_cache_time', 'settingnew[ranklist][cache_time]', $setting['ranklist']['cache_time'], 'text');
 		showsetting('setting_ranklist_index_select', array('settingnew[ranklist][index_select]', array(array('all',cplang('dateline_all')), array('thismonth',cplang('thismonth')), array('thisweek',cplang('thisweek')), array('today',cplang('today')))), $setting['ranklist']['index_select'], 'select');
 		showsetting('setting_ranklist_ignorefid', 'settingnew[ranklist][ignorefid]', $setting['ranklist']['ignorefid'], 'text');
@@ -2495,7 +2502,6 @@ EOT;
 		if($_GET['anchor'] == 'iplist') {
 
 			if(submitcheck('antitheftsubmit', true)) {
-				$_GET['ips'] = dintval($_GET['ips'], true);
 				$url = 'action=setting&operation=antitheft&anchor=iplist&page='.$page;
 				if(empty($_GET['ips'])) {
 					cpmsg('setting_antitheft_choose_ip', $url, 'error');
@@ -2503,7 +2509,7 @@ EOT;
 				$antitheftsetting = C::t('common_setting')->fetch('antitheftsetting', true);
 				if($_GET['optype'] == 'white' || $_GET['optype'] == 'black') {
 					$ips = explode("\n", $antitheftsetting[$_GET['optype']]);
-					$ips = array_diff(array_map('long2ip', $_GET['ips']), $ips);
+					$ips = array_diff($_GET['ips'], $ips);
 					if($ips) {
 						$antitheftsetting[$_GET['optype']] = $antitheftsetting[$_GET['optype']]."\n".implode("\n", $ips);
 						C::t('common_setting')->update('antitheftsetting', $antitheftsetting);
@@ -2531,12 +2537,10 @@ EOT;
 				$multipage = '';
 				$count = C::t('common_visit')->count();
 				if($count) {
-					require_once libfile('function/misc');
 					foreach(C::t('common_visit')->range($start, $perpage) as $value) {
-						$ip = long2ip($value['ip']);
 						showtablerow('', array('class="td25"', 'class=""', 'class="td28"'), array(
 								"<input type=\"checkbox\" class=\"checkbox\" name=\"ips[]\" value=\"$value[ip]\">",
-								"$ip ".convertip($ip),
+								"$value[ip] ".ip::convert($value[ip]),
 								$value['view'],
 								"<a href=\"$mpurl&optype=white&ips[]=$value[ip]&antitheftsubmit=yes\">$lang[setting_antitheft_addwhitelist]</a> |
 								 <a href=\"$mpurl&optype=black&ips[]=$value[ip]&antitheftsubmit=yes\">$lang[setting_antitheft_addblacklist]</a> |
@@ -3129,8 +3133,8 @@ EOT;
 		$settingnew['accountguard'] = serialize($settingnew['accountguard']);
 	}
 
-	if(!empty($_G['gp_aggid'])) {
-		foreach($_G['gp_aggid'] as $gid => $v) {
+	if(!empty($_POST['aggid'])) {
+		foreach(daddslashes($_POST['aggid']) as $gid => $v) {
 			C::t('common_usergroup_field')->update($gid, array('forcelogin' => $v));
 		}
 		updatecache('usergroups');

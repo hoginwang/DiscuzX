@@ -24,7 +24,7 @@ $lockfile = ROOT_PATH.'./data/install.lock';
 @include ROOT_PATH.CONFIG;
 
 define('CHARSET', 'utf-8');
-define('DBCHARSET', 'utf8');
+define('DBCHARSET', 'utf8mb4');
 
 define('ORIG_TABLEPRE', 'pre_');
 
@@ -63,7 +63,7 @@ define('UNDEFINE_FUNC', 32);
 define('MISSING_PARAMETER', 33);
 define('LOCK_FILE_NOT_TOUCH', 34);
 
-$func_items = array(function_exists('mysql_connect') ? 'mysql_connect' : 'mysqli_connect', 'gethostbyname', 'file_get_contents', 'xml_parser_create');
+$func_items = array('mysqli_connect', 'gethostbyname', 'file_get_contents', 'xml_parser_create');
 
 $filesock_items = array('fsockopen', 'pfsockopen', 'stream_socket_client', 'curl_init');
 
@@ -76,6 +76,7 @@ $env_items = array
 	'curl' => array('r' => 'notset', 'b' => 'enable'),
 	'opcache' => array('r' => 'notset', 'b' => 'enable'),
 	'diskspace' => array('r' => 30 * 1048576, 'b' => 'notset'),
+	'filter_var' => array('f' => 'filter_var', 'r' => 'enable', 'b' => 'enable'),
 );
 
 $dirfile_items = array

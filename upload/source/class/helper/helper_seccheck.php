@@ -138,7 +138,7 @@ class helper_seccheck {
 		return $_G['cache']['secqaa'][$secqaakey]['question'];
 	}
 
-	public static function check_seccode($value, $idhash, $fromjs = 0, $modid = '') {
+	public static function check_seccode($value, $idhash, $fromjs = 0, $modid = '', $verifyonly = false) {
 		global $_G;
 		if(!$_G['setting']['seccodestatus']) {
 			return true;
@@ -169,7 +169,7 @@ class helper_seccheck {
 				if(class_exists($class)) {
 					$code = new $class();
 					if(method_exists($code, 'check')) {
-						$return = $code->check($value, $idhash, $seccheck, $fromjs, $modid);
+						$return = $code->check($value, $idhash, $seccheck, $fromjs, $modid, $verifyonly);
 					}
 				}
 			} else {
@@ -183,10 +183,13 @@ class helper_seccheck {
 		} else {
 			C::t('common_seccheck')->update_verified($ssid);
 		}
+		if(!$verifyonly) {
+			C::t('common_seccheck')->delete($ssid);
+		}
 		return $return;
 	}
 
-	public static function check_secqaa($value, $idhash) {
+	public static function check_secqaa($value, $idhash, $verifyonly = false) {
 		global $_G;
 		if(!$_G['setting']['secqaa']) {
 			return true;
@@ -201,6 +204,9 @@ class helper_seccheck {
 			C::t('common_seccheck')->update_succeed($ssid);
 		} else {
 			C::t('common_seccheck')->update_verified($ssid);
+		}
+		if(!$verifyonly) {
+			C::t('common_seccheck')->delete($ssid);
 		}
 		return $return;
 	}

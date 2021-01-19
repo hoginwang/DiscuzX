@@ -10,6 +10,10 @@ if(!defined('IN_DISCUZ')) {
 	exit('Access Denied');
 }
 
+if(!$_G['setting']['rankliststatus']) {
+	showmessage('ranklist_status_off');
+}
+
 $page = $_G['page'];
 $type = $_GET['type'];
 
@@ -20,14 +24,13 @@ if(!in_array($type, array('index', 'member', 'thread', 'blog', 'poll', 'picture'
 }
 
 $ranklist_setting = $_G['setting']['ranklist'];
-if(!$ranklist_setting['status']) {
-	showmessage('ranklist_status_off');
-}
 
 $navtitle = lang('core', 'title_ranklist_'.$type);
 
+$allowtype = array('member' => 'ranklist', 'thread' => 'forum', 'blog' => 'blog', 'poll' => 'forum', 'picture' => 'album', 'activity' => 'forum', 'forum' => 'forum', 'group' => 'group');
+
 if($type != 'index') {
-	if(!$ranklist_setting[$type]['available']) {
+	if(!array_key_exists($type, $allowtype) || !$_G['setting'][$allowtype[$type].'status'] || !$ranklist_setting[$type]['available']) {
 		showmessage('ranklist_this_status_off');
 	}
 }
@@ -144,7 +147,7 @@ function getranklist_picture($num = 20, $view = 'hot', $orderby = 'all') {
 		++$rank;
 		$picture = array('picid' => $value['picid'], 'uid' => $value['uid'], 'username' => $value['username'], 'title' => $value['title'], 'filepath' => $value['filepath'], 'thumb' => $value['thumb'], 'remote' => $value['remote'], 'hot' => $value['hot'], 'sharetimes' => $value['sharetimes'], 'click1' => $value['click1'], 'click2' => $value['click2'], 'click3' => $value['click3'], 'click4' => $value['click4'], 'click5' => $value['click5'], 'click6' => $value['click6'], 'click7' => $value['click7'], 'click8' => $value['click8'], 'albumid' => $value['albumid'], 'albumname' => $value['albumname'], 'friend' => $value['friend']);
 		$picture['rank'] = $rank;
-		$picture['url'] = $picture['friend'] == 0 ? pic_get($picture['filepath'], 'album', $picture['thumb'], $picture['remote']) : STATICURL.'image/common/nopublish.gif';;
+		$picture['url'] = $picture['friend'] == 0 ? pic_get($picture['filepath'], 'album', $picture['thumb'], $picture['remote']) : STATICURL.'image/common/nopublish.svg';;
 		$picture['origurl'] = pic_get($picture['filepath'], 'album', 0, $picture['remote']);
 		$data[] = $picture;
 	}
@@ -157,8 +160,8 @@ function getranklist_pictures_index($num = 20, $dateline = 0, $orderby = 'hot DE
 	require_once libfile('function/home');
 	foreach($query as $value) {
 		$picture = array('picid' => $value['picid'], 'uid' => $value['uid'], 'username' => $value['username'], 'title' => $value['title'], 'filepath' => $value['filepath'], 'thumb' => $value['thumb'], 'remote' => $value['remote'], 'albumid' => $value['albumid'], 'albumname' => $value['albumname'], 'friend' => $value['friend']);
-		$picture['url'] = $picture['friend'] == 0 ? pic_get($picture['filepath'], 'album', $picture['thumb'], $picture['remote']) : STATICURL.'image/common/nopublish.gif';;
-		$picture['origurl'] = $picture['friend'] == 0 ? pic_get($picture['filepath'], 'album', 0, $picture['remote']) : STATICURL.'image/common/nopublish.gif';
+		$picture['url'] = $picture['friend'] == 0 ? pic_get($picture['filepath'], 'album', $picture['thumb'], $picture['remote']) : STATICURL.'image/common/nopublish.svg';;
+		$picture['origurl'] = $picture['friend'] == 0 ? pic_get($picture['filepath'], 'album', 0, $picture['remote']) : STATICURL.'image/common/nopublish.svg';
 		$picturelist[] = $picture;
 	}
 	return $picturelist;

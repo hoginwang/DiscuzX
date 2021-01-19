@@ -321,7 +321,6 @@ function build_cache_setting() {
 	}
 
 	$data['tradeopen'] = C::t('common_usergroup_field')->count_by_field('allowposttrade', 1) ? 1 : 0;
-	$data['medalstatus'] = intval(C::t('forum_medal')->count_by_available());
 
 	$focus = array();
 	if($data['focus']['data']) {
@@ -479,8 +478,10 @@ function build_cache_setting() {
 	
 	$data['parseflv'] = get_cachedata_discuzcode_parseflv();
 
-	$data['securesiteurl'] = $_G['siteurl'];
+	$data['mpsid'] = preg_replace('/[^0-9]+/', '', $data['mps']);
 
+	$data['securesiteurl'] = $_G['siteurl'];
+	
 	savecache('setting', $data);
 	$_G['setting'] = $data;
 }
