@@ -205,9 +205,20 @@ function updatepluginlanguage($pluginarray) {
 		}
 		savecache('pluginlanguage_'.$type, $_G['cache']['pluginlanguage_'.$type]);
 	}
+    $file = DISCUZ_ROOT.'./data/plugindata/'.$pluginarray['plugin']['identifier'].'.lang.php';
+	if($fp = @fopen($file, 'wb')) {
+		$scriptlangstr = !empty($pluginarray['language']['scriptlang']) ? "\$scriptlang['".$pluginarray['plugin']['identifier']."'] = ".langeval($pluginarray['language']['scriptlang']) : '';
+		$templatelangstr = !empty($pluginarray['language']['templatelang']) ? "\$templatelang['".$pluginarray['plugin']['identifier']."'] = ".langeval($pluginarray['language']['templatelang']) : '';
+		$installlangstr = !empty($pluginarray['language']['installlang']) ? "\$installlang['".$pluginarray['plugin']['identifier']."'] = ".langeval($pluginarray['language']['installlang']) : '';
+		fwrite($fp, "<?php\n".$scriptlangstr.$templatelangstr.$installlangstr.'?>');
+		fclose($fp);
+	}    
 	return true;
 }
-
+function langeval($array) {
+	$array = dstripslashes($array);
+	return var_export($array, 1).";\n\n";
+}
 function runquery($sql) {
 	global $_G;
 	$tablepre = $_G['config']['db'][1]['tablepre'];
