@@ -100,6 +100,17 @@ a.faq { background: url(faq.gif) no-repeat 0 2px; padding:1px; margin-left:10px;
 .menutd{ background:#F2F9FD url(bg_repx_h.gif) right top no-repeat; }
 .menu{ position:relative; z-index:20; width:160px; }
 	.menu ul{ position:absolute; top:10px; right:7px; list-style:none; width:153px; background:#F2F9FD url(bg_repx_h.gif) no-repeat 5px -20px; }
+	.menu ul::-webkit-scrollbar {
+		width: 6px;
+		height: 1px;
+	}
+	.menu ul::-webkit-scrollbar-track, .menu ul::-webkit-scrollbar-thumb {
+		border-radius: 3px;
+		background-color: rgba(87,186,232,.1);
+	}
+	.menu ul::-webkit-scrollbar-thumb{
+		background-color: rgba(87,186,232,.5);
+	}
 		.menu li { margin: 3px 0; *margin: 0; width: 153px; height: auto !important; height: 25px; overflow: hidden; }
 			.menu li.s { height: auto; }
 		.menu li.a { margin-top:0; }
@@ -142,9 +153,6 @@ a.faq { background: url(faq.gif) no-repeat 0 2px; padding:1px; margin-left:10px;
 		.tab1 .dropmenu li.current a { background:#DEEFFA !important; }
 
 /* box */
-#scrolllink{ position: absolute; z-index: 21; bottom: 40px; *bottom: 39px; left: 0; padding: 2px 0; width: 154px; background-color: #F2F9FD; }
-	#scrolllink span { cursor: pointer; }
-	#scrolllink img { margin-left: 2px; }
 .copyright{ position:absolute; z-index:10; left:5px; bottom:3px; padding-top:3px; border-top:1px dashed #DDD; text-align:left; line-height:150%; font-family:Tahoma; font-size:11px; -webkit-text-size-adjust: none; }
 .logintb{ text-align:left; margin:120px auto 0; width:600px; }
 .login{ padding-right:30px; width:310px; height:150px; background:url(bg_login.gif) right 50% no-repeat; }
