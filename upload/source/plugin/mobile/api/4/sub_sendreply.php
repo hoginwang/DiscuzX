@@ -16,7 +16,10 @@ $newmessage = preg_replace('/<\/*.*?>|&nbsp;|\r\n|\[attachimg\].*?\[\/attachimg\
 $newmessage = messagecutstr($newmessage, 100);
 
 $key = C::t('#mobile#mobile_wsq_threadlist')->fetch($_G['tid']);
-$posts = dunserialize($key['svalue']);
+$posts = $key ? dunserialize($key['svalue']) : [];
+if (!is_array($posts)) {
+	$posts = [];
+}
 
 if (trim($newmessage) != '' && !getstatus($thread['status'], 2)) {
 	if (!$posts) {
