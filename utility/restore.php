@@ -58,6 +58,9 @@ if($operation == 'import') {
 		} else {
 			$datafile = getgpc('datafile_server', 'G');
 		}
+		if(!file_exists($datafile))
+			show_msg('backup_file_unexist');
+		}
 		$datafile = urldecode($datafile);
 		if(@$fp = fopen($datafile, 'rb')) {
 			$confirm = trim(getgpc('confirm', 'G'));
