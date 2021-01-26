@@ -1,6 +1,6 @@
 function drawstatchart(url) {
 	if (BROWSER.ie && BROWSER.ie < 9) {
-		$('chart').innerHTML = AC_FL_RunContent(
+		$('statchart').innerHTML = AC_FL_RunContent(
 			'width', '100%', 'height', '300',
 			'src', STATICURL + 'image/common/stat.swf?path=&settings_file=data/stat_setting.xml&data_file=' + encodeURIComponent(url),
 			'quality', 'high', 'wmode', 'transparent'
@@ -10,10 +10,10 @@ function drawstatchart(url) {
 
 	var x = new Ajax();
 	x.recvType = 'HTML';
-	$('chart').style.width = '100%';
-	$('chart').style.height = '400px';
+	$('statchart').style.width = '100%';
+	$('statchart').style.height = '400px';
 	x.get(url, function (s, x) {
-		var myChart = echarts.init($('chart'));
+		var myChart = echarts.init($('statchart'));
 		option = {
 			grid: { left: 60, right: 20 },
 			xAxis: { type: 'category', data: [] },
