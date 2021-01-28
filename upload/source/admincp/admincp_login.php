@@ -78,6 +78,7 @@ EOT;
 
 function html_login_footer($halt = true) {
 	$version = getglobal('setting/version');
+	$year = date('Y');
 	echo <<<EOT
 
 	</td>
@@ -88,7 +89,7 @@ function html_login_footer($halt = true) {
 	<td colspan="2" class="footer">
 		<div class="copyright">
 			<p>Powered by <a href="http://www.discuz.net/" target="_blank">Discuz!</a> $version </p>
-			<p>Copyright &copy; 2001-2021, Tencent Cloud.</p>
+			<p>Copyright &copy; 2001-{$year}, Tencent Cloud.</p>
 		</div>
 	</td>
 </tr>
