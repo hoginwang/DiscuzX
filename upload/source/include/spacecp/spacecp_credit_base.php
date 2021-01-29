@@ -150,9 +150,7 @@ if($_GET['op'] == 'base') {
 				'submitdate' => $_G['timestamp'],
 			));
 
-			include template('common/header_ajax');
-			echo '<form id="payform" action="'.$requesturl.'" method="post"></form><script type="text/javascript" reload="1">$(\'payform\').submit();</script>';
-			include template('common/footer_ajax');
+			echo '<script type="text/javascript">window.location.href = "'.$requesturl.'";</script>';
 			dexit();
 		}
 	} else {
