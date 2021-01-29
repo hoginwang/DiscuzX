@@ -71,7 +71,7 @@ class miscmodel {
 			$ch = curl_init();
 			$ip && curl_setopt($ch, CURLOPT_HTTPHEADER, array("Host: ".$host));
 			curl_setopt($ch, CURLOPT_USERAGENT, $_SERVER['HTTP_USER_AGENT']);
-			curl_setopt($ch, CURLOPT_URL, $scheme.'://'.($ip ? $ip : $host).':'.$port.$path);
+			curl_setopt($ch, CURLOPT_URL, $url);
 			curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
 			curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, false);
 			curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
