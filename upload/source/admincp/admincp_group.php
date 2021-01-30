@@ -1191,9 +1191,20 @@ function delete_groupimg($fidarray) {
 
 function array_flip_keys($arr) {
 	$arr2 = array();
-	$arrkeys = @array_keys($arr);
-	list(, $first) = @each(array_slice($arr, 0, 1));
-	if($first) {
+
+	if (!$arr || !is_array($arr)) {
+	    return $arr2;
+    }
+
+	$firstItem = array_slice($arr, 0, 1);
+	if (!$firstItem || !is_array($firstItem)) {
+	    return $arr2;
+    }
+
+	$arrkeys = array_keys($arr);
+	$first = current($firstItem);
+
+	if($first && is_array($first)) {
 		foreach($first as $k=>$v) {
 			foreach($arrkeys as $key) {
 				$arr2[$k][$key] = $arr[$key][$k];
