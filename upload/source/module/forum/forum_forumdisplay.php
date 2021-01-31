@@ -485,7 +485,11 @@ if(($_G['forum']['status'] != 3 && $_G['forum']['allowside'])) {
 
 if($_G['forum']['threadsorts']['types'] && $sortoptionarray && ($_GET['searchoption'] || $_GET['searchsort'])) {
 	$sortid = intval($_GET['sortid']);
-
+//判断分类信息id是否存在
+        $sortid_check = DB::result_first('SELECT sortid FROM '.DB::table('forum_typevar').' WHERE sortid='.$sortid.'  order by sortid asc');
+        if(empty($sortid_check)){
+                showmessage('forum_nonexistence', 'forum.php?mod=forumdisplay&fid='.$_G[fid]);
+        }
 	if($_GET['searchoption']){
 		$forumdisplayadd['page'] = '&sortid='.$sortid;
 		foreach($_GET['searchoption'] as $optionid => $option) {
