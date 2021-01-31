@@ -3,18 +3,15 @@ branches: {
   }
 fileChange:
   /upload:
-    newFile: !uuid '49f179268a3352126fea8a93c1d43f2189fd1cbb'
-    oldFile: !uuid '519549dbb0e855707da01fcda9b836c566cdfc2e'
-  /upload/source:
-    newFile: !uuid '93caaead12bcd0c5877955dcd2eb08bf76642fd8'
-    oldFile: !uuid '24516e799565e0ff5c1fcba6c41cc712fabe5646'
-  /upload/source/admincp:
-    newFile: !uuid '79466ef4309cae17dc7cd55c20181a2f14e2d26e'
-    oldFile: !uuid 'd38de93db093d7fea38cceb76503d1d6b36ffe9b'
-  /upload/source/admincp/admincp_members.php:
-    newFile: !uuid '7c70898fd602e977aa4b8468d140538196ea7712'
-    oldFile: !uuid 'a8349c70e2858b9eae7c969492026d9ae10a96a8'
-gitCommitId: !uuid '31b82873868062fa5a40addd9c76e79ac0f33f84'
+    newFile: !uuid 'f3a17e151a8765648aa03274bfc34ea960b09b4e'
+    oldFile: !uuid '49f179268a3352126fea8a93c1d43f2189fd1cbb'
+  /upload/install:
+    newFile: !uuid '09d169bf2d01a33ddb5c9f66c3b4cf1a3ed4b8d1'
+    oldFile: !uuid '0774ac5b0a9381f1bf74ead92b0d87e3d18f1c1f'
+  /upload/install/index.php:
+    newFile: !uuid '2995c00880a512e34e14222f152bbc9c32123af0'
+    oldFile: !uuid '2b575f4c52896ddc21e9b7fc5219193810b7f000'
+gitCommitId: !uuid '3b19d042d8f0e19bfb0392cea6aae7a4998c3a69'
 renames: {
   }
-revisionId: 572
+revisionId: 573
