@@ -3,15 +3,18 @@ branches: {
   }
 fileChange:
   /upload:
-    newFile: !uuid 'f3a17e151a8765648aa03274bfc34ea960b09b4e'
-    oldFile: !uuid '49f179268a3352126fea8a93c1d43f2189fd1cbb'
-  /upload/install:
-    newFile: !uuid '09d169bf2d01a33ddb5c9f66c3b4cf1a3ed4b8d1'
-    oldFile: !uuid '0774ac5b0a9381f1bf74ead92b0d87e3d18f1c1f'
-  /upload/install/index.php:
-    newFile: !uuid '2995c00880a512e34e14222f152bbc9c32123af0'
-    oldFile: !uuid '2b575f4c52896ddc21e9b7fc5219193810b7f000'
-gitCommitId: !uuid '3b19d042d8f0e19bfb0392cea6aae7a4998c3a69'
+    newFile: !uuid 'effe746d8c33be958d65938862327023bd8c84bf'
+    oldFile: !uuid 'f3a17e151a8765648aa03274bfc34ea960b09b4e'
+  /upload/static:
+    newFile: !uuid 'b6f74d24a25ac7048dae22e404a358a4f8a737e4'
+    oldFile: !uuid '2ad87b8b1dc377b1272eba54d0cb3fa4f45d287b'
+  /upload/static/js:
+    newFile: !uuid '6721f0f04272eb52a8f08004e380def03423a3b1'
+    oldFile: !uuid '4644d9ca6eae1607251a2015f701267b55b6e229'
+  /upload/static/js/bbcode.js:
+    newFile: !uuid '67f0b8d7a8e6534bb1beca0fb7149bf0fa7ef9a1'
+    oldFile: !uuid '0ca6b866258e8e3fd495165c360ae702ac5c2dd6'
+gitCommitId: !uuid '89d9d4641816c7882f2f92532cd0c0559fae1b4d'
 renames: {
   }
-revisionId: 573
+revisionId: 574
