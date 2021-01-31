@@ -3,18 +3,42 @@ branches: {
   }
 fileChange:
   /upload:
-    newFile: !uuid 'cc877c430f9ec5e7baa9266503ee282f69111258'
-    oldFile: !uuid '4dc3ae0a594cf299509cf1248d5c9377fd8238af'
+    newFile: !uuid '0b44cac694ba89c47ae8f395ec37ef792d148c7c'
+    oldFile: !uuid 'cc877c430f9ec5e7baa9266503ee282f69111258'
+  /upload/config:
+    newFile: !uuid 'be224490568e8ef22c0d5a17c1e15b70d7776f00'
+    oldFile: !uuid '2021e284ade70cd480918ff848ccfbcc96add433'
+  /upload/config/config_global_default.php:
+    newFile: !uuid '8b4fdb14543fb2131d761cb8a3cf9d11c05f9877'
+    oldFile: !uuid '67549d94a7017ad75d3f94e9fb90284856c9e521'
   /upload/source:
-    newFile: !uuid '5c2a3de40022c61ab1992884e283acb8897babfc'
-    oldFile: !uuid '4790d61909e3b2733d87094ae67b6192808b6d8f'
+    newFile: !uuid 'f3ac274606396a72fdc2f14c34a0e628c745634a'
+    oldFile: !uuid '5c2a3de40022c61ab1992884e283acb8897babfc'
+  /upload/source/class:
+    newFile: !uuid 'ce5e982d5dc933075b89a7c33ae83ed59bc8a360'
+    oldFile: !uuid 'e2a34bf64b3b8a0df7f67f3c91babf1052fb0356'
+  /upload/source/class/class_filesock.php:
+    newFile: !uuid 'e8cbdb2a74b680972a93eed41a763dfd4d5c6998'
+    oldFile: null
+  /upload/source/class/filesock:
+    newFile: !uuid '7f1d9e4de70e1be13a2a1a4b6012b2eb448643b2'
+    oldFile: null
+  /upload/source/class/filesock/filesock_base.php:
+    newFile: !uuid 'ea8b765bc6f5fd483b1ab698387be1b065f64782'
+    oldFile: null
+  /upload/source/class/filesock/filesock_curl.php:
+    newFile: !uuid '295a19ccad3ae5f73c750e1cbe15e6d054b2eca6'
+    oldFile: null
+  /upload/source/class/filesock/filesock_stream.php:
+    newFile: !uuid 'b225f90ec0bfc746f1c57893c848250aa204cd9c'
+    oldFile: null
   /upload/source/function:
-    newFile: !uuid '4c861bc67ab230f321dc339b4a2f0709ec19ebcc'
-    oldFile: !uuid '5801c52a9a560b1c22b9ca6bdb4e161c545b28a8'
-  /upload/source/function/function_debug.php:
-    newFile: !uuid 'b3c345ee492714fe41ade48a6bb9b1954d5ab59d'
-    oldFile: !uuid 'd8e9b55c9f053ab76edcf62e8ae737c07f959641'
-gitCommitId: !uuid '73d6314ae850ac10a6c3d1eb93afeb3f00762269'
+    newFile: !uuid '65f167edba2ed808657678acf478ca049309e412'
+    oldFile: !uuid '4c861bc67ab230f321dc339b4a2f0709ec19ebcc'
+  /upload/source/function/function_filesock.php:
+    newFile: !uuid 'b9b5eaf4bd86b9568434b6875f2baf14f855a58e'
+    oldFile: !uuid 'e35f63a9fc21f946eec70fab1ea693d1ca823107'
+gitCommitId: !uuid '09e1f51dfe0304aea77bd0bdc943665cbc8528f1'
 renames: {
   }
-revisionId: 558
+revisionId: 559
