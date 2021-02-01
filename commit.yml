@@ -3,183 +3,114 @@ branches: {
   }
 fileChange:
   /upload:
-    newFile: !uuid '414cd7efb3b543301bed30ad253e143c251e35fc'
-    oldFile: !uuid 'f3a4eecd1e4d846a0c31d4b5a44fb11643d3e1fb'
+    newFile: !uuid '74a8bfa11a9cf83dec712cafb14822e936d9b805'
+    oldFile: !uuid '414cd7efb3b543301bed30ad253e143c251e35fc'
   /upload/template:
-    newFile: !uuid '5abc793463ab991a216498a60efdd8161a910090'
-    oldFile: !uuid 'a5894bca1a45955a634a81109c82e94fb794d394'
+    newFile: !uuid '2ee602703b6a3d17151ca3056fdf21a649182883'
+    oldFile: !uuid '5abc793463ab991a216498a60efdd8161a910090'
   /upload/template/default:
-    newFile: !uuid '84238bb99b727a16a7260eba41686117ee84ef50'
-    oldFile: !uuid '4b3edd42b393a76d8c9031fb02bb2a44e2d7e1c3'
+    newFile: !uuid 'ea8d897867fd5f66a3be2892b0d0f08290a571c7'
+    oldFile: !uuid '84238bb99b727a16a7260eba41686117ee84ef50'
   /upload/template/default/common:
-    newFile: !uuid 'd0545f679596d7d32b15f987e8e360af7f6a4ce6'
-    oldFile: !uuid '36951b2e03300416b1f015e8c865e067a43edb3d'
+    newFile: !uuid '3c987d8c9f3e039cb63ee63722aa9faffdd1ae9c'
+    oldFile: !uuid 'd0545f679596d7d32b15f987e8e360af7f6a4ce6'
   /upload/template/default/common/footer.htm:
-    newFile: !uuid '4099356e4c1fa6998a301a982533dea62e116306'
-    oldFile: !uuid '298676e3778ba1f8b33511325e179ca93fde7703'
-  /upload/template/default/common/header_userstatus.htm:
-    newFile: !uuid 'b4836ff30ff749e981ec35e04802e6f76a9b8c86'
-    oldFile: !uuid '10acec3c12e2576154790987c469709994ddbcaf'
-  /upload/template/default/common/preview.htm:
-    newFile: !uuid '011d471657a2da730b5ec752d881f6659f39cf94'
-    oldFile: !uuid '73bd9585f51e6ad7fbaf66e5cbe47bd59e0afebb'
+    newFile: !uuid '3f413be72707d47c32a9e3eb21754e7bf9181258'
+    oldFile: !uuid '4099356e4c1fa6998a301a982533dea62e116306'
+  /upload/template/default/common/header.htm:
+    newFile: !uuid '3e5b39b61a3ef4900258b1be8dd076c8a5a37276'
+    oldFile: !uuid '02f86c4f85fdb31be0f00de41ab568ececaedcfb'
+  /upload/template/default/common/header_qmenu.htm:
+    newFile: !uuid '4f38737ac1b23d9931ad938645f8144e1e7762b8'
+    oldFile: !uuid '9a3f9c4ecdef29a2b9def0ead20f99c9316e313b'
+  /upload/template/default/common/userabout.htm:
+    newFile: !uuid '7e5e909714ac1b93378a8c4f971bfcecff9e74ff'
+    oldFile: !uuid '2f1ec3e0d1bd083b255c22da496360e55db36d4b'
   /upload/template/default/forum:
-    newFile: !uuid 'bd8759fb5163816a405adc61ce312eda42788240'
-    oldFile: !uuid '444a0fb23985f7d4ca62052624569f67cf3356f3'
-  /upload/template/default/forum/ajax_followpost.htm:
-    newFile: !uuid 'b324d4798e98c03b8d04c7441d5d321951e95d01'
-    oldFile: !uuid '0186f4ce321dca7b92909347af18e90e6d8cf0bb'
-  /upload/template/default/forum/collection_comment.htm:
-    newFile: !uuid '83cc50e3a13fde5fd2e47e2478515c425dbb3a12'
-    oldFile: !uuid 'e9b3a0b2accefbfe25b5f9c8ae917030f4d4c090'
-  /upload/template/default/forum/collection_followers.htm:
-    newFile: !uuid '6bc5fc8e2fb44d4734e34dc4fa9b5fd54c9c0d27'
-    oldFile: !uuid '4d67d87285d10ec9855fe182dd463446b5427fef'
-  /upload/template/default/forum/collection_view.htm:
-    newFile: !uuid '4db49c71e2518726586e7b2190dfddafcd2d3372'
-    oldFile: !uuid '784e7c4bc6a81c372a6f9f0c35e390172f5b2b0a'
+    newFile: !uuid '56a368aea3fa5ffa97ad5a46c682d6d1f35a1a3e'
+    oldFile: !uuid 'bd8759fb5163816a405adc61ce312eda42788240'
+  /upload/template/default/forum/collection_list.htm:
+    newFile: !uuid '0ac6c75acf1df0291d6893f965801f98b9cdf488'
+    oldFile: !uuid '4963d21cb41384adf13ab81781c5603fbe3367d5'
+  /upload/template/default/forum/collection_select.htm:
+    newFile: !uuid '73c64e88091c9ba9df79244ea91138ab056db476'
+    oldFile: !uuid 'b04389dca1236c13eefe4532aa3887b4c0c4f5ff'
+  /upload/template/default/forum/editor_menu_forum.htm:
+    newFile: !uuid 'deb81fc5a3ce9f9703b080115cb50527ad86c531'
+    oldFile: !uuid '7ee562fecb2d9f7aac613c5b4f4723dd31822890'
   /upload/template/default/forum/forumdisplay.htm:
-    newFile: !uuid '68d7f490e31ef8330918bdcae5464baf18dede9d'
-    oldFile: !uuid '8ca1cd0193999c63bc5c54ca15e731d806da289f'
-  /upload/template/default/forum/trade_info.htm:
-    newFile: !uuid '5f857f3f7c1120a6b4e7f92585ceddf6f43d4c82'
-    oldFile: !uuid '5d9f6e2b63dab91a238a3314f776c9fd5b0b2d36'
-  /upload/template/default/forum/trade_view.htm:
-    newFile: !uuid '266ca9d80cb27497e716f582f5ff5d0bcaff7a3a'
-    oldFile: !uuid 'd34cbbf1cfae3aeac3e7bf45ec7d979501865835'
+    newFile: !uuid 'df4cf94ff69124fb39dc31034a4328192c8fe5a5'
+    oldFile: !uuid '68d7f490e31ef8330918bdcae5464baf18dede9d'
+  /upload/template/default/forum/post.htm:
+    newFile: !uuid 'b2623af697a13f39707f24e16f81b4b653a6bd74'
+    oldFile: !uuid '0506dc68fac94a5a9e76dc53868db0f3ca7daacf'
   /upload/template/default/forum/viewthread.htm:
-    newFile: !uuid '318eb1b0a3019dd2905c815ab672ff7eda24773f'
-    oldFile: !uuid 'dd285e0737877d7258cecde2c0b69a0cb50c1be1'
-  /upload/template/default/forum/viewthread_from_node.htm:
-    newFile: !uuid '5773b3445a30780b7301c65fba1f0cc0fe85c9b3'
-    oldFile: !uuid 'ba8ea94e7dcfd1b121b044226897d31553bc6adf'
-  /upload/template/default/forum/viewthread_preview_node.htm:
-    newFile: !uuid 'eba781866bb5628af136cf042e3c7861d1297164'
-    oldFile: !uuid '52cee4657c3dacedf814b8075895fd81e8af7c5c'
+    newFile: !uuid 'd01ca769c9d2492dfdff5a4f7d32009fd713bbbd'
+    oldFile: !uuid '318eb1b0a3019dd2905c815ab672ff7eda24773f'
+  /upload/template/default/group:
+    newFile: !uuid 'd066d33f00ef95124de33100a9c32066698b963e'
+    oldFile: !uuid 'e0df70fc4d9142ae50c1f959228f918435f3bf09'
+  /upload/template/default/group/group_attentiongroup.htm:
+    newFile: !uuid 'd42ad6db0900e306dfe1e2ccbf9dfaa864e7c96f'
+    oldFile: !uuid '9f2bf2c2ca6c52c2d477a1f68fa80568172e98b7'
+  /upload/template/default/group/group_index.htm:
+    newFile: !uuid '5fb0102c4dc70aab406cece5406e8e1efdcf38c7'
+    oldFile: !uuid '358da6199c1a42b39683d4424142661c95910de3'
+  /upload/template/default/group/group_list.htm:
+    newFile: !uuid '0569a547ed788ecba96a99f1d61dc28a6ebfed0b'
+    oldFile: !uuid 'e7e32156d1704f091076518f97f7ff387e97b665'
   /upload/template/default/home:
-    newFile: !uuid 'ecee00e4e3724d08470ba76a6afc80c5f40d8c2e'
-    oldFile: !uuid 'fab5a978db59db80d339931f4b31b6411f5982af'
+    newFile: !uuid '0c64e25d12eefb4fdd05c8dbe8784dd9eb3c892f'
+    oldFile: !uuid 'ecee00e4e3724d08470ba76a6afc80c5f40d8c2e'
   /upload/template/default/home/follow_feed.htm:
-    newFile: !uuid 'e20d22c3fd7310d43eeeda2116b00f5bc17d9fdb'
-    oldFile: !uuid 'c1c28c8f68693c4c5d3365a9f69b68686284fa28'
-  /upload/template/default/home/follow_feed_li.htm:
-    newFile: !uuid '4b7a437b2312274a42a1a2f3ce872ce7496c2b8e'
-    oldFile: !uuid '051d6e77942c715f97fa418da9a5bcac2c2769e4'
-  /upload/template/default/home/invite.htm:
-    newFile: !uuid 'cf012da116ca295ab56884e984f3593d736db0ea'
-    oldFile: !uuid '30fdfc274d1fb611a64939029927e41cd3ece027'
-  /upload/template/default/home/space_activity.htm:
-    newFile: !uuid '0a086c4b9e40b18d04374e9e0c7fac59616d7a1d'
-    oldFile: !uuid 'f643686ebe0f3b4033982a3c861ca2db2ba297a4'
-  /upload/template/default/home/space_blog_list.htm:
-    newFile: !uuid '6776ccce690c6d04bb8d2feeac3df670ba74c1cd'
-    oldFile: !uuid 'c64c95dded9fb85679664c98447f99242f2a67b8'
-  /upload/template/default/home/space_card.htm:
-    newFile: !uuid '8170dcb4d5f232fff4ddb7088a3b08ac88c91094'
-    oldFile: !uuid '13d1539fab9175f4341335737c02e0ce965740d7'
-  /upload/template/default/home/space_click.htm:
-    newFile: !uuid 'fb7fe915351d2615e3dddedf3468439d9a5f9f2a'
-    oldFile: !uuid '8ab46577aeca48e1bb53581f73f0bd36bd3108d4'
-  /upload/template/default/home/space_comment_li.htm:
-    newFile: !uuid '4746faac68ef76aa7acbba02a915473e6555e7c2'
-    oldFile: !uuid '39b278c8d74c4edf968d16e718286106879d000f'
-  /upload/template/default/home/space_doing.htm:
-    newFile: !uuid '27dac7640a7fbc251d75793a2688b6416fe5517d'
-    oldFile: !uuid '4056d0a3467209f30978a369484c69cbca49b7d2'
-  /upload/template/default/home/space_friend.htm:
-    newFile: !uuid 'e24f11e4a31e81911dd55c7b46846570d3eb5be4'
-    oldFile: !uuid '719de917b9ce8ab5e13f9c3ae2753c0b80b13bb7'
-  /upload/template/default/home/space_home.htm:
-    newFile: !uuid 'c1f67b44b4d6e02182f011c401d1385e419d27e5'
-    oldFile: !uuid 'ecbfa724fe78ab5d0ba397827d54b00a2f28cc27'
-  /upload/template/default/home/space_list.htm:
-    newFile: !uuid 'f366533c0e8351a0cd8bb987398044e75fbc0af7'
-    oldFile: !uuid 'dbc0ef51cb74699f6ede78837082f8ab253ba08e'
+    newFile: !uuid '8684a887a044e579d17c253c6ed05a691293c292'
+    oldFile: !uuid 'e20d22c3fd7310d43eeeda2116b00f5bc17d9fdb'
+  /upload/template/default/home/misc_stat.htm:
+    newFile: !uuid '8791283ada0eeffd91dfd4c8983246656d3d78c5'
+    oldFile: !uuid '8129bddbb82ebbfe837d0d5299accea62b5f9a9a'
+  /upload/template/default/home/space_header.htm:
+    newFile: !uuid 'b68acf15880c544edd30ceaf54b8551eb65602ab'
+    oldFile: !uuid 'c10a1f6ea99b5ad3ad0cfb09c6198c295b8489be'
   /upload/template/default/home/space_medal.htm:
-    newFile: !uuid 'aa80537acb54510be3f5d41e25a26c812975cb50'
-    oldFile: !uuid 'f0603caf993bcf98e7f3c4d64a31b640b11462be'
-  /upload/template/default/home/space_menu.htm:
-    newFile: !uuid '740cbc0ebe5cbe9849d1bbf30f6f20e8ae1fdcd4'
-    oldFile: !uuid '0cccd763e16bb799dad9241f2b129e90bc07af29'
-  /upload/template/default/home/space_notice.htm:
-    newFile: !uuid 'f5648a22e3221e0e5046c52532c823a565ce988f'
-    oldFile: !uuid 'be932896f6ad1827abd1def8c27f2a50c7c71e28'
-  /upload/template/default/home/space_pm.htm:
-    newFile: !uuid '990bdb18e82dce50887ac71fb68d7f975bc35e65'
-    oldFile: !uuid '9774ba1a0151a51803e2cbee38ce2220c8b3bd2c'
-  /upload/template/default/home/space_pm_node.htm:
-    newFile: !uuid 'dc844c001d92d5125b65e0c44a4c766dcfb5b1b7'
-    oldFile: !uuid 'f32588e0ec677be87212693f03e8ff70702d626d'
-  /upload/template/default/home/space_poll.htm:
-    newFile: !uuid '48be5b5a371bc3946d47a53be44c7b95ca1c7c4b'
-    oldFile: !uuid 'f8464c9e343594fd5c030bafee16ba981e051365'
-  /upload/template/default/home/space_privacy.htm:
-    newFile: !uuid '559b06d902383a8eca67b64c0c87ff3b087cc423'
-    oldFile: !uuid '19b24fde76ba6abcad190dee68eca8b79bb973c2'
-  /upload/template/default/home/space_userabout.htm:
-    newFile: !uuid '80cc96034c85a0ed863a1ff17238041ccfd2e06b'
-    oldFile: !uuid 'b36d759e9f3c91ad89f38eed096eee4bc774bb12'
-  /upload/template/default/home/spacecp_avatar.htm:
-    newFile: !uuid 'd4b2558d978f15847f24b48ee75f9837308ee745'
-    oldFile: !uuid 'd2a431e78118780d747929ba68d71c2d4f71068e'
-  /upload/template/default/home/spacecp_follow.htm:
-    newFile: !uuid '8878c787d1af1593940857ffd200d43ccae4845a'
-    oldFile: !uuid 'dac361b1374dc7e9213d5c3713fbfd2066074ade'
-  /upload/template/default/home/spacecp_friend.htm:
-    newFile: !uuid 'df828ec92017fa3b347332ff8335cc0355cd2919'
-    oldFile: !uuid 'a46f6ef0548dc441ea097a93daa40046be107e41'
-  /upload/template/default/home/spacecp_invite.htm:
-    newFile: !uuid '8893b563a395314a0fd1f0a2ef6eb34c8a3ebb8e'
-    oldFile: !uuid '0788fc9e6b0c89c9c780d1939a3d482b62a06856'
-  /upload/template/default/home/spacecp_poke.htm:
-    newFile: !uuid '19b23551a026f626c0e14d232bf8788529e8d76a'
-    oldFile: !uuid '40ea2dd629aab9662b6acd738e100ae95b1c1fa0'
-  /upload/template/default/ranklist:
-    newFile: !uuid '636544590ffe7a874999836f4aba315d3b9cacf2'
-    oldFile: !uuid 'f30bea80c7f604d0eef2da354fc13b20d72bf295'
-  /upload/template/default/ranklist/activity.htm:
-    newFile: !uuid '7bd329a149657dbf0a53ec10ca8375cf6e3a3104'
-    oldFile: !uuid 'c532797ce2d01d37dfe0a566ec4db1610f3ad889'
-  /upload/template/default/ranklist/member_list.htm:
-    newFile: !uuid '1e62f1e8d458f8969e4e0c453f812c664502f1de'
-    oldFile: !uuid 'ecc103b41ce4b60c45b245a967d1de57e1fcd258'
-  /upload/template/default/ranklist/ranklist.htm:
-    newFile: !uuid '016c13d2ee51e9812b35f85a3ce86900e48c80c3'
-    oldFile: !uuid 'fbe9f3b1e720dd5efe5d1208a3585605eb6c9897'
-  /upload/template/default/tag:
-    newFile: !uuid '088481b800fd97df28ebebea76f287e2e7561a6a'
-    oldFile: !uuid 'dd72c8f5f2d87a4709e3a43c5cbeb6a0894c47e3'
-  /upload/template/default/tag/tagitem.htm:
-    newFile: !uuid 'ef2c4481e829ad1aad1d9b1ffe0cb1659a9ec13c'
-    oldFile: !uuid '9f8ab677d7d6cd0e38a8803efaf7debfbc849a54'
-  /upload/template/default/touch:
-    newFile: !uuid '1d0af466e2cf08a97ba6d27323b43bc01a4f62ba'
-    oldFile: !uuid '04dad25c8d5cb764b2c64e9af2d242c869fac3f3'
-  /upload/template/default/touch/forum:
-    newFile: !uuid 'c12dc359ca2dccd462a06bf5c5c637b42fdd35cc'
-    oldFile: !uuid 'bda23bc737ff60778bbfef41ddb2b977faff4075'
-  /upload/template/default/touch/forum/forumdisplay_fastpost.htm:
-    newFile: !uuid 'b29fa99533c3b87a65621b44919ce5827edcaeb7'
-    oldFile: !uuid '0d123e914fac03a14d8585a9a94c0d5dbb1cfa5e'
-  /upload/template/default/touch/forum/viewthread.htm:
-    newFile: !uuid '756422bf71c4509fd3d56195e895b5cb4505c559'
-    oldFile: !uuid '9f007aac7b28b451fd79fd0742c4446f64c8f833'
-  /upload/template/default/touch/forum/viewthread_node.htm:
-    newFile: !uuid '6d0353eccae1bb5ffaf628798d47016f1801d0a5'
-    oldFile: !uuid '93dc7313bbdf24254d86d41b71890d7a4a8d7e39'
-  /upload/template/default/touch/home:
-    newFile: !uuid '525e8d838c600033a5f98fecbdd105ea55bc099a'
-    oldFile: !uuid '2f450ee0d8585444d44ad6afd97a874d9c4614eb'
-  /upload/template/default/touch/home/space_pm.htm:
-    newFile: !uuid '00c84a059d2cccf4963ca87279a87d38b8389c00'
-    oldFile: !uuid '3c6f32ac212ec7500608a7aabe1c9736d4ca2f9b'
-  /upload/template/default/touch/home/space_pm_node.htm:
-    newFile: !uuid 'd4e83daa9d11f6aaca161ce1992e64f796608a0f'
-    oldFile: !uuid 'f1d31bd8402800284e85cd0b78acf191eb1d92a2'
-  /upload/template/default/touch/home/space_profile.htm:
-    newFile: !uuid 'c457a12f709ea786312e8a21592415631f01cc53'
-    oldFile: !uuid '5f126a3b54f023ce3ccb4f9d817f477394680c0b'
-gitCommitId: !uuid '202b93d5af3d4092346d16ac7e3e5bbb1aa52bbb'
+    newFile: !uuid '7b4d406e7aaa810366e7ffda10dea06c74a2b3c1'
+    oldFile: !uuid 'aa80537acb54510be3f5d41e25a26c812975cb50'
+  /upload/template/default/home/space_profile_body.htm:
+    newFile: !uuid 'a306a5bd2919c7dc022e5274315c035ec763ea44'
+    oldFile: !uuid '0611159952fe6a7b820ccd16103890f0ad7816c1'
+  /upload/template/default/home/spacecp_profile.htm:
+    newFile: !uuid '616e180374fb6d7ce525073dc4e9f8921aff81f0'
+    oldFile: !uuid 'd1ad39b36b30ed64c64b2fca367467799519875c'
+  /upload/template/default/home/spacecp_profile_nav.htm:
+    newFile: !uuid 'b629d6a956b4a09d1f60a7608a25433c9fecdedd'
+    oldFile: !uuid 'ff446afdb4b3bc38c74a1172cec8deea1ce27662'
+  /upload/template/default/home/spacecp_usergroup.htm:
+    newFile: !uuid 'f3d461a7b0f2eb9220422e4dc99ef3992d1461dc'
+    oldFile: !uuid '8f6fccaa48d98f82b6ba795a068666e6dabc0bdb'
+  /upload/template/default/mobile:
+    newFile: !uuid '68ab15d86c1e8c874ccb1723e50dd5efe85f5843'
+    oldFile: !uuid 'fd2ff91b6668c60c7d7477cd93295f96c0bc8b8b'
+  /upload/template/default/mobile/forum:
+    newFile: !uuid '14e062ddef4e32c77a3de4a64f2c8892da9a44d4'
+    oldFile: !uuid 'de511a4e966310faeaa4523de3e8ee6131a2a0fc'
+  /upload/template/default/mobile/forum/forumdisplay.htm:
+    newFile: !uuid 'da7b74858bb6b4c43f40b069857749676b606539'
+    oldFile: !uuid '057c42852016c7fbdaf1246b992ac290c89854d5'
+  /upload/template/default/mobile/forum/post.htm:
+    newFile: !uuid 'bdb081e748c1a67116bd9cdff76caad6a85d23b5'
+    oldFile: !uuid '29b64583774ea4c6ff94d0bfeac67b84e2b04d43'
+  /upload/template/default/mobile/forum/viewthread.htm:
+    newFile: !uuid '38d8596cea57f9663b626d7a3463edba9a69bfec'
+    oldFile: !uuid '563da49daeb5d07cb6429776e24fe4a8c609064d'
+  /upload/template/default/search:
+    newFile: !uuid '59d4f5ce19d8b83969175b24b4447db4e46e0015'
+    oldFile: !uuid '7a0b4479c5963cbbafc0af50b539ffc09372055a'
+  /upload/template/default/search/footer.htm:
+    newFile: !uuid 'b830e25728bc6e4554085366dd566ddc556f79f3'
+    oldFile: !uuid '1ac023c2b25ccced019babc09d948e540d0eeb53'
+  /upload/template/default/search/header.htm:
+    newFile: !uuid 'fbb0c254c8d1c03cba1192770ae4653c66591ed6'
+    oldFile: !uuid '06fbc1b7e57ea39f2fb7bffde2ff86882e4a8ccb'
+gitCommitId: !uuid 'eca1a3e414ad9e824f2091a7cd33bf57755ba1fc'
 renames: {
   }
-revisionId: 565
+revisionId: 566
