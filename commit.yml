@@ -3,12 +3,24 @@ branches: {
   }
 fileChange:
   /upload:
-    newFile: !uuid 'e4ca970e47c50e1cf294c3ffdabde10ccb5f2fd9'
-    oldFile: !uuid '39bb9f9233aa59ddd559fd15e99188747cd07954'
-  /upload/misc.php:
-    newFile: !uuid 'b4d53483f55141948a054b364b64d06cf983d89c'
-    oldFile: !uuid 'faa4c358c3667897c987ef86f1f3ec9567c35baa'
-gitCommitId: !uuid '89cf9eebdd091fa2b6f3f6439a8e63f12cff2962'
+    newFile: !uuid '786307e4eb5cc6de39228fbf12116902baa127f9'
+    oldFile: !uuid 'e4ca970e47c50e1cf294c3ffdabde10ccb5f2fd9'
+  /upload/source:
+    newFile: !uuid 'fa889af3eb2d009bd81d3115d4100c68e8cc3b53'
+    oldFile: !uuid 'be181168efa0aa0486d0c4849fd7b3a02336723d'
+  /upload/source/class:
+    newFile: !uuid 'fe14a3b57d01c1c08bfa4c80700e605df83ec8ed'
+    oldFile: !uuid 'a94be3b05d7ef48e8d7f43d9123c4e7380178062'
+  /upload/source/class/block:
+    newFile: !uuid 'eb63829401d1c3e2dcc7a2f019d5e5af2a859160'
+    oldFile: !uuid 'a2dddc4bdc2a7ce877c0e696e2243ef4638aa431'
+  /upload/source/class/block/portal:
+    newFile: !uuid '43ed356796d7c49b5cbbc409b6736fc46339fb28'
+    oldFile: !uuid '976964d338592bf27f127a9270c6fda3c681a366'
+  /upload/source/class/block/portal/block_article.php:
+    newFile: !uuid '551c3b11b5074a265ed87451f9c13a8c2c357f99'
+    oldFile: !uuid '8a7d261c24386a86b55301b3aab438c467bbc16e'
+gitCommitId: !uuid '487c4792c5c70db7958e2af5b69103fe884391fb'
 renames: {
   }
-revisionId: 579
+revisionId: 580
