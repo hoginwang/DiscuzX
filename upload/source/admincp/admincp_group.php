@@ -624,7 +624,9 @@ var rowtypedata = [
 		}
 		$setarr['name'] = $_GET['namenew'];
 		C::t('forum_forum')->update($fid, $setarr);
-
+		if($_GET['namenew'] != $group['name']){
+			C::t('home_favorite')->update_by_id_idtype($fid, 'gid', array('title' => $_GET['namenew']));
+		}
 		if(!empty($_GET['fupnew']) && $_GET['fupnew'] != $group['fup']) {
 			C::t('forum_forumfield')->update_groupnum($_GET['fupnew'], 1);
 			C::t('forum_forumfield')->update_groupnum($group['fup'], -1);

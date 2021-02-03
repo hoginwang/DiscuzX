@@ -90,7 +90,7 @@ var rowtypedata = [
 		showformfooter();
 
 	} else {
-		$usergroups = array();
+		$usergroups = $fids = array();
 		$query = C::t('common_usergroup')->range();
 		foreach($query as $group) {
 			$usergroups[$group['groupid']] = $group;
@@ -99,6 +99,15 @@ var rowtypedata = [
 		if(is_array($_GET['order'])) {
 			foreach($_GET['order'] as $fid => $value) {
 				C::t('forum_forum')->update($fid, array('name' => $_GET['name'][$fid], 'displayorder' => $_GET['order'][$fid]));
+				$fids[] = $fid;
+			}
+			if(is_array($fids)) {
+				$forumnames = C::t('forum_forum')->fetch_all_name_by_fid($fids);
+			}
+			foreach($_GET['order'] as $fid => $value) {
+				if($_GET['name'][$fid] != $forumnames[$fid]) {
+					C::t('home_favorite')->update_by_id_idtype($fid, 'fid', array('title' => $_GET['name'][$fid]));
+				}
 			}
 		}
 
@@ -1540,7 +1549,10 @@ EOT;
 			if(!(C::t('forum_forumfield')->fetch($fid))) {
 				C::t('forum_forumfield')->insert(array('fid' => $fid));
 			}
-
+			if($_GET['namenew'] != $forum['name']){
+				C::t('home_favorite')->update_by_id_idtype($fid, 'fid', array('title' => $_GET['namenew']));
+			}
+			
 			if(!$multiset) {
 				$creditspolicynew = array();
 				$creditspolicy = $forum['creditspolicy'] ? dunserialize($forum['creditspolicy']) : array();
