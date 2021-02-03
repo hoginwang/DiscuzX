@@ -70,7 +70,7 @@ class table_home_favorite extends discuz_table
 	public function delete_by_id_idtype($id, $idtype) {
 		return DB::delete($this->_table, DB::field('id', $id) .' AND '.DB::field('idtype', $idtype));
 	}
-	
+
 	public function delete($val, $unbuffered = false, $uid = 0) {
 		$val = dintval($val, is_array($val) ? true : false);
 		if($val) {
