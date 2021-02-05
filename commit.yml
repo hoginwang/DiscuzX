@@ -2,28 +2,34 @@
 branches: {
   }
 fileChange:
-  /.gitee:
-    newFile: !uuid '94cf5887b8c4c9fc2da919dd78dae2ab3746a4b8'
-    oldFile: null
-  /.gitee/ISSUE_TEMPLATE.en.md:
-    newFile: !uuid 'd43d22b17bdcf48b52d7e68ec64f30b1f6d0277a'
-    oldFile: null
-  /.gitee/ISSUE_TEMPLATE.zh-CN.md:
-    newFile: !uuid '676e148fa59758fbd7336a0d7c1c6ece0033a9cc'
-    oldFile: null
-  /.gitee/ISSUE_TEMPLATE.zh-TW.md:
-    newFile: !uuid 'e62778f6e59904b10b563323f98874b62da15620'
-    oldFile: null
-  /.gitee/PULL_REQUEST_TEMPLATE.en.md:
-    newFile: !uuid '94c531e4449bba44d8202b13dbfb00559e6e348d'
-    oldFile: null
-  /.gitee/PULL_REQUEST_TEMPLATE.zh-CN.md:
-    newFile: !uuid '87d1fd505a8515cc6f1e0f0ef6ee07b05eafd434'
-    oldFile: null
-  /.gitee/PULL_REQUEST_TEMPLATE.zh-TW.md:
-    newFile: !uuid '9afa9ace45679d8aaecbb77ee40ecadad9b807a5'
-    oldFile: null
-gitCommitId: !uuid '1e2dff61cd44ad6e7248b34299e01948d0642536'
+  /upload:
+    newFile: !uuid '752d45f77e576336327d7d8abfe8fb9489756bd3'
+    oldFile: !uuid 'd729e0e256dd4f3944f18e383cfa47529bee133b'
+  /upload/static:
+    newFile: !uuid '99a70f3b276ecaaf1c4796078c5a056d8e98ea8d'
+    oldFile: !uuid 'b6f74d24a25ac7048dae22e404a358a4f8a737e4'
+  /upload/static/avatar:
+    newFile: !uuid '9672379f8542b53a2a441e2cbd0899909328e004'
+    oldFile: !uuid '29544d7cc6a56f14009e01fa6bf8cf5cd5562d38'
+  /upload/static/avatar/avatar.js:
+    newFile: !uuid 'c285660df29c27faa0072c776644206f8af49a85'
+    oldFile: !uuid '2da7e3ae3c5df6ef6f59f2359914b3443c29561a'
+  /upload/template:
+    newFile: !uuid 'a1be83411982a8652d5c23423ba20062ea1c052d'
+    oldFile: !uuid 'f3b1ab8bc3f8078a7117f885ba7ef27e31f24f42'
+  /upload/template/default:
+    newFile: !uuid '5e21b9d9e5e72bbdbba8733283f8be478c645dd0'
+    oldFile: !uuid '3518d6af15e2348f69e82d081f1f5907ea6cfc65'
+  /upload/template/default/home:
+    newFile: !uuid '46eeddee965032ddd11ea4b3ed5c9d4cffa1da44'
+    oldFile: !uuid '829ca538c7b6b6948c1ae5ea3618c4f6d278fc4e'
+  /upload/template/default/home/spacecp_avatar.htm:
+    newFile: !uuid 'f80549d2836eddd4894a69a8890f5a46b577fd15'
+    oldFile: !uuid 'd2a431e78118780d747929ba68d71c2d4f71068e'
+  /upload/template/default/home/spacecp_avatar_body.htm:
+    newFile: !uuid '884c178e24b4b0f64c94965ec4024361c69cf8cf'
+    oldFile: !uuid '07e15399a50fde4e21122aa7f461dfd932644dd8'
+gitCommitId: !uuid '47f8f76e4f90670b96447f41e0cc50ed2a9875cf'
 renames: {
   }
-revisionId: 589
+revisionId: 590
