@@ -235,7 +235,7 @@ $db->close();
 !$_G['config']['output']['gzip'] && ob_end_clean();
 
 
-if($attach['remote'] && !$_G['setting']['ftp']['hideurl'] && $isimage) {
+if($attach['remote'] && !$_G['setting']['ftp']['hideurl'] && $isimage && empty($_G['setting']['ftp']['tencentcos'])) {
 	dheader('location:'.$_G['setting']['ftp']['attachurl'].'forum/'.$attach['attachment']);
 }
 

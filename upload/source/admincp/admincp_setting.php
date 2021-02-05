@@ -125,10 +125,11 @@ if(!submitcheck('settingsubmit')) {
 			array('setting_sec_secqaa', 'secqaa', $_GET['anchor'] == 'secqaa'),
 		));
 	} elseif($operation == 'attach') {
-		$_GET['anchor'] = in_array($_GET['anchor'], array('basic', 'forumattach', 'remote', 'albumattach', 'portalarticle')) ? $_GET['anchor'] : 'basic';
+		$_GET['anchor'] = in_array($_GET['anchor'], array('basic', 'forumattach', 'remote', 'tencentcos', 'albumattach', 'portalarticle')) ? $_GET['anchor'] : 'basic';
 		showsubmenuanchors('setting_attach', array(
 			array('setting_attach_basic', 'basic', $_GET['anchor'] == 'basic'),
 			$isfounder ? array('setting_attach_remote', 'remote', $_GET['anchor'] == 'remote') : '',
+            $isfounder ? array('setting_attach_remote_tencentcos', 'tencentcos', $_GET['anchor'] == 'tencentcos') : '',
 			array('setting_attach_forumattach', 'forumattach', $_GET['anchor'] == 'forumattach'),
 			array('setting_attach_album', 'albumattach', $_GET['anchor'] == 'albumattach'),
 			array('setting_attach_portal_article_attach', 'portalarticle', $_GET['anchor'] == 'portalarticle'),
@@ -1935,6 +1936,8 @@ EOT;
 	} elseif($operation == 'attach') {
 
 		/*search={"setting_attach":"action=setting&operation=attach","setting_attach_basic":"action=setting&operation=attach&anchor=basic"}*/
+		$setting['ftp'] = dunserialize($setting['ftp']);
+		$setting['ftp'] = is_array($setting['ftp']) ? $setting['ftp'] : array();
 		showtableheader('', '', 'id="basic"'.($_GET['anchor'] != 'basic' ? ' style="display: none"' : ''));
 		showsetting('setting_attach_basic_dir', 'settingnew[attachdir]', $setting['attachdir'], 'text');
 		showsetting('setting_attach_basic_url', 'settingnew[attachurl]', $setting['attachurl'], 'text');
@@ -1945,6 +1948,17 @@ EOT;
 		showsetting('setting_attach_image_thumbquality', 'settingnew[thumbquality]', $setting['thumbquality'], 'text');
 		showsetting('setting_attach_image_disabledmobile', 'settingnew[thumbdisabledmobile]', !$setting['thumbdisabledmobile'], 'radio');
 		showsetting('setting_attach_image_preview', '', '', cplang('setting_attach_image_thumb_preview_btn'));
+        showsetting('setting_attach_remote_enabled', array('settingnew[ftp][on]', array(
+            array(1, $lang['yes'], array('ftpremotetype' => '')),
+            array(0, $lang['no'], array('ftpremotetype' => 'none')),
+         ), TRUE), $setting['ftp']['on'], 'mradio');
+
+        showtagheader('tbody', 'ftpremotetype', $setting['ftp']['on'], 'sub');
+        showsetting('setting_attach_remote_type', array('settingnew[ftp][tencentcos]',
+            array(array(1, $lang['setting_attach_remote_enabled_tencentcos']),
+            array(0, $lang['setting_attach_remote_enabled_ftp']),
+        )), $setting['ftp']['tencentcos'], 'mradio');
+        showsetting('setting_attach_remote_url', 'settingnew[ftp][attachurl]', $setting['ftp']['attachurl'], 'text');
 		showtagfooter('tbody');
 		showsubmit('settingsubmit');
 		showtablefooter();
@@ -1975,20 +1989,23 @@ EOT;
 
 		if($isfounder) {
 
-			$setting['ftp'] = dunserialize($setting['ftp']);
-			$setting['ftp'] = is_array($setting['ftp']) ? $setting['ftp'] : array();
+
 			$setting['ftp']['password'] = authcode($setting['ftp']['password'], 'DECODE', md5($_G['config']['security']['authkey']));
 			$setting['ftp']['password'] = $setting['ftp']['password'] ? $setting['ftp']['password'][0].'********'.$setting['ftp']['password'][strlen($setting['ftp']['password']) - 1] : '';
 
 			require_once libfile('function/cache');
 
+            showtableheader('', '', 'id="tencentcos"'.($_GET['anchor'] != 'tencentcos' ? ' style="display: none"' : ''));
+            showsetting('setting_attach_remote_ftp_secretid', 'settingnew[ftp][secretid]', $setting['ftp']['secretid'], 'text');
+            showsetting('setting_attach_remote_ftp_secretkey', 'settingnew[ftp][secretkey]', $setting['ftp']['secretkey'], 'text');
+            showsetting('setting_attach_remote_ftp_region', 'settingnew[ftp][region]', $setting['ftp']['region'], 'text');
+            showsetting('setting_attach_remote_ftp_bucket', 'settingnew[ftp][bucket]', $setting['ftp']['bucket'], 'text');
+            showsetting('setting_attach_remote_preview', '', '', cplang('setting_attach_remote_tencentcos_preview_btn'));
+            showsubmit('settingsubmit');
+            showtablefooter();
 			/*search={"setting_attach":"action=setting&operation=attach","setting_attach_remote":"action=setting&operation=attach&anchor=remote"}*/
 			showtableheader('', '', 'id="remote"'.($_GET['anchor'] != 'remote' ? ' style="display: none"' : ''));
-			showsetting('setting_attach_remote_enabled', array('settingnew[ftp][on]', array(
-				array(1, $lang['yes'], array('ftpext' => '', 'ftpcheckbutton' => '')),
-				array(0, $lang['no'], array('ftpext' => 'none', 'ftpcheckbutton' => 'none'))
-			), TRUE), $setting['ftp']['on'], 'mradio');
-			showtagheader('tbody', 'ftpext', $setting['ftp']['on'], 'sub');
+
 			showsetting('setting_attach_remote_enabled_ssl', 'settingnew[ftp][ssl]', $setting['ftp']['ssl'], 'radio');
 			showsetting('setting_attach_remote_ftp_host', 'settingnew[ftp][host]', $setting['ftp']['host'], 'text');
 			showsetting('setting_attach_remote_ftp_port', 'settingnew[ftp][port]', $setting['ftp']['port'], 'text');
@@ -1996,10 +2013,9 @@ EOT;
 			showsetting('setting_attach_remote_ftp_pass', 'settingnew[ftp][password]', $setting['ftp']['password'], 'text');
 			showsetting('setting_attach_remote_ftp_pasv', 'settingnew[ftp][pasv]', $setting['ftp']['pasv'], 'radio');
 			showsetting('setting_attach_remote_dir', 'settingnew[ftp][attachdir]', $setting['ftp']['attachdir'], 'text');
-			showsetting('setting_attach_remote_url', 'settingnew[ftp][attachurl]', $setting['ftp']['attachurl'], 'text');
 			showsetting('setting_attach_remote_timeout', 'settingnew[ftp][timeout]', $setting['ftp']['timeout'], 'text');
 			showsetting('setting_attach_remote_preview', '', '', cplang('setting_attach_remote_preview_btn'));
-			showtagfooter('tbody');
+
 			showsetting('setting_attach_remote_allowedexts', 'settingnew[ftp][allowedexts]', $setting['ftp']['allowedexts'], 'textarea');
 			showsetting('setting_attach_remote_disallowedexts', 'settingnew[ftp][disallowedexts]', $setting['ftp']['disallowedexts'], 'textarea');
 			showsetting('setting_attach_remote_minsize', 'settingnew[ftp][minsize]', $setting['ftp']['minsize'], 'text');
@@ -3214,6 +3230,9 @@ EOT;
 		$settingnew['portalarticleimgthumbclosed'] = intval($settingnew['portalarticleimgthumbclosed']) ? '0' : 1;
 		$settingnew['portalarticleimgthumbwidth'] = intval($settingnew['portalarticleimgthumbwidth']);
 		$settingnew['portalarticleimgthumbheight'] = intval($settingnew['portalarticleimgthumbheight']);
+        if(isset($settingnew['ftp']['tencentcos']) && $settingnew['ftp']['tencentcos'] == '1') {
+            ftpcmd('check', $settingnew);
+        }
 	}
 
 	if($operation == 'imgwater') {
