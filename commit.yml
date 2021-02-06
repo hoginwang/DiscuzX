@@ -3,33 +3,21 @@ branches: {
   }
 fileChange:
   /upload:
-    newFile: !uuid '752d45f77e576336327d7d8abfe8fb9489756bd3'
-    oldFile: !uuid 'd729e0e256dd4f3944f18e383cfa47529bee133b'
-  /upload/static:
-    newFile: !uuid '99a70f3b276ecaaf1c4796078c5a056d8e98ea8d'
-    oldFile: !uuid 'b6f74d24a25ac7048dae22e404a358a4f8a737e4'
-  /upload/static/avatar:
-    newFile: !uuid '9672379f8542b53a2a441e2cbd0899909328e004'
-    oldFile: !uuid '29544d7cc6a56f14009e01fa6bf8cf5cd5562d38'
-  /upload/static/avatar/avatar.js:
-    newFile: !uuid 'c285660df29c27faa0072c776644206f8af49a85'
-    oldFile: !uuid '2da7e3ae3c5df6ef6f59f2359914b3443c29561a'
-  /upload/template:
-    newFile: !uuid 'a1be83411982a8652d5c23423ba20062ea1c052d'
-    oldFile: !uuid 'f3b1ab8bc3f8078a7117f885ba7ef27e31f24f42'
-  /upload/template/default:
-    newFile: !uuid '5e21b9d9e5e72bbdbba8733283f8be478c645dd0'
-    oldFile: !uuid '3518d6af15e2348f69e82d081f1f5907ea6cfc65'
-  /upload/template/default/home:
-    newFile: !uuid '46eeddee965032ddd11ea4b3ed5c9d4cffa1da44'
-    oldFile: !uuid '829ca538c7b6b6948c1ae5ea3618c4f6d278fc4e'
-  /upload/template/default/home/spacecp_avatar.htm:
-    newFile: !uuid 'f80549d2836eddd4894a69a8890f5a46b577fd15'
-    oldFile: !uuid 'd2a431e78118780d747929ba68d71c2d4f71068e'
-  /upload/template/default/home/spacecp_avatar_body.htm:
-    newFile: !uuid '884c178e24b4b0f64c94965ec4024361c69cf8cf'
-    oldFile: !uuid '07e15399a50fde4e21122aa7f461dfd932644dd8'
-gitCommitId: !uuid '47f8f76e4f90670b96447f41e0cc50ed2a9875cf'
+    newFile: !uuid '668d87fa9b3300314cb2df4850a93a6abed198cd'
+    oldFile: !uuid '752d45f77e576336327d7d8abfe8fb9489756bd3'
+  /upload/source:
+    newFile: !uuid '53e776481077f43eac6e56fdff6c657db2e6f8d3'
+    oldFile: !uuid 'fb3544d94cb684bfecdb71c8552ebff2fe9f3d1c'
+  /upload/source/module:
+    newFile: !uuid '38a983a227180c1ff060b84d352af4c48de78c20'
+    oldFile: !uuid 'c536e8f50dbbb25c3540932a0cfc5d726badb236'
+  /upload/source/module/misc:
+    newFile: !uuid '744698d32c3347f824921d4c7c3c689ac8eaa737'
+    oldFile: !uuid 'e578ccccd52eb98dd2140a483baf9f244c96c5a7'
+  /upload/source/module/misc/misc_patch.php:
+    newFile: !uuid '29d3ac98498ae865dac3669c6b9c69c1868da7e7'
+    oldFile: !uuid '0fa51674c9eb49c630571243cd0fc1b82205ec79'
+gitCommitId: !uuid '479dd9346d2cfdaa8c76e21a8eba68d2f3ecaa02'
 renames: {
   }
-revisionId: 590
+revisionId: 591
