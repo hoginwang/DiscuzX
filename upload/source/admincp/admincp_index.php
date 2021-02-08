@@ -230,7 +230,7 @@ if(isfounder()) {
 	}
 }
 
-showtableheader('detect_environment');
+showtableheader('detect_environment', 'fixpadding');
 $env_ok = true;
 $now_ver_gd = function_exists('gd_info')? gd_info() : false;
 $now_ver = array('PHP' => constant('PHP_VERSION'), 'MySQL' => helper_dbtool::dbversion(), 'gethostbyname' => function_exists('gethostbyname'), 'file_get_contents' => function_exists('file_get_contents'), 'xml_parser_create' => function_exists('xml_parser_create'),
