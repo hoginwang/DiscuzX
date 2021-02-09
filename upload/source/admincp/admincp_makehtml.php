@@ -49,7 +49,7 @@ if(!in_array($operation, array('aids', 'catids', 'topicids'))) {
 	showsubmenu('html', $_nav, '');
 }
 if($operation == 'all') {
-	/*search={"¨¦¨²3¨¦¨¨?2?":"action=makehtml&operation=all"}*/
+	/*search={"nav_makehtml":"action=makehtml&operation=all"}*/
 	showtips('makehtml_tips_all');
 
 	showformheader('makehtml&operation=all');
@@ -494,7 +494,7 @@ EOT;
 		cpmsg('admincp_makehtml_cleanhtml_error', 'action=makehtml&operation=makehtmlsetting', 'error');
 	} else {
 		if(!submitcheck('cleanhtml')) {
-			/*search={"??¨¤¨ªHTML":"action=makehtml&operation=htmlclean"}*/
+			/*search={"setting_functions_makehtml_cleanhtml":"action=makehtml&operation=htmlclean"}*/
 
 			showformheader("makehtml&operation=cleanhtml");
 			showtableheader();
