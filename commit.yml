@@ -2,10 +2,100 @@
 branches: {
   }
 fileChange:
-  /README.md:
-    newFile: !uuid 'ad92c69ae4845a55bbdea506a41b4ab010a751da'
-    oldFile: !uuid '8d62c2f570ab15afe702211c583245018f5e9fb0'
-gitCommitId: !uuid '12e5eee2dcd8b1b8f4849d0b2a22d2b0549bb3ba'
+  /.gitee:
+    newFile: !uuid '20d96b6a8d3bf0c7ca0c9aca722e542f7a6c11a3'
+    oldFile: null
+  /.gitee/ISSUE_GUIDELINES.en.md:
+    newFile: !uuid 'd499be49aef719d5f711be796a5d3ba7c1eb042e'
+    oldFile: null
+  /.gitee/ISSUE_GUIDELINES.zh-CN.md:
+    newFile: !uuid '2697bf0c233e376ab69ab57c5fdac85ed94575b7'
+    oldFile: null
+  /.gitee/ISSUE_GUIDELINES.zh-TW.md:
+    newFile: !uuid '0ede2c88d8e9a8b850650f3b66006dff25e3ef5f'
+    oldFile: null
+  /.gitee/ISSUE_TEMPLATE.en.md:
+    newFile: !uuid 'd43d22b17bdcf48b52d7e68ec64f30b1f6d0277a'
+    oldFile: null
+  /.gitee/ISSUE_TEMPLATE.zh-CN.md:
+    newFile: !uuid 'd1e5501c2d09a151f369973bce251e22a928fcc6'
+    oldFile: null
+  /.gitee/ISSUE_TEMPLATE.zh-TW.md:
+    newFile: !uuid '42ab793163760c6e788426aa0c7255a6a7c0da19'
+    oldFile: null
+  /.gitee/PULL_REQUEST_TEMPLATE.en.md:
+    newFile: !uuid 'fb8b131d12f04d6a653c60c9694f6448448ad798'
+    oldFile: null
+  /.gitee/PULL_REQUEST_TEMPLATE.zh-CN.md:
+    newFile: !uuid '87d1fd505a8515cc6f1e0f0ef6ee07b05eafd434'
+    oldFile: null
+  /.gitee/PULL_REQUEST_TEMPLATE.zh-TW.md:
+    newFile: !uuid '9afa9ace45679d8aaecbb77ee40ecadad9b807a5'
+    oldFile: null
+  /upload:
+    newFile: !uuid '09e3da894530d139e474fb03850ddaaeeb70c38b'
+    oldFile: !uuid '89f17f7b94716c4dc83fd99843af11e3879601a9'
+  /upload/install:
+    newFile: !uuid '8a803dafd3877e367c38f2a9e32aac5bcf715ef2'
+    oldFile: !uuid '31caea174488925fe00095e7a0062b4b80556e62'
+  /upload/install/data:
+    newFile: !uuid 'c3314913b3066e87e9304e989f290b4d8dfd0b14'
+    oldFile: !uuid '0e76f77ae9ba86fe1f95f8ffe49cdfe5f9dcb700'
+  /upload/install/data/install_data.sql:
+    newFile: !uuid '1df358654656486a5632427ff4d19b93d80f0c67'
+    oldFile: !uuid '1b544a561d2186b4ccb4bc2db1dd669bd1c69a7d'
+  /upload/source:
+    newFile: !uuid 'a75e0f8eddafa4390268dd9be9212fce941dca46'
+    oldFile: !uuid 'c95734518d3a3af9f30828d604a934adebdce375'
+  /upload/source/admincp:
+    newFile: !uuid 'a2a5592be7742b112cdfef5c622d7b0ba43f9db7'
+    oldFile: !uuid 'a1bbef21c9871e511b470ef0a44a28a9ae657dea'
+  /upload/source/admincp/admincp_checktools.php:
+    newFile: !uuid 'b8ef7e9a29fc767d11fd7da73bc3b5f22039a820'
+    oldFile: !uuid '154ad3e64c044507851027c08d227ba377434794'
+  /upload/source/admincp/admincp_setting.php:
+    newFile: !uuid 'e5fa7aed54c3d3961b193110c87538cb3fab2486'
+    oldFile: !uuid 'ceeea29af13530af5f92af93feb192cd8a42459d'
+  /upload/source/language:
+    newFile: !uuid '5225cd128da6a274b9dc0b250bbdf31d715419f6'
+    oldFile: !uuid '038e26302f948b8148961d5275bf70410da8e086'
+  /upload/source/language/lang_admincp.php:
+    newFile: !uuid 'b5a86ba77a9fdcd5917b0aa2d334fca19639dce8'
+    oldFile: !uuid 'e7961be15c570af6d405e18e5c4ba9cb68fa0c95'
+  /upload/source/module:
+    newFile: !uuid '4bcff70bd8c603cea83990bf9eff738828f3b23b'
+    oldFile: !uuid '50c0297431b41f9c2af71af10655988d225ee547'
+  /upload/source/module/misc:
+    newFile: !uuid 'ffb8ddb36e07338441d3b753798d28cac4349c23'
+    oldFile: !uuid '7481142a44ed439914dfdeaeb175d921405bf217'
+  /upload/source/module/misc/misc_patch.php:
+    newFile: !uuid '29d3ac98498ae865dac3669c6b9c69c1868da7e7'
+    oldFile: !uuid '0fa51674c9eb49c630571243cd0fc1b82205ec79'
+  /upload/static:
+    newFile: !uuid '053a14211b71d245209d644d7564371e892ebed2'
+    oldFile: !uuid 'aa84246a42a8caf52b717a06e7468a4e636e33e7'
+  /upload/static/avatar:
+    newFile: !uuid '9672379f8542b53a2a441e2cbd0899909328e004'
+    oldFile: !uuid '29544d7cc6a56f14009e01fa6bf8cf5cd5562d38'
+  /upload/static/avatar/avatar.js:
+    newFile: !uuid 'c285660df29c27faa0072c776644206f8af49a85'
+    oldFile: !uuid '2da7e3ae3c5df6ef6f59f2359914b3443c29561a'
+  /upload/template:
+    newFile: !uuid '550f40f68ac1511ceb678f11758156975a69767d'
+    oldFile: !uuid '664d140ffd4b997a6f9d1ef255b7bdb4e1e799a4'
+  /upload/template/default:
+    newFile: !uuid '72fb8e9cc23984acd40d01fbc4ece9440348e3f0'
+    oldFile: !uuid '5e61de78218b0244cc80410a019cce8eb5b44873'
+  /upload/template/default/home:
+    newFile: !uuid 'd5afacf73b4e9403c9869245b5ce5c87ceb8cf14'
+    oldFile: !uuid '25ef65150f022ea633a9f871b93174914ae1aba6'
+  /upload/template/default/home/spacecp_avatar.htm:
+    newFile: !uuid 'f108fc21f51041d279ea71e558b95d418ee66708'
+    oldFile: !uuid 'd4b2558d978f15847f24b48ee75f9837308ee745'
+  /upload/template/default/home/spacecp_avatar_body.htm:
+    newFile: !uuid '884c178e24b4b0f64c94965ec4024361c69cf8cf'
+    oldFile: !uuid '07e15399a50fde4e21122aa7f461dfd932644dd8'
+gitCommitId: !uuid '7b9c48e01f0705741ee84a98cd65309aa4f23e40'
 renames: {
   }
-revisionId: 580
+revisionId: 581
