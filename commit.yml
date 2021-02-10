@@ -2,13 +2,28 @@
 branches: {
   }
 fileChange:
-  /.gitee:
-    newFile: !uuid '20d96b6a8d3bf0c7ca0c9aca722e542f7a6c11a3'
-    oldFile: !uuid 'a55177817cb259439249ff793a419bd7f72d4f36'
-  /.gitee/PULL_REQUEST_TEMPLATE.en.md:
-    newFile: !uuid 'fb8b131d12f04d6a653c60c9694f6448448ad798'
-    oldFile: !uuid '94c531e4449bba44d8202b13dbfb00559e6e348d'
-gitCommitId: !uuid '8225be078ebfc2917d7eb44e106d9a915e780c6a'
+  /upload:
+    newFile: !uuid 'ef3ac50a96bef7004c927d22221f5f0f1a7e5ace'
+    oldFile: !uuid '3057c5b2c584214c62589b3a87724fc912ec4ccd'
+  /upload/install:
+    newFile: !uuid 'a4c719d567c2e30eaf3e6dcd2acc4a24577ab22e'
+    oldFile: !uuid 'd61793d2a6d7d9d3aa2182e7f85b845d5e4fdb66'
+  /upload/install/data:
+    newFile: !uuid '039522796717846530d7566e0e7013392cf8fcc9'
+    oldFile: !uuid '1d6fd869cc3da209aa5904e1e5225b10a6d9cb47'
+  /upload/install/data/install_data.sql:
+    newFile: !uuid 'eea10e1279139a24c14f1374c9018a7d7df3d20a'
+    oldFile: !uuid 'f792fe86c9e42eddb199debaef5556f60bbcb1ae'
+  /upload/source:
+    newFile: !uuid 'c9887cac7ac7c205ecc616534753625a7ddf6164'
+    oldFile: !uuid '90eee3a6bab6d839c93136fdef17a0c3fef0a3dc'
+  /upload/source/admincp:
+    newFile: !uuid '0f90778dde09709809da35422946f92a915a3518'
+    oldFile: !uuid '0b7b9aed2f816675a425e0ecc808bfb90b13dbc6'
+  /upload/source/admincp/admincp_setting.php:
+    newFile: !uuid 'b0cafc31cb8b489a8c34b3b4970c2c2650a74a4f'
+    oldFile: !uuid '3c3aed8226dd347aca007b6a86acec39f5bad553'
+gitCommitId: !uuid '61e8096a265d715022e27a76528126af9538bab8'
 renames: {
   }
-revisionId: 594
+revisionId: 595
