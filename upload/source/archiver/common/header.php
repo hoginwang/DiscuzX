@@ -33,7 +33,7 @@ ob_start();
 </style>
 </head>
 <body vlink="#333333" link="#333333">
-<center id="header">
+<div id="header" style="text-align: center;">
 <?php echo adshow('headerbanner'); ?>
 <h2><?php echo $_G['setting']['bbname']; ?>'s Archiver </h2>
-</center>
+</div>
