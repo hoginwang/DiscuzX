@@ -3,21 +3,21 @@ branches: {
   }
 fileChange:
   /upload:
-    newFile: !uuid '28dfd797d89f6074d2314b9515e67c61958ad886'
-    oldFile: !uuid 'baff37e1dff96350df50f31af3d2ecd85f435756'
+    newFile: !uuid '9f8c42ce8377bb7f4eb79b3633a4d9f2f194a8bd'
+    oldFile: !uuid '28dfd797d89f6074d2314b9515e67c61958ad886'
   /upload/source:
-    newFile: !uuid 'cae41948e6a6e440f3a11d634285b365e2fc3607'
-    oldFile: !uuid '6fcad60198e87d86da481df897246c8a45a2ef95'
+    newFile: !uuid 'e4c9459da0194f605ea71e8c7efc65f352845636'
+    oldFile: !uuid 'cae41948e6a6e440f3a11d634285b365e2fc3607'
   /upload/source/class:
-    newFile: !uuid '2c21ff97420a47609fb77c53c2aa792dcbdafb39'
-    oldFile: !uuid '2bd4c44cc366bec7515161527db82616644f4a1a'
+    newFile: !uuid '1483ce7b0a37a41c1959d072c7d4951ddcfc6622'
+    oldFile: !uuid '2c21ff97420a47609fb77c53c2aa792dcbdafb39'
   /upload/source/class/optimizer:
-    newFile: !uuid 'ccbfe4cbf9d7b51033453b825be16fc126586e05'
-    oldFile: !uuid 'e2ffcba9fc22be7e5a3e435c8639d1d0f5889c40'
-  /upload/source/class/optimizer/optimizer_seo.php:
-    newFile: !uuid '5ba15d89887047f264bf67c45aa2ccafd96dd561'
-    oldFile: !uuid '92825842d60f4c089302175cad9e393b17748932'
-gitCommitId: !uuid 'a346f5e054693d1a16e0a6a833996b296fbbaf13'
+    newFile: !uuid 'a360ce450183bd23871b9e1cfac18fb398b9a85a'
+    oldFile: !uuid 'ccbfe4cbf9d7b51033453b825be16fc126586e05'
+  /upload/source/class/optimizer/optimizer_editperdel.php:
+    newFile: !uuid '479bf76d77aa9adc1fa5a406c3aa54458a143f43'
+    oldFile: !uuid 'a2150e31d9245e2d4b0e0ab82af4bc21f7e21d39'
+gitCommitId: !uuid 'f69d6fcd3aae5f83c532b4844d8de4fbb3ff591f'
 renames: {
   }
-revisionId: 602
+revisionId: 603
