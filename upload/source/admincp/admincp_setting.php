@@ -2483,6 +2483,7 @@ EOT;
 		exit;
 
 	} elseif ($operation == 'antitheft'){
+		/*search={"setting_antitheft":"action=setting&operation=antitheft"}*/
 		if($_GET['anchor'] == 'iplist') {
 
 			if(submitcheck('antitheftsubmit', true)) {
@@ -2566,6 +2567,7 @@ EOT;
 			showtablefooter();
 			showsubmit('settingsubmit');
 		}
+		/*search*/
 		exit;
 
 	} else {
