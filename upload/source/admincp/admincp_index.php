@@ -64,7 +64,7 @@ $dbversion = helper_dbtool::dbversion();
 if(@ini_get('file_uploads')) {
 	$fileupload = ini_get('upload_max_filesize');
 } else {
-	$fileupload = '<font color="red">'.$lang['no'].'</font>';
+	$fileupload = '<span color="red">'.$lang['no'].'</span>';
 }
 
 

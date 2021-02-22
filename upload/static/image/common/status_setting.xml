@@ -1,5 +1,5 @@
 <settings>  
-  <font>Tahoma</font>
+  <span>Tahoma</span>
   <plot_area>
     <margins><left>60</left><top>10</top><right>40</right><bottom>60</bottom></margins>
   </plot_area>  

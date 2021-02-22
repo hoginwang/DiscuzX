@@ -80,7 +80,7 @@ function mobile_discuzcode($param) {
 			'[i=s]', '[i]', '[/i]', '[u]', '[/u]', '[list]', '[list=1]', '[list=a]',
 			'[list=A]', "\r\n[*]", '[*]', '[/list]', '[indent]', '[/indent]', '[/float]'
 			), array(
-			'</font>', '</font>', '', '', '', '<strong>', '</strong>', '<strike>', '</strike>', '<hr class="l" />', '</p>', '', '',
+			'</span>', '</span>', '', '', '', '<strong>', '</strong>', '<strike>', '</strike>', '<hr class="l" />', '</p>', '', '',
 			'', '', '', '<ul>', '<ul type="1" class="litype_1">', '<ul type="a" class="litype_2">',
 			'<ul type="A" class="litype_3">', '<li>', '<li>', '</ul>', '', '', ''
 			), preg_replace(array(
@@ -96,10 +96,10 @@ function mobile_discuzcode($param) {
 			"/\[float=left\]/i",
 			"/\[float=right\]/i"
 			), array(
-			"<font color=\"\\1\">",
-			"<font style=\"color:\\1\">",
-			"<font style=\"background-color:\\1\">",
-			"<font style=\"background-color:\\1\">",
+			"<span color=\"\\1\">",
+			"<span style=\"color:\\1\">",
+			"<span style=\"background-color:\\1\">",
+			"<span style=\"background-color:\\1\">",
 			"",
 			"",
 			"",

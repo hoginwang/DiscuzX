@@ -87,11 +87,11 @@ function bbcode2html(str) {
 			}
 			return addCSS;
 		});
-		str = str.replace(/\[color=([\w#\(\),\s]+?)\]/ig, '<font color="$1">');
-		str = str.replace(/\[backcolor=([\w#\(\),\s]+?)\]/ig, '<font style="background-color:$1">');
-		str = str.replace(/\[size=(\d+?)\]/ig, '<font size="$1">');
-		str = str.replace(/\[size=(\d+(\.\d+)?(px|pt)+?)\]/ig, '<font style="font-size: $1">');
-		str = str.replace(/\[font=([^\[\<\=]+?)\]/ig, '<font face="$1">');
+		str = str.replace(/\[color=([\w#\(\),\s]+?)\]/ig, '<span color="$1">');
+		str = str.replace(/\[backcolor=([\w#\(\),\s]+?)\]/ig, '<span style="background-color:$1">');
+		str = str.replace(/\[size=(\d+?)\]/ig, '<span size="$1">');
+		str = str.replace(/\[size=(\d+(\.\d+)?(px|pt)+?)\]/ig, '<span style="font-size: $1">');
+		str = str.replace(/\[font=([^\[\<\=]+?)\]/ig, '<span face="$1">');
 		str = str.replace(/\[align=([^\[\<\=]+?)\]/ig, '<div align="$1">');
 		str = str.replace(/\[p=(\d{1,2}|null), (\d{1,2}|null), (left|center|right)\]/ig, '<p style="line-height: $1px; text-indent: $2em; text-align: $3;">');
 		str = str.replace(/\[float=left\]/ig, '<br style="clear: both"><span style="float: left; margin-right: 5px;">');
@@ -110,7 +110,7 @@ function bbcode2html(str) {
 			'\\\[i\\\]', '\\\[\\\/i\\\]', '\\\[u\\\]', '\\\[\\\/u\\\]', '\\\[s\\\]', '\\\[\\\/s\\\]', '\\\[hr\\\]', '\\\[list\\\]', '\\\[list=1\\\]', '\\\[list=a\\\]',
 			'\\\[list=A\\\]', '\\s?\\\[\\\*\\\]', '\\\[\\\/list\\\]', '\\\[indent\\\]', '\\\[\\\/indent\\\]', '\\\[\\\/float\\\]'
 			], [
-			'</font>', '</font>', '</font>', '</font>', '</div>', '</p>', '<b>', '</b>', '<i>',
+			'</span>', '</span>', '</span>', '</span>', '</div>', '</p>', '<b>', '</b>', '<i>',
 			'</i>', '<u>', '</u>', '<strike>', '</strike>', '<hr class="l" />', '<ul>', '<ul type=1 class="litype_1">', '<ul type=a class="litype_2">',
 			'<ul type=A class="litype_3">', '<li>', '</ul>', '<blockquote>', '</blockquote>', '</span>'
 			], str, 'g');

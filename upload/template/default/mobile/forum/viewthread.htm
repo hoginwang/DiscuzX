@@ -49,7 +49,7 @@
 			<!--{if $_G['forum_thread']['digest'] > 0}-->
 			     {lang digest}
 			<!--{/if}-->
-			<font class="xg1">{lang forum_views}{$_G[forum_thread][views]}<span class="pipe">|</span>{lang forum_posts}$_G[forum_thread][replies]</font><!--{if $_G[tid] && helper_access::check_module('favorite')}--><span class="pipe">|</span><a href="home.php?mod=spacecp&ac=favorite&type=thread&id={$_G[tid]}">{lang favorite}</a><!--{/if}-->
+			<span class="xg1">{lang forum_views}{$_G[forum_thread][views]}<span class="pipe">|</span>{lang forum_posts}$_G[forum_thread][replies]</span><!--{if $_G[tid] && helper_access::check_module('favorite')}--><span class="pipe">|</span><a href="home.php?mod=spacecp&ac=favorite&type=thread&id={$_G[tid]}">{lang favorite}</a><!--{/if}-->
 		  </div>
 	  <!--{/if}-->
         <!--{eval $postcount = 0;}-->
@@ -85,13 +85,13 @@
                                 <a href="forum.php?mod=viewthread&tid=$post[tid]&page=$page" rel="nofollow" class="xg1">{lang thread_show_all}</a>
                             <!--{/if}-->
                         <!--{/if}-->
-                        <br /><em id="authorposton$post[pid]"><font class="xs0 xg1">$post[dateline]</font></em>
+                        <br /><em id="authorposton$post[pid]"><span class="xs0 xg1">$post[dateline]</span></em>
                     <!--{elseif $post['authorid'] && $post['username'] && $post['anonymous']}-->
                         {lang anonymous}
-                        <br /><em id="authorposton$post[pid]"><font class="xs0 xg1">$post[dateline]</font></em>
+                        <br /><em id="authorposton$post[pid]"><span class="xs0 xg1">$post[dateline]</span></em>
                     <!--{elseif !$post['authorid'] && !$post['username']}-->
                         {lang guest}
-                        <br /><em id="authorposton$post[pid]"><font class="xs0 xg1">$post[dateline]</font></em>
+                        <br /><em id="authorposton$post[pid]"><span class="xs0 xg1">$post[dateline]</span></em>
                     <!--{/if}-->
                 <!--{/if}-->
                 </div>

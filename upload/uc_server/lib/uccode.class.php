@@ -46,7 +46,7 @@ class uccode {
 			'[i]', '[/i]', '[u]', '[/u]', '[list]', '[list=1]', '[list=a]',
 			'[list=A]', '[*]', '[/list]', '[indent]', '[/indent]', '[/float]'
 		), array(
-			'</font>', '</font>', '</font>', '</p>', '<strong>', '</strong>', '<i>',
+			'</span>', '</span>', '</span>', '</p>', '<strong>', '</strong>', '<i>',
 			'</i>', '<u>', '</u>', '<ul>', '<ul type="1">', '<ul type="a">',
 			'<ul type="A">', '<li>', '</ul>', '<blockquote>', '</blockquote>', '</span>'
 		), preg_replace(array(
@@ -57,10 +57,10 @@ class uccode {
 			"/\[align=(left|center|right)\]/i",
 			"/\[float=(left|right)\]/i"
 		), array(
-			"<font color=\"\\1\">",
-			"<font size=\"\\1\">",
-			"<font style=\"font-size: \\1\">",
-			"<font face=\"\\1 \">",
+			"<span color=\"\\1\">",
+			"<span size=\"\\1\">",
+			"<span style=\"font-size: \\1\">",
+			"<span face=\"\\1 \">",
 			"<p align=\"\\1\">",
 			"<span style=\"float: \\1;\">"
 		), $message));

@@ -63,9 +63,9 @@ if(!$operation) {
 			$updateinfo = '';
 			list(, $newver, $sysver) = explode(':', $checkresult[$addonid]);
 			if($sysver && $sysver > $plugin['version']) {
-				$updateinfo = '<a href="'.ADMINSCRIPT.'?action=cloudaddons&id='.$addonid.'" title="'.$lang['plugins_online_update'].'"><font color="red">'.$lang['plugins_find_newversion'].' '.$sysver.'</font></a>';
+				$updateinfo = '<a href="'.ADMINSCRIPT.'?action=cloudaddons&id='.$addonid.'" title="'.$lang['plugins_online_update'].'"><span color="red">'.$lang['plugins_find_newversion'].' '.$sysver.'</span></a>';
 			} elseif($newver) {
-				$updateinfo = '<a href="'.ADMINSCRIPT.'?action=cloudaddons&id='.$addonid.'" title="'.$lang['plugins_online_update'].'"><font color="red">'.$lang['plugins_find_newversion'].' '.$newver.'</font></a>';
+				$updateinfo = '<a href="'.ADMINSCRIPT.'?action=cloudaddons&id='.$addonid.'" title="'.$lang['plugins_online_update'].'"><span color="red">'.$lang['plugins_find_newversion'].' '.$newver.'</span></a>';
 			}
 			$plugins[] = $plugin['identifier'];
 			$hookexists = FALSE;
@@ -160,7 +160,7 @@ if(!$operation) {
 						$file = $entrydir.'/'.$f;
 						$newlist .= showtablerow('class="hover"', array('style="width:45px"', 'valign="top"', 'align="right" valign="bottom" style="width:160px"'), array(
 							'<img src="'.cloudaddons_pluginlogo_url($entry).'" onerror="this.src=\'static/image/admincp/plugin_logo.png\';this.onerror=null" width="40" height="40" align="left" style="margin-right:5px" />',
-							'<span class="bold light">'.$entrytitle.' '.$entryversion.($filemtime > TIMESTAMP - 86400 ? ' <font color="red">New!</font>' : '').'</span> <span class="sml light">('.$entry.')</span>'.
+							'<span class="bold light">'.$entrytitle.' '.$entryversion.($filemtime > TIMESTAMP - 86400 ? ' <span color="red">New!</span>' : '').'</span> <span class="sml light">('.$entry.')</span>'.
 							'<p><span class="author">'.($entrycopyright ? cplang('author').': '.$entrycopyright.' | ' : '').
 							'<a href="'.ADMINSCRIPT.'?action=cloudaddons&id='.$entry.'.plugin" target="_blank" title="'.$lang['cloudaddons_linkto'].'">'.$lang['plugins_visit'].'</a></p>',
 							'<a href="'.ADMINSCRIPT.'?action=plugins&operation=import&dir='.$entry.'" class="bold">'.$lang['plugins_config_install'].'</a>'
@@ -381,9 +381,9 @@ if(!$operation) {
 			if(empty($license) && $pluginarray['license']) {
 				require_once libfile('function/discuzcode');
 				$pluginarray['license'] = discuzcode(strip_tags($pluginarray['license']), 1, 0);
-				echo '<div class="infobox"><h4 class="infotitle2">'.$pluginarray['plugin']['name'].' '.$pluginarray['plugin']['version'].' '.$lang['plugins_import_license'].'</h4><div style="text-align:left;line-height:25px;">'.$pluginarray['license'].'</div><br /><br /><center>'.
+				echo '<div class="infobox"><h4 class="infotitle2">'.$pluginarray['plugin']['name'].' '.$pluginarray['plugin']['version'].' '.$lang['plugins_import_license'].'</h4><div style="text-align:left;line-height:25px;">'.$pluginarray['license'].'</div><br /><br /><div style="text-align: center;">'.
 					'<button onclick="location.href=\''.ADMINSCRIPT.'?action=plugins&operation=import&dir='.$dir.'&installtype='.$installtype.'&license=yes\'">'.$lang['plugins_import_agree'].'</button>&nbsp;&nbsp;'.
-					'<button onclick="location.href=\''.ADMINSCRIPT.'?action=plugins\'">'.$lang['plugins_import_pass'].'</button></center></div>';
+					'<button onclick="location.href=\''.ADMINSCRIPT.'?action=plugins\'">'.$lang['plugins_import_pass'].'</button></div></div>';
 				exit;
 			}
 		}

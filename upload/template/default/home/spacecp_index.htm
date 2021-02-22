@@ -75,8 +75,8 @@
 	<dd>
 		<div class="photo_list cl">
 			<div id="currentimgdiv" class="z" style="width:446px;">
-				<center><ul><li class="thumb" style="border:1px solid #ccc; padding:2px;"><img id="currentimg" alt="" src=""/></li></ul>
-				<div class="z cur1" onclick="spaceDiy.changeBgImgDiv();">{lang replace}</div></center>
+				<div class="hm"><ul><li class="thumb" style="border:1px solid #ccc; padding:2px;"><img id="currentimg" alt="" src=""/></li></ul>
+				<div class="z cur1" onclick="spaceDiy.changeBgImgDiv();">{lang replace}</div></div>
 			</div>
 			<div id="diyimages" class="z" style="width:446px;display:none;">
 				<div id="diyimg_prev" class="z">$multi</div>
@@ -609,7 +609,7 @@ function succeedhandle_$_GET['handlekey'] (url, message, values) {
 function succeedhandle_$_GET['handlekey'] (url, message, values) {
 	var x = new Ajax();
 	x.get('home.php?mod=spacecp&ac=index&op=getblock&blockname='+values['blockname']+'&inajax=1', function(s) {
-		s = s.replace(/\<script.*\<\/script\>/ig,'<font color="red"> [{lang save_js_code_view}] </font>');
+		s = s.replace(/\<script.*\<\/script\>/ig,'<span color="red"> [{lang save_js_code_view}] </span>');
 		$(values['blockname']).innerHTML = s;
 		drag.initPosition();
 	});

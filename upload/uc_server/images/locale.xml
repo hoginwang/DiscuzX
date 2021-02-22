@@ -48,7 +48,7 @@
 		<item key="player_ver_error">
 			<value>
 				<![CDATA[
-					<font size='14' color='#FF0000'>\u60a8\u6240\u4f7f\u7528\u7684flash player\u7248\u672c\u8fc7\u65e7, \u8bf7\u53ca\u65f6<font color='#0000FF'><u>\u66f4\u65b0</u></font></font>
+					<span size='14' color='#FF0000'>\u60a8\u6240\u4f7f\u7528\u7684flash player\u7248\u672c\u8fc7\u65e7, \u8bf7\u53ca\u65f6<span color='#0000FF'><u>\u66f4\u65b0</u></span></span>
 				]]>
 			</value>
 		</item>
@@ -101,7 +101,7 @@
 		<item key="player_ver_error">
 			<value>
 				<![CDATA[
-					<font size='14' color='#FF0000'>\u60a8\u6240\u4f7f\u7528\u7684flash player\u7248\u672c\u904e\u820a, \u8acb\u53ca\u6642<font color='#0000FF'><u>\u66f4\u65b0</u></font></font>
+					<span size='14' color='#FF0000'>\u60a8\u6240\u4f7f\u7528\u7684flash player\u7248\u672c\u904e\u820a, \u8acb\u53ca\u6642<span color='#0000FF'><u>\u66f4\u65b0</u></span></span>
 				]]>
 			</value>
 		</item>

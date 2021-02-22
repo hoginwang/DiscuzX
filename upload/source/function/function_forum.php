@@ -1133,13 +1133,13 @@ function safefilter(&$data) {
 		$data = str_replace(array(
 			'[/color]', '[b]', '[/b]', '[s]', '[/s]', '[i]', '[/i]', '[u]', '[/u]',
 			), array(
-			'</font>', '<b>', '</b>', '<strike>', '</strike>', '<i>', '</i>', '<u>', '</u>'
+			'</span>', '<b>', '</b>', '<strike>', '</strike>', '<i>', '</i>', '<u>', '</u>'
 			), preg_replace(array(
 			"/\[color=([#\w]+?)\]/i",
 			"/\[color=((rgb|rgba)\([\d\s,]+?\))\]/i",
 			), array(
-			"<font color=\"\\1\">",
-			"<font style=\"color:\\1\">",
+			"<span color=\"\\1\">",
+			"<span style=\"color:\\1\">",
 			), strip_tags($data)));
 	}
 }

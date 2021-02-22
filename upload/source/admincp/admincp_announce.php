@@ -108,7 +108,7 @@ if(empty($operation)) {
 			$newmessage = $_GET['newtype'] == 1 ? explode("\n", $_GET['newmessage']) : array(0 => $_GET['newmessage']);
 			$data = array(
 				'author' => $_G['username'],
-				'subject' => strip_tags($newsubject, '<u><i><b><font>'),
+				'subject' => strip_tags($newsubject, '<u><i><b><span>'),
 				'type' => $_GET['newtype'],
 				'starttime' => $newstarttime,
 				'endtime' => $newendtime,
@@ -142,7 +142,7 @@ if(empty($operation)) {
 		if(preg_match('/<u>(.*?)<\/u>/i', $announce['subject'])) {
 			$u = 'class="a"';
 		}
-		$colorselect = preg_replace('/<font color=(.*?)>(.*?)<\/font>/i', '$1', $announce['subject']);
+		$colorselect = preg_replace('/<span color=(.*?)>(.*?)<\/font>/i', '$1', $announce['subject']);
 		$colorselect = strip_tags($colorselect);
 		$_G['forum_colorarray'] = array(1=>'#EE1B2E', 2=>'#EE5023', 3=>'#996600', 4=>'#3C9D40', 5=>'#2897C5', 6=>'#2B65B7', 7=>'#8F2A90', 8=>'#EC1282');
 		if(in_array($colorselect, $_G['forum_colorarray'])) {
@@ -192,7 +192,7 @@ if(empty($operation)) {
 		} else {
 			$messagenew = $_GET['typenew'] == 1 ? explode("\n", $messagenew) : array(0 => $messagenew);
 			C::t('forum_announcement')->update_by_id_username($_GET['announceid'], array(
-				'subject' => strip_tags($subjectnew, '<u><i><b><font>'),
+				'subject' => strip_tags($subjectnew, '<u><i><b><span>'),
 				'type' => $_GET['typenew'],
 				'starttime' => $starttimenew,
 				'endtime' => $endtimenew,

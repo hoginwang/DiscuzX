@@ -74,7 +74,7 @@ drag.extend({
 		var height = Util.getFinallyStyle(bcontent, 'height');
 		bcontent.style.lineHeight = height == 'auto' ? '' : (height == '0px' ? '20px' : height);
 		var boldcontent = bcontent.innerHTML;
-		bcontent.innerHTML = '<center>正在加载内容...</center>';
+		bcontent.innerHTML = '<div style="text-align">正在加载内容...</div>';
 		var x = new Ajax();
 		x.get('portal.php?mod=portalcp&ac=block&op=getblock&forceupdate=1&inajax=1&bid='+bid+'&tpl='+document.diyform.template.value, function(s) {
 			if(s.indexOf('errorhandle_') != -1) {

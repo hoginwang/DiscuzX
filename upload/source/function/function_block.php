@@ -380,12 +380,12 @@ function block_template($bid) {
 					$replacearr[] = preg_quote(!empty($blockitem['fields']['fulltitle']) ? $blockitem['fields']['fulltitle'] : dhtmlspecialchars($replacevalue));
 					$replacevalue = preg_quote($replacevalue);
 					if($blockitem['showstyle'] && ($style = block_showstyle($blockitem['showstyle'], 'title'))) {
-						$replacevalue = '<font style="'.$style.'">'.$replacevalue.'</font>';
+						$replacevalue = '<span style="'.$style.'">'.$replacevalue.'</span>';
 					}
 				} elseif($field['datatype'] == 'summary') {//summary
 					$replacevalue = preg_quote($replacevalue);
 					if($blockitem['showstyle'] && ($style = block_showstyle($blockitem['showstyle'], 'summary'))) {
-						$replacevalue = '<font style="'.$style.'">'.$replacevalue.'</font>';
+						$replacevalue = '<span style="'.$style.'">'.$replacevalue.'</span>';
 					}
 				} elseif($field['datatype'] == 'pic') {
 					if($blockitem['picflag'] == '1') {

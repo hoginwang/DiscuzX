@@ -310,7 +310,7 @@ function show_env_result(&$env_items, &$dirfile_items, &$func_items, &$filesock_
 			} else {
 				$error_code = ENV_CHECK_ERROR;
 				$func_str .= "<td class=\"nw pdleft1\">".lang('unsupportted')."</td>\n";
-				$func_str .= "<td><font color=\"red\">".lang('advice_'.$item)."</font></td>\n";
+				$func_str .= "<td><span color=\"red\">".lang('advice_'.$item)."</span></td>\n";
 			}
 		}
 		$func_strextra = '';
@@ -326,7 +326,7 @@ function show_env_result(&$env_items, &$dirfile_items, &$func_items, &$filesock_
 			} else {
 				$filesock_disabled++;
 				$func_strextra .= "<td class=\"nw pdleft1\">".lang('unsupportted')."</td>\n";
-				$func_strextra .= "<td><font color=\"red\">".lang('advice_'.$item)."</font></td>\n";
+				$func_strextra .= "<td><span color=\"red\">".lang('advice_'.$item)."</span></td>\n";
 			}
 		}
 		if($filesock_disabled == count($filesock_items)) {
@@ -813,7 +813,7 @@ function request_log() {
         set_notice(
 		data.split("\n").map(function(l) {
 			if (l.indexOf('<?= lang("failed") ?>') !== -1) {
-				return '<font color="red">' + l + '</font><br/>';
+				return '<span color="red">' + l + '</span><br/>';
 			} else {
 				return l + '<br/>';
 			}

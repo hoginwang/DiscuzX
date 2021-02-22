@@ -81,7 +81,7 @@ if($operation == 'admin') {
 				"<input type=\"text\" class=\"txt\" name=\"newprice[{$newmagic['class']}]\" value=\"{$newmagic['price']}\">".$credits,
 				"<input type=\"text\" class=\"txt\" name=\"newnum[{$newmagic['class']}}]\" value=\"0\">",
 				"<input type=\"text\" class=\"txt\" name=\"newweight[{$newmagic['class']}]\" value=\"{$newmagic['weight']}\">",
-				'<font color="#F00">New!</font>'
+				'<sapn color="#F00">New!</span>'
 			));
 		}
 		showsubmit('magicsubmit', 'submit', 'del', '&nbsp;&nbsp;<input type="checkbox" onclick="checkAll(\'prefix\', this.form, \'available\', \'availablechk1\')" class="checkbox" id="availablechk1" name="availablechk1">'.cplang('available'));

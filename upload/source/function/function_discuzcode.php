@@ -141,7 +141,7 @@ function discuzcode($message, $smileyoff = false, $bbcodeoff = false, $htmlon = 
 			'[i=s]', '[i]', '[/i]', '[u]', '[/u]', '[list]', '[list=1]', '[list=a]',
 			'[list=A]', "\r\n[*]", '[*]', '[/list]', '[indent]', '[/indent]', '[/float]'
 			), array(
-			'</font>', '</font>', '</font>', '</font>', '</div>', '<strong>', '</strong>', '<strike>', '</strike>', '<hr class="l" />', '</p>', '<i class="pstatus">', '<i>',
+			'</span>', '</span>', '</span>', '</span>', '</div>', '<strong>', '</strong>', '<strike>', '</strike>', '<hr class="l" />', '</p>', '<i class="pstatus">', '<i>',
 			'</i>', '<u>', '</u>', '<ul>', '<ul type="1" class="litype_1">', '<ul type="a" class="litype_2">',
 			'<ul type="A" class="litype_3">', '<li>', '<li>', '</ul>', '<blockquote>', '</blockquote>', '</span>'
 			), preg_replace(array(
@@ -158,13 +158,13 @@ function discuzcode($message, $smileyoff = false, $bbcodeoff = false, $htmlon = 
 			"/\[float=right\]/i"
 
 			), array(
-			"<font color=\"\\1\">",
-			"<font style=\"color:\\1\">",
-			"<font style=\"background-color:\\1\">",
-			"<font style=\"background-color:\\1\">",
-			"<font size=\"\\1\">",
-			"<font style=\"font-size:\\1\">",
-			"<font face=\"\\1\">",
+			"<span color=\"\\1\">",
+			"<span style=\"color:\\1\">",
+			"<span style=\"background-color:\\1\">",
+			"<span style=\"background-color:\\1\">",
+			"<span size=\"\\1\">",
+			"<span style=\"font-size:\\1\">",
+			"<span face=\"\\1\">",
 			"<div align=\"\\1\">",
 			"<p style=\"line-height:\\1px;text-indent:\\2em;text-align:\\3\">",
 			"<span style=\"float:left;margin-right:5px\">",
@@ -495,7 +495,7 @@ function jammer() {
 	for($i = 0; $i < mt_rand(5, 15); $i++) {
 		$randomstr .= chr(mt_rand(32, 59)).' '.chr(mt_rand(63, 126));
 	}
-	return mt_rand(0, 1) ? '<font class="jammer">'.$randomstr.'</font>'."\r\n" :
+	return mt_rand(0, 1) ? '<span class="jammer">'.$randomstr.'</span>'."\r\n" :
 		"\r\n".'<span style="display:none">'.$randomstr.'</span>';
 }
 

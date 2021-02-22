@@ -105,7 +105,7 @@ function getoptionvalue($option, $text) {
 }
 
 function html2bbcode($text) {
-	$text = strip_tags($text, '<table><tr><td><b><strong><i><em><u><a><div><span><p><strike><blockquote><ol><ul><li><font><img><br><br/><h1><h2><h3><h4><h5><h6><script><hr>');
+	$text = strip_tags($text, '<table><tr><td><b><strong><i><em><u><a><div><span><p><strike><blockquote><ol><ul><li><span><img><br><br/><h1><h2><h3><h4><h5><h6><script><hr>');
 
 	if(ismozilla()) {
 		$text = preg_replace("/(?<!<br>|<br \/>|\r)(\r\n|\n|\r)/", ' ', $text);

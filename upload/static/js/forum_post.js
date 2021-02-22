@@ -818,7 +818,7 @@ function getreplycredit() {
 		$('replycredit').innerHTML = '<b class="xi1">回帖奖励积分总额过大('+real_reply_credit+')</b>';
 	} else {
 		if(have_replycredit > 0 && real_reply_credit < 0) {
-			$('replycredit').innerHTML = "<font class='xi1'>返还"+Math.abs(real_reply_credit)+"</font>";
+			$('replycredit').innerHTML = "<span class='xi1'>返还"+Math.abs(real_reply_credit)+"</span>";
 		} else {
 			$('replycredit').innerHTML = replycredit_result_lang + (real_reply_credit > 0 ? real_reply_credit : 0 );
 		}

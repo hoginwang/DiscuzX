@@ -579,7 +579,7 @@ if($operation == 'ad') {
 				} else {
 					echo file_exists(DISCUZ_ROOT.'./static/image/admincp/'.$adv['class'].'.gif') ? '<img src="static/image/admincp/'.$adv['class'].'.gif" /><br />' : '';
 				}
-				echo $adv['name'].($ads[$adv['class']] ? '('.$ads[$adv['class']].')' : '').($adv['filemtime'] > TIMESTAMP - 86400 ? ' <font color="red">New!</font>' : '');
+				echo $adv['name'].($ads[$adv['class']] ? '('.$ads[$adv['class']].')' : '').($adv['filemtime'] > TIMESTAMP - 86400 ? ' <span color="red">New!</span>' : '');
 				echo '</a></td>';
 			}
 			$i--;
