@@ -81,7 +81,10 @@ class table_home_favorite extends discuz_table
 		}
 		return !$unbuffered ? 0 : false;
 	}
-
+	
+	public function update_by_id_idtype($id, $idtype, $data) {
+		return DB::update($this->_table, $data, DB::field('id', $id) .' AND '.DB::field('idtype', $idtype));
+	}
 }
 
 ?>
