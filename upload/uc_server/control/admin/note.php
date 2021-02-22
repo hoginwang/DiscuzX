@@ -88,13 +88,13 @@ class control extends adminbase {
 
 	function _note_status($status, $appid, $noteid, $args, $operation) {
 		if($status > 0) {
-			return '<font color="green">'.$this->lang['note_succeed'].'</font>';
+			return '<span color="green">'.$this->lang['note_succeed'].'</span>';
 		} elseif($status == 0) {
 			$url = 'admin.php?m=note&a=send&appid='.$appid.'&noteid='.$noteid;
 			return '<a href="'.$url.'" class="red">'.$this->lang['note_na'].'</a>';
 		} elseif($status < 0) {
 			$url = 'admin.php?m=note&a=send&appid='.$appid.'&noteid='.$noteid;
-			return '<a href="'.$url.'"><font color="red">'.$this->lang['note_false'].(-$status).$this->lang['note_times'].'</font></a>';
+			return '<a href="'.$url.'"><span color="red">'.$this->lang['note_false'].(-$status).$this->lang['note_times'].'</span></a>';
 		}
 	}
 

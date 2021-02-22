@@ -26,7 +26,7 @@ function build_cache_usergroups() {
 		}
 		unset($group['system']);
 		$groupid = $group['groupid'];
-		$group['grouptitle'] = $group['color'] ? '<font color="'.$group['color'].'">'.$group['grouptitle'].'</font>' : $group['grouptitle'];
+		$group['grouptitle'] = $group['color'] ? '<span color="'.$group['color'].'">'.$group['grouptitle'].'</span>' : $group['grouptitle'];
 		if($_G['setting']['userstatusby'] == 1) {
 			$group['userstatusby'] = 1;
 		} elseif($_G['setting']['userstatusby'] == 2) {
@@ -67,7 +67,7 @@ function build_cache_usergroups_single() {
 			}
 		}
 		$data['raterange'] = $ratearray;
-		$data['grouptitle'] = $data['color'] ? '<font color="'.$data['color'].'">'.$data['grouptitle'].'</font>' : $data['grouptitle'];
+		$data['grouptitle'] = $data['color'] ? '<span color="'.$data['color'].'">'.$data['grouptitle'].'</span>' : $data['grouptitle'];
 		$data['grouptype'] = $data['type'];
 		$data['grouppublic'] = $data['system'] != 'private';
 		$data['groupcreditshigher'] = $data['creditshigher'];

@@ -609,7 +609,7 @@ function succeedhandle_$_GET['handlekey'] (url, message, values) {
 function succeedhandle_$_GET['handlekey'] (url, message, values) {
 	var x = new Ajax();
 	x.get('home.php?mod=spacecp&ac=index&op=getblock&blockname='+values['blockname']+'&inajax=1', function(s) {
-		s = s.replace(/\<script.*\<\/script\>/ig,'<font color="red"> [{lang save_js_code_view}] </font>');
+		s = s.replace(/\<script.*\<\/script\>/ig,'<span color="red"> [{lang save_js_code_view}] </span>');
 		$(values['blockname']).innerHTML = s;
 		drag.initPosition();
 	});

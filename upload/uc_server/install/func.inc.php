@@ -275,7 +275,7 @@ function show_env_result(&$env_items, &$dirfile_items, &$func_items) {
 			} else {
 				$error_code = ENV_CHECK_ERROR;
 				$func_str .= "<td class=\"nw pdleft1\">".lang('unsupportted')."</td>\n";
-				$func_str .= "<td><font color=\"red\">".lang('advice_'.$item)."</font></td>\n";
+				$func_str .= "<td><span color=\"red\">".lang('advice_'.$item)."</span></td>\n";
 			}
 		}
 		echo "<h2 class=\"title\">".lang('func_depend')."</h2>\n";

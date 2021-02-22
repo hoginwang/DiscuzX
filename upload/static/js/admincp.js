@@ -245,7 +245,7 @@ function parsetag(tag) {
 					return $2 + $3;
 					});
 				tds[i].innerHTML = str.replace(/<h_>/ig, function($1, $2) {
-					return '<font class="highlight">' + tag + '</font>';
+					return '<span class="highlight">' + tag + '</span>';
 					});
 			}
 		}
@@ -485,10 +485,10 @@ function sethtml(id) {
 }
 
 function sethtml_color(color) {
-	$(sethtml_id).innerHTML = preg_replace(['<font[^>]+?>', '</font>'], '', $(sethtml_id).innerHTML);
+	$(sethtml_id).innerHTML = preg_replace(['<font[^>]+?>', '</span>'], '', $(sethtml_id).innerHTML);
 	if(color != 'transparent') {
 		$(sethtml_id + '_c').className = 'htmlbtn c current';
-		$(sethtml_id).innerHTML = '<font color=' + color + '>' + $(sethtml_id).innerHTML + '</font>';
+		$(sethtml_id).innerHTML = '<span color=' + color + '>' + $(sethtml_id).innerHTML + '</span>';
 	} else {
 		$(sethtml_id + '_c').className = 'htmlbtn c';
 	}

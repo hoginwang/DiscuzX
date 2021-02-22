@@ -63,7 +63,7 @@ drag.extend({
 					el  = document.createElement("div");
 					el.className = drag.blockClass + ' ' + drag.moveableObject;
 					el.id = blockname;
-					s = s.replace(/\<script.*\<\/script\>/ig,'<font color="red"> [javascript脚本保存后显示] </font>');
+					s = s.replace(/\<script.*\<\/script\>/ig,'<span color="red"> [javascript脚本保存后显示] </span>');
 					el.innerHTML = s;
 					var id = drag.data['diypage'][0]['columns']['frame1_left']['children'][0]['name'];
 					$('frame1_left').insertBefore(el,$(id));

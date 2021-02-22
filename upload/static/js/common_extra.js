@@ -33,7 +33,7 @@ function _relatedlinks(rlinkmsgid) {
 						ra = '#alink '+alink_i+'#';
 						alink_i++;
 				} else {
-					var ra = '<strong><font color="#FF0000">'+relatedlink[j]['sname']+'</font></strong>';
+					var ra = '<strong><span color="#FF0000">'+relatedlink[j]['sname']+'</span></strong>';
 				}
 				var $rtmp = $3;
 				$3 = $3.replace(relatedlink[j]['sname'], ra);

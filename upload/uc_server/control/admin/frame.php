@@ -60,7 +60,7 @@ class control extends adminbase {
 
 		$serverinfo = PHP_OS.' / PHP v'.PHP_VERSION;
 		$dbversion = $this->db->version();
-		$fileupload = @ini_get('file_uploads') ? ini_get('upload_max_filesize') : '<font color="red">'.$lang['no'].'</font>';
+		$fileupload = @ini_get('file_uploads') ? ini_get('upload_max_filesize') : '<span color="red">'.$lang['no'].'</span>';
 		$dbsize = 0;
 		$tablepre = UC_DBTABLEPRE;
 		$query = $tables = $this->db->fetch_all("SHOW TABLE STATUS LIKE '$tablepre%'");

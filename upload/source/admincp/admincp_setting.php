@@ -1416,7 +1416,7 @@ EOF;
 		$title = $creditsetting = array();
 		for($i = 1; $i <= 8; $i++) {
 			if($i == 1) {
-				$title[] = '<font style="font:12px normal normal">'.cplang('setting_credits_available').'</font>';
+				$title[] = '<span style="font:12px normal normal">'.cplang('setting_credits_available').'</span>';
 				$creditsetting[0] = '<td class="td23">'.cplang('credits_title').'</td>';
 				$creditsetting[2] = '<td class="td23">'.cplang('credits_img').'</td>';
 				$creditsetting[3] = '<td class="td23">'.cplang('credits_unit').'</td>';
@@ -3340,7 +3340,7 @@ EOT;
 		$settingnew['mobile_arr']['mobilepostperpage'] = intval($settingnew['mobile']['mobilepostperpage']) > 0 ? intval($settingnew['mobile']['mobilepostperpage']) : 1 ;
 		$settingnew['mobile_arr']['mobilecachetime'] = intval($settingnew['mobile']['mobilecachetime']);
 		$settingnew['mobile_arr']['mobileforumview'] = intval($settingnew['mobile']['mobileforumview']);
-		$settingnew['mobile_arr']['mobilecomefrom'] = preg_replace(array("/\son(.*)=[\'\"](.*?)[\'\"]/i"), '', strip_tags($settingnew['mobile']['mobilecomefrom'], '<a><font><img><span><strong><b>'));
+		$settingnew['mobile_arr']['mobilecomefrom'] = preg_replace(array("/\son(.*)=[\'\"](.*?)[\'\"]/i"), '', strip_tags($settingnew['mobile']['mobilecomefrom'], '<a><span><img><span><strong><b>'));
 		$settingnew['mobile_arr']['mobilepreview'] = intval($settingnew['mobile']['mobilepreview']);
 		$settingnew['mobile_arr']['wml'] = intval($settingnew['mobile']['wml']);
 		$settingnew['mobile'] = $settingnew['mobile_arr'];
@@ -3717,7 +3717,7 @@ function getsecqaas($qaaext) {
 					$script = ($key ? $key.':' : '').$script;
 					$secqaaext .= showtablerow('', array('', 'class="td26"'), array(
 						'',
-						'<label>'.($qaa->copyright ? '<div class="right">'.lang('secqaa/'.$script, $qaa->copyright).'</div>' : '').'<label><input class="checkbox" class="checkbox" type="checkbox" name="secqaaext[]" value="'.$script.'"'.(in_array($script, $qaaext) ? ' checked="checked"' : '').'> '.lang('secqaa/'.$script, $qaa->name).(@filemtime($dir.'/'.$entry) > TIMESTAMP - 86400 ? ' <font color="red">New!</font>' : '').($qaa->description ? '<div class="lightfont" style="margin-left:30px">'.lang('secqaa/'.$script, $qaa->description).'</div>' : '').'</label>'
+						'<label>'.($qaa->copyright ? '<div class="right">'.lang('secqaa/'.$script, $qaa->copyright).'</div>' : '').'<label><input class="checkbox" class="checkbox" type="checkbox" name="secqaaext[]" value="'.$script.'"'.(in_array($script, $qaaext) ? ' checked="checked"' : '').'> '.lang('secqaa/'.$script, $qaa->name).(@filemtime($dir.'/'.$entry) > TIMESTAMP - 86400 ? ' <span color="red">New!</span>' : '').($qaa->description ? '<div class="lightfont" style="margin-left:30px">'.lang('secqaa/'.$script, $qaa->description).'</div>' : '').'</label>'
 					), true);
 				}
 			}

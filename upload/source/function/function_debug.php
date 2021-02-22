@@ -44,7 +44,7 @@ function debugmessage($ajax = 0) {
 		$sqltime += $string[1];
 		$extra = $dt = '';
 		$n++;
-		$sql = preg_replace('/'.preg_quote($_G['config']['db']['1']['tablepre']).'[\w_]+/', '<font color=blue>\\0</font>', nl2br(dhtmlspecialchars($string[0])));
+		$sql = preg_replace('/'.preg_quote($_G['config']['db']['1']['tablepre']).'[\w_]+/', '<span color=blue>\\0</span>', nl2br(dhtmlspecialchars($string[0])));
 		$sqldebugrow = '<div id="sql_'.$n.'" style="display:none;padding:0">';
 		if(preg_match('/^SELECT /', $string[0])) {
 			$query = $string[3]->query("EXPLAIN ".$string[0]);
@@ -57,11 +57,11 @@ function debugmessage($ajax = 0) {
 				}
 				if(strexists($row['Extra'], 'Using filesort')) {
 					$sqlw['Using filesort']++;
-					$extra .= $row['Extra'] = str_replace('Using filesort', '<font color=red>Using filesort</font>', $row['Extra']);
+					$extra .= $row['Extra'] = str_replace('Using filesort', '<span color=red>Using filesort</span>', $row['Extra']);
 				}
 				if(strexists($row['Extra'], 'Using temporary')) {
 					$sqlw['Using temporary']++;
-					$extra .= $row['Extra'] = str_replace('Using temporary', '<font color=red>Using temporary</font>', $row['Extra']);
+					$extra .= $row['Extra'] = str_replace('Using temporary', '<span color=red>Using temporary</span>', $row['Extra']);
 				}
 				$sqldebugrow .= '<tr><td>&nbsp;'.implode('&nbsp;</td><td>&nbsp;', $row).'&nbsp;</td></tr>';
 			}
@@ -299,7 +299,7 @@ EOF;
 	$debug .= '<ol></div><div id="__debug_c_5" style="display:none"><ol>';
 	foreach($_COOKIE as $k => $v) {
 		if(strexists($k, $_G['config']['cookie']['cookiepre'])) {
-			$k = '<font color=blue>'.$k.'</font>';
+			$k = '<span color=blue>'.$k.'</span>';
 		}
 		$debug .= "<li><br />['$k'] => ".dhtmlspecialchars($v)."</li>";
 	}

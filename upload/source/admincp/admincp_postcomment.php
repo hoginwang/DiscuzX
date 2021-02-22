@@ -144,7 +144,7 @@ if(submitcheck('searchsubmit') || $newlist) {
 					$comment['dateline'] = dgmdate($comment['dateline']);
 					$comments .= showtablerow('', '', array(
 						"<input class=\"checkbox\" type=\"checkbox\" name=\"delete[]\" value=\"{$comment['id']}\" />",
-						str_replace(array('[b]', '[/b]', '[/color]'), array('<b>', '</b>', '</font>'), preg_replace("/\[color=([#\w]+?)\]/i", "<font color=\"\\1\">", $comment['comment'])),
+						str_replace(array('[b]', '[/b]', '[/color]'), array('<b>', '</b>', '</span>'), preg_replace("/\[color=([#\w]+?)\]/i", "<span color=\"\\1\">", $comment['comment'])),
 						($comment['author'] ? "<a href=\"home.php?mod=space&uid={$comment['authorid']}\" target=\"_blank\">".$comment['author']."</a>" : cplang('postcomment_guest')),
 						$comment['dateline'],
 						$comment['useip'],

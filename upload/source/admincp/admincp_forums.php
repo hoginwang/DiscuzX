@@ -1590,7 +1590,7 @@ EOT;
 						$newname = array_unique($_GET['newname']);
 						if($newname) {
 							foreach($newname as $key => $val) {
-								$newname[$key] = $val = strip_tags(trim(str_replace(array("'", "\""), array(), $val)), "<font><span><b><strong>");
+								$newname[$key] = $val = strip_tags(trim(str_replace(array("'", "\""), array(), $val)), "<span><span><b><strong>");
 								if($_GET['newenable'][$key] && $val) {
 									$newtypearr = C::t('forum_threadclass')->fetch_by_fid_name($fid, $val);
 									$newtypeid = $newtypearr['typeid'];
@@ -1623,7 +1623,7 @@ EOT;
 									$threadtypesnew['options']['displayorder'][$type['typeid']] != $type['displayorder'] ||
 									$threadtypesnew['options']['icon'][$type['typeid']] != $type['icon'] ||
 									$threadtypesnew['options']['moderators'][$type['typeid']] != $type['moderators']) {
-									$threadtypesnew['options']['name'][$type['typeid']] = strip_tags(trim(str_replace(array("'", "\""), array(), $threadtypesnew['options']['name'][$type['typeid']])), "<font><span><b><strong>");
+									$threadtypesnew['options']['name'][$type['typeid']] = strip_tags(trim(str_replace(array("'", "\""), array(), $threadtypesnew['options']['name'][$type['typeid']])), "<span><span><b><strong>");
 									C::t('forum_threadclass')->update_by_typeid($type['typeid'], array(
 										'name' => $threadtypesnew['options']['name'][$type['typeid']],
 										'displayorder' => $threadtypesnew['options']['displayorder'][$type['typeid']],

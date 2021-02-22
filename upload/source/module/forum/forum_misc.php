@@ -278,7 +278,7 @@ if($_GET['action'] == 'paysucceed') {
 	foreach(C::t('forum_postcomment')->fetch_all_by_search(null, $_GET['pid'], null, null, null, null, null, $start_limit, $commentlimit) as $comment) {
 		$comment['avatar'] = avatar($comment['authorid'], 'small');
 		$comment['dateline'] = dgmdate($comment['dateline'], 'u');
-		$comment['comment'] = str_replace(array('[b]', '[/b]', '[/color]'), array('<b>', '</b>', '</font>'), preg_replace("/\[color=([#\w]+?)\]/i", "<font color=\"\\1\">", $comment['comment']));
+		$comment['comment'] = str_replace(array('[b]', '[/b]', '[/color]'), array('<b>', '</b>', '</span>'), preg_replace("/\[color=([#\w]+?)\]/i", "<span color=\"\\1\">", $comment['comment']));
 		$comments[] = $comment;
 	}
 	forum_misc_commentmore_callback_1(0, 1);

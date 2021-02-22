@@ -572,7 +572,7 @@ input		{color: #085878; font-family: Tahoma, verdana, arial; font-size: 12px; ba
 <td>
 <table width="98%" border="0" cellspacing="0" cellpadding="0" align="center">
 <tr>
-<td class="install" height="30" valign="bottom"><font color="#FF0000">&gt;&gt;</font>
+<td class="install" height="30" valign="bottom"><span color="#FF0000">&gt;&gt;</span>
 UCenter  升级程序( $version_old &gt;&gt; $version_new)</td>
 </tr>
 <tr>

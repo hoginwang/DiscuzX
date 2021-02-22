@@ -569,7 +569,7 @@ if(!($operation)) {
 		showsubtitle(array('name', 'tasks_version', 'copyright', ''));
 		foreach($tasks as $task) {
 			showtablerow('', '', array(
-				$task['name'].($task['filemtime'] > TIMESTAMP - 86400 ? ' <font color="red">New!</font>' : ''),
+				$task['name'].($task['filemtime'] > TIMESTAMP - 86400 ? ' <span color="red">New!</span>' : ''),
 				$task['version'],
 				$task['copyright'],
 				in_array($task['class'], $custom_scripts) ? "<a href=\"".ADMINSCRIPT."?action=tasks&operation=upgrade&script={$task['class']}\" class=\"act\">{$lang['tasks_upgrade']}</a> <a href=\"".ADMINSCRIPT."?action=tasks&operation=uninstall&script={$task['class']}\" class=\"act\">{$lang['tasks_uninstall']}</a><br />" : "<a href=\"".ADMINSCRIPT."?action=tasks&operation=install&script={$task['class']}\" class=\"act\">{$lang['tasks_install']}</a>"

@@ -94,7 +94,7 @@ function parsesign($sign) {
 	);
 
 	$replacearray = array(
-		'</font>', '</font>', '</font>', '</p>', '<b>', '</b>', '<i>',
+		'</span>', '</span>', '</span>', '</p>', '<b>', '</b>', '<i>',
 		'</i>', '<u>', '</u>', '<ul>', '<ol type=1>', '<ol type=a>',
 		'<ol type=A>', '<li>', '</ul></ol>', '<blockquote>', '</blockquote>'
 	);
@@ -120,9 +120,9 @@ function parsesign($sign) {
 		"<a href=\"\\1://\\2\" target=\"_blank\">\\3</a>",
 		"<a href=\"mailto:\\1@\\2\">\\1@\\2</a>",
 		"<a href=\"mailto:\\1@\\2\">\\3</a>",
-		"<font color=\"\\1\">",
-		"<font size=\"\\1\">",
-		"<font face=\"\\1\">",
+		"<span color=\"\\1\">",
+		"<span size=\"\\1\">",
+		"<span face=\"\\1\">",
 		"<p align=\"\\1\">",
 		"<div class=\"altbg2\" style=\"margin: 2em; margin-top: 3px; padding: 10px; border: 0px solid #86B9D6; word-break: break-all\">\\1</div>",
 		"<div class=\"altbg2\" style=\"margin: 2em; margin-top: 3px; clear: both; padding: 10px; padding-top: 5px; border: 0px solid #86B9D6; word-break: break-all\">\\1</div>",
@@ -551,7 +551,7 @@ function show_config_input($type, $config, $error = array()) {
 	show_table_header();
 	show_table_row(array(array('colspan="3"', $title)), 'header title');
 	if($type == 'target') {
-		show_table_row(array(array('colspan="3"', '<font color="red">'.lang('config_type_target_comment').'</font>')), 'bg2');
+		show_table_row(array(array('colspan="3"', '<span color="red">'.lang('config_type_target_comment').'</span>')), 'bg2');
 	}
 	foreach ($config as $key => $value) {
 		$addmsg = $error && $key == 'dbhost' ? lang($error) : '';
@@ -559,7 +559,7 @@ function show_config_input($type, $config, $error = array()) {
 		show_table_row(	array(
 		array('width="150"', lang('config_'.$key)),
 		array('class="bg2"', '<input type="text" size="40" name="newconfig['.$type.']['.$key.']" value="'.htmlspecialchars($value).'">'),
-		array('class="bg2"', '<font color="red">'.$tip.'</font><font color="red">'.$addmsg.'</font>')
+		array('class="bg2"', '<span color="red">'.$tip.'</span><span color="red">'.$addmsg.'</span>')
 		), 'bg1'
 		);
 	}

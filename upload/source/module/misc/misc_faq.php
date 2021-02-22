@@ -56,8 +56,8 @@ if($_GET['action'] == 'faq') {
 			$faqlist = array();
 			foreach(C::t('forum_faq')->fetch_all_by_fpid('', $keyword) as $faq) {
 				if(!empty($faq['fpid'])) {
-					$faq['title'] = preg_replace("/(?<=[\s\"\]>()]|[\x7f-\xff]|^)(".preg_quote($keyword, '/').")(([.,:;-?!()\s\"<\[]|[\x7f-\xff]|$))/siU", "<u><b><font color=\"#FF0000\">\\1</font></b></u>\\2", $faq['title']);
-					$faq['message'] = preg_replace("/(?<=[\s\"\]>()]|[\x7f-\xff]|^)(".preg_quote($keyword, '/').")(([.,:;-?!()\s\"<\[]|[\x7f-\xff]|$))/siU", "<u><b><font color=\"#FF0000\">\\1</font></b></u>\\2", $faq['message']);
+					$faq['title'] = preg_replace("/(?<=[\s\"\]>()]|[\x7f-\xff]|^)(".preg_quote($keyword, '/').")(([.,:;-?!()\s\"<\[]|[\x7f-\xff]|$))/siU", "<u><b><span color=\"#FF0000\">\\1</span></b></u>\\2", $faq['title']);
+					$faq['message'] = preg_replace("/(?<=[\s\"\]>()]|[\x7f-\xff]|^)(".preg_quote($keyword, '/').")(([.,:;-?!()\s\"<\[]|[\x7f-\xff]|$))/siU", "<u><b><span color=\"#FF0000\">\\1</span></b></u>\\2", $faq['message']);
 					$faqlist[] = $faq;
 				}
 			}

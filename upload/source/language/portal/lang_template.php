@@ -112,7 +112,7 @@ $lang = array (
   'block_stop' => '屏蔽',
   'block_template' => '模块模板',
   'block_type' => '模块分类',
-  'block_type_convert_tips' => '此模块分类支持转换模块的类型，但<font color=\'red\'>可能会存在部分特殊字段的丢失且模块的显示样式将会变为自定义模板</font>，请根据需要使用。<br/><font color=\'red\'>注意：</font>选择下拉列表中的模块类型以后模块分类立即发生改变。',
+  'block_type_convert_tips' => '此模块分类支持转换模块的类型，但<span color=\'red\'>可能会存在部分特殊字段的丢失且模块的显示样式将会变为自定义模板</span>，请根据需要使用。<br/><span color=\'red\'>注意：</span>选择下拉列表中的模块类型以后模块分类立即发生改变。',
   'block_view_banned_data' => '查看屏蔽数据',
   'cachetimerange' => '更新区间',
   'cancel' => '取消',

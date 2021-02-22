@@ -974,7 +974,7 @@ $lang = array (
   'post_trade_transport_physical' => '买家收到货物后直接支付给物流公司',
   'trade_additional' => '附加',
   'trade_buy_confirm' => '确认购买',
-  'trade_buy_crediterror' => '<font color="red">您的积分不足</font>',
+  'trade_buy_crediterror' => '<span color="red">您的积分不足</span>',
   'trade_buyercontact' => '收货地址',
   'trade_buyermobile' => '收货人手机',
   'trade_buyername' => '收货人姓名',

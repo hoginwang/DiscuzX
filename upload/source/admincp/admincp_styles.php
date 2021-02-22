@@ -205,7 +205,7 @@ if($operation == 'admin') {
 				"<img src=\"$preview\" /></td><td valign=\"top\">
 				<p style=\"margin: 2px 0\"><a href=\"".ADMINSCRIPT."?action=styles&operation=import&dir={$style['name']}\">{$lang['styles_install']}</a></p>
 				<p style=\"margin: 2px 0\">{$lang['styles_stylecount']}: {$style['stylecount']}</p>".
-				($style['filemtime'] > $timestamp - 86400 ? '<p style=\"margin-bottom: 2px;\"><font color="red">New!</font></p>' : '')).
+				($style['filemtime'] > $timestamp - 86400 ? '<p style=\"margin-bottom: 2px;\"><span color="red">New!</span></p>' : '')).
 				"</td></tr></table>\n".($i == 3 ? '</tr>' : '');
 			$i++;
 			if($i == 3) {
@@ -249,7 +249,7 @@ if($operation == 'admin') {
 		foreach($checkresult as $addonid => $value) {
 			list($return, $newver) = explode(':', $value);
 			if($newver) {
-				$newvers .= "if($('update_$addonid')) $('update_$addonid').innerHTML=' <a href=\"".ADMINSCRIPT."?action=cloudaddons&id=$addonid\"><font color=\"red\">(".cplang('styles_find_newversion')." $newver)</font></a>';";
+				$newvers .= "if($('update_$addonid')) $('update_$addonid').innerHTML=' <a href=\"".ADMINSCRIPT."?action=cloudaddons&id=$addonid\"><span color=\"red\">(".cplang('styles_find_newversion')." $newver)</span></a>';";
 			}
 		}
 		if($newvers) {

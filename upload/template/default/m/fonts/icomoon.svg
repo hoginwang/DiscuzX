@@ -6,7 +6,7 @@ Created by FontForge 20120731 at Fri Nov 21 11:13:54 2014
  By Ads
 </metadata>
 <defs>
-<font id="iconfont" horiz-adv-x="1024" >
+<span id="iconfont" horiz-adv-x="1024" >
   <font-face 
     font-family="iconfont"
     font-weight="500"
@@ -433,5 +433,5 @@ q0 -85 60 -145t145 -60t145 60t60 145t-60 145t-145 60zM512 140q-57 0 -97 40t-40 9
 d="M819 288v478h-614v-478l307 -171zM273 698h307v-35h-307v35zM273 595h478v-34h-478v34zM273 493h307v-34h-307v34zM887 527v-137l63 -125l-438 -250l-438 250l62 125v137l-102 -205v-444q0 -28 20 -48t48 -20h820q28 0 48 20t20 48v444z" />
     <glyph glyph-name="uniE916" unicode="&#xe916;" 
 d="M775 732l-369 -641l-74 641h-171l103 -888h170l512 888h-171z" />
-  </font>
+  </span>
 </defs></svg>
