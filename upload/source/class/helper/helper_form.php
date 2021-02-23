@@ -78,6 +78,7 @@ class helper_form {
 					}
 				}
 			}
+			$message = preg_replace(array('/(\[+)url(.*?)(\]+)/is', '/(\[+)\/url(.*?)(\]+)/is'), '', $message);
 		}
 		return $message;
 	}
