@@ -22,6 +22,7 @@
 			<!--{eval $_GET['posttableid'] = intval($_GET['posttableid']);}-->
 			<input type="hidden" name="posttableid" value="$_GET['posttableid']" />
 			<!--{/if}-->
+			<!--{if !empty($_REQUEST['modthreadkey'])}--><input type="hidden" name="modthreadkey" value="$_REQUEST['modthreadkey']" /><!--{/if}-->
 			<!--{if !empty($_GET['infloat'])}--><input type="hidden" name="handlekey" value="$_GET['handlekey']" /><!--{/if}-->
 			<!--{loop $list $id}-->
 				<input type="hidden" name="moderate[]" value="$id" />

@@ -35,7 +35,7 @@ if(!in_array(0, $threadtableids)) {
 if($_GET['moderate']) {
 	foreach($threadtableids as $tableid) {
 		foreach(C::t('forum_thread')->fetch_all_by_tid_fid_displayorder($_GET['moderate'], $_G['fid'], null, '', 0, $_G['tpp'], '', '', $tableid) as $thread) {
-			if($thread['closed'] > 1 && $operation && !in_array($operation, array('delete', 'highlight', 'stick', 'digest', 'bump', 'down')) || $thread['displayorder'] < 0 && $thread['displayorder'] != -4) {
+			if($thread['closed'] > 1 && $operation && !in_array($operation, array('delete', 'highlight', 'stick', 'digest', 'bump', 'down')) || !isset($_REQUEST['modthreadkey']) && $thread['displayorder'] < 0 && $thread['displayorder'] != -4) {
 				if($operation == 'recommend_group') {
 					$recommend_group_count ++;
 				}

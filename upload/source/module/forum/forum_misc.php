@@ -470,6 +470,7 @@ IconIndex=1
 
 	$thread = C::t('forum_thread')->fetch($_G['tid']);
 	if(!($thread['displayorder']>=0 || $thread['displayorder']==-4 && $thread['authorid']==$_G['uid'])) {
+		if (!isset($_GET['modthreadkey']) || $_GET['modthreadkey'] !== modauthkey($_G['tid'])) 
 		$thread = array();
 	}
 	if($thread['readperm'] && $thread['readperm'] > $_G['group']['readaccess'] && !$_G['forum']['ismoderator'] && $thread['authorid'] != $_G['uid']) {
