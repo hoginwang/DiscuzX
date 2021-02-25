@@ -1388,6 +1388,7 @@ EOF;
 		showtagfooter('tbody');
 		showsetting('setting_permissions_allowmoderatingthread', 'settingnew[allowmoderatingthread]', $setting['allowmoderatingthread'], 'radio');
 		showsetting('setting_permissions_memliststatus', 'settingnew[memliststatus]', $setting['memliststatus'], 'radio');
+		showsetting('setting_permissions_guestviewprofile', 'settingnew[guestviewprofile]', $setting['guestviewprofile'], 'radio');
 		showsetting('setting_permissions_minpostsize', 'settingnew[minpostsize]', $setting['minpostsize'], 'text');
 		showsetting('setting_permissions_minpostsize_mobile', 'settingnew[minpostsize_mobile]', $setting['minpostsize_mobile'], 'text');
 		showsetting('setting_permissions_maxpostsize', 'settingnew[maxpostsize]', $setting['maxpostsize'], 'text');
