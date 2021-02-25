@@ -2031,6 +2031,7 @@ $lang = array
 	'setting_mail_setting' => '设置',
 	'setting_mail_setting_silent' => '屏蔽邮件发送中的全部错误提示',
 	'setting_mail_setting_send' => '邮件发送方式',
+	'setting_mail_setting_send_comment' => '如需使用 SSL 加密的 SMTP 发送，请在服务器地址前添加 ssl:// 并调整端口号。',
 	'setting_mail_setting_send_1' => '通过 PHP 函数的 sendmail 发送(推荐此方式)',
 	'setting_mail_setting_send_2' => '通过 SOCKET 连接 SMTP 服务器发送(支持 ESMTP 验证)',
 	'setting_mail_setting_send_3' => '通过 PHP 函数 SMTP 发送 Email(仅 Windows 主机下有效，不支持 ESMTP 验证)',
