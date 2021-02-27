@@ -87,6 +87,7 @@ switch ($mod) {
 	case 'updatecache':
 		$discuz->init_cron = false;
 		$discuz->init_session = false;
+		break;
 	default:
 		break;
 }
