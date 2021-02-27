@@ -260,7 +260,10 @@ class usermodel {
 
 	function can_do_login($username, $ip = '') {
 
-		$check_times = $this->base->settings['login_failedtime'] < 1 ? 5 : $this->base->settings['login_failedtime'];
+		$check_times = is_null($this->settings['login_failedtime']) ? 5 : $this->settings['login_failedtime'];
+		if($check_times == "0"){
+			return -1;
+		}
 
 		$username = substr(md5($username), 8, 15);
 		$expire = 15 * 60;
