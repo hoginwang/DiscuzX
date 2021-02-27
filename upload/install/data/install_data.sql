@@ -58,6 +58,7 @@ INSERT INTO pre_common_cron VALUES ('17','1','system','更新每日查看数','c
 INSERT INTO pre_common_cron VALUES ('18','0','system','每日用户表优化','cron_member_optimize_daily.php','1321500558','1321556400','-1','-1','2','0	5	10	15	20	25	30	35	40	45	50	55');
 INSERT INTO pre_common_cron VALUES ('19','1','system','统计今日热帖','cron_todayheats_daily.php','1269746623','1269792000','-1','-1','0','0');
 INSERT INTO pre_common_cron VALUES ('20','1','system','更新版块最后发表(防水墙相关)','cron_security_cleanup_lastpost.php','1269746623','1269792000','-1','-1','7','0');
+INSERT INTO pre_common_cron VALUES ('21','1','system','计划任务上下线','cron_task.php','1269746634','1269810000','-1','-1','-1','0');
 
 INSERT INTO pre_common_friendlink VALUES ('1','0','官方论坛','https://www.discuz.net','提供最新 Discuz! 产品新闻、软件下载与技术交流','static/image/common/logo_88_31.gif','2');
 INSERT INTO pre_common_friendlink VALUES ('2','4','应用商店','https://addon.dismall.com/','','','2');
