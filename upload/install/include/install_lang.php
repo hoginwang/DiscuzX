@@ -11,6 +11,7 @@ if(!defined('IN_COMSENZ')) {
 	exit('Access Denied');
 }
 
+date_default_timezone_set("PRC");
 define('UC_VERNAME', '中文版');
 $lang = array(
 	'SC_GBK' => '简体中文版',
