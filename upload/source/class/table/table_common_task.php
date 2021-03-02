@@ -53,7 +53,11 @@ class table_common_task extends discuz_table
 	}
 
 	public function update_available() {
-		DB::query("UPDATE %t SET available='2' WHERE available='1' AND starttime>'0' AND starttime<=%d AND (endtime IS NULL OR endtime>%d)", array($this->_table, TIMESTAMP, TIMESTAMP), false, true);
+		DB::query("UPDATE %t SET available='2' WHERE available='1' AND (starttime=0 OR starttime<=%d) AND (endtime=0 OR endtime>%d)", array($this->_table, TIMESTAMP, TIMESTAMP), false, true);
+	}
+
+	public function update_unavailable() {
+		DB::query("UPDATE %t SET available='1' WHERE available='2' AND (starttime>%d OR (endtime>0 AND endtime<=%d))", array($this->_table, TIMESTAMP, TIMESTAMP), false, true);
 	}
 
 	public function fetch_all_by_status($uid, $status) {
