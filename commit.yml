@@ -2,40 +2,13 @@
 branches: {
   }
 fileChange:
-  /upload:
-    newFile: !uuid 'dcaf88527efe6131bb9608bddf3325d5c807f541'
-    oldFile: !uuid '4027aa0c8ef74b1b01fc283ce7bdf55cdf4dc6c1'
-  /upload/source:
-    newFile: !uuid 'ef14e7744621e4b5e40e22ca5bb3ac60f70f5955'
-    oldFile: !uuid 'c1da51ebb1f5015cd195d8eb88e3fb45599000c0'
-  /upload/source/plugin:
-    newFile: !uuid '0818a029c0c647c1ca8c9bfa821b1d385b47694d'
-    oldFile: !uuid '499e239c9d64a6cbe08d0e00e38873e36a999580'
-  /upload/source/plugin/qqconnect:
-    newFile: !uuid '77eaafe2dfbcb28cfd141790d9669c18367ac77c'
-    oldFile: !uuid '581ebe92228ea4046066dcd9702a9eb4bdd30daf'
-  /upload/source/plugin/qqconnect/connect:
-    newFile: !uuid '7bdcfa0e825c2aa830077b1793992c56e36c714d'
-    oldFile: !uuid '13722ab08e2562dd21a156db469da90ec24d31b9'
-  /upload/source/plugin/qqconnect/connect/connect_config.php:
-    newFile: !uuid '8bbf92c540806f10697b77875631301bda24718c'
-    oldFile: !uuid 'eaaef31c0eb12df697a998fb2cd6dede19d8f9ea'
-  /upload/source/plugin/qqconnect/discuz_plugin_qqconnect.xml:
-    newFile: !uuid '9ae1c039e5bc6afc651b58b9d449624110ea86d0'
-    oldFile: !uuid '98ae3f7ddacbb2ec3162e6ba9877c454a7cbaf10'
-  /upload/source/plugin/qqconnect/install.php:
-    newFile: !uuid '98bdb441724fe509e4397cdcdf16926ec0b75f66'
-    oldFile: !uuid '97245bde61e21d322ed03b5970fd0f3d893c805d'
-  /upload/source/plugin/qqconnect/template:
-    newFile: !uuid '855392138b952855145edcefa6d81f5f1dc7796a'
-    oldFile: !uuid '656c405e67d84c6d81d276ac6855f0c4d8f1666f'
-  /upload/source/plugin/qqconnect/template/module.htm:
-    newFile: !uuid '90b33250eaf7b4c685b82f46d7d4814201db5308'
-    oldFile: !uuid '7db44a033549b8db59092dc9cb37c99196b0ff35'
-  /upload/source/plugin/qqconnect/upgrade.php:
-    newFile: !uuid '5c80b33f79cd4cf2a00a6b1b7d5e46697dd5f6a1'
-    oldFile: !uuid '868719558913cb0f2f0501617d02e009c1c42786'
-gitCommitId: !uuid 'e27026267f0b51e165049b6d31188336badca64e'
+  /utility:
+    newFile: !uuid '6efb028235a8ddac58778d8b3bed52d2a88a48d0'
+    oldFile: !uuid '8a23238167eb875d878393eb45d7511e6d531efe'
+  /utility/restore.php:
+    newFile: !uuid '0fc10936583d99052723fd094acb1b860f428666'
+    oldFile: !uuid '007bd2251154ae315afd2b48559b5d3629c95d50'
+gitCommitId: !uuid '8e998a065bb89922317a499033aeb4e96672f63d'
 renames: {
   }
-revisionId: 626
+revisionId: 627
