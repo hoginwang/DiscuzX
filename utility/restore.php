@@ -171,6 +171,14 @@ if($operation == 'import') {
 	$datafile_vol1 = trim(getgpc('datafile_vol1', 'G'));
 	$multivol = intval(getgpc('multivol', 'G'));
 
+	$confirm = trim(getgpc('confirm', 'G'));
+	$delunzip = getgpc('delunzip', 'G');
+	$start = trim(getgpc('start', 'G'));
+	$start = $start ? 1 : 0;
+	if(!$start) {
+		show_msg(lang('database_import_multivol_unzip_start', TRUE, array()), $siteurl.'restore.php?operation=importzip&multivol='.$multivol.'&datafile_vol1='.$datafile_vol1.'&datafile_server='.$datafile_server.'&importsubmit=yes&start=yes'.(!empty($confirm) ? '&confirm=yes' : ''), 'redirect');
+	}
+
 	require_once ROOT_PATH.'./source/class/class_zip.php';
 	$unzip = new SimpleUnzip();
 	$backupdir = substr($datafile_server, 8, 13);
@@ -184,7 +192,7 @@ if($operation == 'import') {
 	$confirm = getgpc('confirm', 'G');
 	$confirm = !empty($confirm) ? 1 : 0;
 	if(!$confirm && $identify[1] != DISCUZ_VERSION) {
-		show_msg('database_import_confirm', $siteurl.'restore.php?operation=importzip&datafile_server='.$datafile_server.'&importsubmit=yes&confirm=yes', 'confirm');
+		show_msg('database_import_confirm', $siteurl.'restore.php?operation=importzip&datafile_server='.$datafile_server.'&importsubmit=yes&start=yes&confirm=yes', 'confirm');
 	}
 
 	$sqlfilecount = 0;
@@ -207,7 +215,7 @@ if($operation == 'import') {
 		$multivol++;
 		$datafile_server = preg_replace("/-(\d+)(\..+)$/", "-$multivol\\2", $datafile_server);
 		if(file_exists($datafile_server)) {
-			show_msg(lang('database_import_multivol_unzip_redirect', TRUE, array('multivol' => $multivol)), $siteurl.'restore.php?operation=importzip&multivol='.$multivol.'&datafile_vol1='.$datafile_vol1.'&datafile_server='.$datafile_server.'&importsubmit=yes&confirm=yes', 'redirect');
+			show_msg(lang('database_import_multivol_unzip_redirect', TRUE, array('multivol' => $multivol)), $siteurl.'restore.php?operation=importzip&multivol='.$multivol.'&datafile_vol1='.$datafile_vol1.'&datafile_server='.$datafile_server.'&importsubmit=yes&start=yes&confirm=yes', 'redirect');
 		} else {
 			show_msg('database_import_multivol_confirm', $siteurl.'restore.php?operation=import&datafile_server='.$datafile_vol1.'&importsubmit=yes&delunzip=yes', 'confirm');
 		}
@@ -218,7 +226,7 @@ if($operation == 'import') {
 		$datafile_server = preg_replace("/-1(\..+)$/", "-2\\1", $datafile_server);
 
 		if(file_exists($datafile_server)) {
-			show_msg(lang('database_import_multivol_unzip_redirect', TRUE, array('multivol' => 1)), $siteurl.'restore.php?operation=importzip&multivol=1&datafile_vol1=../data/'.$backupdir.'/'.$importfile.'&datafile_server='.$datafile_server.'&importsubmit=yes&confirm=yes', 'redirect');
+			show_msg(lang('database_import_multivol_unzip_redirect', TRUE, array('multivol' => 1)), $siteurl.'restore.php?operation=importzip&multivol=1&datafile_vol1=../data/'.$backupdir.'/'.$importfile.'&datafile_server='.$datafile_server.'&importsubmit=yes&start=yes&confirm=yes', 'redirect');
 		}
 	}
 
