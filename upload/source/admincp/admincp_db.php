@@ -100,22 +100,22 @@ if($operation == 'export') {
 		showtitle('db_export_options');
 		showsetting('db_export_options_extended_insert', 'extendins', 0, 'radio');
 		showsetting('db_export_options_sql_compatible', array('sqlcompat', array(
-			array('', $lang['default']),
+			array('0', $lang['default']),
 			array('MYSQL40', 'MySQL 3.23/4.0.x'),
 			array('MYSQL41', 'MySQL 4.1.x/5.x')
-		)), '', 'mradio');
+		)), '0', 'mradio');
 		showsetting('db_export_options_charset', array('sqlcharset', array(
-			array('', cplang('default')),
+			array('0', cplang('default')),
 			$dbcharset ? array($dbcharset, strtoupper($dbcharset)) : array(),
 			$db->version() > '4.1' && $dbcharset != 'utf8' ? array('utf8', 'UTF-8') : array()
-		), TRUE), 0, 'mradio');
+		), TRUE), '0', 'mradio');
 		showsetting('db_export_usehex', 'usehex', 1, 'radio');
 		if(function_exists('gzcompress')) {
 			showsetting('db_export_usezip', array('usezip', array(
 				array('1', $lang['db_export_zip_1']),
 				array('2', $lang['db_export_zip_2']),
 				array('0', $lang['db_export_zip_3'])
-			)), 0, 'mradio');
+			)), '0', 'mradio');
 		}
 		showsetting('db_export_filename', '', '', '<input type="text" class="txt" name="filename" value="'.$defaultfilename.'" />.sql');
 		showtagfooter('tbody');
