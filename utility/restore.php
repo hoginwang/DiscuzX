@@ -41,13 +41,13 @@ if(!@$db->connect($_config['db']['1']['dbhost'], $_config['db']['1']['dbuser'], 
 if($operation == 'import') {
 
 	if(!submitcheck('importsubmit', 1)) {
-		$exportlog = $exportsize = $exportziplog = array();
-		check_exportfile($exportlog, $exportziplog, $exportsize);
+		$exportlog = $exportsize = $exportziplog = $exportzipsize = array();
+		check_exportfile($exportlog, $exportziplog, $exportsize, $exportzipsize);
 		if(empty($exportlog) && empty($exportziplog)) {
 			show_msg('backup_file_unexist');
 		}
 
-		show_importfile_list($exportlog, $exportziplog, $exportsize);
+		show_importfile_list($exportlog, $exportziplog, $exportsize, $exportzipsize);
 
 	} else {
 
@@ -230,7 +230,7 @@ function get_backup_dir() {
 	return $backupdirs;
 }
 
-function check_exportfile(&$exportlog, &$exportziplog, &$exportsize) {
+function check_exportfile(&$exportlog, &$exportziplog, &$exportsize, &$exportzipsize) {
 
 	$backupdirs = get_backup_dir();
 	if(empty($backupdirs)) {
@@ -269,6 +269,7 @@ function check_exportfile(&$exportlog, &$exportziplog, &$exportsize) {
 						'size' => filesize($entry),
 						'dateline' => filemtime($entry)
 					);
+					$exportzipsize[$key] += $filesize;
 				}
 			}
 		}
@@ -276,7 +277,7 @@ function check_exportfile(&$exportlog, &$exportziplog, &$exportsize) {
 	}
 }
 
-function show_importfile_list($exportlog = array(), $exportziplog = array(), $exportsize = array()) {
+function show_importfile_list($exportlog = array(), $exportziplog = array(), $exportsize = array(), $exportzipsize = array()) {
 
 	show_header();
 	show_tips('db_import_tips');
@@ -331,7 +332,7 @@ function show_importfile_list($exportlog = array(), $exportziplog = array(), $ex
 		sort($val);//确保-1.zip排前面,才会自动解压-2.zip
 		$info = $val[0];
 		$info['dateline'] = is_int($info['dateline']) ? gmdate('Y-m-d H:i:s', $info['dateline'] + 3600 * 8) : lang('unknown');
-		$info['size'] = sizecount($info['size']);
+		$info['size'] = sizecount($exportzipsize[$key]);
 		$info['method'] = $info['method'] == 'multivol' ? lang('db_multivol') : lang('db_zip');
 		echo "<tr>";
 		echo
