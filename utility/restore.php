@@ -252,7 +252,7 @@ function check_exportfile(&$exportlog, &$exportziplog, &$exportsize, &$exportzip
 	if(empty($backupdirs)) {
 		return;
 	}
-
+	$exportfiletime = $exportzipfiletime = array();
 	foreach($backupdirs as $backupdir) {
 		$dir = dir(ROOT_PATH.'./data/'.$backupdir);
 		while($entry = $dir->read()) {
@@ -260,6 +260,7 @@ function check_exportfile(&$exportlog, &$exportziplog, &$exportsize, &$exportzip
 			if(is_file($entry)) {
 				if(preg_match("/\.sql$/i", $entry)) {
 					$filesize = filesize($entry);
+					$filemtime = filemtime($entry);
 					$fp = fopen($entry, 'rb');
 					$identify = explode(',', base64_decode(preg_replace("/^# Identify:\s*(\w+).*/s", "\\1", fgets($fp, 256))));
 					fclose($fp);
@@ -272,24 +273,33 @@ function check_exportfile(&$exportlog, &$exportziplog, &$exportsize, &$exportzip
 						'tablepre' => $identify[5],
 						'dbcharset' => $identify[6],
 						'filename' => $entry,
-						'dateline' => filemtime($entry),
+						'dateline' => $filemtime,
 						'size' => $filesize
 					);
 					$exportsize[$key] += $filesize;
+					$exportfiletime[$key] = $filemtime;
 				} elseif(preg_match("/\.zip$/i", $entry)) {
 					$key = preg_replace('/^(.+?)(\-\d+)\.zip$/i', '\\1', basename($entry));
 					$filesize = filesize($entry);
+					$filemtime = filemtime($entry);
 					$exportziplog[$key][] = array(
 						'type' => 'zip',
 						'filename' => $entry,
-						'size' => filesize($entry),
-						'dateline' => filemtime($entry)
+						'size' => $filesize,
+						'dateline' => $filemtime
 					);
 					$exportzipsize[$key] += $filesize;
+					$exportzipfiletime[$key] = $filemtime;
 				}
 			}
 		}
 		$dir->close();
+		if (!empty($exportlog)) {
+			array_multisort($exportfiletime, SORT_DESC, SORT_STRING, $exportlog);
+		}
+		if (!empty($exportziplog)) {
+			array_multisort($exportzipfiletime, SORT_DESC, SORT_STRING, $exportziplog);
+		}
 	}
 }
 
