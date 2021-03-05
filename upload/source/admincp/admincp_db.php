@@ -221,7 +221,7 @@ if($operation == 'export') {
 					"# Type: {$_GET['type']}\n".
 					"# Table Prefix: $tablepre\n".
 					"#\n".
-					"# Discuz! Home: http://www.discuz.com\n".
+					"# Discuz! Home: http://www.discuz.net\n".
 					"# Please visit our website for newest infomation about Discuz!\n".
 					"# --------------------------------------------------------\n\n\n".
 					"$setnames".
@@ -459,18 +459,18 @@ if($operation == 'export') {
 			$info['dateline'] = is_int($info['dateline']) ? dgmdate($info['dateline']) : $lang['unknown'];
 			$info['size'] = sizecount($exportsize[$key]);
 			$info['volume'] = count($val);
-			$info['method'] = $info['type'] != 'zip' ? ($info['method'] == 'multivol' ? $lang['db_multivol'] : $lang['db_shell']) : '';
+			$info['method'] = $info['method'] == 'multivol' ? $lang['db_multivol'] : $lang['db_shell'];
 			$datafile_server = '.'.$info['filename'];
 			showtablerow('', '', array(
 				"<input class=\"checkbox\" type=\"checkbox\" name=\"delete[]\" value=\"".$key."\">",
-				"<a href=\"javascript:;\" onclick=\"display('exportlog_$key')\">".$key."</a>",
+				"<a href=\"javascript:;\" onclick=\"display('exportlog_$key')\">".basename($info['filename'])."</a>",
 				$info['version'],
 				$info['dateline'],
 				$lang['db_export_'.$info['type']],
 				$info['size'],
 				$info['method'],
-				$info['volume'],
-				$info['type'] == 'zip' ? "<a href=\"".$datasiteurl."restore.php?operation=importzip&datafile_server=$datafile_server&importsubmit=yes\"  onclick=\"return confirm('$lang[db_import_confirm_zip]');\" class=\"act\" target=\"_blank\">$lang[db_import_unzip]</a>" : "<a class=\"act\" href=\"".$datasiteurl."restore.php?operation=import&from=server&datafile_server=$datafile_server&importsubmit=yes\"".($info['version'] != $_G['setting']['version'] ? " onclick=\"return confirm('$lang[db_import_confirm]');\"" : " onclick=\"return confirm('$lang[db_import_confirm_sql]');\"")." class=\"act\" target=\"_blank\">$lang[import]</a>"
+				"<a href=\"javascript:;\" onclick=\"display('exportlog_$key')\">".$info['volume']."</a>",
+				"<a class=\"act\" href=\"".$datasiteurl."restore.php?operation=import&from=server&datafile_server=$datafile_server&importsubmit=yes\"".($info['version'] != $_G['setting']['version'] ? " onclick=\"return confirm('$lang[db_import_confirm]');\"" : " onclick=\"return confirm('$lang[db_import_confirm_sql]');\"")." class=\"act\" target=\"_blank\">$lang[import]</a>"
 			));
 			echo '<tbody id="exportlog_'.$key.'" style="display:none">';
 			foreach($val as $info) {
@@ -484,7 +484,7 @@ if($operation == 'export') {
 					'',
 					$info['size'],
 					'',
-					$info['volume'],
+					'',
 					''
 				));
 			}
@@ -501,13 +501,13 @@ if($operation == 'export') {
 			$datafile_server = '.'.$info['filename'];
 			showtablerow('', '', array(
 				"<input class=\"checkbox\" type=\"checkbox\" name=\"delete[]\" value=\"".basename($info['filename'])."\">",
-				"<a href=\"javascript:;\" onclick=\"display('exportlog_zip_$key')\">".substr(strrchr($info['filename'], "/"), 1)."</a>",   
+				"<a href=\"javascript:;\" onclick=\"display('exportlog_zip_$key')\">".basename($info['filename'])."</a>",
 				'',
 				$info['dateline'],
-				$lang['db_export_'.$info['type']],
+				($info['volume'] > 1 ? $lang['db_multivol'] : '').$lang['db_export_'.$info['type']],
 				$info['size'],
 				$info['method'],
-				'',
+				"<a href=\"javascript:;\" onclick=\"display('exportlog_zip_$key')\">".$info['volume']."</a>",
 				"<a href=\"".$datasiteurl."restore.php?operation=importzip&datafile_server=$datafile_server&importsubmit=yes\"  onclick=\"return confirm('$lang[db_import_confirm_zip]');\" class=\"act\" target=\"_blank\">$lang[db_import_unzip]</a>"
 			)); 			
 			echo '<tbody id="exportlog_zip_'.$key.'" style="display:none">';
@@ -522,7 +522,7 @@ if($operation == 'export') {
 					'',
 					$info['size'],
 					'',
-					"",
+					'',
 					''
 				));
 			}
@@ -558,7 +558,7 @@ if($operation == 'export') {
 					}
 				}
 			}
-			cpmsg('database_file_delete_succeed', '', 'succeed');
+			cpmsg('database_file_delete_succeed', 'action=db&operation=import', 'succeed');
 		} else {
 			cpmsg('database_file_delete_invalid', '', 'error');
 		}
