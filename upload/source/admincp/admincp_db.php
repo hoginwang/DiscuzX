@@ -133,6 +133,18 @@ if($operation == 'export') {
 			cpmsg('database_export_filename_invalid', '', 'error');
 		}
 
+		if(!in_array($_GET['type'], array('discuz', 'discuz_uc', 'custom'))) {
+			$_GET['type'] = 'discuz';
+		}
+
+		if(!in_array($_GET['method'], array('multivol', 'shell'))) {
+			$_GET['method'] = 'multivol';
+		}
+
+		if(!$_GET['sqlcharset'] || !preg_match('/^[\w\_\-]+$/', $_GET['sqlcharset'])) {
+			$_GET['sqlcharset'] = strtolower($dbcharset);
+		}
+
 		$time = dgmdate(TIMESTAMP);
 		if($_GET['type'] == 'discuz' || $_GET['type'] == 'discuz_uc') {
 			$tables = arraykeys2(fetchtablelist($tablepre), 'Name');
