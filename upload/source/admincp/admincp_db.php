@@ -168,7 +168,7 @@ if($operation == 'export') {
 		}
 
 		$volume = intval($_GET['volume']) + 1;
-		$idstring = '# Identify: '.base64_encode("$_G[timestamp],".$_G['setting']['version'].",{$_GET['type']},{$_GET['method']},{$volume},{$tablepre},{$dbcharset}")."\n";
+		$idstring = '# Identify: '.base64_encode("$_G[timestamp],".$_G['setting']['version'].",{$_GET['type']},{$_GET['method']},{$volume},{$tablepre},{$_GET['sqlcharset']}")."\n";
 
 
 		$dumpcharset = $_GET['sqlcharset'] ? $_GET['sqlcharset'] : str_replace('-', '', $_G['charset']);
