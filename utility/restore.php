@@ -140,6 +140,7 @@ if($operation == 'import') {
 				show_msg('database_import_succeed', '', 'message', 1);
 			}
 		} elseif($dumpinfo['method'] == 'shell') {
+			touch($lock_file);
  			$dbhost = $_config['db'][1]['dbhost'];
 			$dbname = $_config['db'][1]['dbname'];
 			$dbpw = $_config['db'][1]['dbpw'];
