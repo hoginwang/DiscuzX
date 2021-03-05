@@ -150,8 +150,7 @@ if($operation == 'import') {
 			list(, $mysql_base) = $db->fetch_array($query, $db->drivertype == 'mysqli' ? MYSQLI_NUM : MYSQL_NUM);
 			$datafile = addslashes(dirname(dirname(__FILE__))).str_replace('..', '', $datafile) ;
 			$mysqlbin = $mysql_base == '/' ? '' : addslashes(rtrim($mysql_base, '/\\')).'/bin/';
-			shell_exec($mysqlbin.'mysql -h"'.$dbhost.($dbport ? (is_numeric($dbport) ? ' -P'.$dbport : ' -S"'.$dbport.'"') : '').
-				'" -u"'.$dbuser.'" -p"'.$dbpw.'" "'.$dbname.'" < '.$datafile);
+			@shell_exec($mysqlbin.'mysql -h"'.$dbhost.'"'.($dbport ? (is_numeric($dbport) ? ' -P'.$dbport : ' -S"'.$dbport.'"') : '').' -u"'.$dbuser.'" -p"'.$dbpw.'" "'.$dbname.'" < '.$datafile);
 
 			show_msg('database_import_succeed', '', 'message', 1);
 		} else {
