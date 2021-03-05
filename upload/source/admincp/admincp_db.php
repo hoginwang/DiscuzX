@@ -382,7 +382,7 @@ if($operation == 'export') {
 
 	if(!submitcheck('deletesubmit')) {
 
-		$exportlog = $exportsize = $exportziplog = array();
+		$exportlog = $exportsize = $exportziplog = $exportzipsize = array();
 		if(is_dir(DISCUZ_ROOT.'./data/'.$backupdir)) {
 			$dir = dir(DISCUZ_ROOT.'./data/'.$backupdir);
 			while($entry = $dir->read()) {
@@ -407,12 +407,13 @@ if($operation == 'export') {
 					} elseif(preg_match("/\.zip$/i", $entry)) {
 						$key = preg_replace('/^(.+?)(\-\d+)\.zip$/i', '\\1', basename($entry));                        
 						$filesize = filesize($entry);
-						$exportziplog[$key] = array(
+						$exportziplog[$key][] = array(
 							'type' => 'zip',
 							'filename' => $entry,
 							'size' => filesize($entry),
 							'dateline' => filemtime($entry)
 						);
+						$exportzipsize[$key] += $filesize;
 					}
 				}
 			}
@@ -480,11 +481,12 @@ if($operation == 'export') {
 			echo '</tbody>';
 		}
 
-		foreach($exportziplog as $info) {
-			sort($val);//修改 确保-1.zip排前面,才会自动解压-2.zip    
-			$info = $val[0];                    
+		foreach($exportziplog as $key => $val) {   
+			sort($val);//修改 确保-1.zip排前面,才会自动解压-2.zip
+			$info = $val[0];
+			$info['volume'] = count($val);
 			$info['dateline'] = is_int($info['dateline']) ? dgmdate($info['dateline']) : $lang['unknown'];
-			$info['size'] = sizecount($info['size']);
+			$info['size'] = sizecount($exportzipsize[$key]);
 			$info['method'] = $info['method'] == 'multivol' ? $lang['db_multivol'] : $lang['db_zip'];
 			$datafile_server = '.'.$info['filename'];
 			showtablerow('', '', array(
@@ -514,6 +516,7 @@ if($operation == 'export') {
 					''
 				));
 			}
+			echo '</tbody>';
 		}
 
 		showsubmit('deletesubmit', 'submit', 'del');
