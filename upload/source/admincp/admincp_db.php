@@ -382,7 +382,7 @@ if($operation == 'export') {
 
 	if(!submitcheck('deletesubmit')) {
 
-		$exportlog = $exportsize = $exportziplog = $exportzipsize = array();
+		$exportlog = $exportziplog = $exportsize = $exportzipsize = $exportfiletime = $exportzipfiletime = array();
 		if(is_dir(DISCUZ_ROOT.'./data/'.$backupdir)) {
 			$dir = dir(DISCUZ_ROOT.'./data/'.$backupdir);
 			while($entry = $dir->read()) {
@@ -390,6 +390,7 @@ if($operation == 'export') {
 				if(is_file($entry)) {
 					if(preg_match("/\.sql$/i", $entry)) {
 						$filesize = filesize($entry);
+						$filemtime = filemtime($entry);
 						$fp = fopen($entry, 'rb');
 						$identify = explode(',', base64_decode(preg_replace("/^# Identify:\s*(\w+).*/s", "\\1", fgets($fp, 256))));
 						fclose($fp);
@@ -400,24 +401,33 @@ if($operation == 'export') {
 							'method' => $identify[3],
 							'volume' => $identify[4],
 							'filename' => $entry,
-							'dateline' => filemtime($entry),
+							'dateline' => $filemtime,
 							'size' => $filesize
 						);
 						$exportsize[$key] += $filesize;
+						$exportfiletime[$key] = $filemtime;
 					} elseif(preg_match("/\.zip$/i", $entry)) {
-						$key = preg_replace('/^(.+?)(\-\d+)\.zip$/i', '\\1', basename($entry));                        
+						$key = preg_replace('/^(.+?)(\-\d+)\.zip$/i', '\\1', basename($entry));                      
 						$filesize = filesize($entry);
+						$filemtime = filemtime($entry);
 						$exportziplog[$key][] = array(
 							'type' => 'zip',
 							'filename' => $entry,
-							'size' => filesize($entry),
-							'dateline' => filemtime($entry)
+							'size' => $filesize,
+							'dateline' => $filemtime
 						);
 						$exportzipsize[$key] += $filesize;
+						$exportzipfiletime[$key] = $filemtime;
 					}
 				}
 			}
 			$dir->close();
+			if (!empty($exportlog)) {
+				array_multisort($exportfiletime, SORT_DESC, SORT_STRING, $exportlog);
+			}
+			if (!empty($exportziplog)) {
+				array_multisort($exportzipfiletime, SORT_DESC, SORT_STRING, $exportziplog);
+			}
 		} else {
 			cpmsg('database_export_dest_invalid', '', 'error');
 		}
