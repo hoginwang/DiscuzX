@@ -151,7 +151,9 @@ if($operation == 'import') {
 			$datafile = addslashes(dirname(dirname(__FILE__))).str_replace('..', '', $datafile) ;
 			$mysqlbin = $mysql_base == '/' ? '' : addslashes(rtrim($mysql_base, '/\\')).'/bin/';
 			@shell_exec($mysqlbin.'mysql -h"'.$dbhost.'"'.($dbport ? (is_numeric($dbport) ? ' -P'.$dbport : ' -S"'.$dbport.'"') : '').' -u"'.$dbuser.'" -p"'.$dbpw.'" "'.$dbname.'" < '.$datafile);
-
+			if($delunzip) {
+				@unlink($datafile);
+			}
 			show_msg('database_import_succeed', '', 'message', 1);
 		} else {
 			show_msg('database_import_format_illegal');
