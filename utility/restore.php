@@ -58,16 +58,11 @@ if($operation == 'import') {
 		} else {
 			$datafile = getgpc('datafile_server', 'G');
 		}
-		$datafile = urldecode($datafile);
-		if(!file_exists($datafile)) {
-			if(getgpc('autoimport', 'G')) {
-				touch($lock_file);
-				show_msg('database_import_multivol_succeed', '', 'message', 1);
-			} else {
-				show_msg('database_import_file_illegal');
-			}
+		if(!preg_match("#^\.\./data/backup_\w+/[\w\-]+\.sql$#i", $datafile)) {
+			touch($lock_file);
+			show_msg('database_import_format_illegal');
 		}
-		if(@$fp = fopen($datafile, 'rb')) {
+		if(file_exists($datafile) && @$fp = fopen($datafile, 'rb')) {
 			$confirm = trim(getgpc('confirm', 'G'));
 			$delunzip = getgpc('delunzip', 'G');
 			$start = trim(getgpc('start', 'G'));
