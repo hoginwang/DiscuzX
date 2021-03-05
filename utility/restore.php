@@ -69,6 +69,14 @@ if($operation == 'import') {
 		}
 		if(@$fp = fopen($datafile, 'rb')) {
 			$confirm = trim(getgpc('confirm', 'G'));
+			$delunzip = getgpc('delunzip', 'G');
+			$start = trim(getgpc('start', 'G'));
+			$start = $start ? 1 : 0;
+			if(!$start) {
+				show_msg(lang('database_import_multivol_start', TRUE, array()),
+					$siteurl."restore.php?operation=import&datafile_server=$datafile&autoimport=yes&importsubmit=yes&start=yes".(!empty($confirm) ? '&confirm=yes' : '').(!empty($delunzip) ? '&delunzip=yes' : ''),
+					'redirect');
+			}
 			$confirm = $confirm ? 1 : 0;
 			$sqldump = fgets($fp, 256);
 			$identify = explode(',', base64_decode(preg_replace("/^# Identify:\s*(\w+).*/s", "\\1", $sqldump)));
@@ -82,7 +90,7 @@ if($operation == 'import') {
 					$showmsg .= lang('dbcharsetdiff');
 				}
 				if($showmsg) {
-					show_msg(lang('different_dbcharset_tablepre', TRUE, array('diff' => $showmsg)), $siteurl.'restore.php?operation=import&datafile_server='.$datafile.'&autoimport=yes&importsubmit=yes&confirm=yes', 'confirm');
+					show_msg(lang('different_dbcharset_tablepre', TRUE, array('diff' => $showmsg)), $siteurl.'restore.php?operation=import&datafile_server='.$datafile.'&autoimport=yes&importsubmit=yes&start=yes&confirm=yes', 'confirm');
 				}
 			}
 
@@ -124,10 +132,10 @@ if($operation == 'import') {
 			$datafile_next = urlencode($datafile_next);
 			if($dumpinfo['volume'] == 1) {
 				show_msg(lang('database_import_multivol_redirect', TRUE, array('volume' => $dumpinfo['volume'])),
-					$siteurl."restore.php?operation=import&datafile_server=$datafile_next&autoimport=yes&importsubmit=yes&confirm=yes".(!empty($delunzip) ? '&delunzip=yes' : ''),
+					$siteurl."restore.php?operation=import&datafile_server=$datafile_next&autoimport=yes&importsubmit=yes&start=yes&confirm=yes".(!empty($delunzip) ? '&delunzip=yes' : ''),
 					'redirect');
 			} elseif(getgpc('autoimport', 'G')) {
-				show_msg(lang('database_import_multivol_redirect', TRUE, array('volume' => $dumpinfo['volume'])), $siteurl."restore.php?operation=import&datafile_server=$datafile_next&autoimport=yes&importsubmit=yes&confirm=yes".(!empty($delunzip) ? '&delunzip=yes' : ''), 'redirect');
+				show_msg(lang('database_import_multivol_redirect', TRUE, array('volume' => $dumpinfo['volume'])), $siteurl."restore.php?operation=import&datafile_server=$datafile_next&autoimport=yes&importsubmit=yes&start=yes&confirm=yes".(!empty($delunzip) ? '&delunzip=yes' : ''), 'redirect');
 			} else {
 				show_msg('database_import_succeed', '', 'message', 1);
 			}
