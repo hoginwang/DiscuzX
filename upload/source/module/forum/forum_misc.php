@@ -1017,7 +1017,7 @@ if($_GET['action'] == 'votepoll' && submitcheck('pollsubmit', 1)) {
 		showmessage('threadmod_nonexistence');
 	}
 
-	$reasons_public=$_G['setting']['modreasons_public'];
+	$reasons_public = $_G['setting']['modreasons_public'];
 
 	include template('forum/viewthread_mod');
 
