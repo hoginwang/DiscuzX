@@ -862,11 +862,15 @@ var rowtypedata = [
 				)), $forum['defaultorder'], 'mradio');
 				if($_G['setting']['allowreplybg']) {
 					$replybghtml = '';
-					if($forum['replybg']) {
-						$replybghtml = '<label><input type="checkbox" class="checkbox" name="delreplybg" value="yes" /> '.$lang['delete'].'</label><br /><img src="'.$_G['setting']['attachurl'].'common/'.$forum['replybg'].'" width="200px" />';
-					}
+					
 					if($forum['replybg']) {
 						$replybgurl = parse_url($forum['replybg']);
+						if(isset($replybgurl['host'])) {
+							$replybgicon = $forum['replybg'];
+						} else {
+							$replybgicon = $_G['setting']['attachurl'].'common/'.$forum['replybg'].'?'.random(6);
+						}
+						$replybghtml = '<label><input type="checkbox" class="checkbox" name="delreplybg" value="yes" /> '.$lang['delete'].'</label><br /><img src="'.$replybgicon.'" width="200px" />';
 					}
 					showsetting('forums_edit_extend_reply_background', 'replybgnew', (!$replybgurl['host'] ? str_replace($_G['setting']['attachurl'].'common/', '', $forum['replybg']) : $forum['replybg']), 'filetext', '', 0, $replybghtml);
 				}
@@ -1598,6 +1602,12 @@ EOT;
 										$threadtypes_newicon = trim($_GET['newicon'][$key]);
 										$newtypeid = C::t('forum_threadclass')->insert(array('fid' => $fid, 'name' => $val, 'displayorder' => $threadtypes_newdisplayorder, 'icon' => $threadtypes_newicon, 'moderators' => intval($_GET['newmoderators'][$key])), true);
 									}
+									else
+									{
+										$threadtypes_newicon = $newtypearr['icon'];
+										$threadtypes_newdisplayorder = $newtypearr['displayorder'];
+										$_GET['newmoderators'][$key] = $newtypearr['moderators'];
+									}
 									$threadtypesnew['options']['name'][$newtypeid] = $val;
 									$threadtypesnew['options']['icon'][$newtypeid] = $threadtypes_newicon;
 									$threadtypesnew['options']['displayorder'][$newtypeid] = $threadtypes_newdisplayorder;
@@ -1795,9 +1805,9 @@ EOT;
 			if(!$multiset) {
 
 				if($_GET['delreplybg']) {
-					$valueparse = parse_url($_GET['replybgnew']);
-					if(!isset($valueparse['host']) && file_exists($_G['setting']['attachurl'].'common/'.$_GET['replybgnew'])) {
-						@unlink($_G['setting']['attachurl'].'common/'.$_GET['replybgnew']);
+					$valueparse = parse_url($forum['replybg']);
+					if(!isset($valueparse['host']) && file_exists($_G['setting']['attachurl'].'common/'.$forum['replybg'])) {
+						@unlink($_G['setting']['attachurl'].'common/'.$forum['replybg']);
 					}
 					$_GET['replybgnew'] = '';
 				}
