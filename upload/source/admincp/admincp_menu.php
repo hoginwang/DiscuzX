@@ -65,7 +65,6 @@ $menu['global'] = array(
 $menu['style'] = array(
 	array('menu_setting_customnav', 'nav'),
 	array('menu_setting_styles', 'setting_styles'),
-	array('menu_styles', 'styles'),
 	array('menu_posting_smilies', 'smilies'),
 	array('menu_click', 'click'),
 	array('menu_thread_stamp', 'misc_stamp'),
@@ -217,8 +216,10 @@ if($isfounder) {
 
 $menu['template'] = array(
 	array('menu_styles', 'styles'),
-	array('menu_setting_mobile', 'setting_mobile'),
 );
+if($isfounder) {
+	$menu['template'][] = array('menu_styles_templates', 'templates_admin');
+}
 
 loadcache('adminmenu');
 if(is_array($_G['cache']['adminmenu'])) {
