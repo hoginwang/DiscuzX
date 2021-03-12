@@ -668,8 +668,8 @@ function imgpre_switch(id) {
 		shownav('template', 'plugins_validator');
 		showsubmenu('styles_admin', array(
 			array('styles_list', 'styles', 0),
+			array('styles_import', 'styles&operation=import', 0),
 			array('plugins_validator', 'styles&operation=upgradecheck', 1),
-			array('templates_add', 'templates&operation=add', 0),
 			array('cloudaddons_style_link', 'cloudaddons&frame=no&operation=templates&from=more', 0, 1),
 		), '<a href="https://www.dismall.com/?from=templates_question" target="_blank" class="bold" style="float:right;padding-right:40px;">'.$lang['templates_question'].'</a>');
 		showtableheader();

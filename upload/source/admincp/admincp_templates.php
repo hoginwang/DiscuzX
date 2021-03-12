@@ -13,7 +13,11 @@ if(!defined('IN_DISCUZ') || !defined('IN_ADMINCP')) {
 
 cpheader();
 if(!isfounder()) cpmsg('noaccess_isfounder', '', 'error');
+
 $isplugindeveloper = isset($_G['config']['plugindeveloper']) && $_G['config']['plugindeveloper'] > 0;
+if(!$isplugindeveloper) {
+	cpmsg('undefined_action', '', 'error');
+}
 
 $operation = empty($operation) ? 'admin' : $operation;
 
@@ -37,8 +41,8 @@ if($operation == 'admin') {
 
 		shownav('template', 'templates_admin');
 		showsubmenu('styles_admin', array(
+			array('templates_add', 'templates&operation=add', 0),
 			array('nav_templates', 'templates&operation=admin', 1),
-			$isplugindeveloper ? array('templates_add', 'templates&operation=add', 0) : array(),
 			array('cloudaddons_style_link', 'cloudaddons&frame=no&operation=templates&from=more', 0, 1),
 		));
 		showformheader('templates');
@@ -95,9 +99,6 @@ if($operation == 'admin') {
 	}
 
 } elseif($operation == 'add') {
-	if(!$isplugindeveloper) {
-		cpmsg('undefined_action', '', 'error');
-	}
 	$predefinedvars = array('available' => array(), 'boardimg' => array(), 'imgdir' => array(), 'styleimgdir' => array(), 'stypeid' => array(),
 		'headerbgcolor' => array(0, $lang['styles_edit_type_bg']),
 		'bgcolor' => array(0),
@@ -153,8 +154,8 @@ if($operation == 'admin') {
 	if(!submitcheck('addsubmit')) {
 		shownav('template', 'templates_add');
 		showsubmenu('styles_admin', array(
-			array('nav_templates', 'templates&operation=admin', 0),
 			array('templates_add', 'templates&operation=add', 1),
+			array('nav_templates', 'templates&operation=admin', 0),
 			array('cloudaddons_style_link', 'cloudaddons&frame=no&operation=templates&from=more', 0, 1),
 		));
 		showtips('templates_add_tips');

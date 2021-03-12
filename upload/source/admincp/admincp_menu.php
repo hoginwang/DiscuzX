@@ -217,8 +217,8 @@ if($isfounder) {
 $menu['template'] = array(
 	array('menu_styles', 'styles'),
 );
-if($isfounder) {
-	$menu['template'][] = array('menu_styles_templates', 'templates_admin');
+if($isfounder && isset($_G['config']['plugindeveloper']) && $_G['config']['plugindeveloper'] > 0) {
+	$menu['template'][] = array('menu_templates_add', 'templates_add');
 }
 
 loadcache('adminmenu');
