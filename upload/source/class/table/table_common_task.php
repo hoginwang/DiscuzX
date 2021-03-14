@@ -66,16 +66,9 @@ class table_common_task extends discuz_table
 		if(!isset($tasknext['endtime']) || $tasknext['endtime'] > TIMESTAMP + 86400) {
 			$tasknext['endtime'] = 0;
 		}
-		echo '<br>1 '.TIMESTAMP.'<br>';
-		print_r($tasknext);
 		if(TIMESTAMP >= $tasknext['starttime'] || TIMESTAMP >= $tasknext['endtime'] || $update) {
-			echo '<br>5<br>';
-			print_r($tasknext);
 			$processname = 'update_task_available';
 			if($update || !discuz_process::islocked($processname, 600)) {
-
-				echo '<br>2<br>';
-				print_r($tasknext);
 				if(TIMESTAMP >= $tasknext['starttime'] || $update) {
 					//上线开始的活动
 					DB::query("UPDATE %t SET available='2' WHERE available='1' AND starttime<=%d AND (endtime='0' OR endtime>%d)", array($this->_table, TIMESTAMP, TIMESTAMP), false, true);
@@ -83,9 +76,6 @@ class table_common_task extends discuz_table
 					$starttime = DB::result_first("SELECT starttime FROM %t WHERE available='1' AND starttime>'0' AND (endtime='0' OR endtime>%d) ORDER BY starttime ASC", array($this->_table, TIMESTAMP, TIMESTAMP));
 					//下次触发时间不超过24小时
 					$tasknext['starttime'] = $starttime ? min($starttime, TIMESTAMP + 86400) : TIMESTAMP + 86400;
-
-					echo '<br>3<br>';
-					print_r($tasknext);
 					$updatetasknext = 1;
 				}
 
@@ -96,9 +86,6 @@ class table_common_task extends discuz_table
 					$endtime = DB::result_first("SELECT endtime FROM %t WHERE available='2' AND endtime>'0' ORDER BY endtime ASC", array($this->_table));
 					//下次触发时间不超过24小时
 					$tasknext['endtime'] = $endtime ? min($endtime, TIMESTAMP + 86400) : TIMESTAMP + 86400;
-
-					echo '<br>4<br>';
-					print_r($tasknext);
 					$updatetasknext = 1;
 				}
 
