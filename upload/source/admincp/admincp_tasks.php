@@ -538,6 +538,7 @@ if(!($operation)) {
 				C::t('common_taskvar')->update_by_taskid($id, $item, array('value' => is_array($value) ? serialize($value) : $value));
 			}
 		}
+		C::t('common_task')->update_available(1);
 
 		cpmsg('tasks_succeed', "action=tasks", 'succeed');
 
