@@ -78,6 +78,9 @@ if(submitcheck('profilesubmit')) {
 
 	if($_GET['vid']) {
 		$vid = intval($_GET['vid']);
+        if (getuserprofile('verify' . $vid) == 1) {
+			showmessage('spacecp_profile_message2');
+		}
 		$verifyconfig = $_G['setting']['verify'][$vid];
 		if($verifyconfig['available'] && (empty($verifyconfig['groupid']) || in_array($_G['groupid'], $verifyconfig['groupid']))) {
 			$verifyinfo = C::t('common_member_verify_info')->fetch_by_uid_verifytype($_G['uid'], $vid);
@@ -162,13 +165,16 @@ if(submitcheck('profilesubmit')) {
 		if($field['formtype'] == 'file') {
 			unset($setarr[$key]);
 		}
+        if (isset($setarr[$key]) && $_G['cache']['profilesetting'][$key]['unchangeable']) {
+			unset($setarr[$key]);
+		}
 		if($vid && $verifyconfig['available'] && isset($verifyconfig['field'][$key])) {
 			if(isset($verifyinfo['field'][$key]) && $setarr[$key] !== $space[$key]) {
 				$verifyarr[$key] = $setarr[$key];
 			}
 			unset($setarr[$key]);
 		}
-		if(isset($setarr[$key]) && $_G['cache']['profilesetting'][$key]['needverify']) {
+		if(isset($setarr[$key]) && $_G['cache']['profilesetting'][$key]['needverify'] && !$_G['cache']['profilesetting'][$key]['unchangeable']) {
 			if($setarr[$key] !== $space[$key]) {
 				$verifyarr[$key] = $setarr[$key];
 			}
@@ -211,6 +217,9 @@ if(submitcheck('profilesubmit')) {
 				}
 				$setarr[$key] = '';
 				$attach['attachment'] = dhtmlspecialchars(trim($attach['attachment']));
+                if (isset($setarr[$key]) && $_G['cache']['profilesetting'][$key]['unchangeable']) {
+					continue;
+				}
 				if($vid && $verifyconfig['available'] && isset($verifyconfig['field'][$key])) {
 					if(isset($verifyinfo['field'][$key])) {
 						$verifyarr[$key] = $attach['attachment'];
