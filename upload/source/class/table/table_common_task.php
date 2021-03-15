@@ -52,49 +52,24 @@ class table_common_task extends discuz_table
 		return DB::query("UPDATE %t SET achievers=achievers+%s WHERE taskid=%d", array($this->_table, $v, $taskid));
 	}
 
-	public function update_available($update = 0) {
-		global $_G;
-		$updatetasknext = 0;
-		loadcache('tasknext');
-		$tasknext = getglobal('cache/tasknext');
-		if(!is_array($tasknext)) {
-			$tasknext = array();
+	public function update_available($available = 2) {
+		if($available == 2) {
+			//上线开始的活动
+			DB::query("UPDATE %t SET available='2' WHERE available='1' AND starttime<=%d AND (endtime='0' OR endtime>%d)", array($this->_table, TIMESTAMP, TIMESTAMP), false, true);
+		} else {
+			//隐藏未开始或者结束的活动
+			DB::query("UPDATE %t SET available='1' WHERE available='2' AND (starttime>%d || (endtime<=%d && endtime>'0'))", array($this->_table, TIMESTAMP, TIMESTAMP), false, true);
 		}
-		if(!isset($tasknext['starttime']) || $tasknext['starttime'] > TIMESTAMP + 86400) {
-			$tasknext['starttime'] = 0;
-		}
-		if(!isset($tasknext['endtime']) || $tasknext['endtime'] > TIMESTAMP + 86400) {
-			$tasknext['endtime'] = 0;
-		}
-		if(TIMESTAMP >= $tasknext['starttime'] || TIMESTAMP >= $tasknext['endtime'] || $update) {
-			$processname = 'update_task_available';
-			if($update || !discuz_process::islocked($processname, 600)) {
-				if(TIMESTAMP >= $tasknext['starttime'] || $update) {
-					//上线开始的活动
-					DB::query("UPDATE %t SET available='2' WHERE available='1' AND starttime<=%d AND (endtime='0' OR endtime>%d)", array($this->_table, TIMESTAMP, TIMESTAMP), false, true);
-					//下个活动开始时间
-					$starttime = DB::result_first("SELECT starttime FROM %t WHERE available='1' AND starttime>'0' AND (endtime='0' OR endtime>%d) ORDER BY starttime ASC", array($this->_table, TIMESTAMP, TIMESTAMP));
-					//下次触发时间不超过24小时
-					$tasknext['starttime'] = $starttime ? min($starttime, TIMESTAMP + 86400) : TIMESTAMP + 86400;
-					$updatetasknext = 1;
-				}
+	}
 
-				if(TIMESTAMP >= $tasknext['endtime'] || $update) {
-					//隐藏未开始或者结束的活动
-					DB::query("UPDATE %t SET available='1' WHERE available='2' AND (starttime>%d || (endtime<=%d && endtime>'0'))", array($this->_table, TIMESTAMP, TIMESTAMP), false, true);
-					//下个活动结束时间
-					$endtime = DB::result_first("SELECT endtime FROM %t WHERE available='2' AND endtime>'0' ORDER BY endtime ASC", array($this->_table));
-					//下次触发时间不超过24小时
-					$tasknext['endtime'] = $endtime ? min($endtime, TIMESTAMP + 86400) : TIMESTAMP + 86400;
-					$updatetasknext = 1;
-				}
+	public function fetch_next_starttime() {
+		//下个活动开始时间
+		return DB::result_first("SELECT starttime FROM %t WHERE available='1' AND starttime>'0' AND (endtime='0' OR endtime>%d) ORDER BY starttime ASC", array($this->_table, TIMESTAMP, TIMESTAMP));
+	}
 
-				if($updatetasknext) {
-					savecache('tasknext', $tasknext);
-				}
-				discuz_process::unlock($processname);
-			}
-		}
+	public function fetch_next_endtime() {
+		//下个活动结束时间
+		return DB::result_first("SELECT endtime FROM %t WHERE available='2' AND endtime>'0' ORDER BY endtime ASC", array($this->_table));
 	}
 
 	public function fetch_all_by_status($uid, $status) {

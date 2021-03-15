@@ -19,10 +19,9 @@ if(!$_G['setting']['taskon'] && $_G['adminid']  != 1) {
 	showmessage('task_close');
 }
 
-C::t('common_task')->update_available();
-
 require_once libfile('class/task');
 $tasklib = & task::instance();
+$tasklib->update_available();
 
 $_G['mnid'] = 'mn_common';
 $id = intval($_GET['id']);
