@@ -78,6 +78,8 @@ class logging_ctl {
 				list($_GET['username'], $_GET['password']) = daddslashes(explode("\t", authcode($_GET['auth'], 'DECODE', $_G['config']['security']['authkey'])));
 			}
 
+			$getusername = $_GET['username'];
+
 			$loginhash = !empty($_GET['loginhash']) && preg_match('/^\w+$/', $_GET['loginhash']) ? $_GET['loginhash'] : '';
 
 			if(!($_G['member_loginperm'] = logincheck($_GET['username']))) {				
@@ -125,7 +127,7 @@ class logging_ctl {
 					if($_G['group']['forcelogin'] == 1) {
 						clearcookies();
 						showmessage('location_login_force_qq');
-					} elseif($_G['group']['forcelogin'] == 2 && $_GET['loginfield'] != 'email') {
+					} elseif($_G['group']['forcelogin'] == 2 && $getusername != $result['ucresult']['email']) {
 						clearcookies();
 						showmessage('location_login_force_mail');
 					}
