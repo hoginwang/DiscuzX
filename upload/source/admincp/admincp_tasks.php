@@ -497,9 +497,6 @@ if(!($operation)) {
 			cpmsg('tasks_reward_invalid', '', 'error');
 		}
 
-		if($task['available'] == '2' && ($_GET['starttime'] > TIMESTAMP || ($_GET['endtime'] && $_GET['endtime'] <= TIMESTAMP))) {
-			C::t('common_task')->update($id, array('available' => 1));
-		}
 		if($task['available'] == '1' && (!$_GET['starttime'] || $_GET['starttime'] <= TIMESTAMP) && (!$_GET['endtime'] || $_GET['endtime'] > TIMESTAMP)) {
 			C::t('common_task')->update($id, array('available' => 2));
 		}
