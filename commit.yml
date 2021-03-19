@@ -3,18 +3,15 @@ branches: {
   }
 fileChange:
   /upload:
-    newFile: !uuid 'bd813668d68706ec607315d32b736a5d93354551'
-    oldFile: !uuid '82bc00743846918a4f99587439be562a3e879c19'
-  /upload/source:
-    newFile: !uuid '2b8dcb67382d775f8a49771364b0731bacc9027d'
-    oldFile: !uuid '74bd5f7d8803a5ae6d48c64e6bca7240bc6152ed'
-  /upload/source/admincp:
-    newFile: !uuid '11c3ddfaa11cf46cd34e2fb629ae8f0e4a7d1632'
-    oldFile: !uuid '690ac169fb0b4eac89ee0557b5b75b8ae35ec2c9'
-  /upload/source/admincp/admincp_block.php:
-    newFile: !uuid 'ef99597e796b5e22ceea25e9d85b2b6c812f4231'
-    oldFile: !uuid '6f54fd251a44d3784541da7968d82405d446db71'
-gitCommitId: !uuid 'e575fc028fc8ae195a5133d3e9031035c082cab0'
+    newFile: !uuid 'bb2e32f52bc855f5ac91036187c1642c8126c55c'
+    oldFile: !uuid 'bd813668d68706ec607315d32b736a5d93354551'
+  /upload/m:
+    newFile: !uuid '499a4419db799d48a23371f45c53932ff19a9da4'
+    oldFile: !uuid '64ca66f280692f56f3c8dde27bab7104b9d02c03'
+  /upload/m/index.php:
+    newFile: !uuid 'be8507cbc9c7ebd2147b9dffc66e8aee9329d61d'
+    oldFile: !uuid '40d4e73d953399e1b6cb96757e3d9d37a81afb0b'
+gitCommitId: !uuid 'd5ddf168115f0301b7ce03762497757e4eb33530'
 renames: {
   }
-revisionId: 665
+revisionId: 666
