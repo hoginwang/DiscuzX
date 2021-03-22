@@ -3,27 +3,18 @@ branches: {
   }
 fileChange:
   /upload:
-    newFile: !uuid 'd8449d90e250b358d168f360a2657edc4bdb7fd8'
-    oldFile: !uuid 'f6c9e261ce5edd3d30f5f0364b27948fb4e63d85'
+    newFile: !uuid 'fd95237b6e9b2616615843f6125eb71051037e0d'
+    oldFile: !uuid 'd8449d90e250b358d168f360a2657edc4bdb7fd8'
   /upload/source:
-    newFile: !uuid '168ba1cb50e791c45a76ee1f47e008bc45478869'
-    oldFile: !uuid 'fcd52f9b359cd7470ec8873b4147ab6e5145a977'
-  /upload/source/plugin:
-    newFile: !uuid '3b0c89f56c948cc3f36b14810ed319ea51dd1ba0'
-    oldFile: !uuid '0818a029c0c647c1ca8c9bfa821b1d385b47694d'
-  /upload/source/plugin/qqconnect:
-    newFile: !uuid '0021daa7fdf9f96493a69e20a17920169eed9457'
-    oldFile: !uuid '77eaafe2dfbcb28cfd141790d9669c18367ac77c'
-  /upload/source/plugin/qqconnect/connect.class.php:
-    newFile: !uuid '3e863597da6c628ace708a69e677445006c4f30e'
-    oldFile: !uuid 'e8793d6e4c9d1cec0cc46094872a3d1891a2ac5d'
-  /upload/source/plugin/qqconnect/discuz_plugin_qqconnect.xml:
-    newFile: !uuid 'ad2704544d6912db5cb62ba17c428864df758927'
-    oldFile: !uuid '9ae1c039e5bc6afc651b58b9d449624110ea86d0'
-  /upload/source/plugin/qqconnect/install.php:
-    newFile: !uuid '4c54704508efb1d3475a1d44a050246b30c8a9ab'
-    oldFile: !uuid '98bdb441724fe509e4397cdcdf16926ec0b75f66'
-gitCommitId: !uuid '9e4fe2cfda24148125231492d16a3d552bec31b0'
+    newFile: !uuid '08c093be09326a0645aca4d9f23935144a3c1740'
+    oldFile: !uuid '168ba1cb50e791c45a76ee1f47e008bc45478869'
+  /upload/source/class:
+    newFile: !uuid '6c4fa3d90f54fa998a3788adb897fcc5fce50179'
+    oldFile: !uuid '68bbbf4bcd81c33161fa8fd77591c5eb1fab51a1'
+  /upload/source/class/class_task.php:
+    newFile: !uuid 'cd761725182c7146d19469c087469bcc94c4edda'
+    oldFile: !uuid 'fa590ae52cf7e6280d26c2167b42a900f4f449c1'
+gitCommitId: !uuid 'a97c732d923d0ec18663fa4d79760cde0a5fc955'
 renames: {
   }
-revisionId: 669
+revisionId: 670
