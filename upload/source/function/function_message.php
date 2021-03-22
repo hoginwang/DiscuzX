@@ -126,7 +126,7 @@ function dshowmessage($message, $url_forward = '', $values = array(), $extrapara
 	$url_forward_js = addslashes(str_replace('\\', '%27', $url_forward));
 	if($param['location'] && !empty($_G['inajax'])) {
 		include template('common/header_ajax');
-		echo '<script type="text/javascript" reload="1">window.location.href=\''.$url_forward_js.'\';</script>';
+		echo '<script type="text/javascript" reload="1">window.location=\''.$url_forward_js.'\';</script>';
 		include template('common/footer_ajax');
 		dexit();
 	}
@@ -216,7 +216,7 @@ function dshowmessage($message, $url_forward = '', $values = array(), $extrapara
 	if($handlekey) {
 		if($param['showdialog']) {
 			$modes = array('alert_error' => 'alert', 'alert_right' => 'right', 'alert_info' => 'notice');
-			$extra .= 'hideWindow(\''.$handlekey.'\');showDialog(\''.$show_jsmessage.'\', \''.$modes[$alerttype].'\', null, '.($param['locationtime'] !== null ? 'function () { window.location.href =\''.$url_forward_js.'\'; }' : 'null').', 0, null, null, null, null, '.($param['closetime'] ? $param['closetime'] : 'null').', '.($param['locationtime'] ? $param['locationtime'] : 'null').');';
+			$extra .= 'hideWindow(\''.$handlekey.'\');showDialog(\''.$show_jsmessage.'\', \''.$modes[$alerttype].'\', null, '.($param['locationtime'] !== null ? 'function () { window.location =\''.$url_forward_js.'\'; }' : 'null').', 0, null, null, null, null, '.($param['closetime'] ? $param['closetime'] : 'null').', '.($param['locationtime'] ? $param['locationtime'] : 'null').');';
 			$param['closetime'] = null;
 			$st = '';
 			if($param['showmsg']) {
@@ -227,10 +227,10 @@ function dshowmessage($message, $url_forward = '', $values = array(), $extrapara
 			$extra .= 'setTimeout("hideWindow(\''.$handlekey.'\')", '.($param['closetime'] * 1000).');';
 		}
 	} else {
-		$st = $param['locationtime'] !== null ?'setTimeout("window.location.href =\''.$url_forward_js.'\';", '.($param['locationtime'] * 1000).');' : '';
+		$st = $param['locationtime'] !== null ?'setTimeout("window.location =\''.$url_forward_js.'\';", '.($param['locationtime'] * 1000).');' : '';
 	}
-	if(!$extra && $param['timeout'] && !defined('IN_MOBILE')) {
-		$extra .= 'setTimeout("window.location.href =\''.$url_forward_js.'\';", '.$refreshtime.');';
+	if(!$extra && $param['timeout'] && defined('IN_MOBILE')) {
+		$extra .= 'setTimeout("window.location =\''.$url_forward_js.'\';", '.$refreshtime.');';
 	}
 	$show_message .= $extra ? '<script type="text/javascript" reload="1">'.$extra.$st.'</script>' : '';
 	$show_message .= $param['extrajs'] ? $param['extrajs'] : '';
