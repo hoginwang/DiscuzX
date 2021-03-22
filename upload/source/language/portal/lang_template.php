@@ -319,6 +319,7 @@ $lang = array (
   'next_article' => '下一篇：',
   'display_order' => '显示位置',
   'filename' => '文件名',
+  'confirms' => '确认',
 );
 
 ?>
