@@ -35,8 +35,6 @@ class plugin_qqconnect_base {
 
 			$_G['connect']['qzone_public_share_url'] = 'http://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey';
 			$_G['connect']['referer'] = !$_G['inajax'] && CURSCRIPT != 'member' ? $_G['basefilename'].($_SERVER['QUERY_STRING'] ? '?'.$_SERVER['QUERY_STRING'] : '') : dreferer();
-			$_G['connect']['weibo_public_appkey'] = 'ce7fb946290e4109bdc9175108b6db3a';
-
 			$_G['connect']['login_url'] = $_G['siteurl'].'connect.php?mod=login&op=init&referer='.urlencode($_G['connect']['referer'] ? $_G['connect']['referer'] : 'index.php');
 			$_G['connect']['callback_url'] = $_G['siteurl'].'connect.php?mod=login&op=callback';
 			$_G['connect']['discuz_new_feed_url'] = $_G['siteurl'].'connect.php?mod=feed&op=new&formhash=' . formhash();
@@ -80,7 +78,7 @@ class plugin_qqconnect extends plugin_qqconnect_base {
 
 	var $allow = false;
 
-	function plugin_qqconnect() {
+	function __construct() {
 		$this->init();
 	}
 
@@ -100,7 +98,7 @@ class plugin_qqconnect extends plugin_qqconnect_base {
 
 	function global_login_extra() {
         global $_G;
-		if(!$this->allow) {
+		if(!$this->allow || $_G['inshowmessage']) {
 			return;
 		}
 		return tpl_global_login_extra();
@@ -247,23 +245,12 @@ class plugin_qqconnect_group extends plugin_qqconnect {
 
 }
 
-class plugin_qqconnect_home extends plugin_qqconnect {
-
-	function spacecp_profile_bottom() {
-		global $_G;
-
-		if($_G['uid'] && $_G['setting']['connect']['allow']) {
-			return tpl_spacecp_profile_bottom();
-		}
-
-	}
-}
 
 class mobileplugin_qqconnect extends plugin_qqconnect_base {
 
 	var $allow = false;
 
-	function mobileplugin_qqconnect() {
+	function __construct() {
 		global $_G;
 		if(!$_G['setting']['connect']['allow'] || $_G['setting']['bbclosed']) {
 			return;
@@ -273,6 +260,14 @@ class mobileplugin_qqconnect extends plugin_qqconnect_base {
 
 	function common() {
 		$this->common_base();
+	}
+
+	function global_footer_mobile() {
+		global $_G;
+
+		if(!$this->allow || !empty($_G['inshowmessage'])) {
+			return;
+		}
 	}
 
 }
