@@ -252,7 +252,7 @@ EOT;
 
 			$string = sprintf('%02d', $nav['highlight']);
 
-			shownav('global', 'misc_customnav');
+			shownav('style', 'misc_customnav');
 			showsubmenu('nav_setting_customnav', $navdata);
 			$parentselect = array(array('0', cplang('misc_customnav_parent_top')));
 			$parentname = '';
