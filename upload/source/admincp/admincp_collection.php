@@ -13,7 +13,7 @@ cpheader();
 $operation = in_array($operation, array('admin', 'comment', 'recommend')) ? $operation : 'admin';
 $current = array($operation => 1);
 $fromumanage = $_GET['fromumanage'] ? 1 : 0;
-shownav('global', 'collection');
+shownav('topic', 'collection');
 showsubmenu('collection', array(
 	array('collection_admin', 'collection&operation=admin', $current['admin']),
 	array('collection_comment', 'collection&operation=comment', $current['comment']),
