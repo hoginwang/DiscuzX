@@ -61,7 +61,7 @@ $shownotice
 EOT;
 
 foreach($topmenu as $k => $v) {
-	if($k == 'cloud') {
+	if($k == 'cloudaddons') {
 		continue;
 	}
 	if($v === '') {
