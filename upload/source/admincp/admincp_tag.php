@@ -12,7 +12,7 @@ if(!defined('IN_DISCUZ') || !defined('IN_ADMINCP')) {
 cpheader();
 $operation = in_array($operation, array('admin')) ? $operation : 'admin';
 $current = array($operation => 1);
-shownav('global', 'tag');
+shownav('topic', 'tag');
 showsubmenu('tag', array(
 	array('search', 'tag&operation=admin', $current['admin']),
 ));
