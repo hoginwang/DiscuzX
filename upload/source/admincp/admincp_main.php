@@ -158,10 +158,6 @@ echo <<<EOT
 						$('menu_' + headers[k]).style.display = headers[k] == key ? '' : 'none';
 					}
 				}
-				var hrefs = $('menu_' + key).getElementsByTagName('a');
-				for(var j = 0; j < hrefs.length; j++) {
-					hrefs[j].className = '';
-				}
 			}, 1000);
 		} else {
 			clearTimeout(headerST);
