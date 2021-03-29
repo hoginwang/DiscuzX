@@ -83,7 +83,7 @@ function upgradeinformation($status = 0) {
 		$data .= $key.'='.rawurlencode($value).'&';
 	}
 
-	$upgradeurl =  'ht'.'tp:/'.'/cus'.'tome'.'r.disc'.'uz.n'.'et/upg'.'rade'.'.p'.'hp?'.'os=dx&update='.rawurlencode(base64_encode($data)).'&timestamp='.TIMESTAMP;
+	$upgradeurl =  'http://customer.discuz.net/upgrade.php?os=dx&update='.rawurlencode(base64_encode($data)).'&timestamp='.TIMESTAMP;
 	return '<img src="'.$upgradeurl.'" />';
 }
 
