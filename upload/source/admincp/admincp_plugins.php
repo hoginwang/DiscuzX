@@ -417,7 +417,7 @@ if(!$operation) {
 			$addonid = $dir.'.plugin';
 			$array = cloudaddons_getmd5($addonid);
 			if(cloudaddons_open('&mod=app&ac=validator&ver=2&addonid='.$addonid.($array !== false ? '&rid='.$array['RevisionID'].'&sn='.$array['SN'].'&rd='.$array['RevisionDateline'] : '')) === '0') {
-				cpmsg('c'.'lou'.'dad'.'dons'.'_genu'.'ine_m'.'essa'.'ge', '', 'error', array('addonid' => $addonid));
+				cpmsg('cloudaddons_genuine_message', '', 'error', array('addonid' => $addonid));
 			}
 		}
 
