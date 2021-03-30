@@ -2,19 +2,16 @@
 branches: {
   }
 fileChange:
-  /upload:
-    newFile: !uuid '29badda571cdc2cd9a6050816dbdf8b72bd00887'
-    oldFile: !uuid '7e2c64fddb5dbc692844c4df0167de30031989ff'
-  /upload/source:
-    newFile: !uuid '1ffd4bcd5d524e2ca9561aabd4f47faeb04b6bce'
-    oldFile: !uuid 'a9cfa8c0dd70087bb0523727f596d308c891e2b9'
-  /upload/source/admincp:
-    newFile: !uuid 'f6e41996cf938e9dff4ac9aa2521dd8d8ad3d16c'
-    oldFile: !uuid '0aed188e028148c46e93c14ad966f51b75d6b5ee'
-  /upload/source/admincp/admincp_forums.php:
-    newFile: !uuid 'fdf2f75fa66bcd81a7005e61ad9624f76d4c7efe'
-    oldFile: !uuid 'b21fa82008dae9cb7a8db55e4363b2ea08ec2d69'
-gitCommitId: !uuid 'de9281bddd268ddff100e7e2deb2420e59419c24'
+  /LICENSE:
+    newFile: !uuid '7f66157050391e1bc1bc6df2a9c7c9036c744e45'
+    oldFile: !uuid '0b46e243430af124a324bd7adbec72bc9509b9fd'
+  /readme:
+    newFile: !uuid '96c0b268e9cabc6b99fad601fa0ac715d2c5d905'
+    oldFile: !uuid '9008951f81703e3294d8bda4f41d05440afb4324'
+  /readme/license.txt:
+    newFile: !uuid '66be7a0f508a754dca995ff3905eccc98a920886'
+    oldFile: !uuid '0087789c33425dae8b6df52b5e274771a32eaa7d'
+gitCommitId: !uuid '86a45e60364f7bec976b7aa2643afffef8ca0151'
 renames: {
   }
-revisionId: 674
+revisionId: 675
