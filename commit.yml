@@ -3,42 +3,18 @@ branches: {
   }
 fileChange:
   /upload:
-    newFile: !uuid '2a5f26208d43d9973c7196405be2cbc1670be032'
-    oldFile: !uuid 'e163093a0edeab299dd8fd90456dde881daa137e'
+    newFile: !uuid '4832631de02cf2cd9582a739deb9707920604075'
+    oldFile: !uuid '2a5f26208d43d9973c7196405be2cbc1670be032'
   /upload/source:
-    newFile: !uuid '99da135b7077a31592e494f5118539ec92c3875c'
-    oldFile: !uuid '757d000a2051a1bf08ddd4791b971ed849ad9386'
-  /upload/source/plugin:
-    newFile: !uuid '466fc4e26c1ef2c57ad425ecba81cc7727414f38'
-    oldFile: !uuid '3b0c89f56c948cc3f36b14810ed319ea51dd1ba0'
-  /upload/source/plugin/qqconnect:
-    newFile: !uuid '6baa5cb9d073bd35b9e307ffcd32670f04ae6ca9'
-    oldFile: !uuid '0021daa7fdf9f96493a69e20a17920169eed9457'
-  /upload/source/plugin/qqconnect/connect.class.php:
-    newFile: !uuid 'b3c1c0e73406209ed994b8963f10a4de64eb0a7f'
-    oldFile: !uuid '3e863597da6c628ace708a69e677445006c4f30e'
-  /upload/source/plugin/qqconnect/discuz_plugin_qqconnect.xml:
-    newFile: !uuid '4290011f255239a54fc70744d60917b502f44f68'
-    oldFile: !uuid 'ad2704544d6912db5cb62ba17c428864df758927'
-  /upload/source/plugin/qqconnect/lib:
-    newFile: !uuid '3acb9b6dda526c4a11e9fa3d81e589aa77a271c9'
-    oldFile: !uuid '63624cd1867d189c6950c680eaf3e6852c82ff15'
-  /upload/source/plugin/qqconnect/lib/ConnectOAuth.php:
-    newFile: !uuid 'dc556cad9089ccf1a2cda03c25bbe99b660170b3'
-    oldFile: !uuid '09e97c5cd7f39b83af09e703250e0cd373b0c225'
-  /upload/source/plugin/qqconnect/spacecp.inc.php:
-    newFile: !uuid '14460f61342c9844b4b047a7e37e6366cf62fa93'
-    oldFile: !uuid 'c82934f5b935c5b6ddd1f560492ac75e5c37d64d'
-  /upload/source/plugin/qqconnect/template:
-    newFile: !uuid '9b19578b35fc6d4692ece100737c08a18fe14904'
-    oldFile: !uuid '855392138b952855145edcefa6d81f5f1dc7796a'
-  /upload/source/plugin/qqconnect/template/module.htm:
-    newFile: !uuid 'e84b131f9bccb797755bbf9ac0a162210526b5bc'
-    oldFile: !uuid '90b33250eaf7b4c685b82f46d7d4814201db5308'
-  /upload/source/plugin/qqconnect/template/spacecp.htm:
-    newFile: !uuid 'd36149b50273a43de4da850df5f3698584500bdc'
-    oldFile: !uuid '79588546f9b116ddc8335c14a85ee5be47980285'
-gitCommitId: !uuid 'bb73813f967352cbc084c928730ff009ac42ff1a'
+    newFile: !uuid 'e174d71ee1996c13a441ca68d1b1fc2b9f7a995c'
+    oldFile: !uuid '99da135b7077a31592e494f5118539ec92c3875c'
+  /upload/source/function:
+    newFile: !uuid '9460c1a8f70a157e218846139587f70ec5a09e24'
+    oldFile: !uuid '4949f30c7c832f35f66f6622f6cba23ddaf374c6'
+  /upload/source/function/function_admincp.php:
+    newFile: !uuid '3713498c571b3d30cfa8134ee417a75e936a7449'
+    oldFile: !uuid '44f516ca24c8f0052d3428461e6cca72acb87900'
+gitCommitId: !uuid 'edebfaec68c550d23fb041bbc9cfba5e67e044e4'
 renames: {
   }
-revisionId: 680
+revisionId: 681
