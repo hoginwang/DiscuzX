@@ -168,7 +168,7 @@ function updateattach($modnewthreads, $tid, $pid, $attachnew, $attachupdate = ar
 		$newaids = array_keys($attachnew);
 		$newattach = $newattachfile = $albumattach = array();
 		foreach(C::t('forum_attachment_unused')->fetch_all($newaids) as $attach) {
-			if($attach['uid'] != $uid && !$_G['forum']['ismoderator']) {
+			if($attach['uid'] != $uid && !$_G['forum']['ismoderator'] && !in_array($attach['uid'], $_G['editorarr'])) {
 				continue;
 			}
 			$attach['uid'] = $uid;

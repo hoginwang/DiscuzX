@@ -27,9 +27,13 @@ $isorigauthor = $_G['uid'] && $_G['uid'] == $orig['authorid'];
 $isanonymous = ($_G['group']['allowanonymous'] || $orig['anonymous']) && getgpc('isanonymous') ? 1 : 0;
 $audit = $orig['invisible'] == -2 || $thread['displayorder'] == -2 ? $_GET['audit'] : 0;
 
+//可编辑指定帖子的用户列表钩子
+$_G['editorarr'] = array();
+hookscript('editposthook','forum','funcs',array('param' => array_merge($orig), 'step' => 'checkuser'),'editposthook');
+
 if(empty($orig)) {
 	showmessage('post_nonexistence');
-} elseif((!$_G['forum']['ismoderator'] || !$_G['group']['alloweditpost'] || (in_array($orig['adminid'], array(1, 2, 3)) && $_G['adminid'] > $orig['adminid'])) && !(($_G['forum']['alloweditpost'] || $orig['invisible'] == -3)&& $isorigauthor)) {
+} elseif((!$_G['forum']['ismoderator'] || !$_G['group']['alloweditpost'] || (in_array($orig['adminid'], array(1, 2, 3)) && $_G['adminid'] > $orig['adminid'])) && !(($_G['forum']['alloweditpost'] || $orig['invisible'] == -3)&& ($isorigauthor || in_array($_G['uid'], $_G['editorarr'])))) {
 	showmessage('post_edit_nopermission', NULL);
 } elseif($isorigauthor && !$_G['forum']['ismoderator'] && $orig['invisible'] != -3) {
 	$alloweditpost_status = getstatus($_G['setting']['alloweditpost'], $special + 1);
@@ -427,7 +431,11 @@ if(!submitcheck('editsubmit')) {
 			'extramessage' => $extramessage,
 		);
 
-		if($_G['group']['allowimgcontent']) {
+        //添加自定义钩子，返回保存帖子信息前的内容
+        $info = array('fid' => $_G['fid'], 'tid' => $_G['tid'], 'pid' => $pid, 'authorid' => $orig['authorid']);
+        hookscript('editposthook','forum','funcs',array('param' => array_merge($param,$info), 'step' => 'check'),'editposthook');
+
+        if($_G['group']['allowimgcontent']) {
 			$param['imgcontent'] = $_GET['imgcontent'];
 			$param['imgcontentwidth'] = $_G['setting']['imgcontentwidth'] ? intval($_G['setting']['imgcontentwidth']) : 100;
 		}
@@ -493,7 +501,11 @@ if(!submitcheck('editsubmit')) {
 
 	$param = array('fid' => $_G['fid'], 'tid' => $_G['tid'], 'pid' => $pid);
 
-	dsetcookie('clearUserdata', 'forum');
+    //添加自定义钩子，返回保存帖子信息后的内容
+    $editpostinfo = array('subject' => $subject, 'message' => $message, 'dateline' => $_G['timestamp'], 'authorid' => $orig['authorid']);
+    hookscript('editposthook','forum','funcs',array('param' => array_merge($param,$editpostinfo), 'step' => 'edited'),'editposthook');
+
+    dsetcookie('clearUserdata', 'forum');
 
 	if($_G['forum_auditstatuson']) {
 		if($audit == 1) {
