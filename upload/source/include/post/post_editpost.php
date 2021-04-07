@@ -435,7 +435,7 @@ if(!submitcheck('editsubmit')) {
 		$info = array('fid' => $_G['fid'], 'tid' => $_G['tid'], 'pid' => $pid, 'authorid' => $orig['authorid']);
 		hookscript('editposthook','forum','funcs',array('param' => array_merge($param,$info), 'step' => 'check'),'editposthook');
 
-        if($_G['group']['allowimgcontent']) {
+		if($_G['group']['allowimgcontent']) {
 			$param['imgcontent'] = $_GET['imgcontent'];
 			$param['imgcontentwidth'] = $_G['setting']['imgcontentwidth'] ? intval($_G['setting']['imgcontentwidth']) : 100;
 		}
