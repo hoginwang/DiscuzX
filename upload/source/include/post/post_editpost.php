@@ -505,7 +505,7 @@ if(!submitcheck('editsubmit')) {
 	$editpostinfo = array('subject' => $subject, 'message' => $message, 'dateline' => $_G['timestamp'], 'authorid' => $orig['authorid']);
 	hookscript('editposthook','forum','funcs',array('param' => array_merge($param,$editpostinfo), 'step' => 'edited'),'editposthook');
 
-    dsetcookie('clearUserdata', 'forum');
+	dsetcookie('clearUserdata', 'forum');
 
 	if($_G['forum_auditstatuson']) {
 		if($audit == 1) {
