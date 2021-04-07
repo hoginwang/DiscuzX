@@ -431,9 +431,9 @@ if(!submitcheck('editsubmit')) {
 			'extramessage' => $extramessage,
 		);
 
-        //添加自定义钩子，返回保存帖子信息前的内容
-        $info = array('fid' => $_G['fid'], 'tid' => $_G['tid'], 'pid' => $pid, 'authorid' => $orig['authorid']);
-        hookscript('editposthook','forum','funcs',array('param' => array_merge($param,$info), 'step' => 'check'),'editposthook');
+		//添加自定义钩子，返回保存帖子信息前的内容
+		$info = array('fid' => $_G['fid'], 'tid' => $_G['tid'], 'pid' => $pid, 'authorid' => $orig['authorid']);
+		hookscript('editposthook','forum','funcs',array('param' => array_merge($param,$info), 'step' => 'check'),'editposthook');
 
         if($_G['group']['allowimgcontent']) {
 			$param['imgcontent'] = $_GET['imgcontent'];
@@ -501,9 +501,9 @@ if(!submitcheck('editsubmit')) {
 
 	$param = array('fid' => $_G['fid'], 'tid' => $_G['tid'], 'pid' => $pid);
 
-    //添加自定义钩子，返回保存帖子信息后的内容
-    $editpostinfo = array('subject' => $subject, 'message' => $message, 'dateline' => $_G['timestamp'], 'authorid' => $orig['authorid']);
-    hookscript('editposthook','forum','funcs',array('param' => array_merge($param,$editpostinfo), 'step' => 'edited'),'editposthook');
+	//添加自定义钩子，返回保存帖子信息后的内容
+	$editpostinfo = array('subject' => $subject, 'message' => $message, 'dateline' => $_G['timestamp'], 'authorid' => $orig['authorid']);
+	hookscript('editposthook','forum','funcs',array('param' => array_merge($param,$editpostinfo), 'step' => 'edited'),'editposthook');
 
     dsetcookie('clearUserdata', 'forum');
 
