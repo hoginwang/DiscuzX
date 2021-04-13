@@ -403,7 +403,7 @@ function pic_upload($FILES, $type='album', $thumb_width=0, $thumb_height=0, $thu
 		}
 	}
 
-	if(getglobal('setting/ftp/on')) {
+	if(getglobal('setting/ftp/on') && ((!$_G['setting']['ftp']['allowedexts'] && !$_G['setting']['ftp']['disallowedexts']) || ($_G['setting']['ftp']['allowedexts'] && in_array($attach['ext'], $_G['setting']['ftp']['allowedexts'])) || ($_G['setting']['ftp']['disallowedexts'] && !in_array($attach['ext'], $_G['setting']['ftp']['disallowedexts']))) && (!$_G['setting']['ftp']['minsize'] || $attach['size'] >= $_G['setting']['ftp']['minsize'] * 1024)) {
 		if(ftpcmd('upload', $type.'/'.$upload->attach['attachment'])) {
 			if($result['thumb']) {
 				ftpcmd('upload', $type.'/'.getimgthumbname($upload->attach['attachment']));

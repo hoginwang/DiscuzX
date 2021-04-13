@@ -41,7 +41,7 @@ if (submitcheck('uploadsubmit')) {
 			$attach['thumb'] = $image->Thumb($attach['target'], '', '80', '50');
 		}
 
-		if(getglobal('setting/ftp/on')) {
+		if(getglobal('setting/ftp/on') && ((!$_G['setting']['ftp']['allowedexts'] && !$_G['setting']['ftp']['disallowedexts']) || ($_G['setting']['ftp']['allowedexts'] && in_array($attach['ext'], $_G['setting']['ftp']['allowedexts'])) || ($_G['setting']['ftp']['disallowedexts'] && !in_array($attach['ext'], $_G['setting']['ftp']['disallowedexts']))) && (!$_G['setting']['ftp']['minsize'] || $attach['size'] >= $_G['setting']['ftp']['minsize'] * 1024)) {
 			if(ftpcmd('upload', 'portal/'.$attach['attachment'])) {
 				if($attach['thumb']) {
 					ftpcmd('upload', 'portal/'.getimgthumbname($attach['attachment']));

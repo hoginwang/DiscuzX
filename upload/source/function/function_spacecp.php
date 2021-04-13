@@ -78,7 +78,7 @@ function album_update_pic($albumid, $picid=0) {
 	if($image->Thumb($picsource, 'album/'.$picdir.$albumid.'.jpg', 120, 120, 2)) {
 		$setarr['pic'] = $picdir.$albumid.'.jpg';
 		$setarr['picflag'] = 1;
-		if(getglobal('setting/ftp/on')) {
+		if(getglobal('setting/ftp/on') && ((!$_G['setting']['ftp']['allowedexts'] && !$_G['setting']['ftp']['disallowedexts']) || ($_G['setting']['ftp']['allowedexts'] && in_array($attach['ext'], $_G['setting']['ftp']['allowedexts'])) || ($_G['setting']['ftp']['disallowedexts'] && !in_array($attach['ext'], $_G['setting']['ftp']['disallowedexts']))) && (!$_G['setting']['ftp']['minsize'] || $attach['size'] >= $_G['setting']['ftp']['minsize'] * 1024)) {
 			if(ftpcmd('upload', 'album/'.$picdir.$albumid.'.jpg')) {
 				$setarr['picflag'] = 2;
 				@unlink($_G['setting']['attachdir'].'album/'.$picdir.$albumid.'.jpg');
@@ -202,7 +202,7 @@ function pic_save($FILE, $albumid, $title, $iswatermark = true, $catid = 0) {
 	$pic_remote = 0;
 	$album_picflag = 1;
 
-	if(getglobal('setting/ftp/on')) {
+	if(getglobal('setting/ftp/on') && ((!$_G['setting']['ftp']['allowedexts'] && !$_G['setting']['ftp']['disallowedexts']) || ($_G['setting']['ftp']['allowedexts'] && in_array($attach['ext'], $_G['setting']['ftp']['allowedexts'])) || ($_G['setting']['ftp']['disallowedexts'] && !in_array($attach['ext'], $_G['setting']['ftp']['disallowedexts']))) && (!$_G['setting']['ftp']['minsize'] || $attach['size'] >= $_G['setting']['ftp']['minsize'] * 1024)) {
 		$ftpresult_thumb = 0;
 		$ftpresult = ftpcmd('upload', 'album/'.$upload->attach['attachment']);
 		if($ftpresult) {
@@ -316,7 +316,7 @@ function stream_save($strdata, $albumid = 0, $fileext = 'jpg', $name='', $title=
 			$pic_remote = 0;
 			$album_picflag = 1;
 
-			if(getglobal('setting/ftp/on')) {
+			if(getglobal('setting/ftp/on') && ((!$_G['setting']['ftp']['allowedexts'] && !$_G['setting']['ftp']['disallowedexts']) || ($_G['setting']['ftp']['allowedexts'] && in_array($attach['ext'], $_G['setting']['ftp']['allowedexts'])) || ($_G['setting']['ftp']['disallowedexts'] && !in_array($attach['ext'], $_G['setting']['ftp']['disallowedexts']))) && (!$_G['setting']['ftp']['minsize'] || $attach['size'] >= $_G['setting']['ftp']['minsize'] * 1024)) {
 				$ftpresult_thumb = 0;
 				$ftpresult = ftpcmd('upload', 'album/'.$filepath);
 				if($ftpresult) {
