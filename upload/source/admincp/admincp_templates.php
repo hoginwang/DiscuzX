@@ -150,6 +150,7 @@ if($operation == 'admin') {
 		'specialborder' => array(0),
 		'specialbg' => array(0),
 		'noticetext' => array(0),
+		'globalwidth' => array(0, '', '960px'),
 	);
 	if(!submitcheck('addsubmit')) {
 		shownav('template', 'templates_add');

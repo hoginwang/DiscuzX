@@ -9,6 +9,9 @@
 		<link rel="archives" title="$_G['setting']['bbname']" href="{$_G[siteurl]}archiver/" />
 	<!--{/if}-->
 	<!--{if !empty($rsshead)}-->$rsshead<!--{/if}-->
+	<!--{if getglobal('disabledwidthauto') || getglobal('disabledglobalwidth')}-->
+		<style type="text/css">.wp { width: 960px; }</style>
+	<!--{/if}-->
 	<!--{if widthauto()}-->
 		<link rel="stylesheet" id="css_widthauto" type="text/css" href='{$_G['setting']['csspath']}{STYLEID}_widthauto.css?{VERHASH}' />
 		<script type="text/javascript">HTMLNODE.className += ' widthauto'</script>

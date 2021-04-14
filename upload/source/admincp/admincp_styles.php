@@ -113,6 +113,7 @@ $predefinedvars = array('available' => array(), 'boardimg' => array(), 'imgdir' 
 	'specialborder' => array(0),
 	'specialbg' => array(0),
 	'noticetext' => array(0),
+	'globalwidth' => array(0, '', '960px'),
 );
 
 if($operation == 'admin') {
