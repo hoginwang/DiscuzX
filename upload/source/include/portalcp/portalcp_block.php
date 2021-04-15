@@ -654,7 +654,7 @@ if($op == 'block') {
 			}
 			if($_POST['icflag'] && !(C::t('common_block_pic')->count_by_bid_pic($block['bid'], $thumbpath))) {
 				$picflag = 0; //common_block_pic表中的picflag标识（0本地，1远程）
-				if($_G['setting']['ftp']['on']) {
+				if(getglobal('setting/ftp/on') && ((!$_G['setting']['ftp']['allowedexts'] && !$_G['setting']['ftp']['disallowedexts']) || ($_G['setting']['ftp']['allowedexts'] && in_array($attach['ext'], $_G['setting']['ftp']['allowedexts'])) || ($_G['setting']['ftp']['disallowedexts'] && !in_array($attach['ext'], $_G['setting']['ftp']['disallowedexts']))) && (!$_G['setting']['ftp']['minsize'] || $attach['size'] >= $_G['setting']['ftp']['minsize'] * 1024)) {
 					$ftp = & discuz_ftp::instance();
 					$ftp->connect();
 					if($ftp->connectid && $ftp->ftp_size($thumbpath) > 0 || $ftp->upload($_G['setting']['attachurl'].'/'.$thumbpath, $thumbpath)) {
