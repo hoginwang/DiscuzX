@@ -3,21 +3,27 @@ branches: {
   }
 fileChange:
   /upload:
-    newFile: !uuid '8b2710a5235e5767fb37192d288e2a15587821a2'
-    oldFile: !uuid 'd8995b61f39702e92a1879fb9adb2d89f00aa948'
-  /upload/source:
-    newFile: !uuid '2e2de711fcdda00d631956e8c550a5ecb6c54cbf'
-    oldFile: !uuid 'b1839ce888f7a6d8a8395727ade0a652ecf2df7f'
-  /upload/source/include:
-    newFile: !uuid '58acb3edacbb3cbf51f43d8cfe2ccf7a041d2a93'
-    oldFile: !uuid 'b322fb96316179c49ad704d491f514e2835b9b54'
-  /upload/source/include/space:
-    newFile: !uuid 'f5f29a25f94d09c72b4d86e019350a5d36799445'
-    oldFile: !uuid '8d0f41ff8d6d748130c09228cb18996ba847ea25'
-  /upload/source/include/space/space_home.php:
-    newFile: !uuid 'ba4cb08c9adf62a2818a9706d4a37a00085c5546'
-    oldFile: !uuid '2d06221e27ebcc1c7fcaab7576ddd175461122f6'
-gitCommitId: !uuid 'b356f5bd9189915641fa925e3403b5cc94c80d52'
+    newFile: !uuid 'e5271fb21374877acc559b235cffdffb32543eff'
+    oldFile: !uuid '8b2710a5235e5767fb37192d288e2a15587821a2'
+  /upload/template:
+    newFile: !uuid '0744685d70c90fbeeacd762c58339e015749702b'
+    oldFile: !uuid 'b12b9fbb8f0280586ab44cdcefd6cdb5bdc12015'
+  /upload/template/default:
+    newFile: !uuid '289bcaa730bc04364f0bd11538dc6c4ddca461d1'
+    oldFile: !uuid '85b5ab5451a8f610711eee4e9a892138f0876646'
+  /upload/template/default/common:
+    newFile: !uuid 'bbb2fab92ddd1d710a87bcf108e2e26a5249649d'
+    oldFile: !uuid '2889548a7f3ab743024a4a1fdb6a4826132f2cb9'
+  /upload/template/default/common/header_userstatus.htm:
+    newFile: !uuid '538ce9a71110d4c7789b81c417c906ac2e74d83c'
+    oldFile: !uuid 'b4836ff30ff749e981ec35e04802e6f76a9b8c86'
+  /upload/template/default/home:
+    newFile: !uuid 'aa52e0d39e62d49573d62036e74ddcb58eff99f4'
+    oldFile: !uuid '653c33edcf515b93d692c7be0b5799fa1c023c34'
+  /upload/template/default/home/space_home.htm:
+    newFile: !uuid 'c2b74b8c1c1ec22198b5e5a1dc7c4c4479709ed3'
+    oldFile: !uuid '969f253f1af97d68fe8326bcda6179fa768e4bd3'
+gitCommitId: !uuid '457965d26ece5eec09f57b3d6a0918141146dc5c'
 renames: {
   }
-revisionId: 640
+revisionId: 641
