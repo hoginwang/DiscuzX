@@ -3,27 +3,21 @@ branches: {
   }
 fileChange:
   /upload:
-    newFile: !uuid 'd3e0db7c1dce0e7ee23fc701db2400488ee89db3'
-    oldFile: !uuid '97fa6dabf486c3b91cd535cd646e67b647fdd4a9'
+    newFile: !uuid 'bbc5b286b7915f1625e30c5850cf24aa1aed60cc'
+    oldFile: !uuid 'd3e0db7c1dce0e7ee23fc701db2400488ee89db3'
   /upload/source:
-    newFile: !uuid '7f549a4b322e7e405a47b18cfb502d1c7f466df1'
-    oldFile: !uuid 'd379e534ba8247ee274695826b43ea15fa78112c'
-  /upload/source/function:
-    newFile: !uuid '50546449df2679261b3ad2b2d174f9c0023e457d'
-    oldFile: !uuid '9460c1a8f70a157e218846139587f70ec5a09e24'
-  /upload/source/function/function_portalcp.php:
-    newFile: !uuid 'be816046ca0a8abc5abd6cc8a85d73e755d834c6'
-    oldFile: !uuid '3d5333b48ad493b4a6f06596912430ac82d28fae'
-  /upload/source/include:
-    newFile: !uuid '5459ee0ad3b6c94e652ec16d010713242dc25fdc'
-    oldFile: !uuid '1940ba04dc82162b54182ca8f34d8cd529327cac'
-  /upload/source/include/portalcp:
-    newFile: !uuid '3c16603f2a1cdc6796dc94c328af4c78c496db0b'
-    oldFile: !uuid '0e626b02cb91a1b3380eef446774404656433193'
-  /upload/source/include/portalcp/portalcp_diy.php:
-    newFile: !uuid 'ff34b80175279713aa5f3158689d9fabb276257d'
-    oldFile: !uuid '211f5b9bdde8c9fa8547a02b2b82c0f73252dcf8'
-gitCommitId: !uuid '49addc02accbe59b55fb1cd73812d96058886818'
+    newFile: !uuid 'bbe872448f15b0c3d22825fb57a3e24657d4e441'
+    oldFile: !uuid '7f549a4b322e7e405a47b18cfb502d1c7f466df1'
+  /upload/source/admincp:
+    newFile: !uuid '2744e04b83879ec9f6b0f2efa351102f1f8d435a'
+    oldFile: !uuid 'b1d30b786f8c4bf2fbb69e575ec33e734b3c8a98'
+  /upload/source/admincp/moderate:
+    newFile: !uuid 'cac04b7375c59958e3a3018abe2d60c24195f32b'
+    oldFile: !uuid '91c6d1765401f8a0b41aca8e0fcd8ed18ed31d5f'
+  /upload/source/admincp/moderate/moderate_reply.php:
+    newFile: !uuid 'e9f9b3edbc8ec083cb70b953a01a4add73a43b9f'
+    oldFile: !uuid '2f63cc39a21d618d753a7d1d9da87402298ea4d5'
+gitCommitId: !uuid 'a6862d32ea9007c4b10fe70faf84aff3099c8ce7'
 renames: {
   }
-revisionId: 691
+revisionId: 692
