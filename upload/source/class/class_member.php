@@ -461,7 +461,7 @@ class register_ctl {
 		}
 		$sendurl = $this->setting['sendregisterurl'] ? true : false;
 		if($sendurl) {
-			$paramexist = preg_match_all('/(\?|&(amp)?(;)?)(.+?)=([^&?]*)/', $_SERVER['QUERY_STRING'], $parammatchs);
+			$paramexist = preg_match_all('/(\?|&(amp)?(;)?)(.+?)=([^&?]*)/i', $_SERVER['QUERY_STRING'], $parammatchs);
 			if($paramexist){
 				foreach($parammatchs[5] as $paramk => $paramv){
 					$param[$parammatchs[4][$paramk]] = $paramv;
