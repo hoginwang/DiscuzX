@@ -13,10 +13,10 @@ if(!defined('IN_DISCUZ')) {
 
 define('NOROBOT', TRUE);
 
-$paramexist = preg_match_all('/(\?|&(amp;)?)(.+?)=([^&?]*)/', $_SERVER['QUERY_STRING'], $parammatchs);
+$paramexist = preg_match_all('/(\?|&(amp)?(;)?)(.+?)=([^&?]*)/i', $_SERVER['QUERY_STRING'], $parammatchs);
 if($paramexist){
-	foreach($parammatchs[4] as $paramk => $paramv){
-		$param[$parammatchs[3][$paramk]] = $paramv;
+	foreach($parammatchs[5] as $paramk => $paramv){
+		$param[$parammatchs[4][$paramk]] = $paramv;
 	}
 }
 $uid = isset($_GET['uid']) ? $_GET['uid'] : $param['uid'];
