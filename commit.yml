@@ -3,27 +3,21 @@ branches: {
   }
 fileChange:
   /upload:
-    newFile: !uuid '5024bb8c1fc2468ab4fe7e62254acae0bf7d682d'
-    oldFile: !uuid 'd831b31dbc8604f8e4915d99ec88ec07f54fe079'
+    newFile: !uuid 'ceaeea5069a5f9435c1d93c6da84c4886acf258c'
+    oldFile: !uuid '5024bb8c1fc2468ab4fe7e62254acae0bf7d682d'
   /upload/source:
-    newFile: !uuid 'aa9ce67393ded5575923f8767f2fe3b7549a8d69'
-    oldFile: !uuid '24ab4dcdca865465e1c26e2898abd1942b7d6ebc'
-  /upload/source/function:
-    newFile: !uuid 'ca522e86815c3b49e30bb82cc316220598e36ae1'
-    oldFile: !uuid '50546449df2679261b3ad2b2d174f9c0023e457d'
-  /upload/source/function/function_core.php:
-    newFile: !uuid 'b0b0bf147c7713c6948bf94c8754118e93b84353'
-    oldFile: !uuid '9ea09b16f8a37975e428bbef0dd9e316fd0190fa'
-  /upload/source/module:
-    newFile: !uuid '2744050708d10ab9108a7a9247fe8bf6dc48f2bb'
-    oldFile: !uuid '757f77a6678095f5e861b7ec9f207c6419d5ca80'
-  /upload/source/module/forum:
-    newFile: !uuid 'eb35e4ad72420e3269cac163bb63ecd0f423f9c8'
-    oldFile: !uuid '35708079de6a857d79945320b886861f879e627b'
-  /upload/source/module/forum/forum_attachment.php:
-    newFile: !uuid 'f933b3bf4f9087c1032e05c103985826e77c3ae3'
-    oldFile: !uuid '2a61aee9ed3c060a1cafafe8f2ab3b6d00a562c3'
-gitCommitId: !uuid 'e8d2fbfb98bb58f1b879298256209e086e5df0a6'
+    newFile: !uuid 'a734c3b00e890f0d382fd9fc9c1eb5a3e4efcaa6'
+    oldFile: !uuid 'aa9ce67393ded5575923f8767f2fe3b7549a8d69'
+  /upload/source/plugin:
+    newFile: !uuid 'ee8eff4c452cf1b9eda77185cfc61ea848b95da7'
+    oldFile: !uuid '466fc4e26c1ef2c57ad425ecba81cc7727414f38'
+  /upload/source/plugin/wechat:
+    newFile: !uuid 'e3bafbbd9a8769beff218066837e101b7f514a02'
+    oldFile: !uuid '500f6e931870d6deb98f8c4cb141aefbc350423b'
+  /upload/source/plugin/wechat/wechat.lib.class.php:
+    newFile: !uuid '707531b53cb330291fb71aef476bc7ba45f3cffe'
+    oldFile: !uuid '1b519e1bb554cebfda94e0bd8a5c526023c0d613'
+gitCommitId: !uuid '190a6da8cdbd56067897182e9ea32d6fdd66be28'
 renames: {
   }
-revisionId: 694
+revisionId: 695
