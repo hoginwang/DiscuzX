@@ -1,4 +1,4 @@
-<?php
+ecyclebin<?php
 
 /**
  *      [Discuz!] (C)2001-2099 Comsenz Inc.
@@ -444,6 +444,10 @@ class table_forum_thread extends discuz_table
 				tm.uid AS moduid, tm.username AS modusername, tm.dateline AS moddateline, tm.action AS modaction, tm.reason
 				FROM '.DB::table('forum_thread').' t LEFT JOIN '.DB::table('forum_threadmod').' tm ON tm.tid=t.tid
 				LEFT JOIN '.DB::table('forum_forum').' f ON f.fid=t.fid '.$sql[0].' ORDER BY t.dateline DESC '.DB::limit($start, $limit), $sql[1]);
+	}
+
+	public function fetch_all_recyclebin_by_dateline($dateline, $start = 0, $limit = 0) {
+		return DB::fetch_all("SELECT tid FROM %t WHERE displayorder=-1 AND dateline<%d".DB::limit($start, $limit), array($this->_table, $dateline));
 	}
 
 	public function fetch_all_moderate($fid = 0, $displayorder = null, $isgroup = null, $dateline = null, $author = null, $subject = null) {
