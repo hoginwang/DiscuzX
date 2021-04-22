@@ -3,21 +3,21 @@ branches: {
   }
 fileChange:
   /upload:
-    newFile: !uuid 'ceaeea5069a5f9435c1d93c6da84c4886acf258c'
-    oldFile: !uuid '5024bb8c1fc2468ab4fe7e62254acae0bf7d682d'
-  /upload/source:
-    newFile: !uuid 'a734c3b00e890f0d382fd9fc9c1eb5a3e4efcaa6'
-    oldFile: !uuid 'aa9ce67393ded5575923f8767f2fe3b7549a8d69'
-  /upload/source/plugin:
-    newFile: !uuid 'ee8eff4c452cf1b9eda77185cfc61ea848b95da7'
-    oldFile: !uuid '466fc4e26c1ef2c57ad425ecba81cc7727414f38'
-  /upload/source/plugin/wechat:
-    newFile: !uuid 'e3bafbbd9a8769beff218066837e101b7f514a02'
-    oldFile: !uuid '500f6e931870d6deb98f8c4cb141aefbc350423b'
-  /upload/source/plugin/wechat/wechat.lib.class.php:
-    newFile: !uuid '707531b53cb330291fb71aef476bc7ba45f3cffe'
-    oldFile: !uuid '1b519e1bb554cebfda94e0bd8a5c526023c0d613'
-gitCommitId: !uuid '190a6da8cdbd56067897182e9ea32d6fdd66be28'
+    newFile: !uuid 'a4c693e3f79c6e0d76e2892f48e1f651a6d717bc'
+    oldFile: !uuid 'ceaeea5069a5f9435c1d93c6da84c4886acf258c'
+  /upload/install:
+    newFile: !uuid 'c177e3f432d06d6972ea26438c637605d4db829b'
+    oldFile: !uuid '531d1bd82c9bccb272bf0d7a863180d2b1fce6cc'
+  /upload/install/data:
+    newFile: !uuid '18da92689aaed40b7ec49c862f04a537c19df7cf'
+    oldFile: !uuid '039522796717846530d7566e0e7013392cf8fcc9'
+  /upload/install/data/install_data.sql:
+    newFile: !uuid 'd57b4c3755d4cb91d8ae9bf284ac2a757311b7bc'
+    oldFile: !uuid 'eea10e1279139a24c14f1374c9018a7d7df3d20a'
+  /upload/install/index.php:
+    newFile: !uuid '13612fb755ac2183df11febec23e350654da82ae'
+    oldFile: !uuid 'c6ef24884102293463a9ee9313fb712151dcc3ee'
+gitCommitId: !uuid 'e7bcce15dda06cdd2635eca70286faba1831b277'
 renames: {
   }
-revisionId: 695
+revisionId: 696
