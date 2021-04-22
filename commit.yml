@@ -3,21 +3,27 @@ branches: {
   }
 fileChange:
   /upload:
-    newFile: !uuid 'a4c693e3f79c6e0d76e2892f48e1f651a6d717bc'
-    oldFile: !uuid 'ceaeea5069a5f9435c1d93c6da84c4886acf258c'
-  /upload/install:
-    newFile: !uuid 'c177e3f432d06d6972ea26438c637605d4db829b'
-    oldFile: !uuid '531d1bd82c9bccb272bf0d7a863180d2b1fce6cc'
-  /upload/install/data:
-    newFile: !uuid '18da92689aaed40b7ec49c862f04a537c19df7cf'
-    oldFile: !uuid '039522796717846530d7566e0e7013392cf8fcc9'
-  /upload/install/data/install_data.sql:
-    newFile: !uuid 'd57b4c3755d4cb91d8ae9bf284ac2a757311b7bc'
-    oldFile: !uuid 'eea10e1279139a24c14f1374c9018a7d7df3d20a'
-  /upload/install/index.php:
-    newFile: !uuid '13612fb755ac2183df11febec23e350654da82ae'
-    oldFile: !uuid 'c6ef24884102293463a9ee9313fb712151dcc3ee'
-gitCommitId: !uuid 'e7bcce15dda06cdd2635eca70286faba1831b277'
+    newFile: !uuid '5e8388d131af30e096fc3810183ec27176f01c80'
+    oldFile: !uuid 'a4c693e3f79c6e0d76e2892f48e1f651a6d717bc'
+  /upload/source:
+    newFile: !uuid 'a9e765f10949d228282d71d62bc8903ea20c7df7'
+    oldFile: !uuid 'a734c3b00e890f0d382fd9fc9c1eb5a3e4efcaa6'
+  /upload/source/language:
+    newFile: !uuid 'bcefecf79f7b5d016f6f9159acc964a150798f43'
+    oldFile: !uuid '984810baebd2d380dcefadb7ccf2833b4f5f5722'
+  /upload/source/language/lang_core.php:
+    newFile: !uuid '36ead028baf365077d0bbb230551e80fce70e4d5'
+    oldFile: !uuid '4b816dbe43fb2fa682cf6207b01b6b077ea7c3ae'
+  /upload/source/module:
+    newFile: !uuid '47c6b47363a5e8e00c25b33787214d15989ddb06'
+    oldFile: !uuid '2744050708d10ab9108a7a9247fe8bf6dc48f2bb'
+  /upload/source/module/member:
+    newFile: !uuid 'a38c1f94c0df06c320add2d7b057f70f6bb74c54'
+    oldFile: !uuid '9a4f743d7d2a254b82ae8ccab3de62fbce756974'
+  /upload/source/module/member/member_getpasswd.php:
+    newFile: !uuid '04f7e98bce1dc9c787cbc472bcaef84efe1d7c7d'
+    oldFile: !uuid '637c3dc1d3d71bedaeb0f94c19e503c017f64a14'
+gitCommitId: !uuid 'aba25c7954b6429902bda473c8667341513432fa'
 renames: {
   }
-revisionId: 696
+revisionId: 697
