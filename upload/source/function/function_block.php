@@ -426,6 +426,9 @@ function block_template($bid) {
 					}
 				}
 				$searcharr[] = '{'.$key.'}';
+				if($_G['setting']['ftp']['on'] && file_exists($_G['setting']['attachdir'].'./'.$blockitem[$key])){
+					$replacevalue = str_replace($_G['setting']['ftp']['attachurl'], $_G['setting']['attachurl'], $replacevalue);
+				}
 				$replacearr[] = $replacevalue;
 
 				if($block['hidedisplay']) {
