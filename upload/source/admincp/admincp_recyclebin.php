@@ -294,10 +294,10 @@ EOT;
 
 		$deletetids = array();
 		$timestamp = TIMESTAMP;
-		$pernum = 500;
+		$pernum = 20;
 		$threadsdel = intval($_GET['threadsdel']);
 		$days = intval($_GET['days']);
-		foreach(C::t('forum_threadmod')->fetch_all_recyclebin_by_dateline($timestamp-($days * 86400), 0, $pernum) as $thread) {
+		foreach(C::t('forum_thread')->fetch_all_recyclebin_by_dateline($timestamp-($days * 86400), 0, $pernum) as $thread) {
 			$deletetids[] = $thread['tid'];
 		}
 		if($deletetids) {
