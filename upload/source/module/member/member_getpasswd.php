@@ -38,7 +38,6 @@ if($uid && $id && $sign === make_getpws_sign($uid, $id)) {
 	}
 
 	if(!submitcheck('getpwsubmit') || $_GET['newpasswd1'] != $_GET['newpasswd2']) {
-		$hashid = $id;
 		$navtitle = lang('core', 'title_getpasswd');
 		$hashid = $id;
 		$uid = $_GET['uid'];
