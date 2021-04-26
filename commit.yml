@@ -3,27 +3,33 @@ branches: {
   }
 fileChange:
   /upload:
-    newFile: !uuid '8d28010fa1247bc6ceadbdd01bc9f80d88144e43'
-    oldFile: !uuid '5f65624b3347dd86a8c0b448e38c344c0b43f026'
+    newFile: !uuid '04052aa4499b146b26fc156408a0504f26a3d432'
+    oldFile: !uuid '8d28010fa1247bc6ceadbdd01bc9f80d88144e43'
   /upload/source:
-    newFile: !uuid '64fa74bf9e6d4de8578274df9a52ca9ef50d46f2'
-    oldFile: !uuid 'e73cf016bbcb9b6913bdef0c992bff8d3fc8a2e9'
+    newFile: !uuid 'b879246ac5b5d3ce9397a4000b9aa779b13dc8de'
+    oldFile: !uuid '64fa74bf9e6d4de8578274df9a52ca9ef50d46f2'
   /upload/source/admincp:
-    newFile: !uuid 'd82e93b57855ebb7c2c3bab5fd5a8ea7db25983f'
-    oldFile: !uuid '2744e04b83879ec9f6b0f2efa351102f1f8d435a'
-  /upload/source/admincp/admincp_recyclebin.php:
-    newFile: !uuid 'ede1836e6122b5e0f7dcdf277cda2e91ec8c90dd'
-    oldFile: !uuid '39a7a289b443315527a3ca26bcbafbfd666a2925'
-  /upload/source/class:
-    newFile: !uuid '73c86c6b101c2a857069bf47469e4258d92c4ff3'
-    oldFile: !uuid '77ae60fbf1270af9b30991881e7d8ec9aad5c1e4'
-  /upload/source/class/table:
-    newFile: !uuid 'b5ed7a08f243f3bcdd56493ebc79f801ed254e1f'
-    oldFile: !uuid '7f450e9063e0b77d0217bbb52e56b2fa8d3b2831'
-  /upload/source/class/table/table_forum_thread.php:
-    newFile: !uuid '8c96347fedc377ba028e10a2a34199fb561acf89'
-    oldFile: !uuid '2736fec2be7160479716adb7ffcac5104789eb24'
-gitCommitId: !uuid 'e62e554b6223074c9a353db1207a80ad103c9e9b'
+    newFile: !uuid '1593fd1a48cf5afefb06b300f0f479b45e415d40'
+    oldFile: !uuid 'd82e93b57855ebb7c2c3bab5fd5a8ea7db25983f'
+  /upload/source/admincp/admincp_domain.php:
+    newFile: !uuid 'be4757d81661dbf821a92b199ff2a461ee22da35'
+    oldFile: !uuid '7523a8961aed3e32e059634b75ce4c45298e498b'
+  /upload/source/language:
+    newFile: !uuid '08e11890343f63190f5adfa7b04374cb9f28a0c2'
+    oldFile: !uuid 'bcefecf79f7b5d016f6f9159acc964a150798f43'
+  /upload/source/language/lang_admincp_msg.php:
+    newFile: !uuid '6b597976a9eebd94ab62721b2c0b76a4acca1e0c'
+    oldFile: !uuid '8628e77601a12a4a800a48da48ef0042d02ef193'
+  /upload/source/plugin:
+    newFile: !uuid '74ac0d5738fad1cda5fd49e3bc2076c9b8eac111'
+    oldFile: !uuid 'ee8eff4c452cf1b9eda77185cfc61ea848b95da7'
+  /upload/source/plugin/wechat:
+    newFile: !uuid 'e5222221e9629a1c1e4f7dd76639b847169b04c6'
+    oldFile: !uuid 'e3bafbbd9a8769beff218066837e101b7f514a02'
+  /upload/source/plugin/wechat/wsq_setting.inc.php:
+    newFile: !uuid 'fa3abe1505872c8451380c90aa51636e985c877c'
+    oldFile: !uuid 'fe2f9cd7f3dc18b89e30b10aeb6e785b156898f2'
+gitCommitId: !uuid 'c4a5a300cbb8112805abef84fe3ccf3eb613974e'
 renames: {
   }
-revisionId: 700
+revisionId: 701
