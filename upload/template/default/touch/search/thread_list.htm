@@ -3,7 +3,7 @@
 	<!--{if empty($threadlist)}-->
 	<h4>{lang search_nomatch}</h4>
 	<!--{else}-->
-	<!--{eval include_once DISCUZ_ROOT.'./template/default/touch/list.php';$threadlist_data = get_attach($threadlist);}-->
+	<!--{eval $threadlist_data = get_attach($threadlist);}-->
 	<div class="threadlist cl">
 		<ul>
 			<!--{loop $threadlist $thread}-->

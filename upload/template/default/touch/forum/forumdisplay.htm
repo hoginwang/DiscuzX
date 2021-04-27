@@ -2,18 +2,18 @@
 <div class="header cl">
 	<div class="kmz"><a href="javascript:history.back();"><i class="iconfont">&#xe779;</i></a></div>
 	<h2><!--{eval echo strip_tags($_G['forum']['name']) ? strip_tags($_G['forum']['name']) : $_G['forum']['name'];}--></h2>
-	<div class="kmy"><a href="forum.php?mod=post&action=newthread&fid=$_G[fid]" title="{lang send_threads}"><i class="iconfont">&#xe6bf;</i></a></div>
+	<div class="kmy"><a href="forum.php?mod=post&action=newthread&fid={$_G['fid']}" title="{lang send_threads}"><i class="iconfont">&#xe6bf;</i></a></div>
 </div>
 <!--{hook/forumdisplay_top_mobile}-->
 <div class="forumdisplay-top cl">
 	<h2>
-	<img src="<!--{if $_G['forum'][icon]}--><!--{echo get_forumimg($_G['forum']['icon'])}--><!--{else}-->template/default/touch/style/img/forum.png<!--{/if}-->" alt="$_G['forum'][name]" />
+	<img src="<!--{if $_G['forum']['icon']}--><!--{echo get_forumimg($_G['forum']['icon'])}--><!--{else}-->template/default/touch/style/img/forum.png<!--{/if}-->" alt="$_G['forum']['name']" />
 	<!--{if helper_access::check_module('favorite')}-->
-	<a href="home.php?mod=spacecp&ac=favorite&type=forum&id=$_G[fid]&handlekey=favoriteforum&formhash={FORMHASH}" id="a_favorite" class="dialog">{lang favorite}<span id="number_favorite" {if !$_G[forum][favtimes]} style="display:none;"{/if}><span id="number_favorite_num"> +{$_G[forum][favtimes]}</span></span></a>
+	<a href="home.php?mod=spacecp&ac=favorite&type=forum&id=$_G[fid]&handlekey=favoriteforum&formhash={FORMHASH}" id="a_favorite" class="dialog">{lang favorite}<span id="number_favorite" {if !$_G['forum']['favtimes']} style="display:none;"{/if}><span id="number_favorite_num"> +{$_G['forum']['favtimes']}</span></span></a>
 	<!--{/if}-->
-	$_G['forum'][name]
+	$_G['forum']['name']
 	</h2>
-	<p>{lang index_today}: <span>$_G[forum][todayposts]</span>{lang index_threads}: <span>$_G[forum][threads]</span><!--{if $_G[forum][rank]}-->{lang rank}: <span>$_G[forum][rank]</span><!--{/if}--></p>
+	<p>{lang index_today}: <span>$_G['forum']['todayposts']</span>{lang index_threads}: <span>$_G['forum']['threads']</span><!--{if $_G['forum']['rank']}-->{lang rank}: <span>$_G['forum']['rank']</span><!--{/if}--></p>
 </div>
 <div class="dhnav_box">
 	<div id="dhnav">
@@ -81,36 +81,7 @@
 			<li class="list_top"><!--{if empty($announcement['type'])}--><a href="forum.php?mod=announcement&id=$announcement[id]#$announcement[id]"><!--{else}--><a href="$announcement[message]"><!--{/if}--><span class="kmicon gonggao">{lang announcement}</span>$announcement[subject]</a></li>
 		<!--{/if}-->
 		<!--{if $_G['forum_threadcount']}-->
-
-
-
-
-
-
-
-
-
-
-
-<!--{eval include_once DISCUZ_ROOT.'./template/default/touch/list.php';$threadlist_data = get_attach($_G['forum_threadlist']);}-->
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
+			<!--{eval $threadlist_data = get_attach($_G['forum_threadlist']);}-->
 			<!--{loop $_G['forum_threadlist'] $key $thread}-->
 			<!--{if !$_G['setting']['mobile']['mobiledisplayorder3'] && $thread['displayorder'] > 0}-->
 				{eval continue;}
@@ -134,15 +105,15 @@
 			<li class="list">
 				<!--{hook/forumdisplay_thread_mobile $key}-->
 				<div class="threadlist_top cl">
-					<a href="home.php?mod=space&uid={$thread[authorid]}" class="kmimg"><img src="<!--{avatar($thread[authorid], middle, true)}-->"></a>
+					<a href="home.php?mod=space&uid={$thread[authorid]}" class="kmimg"><img src="<!--{avatar($thread['authorid'], middle, true)}-->"></a>
 					<div class="kmuser">
-						<h3><a href="home.php?mod=space&uid={$thread[authorid]}" class="kmmc">{$thread[author]}</a></h3>
-						<span class="kmtime">{$thread[dateline]}</span>
+						<h3><a href="home.php?mod=space&uid={$thread[authorid]}" class="kmmc">{$thread['author']}</a></h3>
+						<span class="kmtime">{$thread['dateline']}</span>
 					</div>
 				</div>
 				<a href="forum.php?mod=viewthread&tid=$thread['tid']&extra=$extra">
 				<div class="threadlist_tit cl">
-					<!--{if $thread[folder] == 'lock'}-->
+					<!--{if $thread['folder'] == 'lock'}-->
 						<span class="kmicon lock">{lang closed_thread}</span>
 					<!--{elseif $thread['special'] == 1}-->
 						<span class="kmicon">{lang thread_poll}</span>
@@ -187,8 +158,8 @@
 						<!--{if $thread['typeid']}-->
 						<li class="kmr"><a href="forum.php?mod=forumdisplay&fid=$thread['fid']&filter=typeid&typeid=$thread['typeid']">#{$_G['forum']['threadtypes']['types'][$thread['typeid']]}</a></li>
 						<!--{/if}-->
-						<li><i class="iconfont">&#xe73c;</i>{$thread[views]}</li>
-						<li><i class="iconfont">&#xe743;</i>{$thread[replies]}</li>
+						<li><i class="iconfont">&#xe73c;</i>{$thread['views']}</li>
+						<li><i class="iconfont">&#xe743;</i>{$thread['replies']}</li>
 					</ul>
 				</div>
 			</li>

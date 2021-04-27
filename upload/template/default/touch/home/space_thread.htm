@@ -5,7 +5,7 @@
 	<div class="kmy"><a href="<!--{if $_G['setting']['mobile']['mobilehotthread']}--><!--{if !empty($_G['setting']['grid']['showgrid'])}-->forum.php<!--{else}-->forum.php?mod=guide&view=newthread<!--{/if}--><!--{else}-->forum.php?forumlist=1<!--{/if}-->"><i class="iconfont">&#xe751;</i></a></div>
 </div>
 <!--{if $list}-->
-	<!--{eval include_once DISCUZ_ROOT.'./template/default/touch/list.php';$threadlist_data = get_attach($list);}-->
+	<!--{eval $threadlist_data = get_attach($list);}-->
 	<div class="threadlist cl">
 		<ul>
 			<!--{loop $list $thread}-->

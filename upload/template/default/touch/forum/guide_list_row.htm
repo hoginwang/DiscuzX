@@ -1,14 +1,14 @@
 <!--{if $list['threadcount']}-->
-<!--{eval include_once DISCUZ_ROOT.'./template/default/touch/list.php';$threadlist_data = get_attach($list['threadlist']);}-->
+<!--{eval $threadlist_data = get_attach($list['threadlist']);}-->
 	<div class="threadlist cl">
 		<ul>
 			<!--{loop $list['threadlist'] $key $thread}-->
 			<li class="list">
 				<div class="threadlist_top cl">
-					<a href="home.php?mod=space&uid={$thread[authorid]}" class="kmimg"><img src="<!--{avatar($thread[authorid], middle, true)}-->"></a>
+					<a href="home.php?mod=space&uid={$thread['authorid']}" class="kmimg"><img src="<!--{avatar($thread['authorid'], middle, true)}-->"></a>
 					<div class="kmuser">
-						<h3><a href="home.php?mod=space&uid={$thread[authorid]}" class="kmmc">{$thread[author]}</a></h3>
-						<span class="kmtime">{$thread[dateline]}</span>
+						<h3><a href="home.php?mod=space&uid={$thread['authorid']}" class="kmmc">{$thread['author']}</a></h3>
+						<span class="kmtime">{$thread['dateline']}</span>
 					</div>
 				</div>
 				<a href="forum.php?mod=viewthread&tid=$thread['tid']&extra=$extra">
@@ -35,7 +35,7 @@
 					<!--{if $thread['digest'] > 0}-->
 						<span class="kmicon digest">{lang thread_digest}</span>
 					<!--{/if}-->
-					<em $thread[highlight]>{$thread[subject]}</em>					
+					<em $thread[highlight]>{$thread['subject']}</em>					
 				</div>
 				</a>
 				<!--{if $threadlist_data[$thread['tid']]['attachment']}-->
@@ -55,8 +55,8 @@
 				<div class="threadlist_foot cl">
 					<ul>
 						<li class="kmr"><a href="forum.php?mod=forumdisplay&fid=$thread['fid']">#{$_G['cache']['forums'][$thread['fid']]['name']}</a></li>
-						<li><i class="iconfont">&#xe73c;</i>{$thread[views]}</li>
-						<li><i class="iconfont">&#xe743;</i>{$thread[replies]}</li>
+						<li><i class="iconfont">&#xe73c;</i>{$thread['views']}</li>
+						<li><i class="iconfont">&#xe743;</i>{$thread['replies']}</li>
 					</ul>
 				</div>
 			</li>
