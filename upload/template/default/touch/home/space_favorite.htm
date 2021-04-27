@@ -1,0 +1,44 @@
+<!--{template common/header}-->
+<div class="header cl">
+	<div class="kmz"><a href="javascript:history.back();"><i class="iconfont">&#xe779;</i></a></div>
+	<h2>{lang myfavorite}</h2>
+	<div class="kmy"><a href="<!--{if $_G['setting']['mobile']['mobilehotthread']}--><!--{if !empty($_G['setting']['grid']['showgrid'])}-->forum.php<!--{else}-->forum.php?mod=guide&view=newthread<!--{/if}--><!--{else}-->forum.php?forumlist=1<!--{/if}-->"><i class="iconfont">&#xe751;</i></a></div>
+</div>
+<div class="dhnv flex-box cl">
+	<!--{if helper_access::check_module('favorite')}-->
+		<a href="home.php?mod=space&uid={$_G[uid]}&do=favorite&view=me&type=thread" class="flex<!--{if $_GET['type'] != 'forum'}--> kmon<!--{/if}-->">{lang favthread}</a>
+		<a href="home.php?mod=space&uid={$_G[uid]}&do=favorite&view=me&type=forum" class="flex<!--{if $_GET['type'] == 'forum'}--> kmon<!--{/if}-->">{lang favforum}</a>
+	<!--{/if}-->
+</div>
+<!--{if $_GET['type'] == 'forum'}-->
+	<!--{if $list}-->
+		<div class="findbox mt10 cl">
+			<ul>
+				<!--{loop $list $k $value}-->
+				<li class="sclist"><a href="home.php?mod=spacecp&ac=favorite&op=delete&favid=$k" class="dialog kmdel"><i class="iconfont">&#xe647;</i></a><a href="$value[url]">{$value[icon]}{$value[title]}</a></li>
+				<!--{/loop}-->
+			</ul>
+		</div>
+	<!--{else}-->
+		<div class="threadlist_box mt10 cl">
+			<h4>{lang no_favorite_yet}</h4>
+		</div>
+	<!--{/if}-->
+<!--{else}-->
+	<!--{if $list}-->
+		<div class="findbox mt10 cl">
+			<ul>
+				<!--{loop $list $k $value}-->
+				<li class="sclist"><a href="home.php?mod=spacecp&ac=favorite&op=delete&favid=$k" class="dialog kmdel"><i class="iconfont">&#xe647;</i></a><a href="$value[url]">{$value[icon]}{$value[title]}</a></li>
+				<!--{/loop}-->
+			</ul>
+		</div>
+	<!--{else}-->
+		<div class="threadlist_box mt10 cl">
+			<h4>{lang no_favorite_yet}</h4>
+		</div>
+	<!--{/if}-->
+<!--{/if}-->
+$multi
+<!--{eval $nofooter = true;}-->
+<!--{template common/footer}-->
