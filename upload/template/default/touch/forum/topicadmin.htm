@@ -4,11 +4,11 @@
     <form id="moderateform" method="post" autocomplete="off" action="forum.php?mod=topicadmin&action=moderate&optgroup=$optgroup&modsubmit=yes&mobile=2" >
         <input type="hidden" name="frommodcp" value="$frommodcp" />
         <input type="hidden" name="formhash" value="{FORMHASH}" />
-        <input type="hidden" name="fid" value="$_G[fid]" />
+        <input type="hidden" name="fid" value="$_G['fid']" />
         <input type="hidden" name="redirect" value="{echo dreferer()}" />
         <input type="hidden" name="reason" value="{lang topicadmin_mobile_mod}" />
         <!--{loop $threadlist $thread}-->
-            <input type="hidden" name="moderate[]" value="$thread[tid]" />
+            <input type="hidden" name="moderate[]" value="$thread['tid']" />
         <!--{/loop}-->
         <!--{if $_GET['optgroup'] == 3}-->
             <!--{if $operation == 'delete'}-->

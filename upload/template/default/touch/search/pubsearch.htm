@@ -11,8 +11,8 @@
 			<!--{if $val=trim($val)}-->
 				<!--{eval $valenc=rawurlencode($val);}-->
 				<!--{block srchhotkeywords[]}-->
-					<!--{if !empty($searchparams[url])}-->
-						<li><a href="$searchparams[url]?q=$valenc&source=hotsearch{$srchotquery}">$val</a></li>
+					<!--{if !empty($searchparams['url'])}-->
+						<li><a href="$searchparams['url']?q=$valenc&source=hotsearch{$srchotquery}">$val</a></li>
 					<!--{else}-->
 						<li><a href="search.php?mod=forum&srchtxt=$valenc&formhash={FORMHASH}&searchsubmit=true&source=hotsearch">$val</a></li>
 					<!--{/if}-->

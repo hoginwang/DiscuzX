@@ -1,7 +1,7 @@
 <!--{template common/header}-->
 <div class="tip">
 <!--{if $_GET['op'] == 'delete'}-->
-	<form id="favoriteform_{$favid}" name="favoriteform_{$favid}" method="post" autocomplete="off" action="home.php?mod=spacecp&ac=favorite&op=delete&favid=$favid&type=$_GET[type]&mobile=2">
+	<form id="favoriteform_{$favid}" name="favoriteform_{$favid}" method="post" autocomplete="off" action="home.php?mod=spacecp&ac=favorite&op=delete&favid=$favid&type=$_GET['type']&mobile=2">
 		<input type="hidden" name="referer" value="{eval echo dreferer();}" />
 		<input type="hidden" name="deletesubmit" value="true" />
 		<input type="hidden" name="formhash" value="{FORMHASH}" />

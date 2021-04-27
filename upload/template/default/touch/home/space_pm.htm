@@ -1,6 +1,6 @@
 <!--{eval $_G['home_tpl_titles'] = array('{lang pm}');}-->
 <!--{template common/header}-->
-<!--{if in_array($filter, array('privatepm')) || in_array($_GET[subop], array('view'))}-->
+<!--{if in_array($filter, array('privatepm')) || in_array($_GET['subop'], array('view'))}-->
 	<!--{if in_array($filter, array('privatepm'))}-->
 	<div class="header cl">
 		<div class="kmz"><a href="javascript:history.back();"><i class="iconfont">&#xe779;</i></a></div>
@@ -15,30 +15,30 @@
 		<ul>
 			<!--{loop $list $key $value}-->
 			<li>
-				<span class="kmimg"><a href="{if $value[touid]}home.php?mod=space&do=pm&subop=view&touid=$value[touid]{else}home.php?mod=space&do=pm&subop=view&plid={$value['plid']}&type=1{/if}"><img src="<!--{if $value[pmtype] == 2}-->{STATICURL}image/common/grouppm.png<!--{else}--><!--{avatar($value[touid] ? $value[touid] : ($value[lastauthorid] ? $value[lastauthorid] : $value[authorid]), small, true)}--><!--{/if}-->"></a></span>
-				<a href="{if $value[touid]}home.php?mod=space&do=pm&subop=view&touid=$value[touid]{else}home.php?mod=space&do=pm&subop=view&plid={$value['plid']}&type=1{/if}">
+				<span class="kmimg"><a href="{if $value['touid']}home.php?mod=space&do=pm&subop=view&touid=$value['touid']{else}home.php?mod=space&do=pm&subop=view&plid={$value['plid']}&type=1{/if}"><img src="<!--{if $value['pmtype'] == 2}-->{STATICURL}image/common/grouppm.png<!--{else}--><!--{avatar($value['touid'] ? $value['touid'] : ($value['lastauthorid'] ? $value['lastauthorid'] : $value['authorid']), small, true)}--><!--{/if}-->"></a></span>
+				<a href="{if $value['touid']}home.php?mod=space&do=pm&subop=view&touid=$value['touid']{else}home.php?mod=space&do=pm&subop=view&plid={$value['plid']}&type=1{/if}">
 					<p class="kmtit">
-						<span class="kmtime"><!--{date($value[dateline], 'u')}--></span>
-						<!--{if $value[new]}--><span class="kmnum">$value[pmnum]</span><!--{/if}-->
-						<!--{if $value[touid]}-->
-							<!--{if $value[msgfromid] == $_G[uid]}-->
-								{lang me}{lang you_to} {$value[tousername]} {lang say}:
+						<span class="kmtime"><!--{date($value['dateline'], 'u')}--></span>
+						<!--{if $value['new']}--><span class="kmnum">$value['pmnum']</span><!--{/if}-->
+						<!--{if $value['touid']}-->
+							<!--{if $value['msgfromid'] == $_G['uid']}-->
+								{lang me}{lang you_to} {$value['tousername']} {lang say}:
 							<!--{else}-->
-								{$value[tousername]} {lang you_to}{lang me} {lang say}:
+								{$value['tousername']} {lang you_to}{lang me} {lang say}:
 							<!--{/if}-->
 						<!--{elseif $value['pmtype'] == 2}-->
 							{lang chatpm_author}:$value['firstauthor']
 						<!--{/if}-->
 					</p>
 					<p class="kmtxt">
-						<!--{if $value['pmtype'] == 2}-->[{lang chatpm}]<!--{if $value[subject]}-->$value[subject]<br><!--{/if}--><!--{/if}--><!--{if $value['pmtype'] == 2 && $value['lastauthor']}-->$value['lastauthor'] : $value[message]<!--{else}-->$value[message]<!--{/if}-->
+						<!--{if $value['pmtype'] == 2}-->[{lang chatpm}]<!--{if $value['subject']}-->$value['subject']<br><!--{/if}--><!--{/if}--><!--{if $value['pmtype'] == 2 && $value['lastauthor']}-->$value['lastauthor'] : $value['message']<!--{else}-->$value['message']<!--{/if}-->
 					</p>
 				</a>
 			</li>
 			<!--{/loop}-->
 		</ul>
 	</div>
-	<!--{elseif in_array($_GET[subop], array('view'))}-->
+	<!--{elseif in_array($_GET['subop'], array('view'))}-->
 		<div class="header cl">
 			<div class="kmz"><a href="javascript:history.back();"><i class="iconfont">&#xe779;</i></a></div>
 			<h2>{lang viewmypm}</h2>

@@ -13,7 +13,7 @@
 				</div>
 				<a href="forum.php?mod=viewthread&tid=$thread['tid']&extra=$extra">
 				<div class="threadlist_tit cl">
-					<!--{if $thread[folder] == 'lock'}-->
+					<!--{if $thread['folder'] == 'lock'}-->
 						<span class="kmicon lock">{lang closed_thread}</span>
 					<!--{elseif $thread['special'] == 1}-->
 						<span class="kmicon">{lang thread_poll}</span>
@@ -35,7 +35,7 @@
 					<!--{if $thread['digest'] > 0}-->
 						<span class="kmicon digest">{lang thread_digest}</span>
 					<!--{/if}-->
-					<em $thread[highlight]>{$thread['subject']}</em>					
+					<em $thread['highlight']>{$thread['subject']}</em>					
 				</div>
 				</a>
 				<!--{if $threadlist_data[$thread['tid']]['attachment']}-->

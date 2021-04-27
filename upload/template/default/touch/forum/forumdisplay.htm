@@ -9,7 +9,7 @@
 	<h2>
 	<img src="<!--{if $_G['forum']['icon']}--><!--{echo get_forumimg($_G['forum']['icon'])}--><!--{else}-->template/default/touch/style/img/forum.png<!--{/if}-->" alt="$_G['forum']['name']" />
 	<!--{if helper_access::check_module('favorite')}-->
-	<a href="home.php?mod=spacecp&ac=favorite&type=forum&id=$_G[fid]&handlekey=favoriteforum&formhash={FORMHASH}" id="a_favorite" class="dialog">{lang favorite}<span id="number_favorite" {if !$_G['forum']['favtimes']} style="display:none;"{/if}><span id="number_favorite_num"> +{$_G['forum']['favtimes']}</span></span></a>
+	<a href="home.php?mod=spacecp&ac=favorite&type=forum&id=$_G['fid']&handlekey=favoriteforum&formhash={FORMHASH}" id="a_favorite" class="dialog">{lang favorite}<span id="number_favorite" {if !$_G['forum']['favtimes']} style="display:none;"{/if}><span id="number_favorite_num"> +{$_G['forum']['favtimes']}</span></span></a>
 	<!--{/if}-->
 	$_G['forum']['name']
 	</h2>
@@ -19,11 +19,11 @@
 	<div id="dhnav">
 		<div id="dhnav_li">
 		<ul class="flex-box">
-			<li class="flex{if $_REQUEST['sortall']==1||(!$_REQUEST['typeid'] && !$_REQUEST['sortid']&& !$_REQUEST['filter'])} kmon{/if}"><a href="forum.php?mod=forumdisplay&fid=$_G[fid]{if $_G['forum']['threadsorts']['defaultshow']}&filter=sortall&sortall=1{/if}{if $_GET['archiveid']}&archiveid={$_GET['archiveid']}{/if}">{lang all}</a></li>
-			<li class="flex{if $_GET['filter'] == 'lastpost'} kmon{/if}"><a href="forum.php?mod=forumdisplay&fid=$_G[fid]&filter=lastpost&orderby=lastpost$forumdisplayadd[lastpost]{if $_GET['archiveid']}&archiveid={$_GET['archiveid']}{/if}">{lang latest}</a></li>
-			<li class="flex{if $_GET['filter'] == 'heat'} kmon{/if}"><a href="forum.php?mod=forumdisplay&fid=$_G[fid]&filter=heat&orderby=heats$forumdisplayadd[heat]{if $_GET['archiveid']}&archiveid={$_GET['archiveid']}{/if}">{lang order_heats}</a></li>
-			<li class="flex{if $_GET['filter'] == 'hot'} kmon{/if}"><a href="forum.php?mod=forumdisplay&fid=$_G[fid]&filter=hot">{lang hot_thread}</a></li>
-			<li class="flex{if $_GET['filter'] == 'digest'} kmon{/if}"><a href="forum.php?mod=forumdisplay&fid=$_G[fid]&filter=digest&digest=1$forumdisplayadd[digest]{if $_GET['archiveid']}&archiveid={$_GET['archiveid']}{/if}">{lang digest_posts}</a></li>			
+			<li class="flex{if $_REQUEST['sortall']==1||(!$_REQUEST['typeid'] && !$_REQUEST['sortid']&& !$_REQUEST['filter'])} kmon{/if}"><a href="forum.php?mod=forumdisplay&fid=$_G['fid']{if $_G['forum']['threadsorts']['defaultshow']}&filter=sortall&sortall=1{/if}{if $_GET['archiveid']}&archiveid={$_GET['archiveid']}{/if}">{lang all}</a></li>
+			<li class="flex{if $_GET['filter'] == 'lastpost'} kmon{/if}"><a href="forum.php?mod=forumdisplay&fid=$_G['fid']&filter=lastpost&orderby=lastpost$forumdisplayadd['lastpost']{if $_GET['archiveid']}&archiveid={$_GET['archiveid']}{/if}">{lang latest}</a></li>
+			<li class="flex{if $_GET['filter'] == 'heat'} kmon{/if}"><a href="forum.php?mod=forumdisplay&fid=$_G['fid']&filter=heat&orderby=heats$forumdisplayadd['heat']{if $_GET['archiveid']}&archiveid={$_GET['archiveid']}{/if}">{lang order_heats}</a></li>
+			<li class="flex{if $_GET['filter'] == 'hot'} kmon{/if}"><a href="forum.php?mod=forumdisplay&fid=$_G['fid']&filter=hot">{lang hot_thread}</a></li>
+			<li class="flex{if $_GET['filter'] == 'digest'} kmon{/if}"><a href="forum.php?mod=forumdisplay&fid=$_G['fid']&filter=digest&digest=1$forumdisplayadd['digest']{if $_GET['archiveid']}&archiveid={$_GET['archiveid']}{/if}">{lang digest_posts}</a></li>			
 		</ul>
 		</div>
 	</div>
@@ -36,16 +36,16 @@
 				<!--{if ($_G['forum']['threadtypes'] && $_G['forum']['threadtypes']['listable'])}-->
 					<!--{if $_G['forum']['threadtypes']}-->
 						<!--{loop $_G['forum']['threadtypes']['types'] $id $name}-->
-							<li class="swiper-slide{if $_GET['typeid'] == $id} kmon{/if}"><a href="forum.php?mod=forumdisplay&fid=$_G[fid]&filter=typeid&typeid=$id$forumdisplayadd[typeid]{if $_GET['archiveid']}&archiveid={$_GET['archiveid']}{/if}">$name</a></li>
+							<li class="swiper-slide{if $_GET['typeid'] == $id} kmon{/if}"><a href="forum.php?mod=forumdisplay&fid=$_G['fid']&filter=typeid&typeid=$id$forumdisplayadd['typeid']{if $_GET['archiveid']}&archiveid={$_GET['archiveid']}{/if}">$name</a></li>
 						<!--{/loop}-->
 					<!--{/if}-->
 				<!--{/if}-->
 				<!--{if $_G['forum']['threadsorts']}-->
 					<!--{loop $_G['forum']['threadsorts']['types'] $id $name}-->
 						<!--{if $_GET['sortid'] == $id}-->
-						<li class="swiper-slide kmon"><a href="forum.php?mod=forumdisplay&fid=$_G[fid]{if $_GET['typeid']}&filter=typeid&typeid=$_GET['typeid']{/if}{if $_GET['archiveid']}&archiveid={$_GET['archiveid']}{/if}">$name</a></li>
+						<li class="swiper-slide kmon"><a href="forum.php?mod=forumdisplay&fid=$_G['fid']{if $_GET['typeid']}&filter=typeid&typeid=$_GET['typeid']{/if}{if $_GET['archiveid']}&archiveid={$_GET['archiveid']}{/if}">$name</a></li>
 						<!--{else}-->
-						<li class="swiper-slide"><a href="forum.php?mod=forumdisplay&fid=$_G[fid]&filter=sortid&sortid=$id$forumdisplayadd[sortid]{if $_GET['archiveid']}&archiveid={$_GET['archiveid']}{/if}">$name</a></li>
+						<li class="swiper-slide"><a href="forum.php?mod=forumdisplay&fid=$_G['fid']&filter=sortid&sortid=$id$forumdisplayadd['sortid']{if $_GET['archiveid']}&archiveid={$_GET['archiveid']}{/if}">$name</a></li>
 						<!--{/if}-->
 					<!--{/loop}-->
 				<!--{/if}-->
@@ -78,7 +78,7 @@
 	<div class="threadlist cl">
 		<ul>
 		<!--{if !empty($announcement)}-->
-			<li class="list_top"><!--{if empty($announcement['type'])}--><a href="forum.php?mod=announcement&id=$announcement[id]#$announcement[id]"><!--{else}--><a href="$announcement[message]"><!--{/if}--><span class="kmicon gonggao">{lang announcement}</span>$announcement[subject]</a></li>
+			<li class="list_top"><!--{if empty($announcement['type'])}--><a href="forum.php?mod=announcement&id=$announcement['id']#$announcement['id']"><!--{else}--><a href="$announcement['message']"><!--{/if}--><span class="kmicon gonggao">{lang announcement}</span>$announcement['subject']</a></li>
 		<!--{/if}-->
 		<!--{if $_G['forum_threadcount']}-->
 			<!--{eval $threadlist_data = get_attach($_G['forum_threadlist']);}-->
@@ -90,7 +90,7 @@
 				{eval $displayorder_thread = 1;}
 			<!--{/if}-->
 			<!--{if $thread['moved']}-->
-				<!--{eval $thread['tid']=$thread[closed];}-->
+				<!--{eval $thread['tid']=$thread['closed'];}-->
 			<!--{/if}-->
 			<!--{if in_array($thread['displayorder'], array(1, 2, 3, 4))}-->
 			<li class="list_top">
@@ -98,16 +98,16 @@
 					<!--{if in_array($thread['displayorder'], array(1, 2, 3, 4))}-->
 						<span class="kmicon">{lang mobzhiding}</span>
 					<!--{/if}-->
-					<em $thread[highlight]>{$thread[subject]}</em>					
+					<em $thread['highlight']>{$thread['subject']}</em>					
 				</a>
 			</li>
 			<!--{else}-->
 			<li class="list">
 				<!--{hook/forumdisplay_thread_mobile $key}-->
 				<div class="threadlist_top cl">
-					<a href="home.php?mod=space&uid={$thread[authorid]}" class="kmimg"><img src="<!--{avatar($thread['authorid'], middle, true)}-->"></a>
+					<a href="home.php?mod=space&uid={$thread['authorid']}" class="kmimg"><img src="<!--{avatar($thread['authorid'], middle, true)}-->"></a>
 					<div class="kmuser">
-						<h3><a href="home.php?mod=space&uid={$thread[authorid]}" class="kmmc">{$thread['author']}</a></h3>
+						<h3><a href="home.php?mod=space&uid={$thread['authorid']}" class="kmmc">{$thread['author']}</a></h3>
 						<span class="kmtime">{$thread['dateline']}</span>
 					</div>
 				</div>
@@ -135,7 +135,7 @@
 					<!--{if $thread['digest'] > 0}-->
 						<span class="kmicon digest">{lang thread_digest}</span>
 					<!--{/if}-->
-					<em $thread[highlight]>{$thread[subject]}</em>					
+					<em $thread['highlight']>{$thread['subject']}</em>					
 				</div>
 				</a>
 				<a href="forum.php?mod=viewthread&tid=$thread['tid']&extra=$extra"><div class="threadlist_mes cl">{$threadlist_data[$thread['tid']]['message']}</div></a>

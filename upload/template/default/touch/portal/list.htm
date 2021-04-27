@@ -4,16 +4,16 @@
 <!--{eval $list = category_get_list($cat, $wheresql, $page);}-->
 <div class="header cl">
 	<div class="kmz"><a href="javascript:history.back();"><i class="iconfont">&#xe779;</i></a></div>
-	<h2>$cat[catname]</h2>
+	<h2>$cat['catname']</h2>
 	<div class="kmy"><a href="<!--{if $_G['setting']['mobile']['mobilehotthread']}--><!--{if !empty($_G['setting']['grid']['showgrid'])}-->forum.php<!--{else}-->forum.php?mod=guide&view=newthread<!--{/if}--><!--{else}-->forum.php?forumlist=1<!--{/if}-->"><i class="iconfont">&#xe751;</i></a></div>
 </div>
 <div class="dhnav_box">
 	<div id="dhnav">
 		<div id="dhnav_li">
 		<ul class="swiper-wrapper">
-		<!--{loop $cat[others] $value}-->
+		<!--{loop $cat['others'] $value}-->
 			<!--{if $value['closed'] == 0 && !in_array($value['catid'], dunserialize($comiis_app_switch['comiis_noshowcatlist']))}-->
-			<li class="swiper-slide{if $value['catid'] == $_GET['catid']} kmon{/if}"><a href="{$portalcategory[$value['catid']]['caturl']}">$value[catname]</a></li>
+			<li class="swiper-slide{if $value['catid'] == $_GET['catid']} kmon{/if}"><a href="{$portalcategory[$value['catid']]['caturl']}">$value['catname']</a></li>
 			<!--{/if}-->
 		<!--{/loop}-->
 		</ul>
@@ -38,14 +38,14 @@
 		},
 	});
 </script>
-<!--{if $cat[subs]}-->
+<!--{if $cat['subs']}-->
 <div class="dhnavs_box">
 	<div id="dhnavs">
 		<div id="dhnavs_li">
 			<ul class="swiper-wrapper">
 				<!--{eval $i = 1;}-->
-				<!--{loop $cat[subs] $value}-->
-				<li class="swiper-slide"><!--{if $i != 1}--><span>|</span><!--{/if}--><a href="{$portalcategory[$value['catid']]['caturl']}">$value[catname]</a></li>
+				<!--{loop $cat['subs'] $value}-->
+				<li class="swiper-slide"><!--{if $i != 1}--><span>|</span><!--{/if}--><a href="{$portalcategory[$value['catid']]['caturl']}">$value['catname']</a></li>
 				<!--{eval $i--;}-->
 				<!--{/loop}-->
 			</ul>
@@ -72,10 +72,10 @@
 	<!--{eval $article_url = fetch_article_url($value);}-->
 	<li>
 		<a href="$article_url" $highlight>
-		<!--{if $value[pic]}--><div class="kmimg"><img src="$value[pic]" alt="$value[title]" /></div><!--{/if}-->
+		<!--{if $value['pic']}--><div class="kmimg"><img src="$value['pic']" alt="$value['title']" /></div><!--{/if}-->
 		<div class="kminfo">
-			<p class="kmtit">$value[title]</p>
-			<p class="kmtime"><!--{if $value[status] == 1}--><span>{lang moderate_need}</span><!--{/if}-->$value[dateline]</p>
+			<p class="kmtit">$value['title']</p>
+			<p class="kmtime"><!--{if $value['status'] == 1}--><span>{lang moderate_need}</span><!--{/if}-->$value['dateline']</p>
 		</div>
 		</a>
 	</li>

@@ -5,11 +5,11 @@
 	<div class="kmy"></div>
 </div>
 <div class="loginbox cl">
-	<form method="post" autocomplete="off" action="member.php?mod=getpasswd&uid=$uid&id=$hashid&sign=$_GET[sign]">
+	<form method="post" autocomplete="off" action="member.php?mod=getpasswd&uid=$uid&id=$hashid&sign=$_GET['sign']">
 		<input type="hidden" name="formhash" value="{FORMHASH}" />
 		<div class="login_from">
 			<div class="lgfm">
-				<label><em>{lang username}:</em>$member[username]</label>
+				<label><em>{lang username}:</em>$member['username']</label>
 				<label><em>{lang new_password}:</em><input type="password" id="newpasswd1" name="newpasswd1" size="25" class="px" /></label>
 				<p style="height:22px;">
 					
@@ -24,7 +24,7 @@
 		</div>
 		<div class="btn_login"><button type="submit" name="getpwsubmit" value="true" class="pn">{lang submit}</button></div>
 	</form>
-	<script type="text/javascript" src="{$_G[setting][jspath]}register.js?{VERHASH}"></script>
+	<script type="text/javascript" src="{$_G['setting']['jspath']}register.js?{VERHASH}"></script>
 	<script type="text/javascript">
 		var strongpw = new Array();
 		<!--{if $_G['setting']['strongpw']}-->
