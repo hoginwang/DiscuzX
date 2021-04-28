@@ -11,6 +11,7 @@ if(!defined('IN_DISCUZ')) {
 	exit('Access Denied');
 }
 
+$_GET['op']  = preg_replace('/[^\[A-Za-z0-9_\]]/', '', $_GET['op']);
 $albumid = empty($_GET['albumid'])?0:intval($_GET['albumid']);
 
 if($_GET['op'] == 'recount') {
