@@ -12,7 +12,7 @@
 		<div id="dhnav_li">
 		<ul class="swiper-wrapper">
 		<!--{loop $cat['others'] $value}-->
-			<!--{if $value['closed'] == 0 && !in_array($value['catid'], dunserialize($comiis_app_switch['comiis_noshowcatlist']))}-->
+			<!--{if $value['closed'] == 0}-->
 			<li class="swiper-slide{if $value['catid'] == $_GET['catid']} mon{/if}"><a href="{$portalcategory[$value['catid']]['caturl']}">$value['catname']</a></li>
 			<!--{/if}-->
 		<!--{/loop}-->
