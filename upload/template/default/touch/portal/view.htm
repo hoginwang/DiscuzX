@@ -1,8 +1,8 @@
 <!--{template common/header}-->
 <div class="header cl">
-	<div class="kmz"><a href="javascript:history.back();"><i class="iconfont">&#xe779;</i></a></div>
+	<div class="mz"><a href="javascript:history.back();"><i class="iconfont">&#xe779;</i></a></div>
 	<h2>{lang view_content}</h2>
-	<div class="kmy"></div>
+	<div class="my"></div>
 </div>
 <!--{hook/view_article_top_mobile}-->
 <div class="wzview cl">
@@ -15,7 +15,7 @@
 		<!--{hook/view_article_summary_mobile}-->
 	<!--{/if}-->
 	<div class="wzview_body cl">
-		<!--{if $content['title']}--><div class="kmtit">$content['title']</div><!--{/if}-->
+		<!--{if $content['title']}--><div class="mtit">$content['title']</div><!--{/if}-->
 		$content['content']
 		<!--{hook/view_article_content_mobile}-->
 		<!--{if $multi}--><div class="page">$multi</div><!--{/if}-->
@@ -29,7 +29,7 @@
 </div>
 <!--{if $article['related']}-->
 <div class="txtlist mt10 cl">
-	<div class="kmtit cl">{lang view_related}</div>
+	<div class="mtit cl">{lang view_related}</div>
 	<ul class="cl">
 	<!--{loop $article['related'] $raid $rvalue}-->		
 		<li><a href="{$rvalue['uri']}"><i class="iconfont">&#xe775;</i>{$rvalue['title']}</a></li>

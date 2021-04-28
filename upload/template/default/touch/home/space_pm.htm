@@ -3,23 +3,23 @@
 <!--{if in_array($filter, array('privatepm')) || in_array($_GET['subop'], array('view'))}-->
 	<!--{if in_array($filter, array('privatepm'))}-->
 	<div class="header cl">
-		<div class="kmz"><a href="javascript:history.back();"><i class="iconfont">&#xe779;</i></a></div>
+		<div class="mz"><a href="javascript:history.back();"><i class="iconfont">&#xe779;</i></a></div>
 		<h2>{lang mypm}</h2>
-		<div class="kmy"><a href="home.php?mod=spacecp&ac=pm"><i class="iconfont">&#xe6bf;</i></a></div>
+		<div class="my"><a href="home.php?mod=spacecp&ac=pm"><i class="iconfont">&#xe6bf;</i></a></div>
 	</div>
 	<div class="dhnv flex-box cl">
-		<a href="home.php?mod=space&do=pm" class="flex kmon">{lang mypm}<!--{if $newpmcount}--><strong>($newpmcount)</strong><!--{/if}--></a>
+		<a href="home.php?mod=space&do=pm" class="flex mon">{lang mypm}<!--{if $newpmcount}--><strong>($newpmcount)</strong><!--{/if}--></a>
 		<a href="home.php?mod=space&do=notice" class="flex">{lang my}{lang remind}<!--{if $_G['member']['newprompt']}--><strong>($_G['member']['newprompt'])</strong><!--{/if}--></a>
 	</div>
 	<div id="pmlist" class="imglist cl">
 		<ul>
 			<!--{loop $list $key $value}-->
 			<li>
-				<span class="kmimg"><a href="{if $value['touid']}home.php?mod=space&do=pm&subop=view&touid=$value['touid']{else}home.php?mod=space&do=pm&subop=view&plid={$value['plid']}&type=1{/if}"><img src="<!--{if $value['pmtype'] == 2}-->{STATICURL}image/common/grouppm.png<!--{else}--><!--{avatar($value['touid'] ? $value['touid'] : ($value['lastauthorid'] ? $value['lastauthorid'] : $value['authorid']), small, true)}--><!--{/if}-->"></a></span>
+				<span class="mimg"><a href="{if $value['touid']}home.php?mod=space&do=pm&subop=view&touid=$value['touid']{else}home.php?mod=space&do=pm&subop=view&plid={$value['plid']}&type=1{/if}"><img src="<!--{if $value['pmtype'] == 2}-->{STATICURL}image/common/grouppm.png<!--{else}--><!--{avatar($value['touid'] ? $value['touid'] : ($value['lastauthorid'] ? $value['lastauthorid'] : $value['authorid']), 'small', true)}--><!--{/if}-->"></a></span>
 				<a href="{if $value['touid']}home.php?mod=space&do=pm&subop=view&touid=$value['touid']{else}home.php?mod=space&do=pm&subop=view&plid={$value['plid']}&type=1{/if}">
-					<p class="kmtit">
-						<span class="kmtime"><!--{date($value['dateline'], 'u')}--></span>
-						<!--{if $value['new']}--><span class="kmnum">$value['pmnum']</span><!--{/if}-->
+					<p class="mtit">
+						<span class="mtime"><!--{date($value['dateline'], 'u')}--></span>
+						<!--{if $value['new']}--><span class="mnum">$value['pmnum']</span><!--{/if}-->
 						<!--{if $value['touid']}-->
 							<!--{if $value['msgfromid'] == $_G['uid']}-->
 								{lang me}{lang you_to} {$value['tousername']} {lang say}:
@@ -30,7 +30,7 @@
 							{lang chatpm_author}:$value['firstauthor']
 						<!--{/if}-->
 					</p>
-					<p class="kmtxt">
+					<p class="mtxt">
 						<!--{if $value['pmtype'] == 2}-->[{lang chatpm}]<!--{if $value['subject']}-->$value['subject']<br><!--{/if}--><!--{/if}--><!--{if $value['pmtype'] == 2 && $value['lastauthor']}-->$value['lastauthor'] : $value['message']<!--{else}-->$value['message']<!--{/if}-->
 					</p>
 				</a>
@@ -40,9 +40,9 @@
 	</div>
 	<!--{elseif in_array($_GET['subop'], array('view'))}-->
 		<div class="header cl">
-			<div class="kmz"><a href="javascript:history.back();"><i class="iconfont">&#xe779;</i></a></div>
+			<div class="mz"><a href="javascript:history.back();"><i class="iconfont">&#xe779;</i></a></div>
 			<h2>{lang viewmypm}</h2>
-			<div class="kmy"><a href="<!--{if $_G['setting']['mobile']['mobilehotthread']}--><!--{if !empty($_G['setting']['grid']['showgrid'])}-->forum.php<!--{else}-->forum.php?mod=guide&view=newthread<!--{/if}--><!--{else}-->forum.php?forumlist=1<!--{/if}-->"><i class="iconfont">&#xe751;</i></a></div>
+			<div class="my"><a href="<!--{if $_G['setting']['mobile']['mobilehotthread']}--><!--{if !empty($_G['setting']['grid']['showgrid'])}-->forum.php<!--{else}-->forum.php?mod=guide&view=newthread<!--{/if}--><!--{else}-->forum.php?forumlist=1<!--{/if}-->"><i class="iconfont">&#xe751;</i></a></div>
 		</div>
 		<div class="msgbox b_m">
 			<!--{if !$list}-->			

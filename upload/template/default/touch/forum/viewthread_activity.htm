@@ -2,16 +2,16 @@
 <div class="activity cl">
 	<!--{if $activity['thumb']}--><img src="$activity['thumb']" class="vm"><!--{else}--><img src="{IMGDIR}/nophoto.gif" width="230" height="230" class="vm"><!--{/if}-->
 		<dl>
-			<dt><span class="kmtit">{lang activity_type}:</span>$activity['class']</dt>
-			<dt><span class="kmtit">{lang activity_starttime}:</span>
+			<dt><span class="mtit">{lang activity_type}:</span>$activity['class']</dt>
+			<dt><span class="mtit">{lang activity_starttime}:</span>
 				<!--{if $activity['starttimeto']}-->
 					{lang activity_start_between}
 				<!--{else}-->
 					$activity['starttimefrom']
 				<!--{/if}-->
 			</dt>
-			<dt><span class="kmtit">{lang activity_space}:</span>$activity['place']</dt>
-			<dt><span class="kmtit">{lang gender}:</span>
+			<dt><span class="mtit">{lang activity_space}:</span>$activity['place']</dt>
+			<dt><span class="mtit">{lang gender}:</span>
 				<!--{if $activity['gender'] == 1}-->
 					{lang male}
 				<!--{elseif $activity['gender'] == 2}-->
@@ -21,22 +21,22 @@
 				<!--{/if}-->
 			</dt>
 			<!--{if $activity['cost']}-->
-				<dt><span class="kmtit">{lang activity_payment}:</span>$activity['cost'] {lang payment_unit}</dt>
+				<dt><span class="mtit">{lang activity_payment}:</span>$activity['cost'] {lang payment_unit}</dt>
 			<!--{/if}-->
 		<!--{if !$_G['forum_thread']['is_archived']}-->
-			<dt><span class="kmtit">{lang activity_already}:</span>
+			<dt><span class="mtit">{lang activity_already}:</span>
 				<em>$allapplynum</em> {lang activity_member_unit}
 				<!--{if $post['invisible'] == 0 && ($_G['forum_thread']['authorid'] == $_G['uid'] || (in_array($_G['group']['radminid'], array(1, 2)) && $_G['group']['alloweditactivity']) || ( $_G['group']['radminid'] == 3 && $_G['forum']['ismoderator'] && $_G['group']['alloweditactivity']))}-->
-					<span class="kmy">{lang activity_mod}</span>
+					<span class="my">{lang activity_mod}</span>
 				<!--{/if}-->
 			</dt>
 			<!--{if $activity['number']}-->
-			<dt><span class="kmtit">{lang activity_about_member}:</span>
+			<dt><span class="mtit">{lang activity_about_member}:</span>
 				$aboutmembers {lang activity_member_unit}
 			</dt>
 			<!--{/if}-->
 			<!--{if $activity['expiration']}-->
-				<dt><span class="kmtit">{lang post_closing}:</span>$activity['expiration']</dt>
+				<dt><span class="mtit">{lang post_closing}:</span>$activity['expiration']</dt>
 			<!--{/if}-->
 			<dt>
 				<!--{if $post['invisible'] == 0}-->
@@ -65,7 +65,7 @@
 	<!--{else}-->
 		<form name="activity" id="activity" method="post" autocomplete="off" action="forum.php?mod=misc&action=activityapplies&fid=$_G['fid']&tid=$_G['tid']&pid=$post['pid']{if $_GET['from']}&from=$_GET['from']{/if}&mobile=2" >
 			<input type="hidden" name="formhash" value="{FORMHASH}" />			
-				<!--{if $_G['setting']['activitycredit'] && $activity['credit'] && !$applied}--><dt class="kmtxt">{lang activity_need_credit} $activity['credit'] {$_G['setting']['extcredits'][$_G['setting']['activitycredit']]['title']}</dt><!--{/if}-->
+				<!--{if $_G['setting']['activitycredit'] && $activity['credit'] && !$applied}--><dt class="mtxt">{lang activity_need_credit} $activity['credit'] {$_G['setting']['extcredits'][$_G['setting']['activitycredit']]['title']}</dt><!--{/if}-->
                 <!--{if $activity['cost']}-->
 					<p class="quote">{lang activity_paytype} <label><input class="pr" type="radio" value="0" name="payment" id="payment_0" checked="checked" />{lang activity_pay_myself}</label> <label><input class="pr" type="radio" value="1" name="payment" id="payment_1" />{lang activity_would_payment} <input name="payvalue" size="3" /> {lang payment_unit}</label></p>
                 <!--{/if}-->            
@@ -73,7 +73,7 @@
                     <!--{loop $activity['ufield']['userfield'] $fieldid}-->
                     <!--{if $settings[$fieldid]['available']}-->
                     <dt>
-                        <span class="kmtxt">$settings[$fieldid]['title']<span class="kmx">*</span></span>
+                        <span class="mtxt">$settings[$fieldid]['title']<span class="mx">*</span></span>
                         $htmls[$fieldid]
                     </dt>
                     <!--{/if}-->
@@ -85,12 +85,12 @@
                     <!--{/loop}-->
                 <!--{/if}-->
 				<dt>
-					<span class="kmtxt">{lang leaveword}</span>
+					<span class="mtxt">{lang leaveword}</span>
 					<textarea name="message" maxlength="200" class="px">$applyinfo['message']</textarea>
 				</dt>                
 			<div class="join_btn cl">
 				<!--{if $_G['setting']['activitycredit'] && $activity['credit'] && checklowerlimit(array('extcredits'.$_G['setting']['activitycredit'] => '-'.$activity['credit']), $_G['uid'], 1, 0, 1) !== true}-->
-					<dt class="kmtxt">{$_G['setting']['extcredits'][$_G['setting']['activitycredit']]['title']} {lang not_enough}$activity['credit']</dt>
+					<dt class="mtxt">{$_G['setting']['extcredits'][$_G['setting']['activitycredit']]['title']} {lang not_enough}$activity['credit']</dt>
 				<!--{else}-->
 					<input type="hidden" name="activitysubmit" value="true">
 					<em id="return_activityapplies"></em>
@@ -111,7 +111,7 @@
 	<form name="activity" method="post" autocomplete="off" action="forum.php?mod=misc&action=activityapplies&fid=$_G['fid']&tid=$_G['tid']&pid=$post['pid']{if $_GET['from']}&from=$_GET['from']{/if}">
 	<input type="hidden" name="formhash" value="{FORMHASH}" />
 	<dt>
-		<span class="kmtxt">{lang leaveword}</span>
+		<span class="mtxt">{lang leaveword}</span>
 		<input type="text" name="message" maxlength="200" class="px" value="" />
 	</dt> 
 	<div class="join_btn cl">
@@ -123,21 +123,21 @@
 <!--{if $applylist}-->
 <div class="activity cl">
     <dt>{lang activity_new_join} ($applynumbers {lang activity_member_unit})</dt>
-    <table class="kmbox" cellpadding="5" cellspacing="5">
+    <table class="mbox" cellpadding="5" cellspacing="5">
         <tr>
-            <th class="kma">{lang mod_option_moduser}</th>
+            <th class="ma">{lang mod_option_moduser}</th>
             <!--{if $activity['cost']}-->
-            <th class="kmb">{lang activity_payment}</th>
+            <th class="mb">{lang activity_payment}</th>
             <!--{/if}-->
-            <th class="kmc">{lang activity_jointime}</th>
+            <th class="mc">{lang activity_jointime}</th>
         </tr>
         <!--{loop $applylist $apply}-->
             <tr>
-                <td class="kma"><a href="home.php?mod=space&uid=$apply['uid']">$apply['username']</a></td>
+                <td class="ma"><a href="home.php?mod=space&uid=$apply['uid']">$apply['username']</a></td>
                 <!--{if $activity['cost']}-->
-                <td class="kmb"><!--{if $apply['payment'] >= 0}-->$apply['payment'] {lang payment_unit}<!--{else}-->{lang activity_self}<!--{/if}--></td>
+                <td class="mb"><!--{if $apply['payment'] >= 0}-->$apply['payment'] {lang payment_unit}<!--{else}-->{lang activity_self}<!--{/if}--></td>
                 <!--{/if}-->
-                <td class="kmc">$apply['dateline']</td>
+                <td class="mc">$apply['dateline']</td>
             </tr>
         <!--{/loop}-->
     </table>

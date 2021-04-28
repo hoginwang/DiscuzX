@@ -4,12 +4,12 @@
 <!--{else}-->
 <!--{if ($_G['setting']['mobile']['mobilehotthread'] && $_GET['forumlist'] != 1) || !$_G['setting']['mobile']['mobilehotthread']}-->
 	<div class="header cl">
-		<div class="kmzlogo"><a title="$_G['setting']['bbname']" href="javascript:;"><img src="template/default/touch/style/img/logo.png" /></a></div>
-		<div class="kmyss"><a href="search.php?mod=forum"><i class="iconfont">&#xe752;</i>{lang mobsearchtxt}</a></div>
+		<div class="mzlogo"><a title="$_G['setting']['bbname']" href="javascript:;"><img src="template/default/touch/style/img/logo.png" /></a></div>
+		<div class="myss"><a href="search.php?mod=forum"><i class="iconfont">&#xe752;</i>{lang mobsearchtxt}</a></div>
 	</div>
 <!--{else}-->
 	<div class="header cl">
-		<div class="kmz"><a href="javascript:history.back();"><i class="iconfont">&#xe779;</i></a></div>
+		<div class="mz"><a href="javascript:history.back();"><i class="iconfont">&#xe779;</i></a></div>
 		<h2>
 			<!--{if $_G['setting']['mobile']['mobilehotthread']}-->
 			{$_G['setting']['navs'][2]['navname']}
@@ -17,7 +17,7 @@
 			<a title="$_G['setting']['bbname']" href="javascript:;"><img src="./template/default/touch/style/img/logo.png" /></a>
 			<!--{/if}-->
 		</h2>
-		<div class="kmy"><a href="search.php?mod=forum"><i class="iconfont">&#xe752;</i></a></div>
+		<div class="my"><a href="search.php?mod=forum"><i class="iconfont">&#xe752;</i></a></div>
 	</div>
 <!--{/if}-->
 <!--{if ($_G['setting']['mobile']['mobilehotthread'] && $_GET['forumlist'] != 1) || !$_G['setting']['mobile']['mobilehotthread']}-->	
@@ -56,7 +56,7 @@
 		<div class="listbox hotbox-list cl">
 			<ul>				
 			<!--{loop $_G['cache']['heats']['subject'] $data}-->	
-				<li><a href="forum.php?mod=viewthread&tid=$data['tid']"><span class="kmbk">$_G['cache']['forums'][$data['fid']]['name']</span><span class="kmx">|</span>$data['subject']</a></li>
+				<li><a href="forum.php?mod=viewthread&tid=$data['tid']"><span class="mbk">$_G['cache']['forums'][$data['fid']]['name']</span><span class="mx">|</span>$data['subject']</a></li>
 			<!--{/loop}-->
 			</ul>
 		</div>
@@ -65,7 +65,7 @@
 	<!--{hook/index_catlist_top}-->
 	<!--{if !empty($_G['setting']['grid']['showgrid'])}-->
 	<div class="tabs flex-box cl">
-		<a href="javascript:;" class="flex kmon">{lang collection_lastthread}</a>
+		<a href="javascript:;" class="flex mon">{lang collection_lastthread}</a>
 		<a href="javascript:;" class="flex">{lang show_newthreads}</a>
 		<a href="javascript:;" class="flex">{$_G['setting']['navs'][2]['navname']}{lang hot_thread}</a>
 		<a href="javascript:;" class="flex">{lang post_digest_thread}</a>
@@ -78,7 +78,7 @@
 				<!--{if !$thread['forumstick'] && $thread['closed'] > 1 && ($thread['isgroup'] == 1 || $thread['fid'] != $_G['fid'])}-->
 					<!--{eval $thread['tid']=$thread['closed'];}-->
 				<!--{/if}-->
-				<li><a href="forum.php?mod=viewthread&tid=$thread['tid']"{if $thread['highlight']} $thread['highlight']{/if} title="$thread['oldsubject']"><span class="kmybk">$thread['dateline']</span><span class="kmico"></span>{$thread['oldsubject']}</a></li>
+				<li><a href="forum.php?mod=viewthread&tid=$thread['tid']"{if $thread['highlight']} $thread['highlight']{/if} title="$thread['oldsubject']"><span class="mybk">$thread['dateline']</span><span class="mico"></span>{$thread['oldsubject']}</a></li>
 				<!--{/loop}-->
 				</ul>
 			</div>
@@ -88,7 +88,7 @@
 				<!--{if !$thread['forumstick'] && $thread['closed'] > 1 && ($thread['isgroup'] == 1 || $thread['fid'] != $_G['fid'])}-->
 					<!--{eval $thread['tid']=$thread['closed'];}-->
 				<!--{/if}-->				
-				<li><a href="forum.php?mod=viewthread&tid=$thread['tid']"{if $thread['highlight']} $thread['highlight']{/if} title="$thread['oldsubject']"><span class="kmybk">$thread['replies'] {lang reply}</span><span class="kmico"></span>{$thread['oldsubject']}</a></li>
+				<li><a href="forum.php?mod=viewthread&tid=$thread['tid']"{if $thread['highlight']} $thread['highlight']{/if} title="$thread['oldsubject']"><span class="mybk">$thread['replies'] {lang reply}</span><span class="mico"></span>{$thread['oldsubject']}</a></li>
 				<!--{/loop}-->
 				</ul>
 			</div>
@@ -99,7 +99,7 @@
 					<!--{eval $thread['tid']=$thread['closed'];}-->
 				<!--{/if}-->
 				<!--{eval $i++;}-->
-				<li><a href="forum.php?mod=viewthread&tid=$thread['tid']"{if $thread['highlight']} $thread['highlight']{/if} title="$thread['oldsubject']"><span class="kmybk">$thread['views'] {lang mobrenqi}</span><span class="kmnum">$i</span>{$thread['oldsubject']}</a></li>
+				<li><a href="forum.php?mod=viewthread&tid=$thread['tid']"{if $thread['highlight']} $thread['highlight']{/if} title="$thread['oldsubject']"><span class="mybk">$thread['views'] {lang mobrenqi}</span><span class="mnum">$i</span>{$thread['oldsubject']}</a></li>
 				<!--{/loop}-->
 				</ul>
 			</div>
@@ -109,7 +109,7 @@
 				<!--{if !$thread['forumstick'] && $thread['closed'] > 1 && ($thread['isgroup'] == 1 || $thread['fid'] != $_G['fid'])}-->
 					<!--{eval $thread['tid']=$thread['closed'];}-->
 				<!--{/if}-->
-				<li><a href="forum.php?mod=viewthread&tid=$thread['tid']"{if $thread['highlight']} $thread['highlight']{/if} title="$thread['oldsubject']"><span class="kmybk">$thread['author']</span><span class="kmico"></span>{$thread['oldsubject']}</a></li>
+				<li><a href="forum.php?mod=viewthread&tid=$thread['tid']"{if $thread['highlight']} $thread['highlight']{/if} title="$thread['oldsubject']"><span class="mybk">$thread['author']</span><span class="mico"></span>{$thread['oldsubject']}</a></li>
 				<!--{/loop}-->
 				</ul>
 			</div>
@@ -121,15 +121,15 @@
 			speed: 500,
 			on: {
 				slideChangeTransitionStart: function() {
-					$(".tabs .kmon").removeClass('kmon');
-					$(".tabs a").eq(this.activeIndex).addClass('kmon');
+					$(".tabs .mon").removeClass('mon');
+					$(".tabs a").eq(this.activeIndex).addClass('mon');
 				}
 			}
 		})
 		$(".tabs a").on('click', function(e) {
 			e.preventDefault()
-			$(".tabs .kmon").removeClass('kmon')
-			$(this).addClass('kmon')
+			$(".tabs .mon").removeClass('mon')
+			$(this).addClass('mon')
 			tabsSwiper.slideTo($(this).index())
 		})
 	}
@@ -138,7 +138,7 @@
 <!--{else}-->
 	<!--{if $announcements}-->
 		<div class="ann-box">
-			<div class="kmtit">{lang announcements}</div>
+			<div class="mtit">{lang announcements}</div>
 			<div id="ann"><ul>$announcements</ul></div>
 		</div>
 		<script type="text/javascript">discuz_loop(24, 30, 3000, 'ann');</script>
@@ -158,18 +158,18 @@
 			<i class="iconfont"><!--{if !$_G['setting']['mobile']['mobileforumview']}-->&#xe677;<!--{else}-->&#xe664;<!--{/if}--></i>
 			<h2><a href="javascript:;">$cat['name']</a></h2>
 		</div>
-		<div id="sub-forum_$cat['fid']" class="sub-forum kmlist<!--{if $cat['forumcolumns'] == 3}-->3<!--{elseif $cat['forumcolumns'] == 2}-->2<!--{elseif $cat['forumcolumns'] == 1 || $cat['forumcolumns'] == 0}-->1<!--{else}-->4<!--{/if}--> cl">
+		<div id="sub-forum_$cat['fid']" class="sub-forum mlist<!--{if $cat['forumcolumns'] == 3}-->3<!--{elseif $cat['forumcolumns'] == 2}-->2<!--{elseif $cat['forumcolumns'] == 1 || $cat['forumcolumns'] == 0}-->1<!--{else}-->4<!--{/if}--> cl">
 			<ul>
 				<!--{loop $cat['forums'] $forumid}-->
 				<!--{eval $forum=$forumlist[$forumid];}-->
 				<!--{eval $forumurl = !empty($forum['domain']) && !empty($_G['setting']['domain']['root']['forum']) ? $_G['scheme'].'://'.$forum['domain'].'.'.$_G['setting']['domain']['root']['forum'] : 'forum.php?mod=forumdisplay&fid='.$forum['fid'];}-->
 				<!--{if $forum['permission'] == 1}-->
-					<li><span class="kmicon"><a href="forum.php?mod=forumdisplay&fid={$forum['fid']}"><!--{if $forum['icon']}-->$forum['icon']<!--{else}--><img src="template/default/touch/style/img/forum{if $forum['folder']}_new{/if}.png" alt="$forum['name']" /><!--{/if}--></a></span>
-					<a href="forum.php?mod=forumdisplay&fid={$forum['fid']}" class="kmurl"><p class="kmtit">{lang private_forum}<!--{if $forum['todayposts'] > 0 && ($cat['forumcolumns'] == 1 || $cat['forumcolumns'] == 0)}--><span class="kmnum">{lang forum_todayposts} $forum['todayposts']</span><!--{/if}--></p></a></li>
+					<li><span class="micon"><a href="forum.php?mod=forumdisplay&fid={$forum['fid']}"><!--{if $forum['icon']}-->$forum['icon']<!--{else}--><img src="template/default/touch/style/img/forum{if $forum['folder']}_new{/if}.png" alt="$forum['name']" /><!--{/if}--></a></span>
+					<a href="forum.php?mod=forumdisplay&fid={$forum['fid']}" class="murl"><p class="mtit">{lang private_forum}<!--{if $forum['todayposts'] > 0 && ($cat['forumcolumns'] == 1 || $cat['forumcolumns'] == 0)}--><span class="mnum">{lang forum_todayposts} $forum['todayposts']</span><!--{/if}--></p></a></li>
 				<!--{else}-->
-					<li><span class="kmicon"><a href="forum.php?mod=forumdisplay&fid={$forum['fid']}"><!--{if $forum['icon']}-->$forum['icon']<!--{else}--><img src="template/default/touch/style/img/forum{if $forum['folder']}_new{/if}.png" alt="$forum['name']" /><!--{/if}--></a></span>
-					<a href="forum.php?mod=forumdisplay&fid={$forum['fid']}" class="kmurl"><p class="kmtit">{$forum['name']}<!--{if $forum['todayposts'] > 0 && ($cat['forumcolumns'] == 1 || $cat['forumcolumns'] == 0)}--><span class="kmnum">{lang forum_todayposts} $forum['todayposts']</span><!--{/if}--></p>
-					<!--{if $cat['forumcolumns'] < 3}--><!--{if $forum['redirect']}--><p class="kmtxt">{lang url_link}</p><!--{else}--><p class="kmtxt"><!--{if $cat['forumcolumns'] == 2}-->{lang mobposts}: <!--{echo dnumber($forum['posts'])}--><!--{if $forum['todayposts'] > 0}--><span class="kmnum">{lang forum_todayposts}: $forum['todayposts']</span><!--{/if}--><!--{else}--><!--{if $forum['description']}-->$forum['description']<!--{else}-->{lang mobnodescription}<!--{/if}--><!--{/if}--></p><!--{/if}--><!--{/if}--></a></li>
+					<li><span class="micon"><a href="forum.php?mod=forumdisplay&fid={$forum['fid']}"><!--{if $forum['icon']}-->$forum['icon']<!--{else}--><img src="template/default/touch/style/img/forum{if $forum['folder']}_new{/if}.png" alt="$forum['name']" /><!--{/if}--></a></span>
+					<a href="forum.php?mod=forumdisplay&fid={$forum['fid']}" class="murl"><p class="mtit">{$forum['name']}<!--{if $forum['todayposts'] > 0 && ($cat['forumcolumns'] == 1 || $cat['forumcolumns'] == 0)}--><span class="mnum">{lang forum_todayposts} $forum['todayposts']</span><!--{/if}--></p>
+					<!--{if $cat['forumcolumns'] < 3}--><!--{if $forum['redirect']}--><p class="mtxt">{lang url_link}</p><!--{else}--><p class="mtxt"><!--{if $cat['forumcolumns'] == 2}-->{lang mobposts}: <!--{echo dnumber($forum['posts'])}--><!--{if $forum['todayposts'] > 0}--><span class="mnum">{lang forum_todayposts}: $forum['todayposts']</span><!--{/if}--><!--{else}--><!--{if $forum['description']}-->$forum['description']<!--{else}-->{lang mobnodescription}<!--{/if}--><!--{/if}--></p><!--{/if}--><!--{/if}--></a></li>
 				<!--{/if}-->
 				<!--{/loop}-->
 			</ul>
@@ -201,13 +201,14 @@
 <div class="footer mt10 cl">
 	<div class="footer-nv">
 		<a href="{$_G['setting']['mobile']['simpletypeurl'][0]}">{lang no_simplemobiletype}</a>|<a 
-		href="javascript:;" class="kmon">{lang mobile2version}</a>|<a 
+		href="javascript:;" class="mon">{lang mobile2version}</a>|<a 
 		href="{$_G['setting']['mobile']['nomobileurl']}">{lang nomobiletype}</a><!--{if $clienturl}-->|<a 
 		href="$clienturl">{lang clientversion}</a><!--{/if}-->
 	</div>
 	<div class="footer-copy mt10">
 		<!--{if $_G['setting']['icp'] || $_G['setting']['mps']}--><!--{if $_G['setting']['icp']}--><a href="https://beian.miit.gov.cn/" target="_blank">$_G['setting']['icp']</a><!--{/if}--><!--{if $_G['setting']['mps']}--><a href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=$_G['setting']['mpsid']" target="_blank"><img width="14" height="14" src="{IMGDIR}/ico_mps.png" />$_G['setting']['mps']</a><!--{/if}--><br><!--{/if}-->
-		Powered by Discuz! <!--{if $_G['setting']['statcode']}-->{$_G['setting']['statcode']}<!--{/if}-->
+		Powered by Discuz! <em>$_G['setting']['version']</em><!--{if $_G['setting']['statcode']}-->{$_G['setting']['statcode']}<!--{/if}-->
+		<p class="xs0">{lang copyright}</p>
 	</div>
 </div>
 <!--{/if}-->

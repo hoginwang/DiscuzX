@@ -2,24 +2,24 @@
 	<!--{eval dheader('Location:member.php?mod=logging&action=login');exit;}-->
 <!--{/if}-->
 <!--{template common/header}-->
-<style>.user_avatar {background-image:url(<!--{if !$_GET['mycenter']}--><!--{avatar($space['uid'], big, true)}--><!--{else}--><!--{avatar($_G['uid'], big, true)}--><!--{/if}-->) !important}</style>
+<style>.user_avatar {background-image:url(<!--{if !$_GET['mycenter']}--><!--{avatar($space['uid'], 'big', true)}--><!--{else}--><!--{avatar($_G['uid'], 'big', true)}--><!--{/if}-->) !important}</style>
 <div class="header cl">
-	<div class="kmz"><a href="javascript:history.back();"><i class="iconfont">&#xe779;</i></a></div>
+	<div class="mz"><a href="javascript:history.back();"><i class="iconfont">&#xe779;</i></a></div>
 	<h2><!--{if $_G['uid'] == $space['uid']}-->{lang myprofile}<!--{else}-->$space['username']{lang otherprofile}<!--{/if}--></h2>
-	<div class="kmy"><a href="<!--{if $_G['setting']['mobile']['mobilehotthread']}--><!--{if !empty($_G['setting']['grid']['showgrid'])}-->forum.php<!--{else}-->forum.php?mod=guide&view=newthread<!--{/if}--><!--{else}-->forum.php?forumlist=1<!--{/if}-->"><i class="iconfont">&#xe751;</i></a></div>
+	<div class="my"><a href="<!--{if $_G['setting']['mobile']['mobilehotthread']}--><!--{if !empty($_G['setting']['grid']['showgrid'])}-->forum.php<!--{else}-->forum.php?mod=guide&view=newthread<!--{/if}--><!--{else}-->forum.php?forumlist=1<!--{/if}-->"><i class="iconfont">&#xe751;</i></a></div>
 </div>
 <div class="userinfo">
 <!--{if !$_GET['mycenter']}-->
 	<div class="user_avatar">
 		<div class="avatar_bg">
-			<div class="avatar_m"><img src="<!--{avatar($space['uid'], middle, true)}-->" /></div>
+			<div class="avatar_m"><img src="<!--{avatar($space['uid'], 'middle', true)}-->" /></div>
 			<h2 class="name">$space['username']</h2>
 		</div>
 	</div>
 <!--{else}-->
 	<div class="user_avatar">
 		<div class="avatar_bg">
-			<div class="avatar_m"><img src="<!--{avatar($_G['uid'], middle, true)}-->" /></div>
+			<div class="avatar_m"><img src="<!--{avatar($_G['uid'], 'middle', true)}-->" /></div>
 			<h2 class="name">$_G['username']</h2>
 		</div>
 	</div>
@@ -65,7 +65,7 @@
 	<!--{/if}-->
 	<div class="myinfo_list cl">
 		<ul>
-			<li><b>{lang memcp_profile}</b><!--{if $_G['ols'][$space['uid']]}--><span class="kmtxt">{lang users}{lang online}</span><!--{/if}--></li>
+			<li><b>{lang memcp_profile}</b><!--{if $_G['ols'][$space['uid']]}--><span class="mtxt">{lang users}{lang online}</span><!--{/if}--></li>
 			<li>UID<span>{$space['uid']}</span></li>
 			<li>{lang usergroup}<!--{if !empty($space['groupexpiry'])}--><em>{lang group_useful_life}<!--{date($space['groupexpiry'], 'Y-m-d H:i')}--></em><!--{/if}--><span style="color:{$space['group']['color']}">{$space['group']['grouptitle']}</span></li>
 			<!--{if $space['adminid']}--><li>{lang management_team}<span style="color:{$space['admingroup']['color']}">{$space['admingroup']['grouptitle']}</span></li><!--{/if}-->

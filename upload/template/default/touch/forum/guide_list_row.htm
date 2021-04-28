@@ -5,35 +5,35 @@
 			<!--{loop $list['threadlist'] $key $thread}-->
 			<li class="list">
 				<div class="threadlist_top cl">
-					<a href="home.php?mod=space&uid={$thread['authorid']}" class="kmimg"><img src="<!--{avatar($thread['authorid'], middle, true)}-->"></a>
-					<div class="kmuser">
-						<h3><a href="home.php?mod=space&uid={$thread['authorid']}" class="kmmc">{$thread['author']}</a></h3>
-						<span class="kmtime">{$thread['dateline']}</span>
+					<a href="home.php?mod=space&uid={$thread['authorid']}" class="mimg"><img src="<!--{avatar($thread['authorid'], 'middle', true)}-->"></a>
+					<div class="muser">
+						<h3><a href="home.php?mod=space&uid={$thread['authorid']}" class="mmc">{$thread['author']}</a></h3>
+						<span class="mtime">{$thread['dateline']}</span>
 					</div>
 				</div>
 				<a href="forum.php?mod=viewthread&tid=$thread['tid']&extra=$extra">
 				<div class="threadlist_tit cl">
 					<!--{if $thread['folder'] == 'lock'}-->
-						<span class="kmicon lock">{lang closed_thread}</span>
+						<span class="micon lock">{lang closed_thread}</span>
 					<!--{elseif $thread['special'] == 1}-->
-						<span class="kmicon">{lang thread_poll}</span>
+						<span class="micon">{lang thread_poll}</span>
 					<!--{elseif $thread['special'] == 2}-->
-						<span class="kmicon">{lang thread_trade}</span>
+						<span class="micon">{lang thread_trade}</span>
 					<!--{elseif $thread['special'] == 3}-->
-						<span class="kmicon">{lang thread_reward}</span>
+						<span class="micon">{lang thread_reward}</span>
 					<!--{elseif $thread['special'] == 4}-->
-						<span class="kmicon">{lang thread_activity}</span>
+						<span class="micon">{lang thread_activity}</span>
 					<!--{elseif $thread['special'] == 5}-->
-						<span class="kmicon">{lang thread_debate}</span>
+						<span class="micon">{lang thread_debate}</span>
 					<!--{/if}-->
 					<!--{if $thread['attachment'] == 2 && $_G['setting']['mobile']['mobilesimpletype'] == 1}-->
-						<span class="kmicon">{lang mobtu}</span>
+						<span class="micon">{lang mobtu}</span>
 					<!--{/if}-->
 					<!--{if in_array($thread['displayorder'], array(1, 2, 3, 4))}-->
-						<span class="kmicon top">{lang thread_sticky}</span>
+						<span class="micon top">{lang thread_sticky}</span>
 					<!--{/if}-->
 					<!--{if $thread['digest'] > 0}-->
-						<span class="kmicon digest">{lang thread_digest}</span>
+						<span class="micon digest">{lang thread_digest}</span>
 					<!--{/if}-->
 					<em $thread['highlight']>{$thread['subject']}</em>					
 				</div>
@@ -54,7 +54,7 @@
 				<a href="forum.php?mod=viewthread&tid=$thread['tid']&extra=$extra"><div class="threadlist_mes cl">{$threadlist_data[$thread['tid']]['message']}</div></a>
 				<div class="threadlist_foot cl">
 					<ul>
-						<li class="kmr"><a href="forum.php?mod=forumdisplay&fid=$thread['fid']">#{$_G['cache']['forums'][$thread['fid']]['name']}</a></li>
+						<li class="mr"><a href="forum.php?mod=forumdisplay&fid=$thread['fid']">#{$_G['cache']['forums'][$thread['fid']]['name']}</a></li>
 						<li><i class="iconfont">&#xe73c;</i>{$thread['views']}</li>
 						<li><i class="iconfont">&#xe743;</i>{$thread['replies']}</li>
 					</ul>

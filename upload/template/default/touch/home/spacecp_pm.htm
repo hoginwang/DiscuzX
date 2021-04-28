@@ -13,30 +13,30 @@
 	<input type="hidden" name="pmsubmit" value="true" />
 	<input type="hidden" name="formhash" value="{FORMHASH}" />
 	<div class="header cl">
-		<div class="kmz"><a href="home.php?mod=space&do=pm"><i class="iconfont">&#xe779;</i></a></div>
+		<div class="mz"><a href="home.php?mod=space&do=pm"><i class="iconfont">&#xe779;</i></a></div>
 		<h2>{lang send_pm}</h2>		
 	</div>
 	<div class="post_box">
 		<ul>
 			<!--{if !$touid}-->
-			<li class="kmli"><input type="text" value="" tabindex="1" class="px" autocomplete="off" id="username" name="username" placeholder="{lang addressee}"></li>
+			<li class="mli"><input type="text" value="" tabindex="1" class="px" autocomplete="off" id="username" name="username" placeholder="{lang addressee}"></li>
 			<!--{/if}-->
-			<li class="kmtext">
+			<li class="mtext">
 				<textarea class="pt" tabindex="2" autocomplete="off" value="" id="sendmessage" name="message" placeholder="{lang thread_content}"></textarea>
 			</li>
 		</ul>
 	</div>	
-	<div class="post_btn"><button id="pmsubmit_btn" class="pn btn_pn kmgrey" disable="true">{lang sendpm}</button></div>
+	<div class="post_btn"><button id="pmsubmit_btn" class="pn btn_pn mgrey" disable="true">{lang sendpm}</button></div>
 </form>
 <script type="text/javascript">
 	(function() {
 		$('#sendmessage').on('keyup input', function() {
 			var obj = $(this);
 			if(obj.val()) {
-				$('.btn_pn').removeClass('kmgrey').addClass('kmblue');
+				$('.btn_pn').removeClass('mgrey').addClass('mblue');
 				$('.btn_pn').attr('disable', 'false');
 			} else {
-				$('.btn_pn').removeClass('kmblue').addClass('kmgrey');
+				$('.btn_pn').removeClass('mblue').addClass('mgrey');
 				$('.btn_pn').attr('disable', 'true');
 			}
 		});

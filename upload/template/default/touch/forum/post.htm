@@ -35,22 +35,22 @@
 	<input type="hidden" name="specialextra" value="$specialextra" />
 <!--{/if}-->
 <div class="header cl">
-	<div class="kmz"><a href="javascript:history.back();"><i class="iconfont">&#xe779;</i></a></div>
+	<div class="mz"><a href="javascript:history.back();"><i class="iconfont">&#xe779;</i></a></div>
 	<h2><!--{if $_GET['action'] == 'edit'}-->{lang edit}<!--{else}-->{lang send_threads}<!--{/if}--></h2>
-	<div class="kmy"></div>
+	<div class="my"></div>
 </div>
 <div class="post_from post_box">
 	<ul class="cl">
 		<!--{if $_GET['action'] != 'reply'}-->
-		<li class="kmli"><input type="text" tabindex="1" class="px" id="needsubject" autocomplete="off" value="$postinfo['subject']" name="subject" placeholder="{lang posts}{lang thread_subject}" fwin="login"></li>
+		<li class="mli"><input type="text" tabindex="1" class="px" id="needsubject" autocomplete="off" value="$postinfo['subject']" name="subject" placeholder="{lang posts}{lang thread_subject}" fwin="login"></li>
 		<!--{else}-->
-		<li class="kmtext">
+		<li class="mtext">
 			RE: $thread['subject']
 			<!--{if $quotemessage}-->$quotemessage<!--{/if}-->
 		</li>
 		<!--{/if}-->		
 		<!--{if $isfirstpost && !empty($_G['forum']['threadtypes']['types'])}-->
-		<li class="kmli">			
+		<li class="mli">			
 			<select id="typeid" name="typeid" class="sort_sel">	
 				<i class="iconfont sort_jt">&#xe772;</i>
 				<option value="0" selected="selected">{lang threadtype}</option>
@@ -63,13 +63,13 @@
 		</li>
 		<!--{/if}-->
 		<!--{if $_GET['action'] == 'edit' && $isorigauthor && ($isfirstpost && $thread['replies'] < 1 || !$isfirstpost) && !$rushreply && $_G['setting']['editperdel']}-->
-		<li class="kmli">
+		<li class="mli">
 			<input type="checkbox" name="delete" id="delete" class="pc" value="1" title="{lang post_delpost}{if $thread['special'] == 3}{lang reward_price_back}{/if}"> {lang post_delpost}?
 		</li>
 		<!--{/if}-->
-		<li class="kmtext">
+		<li class="mtext">
 			<textarea class="pt" id="needmessage" tabindex="3" autocomplete="off" id="{$editorid}_textarea" name="$editor['textarea']" placeholder="<!--{if $_GET['action'] != 'reply'}-->{lang posts}<!--{/if}-->{lang thread_content}" fwin="reply">$postinfo['message']</textarea>
-			<div class="kmimg cl">
+			<div class="mimg cl">
 				<a href="javascript:;" class="post_imgbtn"><i class="iconfont">&#xe665;</i>{lang e_img_attach}<input type="file" name="Filedata" id="filedata" /></a>
 			</div>
 			<div class="cl">

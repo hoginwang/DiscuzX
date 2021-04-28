@@ -21,11 +21,11 @@
 			<!--{eval $imginfo=$option['imginfo'];}-->			
             <p>
 			<!--{if $imginfo}-->
-				<a href="javascript:;" title="$imginfo['filename']" class="kmimg vm">
+				<a href="javascript:;" title="$imginfo['filename']" class="mimg vm">
 					<img src="$imginfo['small']" alt="$imginfo['filename']" />
 				</a>
 			<!--{else}-->
-				<a href="javascript:;" class="kmimg vm"><img src="{STATICURL}image/common/nophoto.gif" alt="$imginfo['filename']" /></a>
+				<a href="javascript:;" class="mimg vm"><img src="{STATICURL}image/common/nophoto.gif" alt="$imginfo['filename']" /></a>
 			<!--{/if}-->
             <!--{if $_G['group']['allowvote']}-->
                 <input type="$optiontype" id="option_$key" name="pollanswers[]" value="$option['polloptionid']" {if $_G['forum_thread']['is_archived']}disabled="disabled"{/if}  />

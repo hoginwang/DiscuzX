@@ -1,9 +1,9 @@
 <!--{eval $threadsort = $threadsorts = null;}-->
 <!--{template common/header}-->
 <div class="header cl">
-	<div class="kmz"><a href="javascript:history.back();"><i class="iconfont">&#xe779;</i></a></div>
+	<div class="mz"><a href="javascript:history.back();"><i class="iconfont">&#xe779;</i></a></div>
 	<h2><a href="<!--{if $_GET['fromguid'] == 'hot' && $_G['setting']['guidestatus']}-->forum.php?mod=guide&view=hot&page=$_GET['page']<!--{else}-->forum.php?mod=forumdisplay&fid=$_G['fid']&<!--{eval echo rawurldecode($_GET['extra']);}--><!--{/if}-->"><!--{eval echo strip_tags($_G['forum']['name']) ? strip_tags($_G['forum']['name']) : $_G['forum']['name'];}--></a></h2>
-	<div class="kmy"><a href="<!--{if $_G['setting']['mobile']['mobilehotthread']}--><!--{if !empty($_G['setting']['grid']['showgrid'])}-->forum.php<!--{else}-->forum.php?mod=guide&view=newthread<!--{/if}--><!--{else}-->forum.php?forumlist=1<!--{/if}-->"><i class="iconfont">&#xe751;</i></a></div>
+	<div class="my"><a href="<!--{if $_G['setting']['mobile']['mobilehotthread']}--><!--{if !empty($_G['setting']['grid']['showgrid'])}-->forum.php<!--{else}-->forum.php?mod=guide&view=newthread<!--{/if}--><!--{else}-->forum.php?forumlist=1<!--{/if}-->"><i class="iconfont">&#xe751;</i></a></div>
 </div>
 <!--{hook/viewthread_top_mobile}-->
 <div class="viewthread">
@@ -25,10 +25,10 @@
 	<!--{eval $needhiddenreply = ($hiddenreplies && $_G['uid'] != $post['authorid'] && $_G['uid'] != $_G['forum_thread']['authorid'] && !$post['first'] && !$_G['forum']['ismoderator']);}-->
 	<!--{hook/viewthread_posttop_mobile $postcount}-->
    <div class="plc cl" id="pid$post['pid']">
-	   <div class="avatar"><img src="<!--{if !$post['authorid'] || $post['anonymous']}--><!--{avatar(0, small, true)}--><!--{else}--><!--{avatar($post['authorid'], small, true)}--><!--{/if}-->" /></div>
+	   <div class="avatar"><img src="<!--{if !$post['authorid'] || $post['anonymous']}--><!--{avatar(0, 'small', true)}--><!--{else}--><!--{avatar($post['authorid'], 'small', true)}--><!--{/if}-->" /></div>
        <div class="display pi<!--{if $post['first']}--> pione<!--{/if}-->" href="#replybtn_$post['pid']">
 		   <ul class="authi">
-				<li class="kmtit">
+				<li class="mtit">
 					<span class="y">
 						<!--{if isset($post['isstick'])}-->
 							<img src ="{IMGDIR}/settop.png" title="{lang replystick}" class="vm" /> {lang from} {$post['number']}{$postnostick}
@@ -52,11 +52,11 @@
 					<!--{/if}-->
 					</span>
 				</li>
-				<li class="kmtime">
+				<li class="mtime">
 					<!--{if $post['first']}--><span class="y"><i class="iconfont">&#xe73d;</i><em>$_G['forum_thread']['views']</em><i class="iconfont">&#xe744;</i><em>$_G['forum_thread']['allreplies']</em></span><!--{/if}-->
 					<!--{if $_G['forum']['ismoderator']}-->
 						<!--{if $post['first']}-->
-							<em class="kmgl"><a href="#moption_$post['pid']" class="popup blue">{lang manage}</a></em>
+							<em class="mgl"><a href="#moption_$post['pid']" class="popup blue">{lang manage}</a></em>
 							<div id="moption_$post['pid']" popup="true" class="manage" style="display:none;">
 								<!--{if !$_G['forum_thread']['special']}-->
 								<input type="button" value="{lang edit}" class="redirect button" href="forum.php?mod=post&action=edit&fid=$_G['fid']&tid=$_G['tid']&pid=$post['pid']<!--{if $_G['forum_thread']['sortid']}--><!--{if $post['first']}-->&sortid={$_G['forum_thread']['sortid']}<!--{/if}--><!--{/if}-->{if !empty($_GET['modthreadkey'])}&modthreadkey=$_GET['modthreadkey']{/if}&page=$page">
@@ -67,7 +67,7 @@
 								<input type="button" value="{lang topicadmin_warn_add}" class="dialog button" href="forum.php?mod=topicadmin&action=warn&fid={$_G['fid']}&tid={$_G['tid']}&topiclist[]={$_G['forum_firstpid']}">
 							</div>
 						<!--{else}-->
-							<em class="kmgl"><a href="#moption_$post['pid']" class="popup">{lang manage}</a></em>
+							<em class="mgl"><a href="#moption_$post['pid']" class="popup">{lang manage}</a></em>
 							<div id="moption_$post['pid']" popup="true" class="manage" style="display:none">
 								<input type="button" value="{lang edit}" class="redirect button" href="forum.php?mod=post&action=edit&fid=$_G['fid']&tid=$_G['tid']&pid=$post['pid']{if !empty($_GET['modthreadkey'])}&modthreadkey=$_GET['modthreadkey']{/if}&page=$page">
 								<!--{if $_G['group']['allowdelpost']}--><input type="button" value="{lang modmenu_deletepost}" class="dialog button" href="forum.php?mod=topicadmin&action=delpost&fid={$_G['fid']}&tid={$_G['tid']}&operation=&optgroup=&page=&topiclist[]={$post['pid']}"><!--{/if}-->
@@ -165,13 +165,13 @@
 			<div id="replybtn_$post['pid']" class="replybtn" display="true">
 				<input type="button" class="redirect button" href="forum.php?mod=post&action=reply&fid=$_G['fid']&tid=$_G['tid']&repquote=$post['pid']&extra=$_GET['extra']&page=$page" value="{lang reply}">
 			</div>
-			<!--{/if}-->			
+			<!--{/if}-->
        </div>
    </div>
 	<!--{if $post['first']}-->
 		<div class="discuz_x cl"></div>
 		<div class="txtlist cl">
-			<div class="kmtit cl">
+			<div class="mtit cl">
 			<!--{if !$rushreply}-->
 				<!--{if $ordertype != 1}-->
 					<a href="forum.php?mod=viewthread&tid=$_G['tid']&extra=$_GET['extra']&ordertype=1" class="ytxt">{lang post_descview}</a>
@@ -200,7 +200,7 @@ $multipage
 <div class="foot foot_reply flex-box cl">
 	<a href="forum.php?mod=post&action=reply&fid=$_G['fid']&tid=$_G['tid']&reppost=$_G['forum_firstpid']&page=$page" class="flex"><i class="iconfont">&#xe744;</i>{lang reply}</a>
 	<!--{if helper_access::check_module('favorite')}-->
-		<a href="home.php?mod=spacecp&ac=favorite&type=thread&id=$_G['tid']" class="dialog flex kmx"><i class="iconfont">&#xe64c;</i><!--{if $_G['forum_thread']['favtimes']}-->{$_G['forum_thread']['favtimes']}<!--{/if}-->{lang favorite}</a>
+		<a href="home.php?mod=spacecp&ac=favorite&type=thread&id=$_G['tid']" class="dialog flex mx"><i class="iconfont">&#xe64c;</i><!--{if $_G['forum_thread']['favtimes']}-->{$_G['forum_thread']['favtimes']}<!--{/if}-->{lang favorite}</a>
 	<!--{/if}-->
 </div>
 <div class="foot_height_view"></div>

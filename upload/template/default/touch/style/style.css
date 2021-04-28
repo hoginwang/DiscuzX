@@ -91,26 +91,26 @@ textarea {resize:none}
 
 /*----- 头部 -----*/
 .header {background-color:var(--dz-BG-color);color:var(--dz-FC-fff);height:30px;line-height:30px;padding:10px 12px}
-.header .kmz, .header .kmzlogo {float:left;position:relative}
-.header .kmz a, .header .kmzlogo a {float:left}
-.header .kmy, .header .kmyss {float:right;position:relative}
-.header .kmy a, .header .kmyss a {float:right}
-.header .kmz, .header .kmy {width:20%}
-.header .kmzlogo {width:40%;text-align:left;font-size:18px;position:relative;overflow:hidden;white-space:nowrap;text-overflow:ellipsis}
-.header .kmyss {width:60%}
-.header .kmyss a {background-color:var(--dz-BG-0);color:var(--dz-FC-aaa);margin-right:3px;line-height:30px;font-size:14px;padding:0 15px;border-radius:15px}
-.header .kmyss a i {float:left;font-size:16px;margin-right:5px;color:var(--dz-FC-aaa)}
+.header .mz, .header .mzlogo {float:left;position:relative}
+.header .mz a, .header .mzlogo a {float:left}
+.header .my, .header .myss {float:right;position:relative}
+.header .my a, .header .myss a {float:right}
+.header .mz, .header .my {width:20%}
+.header .mzlogo {width:40%;text-align:left;font-size:18px;position:relative;overflow:hidden;white-space:nowrap;text-overflow:ellipsis}
+.header .myss {width:60%}
+.header .myss a {background-color:var(--dz-BG-0);color:var(--dz-FC-aaa);margin-right:3px;line-height:30px;font-size:14px;padding:0 15px;border-radius:15px}
+.header .myss a i {float:left;font-size:16px;margin-right:5px;color:var(--dz-FC-aaa)}
 .header i {font-size:20px;color:var(--dz-FC-fff)}
-.header .kmy a {margin-left:10px}
+.header .my a {margin-left:10px}
 .header h2 {float:left;width:60%;text-align:center;font-size:18px;position:relative;overflow:hidden;white-space:nowrap;text-overflow:ellipsis}
-.header h2 img, .header .kmzlogo img {height:30px}
+.header h2 img, .header .mzlogo img {height:30px}
 .header h2 a {color:var(--dz-FC-fff)}
 
 /*----- 底部Copyright -----*/
 .footer {background-color:var(--dz-BG-1);color:var(--dz-FC-fff);padding:15px;text-align:center;overflow:hidden}
 .footer-nv, .footer-copy {color:var(--dz-FC-999);line-height:22px;font-size:13px;text-align:center}
 .footer-nv a {color:var(--dz-FC-fff);margin:0 6px}
-.footer-copy a, .footer-nv a.kmon {color:var(--dz-FC-999)}
+.footer-copy a, .footer-nv a.mon {color:var(--dz-FC-999)}
 .footer-copy img {margin:0 10px}
 
 /*----- 浮动底部导航 -----*/
@@ -119,22 +119,22 @@ textarea {resize:none}
 .foot a span {display:block;overflow:hidden}
 .foot a span.foot-ico {height:24px;line-height:24px;overflow:hidden;margin-top:4px}
 .foot a span.foot-ico em {display:block;margin:2px auto 0;width:24px;height:24px;line-height:24px;position:relative}
-.foot a span.foot-ico em.kma {background:url(./img/home.png) no-repeat;background-size:24px 24px}
-.foot a span.foot-ico em.kmb {background:url(./img/shequ.png) no-repeat;background-size:24px 24px}
-.foot a span.foot-ico em.kmd {background:url(./img/find.png) no-repeat;background-size:24px 24px}
-.foot a span.foot-ico em.kme {background:url(./img/my.png) no-repeat;background-size:24px 24px}
-.foot a span.foot-ico em.kmf {background:url(./img/my.png) no-repeat;background-size:24px 24px}
+.foot a span.foot-ico em.ma {background:url(./img/home.png) no-repeat;background-size:24px 24px}
+.foot a span.foot-ico em.mb {background:url(./img/shequ.png) no-repeat;background-size:24px 24px}
+.foot a span.foot-ico em.md {background:url(./img/find.png) no-repeat;background-size:24px 24px}
+.foot a span.foot-ico em.me {background:url(./img/my.png) no-repeat;background-size:24px 24px}
+.foot a span.foot-ico em.mf {background:url(./img/my.png) no-repeat;background-size:24px 24px}
 .foot a span.foot-ico em i.ico_msg {position:absolute;background:var(--dz-BG-2);width:7px;height:7px;display:block;top:-1px;right:-1px;z-index:510;border:1px solid var(--dz-BG-0);border-radius:50%}
 .foot a span.foot-txt {height:22px;line-height:22px;font-size:12px;color:var(--dz-FC-999)}
-.foot a.kmon span.foot-txt {color:var(--dz-FC-color)}
-.foot a.kmon span.foot-ico em.kma {background:url(./img/home_on.png) no-repeat;background-size:24px 24px}
-.foot a.kmon span.foot-ico em.kmb {background:url(./img/shequ_on.png) no-repeat;background-size:24px 24px}
-.foot a.kmon span.foot-ico em.kmd {background:url(./img/find_on.png) no-repeat;background-size:24px 24px}
-.foot a.kmon span.foot-ico em.kme {background:url(./img/my_on.png) no-repeat;background-size:24px 24px}
-.foot a.kmon span.foot-ico em.kmf {background:url(./img/my_on.png) no-repeat;background-size:24px 24px}
+.foot a.mon span.foot-txt {color:var(--dz-FC-color)}
+.foot a.mon span.foot-ico em.ma {background:url(./img/home_on.png) no-repeat;background-size:24px 24px}
+.foot a.mon span.foot-ico em.mb {background:url(./img/shequ_on.png) no-repeat;background-size:24px 24px}
+.foot a.mon span.foot-ico em.md {background:url(./img/find_on.png) no-repeat;background-size:24px 24px}
+.foot a.mon span.foot-ico em.me {background:url(./img/my_on.png) no-repeat;background-size:24px 24px}
+.foot a.mon span.foot-ico em.mf {background:url(./img/my_on.png) no-repeat;background-size:24px 24px}
 .foot a.foot-post span.foot-ico {height:44px;line-height:44px;margin-top:5px}
 .foot a.foot-post span.foot-ico em {width:38px;height:38px;line-height:38px}
-.foot a.foot-post span.foot-ico em.kmc {background:url(./img/foot_post.png) no-repeat;background-size:auto 38px}
+.foot a.foot-post span.foot-ico em.mc {background:url(./img/foot_post.png) no-repeat;background-size:auto 38px}
 .foot a.foot-post span.foot-txt {display:none}
 .foot_height {height:54px}
 
@@ -161,18 +161,18 @@ textarea {resize:none}
 .tabs {margin-top:10px;background-color:var(--dz-BG-0);border-top:1px solid var(--dz-BOR-ed);border-bottom:1px solid var(--dz-BOR-ed);height:40px;font-size:15px;text-align:center}
 .tabs a {height:40px;line-height:38px;color:var(--dz-FC-999);position:relative}
 .tabs a em {position:absolute;bottom:0;left:50%;margin-left:-10px;background-color:var(--dz-BG-color);width:20px;height:3px;display:none}
-.tabs a.kmon {height:38px;color:var(--dz-FC-color);font-weight:400;border-bottom:2px solid var(--dz-BG-color)}
+.tabs a.mon {height:38px;color:var(--dz-FC-color);font-weight:400;border-bottom:2px solid var(--dz-BG-color)}
 .listbox {margin:0 auto 10px;background-color:var(--dz-BG-0);border-bottom:1px solid var(--dz-BOR-ed);overflow:hidden}
 .listbox li {height:40px;line-height:40px;margin:0 15px;font-size:15px;border-top:1px solid var(--dz-BOR-ed);overflow:hidden;white-space:nowrap;text-overflow:ellipsis}
 .listbox li i {float:left;font-size:13px;margin-right:4px;color:var(--dz-FC-ccc)}
-.listbox li span.kmbk {color:var(--dz-FC-999)}
-.listbox li span.kmx {color:var(--dz-FC-ddd);margin:0 8px}
-.listbox li span.kmybk {color:var(--dz-FC-aaa);float:right;font-size:13px;padding-left:8px}
-.listbox li span.kmico {background-color:var(--dz-FC-ccc);float:left;width:4px;height:4px;margin:18px 10px 0 2px}
-.listbox li span.kmnum {float:left;width:20px;height:20px;line-height:20px;font-size:12px;text-align:center;margin-top:10px;margin-right:8px;background-color:var(--dz-FC-ccc);color:var(--dz-FC-fff);border-radius:4px}
-.listbox li:nth-child(1) span.kmnum {background-color:var(--dz-BG-2)}
-.listbox li:nth-child(2) span.kmnum {background-color:var(--dz-BG-3)}
-.listbox li:nth-child(3) span.kmnum {background-color:var(--dz-BG-4)}
+.listbox li span.mbk {color:var(--dz-FC-999)}
+.listbox li span.mx {color:var(--dz-FC-ddd);margin:0 8px}
+.listbox li span.mybk {color:var(--dz-FC-aaa);float:right;font-size:13px;padding-left:8px}
+.listbox li span.mico {background-color:var(--dz-FC-ccc);float:left;width:4px;height:4px;margin:18px 10px 0 2px}
+.listbox li span.mnum {float:left;width:20px;height:20px;line-height:20px;font-size:12px;text-align:center;margin-top:10px;margin-right:8px;background-color:var(--dz-FC-ccc);color:var(--dz-FC-fff);border-radius:4px}
+.listbox li:nth-child(1) span.mnum {background-color:var(--dz-BG-2)}
+.listbox li:nth-child(2) span.mnum {background-color:var(--dz-BG-3)}
+.listbox li:nth-child(3) span.mnum {background-color:var(--dz-BG-4)}
 .listbox li:first-child {border-top:none}
 
 /*----- 论坛首页统计 -----*/
@@ -182,7 +182,7 @@ textarea {resize:none}
 
 /*----- 论坛首页公告 -----*/
 .ann-box {padding:0 15px;height:40px;line-height:40px;background-color:var(--dz-BG-0);border-bottom:1px solid var(--dz-BOR-ed);overflow:hidden}
-.ann-box .kmtit {float:left;font-size:12px;height:20px;line-height:20px;padding:0 5px;margin-top:10px;margin-right:8px;background-color:var(--dz-BG-2);color:var(--dz-FC-fff);border-radius:4px}
+.ann-box .mtit {float:left;font-size:12px;height:20px;line-height:20px;padding:0 5px;margin-top:10px;margin-right:8px;background-color:var(--dz-BG-2);color:var(--dz-FC-fff);border-radius:4px}
 #ann {height:24px;line-height:24px;margin-top:8px;overflow:hidden}
 #ann li {height:24px;line-height:24px;font-size:14px;overflow:hidden;position:relative;z-index:1}
 #ann li a {display:block;height:24px;line-height:24px;overflow:hidden}
@@ -195,9 +195,9 @@ textarea {resize:none}
 .annlist li h2 a {display:block;overflow:hidden}
 .annlist li h2 i {float:right;color:var(--dz-FC-ddd)}
 .annlist li h3 {height:20px;line-height:20px;margin-top:2px;font-size:14px;color:var(--dz-FC-bbb);overflow:hidden}
-.annlist li h3 a, .annlist li h3 span.kmz {float:left}
+.annlist li h3 a, .annlist li h3 span.mz {float:left}
 .annlist li h3 a {margin-left:5px;color:var(--dz-FC-color)}
-.annlist li h3 span.kmy {float:right}
+.annlist li h3 span.my {float:right}
 .annlist_box {background-color:var(--dz-BG-5);color:var(--dz-FC-666);line-height:22px;font-size:14px;margin:8px 0 5px;padding:8px 10px;border-radius:4px}
 
 /*----- 论坛首页版块显示 -----*/
@@ -205,23 +205,23 @@ textarea {resize:none}
 .forumlist .subforumshow h2 {font-size:15px}
 .forumlist .subforumshow i {float:right;font-size:20px;color:var(--dz-FC-aaa)}
 .forumlist .sub-forum {background-color:var(--dz-BG-0)}
-.forumlist .sub-forum li a.kmurl {display:block;height:44px;overflow:hidden}
-.forumlist .sub-forum li .kmicon {float:left;width:44px;height:44px;margin-right:10px}
-.forumlist .sub-forum li .kmicon img {width:44px;height:44px;border-radius:4px}
-.forumlist .sub-forum li .kmtit {height:24px;line-height:24px;font-size:16px}
-.forumlist .sub-forum li .kmnum {padding-left:6px;font-size:12px;color:var(--dz-BG-2)}
-.forumlist .sub-forum li .kmtxt {display:block;height:20px;line-height:20px;font-size:13px;color:var(--dz-FC-999);overflow:hidden;white-space:nowrap;text-overflow:ellipsis}
-.forumlist .kmlist1 li {overflow:hidden;padding:10px 15px;border-bottom:1px solid var(--dz-BOR-ed)}
-.forumlist .kmlist2 li {float:left;width:50%;box-sizing:border-box;padding:10px 15px;overflow:hidden;border-bottom:1px solid var(--dz-BOR-ed);border-right:1px solid var(--dz-BOR-ed)}
-.forumlist .kmlist2 li:nth-child(2n) {border-right:none}
-.forumlist .kmlist3 li {float:left;width:33.333%;box-sizing:border-box;padding:13px 5px 10px;overflow:hidden;border-bottom:1px solid var(--dz-BOR-ed);border-right:1px solid var(--dz-BOR-ed)}
-.forumlist .kmlist3 li:nth-child(3n) {border-right:none}
-.forumlist .kmlist4 li {float:left;width:25%;box-sizing:border-box;padding:13px 5px 10px;overflow:hidden;border-bottom:1px solid var(--dz-BOR-ed);border-right:1px solid var(--dz-BOR-ed)}
-.forumlist .kmlist4 li:nth-child(4n) {border-right:none}
-.forumlist .kmlist3 li a.kmurl, .forumlist .kmlist4 li a.kmurl {height:auto}
-.forumlist .kmlist3 li .kmicon, .forumlist .kmlist4 li .kmicon {float:none;display:block;margin:0 auto}
-.forumlist .kmlist3 li .kmtit {margin-top:6px;text-align:center}
-.forumlist .kmlist4 li .kmtit {font-size:13px;margin-top:5px;text-align:center}
+.forumlist .sub-forum li a.murl {display:block;height:44px;overflow:hidden}
+.forumlist .sub-forum li .micon {float:left;width:44px;height:44px;margin-right:10px}
+.forumlist .sub-forum li .micon img {width:44px;height:44px;border-radius:4px}
+.forumlist .sub-forum li .mtit {height:24px;line-height:24px;font-size:16px}
+.forumlist .sub-forum li .mnum {padding-left:6px;font-size:12px;color:var(--dz-BG-2)}
+.forumlist .sub-forum li .mtxt {display:block;height:20px;line-height:20px;font-size:13px;color:var(--dz-FC-999);overflow:hidden;white-space:nowrap;text-overflow:ellipsis}
+.forumlist .mlist1 li {overflow:hidden;padding:10px 15px;border-bottom:1px solid var(--dz-BOR-ed)}
+.forumlist .mlist2 li {float:left;width:50%;box-sizing:border-box;padding:10px 15px;overflow:hidden;border-bottom:1px solid var(--dz-BOR-ed);border-right:1px solid var(--dz-BOR-ed)}
+.forumlist .mlist2 li:nth-child(2n) {border-right:none}
+.forumlist .mlist3 li {float:left;width:33.333%;box-sizing:border-box;padding:13px 5px 10px;overflow:hidden;border-bottom:1px solid var(--dz-BOR-ed);border-right:1px solid var(--dz-BOR-ed)}
+.forumlist .mlist3 li:nth-child(3n) {border-right:none}
+.forumlist .mlist4 li {float:left;width:25%;box-sizing:border-box;padding:13px 5px 10px;overflow:hidden;border-bottom:1px solid var(--dz-BOR-ed);border-right:1px solid var(--dz-BOR-ed)}
+.forumlist .mlist4 li:nth-child(4n) {border-right:none}
+.forumlist .mlist3 li a.murl, .forumlist .mlist4 li a.murl {height:auto}
+.forumlist .mlist3 li .micon, .forumlist .mlist4 li .micon {float:none;display:block;margin:0 auto}
+.forumlist .mlist3 li .mtit {margin-top:6px;text-align:center}
+.forumlist .mlist4 li .mtit {font-size:13px;margin-top:5px;text-align:center}
 
 /*----- 提示转跳相关 -----*/
 .jump_c {padding:100px 15px;background-color:var(--dz-BG-0);border-top:1px solid var(--dz-BOR-ed);border-bottom:1px solid var(--dz-BOR-ed);margin-top:10px;font-size:15px}
@@ -229,8 +229,8 @@ textarea {resize:none}
 .jump_c p .grey {color:var(--dz-FC-999)}
 .tip {width:300px;text-align:center;background-color:var(--dz-BG-0);border:1px solid var(--dz-BOR-ed);border-radius:6px}
 .tip dt {padding:25px 20px;line-height:30px;font-size:14px}
-.tip dt.kmpt {margin:15px;padding:10px;background-color:var(--dz-BG-5);border-radius:4px}
-.tip dt.kmpt .pt {min-height:96px}
+.tip dt.mpt {margin:15px;padding:10px;background-color:var(--dz-BG-5);border-radius:4px}
+.tip dt.mpt .pt {min-height:96px}
 .tip dt .pxbg {background-color:var(--dz-BG-5);margin-bottom:5px;padding:0 5px;border-radius:4px}
 .tip dd {padding:0 15px 15px;overflow:hidden}
 .tip dd .button {width:48%;padding:0}
@@ -238,8 +238,8 @@ textarea {resize:none}
 
 /*----- 搜索 -----*/
 .search {padding:15px;background-color:var(--dz-BG-0);border-bottom:1px solid var(--dz-BOR-ed);margin-bottom:10px}
-.search .kmtxt {height:38xp;line-height:38px;padding:0 8px;border:1px solid var(--dz-BOR-ed);border-right:none;background-color:var(--dz-BG-0);border-radius:4px 0 0 4px}
-.search .kmbtn {height:40xp;line-height:40px;padding:0 15px;border:none;background-color:var(--dz-BG-color);color:var(--dz-FC-fff);border-radius:0 4px 4px 0}
+.search .mtxt {height:38xp;line-height:38px;padding:0 8px;border:1px solid var(--dz-BOR-ed);border-right:none;background-color:var(--dz-BG-0);border-radius:4px 0 0 4px}
+.search .mbtn {height:40xp;line-height:40px;padding:0 15px;border:none;background-color:var(--dz-BG-color);color:var(--dz-FC-fff);border-radius:0 4px 4px 0}
 .search-hot {padding:10px 15px 5px;min-height:300px;border-top:1px solid var(--dz-BOR-ed);border-bottom:1px solid var(--dz-BOR-ed);background-color:var(--dz-BG-0)}
 .search-hot h2 {height:30px;line-height:30px;font-size:14px;color:var(--dz-FC-999)}
 .search-hot li a {display:block;height:40px;line-height:40px;font-size:14px;border-top:1px solid var(--dz-BOR-ed)}
@@ -257,30 +257,30 @@ textarea {resize:none}
 .imglist {background-color:var(--dz-BG-0);border-top:1px solid var(--dz-BOR-ed);margin-top:10px}
 .imglist li {overflow:hidden;padding:10px 15px;border-bottom:1px solid var(--dz-BOR-ed)}
 .imglist li a {display:block;height:44px;overflow:hidden}
-.imglist li .kmimg {float:left;width:44px;height:44px;margin-right:10px}
-.imglist li .kmimg img {width:44px;height:44px;border-radius:50%}
-.imglist li .kmtit {height:20px;line-height:20px;font-size:16px;overflow:hidden}
-.imglist li .kmtit .kmtime {float:right;font-size:12px;color:var(--dz-FC-bbb)}
-.imglist li .kmico {float:right;margin-left:5px;height:20px;padding:0 6px;line-height:20px;font-size:12px;background-color:var(--dz-BG-3);color:var(--dz-FC-fff);border-radius:4px}
-.imglist li .kmnum {padding-left:6px;font-size:12px;color:var(--dz-BG-2)}
-.imglist li .kmtxt {display:block;margin-top:6px;height:18px;line-height:18px;font-size:14px;color:var(--dz-FC-999);overflow:hidden}
-.imglist li .kmtxt i {float:left;margin-right:4px;color:var(--dz-FC-ccc)}
-.imglist li .kmbody {display:block;margin-top:6px;line-height:18px;font-size:14px;color:var(--dz-FC-666);overflow:hidden}
-.imglist li .kmtit span {float:left;font-size:14px;color:var(--dz-FC-bbb)}
-.imglist li .kmbody a {display:inline;color:var(--dz-FC-color)}
-.imglist li .kmbody a.lit {color:var(--dz-BG-2)}
+.imglist li .mimg {float:left;width:44px;height:44px;margin-right:10px}
+.imglist li .mimg img {width:44px;height:44px;border-radius:50%}
+.imglist li .mtit {height:20px;line-height:20px;font-size:16px;overflow:hidden}
+.imglist li .mtit .mtime {float:right;font-size:12px;color:var(--dz-FC-bbb)}
+.imglist li .mico {float:right;margin-left:5px;height:20px;padding:0 6px;line-height:20px;font-size:12px;background-color:var(--dz-BG-3);color:var(--dz-FC-fff);border-radius:4px}
+.imglist li .mnum {padding-left:6px;font-size:12px;color:var(--dz-BG-2)}
+.imglist li .mtxt {display:block;margin-top:6px;height:18px;line-height:18px;font-size:14px;color:var(--dz-FC-999);overflow:hidden}
+.imglist li .mtxt i {float:left;margin-right:4px;color:var(--dz-FC-ccc)}
+.imglist li .mbody {display:block;margin-top:6px;line-height:18px;font-size:14px;color:var(--dz-FC-666);overflow:hidden}
+.imglist li .mtit span {float:left;font-size:14px;color:var(--dz-FC-bbb)}
+.imglist li .mbody a {display:inline;color:var(--dz-FC-color)}
+.imglist li .mbody a.lit {color:var(--dz-BG-2)}
 
 /*----- 通用资讯类列表 -----*/
 .wzlist {background-color:var(--dz-BG-0);border-top:1px solid var(--dz-BOR-ed)}
 .wzlist li {overflow:hidden;border-bottom:1px solid var(--dz-BOR-ed)}
 .wzlist li a {display:block;padding:15px;overflow:hidden}
-.wzlist li .kmimg {float:left;width:30%;height:80px;margin-right:10px;overflow:hidden;border-radius:4px}
-.wzlist li .kmimg img {width:100%;height:100%;object-fit:cover;overflow:hidden}
-.wzlist li .kminfo {overflow:hidden}
-.wzlist li .kminfo p {display:block;overflow:hidden}
-.wzlist li .kminfo p.kmtit {height:52px;line-height:26px;font-size:16px}
-.wzlist li .kminfo p.kmtime {height:20px;line-height:20px;margin-top:8px;font-size:14px;color:var(--dz-FC-bbb);position:relative}
-.wzlist li .kminfo p.kmtime span  {float:right;color:var(--dz-BG-2)}
+.wzlist li .mimg {float:left;width:30%;height:80px;margin-right:10px;overflow:hidden;border-radius:4px}
+.wzlist li .mimg img {width:100%;height:100%;object-fit:cover;overflow:hidden}
+.wzlist li .minfo {overflow:hidden}
+.wzlist li .minfo p {display:block;overflow:hidden}
+.wzlist li .minfo p.mtit {height:52px;line-height:26px;font-size:16px}
+.wzlist li .minfo p.mtime {height:20px;line-height:20px;margin-top:8px;font-size:14px;color:var(--dz-FC-bbb);position:relative}
+.wzlist li .minfo p.mtime span  {float:right;color:var(--dz-BG-2)}
 
 /*----- 通用资讯类内容 -----*/
 .wzview {background-color:var(--dz-BG-0);border-bottom:1px solid var(--dz-BOR-ed);padding:15px 15px 10px;overflow:hidden}
@@ -290,16 +290,16 @@ textarea {resize:none}
 .wzview_desc {border-top:1px solid var(--dz-BOR-ed);border-bottom:1px solid var(--dz-BOR-ed);margin:10px auto;padding:8px 0;font-size:14px;line-height:24px;color:var(--dz-FC-color);overflow:hidden}
 .wzview_desc span {margin-right:5px;font-weight:400;color:var(--dz-BG-2)}
 .wzview_body {margin-top:10px;font-size:16px;line-height:30px}
-.wzview_body .kmtit {font-weight:400;color:var(--dz-BG-2)}
+.wzview_body .mtit {font-weight:400;color:var(--dz-BG-2)}
 .wzview_body img {vertical-align:top;max-width:100%;max-height:100%;margin:5px 0;border-radius:4px}
 .wzview_sxwz {padding-top:10px;margin-top:15px;border-top:1px solid var(--dz-BOR-ed);color:var(--dz-FC-color);overflow:hidden}
 .wzview_sxwz a {display:block;width:100%;height:28px;line-height:28px;font-size:14px;color:var(--dz-FC-color);overflow:hidden}
 
 /*----- 通用文字类列表 -----*/
 .txtlist {background-color:var(--dz-BG-0);overflow:hidden}
-.txtlist .kmtit {font-size:16px;height:40px;line-height:40px;font-weight:400;padding:0 15px;border-bottom:1px solid var(--dz-BOR-ed);overflow:hidden}
-.txtlist .kmtit em {margin-left:5px;font-size:12px;color:var(--dz-FC-999)}
-.txtlist .kmtit .ytxt {float:right;margin-top:9px;margin-left:8px;padding:0 5px;height:20px;line-height:20px;font-size:12px;color:var(--dz-FC-color);background-color:var(--dz-BG-5);border:1px solid var(--dz-BOR-ed);border-radius:4px;position:relative}
+.txtlist .mtit {font-size:16px;height:40px;line-height:40px;font-weight:400;padding:0 15px;border-bottom:1px solid var(--dz-BOR-ed);overflow:hidden}
+.txtlist .mtit em {margin-left:5px;font-size:12px;color:var(--dz-FC-999)}
+.txtlist .mtit .ytxt {float:right;margin-top:9px;margin-left:8px;padding:0 5px;height:20px;line-height:20px;font-size:12px;color:var(--dz-FC-color);background-color:var(--dz-BG-5);border:1px solid var(--dz-BOR-ed);border-radius:4px;position:relative}
 .txtlist ul {padding:0 15px;overflow:hidden}
 .txtlist ul li {border-top:1px solid var(--dz-BOR-ed);height:40px;line-height:40px;font-size:14px;overflow:hidden}
 .txtlist ul li:first-child {border-top:none}
@@ -314,13 +314,13 @@ textarea {resize:none}
 .findbox ul li em {float:right;font-size:12px;margin-right:5px;color:var(--dz-BG-2)}
 .findbox ul li.sclist {font-size:14px}
 .findbox ul li.sclist a img {float:left;height:16px;margin-top:17px;margin-right:8px}
-.findbox ul li.sclist .kmdel {float:right;padding-left:15px}
-.findbox ul li.sclist .kmdel i {font-size:20px;color:var(--dz-BG-2)}
+.findbox ul li.sclist .mdel {float:right;padding-left:15px}
+.findbox ul li.sclist .mdel i {font-size:20px;color:var(--dz-BG-2)}
 
 /*----- 通用固定二级导航 -----*/
 .dhnv {background-color:var(--dz-BG-0);border-top:1px solid var(--dz-BOR-ed);border-bottom:1px solid var(--dz-BOR-ed);font-size:15px;text-align:center}
 .dhnv a {height:40px;line-height:38px;color:var(--dz-FC-999);position:relative}
-.dhnv a.kmon {height:38px;color:var(--dz-FC-color);font-weight:400;border-bottom:2px solid var(--dz-BG-color)}
+.dhnv a.mon {height:38px;color:var(--dz-FC-color);font-weight:400;border-bottom:2px solid var(--dz-BG-color)}
 
 /*----- 通用滑动二级导航 -----*/
 .dhnav_box, .dhnav {width:100%;height:40px;overflow:hidden}
@@ -328,8 +328,8 @@ textarea {resize:none}
 #dhnav_li {width:100%;height:40px;text-align:center;white-space:nowrap}
 #dhnav_li li {float:left;width:auto;height:40px;text-align:center;overflow:hidden;color:var(--dz-FC-999);position:relative}
 #dhnav_li li a {display:inline-block;font-size:15px;line-height:38px;margin:0 15px}
-#dhnav_li li.kmon {height:38px;border-bottom:2px solid var(--dz-BG-color)}
-#dhnav_li li.kmon a {color:var(--dz-FC-color);font-weight:400}
+#dhnav_li li.mon {height:38px;border-bottom:2px solid var(--dz-BG-color)}
+#dhnav_li li.mon a {color:var(--dz-FC-color);font-weight:400}
 #dhnav_li .swiper-wrappers li {width:25%}
 
 /*----- 通用滑动三级导航 -----*/
@@ -339,7 +339,7 @@ textarea {resize:none}
 #dhnavs_li li {float:left;width:auto;text-align:center;overflow:hidden;color:var(--dz-FC-999);position:relative}
 #dhnavs_li li a {display:inline-block;font-size:14px;height:24px;line-height:24px;margin:8px 10px;padding:0 6px;color:var(--dz-FC-999);border-radius:4px}
 #dhnavs_li li span {color:var(--dz-FC-ddd)}
-#dhnavs_li li.kmon a {background-color:var(--dz-BG-color);color:var(--dz-FC-fff)}
+#dhnavs_li li.mon a {background-color:var(--dz-BG-color);color:var(--dz-FC-fff)}
 
 /*----- 通用帖子列表 -----*/
 .threadlist_box {overflow:hidden}
@@ -350,13 +350,13 @@ textarea {resize:none}
 .threadlist li.list {padding:2px 15px;background-color:var(--dz-BG-0);border-top:1px solid var(--dz-BOR-ed);border-bottom:1px solid var(--dz-BOR-ed);margin-top:10px}
 .threadlist li.list a {display:block}
 .threadlist_top {height:38px;padding:12px 0 10px}
-.threadlist_top .kmimg {float:left;margin-right:8px}
-.threadlist_top .kmimg img {float:left;width:38px;line-height:38px;border-radius:50%}
-.threadlist_top .kmuser h3 {margin-top:2px;height:20px;line-height:20px}
-.threadlist_top .kmuser h3 .kmmc {font-size:15px}
-.threadlist_top .kmuser .kmtime {display:block;height:18px;line-height:18px;font-size:12px;color:var(--dz-FC-ccc)}
+.threadlist_top .mimg {float:left;margin-right:8px}
+.threadlist_top .mimg img {float:left;width:38px;line-height:38px;border-radius:50%}
+.threadlist_top .muser h3 {margin-top:2px;height:20px;line-height:20px}
+.threadlist_top .muser h3 .mmc {font-size:15px}
+.threadlist_top .muser .mtime {display:block;height:18px;line-height:18px;font-size:12px;color:var(--dz-FC-ccc)}
 .threadlist_tit {line-height:26px;font-size:18px;margin-bottom:5px;font-weight:400}
-.threadlist_tit .kmicon {float:left;width:30px;height:18px;line-height:18px;text-align:center;font-size:12px;background-color:var(--dz-BG-color);color:var(--dz-FC-fff);margin-top:4px;margin-right:5px;border-radius:2px;overflow:hidden}
+.threadlist_tit .micon {float:left;width:30px;height:18px;line-height:18px;text-align:center;font-size:12px;background-color:var(--dz-BG-color);color:var(--dz-FC-fff);margin-top:4px;margin-right:5px;border-radius:2px;overflow:hidden}
 .threadlist_tit .top {background-color:var(--dz-BG-3)}
 .threadlist_tit .digest {background-color:var(--dz-BG-4)}
 .threadlist_tit .lock {background-color:var(--dz-BG-2)}
@@ -374,11 +374,11 @@ textarea {resize:none}
 .threadlist_foot {padding:5px 0 15px;height:22px;line-height:22px;font-size:13px}
 .threadlist_foot li {float:left;background-color:var(--dz-BG-5);padding:0 10px;margin-right:15px;color:var(--dz-FC-aaa);border-radius:4px}
 .threadlist_foot li i {float:left;font-size:14px;margin-right:3px;color:var(--dz-FC-ccc)}
-.threadlist_foot li.kmr {float:right;margin-right:0;padding:0;background:none;color:var(--dz-FC-color)}
-.threadlist_foot li.kmr a {float:right;color:var(--dz-FC-color)}
+.threadlist_foot li.mr {float:right;margin-right:0;padding:0;background:none;color:var(--dz-FC-color)}
+.threadlist_foot li.mr a {float:right;color:var(--dz-FC-color)}
 .threadlist li.list_top {padding:0 15px;background-color:var(--dz-BG-0);border-top:1px solid var(--dz-BOR-ed)}
 .threadlist li.list_top a {display:block;height:36px;line-height:36px;font-size:14px;overflow:hidden}
-.threadlist li.list_top a .kmicon {float:left;height:18px;line-height:18px;font-size:12px;background-color:var(--dz-BG-color);color:var(--dz-FC-fff);margin-top:9px;margin-right:6px;padding:0 3px;border-radius:2px;overflow:hidden}
+.threadlist li.list_top a .micon {float:left;height:18px;line-height:18px;font-size:12px;background-color:var(--dz-BG-color);color:var(--dz-FC-fff);margin-top:9px;margin-right:6px;padding:0 3px;border-radius:2px;overflow:hidden}
 .threadlist li.list_top a .gonggao {background-color:var(--dz-BG-2)}
 
 /*----- 翻页 -----*/
@@ -402,8 +402,8 @@ body.pg_logging, body.pg_register {background-color:var(--dz-BG-0)}
 .header_toplogo {background-color:var(--dz-BG-color);padding:20px 20px 50px;text-align:center;overflow:hidden}
 .header_toplogo img {height:40px}
 .header_toplogo p {height:30px;line-height:30px;font-size:16px;color:var(--dz-FC-fff)}
-.header_toplogo .kmtop_ss a {display:block;margin:15px auto;width:80%;background-color:var(--dz-BG-0);color:var(--dz-FC-999);height:34px;line-height:34px;font-size:14px;border-radius:40px}
-.header_toplogo .kmtop_ss a i {margin-right:5px}
+.header_toplogo .mtop_ss a {display:block;margin:15px auto;width:80%;background-color:var(--dz-BG-0);color:var(--dz-FC-999);height:34px;line-height:34px;font-size:14px;border-radius:40px}
+.header_toplogo .mtop_ss a i {margin-right:5px}
 .guide_index {padding-top:0}
 .loginbox {padding-bottom:10px;overflow:hidden}
 .login_from {padding:10px 15px;overflow:hidden}
@@ -440,7 +440,7 @@ body.pg_logging, body.pg_register {background-color:var(--dz-BG-0)}
 .myinfo_list li i {float:right;font-size:14px;color:var(--dz-FC-ccc)}
 .myinfo_list li em {font-size:12px;margin-left:5px;color:var(--dz-BG-2)}
 .myinfo_list li span {float:right;color:var(--dz-FC-aaa)}
-.myinfo_list li span.kmtxt {margin-top:12px;height:18px;line-height:18px;padding:0 3px;font-size:12px;background-color:var(--dz-BG-3);color:var(--dz-FC-fff);overflow:hidden;border-radius:2px}
+.myinfo_list li span.mtxt {margin-top:12px;height:18px;line-height:18px;padding:0 3px;font-size:12px;background-color:var(--dz-BG-3);color:var(--dz-FC-fff);overflow:hidden;border-radius:2px}
 .myinfo_list li span a {color:var(--dz-BG-color)}
 .myinfo_list li b {color:var(--dz-FC-color)}
 .myinfo_list_ico {margin:0 15px 10px;padding:10px;background-color:var(--dz-BG-0);border:1px solid var(--dz-BOR-ed);overflow:hidden;border-radius:6px}
@@ -471,10 +471,10 @@ body.pg_logging, body.pg_register {background-color:var(--dz-BG-0)}
 
 /*----- 通用发布输入框相关 -----*/
 .post_box {background-color:var(--dz-BG-0);overflow:hidden}
-.post_box li.kmli {height:30px;line-height:30px;padding:5px 15px;font-size:16px;border-bottom:1px solid var(--dz-BOR-ed);overflow:hidden;position:relative}
-.post_box li.kmtit {height:20px;line-height:20px;font-size:12px;padding-top:10px;color:var(--dz-FC-999)}
-.post_box li.kmtext {height:auto;line-height:30px;padding:10px 15px;font-size:16px;border-bottom:1px solid var(--dz-BOR-ed);overflow:hidden}
-.post_box li.kmli .sort_sel {width:100%;background:url('img/arrow.png') no-repeat right center;background-size:16px 16px;padding-right:14px;height:30px;line-height:30px;font-size:16px;border:none;color:graytext;appearance:none;-moz-appearance:none;-webkit-appearance:none;overflow:hidden}
+.post_box li.mli {height:30px;line-height:30px;padding:5px 15px;font-size:16px;border-bottom:1px solid var(--dz-BOR-ed);overflow:hidden;position:relative}
+.post_box li.mtit {height:20px;line-height:20px;font-size:12px;padding-top:10px;color:var(--dz-FC-999)}
+.post_box li.mtext {height:auto;line-height:30px;padding:10px 15px;font-size:16px;border-bottom:1px solid var(--dz-BOR-ed);overflow:hidden}
+.post_box li.mli .sort_sel {width:100%;background:url('img/arrow.png') no-repeat right center;background-size:16px 16px;padding-right:14px;height:30px;line-height:30px;font-size:16px;border:none;color:graytext;appearance:none;-moz-appearance:none;-webkit-appearance:none;overflow:hidden}
 .post_btn {padding:15px}
 .post_box .sec_code {padding:5px 15px;border-bottom:1px solid var(--dz-BOR-ed)}
 .post_box li .post_imgbtn {float:left;padding:0 10px;font-size:13px;color:var(--dz-FC-color);background-color:var(--dz-BG-5);border:1px solid var(--dz-BOR-ed);border-radius:4px;position:relative}
@@ -500,15 +500,15 @@ body.pg_logging, body.pg_register {background-color:var(--dz-BG-0)}
 .plc .avatar img {width:36px;height:36px;border-radius:50%}
 .plc .pi {margin-left:45px;margin-top:5px;padding:10px 0;position:relative}
 .plc .pi .authi {margin-bottom:10px;position:relative}
-.plc .pi .authi li.kmtit {height:18px;line-height:16px;padding-top:2px;overflow:hidden}
+.plc .pi .authi li.mtit {height:18px;line-height:16px;padding-top:2px;overflow:hidden}
 .plc .pi .authi li span.z, .plc .pi .authi li span.z a {font-size:14px;color:var(--dz-FC-color)}
 .plc .pi .authi li span.y {float:right;color:var(--dz-FC-999)}
-.plc .pi .authi li.kmtime {height:16px;line-height:16px;color:var(--dz-FC-999);overflow:hidden}
-.plc .pi .authi li.kmtime span {float:right;font-size:12px}
-.plc .pi .authi li.kmtime span i {float:left;margin-left:8px;margin-right:2px;color:var(--dz-FC-bbb)}
-.plc .pi .authi li.kmtime span em {float:left}
-.plc .pi .authi li.kmtime em.kmgl {float:right;margin-left:8px;color:var(--dz-BG-2)}
-.plc .pi .authi li.kmtime em.kmgl a {color:var(--dz-BG-2)}
+.plc .pi .authi li.mtime {height:16px;line-height:16px;color:var(--dz-FC-999);overflow:hidden}
+.plc .pi .authi li.mtime span {float:right;font-size:12px}
+.plc .pi .authi li.mtime span i {float:left;margin-left:8px;margin-right:2px;color:var(--dz-FC-bbb)}
+.plc .pi .authi li.mtime span em {float:left}
+.plc .pi .authi li.mtime em.mgl {float:right;margin-left:8px;color:var(--dz-BG-2)}
+.plc .pi .authi li.mtime em.mgl a {color:var(--dz-BG-2)}
 .plc .pione {margin-left:0}
 .plc .pione .authi {margin-left:45px}
 .plc .pi .message {line-height:26px;font-size:16px}
@@ -518,22 +518,22 @@ body.pg_logging, body.pg_register {background-color:var(--dz-BG-0)}
 .plc .pi .img_list li {width:100%;text-align:center;vertical-align:middle}
 .plc .pi .img_list li a {display:block}
 .plc .pi .img_list li img {margin:7px 0;max-width:100%;border-radius:4px}
-.kmtime .manage, .kmtime .dialogbox {width:90%;padding:10px;background-color:var(--dz-BG-0);overflow:hidden;border-radius:8px}
-.kmtime .manage .button, .kmtime .dialogbox .button {float:left;width:46%;margin:2%}
+.mtime .manage, .mtime .dialogbox {width:90%;padding:10px;background-color:var(--dz-BG-0);overflow:hidden;border-radius:8px}
+.mtime .manage .button, .mtime .dialogbox .button {float:left;width:46%;margin:2%}
 .replybtn {display:none;position:absolute;right:0;top:12px}
 .replybtn .button {height:34px;line-height:34px;font-size:12px;padding:0 12px;border-radius:4px}
 .foot_reply {height:40px;background-color:var(--dz-BG-0);border-top:1px solid var(--dz-BOR-ed);overflow:hidden}
 .foot_reply a {display:block;height:20px;line-height:20px;font-size:14px;text-align:center;color:var(--dz-FC-666)}
 .foot_reply a i {padding-right:4px;color:var(--dz-FC-aaa)}
-.foot_reply a.kmx {border-left:1px solid var(--dz-BOR-ed)}
+.foot_reply a.mx {border-left:1px solid var(--dz-BOR-ed)}
 .foot_height_view {height:40px}
 
 /*----- 特殊主题-投票 -----*/
 .poll {margin:10px auto;padding:10px 15px;background-color:var(--dz-BG-5);font-size:14px;border-radius:6px}
 .poll_txt {line-height:28px;color:var(--dz-FC-666)}
 .poll_box p {margin:5px 0;line-height:30px}
-.poll_box p .kmimg {display:block;width:50%;border-radius:4px}
-.plc .pi .message .poll_box p .kmimg img {width:80%}
+.poll_box p .mimg {display:block;width:50%;border-radius:4px}
+.plc .pi .message .poll_box p .mimg img {width:80%}
 .poll_box p input {margin:0 3px 3px 0;vertical-align:middle}
 .poll_box p em {margin-left:5px}
 .poll_box span {display:block;margin-top:5px;line-height:28px;color:var(--dz-FC-666)}
@@ -544,13 +544,13 @@ body.pg_logging, body.pg_register {background-color:var(--dz-BG-0)}
 .reward_txt {line-height:20px;color:var(--dz-FC-666)}
 .reward_txt strong {margin:0 5px;font-size:18px;color:var(--dz-BG-3)}
 .reward_txt span {display:block;color:var(--dz-FC-bbb)}
-.reward .kmhd {float:right;color:var(--dz-FC-fff)}
+.reward .mhd {float:right;color:var(--dz-FC-fff)}
 .rwdbst {padding:10px 15px}
 .rwdbst h3 {color:var(--dz-BG-3)}
 .rwdbst h3 a {float:right;font-size:14px;color:var(--dz-FC-color)}
-.rwdbst .kmuser {margin:8px 0;height:20px;line-height:20px}
-.rwdbst .kmuser img {float:left;width:20px;height:20px;margin:0 5px 0 0 !important;border-radius:50% !important}
-.rwdbst .kmtxt {color:var(--dz-FC-999)}
+.rwdbst .muser {margin:8px 0;height:20px;line-height:20px}
+.rwdbst .muser img {float:left;width:20px;height:20px;margin:0 5px 0 0 !important;border-radius:50% !important}
+.rwdbst .mtxt {color:var(--dz-FC-999)}
 
 /*----- 特殊主题-辩论 -----*/
 .debate_box {margin:10px auto;padding:10px 15px;background-color:var(--dz-BG-5);font-size:14px;border-radius:6px}
@@ -565,23 +565,23 @@ body.pg_logging, body.pg_register {background-color:var(--dz-BG-0)}
 .activity {margin:10px auto;padding:10px 15px;background-color:var(--dz-BG-5);font-size:14px;border-radius:6px}
 .activity dl {margin-top:5px}
 .activity dt {line-height:26px}
-.activity dt .kmtit {float:left;width:80px;margin-right:10px;text-align:right}
-.activity dt .kmy {float:right;color:var(--dz-FC-999)}
-.activity dt em, .activity dt a, .activity dt.kmtxt {color:var(--dz-BG-3)}
-.activity dt .kmtxt {display:block;margin-top:8px}
-.activity dt .kmtxt .kmx {margin-left:3px;color:var(--dz-BG-2)}
+.activity dt .mtit {float:left;width:80px;margin-right:10px;text-align:right}
+.activity dt .my {float:right;color:var(--dz-FC-999)}
+.activity dt em, .activity dt a, .activity dt.mtxt {color:var(--dz-BG-3)}
+.activity dt .mtxt {display:block;margin-top:8px}
+.activity dt .mtxt .mx {margin-left:3px;color:var(--dz-BG-2)}
 .activity dt .px {padding:2px 0;text-indent:8px;border-radius:4px}
 .activity dt p a.xi2 {display:none}
 .activity p {background-color:var(--dz-BG-0)}
 .activity p label {display:block}
 .activity .join_btn {margin:10px auto}
-.activity .kmbox {width:100%}
-.activity .kmbox .kma {width:40%}
-.activity .kmbox .kmb, .activity .kmbox .kmc {width:30%;text-align:right}
+.activity .mbox {width:100%}
+.activity .mbox .ma {width:40%}
+.activity .mbox .mb, .activity .mbox .mc {width:30%;text-align:right}
 
 /*----- 特殊主题-商品 -----*/
 .trade_box {margin:10px auto;padding:10px 15px;background-color:var(--dz-BG-5);font-size:14px;border-radius:6px}
-.trade_box .kmy {float:right;color:var(--dz-BG-3)}
+.trade_box .my {float:right;color:var(--dz-BG-3)}
 
 /*----- 帖子内容页-返回顶部 -----*/
 .scrolltop {display:block;position:fixed;right:15px;margin-bottom:50px;height:38px;width:38px;z-index:99999;background:rgba(0, 0, 0, .8);border-radius:1px;box-shadow:0 0 2px rgba(0,0,0,.3);border-radius:6px}

@@ -1,16 +1,16 @@
 <!--{template common/header}-->
 <div class="header cl">
-	<div class="kmz"><a href="javascript:history.back();"><i class="iconfont">&#xe779;</i></a></div>
+	<div class="mz"><a href="javascript:history.back();"><i class="iconfont">&#xe779;</i></a></div>
 	<h2>{lang announcement}</h2>
-	<div class="kmy"><a href="<!--{if $_G['setting']['mobile']['mobilehotthread']}--><!--{if !empty($_G['setting']['grid']['showgrid'])}-->forum.php<!--{else}-->forum.php?mod=guide&view=newthread<!--{/if}--><!--{else}-->forum.php?forumlist=1<!--{/if}-->"><i class="iconfont">&#xe751;</i></a></div>
+	<div class="my"><a href="<!--{if $_G['setting']['mobile']['mobilehotthread']}--><!--{if !empty($_G['setting']['grid']['showgrid'])}-->forum.php<!--{else}-->forum.php?mod=guide&view=newthread<!--{/if}--><!--{else}-->forum.php?forumlist=1<!--{/if}-->"><i class="iconfont">&#xe751;</i></a></div>
 </div>
 <div class="dhnav_box">
 	<div id="dhnav">
 		<div id="dhnav_li">
 		<ul class="swiper-wrapper">
-				<li class="swiper-slide{if empty($_GET[m])} kmon{/if}"><a href="forum.php?mod=announcement">{lang all}</a>{if empty($_GET[m])}<em></em>{/if}</li>
+				<li class="swiper-slide{if empty($_GET[m])} mon{/if}"><a href="forum.php?mod=announcement">{lang all}</a>{if empty($_GET[m])}<em></em>{/if}</li>
 			<!--{loop $months $month}-->
-				<li class="swiper-slide{if $_GET[m] == $month[0].$month[1]} kmon{/if}"><a href="forum.php?mod=announcement&m=$month[0].$month[1]">$month[0] {lang year} $month[1] {lang month}</a></li>
+				<li class="swiper-slide{if $_GET[m] == $month[0].$month[1]} mon{/if}"><a href="forum.php?mod=announcement&m=$month[0].$month[1]">$month[0] {lang year} $month[1] {lang month}</a></li>
 			<!--{/loop}-->
 		</ul>
 		</div>
@@ -23,7 +23,7 @@
 		<!--{eval $nn++;}-->
 		<li class="cl">
 			<h2><a href="javascript:;" class="ann_more" id="ann_{$ann['id']}"><i class="iconfont">{if $nn == 1 && !$annid || $ann['id'] == $annid}&#xe772{else}&#xe775{/if}</i>$ann['subject']</a></h2>
-			<h3><span class="kmy">$ann['starttime']</span><span class="kmz">{lang author}:</span> <a href="home.php?mod=space&username=$ann['authorenc']&do=profile">$ann['author']</a></h3>
+			<h3><span class="my">$ann['starttime']</span><span class="mz">{lang author}:</span> <a href="home.php?mod=space&username=$ann['authorenc']&do=profile">$ann['author']</a></h3>
 			<div class="annlist_box" style="display:{if $nn == 1 && !$annid || $ann['id'] == $annid}block{else}none{/if};" id="ann_{$ann['id']}_box">				
 				$ann['message']
 			</div>
@@ -32,8 +32,8 @@
 	</ul>	
 </div>
 <script>
-	if($("#dhnav_li .kmon").length > 0) {
-		var discuz_nav = $("#dhnav_li .kmon").offset().left + $("#dhnav_li .kmon").width() >= $(window).width() ? $("#dhnav_li .kmon").index() : 0;
+	if($("#dhnav_li .mon").length > 0) {
+		var discuz_nav = $("#dhnav_li .mon").offset().left + $("#dhnav_li .mon").width() >= $(window).width() ? $("#dhnav_li .mon").index() : 0;
 	}else{
 		var discuz_nav = 0;
 	}	
