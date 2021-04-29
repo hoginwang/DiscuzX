@@ -196,5 +196,6 @@ $lang = array (
   'mobshezhi' => '设置',
   'mobnoreply' => '暂无回复，快来抢沙发',
   'mobdebate_tip' => '请使用电脑版对辩论帖子进行高级管理',
+  'mobdaodu' => '导读',
 );
 ?>
