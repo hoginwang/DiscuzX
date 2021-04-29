@@ -3,27 +3,21 @@ branches: {
   }
 fileChange:
   /upload:
-    newFile: !uuid '37267c94c7da59c693de545ef6b12a3b47d5f994'
-    oldFile: !uuid 'fdb589badc7cbdef9f6cb8159c975a7841f463de'
+    newFile: !uuid '19fe15372f5c8144bdd918fc4839008f8ae0becd'
+    oldFile: !uuid '37267c94c7da59c693de545ef6b12a3b47d5f994'
   /upload/source:
-    newFile: !uuid '5cde6b07f5468239ede11719faf9c7843344c3b0'
-    oldFile: !uuid '432e653b1b2559199105f2c89871bdbcbbcbb9db'
-  /upload/source/plugin:
-    newFile: !uuid '0aa13f53dc306ef88ae61156cc021dd806e135e2'
-    oldFile: !uuid '9bdfc3e4c9a6faa72413938126dbce9d121608fb'
-  /upload/source/plugin/qqconnect:
-    newFile: !uuid '73782100ddd7b3f00e09a6ed9acbfba1f092e7da'
-    oldFile: !uuid '6baa5cb9d073bd35b9e307ffcd32670f04ae6ca9'
-  /upload/source/plugin/qqconnect/discuz_plugin_qqconnect.xml:
-    newFile: !uuid '9108f3d8c9284760e915a9617662caccfe2aa464'
-    oldFile: !uuid '4290011f255239a54fc70744d60917b502f44f68'
-  /upload/source/plugin/qqconnect/template:
-    newFile: !uuid '070db1e1d0feca82d9fb5ccdc1315ef73c04d0b1'
-    oldFile: !uuid '9b19578b35fc6d4692ece100737c08a18fe14904'
-  /upload/source/plugin/qqconnect/template/spacecp.htm:
-    newFile: !uuid '3c7cc9e76383f7124be9e58d0315d0e3503af726'
-    oldFile: !uuid 'd36149b50273a43de4da850df5f3698584500bdc'
-gitCommitId: !uuid 'd18e12bdbf6029cbfc7e1e97cdffd63dcccb5031'
+    newFile: !uuid 'ecd7dbbf98acb339a3810a45c20f1bb39c630a11'
+    oldFile: !uuid '5cde6b07f5468239ede11719faf9c7843344c3b0'
+  /upload/source/include:
+    newFile: !uuid 'dec4899d2c343a11a505ddd6fab35a778882afb3'
+    oldFile: !uuid '55c1ae8ea76e2d48f8f64b461f722b02c27f063f'
+  /upload/source/include/spacecp:
+    newFile: !uuid '9db2b70e67990f5902706cf6bbde92c0eeb7b777'
+    oldFile: !uuid '495e6f77aa30e2a8f0f81e4644ca0ba70667249e'
+  /upload/source/include/spacecp/spacecp_favorite.php:
+    newFile: !uuid '1aaa75d6dc6e14fc8ebb7dd8d48f13ba5c166668'
+    oldFile: !uuid '42ee5c31e483153a11be00ee26eae3981e512a9b'
+gitCommitId: !uuid '4aff79639f7951043236cddd235d823522f2237a'
 renames: {
   }
-revisionId: 710
+revisionId: 711
