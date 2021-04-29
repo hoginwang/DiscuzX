@@ -4,16 +4,20 @@
 <div class="foot_height"></div>
 <div class="foot flex-box">
 	<!--{if $_G['setting']['mobile']['mobilehotthread']}-->
-		<!--{if !empty($_G['setting']['grid']['showgrid'])}-->
+		<!--{if !empty($_G['setting']['grid']['showgrid']) || !empty($_G['cache']['heats']['message'])}-->
 		<a href="forum.php" class="flex{if $_G['basescript'] == 'forum' && CURMODULE == 'index' && $_GET['forumlist'] != 1 && $_GET['mod'] != 'find'} mon{/if}">
 		<!--{else}-->
 		<a href="forum.php?mod=guide&view=newthread" class="flex{if $_G['basescript'] == 'forum' && CURMODULE == 'guide'} mon{/if}">
 		<!--{/if}-->	
 		<span class="foot-ico"><em class="ma"></em></span>
-		<span class="foot-txt">{lang mobhome}</span>
+		<span class="foot-txt"><!--{if !empty($_G['setting']['grid']['showgrid']) || !empty($_G['cache']['heats']['message'])}-->{lang mobhome}<!--{else}-->{lang mobdaodu}<!--{/if}--></span>
 	</a>
 	<!--{/if}-->
-	<a href="forum.php?forumlist=1" class="flex{if $_G['basescript'] == 'forum' && (CURMODULE == 'index' && $_GET['forumlist'] == 1 || CURMODULE == 'forumdisplay' || CURMODULE == 'viewthread')} mon{/if}">
+	<!--{if $_G['setting']['mobile']['mobilehotthread']}-->
+		<a href="forum.php?forumlist=1" class="flex{if $_G['basescript'] == 'forum' && (CURMODULE == 'index' && $_GET['forumlist'] == 1 || CURMODULE == 'forumdisplay' || CURMODULE == 'viewthread')} mon{/if}">
+	<!--{else}-->
+		<a href="forum.php?forumlist=1" class="flex{if $_G['basescript'] == 'forum' && $_GET['mod'] != 'find' && (CURMODULE == 'index' || $_GET['forumlist'] == 1 || CURMODULE == 'forumdisplay' || CURMODULE == 'viewthread')} mon{/if}">
+	<!--{/if}-->
 		<span class="foot-ico"><em class="m<!--{if $_G['setting']['mobile']['mobilehotthread']}-->b<!--{else}-->a<!--{/if}-->"></em></span>
 		<span class="foot-txt">{$_G['setting']['navs'][2]['navname']}</span>
 	</a>
