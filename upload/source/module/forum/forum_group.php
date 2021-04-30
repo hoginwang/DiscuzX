@@ -588,7 +588,6 @@ if($action == 'index') {
 		if($_G['uid'] != $_G['forum']['founderuid'] && $_G['adminid'] != 1) {
 			showmessage('group_threadtype_only_founder');
 		}
-		$typenumlimit = 20;
 		if(!submitcheck('groupthreadtype')) {
 			$threadtypes = $checkeds = array();
 			if(empty($_G['forum']['threadtypes'])) {
@@ -620,10 +619,8 @@ if($action == 'index') {
 							$newtypeid = $newtype['typeid'];
 							if(!$newtypeid) {
 								$typenum = C::t('forum_threadclass')->count_by_fid($_G['fid']);
-								if($typenum < $typenumlimit) {
-									$threadtypes_newdisplayorder = intval($_GET['newdisplayorder'][$key]);
-									$newtypeid = C::t('forum_threadclass')->insert(array('fid' => $_G['fid'], 'name' => $val, 'displayorder' => $threadtypes_newdisplayorder), true);
-								}
+								$threadtypes_newdisplayorder = intval($_GET['newdisplayorder'][$key]);
+								$newtypeid = C::t('forum_threadclass')->insert(array('fid' => $_G['fid'], 'name' => $val, 'displayorder' => $threadtypes_newdisplayorder), true);
 							}
 							if($newtypeid) {
 								$threadtypesnew['options']['name'][$newtypeid] = $val;
