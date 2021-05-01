@@ -7,7 +7,7 @@
 <!--{hook/forumdisplay_top_mobile}-->
 <div class="forumdisplay-top cl">
 	<h2>
-	<img src="<!--{if $_G['forum']['icon']}--><!--{echo get_forumimg($_G['forum']['icon'])}--><!--{else}-->template/default/touch/style/img/forum.png<!--{/if}-->" alt="$_G['forum']['name']" />
+	<img src="<!--{if $_G['forum']['icon']}--><!--{echo get_forumimg($_G['forum']['icon'])}--><!--{else}-->{STATICURL}image/mobile/touch/forum.png<!--{/if}-->" alt="$_G['forum']['name']" />
 	<!--{if helper_access::check_module('favorite')}-->
 	<a href="home.php?mod=spacecp&ac=favorite&type=forum&id=$_G['fid']&handlekey=favoriteforum&formhash={FORMHASH}" id="a_favorite" class="dialog">{lang favorite}<span id="number_favorite" {if !$_G['forum']['favtimes']} style="display:none;"{/if}><span id="number_favorite_num"> +{$_G['forum']['favtimes']}</span></span></a>
 	<!--{/if}-->
