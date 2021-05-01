@@ -3,18 +3,21 @@ branches: {
   }
 fileChange:
   /upload:
-    newFile: !uuid '6cc1f02203fbdfc6c8e8fb1f9ca6ba27fe904060'
-    oldFile: !uuid 'e94c2efd5e12f340a2338cb4e563d265c2ce8ecd'
-  /upload/install:
-    newFile: !uuid 'd154b673ac851f61b78d22ad20b733c13aeda827'
-    oldFile: !uuid 'ae1389d40dad7aefb51504f13852d5d08a8e4936'
-  /upload/install/include:
-    newFile: !uuid '8d5b2f60e1adb56ae531a65478585a25c32a8cc2'
-    oldFile: !uuid '5e449b89639008278043ebecd11fbd84c5ecd2d7'
-  /upload/install/include/install_function.php:
-    newFile: !uuid 'c1e5705c74dff1be26b6300abb6927d99371cfb6'
-    oldFile: !uuid 'aae81e6c472e2f0f065b61d0d7da8f4ca601c47f'
-gitCommitId: !uuid '9cacc004e50bbca0d5853417dfb161f071a804de'
+    newFile: !uuid '45f196af2fc88656b10cf021220a65a0fa68c13d'
+    oldFile: !uuid '6cc1f02203fbdfc6c8e8fb1f9ca6ba27fe904060'
+  /upload/static:
+    newFile: !uuid '7e2eb82cb1e1599fd7ba0e6cb49dc5a7cdc9651b'
+    oldFile: !uuid '64854e516143b1d77c0be127a95a1eee645d9b77'
+  /upload/static/js:
+    newFile: !uuid '24b6a908f34ce74ad5ff2f4ffd042985e0939f02'
+    oldFile: !uuid '31bf30a59cffb9bf48d6c02451cef5665ec256bc'
+  /upload/static/js/mobile:
+    newFile: !uuid '3748134e9ff73afa99efc4f34f8417dda7add0d0'
+    oldFile: !uuid '14af778e97e3087609c9a0fab448d7795f7caaf2'
+  /upload/static/js/mobile/jquery.min.js:
+    newFile: !uuid 'e836475870da67f3c72f64777c6e0f37d9f4c87b'
+    oldFile: !uuid '38837795279c5eb281e98ce6017998b993026518'
+gitCommitId: !uuid '7dff34441a49548b87faf8bf549ee7ff46442b40'
 renames: {
   }
-revisionId: 650
+revisionId: 651
