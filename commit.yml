@@ -3,27 +3,21 @@ branches: {
   }
 fileChange:
   /upload:
-    newFile: !uuid '63fcdf1d205073e2457835bd531c2a0f7133fde1'
-    oldFile: !uuid '0fa8fa2ba2d90bbd4daace6924ac421378a06f4a'
-  /upload/source:
-    newFile: !uuid '8ddcade58436c3a26bfecc813ea755429dce518b'
-    oldFile: !uuid '7b477ee9aa854f84d38cd3c0786acfac9a43a01c'
-  /upload/source/class:
-    newFile: !uuid '148457e0cff8373291f1a7b276e683c868136a92'
-    oldFile: !uuid '0ec17ff5f57489ed4f265eb182c5b8664884731e'
-  /upload/source/class/class_chinese.php:
-    newFile: !uuid '586bb162512142545fbfafad74f3f897fef56201'
-    oldFile: !uuid '147e46cb539bf8bf2f4ece06d4f92fe03ddaffb4'
-  /upload/source/include:
-    newFile: !uuid 'dc8cb9c839b0013e7c12f134e861feba5a749c5e'
-    oldFile: !uuid 'ef5cc341f674331e744cbf675757e32455c1fe5b'
-  /upload/source/include/misc:
-    newFile: !uuid 'a3c7000e898a37ba43e12773fb9aa5c05b81e17c'
-    oldFile: !uuid '7133e6b7fbb1be70adfa84d4676bfeeb1c797d35'
-  /upload/source/include/misc/misc_stat.php:
-    newFile: !uuid '03e39a59dec5244d46656f4fd861db5f4ce5f79e'
-    oldFile: !uuid 'd4f2d4edb69b51a2df03aa26dd1989976e098fed'
-gitCommitId: !uuid 'f1bb6edaf4cdfbddab800dbdd82327e8849da7f0'
+    newFile: !uuid 'd826f975e1a8aa13e60d66d6d3e90fbcf5bf7a12'
+    oldFile: !uuid '63fcdf1d205073e2457835bd531c2a0f7133fde1'
+  /upload/static:
+    newFile: !uuid 'cfbabbe8dc6ce3c9f7c5cd1c9d5e1f707bde6dbe'
+    oldFile: !uuid '75cb9c7f9bb44a46ee501e32904329ba902faa2b'
+  /upload/static/js:
+    newFile: !uuid '702903fb87224616311fe41ef1934753ec9470bf'
+    oldFile: !uuid 'b7dc1162e9e86e0f36fb014fdbd71c670ca085b0'
+  /upload/static/js/mobile:
+    newFile: !uuid '93a9f1d76d897767b4e73e37355208943fd79a24'
+    oldFile: !uuid '14af778e97e3087609c9a0fab448d7795f7caaf2'
+  /upload/static/js/mobile/common.js:
+    newFile: !uuid 'b3c40a2dda9d4e019cd1207e2495a85ddf6e4f61'
+    oldFile: !uuid '60f66622207ea934c8cb41ad0a37fffeb0bd4493'
+gitCommitId: !uuid '57afe2bb56d049913764d82ad630721aa918c1f6'
 renames: {
   }
-revisionId: 713
+revisionId: 714
