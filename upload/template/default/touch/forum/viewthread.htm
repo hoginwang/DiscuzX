@@ -26,8 +26,8 @@
 	<!--{hook/viewthread_posttop_mobile $postcount}-->
    <div class="plc cl" id="pid$post['pid']">
 	   <div class="avatar"><img src="<!--{if !$post['authorid'] || $post['anonymous']}--><!--{avatar(0, 'small', true)}--><!--{else}--><!--{avatar($post['authorid'], 'small', true)}--><!--{/if}-->" /></div>
-       <div class="display pi<!--{if $post['first']}--> pione<!--{/if}-->" href="#replybtn_$post['pid']">
-		   <ul class="authi">
+		<div class="display pi<!--{if $post['first']}--> pione<!--{/if}-->" href="#replybtn_$post['pid']">
+			<ul class="authi">
 				<li class="mtit">
 					<span class="y">
 						<!--{if isset($post['isstick'])}-->
@@ -166,7 +166,9 @@
 				<input type="button" class="redirect button" href="forum.php?mod=post&action=reply&fid=$_G['fid']&tid=$_G['tid']&repquote=$post['pid']&extra=$_GET['extra']&page=$page" value="{lang reply}">
 			</div>
 			<!--{/if}-->
-       </div>
+			<!--{if $post['first']}-->
+			<!--{/if}-->
+		</div>
    </div>
 	<!--{if $post['first']}-->
 		<div class="discuz_x cl"></div>
@@ -201,6 +203,9 @@ $multipage
 	<a href="forum.php?mod=post&action=reply&fid=$_G['fid']&tid=$_G['tid']&reppost=$_G['forum_firstpid']&page=$page" class="flex"><i class="iconfont">&#xe744;</i>{lang reply}</a>
 	<!--{if helper_access::check_module('favorite')}-->
 		<a href="home.php?mod=spacecp&ac=favorite&type=thread&id=$_G['tid']" class="dialog flex mx"><i class="iconfont">&#xe64c;</i><!--{if $_G['forum_thread']['favtimes']}-->{$_G['forum_thread']['favtimes']}<!--{/if}-->{lang favorite}</a>
+	<!--{/if}-->
+	<!--{if helper_access::check_module('share')}-->
+		<a href="home.php?mod=spacecp&ac=share&type=thread&id=$_G[tid]" class="dialog flex mx"><i class="iconfont">&#xe64c;</i><!--{if $_G['forum_thread']['favtimes']}-->{$_G['forum_thread']['sharetimes']}<!--{/if}-->{lang thread_share}</a>
 	<!--{/if}-->
 </div>
 <div class="foot_height_view"></div>
