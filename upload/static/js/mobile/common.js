@@ -548,7 +548,7 @@ function detectPlayer(randomid, ext, src, width, height) {
 	} else if (in_array(ext, trad_support)) {
 		tradionalPlayer(randomid, ext, src, width, height);
 	} else {
-		document.getElementById(randomid).style.width = width + 'px';
+		document.getElementById(randomid).style.width = '100%';
 		document.getElementById(randomid).style.height = height + 'px';
 	}
 }
@@ -588,7 +588,7 @@ function tradionalPlayer(randomid, ext, src, width, height) {
 		default:
 			break;
 	}
-	document.getElementById(randomid).style.width = width + 'px';
+	document.getElementById(randomid).style.width = '100%';
 	document.getElementById(randomid).style.height = height + 'px';
 	document.getElementById(randomid + '_container').innerHTML = html;
 }
@@ -620,8 +620,7 @@ function html5Player(randomid, ext, src, width, height) {
 		default:
 			break;
 	}
-	document.getElementById(randomid).style.width = width + 'px';
-	document.getElementById(randomid).style.height = height + 'px';
+	document.getElementById(randomid).style.width = '100%';
 }
 
 function html5APlayer(randomid, ext, src, width, height) {
