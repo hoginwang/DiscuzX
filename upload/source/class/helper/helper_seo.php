@@ -81,18 +81,22 @@ class helper_seo {
 		loadcache('relatedlink');
 		$allextent = array('article' => 0, 'forum' => 1, 'group' => 2, 'blog' => 3);
 		if($_G['cache']['relatedlink'] && isset($allextent[$extent])) {
-			$searcharray = $replacearray = array();
+			$sortarray = $replacearray = array();
 			foreach($_G['cache']['relatedlink'] as $link) {
 				$link['extent'] = sprintf('%04b', $link['extent']);
 				if($link['extent'][$allextent[$extent]] && $link['name'] && $link['url']) {
-					$searcharray[$link[name]] = '/('.preg_quote($link['name']).')/i';
-					$replacearray[$link[name]] = "<a href=\"$link[url]\" target=\"_blank\" class=\"relatedlink\">$link[name]</a>";
+					$sortarray[$link['name']] = strlen($link['name']);
+					$replacearray[$link['name']] = array(
+						'search' => '/('.preg_quote($link['name']).')/i',
+						'replace' => "<a href=\"$link[url]\" target=\"_blank\" class=\"relatedlink\">$link[name]</a>"
+					);
 				}
 			}
-			if($searcharray && $replacearray) {
+			array_multisort($sortarray,SORT_DESC,$replacearray);
+			foreach ($replacearray as $key => $value) {
 				$_G['trunsform_tmp'] = array();
 				$content = preg_replace_callback("/(<script\s+.*?>.*?<\/script>)|(<a\s+.*?>.*?<\/a>)|(<img\s+.*?[\/]?>)|(\[attach\](\d+)\[\/attach\])/is", array(__CLASS__, 'parse_related_link_callback_base64_transform_1234'), $content);
-				$content = preg_replace($searcharray, $replacearray, $content, 1);
+				$content = preg_replace($value['search'], $value['replace'], $content, 1);
 				$content = preg_replace_callback("/<relatedlink>(.*?)<\/relatedlink>/is", array(__CLASS__, 'parse_related_link_callback_base64_transform_1'), $content);
 			}
 		}
