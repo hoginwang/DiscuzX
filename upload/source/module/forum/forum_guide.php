@@ -13,8 +13,8 @@ if(!defined('IN_DISCUZ')) {
 
 $view = $_GET['view'];
 loadcache('forum_guide');
-if(!in_array($view, array('hot', 'digest', 'new', 'my', 'newthread', 'sofa'))) {
-	$view = 'hot';
+if(!in_array($view, array('hot', 'digest', 'new', 'my', 'newthread', 'sofa', 'stick'))) {
+	$view = 'stick';
 }
 $lang = lang('forum/template');
 $navtitle = $lang['guide'].'-'.$lang['guide_'.$view];
@@ -115,6 +115,7 @@ if($view != 'index') {
 } else {
 	$data['hot'] = get_guide_list('hot', 0, 30);
 	$data['digest'] = get_guide_list('digest', 0, 30);
+	$data['stick'] = get_guide_list('stick', 0, 30);
 	$data['new'] = get_guide_list('new', 0, 30);
 	$data['newthread'] = get_guide_list('newthread', 0, 30);
 }
@@ -128,7 +129,7 @@ include template('forum/guide');
 function get_guide_list($view, $start = 0, $num = 50, $again = 0) {
 	global $_G;
 	$setting_guide = unserialize($_G['setting']['guide']);
-	if(!in_array($view, array('hot', 'digest', 'new', 'newthread', 'sofa'))) {
+	if(!in_array($view, array('hot', 'digest', 'new', 'newthread', 'sofa', 'stick'))) {
 		return array();
 	}
 	loadcache('forums');
