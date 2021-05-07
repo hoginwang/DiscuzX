@@ -1110,7 +1110,10 @@ class table_forum_thread extends discuz_table
 			if($dateline) {
 				$addsql .= ' AND dateline > '.intval($dateline);
 			}
-			if($type == 'newthread') {
+			if($type == 'stick') {
+                $orderby = 'displayorder';
+                $addsql .= ' AND displayorder > 0';
+            } elseif($type == 'newthread') {
 				$orderby = 'tid';
 			} elseif($type == 'reply') {
 				$orderby = 'lastpost';
