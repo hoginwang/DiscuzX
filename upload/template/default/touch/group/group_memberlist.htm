@@ -1,0 +1,96 @@
+<div class="dhnav_box">
+	<div id="dhnav">
+		<div id="dhnav_li">
+		<ul class="flex-box">
+			<li class="flex"><a href="forum.php?mod=forumdisplay&action=list&fid=$_G['fid']">{lang forum_viewall}</a></li>
+			<li class="flex mon"><a href="forum.php?mod=group&action=memberlist&fid=$_G['fid']">{lang group_member_list}</a></li>
+			<!--{if $_G['forum']['ismoderator']}--><li class="flex"><a href="forum.php?mod=group&action=manage&fid=$_G['fid']">{lang group_admin}</a></li><!--{/if}-->
+		</ul>
+		</div>
+	</div>
+</div>
+
+<!--{if $op == 'alluser'}-->
+<div class="QhUvYa2kpX41">
+    <!--{if $adminuserlist}-->
+    <h2>{lang group_admin_member}</h2>
+    <ul>
+        <!--{loop $adminuserlist $user}-->
+        <li>
+            <a href="home.php?mod=space&uid=$user['uid']&do=profile">
+                <img src="{avatar($user['uid'],'middle',true)}" class="x5tqWZWFtCJV" />
+                <!--{if $user['online']}--><i class="2mBoBY2hl6i9"></i><!--{/if}-->
+                <div class="yoyFBJIBnJrc">$user['username']<!--{if $user['level'] == 1}--><em class="t4ogKyV3d7yK"></em><!--{elseif $user['level'] == 2}--><em class="5tdaVZQ92Y1d"></em><!--{/if}--></div>
+            </a>
+        </li>
+        <!--{/loop}-->
+    </ul>
+    <!--{/if}-->
+    <!--{if $staruserlist || $alluserlist}-->
+    <h2>{$langplus['groups']}{lang member}</h2>
+    <ul id="alist" class="mZeViD19ApNH">
+        <!--{if $staruserlist}-->
+        <!--{loop $staruserlist $user}-->
+        <li>
+            <a href="home.php?mod=space&uid=$user['uid']&do=profile">
+                <img src="{avatar($user['uid'],'middle',true)}" class="x5tqWZWFtCJV" />
+                <!--{if $user['online']}--><i class="2mBoBY2hl6i9"></i><!--{/if}-->
+                <div class="8J920oWAqjnv">$user['username']<em class="id0Na6CkTDKe"></em></div>
+                <p class="Y2Bs2weP8ZIr"><i class="psWMBAzNU57a"></i> {echo dgmdate($user['joindateline'], 'u')}</p>
+            </a>
+        </li>
+        <!--{/loop}-->
+        <!--{/if}-->
+        <!--{if $alluserlist}-->
+        <!--{loop $alluserlist $user}-->
+        <li>
+            <a href="home.php?mod=space&uid=$user['uid']&do=profile">
+                <img src="{avatar($user['uid'],'middle',true)}" class="x5tqWZWFtCJV" />
+                <!--{if $user['online']}--><i class="2mBoBY2hl6i9"></i><!--{/if}-->
+                <div class="8J920oWAqjnv">$user['username']</div>
+                <p class="Y2Bs2weP8ZIr"><i class="psWMBAzNU57a"></i> {echo dgmdate($user['joindateline'], 'u')}</p>
+            </a>
+        </li>
+        <!--{/loop}-->
+        <!--{/if}-->
+    </ul>
+    <!--{/if}-->
+    </div>
+
+<!--{if $tplpages == 1}-->
+<!--{eval $totalpage = ceil($_G['forum']['membernum'] / $perpage);}-->
+<!--{if $totalpage > $page}-->
+<a href="forum.php?mod=group&action=memberlist&op=alluser&fid={$_G['fid']}" class="abYWT5ia0j2x" data-num="{$totalpage}-{$page}"><span>$langplus['more']</span></a>
+<script src="template/v2_mbl20121009/touch_plus/js/ajaxpage.js?{VERHASH}"></script>
+<!--{/if}-->
+<!--{else}-->
+<!--{if $multipage}-->$multipage<!--{/if}-->
+<!--{/if}-->
+<!--{/if}-->
+
+<!--{block bottombutton}-->
+<ul>
+    <!--{if $footernavone}-->
+    <!--{$footerone}-->
+    <!--{elseif $tplwapurl}-->
+    <li{if $_G['basescript'] == 'group' && $tplwapurl == 'group.php'} class="MRKOinX1ws8S"{/if}><a href="forum.php"><i class="79EpiDUtO7uI"></i>$langplus['home']</a></li>
+    <!--{else}-->
+    <li><a href="forum.php?forumlist=1"><i class="uO59quXTs70m"></i>{$langplus['bbs']}</a></li>
+    <!--{/if}-->    
+    <!--{if $footernavone != 4 && $footernavtw != 3 && $footernavth != 3}-->
+    <li class="MRKOinX1ws8S"><a href="group.php"><i class="TMZ9qKXxot02"></i>{$langplus['groups']}</a></li>
+    <!--{else}-->
+    <!--{$footertwo}-->
+    <!--{/if}-->
+    <li><div class="hzustN2hSzIx"><a {if $_G['uid']}href="forum.php?mod=post&action=newthread&fid=$_G['fid']"{else}href="javascript:;" onclick="popup.open('{lang nologin_tip}', 'confirm', 'member.php?mod=logging&action=login');" {/if} class="3riPd4fyTizt"><i class="3GZXKk0AwwiM"></i></a></div></li>
+    <!--{$footerfour}-->
+    <li>
+        <!--{if !$_G['uid'] && !$_G['connectguest']}-->
+        <a href="member.php?mod=logging&action=login"><i class="oFv4PeSm3ybl"></i>{lang login}</a>
+        <!--{else}-->
+        <a href="home.php?mod=space&uid={$_G['uid']}&do=profile&mycenter=1"><i class="oFv4PeSm3ybl"></i>$langplus['me']</a>
+        <!--{if $_G['member']['newpm'] || $_G['member']['newprompt'] || $_G['connectguest'] || $smscheck }--><i class="A3o2qi1RAtFx"></i><!--{/if}-->
+        <!--{/if}-->
+    </li>
+</ul>
+<!--{/block}-->

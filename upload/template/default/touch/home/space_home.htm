@@ -43,8 +43,7 @@
 						<!--{subtemplate home/space_feed_li}-->
 					<!--{/loop}-->
 					<!--{if $morelist}-->
-					<div href="#home_feed_more_div_{$day}_{$user['uid']}" class="display quote mt10"><span class="iconfont y">&#xe772;</span>{lang more}</div>
-					<div id="home_feed_more_div_{$day}_{$user['uid']}" display="true" style="display:none;">
+					<div id="home_feed_more_div_{$day}_{$user['uid']}">
 						<!--{loop $morelist $value}-->
 							<!--{subtemplate home/space_feed_li}-->
 						<!--{/loop}-->
