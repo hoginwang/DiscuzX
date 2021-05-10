@@ -381,8 +381,8 @@ textarea {resize:none}
 
 /*----- 翻页 -----*/
 .page {text-align:center;margin:15px auto;font-size:14px}
-.page a {display:inline !important;background:var(--dz-BG-0) !important;border:1px solid var(--dz-BOR-ed) !important;width:auto !important;text-indent:0 !important;height:30px !important;line-height:30px !important;font-size:14px !important;margin:0 5px !important;padding:8px 15px !important;color:var(--dz-FC-666) !important;border-radius:4px} 
-.page select {background-color:var(--dz-BG-0);border:var(--dz-BOR-ed);width:auto !important;height:36px !important;line-height:36px !important;padding:4px !important;font-size:14px !important}
+.page a {display:inline;position:relative;text-align: left;background:var(--dz-BG-0);border:1px solid var(--dz-BOR-ed);width:auto;text-indent:0;height:30px;line-height:30px;font-size:14px;margin:0 5px;padding:8px 15px;color:var(--dz-FC-666);border-radius:4px} 
+.page select {position:absolute;left:0;top:0;opacity:0;background-color:var(--dz-BG-0);border:var(--dz-BOR-ed);width:auto;height:36px;line-height:36px;padding:4px;font-size:14px}
 .page a.grey {color:var(--dz-FC-aaa) !important}
 
 /*----- 快速发帖 -----*/
@@ -596,12 +596,11 @@ body.pg_logging, body.pg_register {background-color:var(--dz-BG-0)}
 .trade_box .my {float:right;color:var(--dz-BG-3)}
 
 /*----- 帖子内容页-返回顶部 -----*/
-.scrolltop {display:block;position:fixed;right:15px;margin-bottom:50px;height:38px;width:38px;z-index:99999;background:rgba(0, 0, 0, .8);border-radius:1px;box-shadow:0 0 2px rgba(0,0,0,.3);border-radius:6px}
-.scrolltop:after {content:"";position:absolute;top:12px;left:11px;width:16px;height:2px;border-radius:1px;background:white;border-radius:1px}
-.scrolltop:before {content:"";position:absolute;top:17px;left:11px;display:inline-block;border-left:8px solid transparent;border-right:8px solid transparent;border-bottom:8px solid white;border-top:0;-webkit-transform:scale(1,1.2222);-webkit-transform:translate(0,1px);transform:scale(1,1.2222);transform:translate(0,1px)}
-.scrolltop.bottom {bottom:8px}
+.scrolltop {display:block;position:fixed;right:15px;bottom:8px;margin-bottom:50px;height:38px;width:38px;z-index:99999;background:rgba(0, 0, 0, .8);opacity:.618;box-shadow:0 0 2px rgba(0,0,0,.2);border-radius:6px}
+.scrolltop:after {content:"";position:absolute;top:12px;left:11px;width:16px;height:2px;border-radius:1px;background:#fff;border-radius:1px}
+.scrolltop:before {content:"";position:absolute;top:17px;left:11px;display:inline-block;border-left:8px solid transparent;border-right:8px solid transparent;border-bottom:8px solid #fff;border-top:0;-webkit-transform:scale(1,1.2222);-webkit-transform:translate(0,1px);transform:scale(1,1.2222);transform:translate(0,1px)}
 .scrolltop.bottom:after {top:24px}
-.scrolltop.bottom:before {border-top:8px solid white;border-bottom:0;top:11px}
+.scrolltop.bottom:before {border-top:8px solid #fff;border-bottom:0;top:11px}
 
 /*----- 动态 -----*/
 .home_feed{background:#fff}
