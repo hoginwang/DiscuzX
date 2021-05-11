@@ -75,15 +75,28 @@ if($_GET['op'] == 'base') {
 
 } elseif ($_GET['op'] == 'buy') {
 
-	if((!$_G['setting']['ec_ratio'] || (!$_G['setting']['ec_tenpay_opentrans_chnid'] && !$_G['setting']['ec_tenpay_bargainor']  && !$_G['setting']['ec_account'])) && !$_G['setting']['card']['open'] ) {
+	if((!$_G['setting']['pay_ratio'] || (!$_G['setting']['pay_alipay_status'] && !$_G['setting']['pay_wechat_status'] )) && !$_G['setting']['card']['open'] ) {
 		showmessage('action_closed', NULL);
 	}
-
+	if(strpos($_SERVER['HTTP_USER_AGENT'], 'MicroMessenger') !== false){
+		$pay_data = getcookie('pay_data');
+		if($pay_data){
+			$data = json_decode($pay_data,true);
+			dsetcookie('pay_data', '');
+			$pay_wechat = new pay_wechat();
+			$data['openid'] = $pay_wechat->GetOpenid();
+			$pay = new pay($data['apitype']);
+			$res = $pay->order($data);
+			include template("home/credit_order");
+			dexit();
+		}
+	}
 	if(submitcheck('addfundssubmit')) {
-		if(!isset($_GET['bank_type'])) {
+		
+		if(!isset($_GET['apitype'])) {
 			showmessage('memcp_credits_addfunds_msg_notype', '', array(), array('showdialog' => 1, 'showmsg' => true, 'closetime' => true));
 		}
-		$apitype = is_numeric($_GET['bank_type']) ? 'tenpay' : $_GET['bank_type'];
+		$apitype = $_GET['apitype'];
 		if($apitype == 'card') {
 			list($seccodecheck) = seccheck('card');
 			if($seccodecheck) {
@@ -111,52 +124,76 @@ if($_GET['op'] == 'base') {
 					showmessage('memcp_credits_card_msg_used', '', array(), array('showdialog' => 1, 'showmsg' => true, 'closetime' => true));
 				}
 			}
-		} else {
+		} else if($apitype == 'alipay' || $apitype == 'wechat'){
 			$amount = intval($_GET['addfundamount']);
 			if(!$amount) {
 				showmessage('memcp_credits_addfunds_msg_incorrect', '', array(), array('showdialog' => 1, 'showmsg' => true, 'closetime' => true));
 			}
 			$language = lang('forum/misc');
-			if(($_G['setting']['ec_mincredits'] && $amount < $_G['setting']['ec_mincredits']) || ($_G['setting']['ec_maxcredits'] && $amount > $_G['setting']['ec_maxcredits'])) {
-				showmessage('credits_addfunds_amount_invalid', '', array('ec_maxcredits' => $_G['setting']['ec_maxcredits'], 'ec_mincredits' => $_G['setting']['ec_mincredits']), array('showdialog' => 1, 'showmsg' => true, 'closetime' => true));
+			if(($_G['setting']['pay_mincredits'] && $amount < $_G['setting']['pay_mincredits']) || ($_G['setting']['pay_maxcredits'] && $amount > $_G['setting']['pay_maxcredits'])) {
+				showmessage('credits_addfunds_amount_invalid', '', array('pay_maxcredits' => $_G['setting']['pay_maxcredits'], 'pay_mincredits' => $_G['setting']['pay_mincredits']), array('showdialog' => 1, 'showmsg' => true, 'closetime' => true));
 			}
 
-			if($apitype == 'card' && C::t('forum_order')->count_by_search($_G['uid'], null, null, null, null, null, null, $_G['timestamp'] - 180)) {
-				showmessage('credits_addfunds_ctrl', '', array(), array('showdialog' => 1, 'showmsg' => true, 'closetime' => true));
-			}
-
-			if($_G['setting']['ec_maxcreditspermonth']) {
-				if(C::t('forum_order')->sum_amount_by_uid_submitdate_status($_G['uid'], $_G['timestamp'] - 2592000, array(2, 3)) + $amount > $_G['setting']['ec_maxcreditspermonth']) {
-					showmessage('credits_addfunds_toomuch', '', array('ec_maxcreditspermonth' => $_G['setting']['ec_maxcreditspermonth']), array('showdialog' => 1, 'showmsg' => true, 'closetime' => true));
+			if($_G['setting']['pay_maxcreditspermonth']) {
+				if(C::t('home_credit_order')->sum_amount_by_uid_submitdate_status($_G['uid'], $_G['timestamp'] - 2592000, array(2, 3)) + $amount > $_G['setting']['pay_maxcreditspermonth']) {
+					showmessage('credits_addfunds_toomuch', '', array('pay_maxcreditspermonth' => $_G['setting']['pay_maxcreditspermonth']), array('showdialog' => 1, 'showmsg' => true, 'closetime' => true));
 				}
 			}
 
-			$price = round(($amount / $_G['setting']['ec_ratio'] * 100) / 100, 2);
+			$price = round(($amount / $_G['setting']['pay_ratio'] * 100) / 100, 2);
 			$orderid = '';
 
-			require_once libfile('function/trade');
-			$requesturl = credit_payurl($price, $orderid, $_GET['bank_type']);
+			$orderid = dgmdate(TIMESTAMP, 'YmdHis').random(18);
 
-			if(C::t('forum_order')->fetch($orderid)) {
+			if(C::t('home_credit_order')->fetch($orderid)) {
 				showmessage('credits_addfunds_order_invalid', '', array(), array('showdialog' => 1, 'showmsg' => true, 'closetime' => true));
 			}
 
-			C::t('forum_order')->insert(array(
+			
+			C::t('home_credit_order')->insert(array(
 				'orderid' => $orderid,
 				'status' => '1',
 				'uid' => $_G['uid'],
 				'amount' => $amount,
 				'price' => $price,
+				'type'=>$apitype,
 				'submitdate' => $_G['timestamp'],
-				'email' => $_G['member']['email'],
-				'ip' => $_G['clientip'],
-				'port' => $_G['remoteport'],
 			));
 
-			include isset($_REQUEST['inajax']) ? template('common/header_ajax') : template('common/header');
-			echo '<form id="payform" action="'.$requesturl.'" method="post"></form><script type="text/javascript" reload="1">document.getElementById(\'payform\').submit();</script>';
-			include isset($_REQUEST['inajax']) ? template('common/footer_ajax') : template('common/footer');
-			dexit();
+			$data=array(
+				'apitype'=>$apitype,
+				'title'=>$_G['setting']['bbname'].' - '.$_G['member']['username'].' - '.lang('forum/misc', 'credit_payment'),
+				'plugin_id'=>'home_credit_order',
+				'out_trade_no'=>$orderid, 
+				'amount'=>$price,
+				'return_url'=>$_G['siteurl'].'home.php?mod=spacecp&ac=credit&op=base'
+			);
+
+			if(strpos($_SERVER['HTTP_USER_AGENT'], 'MicroMessenger') !== false){
+				$pay_data = getcookie('pay_data');
+				if(!$pay_data){
+					dsetcookie('pay_data', json_encode($data));
+				}
+				$pay_wechat = new pay_wechat();
+				$pay_wechat->GetOpenid();
+			}
+			$pay = new pay($data['apitype']);
+			$res = $pay->order($data);
+
+			if($apitype=='alipay'){
+				include isset($_REQUEST['inajax']) ? template('common/header_ajax') : template('common/header');
+				echo $res;
+				include isset($_REQUEST['inajax']) ? template('common/footer_ajax') : template('common/footer');
+				dexit();
+			}else{
+				if($res['type']=='h5'){
+					include template("home/credit_order");
+					dexit();
+				}else{
+					include template("home/credit_qr"); 
+					dexit();
+				}
+			}
 		}
 	} else {
 		if($_G['setting']['card']['open']) {

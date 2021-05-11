@@ -169,6 +169,14 @@ $lang = array (
   'clicktovisitwapmobile' => '访问手机版',
   'downloadnow' => '立即下载',
   'downloadzslttoshareview' => '下载新版掌上论坛客户端，尊享多项看帖特权!',
+  'pay_order' => '订单信息',
+  'pay_order_id' => '订单编号',
+  'pay_order_title' => '订单标题',
+  'pay_order_price' => '订单金额',
+  'pay_order_yuan' => '元',
+  'pay_order_type' => '支付方式',
+  'pay_order_wx' => '微信支付',
+  'pay_order_sure' => '确认支付',
 );
 
 ?>
