@@ -1143,4 +1143,5 @@ function safefilter(&$data) {
 			), strip_tags($data)));
 	}
 }
+
 ?>
