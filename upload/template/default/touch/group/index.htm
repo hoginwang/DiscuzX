@@ -63,10 +63,6 @@
                 <!--{/if}-->
             </ul>
         </div>
-        <!--{if !$groupsnoad || !in_array($_G['group']['groupid'],(array)unserialize($groupsnoad))}-->
-        <!--{if $adgroupsa && in_array($groupid,explode(",",$adgroupsida))}--><!--{$adgroupsa}--><!--{/if}-->
-        <!--{if $adgroupsb && in_array($groupid,explode(",",$adgroupsidb))}--><!--{$adgroupsb}--><!--{/if}-->
-        <!--{/if}-->
         <!--{/if}-->
         <!--{/loop}-->
 	</div>
@@ -92,100 +88,4 @@ tabsSwiper.slideTo($(this).index())
 })
 }
 </script>
-
-<!--{if $grouptpl == 1}-->
-<div class="TEDvjIaIbtNl">
-    <!--{loop $first $groupid $group}-->
-    <!--{if $group['groupnum'] > 0}-->
-    <div class="Xb2gLsDhns8w">
-        <ul class="hRpIYbNRkgaR">
-            <!--{if $lastupdategroup[$groupid]}-->
-            <!--{loop $lastupdategroup[$groupid] $val}-->
-            <!--{eval $val['icon'] = DB::result_first('SELECT icon FROM '.DB::table('forum_forumfield').' WHERE fid ='.$val['fid'])}-->
-            <!--{eval $val['description'] = DB::result_first('SELECT description FROM '.DB::table('forum_forumfield').' WHERE fid ='.$val['fid'])}-->
-            <li class="KHObuhPP8NmD">
-                <a href="forum.php?mod=forumdisplay&action=list&fid=$val['fid']" class="AU0kq2sYOUNb">
-                <!--{if $val['icon']}-->
-                <img src="{$_G['setting']['attachurl']}/group/{$val['icon']}" />
-                <!--{else}-->
-                <img src="static/image/mobile/touch/forum.png" />
-                <!--{/if}-->
-                <h1>$val['name']<!--{if $val['todayposts'] > 0}--><i title="{$val['todayposts']}">new</i><!--{/if}--></h1>
-                <!--{if $val['description']}-->
-                <p class="mtxt">$val['description']</p>
-                <!--{/if}-->
-                </a>
-                <!--{if ($val['founderuid'] == $_G['uid']) && $_G['uid']}-->
-                <a href="forum.php?mod=group&action=manage&fid=$val['fid']" class="VINmPW5VzywE">{lang manage}</a>
-                <!--{elseif (helper_access::check_module('group') && $val['join']) && $_G['uid']}-->
-                <a href="forum.php?mod=group&action=out&fid=$val['fid']" class="uTQ7DahEB09s">{lang logout}</a>
-                <!--{else}-->
-                <a href="forum.php?mod=group&action=join&fid=$val['fid']" class="nu6iKuM8KWgK">{$langplus['join']}</a>
-                <!--{/if}-->
-            </li>
-            <!--{/loop}-->
-            <!--{/if}-->
-        </ul>
-    </div>
-    <!--{/if}-->
-    <!--{/loop}-->
-</div>
-<script type="text/javascript">
-    $(document).ready(function(){
-        $('.forum_left li.group_tab').click(function(){
-            $('.forum_left li').eq($(this).index()).addClass('on').siblings().removeClass('on');
-            $('.hidebox').eq($('.forum_left li.group_tab').index(this)).addClass('on').siblings().removeClass('on');
-        });
-    })
-</script>
-<!--{elseif $grouptpl == 2}-->
-<div class="ofxDsZJl5zZw">
-    <div class="jnLcvXqP2tuN">
-        <!--{loop $first $groupid $group}-->
-        <!--{if $group['groupnum'] > 0}-->
-        <div class="1hEDE3uHkK0C">
-            <div class="VpFdrtDu3oWq">
-                <h2><span><a href="group.php?gid=$groupid">$group['name']</a></span><!--{if $group['groupnum'] > 6}--><a href="group.php?gid=$groupid" class="6EPV6gH3whnz">{lang more}</a><!--{/if}--></h2>
-            </div>
-            <ul class="gd5HdqZ9sLlU">
-                <!--{if $lastupdategroup[$groupid]}-->
-                <!--{eval $i = 1;}-->
-                <!--{loop $lastupdategroup[$groupid] $val}-->
-                <!--{eval $val['icon'] = DB::result_first('SELECT icon FROM '.DB::table('forum_forumfield').' WHERE fid ='.$val['fid'])}-->
-                <!--{eval $val['description'] = DB::result_first('SELECT description FROM '.DB::table('forum_forumfield').' WHERE fid ='.$val['fid'])}-->
-                <!--{if $i < 7}-->
-                <li class="KHObuhPP8NmD">
-                    <a href="forum.php?mod=forumdisplay&action=list&fid=$val['fid']">
-                    <!--{if $val['icon']}-->
-                    <img src="{$_G['setting']['attachurl']}/group/{$val['icon']}" />
-                    <!--{else}-->
-                    <img src="static/image/mobile/touch/forum.png" />
-                    <!--{/if}-->
-                    <h1>$val['name']<!--{if $val['todayposts'] > 0}--><i title="{$val['todayposts']}">new</i><!--{/if}--></h1>
-                    <!--{if $val['description']}-->
-                    <p>$val['description']</p>
-                    <!--{/if}-->
-                    </a>
-                </li>
-                <!--{/if}-->
-                <!--{eval $i++;}-->
-                <!--{/loop}-->
-                <!--{/if}-->
-            </ul>
-        </div>
-        <!--{hook/index_bottom_v2_mobile}-->
-        <!--{if !$groupsnoad || !in_array($_G['group']['groupid'],(array)unserialize($groupsnoad))}-->
-        <!--{if $adgroupsa && in_array($groupid,explode(",",$adgroupsida))}--><!--{$adgroupsa}--><!--{/if}-->
-        <!--{if $adgroupsb && in_array($groupid,explode(",",$adgroupsidb))}--><!--{$adgroupsb}--><!--{/if}-->
-        <!--{/if}-->
-        <!--{/if}-->
-        <!--{/loop}-->
-    </div>
-</div>
-<!--{else}-->
-<div class="ofxDsZJl5zZw">
-    <div class="jnLcvXqP2tuN">
-    </div>
-</div>
-<!--{/if}-->
 <!--{template common/footer}-->
