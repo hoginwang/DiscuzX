@@ -200,20 +200,19 @@ textarea {resize:none}
 .forumlist .subforumshow i {float:right;font-size:20px;color:var(--dz-FC-aaa)}
 .forumlist .sub-forum {background-color:var(--dz-BG-0)}
 .forumlist .sub-forum li a.murl {display:block;height:44px;overflow:hidden}
-.forumlist .sub-forum li .micon {float:left;width:44px;height:44px;margin-right:10px}
-.forumlist .sub-forum li .micon img {width:44px;height:44px;border-radius:4px}
+.forumlist .sub-forum li .micon {float:left;height:44px;margin-right:10px}
+.forumlist .sub-forum li .micon img,.forumlist .sub-forum li .micon svg {height:44px;border-radius:4px;float:none}
 .forumlist .sub-forum li .mtit {height:24px;line-height:24px;font-size:16px;overflow:hidden;}
 .forumlist .sub-forum li .mnum {padding-left:6px;font-size:12px;color:var(--dz-BG-2)}
 .forumlist .sub-forum li .mtxt {display:block;height:20px;line-height:20px;font-size:13px;color:var(--dz-FC-999);overflow:hidden;white-space:nowrap;text-overflow:ellipsis}
+.forumlist .mlist3 ul,.forumlist .mlist4 ul {display:flex;overflow-x:scroll}
 .forumlist .mlist1 li {overflow:hidden;padding:10px 15px;border-bottom:1px solid var(--dz-BOR-ed)}
 .forumlist .mlist2 li {float:left;width:50%;box-sizing:border-box;padding:10px 15px;overflow:hidden;border-bottom:1px solid var(--dz-BOR-ed);border-right:1px solid var(--dz-BOR-ed)}
 .forumlist .mlist2 li:nth-child(2n) {border-right:none}
-.forumlist .mlist3 li {float:left;width:33.333%;box-sizing:border-box;padding:13px 5px 10px;overflow:hidden;border-bottom:1px solid var(--dz-BOR-ed);border-right:1px solid var(--dz-BOR-ed)}
-.forumlist .mlist3 li:nth-child(3n) {border-right:none}
-.forumlist .mlist4 li {float:left;width:25%;box-sizing:border-box;padding:13px 5px 10px;overflow:hidden;border-bottom:1px solid var(--dz-BOR-ed);border-right:1px solid var(--dz-BOR-ed)}
-.forumlist .mlist4 li:nth-child(4n) {border-right:none}
+.forumlist .mlist3 li {float:left;min-width:33.333%;box-sizing:border-box;padding:13px 5px 10px;overflow:hidden;border-right:1px solid var(--dz-BOR-ed);flex-shrink: 0}
+.forumlist .mlist4 li {float:left;min-width:25%;box-sizing:border-box;padding:13px 5px 10px;overflow:hidden;border-right:1px solid var(--dz-BOR-ed);flex-shrink: 0}
 .forumlist .mlist3 li a.murl, .forumlist .mlist4 li a.murl {height:auto}
-.forumlist .mlist3 li .micon, .forumlist .mlist4 li .micon {float:none;display:block;margin:0 auto}
+.forumlist .mlist3 li .micon, .forumlist .mlist4 li .micon {float:none;display:block;margin:0 auto;text-align: center;}
 .forumlist .mlist3 li .mtit {margin-top:6px;text-align:center}
 .forumlist .mlist4 li .mtit {font-size:13px;margin-top:5px;text-align:center}
 
@@ -241,7 +240,7 @@ textarea {resize:none}
 
 /*----- 版块页面-头部版块名称区域 -----*/
 .forumdisplay-top {padding:20px 15px;background-color:var(--dz-BG-0);border-bottom:1px solid var(--dz-BOR-ed);overflow:hidden}
-.forumdisplay-top img {float:left;width:50px;height:50px;margin-right:10px;border-radius:4px}
+.forumdisplay-top img,.forumdisplay-top svg {float:left;height:50px;margin-right:10px;border-radius:4px}
 .forumdisplay-top h2 {height:30px;line-height:30px;font-size:18px;color:var(--dz-FC-color)}
 .forumdisplay-top h2 #a_favorite {float:right;height:28px;line-height:28px;font-size:12px;padding:0 10px;margin-top:10px;background-color:var(--dz-BG-3);color:var(--dz-FC-fff);border-radius:4px}
 .forumdisplay-top p {height:20px;line-height:20px;color:var(--dz-FC-999)}
