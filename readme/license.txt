@@ -21,7 +21,7 @@ I. 协议许可的权利
 
 II. 协议规定的约束和限制
 
-   1. 未获康盛公司书面商业授权之前，不得将本软件用于商业用途（包括但不限于企业网站、经营性网站、以营利为目或实现盈利的网站）。购买商业授权请登陆http://www.discuz.com参考相关说明，也可以致电8610-51282255了解详情。
+   1. 未获康盛公司书面商业授权之前，不得将本软件用于商业用途（包括但不限于企业网站、经营性网站、以营利为目或实现盈利的网站）。购买商业授权请登陆 https://comsenz-service.com/buy/ 参考相关说明，也可以致电8610-51282255了解详情。
    2. 不得对本软件或与之关联的商业授权进行出租、出售、抵押或发放子许可证。
    3. 无论如何，即无论用途如何、是否经过修改或美化、修改程度如何，只要使用康盛产品的整体或任何部分，未经书面许可，页面页脚处的康盛产品名称和康盛公司下属网站（http://www.comsenz.com、或 http://www.discuz.net） 的链接都必须保留，而不能清除或修改。
    4. 禁止在康盛产品的整体或任何部分基础上以发展任何派生版本、修改版本或第三方版本用于重新分发。
@@ -74,7 +74,7 @@ You may use the Software for commercial means after purchase of the commercial l
 
 You can download application(s) for your website from Comsenz’s Application Center after you have paid appropriate fee to the developer/owner of the application(s).
 2. License Restrictions
-You cannot use the Software for commercial or profit purposes (include but are not limited to company websites, operating websites or other for-profit websites) unless you have been licensed to. To purchase the license, please visit http://www.comsenz.com or dial 8610-5165 7885 for more information.
+You cannot use the Software for commercial or profit purposes (include but are not limited to company websites, operating websites or other for-profit websites) unless you have been licensed to. To purchase the license, please visit https://comsenz-service.com/buy/ or dial 8610-5165 7885 for more information.
 
 You may not rent, sublicense, assign, lease, loan, resell, distribute, publish or network the Software or related materials or create derivative works based upon the Software or any part thereof.
 
