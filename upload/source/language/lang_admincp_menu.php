@@ -149,6 +149,7 @@ $lang = array
 	'menu_smsgw' => '短信服务',
 	'menu_misc_help' => '站点帮助',
 	'menu_ec' => '电子商务',
+	'menu_pay' => '支付中心',
 	'menu_card' => '充值卡密',
 
 	'menu_styles' => '模板管理',

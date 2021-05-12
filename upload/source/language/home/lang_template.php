@@ -1533,5 +1533,11 @@ $lang = array (
   'freeze_reason_admincp_comment' => '如果您认为您的账号不应被冻结，请填写申诉理由',
   'freeze_remark' => '审核结果',
   'freeze_remark_comment' => '您已提交 $space[\'freezemodsubmittimes\'] 次审核，最后一次审核操作由 $space[\'freezemodadmin\'] 于 $space[\'freezemoddate\'] 做出',
+  'pay_qr_wechat' => '微信支付',
+  'pay_qr_orderid' => '订单编号',
+  'pay_qr_title' => '订单标题',
+  'pay_qr_price' => '应付金额',
+  'pay_qr_yuan' => '元',
+  'pay_qr_tips' => '请使用微信扫描二维码进行支付，完成后请刷新页面',
 );
 ?>

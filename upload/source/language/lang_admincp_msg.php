@@ -33,7 +33,11 @@ $lang = array (
   'database_export_zip_succeed' => '数据成功备份并压缩至服务器 <a href="{filename}">{filename}</a> 中',
   'setting_update_succeed' => '当前设置更新成功 ',
   'setting_domain_http_error' => '请您填写合法的域名，常见错误为以 “http://”、“.”开头或者以“/”、“/index.php”、“.”结尾，或域名包含未转换为 Punycode 的国际化域名等',
-  'orders_validate_succeed' => '订单处理成功 ',
+  'orders_validate_succeed' => '订单处理成功',
+  'pay_orders_validate_succeed' => '订单处理成功',
+  'pay_orders_refund_succeed' => '订单退款成功',
+  'pay_orders_refund_fail' => '订单退款失败',
+  'pay_orders_fail_refund' => '用户积分不足以退款',
   'faq_list_update' => '帮助列表更新成功 ',
   'forums_edit_succeed' => '版块设置更新成功 ',
   'forums_copy_source_invalid' => '您没有选择要复制的源版块',
@@ -252,6 +256,10 @@ $lang = array (
   'ecommerce_invalidcredit' => '信用度必须大于 0 才能进行评级',
   'ecommerce_must_larger' => '信用等级 {rank} 的信用度必须大于上一等级的信用度',
   'ec_credit_succeed' => '信用评价体系设定成功 ',
+
+  'pay_alipay_succeed' => '支付宝功能设定成功 ',
+  'pay_wechat_succeed' => '微信支付功能设定成功 ',
+  'pay_orders_disabled' => '您没有启用交易积分或支付宝、微信支付积分充值功能，无法对订单进行管理',
 
   'faq_nonexistence' => '指定帮助不存在',
   'faq_no_title' => '您没有填写帮助标题',

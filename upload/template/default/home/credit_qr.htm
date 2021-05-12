@@ -1,0 +1,46 @@
+<!--{template common/header_ajax}-->
+<style>
+.wxpay_surebox{margin:20px auto;width:550px}
+.wxpay_surebox .bt{}
+.wxpay_surebox .order{background:#f1f1f1;font-weight:600;display:flex;margin-bottom:20px;justify-content:space-between;padding:10px 0}
+.wxpay_surebox .wxpay{}
+.wxpay_surebox .wxpay .aphly_qr_menu{margin-left:20px;margin-right:20px}
+.wxpay_surebox .order .zb{padding-left:20px;height:80px;line-height:40px;overflow: hidden;width:350px}
+.wxpay_surebox .order .yb{height:80px;line-height:80px;width:200px;overflow: hidden;text-align:right;padding-right:20px}
+.wxpay_surebox .wxpay .aphly_qr_menu .qrjs{width:160px;height:160px;margin:0 auto}
+.wxpay_surebox .wxpay .aphly_qr_menu .qrjs img{width:100%;height:100%}
+.wxpayx{text-align: center; margin-top: 20px;}
+.amount{color:red;}
+.huis{color:#888;}
+</style>
+<h3 class="flb"><em>{lang pay_qr_wechat}</em><span><a href="javascript:;" onclick="hideWindow('pay_qr');" class="flbc" title="{lang close}">{lang close}</a></span></h3>
+<div class="wxpay_surebox">
+	<div class="bt"></div>
+	<div class="order">
+		<div class="zb">
+			<p><span class="">{lang pay_qr_orderid} : </span><span class="huis">{eval echo dhtmlspecialchars($res['data']['out_trade_no'])}</span></p>
+			<p><span class="">{lang pay_qr_title} : </span><span class="huis">{eval echo dhtmlspecialchars($res['data']['title'])}</span></p>
+		</div>
+		<div class="yb">
+			<span class="">{lang pay_qr_price} : <span class="amount">{eval echo dhtmlspecialchars($res['data']['amount'])} {lang pay_qr_yuan}</span></span>
+		</div>
+	</div>
+	
+	<div class="wxpay">
+		<div class="aphly_qr_menu" >
+			<input type="hidden" name="url" id="wxpay_qr_url" value="{$res['code_url']}">
+			<p id="wxpay_qrcode" class="qrjs"></p>
+		</div>
+		<div class="wxpayx">
+			<p class="aphly_qr_title">{lang pay_qr_tips}</p>
+		</div>
+	</div>
+</div>
+
+<script type="text/javascript">
+var qr_url = document.getElementById("wxpay_qr_url");
+if(qr_url){
+	new QRCode(document.getElementById("wxpay_qrcode"), qr_url.value);
+}
+</script>
+<!--{template common/footer_ajax}-->

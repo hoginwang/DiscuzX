@@ -33,6 +33,8 @@ if(!submitcheck('settingsubmit')) {
 
 	if($operation == 'ec') {
 		shownav('extended', 'nav_ec', 'nav_ec_config');
+	}elseif($operation == 'pay'){
+		shownav('extended', 'nav_pay', 'nav_pay_config');
 	} elseif(in_array($operation, array('memory', 'cachethread', 'serveropti'))) {
 		shownav('global', 'setting_optimize');
 	} elseif($operation == 'seo') {
@@ -85,6 +87,13 @@ if(!submitcheck('settingsubmit')) {
 			array('nav_ec_orders', 'ec&operation=orders', 0),
 			array('nav_ec_tradelog', 'tradelog&mod=forum', 0),
 			array('nav_ec_inviteorders', 'ec&operation=inviteorders', 0)
+		));
+	} elseif($operation == 'pay') {
+		showsubmenu('nav_pay', array(
+			array('nav_pay_config', 'setting&operation=pay', 1),
+			array('nav_pay_alipay', 'pay&operation=alipay', 0),
+			array('nav_pay_wechat', 'pay&operation=wechat', 0),
+			array('nav_pay_orders', 'pay&operation=orders', 0)
 		));
 	} elseif($operation == 'access') {
 		$_GET['anchor'] = in_array($_GET['anchor'], array('register', 'access')) ? $_GET['anchor'] : 'register';
@@ -2293,7 +2302,15 @@ EOT;
 		showsetting('setting_ec_maxcredits', 'settingnew[ec_maxcredits]', $setting['ec_maxcredits'], 'text');
 		showsetting('setting_ec_maxcreditspermonth', 'settingnew[ec_maxcreditspermonth]', $setting['ec_maxcreditspermonth'], 'text');
 		/*search*/
+	} elseif($operation == 'pay') {
 
+		showtableheader();
+		showtitle('setting_pay_credittrade');
+		showsetting('setting_pay_ratio', 'settingnew[pay_ratio]', $setting['pay_ratio'], 'text');
+		showsetting('setting_pay_mincredits', 'settingnew[pay_mincredits]', $setting['pay_mincredits'], 'text');
+		showsetting('setting_pay_maxcredits', 'settingnew[pay_maxcredits]', $setting['pay_maxcredits'], 'text');
+		showsetting('setting_pay_maxcreditspermonth', 'settingnew[pay_maxcreditspermonth]', $setting['pay_maxcreditspermonth'], 'text');
+		
 	} elseif($operation == 'memory') {
 
 		/*search={"setting_optimize":"action=setting&operation=seo","setting_memory":"action=setting&operation=memory"}*/
@@ -3059,6 +3076,17 @@ EOT;
 			$settingnew['ec_mincredits'] = $settingnew['ec_maxcredits'] = 0;
 		}
 		foreach(array('ec_ratio', 'ec_mincredits', 'ec_maxcredits', 'ec_maxcreditspermonth', 'tradeimagewidth', 'tradeimageheight') as $key) {
+			$settingnew[$key] = intval($settingnew[$key]);
+		}
+	} elseif($operation == 'pay') {
+		if($settingnew['pay_ratio']) {
+			if($settingnew['pay_ratio'] < 0) {
+				cpmsg('alipay_ratio_invalid', '', 'error');
+			}
+		} else {
+			$settingnew['pay_mincredits'] = $settingnew['pay_maxcredits'] = 0;
+		}
+		foreach(array('pay_ratio', 'pay_mincredits', 'pay_maxcredits', 'pay_maxcreditspermonth') as $key) {
 			$settingnew[$key] = intval($settingnew[$key]);
 		}
 	} elseif($operation == 'threadprofile') {
