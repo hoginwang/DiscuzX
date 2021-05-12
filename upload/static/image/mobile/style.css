@@ -90,18 +90,18 @@ textarea {resize:none}
 /*----- 头部 -----*/
 .header {background-color:var(--dz-BG-color);color:var(--dz-FC-fff);height:30px;line-height:30px;padding:10px 12px}
 .header .mz, .header .mzlogo {float:left;position:relative}
-.header .mz a, .header .mzlogo a {float:left}
+.header .mzlogo a {line-height:normal}
 .header .my, .header .myss {float:right;position:relative}
 .header .my a, .header .myss a {float:right}
 .header .mz, .header .my {width:20%}
-.header .mzlogo {width:40%;text-align:left;font-size:18px;position:relative;overflow:hidden;white-space:nowrap;text-overflow:ellipsis}
+.header .mzlogo {width:40%;height:30px;text-align:left;font-size:18px;position:relative;overflow:hidden;white-space:nowrap;text-overflow:ellipsis;display:flex;flex-direction:column;justify-content:center}
 .header .myss {width:60%}
-.header .myss a {background-color:var(--dz-BG-0);color:var(--dz-FC-aaa);margin-right:3px;line-height:30px;font-size:14px;padding:0 15px;border-radius:15px}
+.header .myss a {background-color:var(--dz-BG-0);color:var(--dz-FC-aaa);line-height:30px;font-size:14px;padding:0 15px;border-radius:15px}
 .header .myss a i {float:left;font-size:16px;margin-right:5px;color:var(--dz-FC-aaa)}
 .header i {font-size:20px;color:var(--dz-FC-fff)}
 .header .my a {margin-left:10px}
 .header h2 {float:left;width:60%;text-align:center;font-size:18px;position:relative;overflow:hidden;white-space:nowrap;text-overflow:ellipsis}
-.header h2 img, .header .mzlogo img {height:30px}
+.header h2 img, .header .mzlogo img {max-height:30px;vertical-align:top;max-width:100%}
 .header h2 a {color:var(--dz-FC-fff)}
 
 /*----- 底部Copyright -----*/
@@ -394,7 +394,7 @@ textarea {resize:none}
 /*----- 登录/注册/验证码 -----*/
 body.pg_logging, body.pg_register {background-color:var(--dz-BG-0)}
 .header_toplogo {background-color:var(--dz-BG-color);padding:20px 20px 50px;text-align:center;overflow:hidden}
-.header_toplogo img {height:40px}
+.header_toplogo img {width:175px}
 .header_toplogo p {height:30px;line-height:30px;font-size:16px;color:var(--dz-FC-fff)}
 .header_toplogo .mtop_ss a {display:block;margin:15px auto;width:80%;background-color:var(--dz-BG-0);color:var(--dz-FC-999);height:34px;line-height:34px;font-size:14px;border-radius:40px}
 .header_toplogo .mtop_ss a i {margin-right:5px}
