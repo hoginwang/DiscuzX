@@ -2,7 +2,7 @@
 <div class="header cl">
 	<div class="mz"><a href="javascript:history.back();"><i class="iconfont">&#xe779;</i></a></div>
 	<h2>{$_G['setting']['navs'][3]['navname']}</h2>
-	<div class="my"><a href="search.php?mod=forum"><i class="iconfont">&#xe752;</i></a></div>
+	<div class="my"><a href="forum.php?mod=group&action=create"><i class="iconfont">&#xe664;</i></a></div>
 </div>
 <div class="tabs flex-box cl">
     <a href="javascript:;" class="flex ttab mon">{lang recommend_group}</a>
@@ -18,7 +18,15 @@
 			<ul>
             <!--{loop dunserialize($_G['setting']['group_recommend']) $val}-->
             <li>
-				<span class="micon"><a href="forum.php?mod=forumdisplay&action=list&fid={$val['fid']}"><img src="{if strstr($val['icon'],'groupicon.gif')}static/image/mobile/touch/forum.png{else}{$val['icon']}{/if}" alt="{$val['name']}"></a></span>
+				<span class="micon">
+					<a href="forum.php?mod=forumdisplay&action=list&fid={$val['fid']}">
+					<!--{if strstr($val['icon'],'groupicon.gif')}-->
+					<svg width="48" height="44" alt="$val['name']"><path fill="#{if $val['folder']}fdc910{else}c9c9c9{/if}" d="M48 20C48 9 37.3 0 24 0S0 8.9 0 20s10.7 20 24 20c2.4 0 4.7-.3 6.8-.8L42 44l-2.8-8.5C44.6 31.8 48 26.2 48 20z"/></svg>
+					<!--{else}-->
+					<img src="{$val['icon']}" alt="{$val['name']}">
+					<!--{/if}-->
+					</a>
+				</span>
                 <a href="forum.php?mod=forumdisplay&action=list&fid={$val['fid']}" class="murl">
                 <p class="mtit">$val['name']</p>
                 <!--{if $val['description']}-->
@@ -44,16 +52,16 @@
                 <!--{if $lastupdategroup[$groupid]}-->
                 <!--{eval $i = 1;}-->
                 <!--{loop $lastupdategroup[$groupid] $val}-->
-                <!--{eval $val['icon'] = DB::result_first('SELECT icon FROM '.DB::table('forum_forumfield').' WHERE fid ='.$val['fid'])}-->
-                <!--{eval $val['todayposts'] = DB::result_first('SELECT todayposts FROM '.DB::table('forum_forum').' WHERE fid ='.$val['fid'])}-->
                 <!--{if $i < 13}-->
                 <li>
                     <a href="forum.php?mod=forumdisplay&action=list&fid={$val['fid']}">
-                        <!--{if $val['icon']}-->
-                        <img src="{$_G['setting']['attachurl']}/group/{$val['icon']}" class="micon" />
+						<span class="micon">
+                        <!--{if strstr($val['icon'],'groupicon.gif')}-->
+						<svg width="48" height="44" alt="$val['name']"><path fill="#{if $val['folder']}fdc910{else}c9c9c9{/if}" d="M48 20C48 9 37.3 0 24 0S0 8.9 0 20s10.7 20 24 20c2.4 0 4.7-.3 6.8-.8L42 44l-2.8-8.5C44.6 31.8 48 26.2 48 20z"/></svg>
                         <!--{else}-->
-                        <img src="static/image/mobile/touch/forum.png" class="micon" />
+						<img src="{$val['icon']}" alt="{$val['name']}">
                         <!--{/if}-->
+						</span>
                         <p class="mtit">{$val['name']}</p>
                     </a>
                 </li>

@@ -202,6 +202,7 @@ textarea {resize:none}
 .forumlist .sub-forum li a.murl {display:block;height:44px;overflow:hidden}
 .forumlist .sub-forum li .micon {float:left;height:44px;margin-right:10px}
 .forumlist .sub-forum li .micon img,.forumlist .sub-forum li .micon svg {height:44px;border-radius:4px;float:none}
+.forumlist .sub-forum li .micon img {width:48px;}
 .forumlist .sub-forum li .mtit {height:24px;line-height:24px;font-size:16px;overflow:hidden;}
 .forumlist .sub-forum li .mnum {padding-left:6px;font-size:12px;color:var(--dz-BG-2)}
 .forumlist .sub-forum li .mtxt {display:block;height:20px;line-height:20px;font-size:13px;color:var(--dz-FC-999);overflow:hidden;white-space:nowrap;text-overflow:ellipsis}
