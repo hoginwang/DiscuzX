@@ -75,7 +75,7 @@ if($_GET['op'] == 'base') {
 
 } elseif ($_GET['op'] == 'buy') {
 
-	if(!$_G['setting']['ec_ratio'] || !$_G['setting']['card']['open'] ) {
+	if(!$_G['setting']['ec_ratio'] && !$_G['setting']['card']['open'] ) {
 		showmessage('action_closed', NULL);
 	}
 

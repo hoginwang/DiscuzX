@@ -5744,6 +5744,7 @@ $lang = array
 	'ec_weixin_v3_key_comment' => '微信商户平台-->账户设置-->API安全-->密钥设置 - APIv3密钥',
 	'ec_weixin_check' => '支付测试',
 	'ec_weixin_checklink_credit' => '积分充值订单测试',
+	'ec_weixin_php_version_low' => 'PHP版本过低',
 
 	'ec_tenpay' => '即时到账设置',
 	'ec_tenpay_opentrans' => '担保交易设置',

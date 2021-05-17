@@ -1598,7 +1598,7 @@ CREATE TABLE pre_common_word_type (
 ) ENGINE=InnoDB;
 
 DROP TABLE IF EXISTS pre_common_payment_order;
-CREATE TABLE `pre_common_payment_order`  (
+CREATE TABLE pre_common_payment_order  (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `out_biz_no` varchar(64) NOT NULL,
   `type` varchar(255)  NOT NULL,
@@ -1626,7 +1626,7 @@ CREATE TABLE `pre_common_payment_order`  (
 ) ENGINE = InnoDB;
 
 DROP TABLE IF EXISTS pre_common_payment_refund;
-CREATE TABLE `pre_common_payment_refund`  (
+CREATE TABLE pre_common_payment_refund  (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `order_id` int(10) unsigned NOT NULL,
   `out_biz_no` varchar(64)  NOT NULL,
@@ -1644,7 +1644,7 @@ CREATE TABLE `pre_common_payment_refund`  (
 ) ENGINE = InnoDB;
 
 DROP TABLE IF EXISTS pre_common_payment_transfer;
-CREATE TABLE `pre_common_payment_transfer`  (
+CREATE TABLE pre_common_payment_transfer  (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `uid` int(10) unsigned NOT NULL,
   `out_biz_no` varchar(64) NOT NULL,

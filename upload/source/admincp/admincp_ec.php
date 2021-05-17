@@ -155,10 +155,13 @@ if($operation == 'alipay') {
 		$weixinsettings['ec_weixin_version'] ? $check['false'] = '' : $check['true'] = '';
 		$check['hidden1'] = ' onclick="$(\'api_version_2\').style.display = \'none\';$(\'api_version_3\').style.display = \'\';"';
 		$check['hidden0'] = ' onclick="$(\'api_version_2\').style.display = \'\';$(\'api_version_3\').style.display = \'none\';"';
-		$html = '<ul onmouseover="altStyle(this);">' .
-			'<li'.($check['false'] ? ' class="checked"' : '').'><input class="radio" type="radio" name="settingsnew[ec_weixin_version]" value="0" '.$check['false'].$check['hidden0'].'>&nbsp;'.lang('admincp', 'ec_weixin_version_2').'</li>'.
-			'<li'.($check['true'] ? ' class="checked"' : '').'><input class="radio" '.($wxpayment -> v3_weixin_support() ? '' : 'disabled').' type="radio" name="settingsnew[ec_weixin_version]" value="1" '.$check['true'].$check['hidden1'].'>&nbsp;'.lang('admincp', 'ec_weixin_version_3').'</li>'.
-			'</ul>';
+		$html = '<ul onmouseover="altStyle(this);"><li'.($check['false'] ? ' class="checked"' : '').'><input class="radio" type="radio" name="settingsnew[ec_weixin_version]" value="0" '.$check['false'].$check['hidden0'].'>&nbsp;'.$lang['ec_weixin_version_2'].'</li>';
+		if($wxpayment -> v3_weixin_support()) {
+			$html .= '<li'.($check['true'] ? ' class="checked"' : '').'><input class="radio" type="radio" name="settingsnew[ec_weixin_version]" value="1" '.$check['true'].$check['hidden1'].'>&nbsp;'.$lang['ec_weixin_version_3'].'</li>';
+		}else{
+			$html .= '<li style="margin-left: 5px; color: red;">'.$lang['ec_weixin_version_3'].'('.$lang['ec_weixin_php_version_low'].')</li>';
+		}
+		$html .= '</ul>';
 		showsetting('ec_weixin_version', '', '', $html);
 		showsetting('ec_weixin_appid', 'settingsnew[appid]', $weixinsettings['appid'], 'text');
 		$weixin_securitycodemask = $weixinsettings['appsecret'] ? $weixinsettings['appsecret'][0].'********'.substr($weixinsettings['appsecret'], -4) : '';
