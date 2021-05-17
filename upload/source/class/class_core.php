@@ -199,6 +199,7 @@ class core
 }
 
 class C extends core {}
+class R extends discuz_request {}
 class DB extends discuz_database {}
 
 ?>
