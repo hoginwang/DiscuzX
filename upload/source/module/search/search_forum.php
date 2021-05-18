@@ -42,18 +42,18 @@ $cachelife_text = 3600;		// Life span for cache of text searching
 
 $srchtype = empty($_GET['srchtype']) ? '' : trim($_GET['srchtype']);
 $searchid = isset($_GET['searchid']) ? intval($_GET['searchid']) : 0;
-$seltableid = intval($_GET['seltableid']);
+$seltableid = intval(getgpc('seltableid'));
 
 if($srchtype != 'title' && $srchtype != 'fulltext') {
 	$srchtype = '';
 }
 
-$srchtxt = trim($_GET['srchtxt']);
-$srchuid = intval($_GET['srchuid']);
+$srchtxt = trim(getgpc('srchtxt'));
+$srchuid = intval(getgpc('srchuid'));
 $srchuname = isset($_GET['srchuname']) ? trim(str_replace('|', '', $_GET['srchuname'])) : '';;
-$srchfrom = intval($_GET['srchfrom']);
-$before = intval($_GET['before']);
-$srchfid = $_GET['srchfid'];
+$srchfrom = intval(getgpc('srchfrom'));
+$before = intval(getgpc('before'));
+$srchfid = getgpc('srchfid');
 $srhfid = intval($_GET['srhfid']);
 
 $keyword = isset($srchtxt) ? dhtmlspecialchars(trim($srchtxt)) : '';
@@ -65,7 +65,7 @@ if(!empty($srchfid) && !is_numeric($srchfid)) {
 
 if(!submitcheck('searchsubmit', 1)) {
 
-	if($_GET['adv']) {
+	if(getgpc('adv')) {
 		include template('search/forum_adv');
 	} else {
 		include template('search/forum');
@@ -79,7 +79,7 @@ if(!submitcheck('searchsubmit', 1)) {
 
 		require_once libfile('function/misc');
 
-		$page = max(1, intval($_GET['page']));
+		$page = max(1, intval(getgpc('page')));
 		$start_limit = ($page - 1) * $_G['tpp'];
 
 		$index = C::t('common_searchindex')->fetch_by_searchid_srchmod($searchid, $srchmod);

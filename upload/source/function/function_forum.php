@@ -525,13 +525,13 @@ function loadforum($fid = null, $tid = null) {
 				}
 			}
 
-			if($forum['threadtypes']['types']) {
+			if(!empty($forum['threadtypes']['types'])) {
 				safefilter($forum['threadtypes']['types']);
 			}
-			if($forum['threadtypes']['options']['name']) {
+			if(!empty($forum['threadtypes']['options']['name'])) {
 				safefilter($forum['threadtypes']['options']['name']);
 			}
-			if($forum['threadsorts']['types']) {
+			if(!empty($forum['threadsorts']['types'])) {
 				safefilter($forum['threadsorts']['types']);
 			}
 
@@ -1105,7 +1105,7 @@ function stringtopic($value, $key = '', $force = false, $rlength = 0) {
 function getreplybg($replybg = '') {
 	global $_G;
 	$style = '';
-	if($_G['setting']['allowreplybg']) {
+	if(getglobal('setting/allowreplybg')) {
 		if($replybg) {
 			$bgurl = $replybg;
 			if(file_exists($_G['setting']['attachurl'].'common/'.$replybg)) {

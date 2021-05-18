@@ -70,6 +70,6 @@
 </div>
 <ul id="scbar_type_menu" class="p_pop" style="display: none;"><!--{echo implode('', $slist);}--></ul>
 <script type="text/javascript">
-	initSearchmenu('scbar', '$searchparams[url]');
+	initSearchmenu('scbar', '{$searchparams[url] or ''}');
 </script>
 <!--{/if}-->

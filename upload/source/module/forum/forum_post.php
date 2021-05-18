@@ -24,7 +24,7 @@ $sortid = intval(getgpc('sortid'));
 $typeid = intval(getgpc('typeid'));
 $special = intval(getgpc('special'));
 
-parse_str($_GET['extra'], $_GET['extra']);
+parse_str(getgpc('extra'), $_GET['extra']);
 $_GET['extra'] = http_build_query($_GET['extra']);
 
 $postinfo = array('subject' => '');
@@ -303,7 +303,7 @@ if($_GET['action'] == 'newthread') {
 	$policykey = '';
 }
 if($policykey) {
-	$postcredits = $_G['forum'][$policykey.'credits'] ? $_G['forum'][$policykey.'credits'] : $_G['setting']['creditspolicy'][$policykey];
+	$postcredits = getglobal('forum/'.$policykey.'credits') ? getglobal('forum/'.$policykey.'credits') : $_G['setting']['creditspolicy'][$policykey];
 }
 
 $albumlist = array();

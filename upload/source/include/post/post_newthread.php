@@ -19,7 +19,7 @@ if(($special == 1 && !$_G['group']['allowpostpoll']) || ($special == 2 && !$_G['
 	showmessage('group_nopermission', NULL, array('grouptitle' => $_G['group']['grouptitle']), array('login' => 1));
 }
 
-if($_G['setting']['connect']['allow'] && $_G['setting']['accountguard']['postqqonly'] && !$_G['member']['conisbind']) {
+if(getglobal('setting/connect/allow') && $_G['setting']['accountguard']['postqqonly'] && !$_G['member']['conisbind']) {
 	showmessage('postperm_qqonly_nopermission');
 }
 
@@ -81,8 +81,8 @@ if(!submitcheck('topicsubmit', 0, $seccodecheck, $secqaacheck)) {
 	$isfirstpost = 1;
 	$allownoticeauthor = 1;
 	$tagoffcheck = '';
-	$showthreadsorts = !empty($sortid) || $_G['forum']['threadsorts']['required'] && empty($special);
-	if(empty($sortid) && empty($special) && $_G['forum']['threadsorts']['required'] && $_G['forum']['threadsorts']['types']) {
+	$showthreadsorts = !empty($sortid) || getglobal('forum/threadsorts/required') && empty($special);
+	if(empty($sortid) && empty($special) && getglobal('forum/threadsorts/required') && $_G['forum']['threadsorts']['types']) {
 		$tmp = array_keys($_G['forum']['threadsorts']['types']);
 		$sortid = $tmp[0];
 
