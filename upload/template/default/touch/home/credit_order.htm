@@ -1,0 +1,63 @@
+<!--{template common/header}-->
+<style type="text/css">
+.wxpay_surebox{margin-top:10px;font-size:14px}
+.wxpay_surebox .bt{margin:0 2%;padding-left: 5px;color: #666;line-height:50px}
+.wxpay_surebox ul{background:#fff;margin:0 2% 40px 2%;padding: 0 10px;border-radius: 5px;}
+.wxpay_surebox ul li{display:flex;justify-content:space-between;line-height:50px;height:50px;overflow:hidden}
+.wxpay_surebox .sure{background:#26af0d;color:#fff;display:block;border-radius:5px;text-align:center;height:50px;line-height:50px;margin:0 2%}
+.wxpay_surebox .amount{color:#e21645}
+.wxpay_surebox ul li .zb{width:80px}
+.wxpay_surebox ul li .yb{color:#999;width: calc(100% - 80px);text-align: right;overflow: hidden;text-overflow:ellipsis;white-space: nowrap;}
+</style>
+<div class="wxpay_surebox">
+	<div class="bt">
+		{lang pay_order}
+	</div>
+	<ul class="">
+		<li><span class="zb">{lang pay_order_id}</span><span class="yb">{eval echo dhtmlspecialchars($res['data']['out_trade_no'])}</span></li>
+		<li><span class="zb">{lang pay_order_title}</span><span class="yb">{eval echo dhtmlspecialchars($res['data']['title'])}</span></li>
+		<li><span class="zb">{lang pay_order_price}</span><span class="yb"><span class="amount">{eval echo dhtmlspecialchars($res['data']['amount'])}{lang pay_order_yuan}</span></span></li>
+		<li><span class="zb">{lang pay_order_type}</span><span class="yb">{lang pay_order_wx}</span></li>
+	</ul>
+	{if $res['type']=='h5'}
+	<a href="{$res['h5_url']}" class="sure">{lang pay_order_sure}</a>
+	{elseif $res['type']=='jsapi'}
+	<a href="javascript:void(0)" onclick="callpay()" class="sure">{lang pay_order_sure}</a>
+	{/if}
+</div>
+
+{if $res['type']=='jsapi'}
+<script>
+function onBridgeReady() {
+	WeixinJSBridge.invoke('getBrandWCPayRequest', {
+		"appId": "{$res['appId']}",
+		"timeStamp": "{$res['timeStamp']}",
+		"nonceStr": "{$res['nonceStr']}",
+		"package": "{$res['package']}",
+		"signType": "{$res['signType']}",
+		"paySign": "{$res['paySign']}"
+	},
+	function(res) {
+		if(res.err_msg == "get_brand_wcpay_request:ok") {
+			window.location.href="{$res['data']['return_url']}";
+		}else{
+			window.location.href="{$res['data']['return_url']}";
+		}
+	});
+}
+
+function callpay(){
+	if(typeof WeixinJSBridge == "undefined") {
+		if (document.addEventListener) {
+			document.addEventListener('WeixinJSBridgeReady', onBridgeReady, false);
+		} else if (document.attachEvent) {
+			document.attachEvent('WeixinJSBridgeReady', onBridgeReady);
+			document.attachEvent('onWeixinJSBridgeReady', onBridgeReady);
+		}
+	}else{
+		onBridgeReady();
+	}
+}
+</script>
+{/if}
+<!--{template common/footer}-->

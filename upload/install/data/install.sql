@@ -3968,3 +3968,20 @@ CREATE TABLE pre_security_failedlog (
   KEY uid (uid)
 ) ENGINE=InnoDB;
 
+DROP TABLE IF EXISTS `pre_home_credit_order`;
+CREATE TABLE IF NOT EXISTS `pre_home_credit_order` (
+  `orderid` char(32) NOT NULL DEFAULT '',
+  `status` char(3) NOT NULL DEFAULT '',
+  `type` char(8) NOT NULL DEFAULT '0',
+  `buyer` char(50) NOT NULL DEFAULT '',
+  `admin` char(15) NOT NULL DEFAULT '',
+  `uid` int(10) unsigned NOT NULL DEFAULT '0',
+  `amount` int(10) unsigned NOT NULL DEFAULT '0',
+  `price` float(7,2) unsigned NOT NULL DEFAULT '0.00',
+  `submitdate` int(10) unsigned NOT NULL DEFAULT '0',
+  `confirmdate` int(10) unsigned NOT NULL DEFAULT '0',
+  `trade_no` char(40) NOT NULL DEFAULT '',
+  PRIMARY KEY (`orderid`),
+  KEY `submitdate` (`submitdate`) USING BTREE,
+  KEY `uid` (`uid`,`submitdate`) USING BTREE
+) ENGINE=InnoDB;
