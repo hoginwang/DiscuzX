@@ -874,7 +874,7 @@ $lang = array (
   'usergroups_exit_succeed' => '您已退出用户组 {group}',
   'usergroup_switch_not_allow' => '您当前的用户组未到期，无法切换到其他用户组',
   'usergroups_switch_succeed' => '您已切换到用户组 {group}',
-
+  'usergroup_switch_not_allowvisit' => '抱歉，您无法切换到不能访问论坛的用户组',
   'no_privilege_banpost' => '抱歉，您没有权限屏蔽主题',
   'admin_banpost_invalid' => '抱歉，您尚未选择要屏蔽的帖子',
 
