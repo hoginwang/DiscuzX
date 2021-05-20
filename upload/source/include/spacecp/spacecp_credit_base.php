@@ -161,7 +161,7 @@ if($_GET['op'] == 'base') {
 			$data=array(
 				'apitype'=>$apitype,
 				'title'=>$_G['setting']['bbname'].' - '.$_G['member']['username'].' - '.lang('forum/misc', 'credit_payment'),
-				'plugin_id'=>'home_credit_order',
+				'origin'=>'sys_home_credit_order',
 				'out_trade_no'=>$orderid, 
 				'amount'=>$price,
 				'return_url'=>$_G['siteurl'].'home.php?mod=spacecp&ac=credit&op=base'

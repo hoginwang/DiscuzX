@@ -47,16 +47,6 @@ Class pay
 		exit('Access Denied');
 	}
 
-	public function checkPlugin( $str = ''){
-		$flag = false;
-		if($str && preg_match("/^[a-zA-Z0-9_]+$/", $str)){
-			$flag = true;
-		}
-		return  $flag;				
-	}
-
-	
-
 	public function success(){
 		if($this->apitype=='alipay'){
 			exit('success');
@@ -88,13 +78,17 @@ Class pay
 			$pay_ali->setReturnUrl($data['return_url']);
 			$pay_ali->setTotalAmount($data['amount']);
 			$pay_ali->setOutTradeNo($data['out_trade_no']);
-			$pay_ali->setPassbackParams($data['plugin_id']);
+			$pay_ali->setPassbackParams($data['origin']);
 			$pay_ali->setSubject($data['title']);
 			if(!empty($data['notify_url'])){
 				$pay_ali->setNotifyUrl($data['notify_url']);
 			}
-			
-			return $pay_ali->pay();
+			if($data['type']=='app'){
+				return;
+				return $pay_ali->pay(true);
+			}else{
+				return $pay_ali->pay();
+			}
 		}else if($this->apitype=='wechat'){
 			$wxPay = new pay_wechat();
 			if(!$wxPay->status()){
@@ -103,9 +97,22 @@ Class pay
 			$wxPay->setTotalAmount($data['amount']);
 			$wxPay->setOutTradeNo($data['out_trade_no']);
 			$wxPay->setDescription($data['title']);
-			$wxPay->setAttach($data['plugin_id']);
+			$wxPay->setAttach($data['origin']);
 			if(!empty($data['notify_url'])){
 				$wxPay->setNotifyUrl($data['notify_url']);
+			}
+			if($data['type']=='app'){
+				return;
+				$res = $wxPay->app();
+				$res['data'] = $data;
+				return $res;
+			}
+			if(!empty($data['code'])){
+				$openid = $wxPay->getMinOpenid($data['code']);
+				$res = $wxPay->jsapi($openid,'min');
+				$res['type'] ='min';
+				$res['data'] = $data;
+				return $res;
 			}
 			if($_G['mobile']){
 				if(!empty($data['openid'])){

@@ -73,7 +73,7 @@ if($operation == 'alipay') {
 		}
 	}
 
-	$settings = C::t('common_setting')->fetch_all_setting(array('pay_wechat_status','pay_wechat_appid', 'pay_wechat_mchid', 'pay_wechat_key',  'pay_wechat_appsecret','pay_wechat_certNo','pay_wechat_privateKey','pay_wechat_cert'));
+	$settings = C::t('common_setting')->fetch_all_setting(array('pay_wechat_status','pay_wechat_appid','pay_wechat_min_appid','pay_wechat_app_appid', 'pay_wechat_mchid', 'pay_wechat_key', 'pay_wechat_appsecret','pay_wechat_min_appsecret','pay_wechat_certNo','pay_wechat_privateKey','pay_wechat_cert'));
 
 	if($_GET['cert']=='privateKey'){
 		$file = DISCUZ_ROOT.'data/apiclient_key.pem';
@@ -114,7 +114,10 @@ if($operation == 'alipay') {
 		showsetting('pay_wechat_privateKey', 'settingsnew[pay_wechat_privateKey]', $pay_wechat_privateKey, 'textarea');
 		showsetting('pay_wechat_certNo', 'settingsnew[pay_wechat_certNo]', $settings['pay_wechat_certNo'], 'text');
 		showsetting('pay_wechat_cert', 'settingsnew[pay_wechat_cert]', $settings['pay_wechat_cert'], 'text');
-
+		showsetting('pay_wechat_min_appid', 'settingsnew[pay_wechat_min_appid]', $settings['pay_wechat_min_appid'], 'text');
+		$pay_wechat_min_appsecret = $settings['pay_wechat_min_appsecret'] ? $settings['pay_wechat_min_appsecret'][0].'********'.substr($settings['pay_wechat_min_appsecret'], -4) : '';
+		showsetting('pay_wechat_min_appsecret', 'settingsnew[pay_wechat_min_appsecret]', $pay_wechat_min_appsecret, 'text');
+		//showsetting('pay_wechat_app_appid', 'settingsnew[pay_wechat_app_appid]', $settings['pay_wechat_app_appid'], 'text');
 		showtablefooter();
 		showtableheader('', 'notop');
 		showsubmit('wechatsubmit');
@@ -135,6 +138,9 @@ if($operation == 'alipay') {
 		$settingsnew['pay_wechat_appsecret'] = $pay_wechat_appsecret == $settingsnew['pay_wechat_appsecret'] ? $settings['pay_wechat_appsecret'] : $settingsnew['pay_wechat_appsecret'];
 		$pay_wechat_privateKey = $settings['pay_wechat_privateKey'] ? $settings['pay_wechat_privateKey'][0].'********'.substr($settings['pay_wechat_privateKey'], -128) : '';
 		$settingsnew['pay_wechat_privateKey'] = $pay_wechat_privateKey == $settingsnew['pay_wechat_privateKey'] ? $settings['pay_wechat_privateKey'] : $settingsnew['pay_wechat_privateKey'];
+
+		$pay_wechat_min_appsecret = $settings['pay_wechat_min_appsecret'] ? $settings['pay_wechat_min_appsecret'][0].'********'.substr($settings['pay_wechat_min_appsecret'], -4) : '';
+		$settingsnew['pay_wechat_min_appsecret'] = $pay_wechat_min_appsecret == $settingsnew['pay_wechat_min_appsecret'] ? $settings['pay_wechat_min_appsecret'] : $settingsnew['pay_wechat_min_appsecret'];
 		
 		$data = array('pay_wechat_status' => intval($settingsnew['pay_wechat_status']),
 			'pay_wechat_appid' => trim($settingsnew['pay_wechat_appid']),
@@ -143,6 +149,9 @@ if($operation == 'alipay') {
 			'pay_wechat_appsecret' => trim($settingsnew['pay_wechat_appsecret']),
 			'pay_wechat_certNo' => trim($settingsnew['pay_wechat_certNo']),
 			'pay_wechat_privateKey' => trim($settingsnew['pay_wechat_privateKey']),
+			'pay_wechat_min_appid' => trim($settingsnew['pay_wechat_min_appid']),
+			'pay_wechat_min_appsecret' => trim($settingsnew['pay_wechat_min_appsecret']),
+			'pay_wechat_app_appid' => trim($settingsnew['pay_wechat_app_appid']),
 			'pay_wechat_cert' => trim($settingsnew['pay_wechat_cert']));
 		C::t('common_setting')->update_batch($data);
 		if($data['pay_wechat_cert']!=$settings['pay_wechat_cert']){

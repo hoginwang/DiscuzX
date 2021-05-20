@@ -19,7 +19,7 @@ class pay_wechat extends pay_wechatconfig
 	const AUTH_TAG_LENGTH_BYTE = 16;
 
 	public function status(){
-		if($this->status && $this->appid && $this->mchid && $this->privateKey && $this->apiKey3 && $this->certificateSerialNumber && $this->appsecret){
+		if($this->status && ($this->appid || ($this->min_appid && $this->min_appsecret) || $this->app_appid) && $this->mchid && $this->privateKey && $this->apiKey3 && $this->certificateSerialNumber){
 			$paths = $this->getCertPaths();
 			if(!empty($paths)){
 				return true;
@@ -78,8 +78,12 @@ class pay_wechat extends pay_wechatconfig
 		return json_decode($response,true);
 	}
 
-	public function jsapi( $openid)
+	public function jsapi($openid,$type='mp')
 	{
+		if($type=='mp'){
+		}else{
+			$this->appid = $this->min_appid;
+		}
 		$reqParams = array(
 			'appid' => $this->appid,
 			'mchid' => $this->mchid,
@@ -113,6 +117,58 @@ class pay_wechat extends pay_wechatconfig
 			return $res;
 		}
 		return array();
+	}
+
+	public function app()
+	{
+		$this->appid = $this->app_appid;
+		$reqParams = array(
+			'appid' => $this->appid,
+			'mchid' => $this->mchid,
+			'description' => $this->description,
+			'attach' => $this->attach,
+			'out_trade_no' => $this->out_trade_no,
+			'notify_url'=> $this->notifyUrl,
+			'amount'=>array(
+				'total'=>intval($this->amount),
+				'currency'=>'CNY',
+			),
+		);
+		$this->reqUrl = $this->gateWay.'/pay/transactions/app';
+		$this->getAuthStr($reqParams);
+		$response = $this->apiCurl($this->reqUrl,$reqParams);
+		$arr = json_decode($response,true);
+		if(!empty($arr['prepay_id'])){
+			$timestamp = time();
+			$nonceStr = $this->getNonce();
+			$prepay = $arr['prepay_id'];
+			$message = $this->buildJs($prepay,$timestamp,$nonceStr);
+			$signature = $this->sign($message);
+			$res=array('appid'=>$this->appid,
+				'partnerid'=>$this->mchid,
+				'prepayid'=>$prepay,
+				'package'=>"Sign=WXPay",
+				'noncestr'=>$nonceStr,
+				'timestamp'=>$timestamp,
+				'sign'=>$signature
+			);
+			return $res;
+		}
+		return array();
+	}
+
+	public function getMinOpenid($code)
+	{
+		$param=array();
+        $param[]='appid='.$this->min_appid;
+        $param[]='secret='.$this->min_appsecret;
+        $param[]='js_code='.$code;
+        $param[]='grant_type=authorization_code';
+        $params=implode('&',$param);
+		$url = $this->minUrl.'?'.$params;
+		$res = dfsockopen($url);
+		$arr = json_decode($res,true);
+		return $arr['openid'];
 	}
 
 	private function buildJs($prepay_id,$timestamp,$nonceStr)
@@ -307,7 +363,7 @@ class pay_wechat extends pay_wechatconfig
 	}
 
 	public function php_v(){
-		if(version_compare(PHP_VERSION,'7.1.0', '>') || (function_exists('\Sodium\crypto_aead_aes256gcm_is_available') && \Sodium\crypto_aead_aes256gcm_is_available())){
+		if(version_compare(PHP_VERSION,'7.1.0', '>')){
 			return true;
 		}else{
 			return false;

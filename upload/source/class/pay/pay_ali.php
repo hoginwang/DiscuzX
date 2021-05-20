@@ -20,7 +20,11 @@ class pay_ali extends pay_aliconfig
 		}
 	}
 
-	public function pay(){
+	public function pay($app=false){
+		if($app){
+			$this->product_code='QUICK_MSECURITY_PAY';
+			$this->returnUrl = '';
+		}
 		$requestConfigs = array(
 			'out_trade_no'=>$this->outTradeNo,
 			'product_code'=>$this->product_code,
@@ -40,7 +44,11 @@ class pay_ali extends pay_aliconfig
 			'biz_content'=>json_encode($requestConfigs),
 		);
 		$commonConfigs["sign"] = self::sign(self::getSignContent($commonConfigs), $this->merchantPrivateKey);
-		return $this->buildForm($this->getGatewayServerUrl(),$commonConfigs);
+		if($app){
+			return dfsockopen($this->getGatewayServerUrl(),0,$commonConfigs);
+		}else{
+			return $this->buildForm($this->getGatewayServerUrl(),$commonConfigs);
+		}
 	}
 
 	public function query( $out_trade_no, $trade_no=''){

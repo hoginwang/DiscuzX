@@ -14,6 +14,9 @@ class pay_wechatconfig
 {
 	protected $gateWay='https://api.mch.weixin.qq.com/v3';
 	protected $appid;
+	protected $min_appid;
+	protected $min_appsecret;
+	protected $app_appid;
 	protected $mchid;
 	protected $key;
 	protected $appsecret ;
@@ -24,6 +27,7 @@ class pay_wechatconfig
 	protected $publicKeys=array();
 	protected $privateKey;
 	protected $cert; 
+	protected $minUrl = 'https://api.weixin.qq.com/sns/jscode2session';
 	
 	public $status = 0;
 	public $description;
@@ -48,6 +52,9 @@ class pay_wechatconfig
 		$this->apiKey3 =$_G['setting']['pay_wechat_key'];
 		$this->appsecret = $_G['setting']['pay_wechat_appsecret'];
 		$this->cert = $_G['setting']['pay_wechat_cert'];
+		$this->min_appid = $_G['setting']['pay_wechat_min_appid'];
+		$this->min_appsecret = $_G['setting']['pay_wechat_min_appsecret'];
+		$this->app_appid = $_G['setting']['pay_wechat_app_appid'];
 	}
 
 	public function setOutTradeNo($out_trade_no)

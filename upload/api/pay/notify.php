@@ -20,8 +20,8 @@ $notify = $pay->getData();
 if($pay->apitype=='alipay'){
 	$pay_ali = new pay_ali();
 	$result = $pay_ali->notifyverify($notify);
-	if($result===true && $pay->checkPlugin($notify['passback_params']) && $notify['trade_status'] == 'TRADE_SUCCESS' && $notify['app_id']==$pay_ali->appId && strtolower($notify['seller_id'])==strtolower($pay_ali->seller_id)){
-		$plugin_id = $notify['passback_params'];
+	if($result===true && $notify['trade_status'] == 'TRADE_SUCCESS' && $notify['app_id']==$pay_ali->appId && strtolower($notify['seller_id'])==strtolower($pay_ali->seller_id)){
+		$origin = $notify['passback_params'];
 		$trade_no = $notify['trade_no'];
 		$buyer = $notify['buyer_id'];
 		require_once 'notify_order.php';
@@ -47,7 +47,7 @@ if($pay->apitype=='alipay'){
 	}
 	if ($res['trade_state'] == 'SUCCESS') {
 		$notify = $res;
-		$plugin_id = $notify['attach'];
+		$origin = $notify['attach'];
 		$trade_no = $notify['transaction_id'];
 		$buyer = $notify['payer']['openid'];
 		require_once 'notify_order.php';
