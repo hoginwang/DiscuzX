@@ -1,8 +1,8 @@
 <!--{template common/header}-->
 <div class="header cl">
-	<div class="mz"><a href="javascript:history.back();"><i class="iconfont">&#xe779;</i></a></div>
+	<div class="mz"><a href="javascript:history.back();"><i class="dm-c-left"></i></a></div>
 	<h2><!--{eval echo strip_tags($_G['forum']['name']) ? strip_tags($_G['forum']['name']) : $_G['forum']['name'];}--></h2>
-	<div class="my"><a href="forum.php?mod=post&action=newthread&fid={$_G['fid']}" title="{lang send_threads}"><i class="iconfont">&#xe6bf;</i></a></div>
+	<div class="my"><a href="forum.php?mod=post&action=newthread&fid={$_G['fid']}" title="{lang send_threads}"><i class="dm-edit"></i></a></div>
 </div>
 <!--{hook/forumdisplay_top_mobile}-->
 <div class="forumdisplay-top cl">
@@ -158,8 +158,8 @@
 						<!--{if $thread['typeid']}-->
 						<li class="mr"><a href="forum.php?mod=forumdisplay&fid=$thread['fid']&filter=typeid&typeid=$thread['typeid']">#{$_G['forum']['threadtypes']['types'][$thread['typeid']]}</a></li>
 						<!--{/if}-->
-						<li><i class="iconfont">&#xe73c;</i>{$thread['views']}</li>
-						<li><i class="iconfont">&#xe743;</i>{$thread['replies']}</li>
+						<li><i class="dm-eye-fill"></i>{$thread['views']}</li>
+						<li><i class="dm-chat-s-fill"></i>{$thread['replies']}</li>
 					</ul>
 				</div>
 			</li>
