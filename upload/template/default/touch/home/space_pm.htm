@@ -3,9 +3,9 @@
 <!--{if in_array($filter, array('privatepm')) || in_array($_GET['subop'], array('view'))}-->
 	<!--{if in_array($filter, array('privatepm'))}-->
 	<div class="header cl">
-		<div class="mz"><a href="javascript:history.back();"><i class="iconfont">&#xe779;</i></a></div>
+		<div class="mz"><a href="javascript:history.back();"><i class="dm-c-left"></i></a></div>
 		<h2>{lang mypm}</h2>
-		<div class="my"><a href="home.php?mod=spacecp&ac=pm"><i class="iconfont">&#xe6bf;</i></a></div>
+		<div class="my"><a href="home.php?mod=spacecp&ac=pm"><i class="dm-edit"></i></a></div>
 	</div>
 	<div class="dhnv flex-box cl">
 		<a href="home.php?mod=space&do=pm" class="flex mon">{lang mypm}<!--{if $newpmcount}--><strong>($newpmcount)</strong><!--{/if}--></a>
@@ -40,9 +40,9 @@
 	</div>
 	<!--{elseif in_array($_GET['subop'], array('view'))}-->
 		<div class="header cl">
-			<div class="mz"><a href="javascript:history.back();"><i class="iconfont">&#xe779;</i></a></div>
+			<div class="mz"><a href="javascript:history.back();"><i class="dm-c-left"></i></a></div>
 			<h2>{lang viewmypm}</h2>
-			<div class="my"><a href="<!--{if $_G['setting']['mobile']['mobilehotthread']}--><!--{if !empty($_G['setting']['grid']['showgrid'])}-->forum.php<!--{else}-->forum.php?mod=guide&view=newthread<!--{/if}--><!--{else}-->forum.php?forumlist=1<!--{/if}-->"><i class="iconfont">&#xe751;</i></a></div>
+			<div class="my"><a href="<!--{if $_G['setting']['mobile']['mobilehotthread']}--><!--{if !empty($_G['setting']['grid']['showgrid'])}-->forum.php<!--{else}-->forum.php?mod=guide&view=newthread<!--{/if}--><!--{else}-->forum.php?forumlist=1<!--{/if}-->"><i class="dm-house"></i></a></div>
 		</div>
 		<div class="msgbox b_m">
 			<!--{if !$list}-->			

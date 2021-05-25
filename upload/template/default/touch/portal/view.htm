@@ -1,6 +1,6 @@
 <!--{template common/header}-->
 <div class="header cl">
-	<div class="mz"><a href="javascript:history.back();"><i class="iconfont">&#xe779;</i></a></div>
+	<div class="mz"><a href="javascript:history.back();"><i class="dm-c-left"></i></a></div>
 	<h2>{lang view_content}</h2>
 	<div class="my"></div>
 </div>
@@ -32,7 +32,7 @@
 	<div class="mtit cl">{lang view_related}</div>
 	<ul class="cl">
 	<!--{loop $article['related'] $raid $rvalue}-->		
-		<li><a href="{$rvalue['uri']}"><i class="iconfont">&#xe775;</i>{$rvalue['title']}</a></li>
+		<li><a href="{$rvalue['uri']}"><i class="dm-c-right"></i>{$rvalue['title']}</a></li>
 	<!--{/loop}-->
 	</ul>
 </div>

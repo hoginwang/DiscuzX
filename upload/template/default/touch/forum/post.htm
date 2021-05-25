@@ -35,7 +35,7 @@
 	<input type="hidden" name="specialextra" value="$specialextra" />
 <!--{/if}-->
 <div class="header cl">
-	<div class="mz"><a href="javascript:history.back();"><i class="iconfont">&#xe779;</i></a></div>
+	<div class="mz"><a href="javascript:history.back();"><i class="dm-c-left"></i></a></div>
 	<h2><!--{if $_GET['action'] == 'edit'}-->{lang edit}<!--{else}-->{lang send_threads}<!--{/if}--></h2>
 	<div class="my"></div>
 </div>
@@ -52,7 +52,7 @@
 		<!--{if $isfirstpost && !empty($_G['forum']['threadtypes']['types'])}-->
 		<li class="mli">			
 			<select id="typeid" name="typeid" class="sort_sel">	
-				<i class="iconfont sort_jt">&#xe772;</i>
+				<i class="dm-c-down sort_jt"></i>
 				<option value="0" selected="selected">{lang threadtype}</option>
 				<!--{loop $_G['forum']['threadtypes']['types'] $typeid $name}-->
 				<!--{if empty($_G['forum']['threadtypes']['moderators'][$typeid]) || $_G['forum']['ismoderator']}-->
@@ -70,12 +70,12 @@
 		<li class="mtext">
 			<textarea class="pt" id="needmessage" tabindex="3" autocomplete="off" id="{$editorid}_textarea" name="$editor['textarea']" placeholder="<!--{if $_GET['action'] != 'reply'}-->{lang posts}<!--{/if}-->{lang thread_content}" fwin="reply">$postinfo['message']</textarea>
 			<div class="mimg cl">
-				<a href="javascript:;" class="post_imgbtn"><i class="iconfont">&#xe665;</i>{lang e_img_attach}<input type="file" name="Filedata" id="filedata" /></a>
+				<a href="javascript:;" class="post_imgbtn"><i class="dm-camera-fill"></i>{lang e_img_attach}<input type="file" name="Filedata" id="filedata" /></a>
 			</div>
 			<div class="cl">
 				<ul id="imglist" class="post_imglist cl">
 				<!--{loop $imgattachs['used'] $temp}-->
-					<li><span aid="$temp['aid']" class="del" up="1"><a href="javascript:;"><i class="iconfont">&#xe647;</i></a></span><span class="p_img"><a href="javascript:;"><img style="height:54px;width:54px;" id="aimg_$temp['aid']" title="$temp['filename']" src="{$temp['url']}/$temp['attachment']" /></a></span><input type="hidden" name="attachnew[{$temp['aid']}]['description']" /></li>	
+					<li><span aid="$temp['aid']" class="del" up="1"><a href="javascript:;"><i class="dm-error"></i></a></span><span class="p_img"><a href="javascript:;"><img style="height:54px;width:54px;" id="aimg_$temp['aid']" title="$temp['filename']" src="{$temp['url']}/$temp['attachment']" /></a></span><input type="hidden" name="attachnew[{$temp['aid']}]['description']" /></li>	
 				<!--{/loop}-->
 				</ul>
 			</div>
@@ -177,7 +177,7 @@
 				var dataarr = data.split('|');
 				if(dataarr[0] == 'DISCUZUPLOAD' && dataarr[2] == 0) {
 					popup.close();
-					$('#imglist').append('<li><span aid="'+dataarr[3]+'" class="del"><a href="javascript:;"><i class="iconfont">&#xe647;</i></a></span><span class="p_img"><a href="javascript:;"><img style="height:54px;width:54px;" id="aimg_'+dataarr[3]+'" title="'+dataarr[6]+'" src="{$_G['setting']['attachurl']}forum/'+dataarr[5]+'" /></a></span><input type="hidden" name="attachnew['+dataarr[3]+'][description]" /></li>');
+					$('#imglist').append('<li><span aid="'+dataarr[3]+'" class="del"><a href="javascript:;"><i class="dm-error"></i></a></span><span class="p_img"><a href="javascript:;"><img style="height:54px;width:54px;" id="aimg_'+dataarr[3]+'" title="'+dataarr[6]+'" src="{$_G['setting']['attachurl']}forum/'+dataarr[5]+'" /></a></span><input type="hidden" name="attachnew['+dataarr[3]+'][description]" /></li>');
 				} else {
 					var sizelimit = '';
 					if(dataarr[7] == 'ban') {

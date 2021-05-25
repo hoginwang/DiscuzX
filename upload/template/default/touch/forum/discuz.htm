@@ -8,11 +8,11 @@
 	<!--{if ($_G['setting']['mobile']['mobilehotthread'] && $_GET['forumlist'] != 1) || !$_G['setting']['mobile']['mobilehotthread']}-->
 		<div class="header cl">
 			<div class="mzlogo"><a title="$_G['setting']['bbname']" href="javascript:;"><img src="{IMGDIR}/logo_m.svg" /></a></div>
-			<div class="myss"><a href="search.php?mod=forum"><i class="iconfont">&#xe752;</i>{lang mobsearchtxt}</a></div>
+			<div class="myss"><a href="search.php?mod=forum"><i class="dm-search"></i>{lang mobsearchtxt}</a></div>
 		</div>
 	<!--{else}-->
 		<div class="header cl">
-			<div class="mz"><a href="javascript:history.back();"><i class="iconfont">&#xe779;</i></a></div>
+			<div class="mz"><a href="javascript:history.back();"><i class="dm-c-left"></i></a></div>
 			<h2>
 				<!--{if $_G['setting']['mobile']['mobilehotthread']}-->
 				{$_G['setting']['navs'][2]['navname']}
@@ -20,7 +20,7 @@
 				<a title="$_G['setting']['bbname']" href="javascript:;"><img src="{IMGDIR}/logo_m.svg" /></a>
 				<!--{/if}-->
 			</h2>
-			<div class="my"><a href="search.php?mod=forum"><i class="iconfont">&#xe752;</i></a></div>
+			<div class="my"><a href="search.php?mod=forum"><i class="dm-search"></i></a></div>
 		</div>
 	<!--{/if}-->
 	<!--{if ($_G['setting']['mobile']['mobilehotthread'] && $_GET['forumlist'] != 1) || !$_G['setting']['mobile']['mobilehotthread']}-->	
@@ -158,7 +158,7 @@
 		<div class="forumlist cl">
 			<!--{loop $catlist $key $cat}-->	
 			<div class="subforumshow cl" href="#sub-forum_$cat['fid']">
-				<i class="iconfont"><!--{if !$_G['setting']['mobile']['mobileforumview']}-->&#xe677;<!--{else}-->&#xe664;<!--{/if}--></i>
+				<i class="{if !$_G['setting']['mobile']['mobileforumview']}dm-minus-c{else}dm-plus-c{/if}"></i>
 				<h2><a href="javascript:;">$cat['name']</a></h2>
 			</div>
 			<div id="sub-forum_$cat['fid']" class="sub-forum mlist<!--{if $cat['forumcolumns'] == 3}-->3<!--{elseif $cat['forumcolumns'] == 2}-->2<!--{elseif $cat['forumcolumns'] == 1 || $cat['forumcolumns'] == 0}-->1<!--{else}-->4<!--{/if}--> cl">
@@ -192,10 +192,10 @@
 					var subobj = $(obj.attr('href'));
 					if(subobj.css('display') == 'none') {
 						subobj.css('display', 'block');
-						obj.find('i').html('&#xe677;');
+						obj.find('i').removeClass().addClass('dm-minus-c');
 					} else {
 						subobj.css('display', 'none');
-						obj.find('i').html('&#xe664;');
+						obj.find('i').removeClass().addClass('dm-plus-c');
 					}
 				});
 			 })();

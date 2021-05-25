@@ -1,9 +1,9 @@
 <!--{eval $threadsort = $threadsorts = null;}-->
 <!--{template common/header}-->
 <div class="header cl">
-	<div class="mz"><a href="javascript:history.back();"><i class="iconfont">&#xe779;</i></a></div>
+	<div class="mz"><a href="javascript:history.back();"><i class="dm-c-left"></i></a></div>
 	<h2><a href="<!--{if $_GET['fromguid'] == 'hot' && $_G['setting']['guidestatus']}-->forum.php?mod=guide&view=hot&page=$_GET['page']<!--{else}-->forum.php?mod=forumdisplay&fid=$_G['fid']&<!--{eval echo rawurldecode($_GET['extra']);}--><!--{/if}-->"><!--{eval echo strip_tags($_G['forum']['name']) ? strip_tags($_G['forum']['name']) : $_G['forum']['name'];}--></a></h2>
-	<div class="my"><a href="<!--{if $_G['setting']['mobile']['mobilehotthread']}--><!--{if !empty($_G['setting']['grid']['showgrid'])}-->forum.php<!--{else}-->forum.php?mod=guide&view=newthread<!--{/if}--><!--{else}-->forum.php?forumlist=1<!--{/if}-->"><i class="iconfont">&#xe751;</i></a></div>
+	<div class="my"><a href="<!--{if $_G['setting']['mobile']['mobilehotthread']}--><!--{if !empty($_G['setting']['grid']['showgrid'])}-->forum.php<!--{else}-->forum.php?mod=guide&view=newthread<!--{/if}--><!--{else}-->forum.php?forumlist=1<!--{/if}-->"><i class="dm-house"></i></a></div>
 </div>
 <!--{hook/viewthread_top_mobile}-->
 <div class="viewthread">
@@ -53,7 +53,7 @@
 					</span>
 				</li>
 				<li class="mtime">
-					<!--{if $post['first']}--><span class="y"><i class="iconfont">&#xe73d;</i><em>$_G['forum_thread']['views']</em><i class="iconfont">&#xe744;</i><em>$_G['forum_thread']['allreplies']</em></span><!--{/if}-->
+					<!--{if $post['first']}--><span class="y"><i class="dm-eye"></i><em>$_G['forum_thread']['views']</em><i class="dm-chat-s"></i><em>$_G['forum_thread']['allreplies']</em></span><!--{/if}-->
 					<!--{if $_G['forum']['ismoderator']}-->
 						<!--{if $post['first']}-->
 							<em class="mgl"><a href="#moption_$post['pid']" class="popup blue">{lang manage}</a></em>
@@ -190,22 +190,22 @@
 			</div>
 		</div>
 		<!--{if !$_G['forum_thread']['allreplies']}-->
-		<div class="view_reply cl"><i class="iconfont">&#xe727;</i>{lang mobnoreply}</div>
+		<div class="view_reply cl"><i class="dm-sofa"></i>{lang mobnoreply}</div>
 		<!--{/if}-->
 	<!--{/if}-->
-	<!--{hook/viewthread_postbottom_mobile $postcount}-->   
+	<!--{hook/viewthread_postbottom_mobile $postcount}-->
 	<!--{eval $postcount++;}-->
 	<!--{/loop}-->
 </div>
 $multipage
 <!--{hook/viewthread_bottom_mobile}-->
 <div class="foot foot_reply flex-box cl">
-	<a href="forum.php?mod=post&action=reply&fid=$_G['fid']&tid=$_G['tid']&reppost=$_G['forum_firstpid']&page=$page" class="flex"><i class="iconfont">&#xe744;</i>{lang reply}</a>
+	<a href="forum.php?mod=post&action=reply&fid=$_G['fid']&tid=$_G['tid']&reppost=$_G['forum_firstpid']&page=$page" class="flex"><i class="dm-chat-s"></i>{lang reply}</a>
 	<!--{if helper_access::check_module('favorite')}-->
-		<a href="home.php?mod=spacecp&ac=favorite&type=thread&id=$_G['tid']" class="dialog flex mx"><i class="iconfont">&#xe64c;</i><!--{if $_G['forum_thread']['favtimes']}-->{$_G['forum_thread']['favtimes']}<!--{/if}-->{lang favorite}</a>
+		<a href="home.php?mod=spacecp&ac=favorite&type=thread&id=$_G['tid']" class="dialog flex mx"><i class="dm-star"></i><!--{if $_G['forum_thread']['favtimes']}-->{$_G['forum_thread']['favtimes']}<!--{/if}-->{lang favorite}</a>
 	<!--{/if}-->
 	<!--{if helper_access::check_module('share')}-->
-		<a href="home.php?mod=spacecp&ac=share&type=thread&id=$_G[tid]" class="dialog flex mx"><i class="iconfont">&#xe64c;</i><!--{if $_G['forum_thread']['favtimes']}-->{$_G['forum_thread']['sharetimes']}<!--{/if}-->{lang thread_share}</a>
+		<a href="home.php?mod=spacecp&ac=share&type=thread&id=$_G[tid]" class="dialog flex mx"><i class="dm-star"></i><!--{if $_G['forum_thread']['favtimes']}-->{$_G['forum_thread']['sharetimes']}<!--{/if}-->{lang thread_share}</a>
 	<!--{/if}-->
 </div>
 <div class="foot_height_view"></div>

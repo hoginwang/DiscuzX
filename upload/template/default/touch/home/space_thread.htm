@@ -1,8 +1,8 @@
 <!--{template common/header}-->
 <div class="header cl">
-	<div class="mz"><a href="javascript:history.back();"><i class="iconfont">&#xe779;</i></a></div>
+	<div class="mz"><a href="javascript:history.back();"><i class="dm-c-left"></i></a></div>
 	<h2><!--{if $_G['uid'] == $space['uid']}-->{lang mythread}<!--{else}-->{$space['username']}{lang mobta}{lang mobthread}<!--{/if}--></h2>
-	<div class="my"><a href="<!--{if $_G['setting']['mobile']['mobilehotthread']}--><!--{if !empty($_G['setting']['grid']['showgrid'])}-->forum.php<!--{else}-->forum.php?mod=guide&view=newthread<!--{/if}--><!--{else}-->forum.php?forumlist=1<!--{/if}-->"><i class="iconfont">&#xe751;</i></a></div>
+	<div class="my"><a href="<!--{if $_G['setting']['mobile']['mobilehotthread']}--><!--{if !empty($_G['setting']['grid']['showgrid'])}-->forum.php<!--{else}-->forum.php?mod=guide&view=newthread<!--{/if}--><!--{else}-->forum.php?forumlist=1<!--{/if}-->"><i class="dm-house"></i></a></div>
 </div>
 <!--{if $list}-->
 	<!--{eval $threadlist_data = get_attach($list);}-->
@@ -61,8 +61,8 @@
 				<div class="threadlist_foot cl">
 					<ul>
 						<li class="mr"><a href="forum.php?mod=forumdisplay&fid=$thread['fid']">#{$_G['cache']['forums'][$thread['fid']]['name']}</a></li>
-						<li><i class="iconfont">&#xe73c;</i>{$thread['views']}</li>
-						<li><i class="iconfont">&#xe743;</i>{$thread['replies']}</li>
+						<li><i class="dm-eye-fill"></i>{$thread['views']}</li>
+						<li><i class="dm-chat-s-fill"></i>{$thread['replies']}</li>
 					</ul>
 				</div>
 			</li>

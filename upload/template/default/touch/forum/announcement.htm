@@ -1,8 +1,8 @@
 <!--{template common/header}-->
 <div class="header cl">
-	<div class="mz"><a href="javascript:history.back();"><i class="iconfont">&#xe779;</i></a></div>
+	<div class="mz"><a href="javascript:history.back();"><i class="dm-c-left"></i></a></div>
 	<h2>{lang announcement}</h2>
-	<div class="my"><a href="<!--{if $_G['setting']['mobile']['mobilehotthread']}--><!--{if !empty($_G['setting']['grid']['showgrid'])}-->forum.php<!--{else}-->forum.php?mod=guide&view=newthread<!--{/if}--><!--{else}-->forum.php?forumlist=1<!--{/if}-->"><i class="iconfont">&#xe751;</i></a></div>
+	<div class="my"><a href="<!--{if $_G['setting']['mobile']['mobilehotthread']}--><!--{if !empty($_G['setting']['grid']['showgrid'])}-->forum.php<!--{else}-->forum.php?mod=guide&view=newthread<!--{/if}--><!--{else}-->forum.php?forumlist=1<!--{/if}-->"><i class="dm-house"></i></a></div>
 </div>
 <div class="dhnav_box">
 	<div id="dhnav">
@@ -22,7 +22,7 @@
 		<!--{loop $announcelist $ann}-->
 		<!--{eval $nn++;}-->
 		<li class="cl">
-			<h2><a href="javascript:;" class="ann_more" id="ann_{$ann['id']}"><i class="iconfont">{if $nn == 1 && !$annid || $ann['id'] == $annid}&#xe772{else}&#xe775{/if}</i>$ann['subject']</a></h2>
+			<h2><a href="javascript:;" class="ann_more" id="ann_{$ann['id']}"><i class="dm-c-{if $nn == 1 && !$annid || $ann['id'] == $annid}down{else}right{/if}"></i>$ann['subject']</a></h2>
 			<h3><span class="my">$ann['starttime']</span><span class="mz">{lang author}:</span> <a href="home.php?mod=space&username=$ann['authorenc']&do=profile">$ann['author']</a></h3>
 			<div class="annlist_box" style="display:{if $nn == 1 && !$annid || $ann['id'] == $annid}block{else}none{/if};" id="ann_{$ann['id']}_box">				
 				$ann['message']
@@ -53,10 +53,10 @@ $('.ann_more').on('click', function() {
 	var sub_obj = $('#' + obj.attr('id') + '_box');
 	if(sub_obj.css('display') == 'none') {
 		sub_obj.css('display', 'block');
-		obj.find('i').html('&#xe772;');
+		obj.find('i').removeClass().addClass('dm-c-down');
 	} else {
 		sub_obj.css('display', 'none');
-		obj.find('i').html('&#xe775;');
+		obj.find('i').removeClass().addClass('dm-c-right');
 	}
 });
 </script>

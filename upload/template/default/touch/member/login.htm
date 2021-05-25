@@ -1,7 +1,7 @@
 <!--{template common/header}-->
 <!--{if !$_GET['infloat']}-->
 <div class="header cl">
-	<div class="mz"><a href="javascript:history.back();"><i class="iconfont">&#xe779;</i></a></div><h2></h2><div class="my"></div>
+	<div class="mz"><a href="javascript:history.back();"><i class="dm-c-left"></i></a></div><h2></h2><div class="my"></div>
 </div>
 <div class="header_toplogo"><img src="{IMGDIR}/logo_m.svg" /><p>{$_G['setting']['navs'][2]['navname']}{lang login}</p></div>
 <!--{/if}-->
@@ -29,7 +29,7 @@
 					<span class="login-btn-text">
 						<span class="span_question">{lang security_question}</span>
 					</span>
-					<i class="iconfont icon-arrow">&#xe775;</i>
+					<i class="dm-c-right icon-arrow"></i>
 				</span>
 				<select id="questionid_{$loginhash}" name="questionid" class="sel_list">
 					<option value="0" selected="selected">{lang security_question}</option>
