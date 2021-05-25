@@ -16,13 +16,11 @@
 		<div class="subforumshow cl">
 			<h2>{lang group_admin_member}</h2>
 		</div>
-		<ul class="sub-forum mlist1 cl">
+		<ul class="sub-forum imglist mt0 cl">
             <!--{loop $adminuserlist $user}-->
 			<li>
-				<a href="home.php?mod=space&uid={$user['uid']}&do=profile">
-					<img src="{avatar($user['uid'],'middle',true)}" class="micon" />
-					<p class="mtit">{$user['username']}</p>
-				</a>
+				<span class="mimg"><a href="home.php?mod=space&uid={$user['uid']}&do=profile"><img src="{avatar($user['uid'],'middle',true)}" /></a></span>
+				<p class="mtit">{$user['username']}</p>
 			</li>
 			<!--{/loop}-->
         </ul>
@@ -31,26 +29,22 @@
 		<div class="subforumshow cl">
 			<h2>{$_G['setting']['navs'][3]['navname']}{lang member}</h2>
 		</div>
-		<ul class="sub-forum mlist1 cl">
+		<ul class="sub-forum imglist mt0 cl">
 			<!--{if $staruserlist}-->
             <!--{loop $staruserlist $user}-->
 			<li>
-				<a href="home.php?mod=space&uid={$user['uid']}&do=profile">
-					<img src="{avatar($user['uid'],'middle',true)}" class="micon" />
-					<p class="mtit">{$user['username']}<em class="iconfont group_memberlist_star">&#xe64b;</em></p>
-					<p class="mtxt">{echo dgmdate($user['joindateline'], 'u')}</p>
-				</a>
+				<span class="mimg"><a href="home.php?mod=space&uid={$user['uid']}&do=profile"><img src="{avatar($user['uid'],'middle',true)}" /></a></span>
+				<p class="mtit"><a href="home.php?mod=space&uid={$user['uid']}&do=profile">{$user['username']}<em class="iconfont group_memberlist_star">&#xe64b;</em></a></p>
+				<p class="mtxt">{echo dgmdate($user['joindateline'], 'u')}</p>
 			</li>
 			<!--{/loop}-->
 			<!--{/if}-->
 			<!--{if $alluserlist}-->
 			<!--{loop $alluserlist $user}-->
 			<li>
-				<a href="home.php?mod=space&uid={$user['uid']}&do=profile">
-					<img src="{avatar($user['uid'],'middle',true)}" class="micon" />
-					<p class="mtit">{$user['username']}</p>
-					<p class="mtxt">{echo dgmdate($user['joindateline'], 'u')}</p>
-				</a>
+				<span class="mimg"><a href="home.php?mod=space&uid={$user['uid']}&do=profile"><img src="{avatar($user['uid'],'middle',true)}" /></a></span>
+				<p class="mtit"><a href="home.php?mod=space&uid={$user['uid']}&do=profile">{$user['username']}</a></p>
+				<p class="mtxt">{echo dgmdate($user['joindateline'], 'u')}</p>
 			</li>
 			<!--{/loop}-->
 			<!--{/if}-->
