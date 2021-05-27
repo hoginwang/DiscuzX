@@ -29,9 +29,6 @@ if(!empty($_GET['id'])) {
 $mnid = 'plugin_'.$identifier.'_'.$module;
 $pluginmodule = isset($_G['setting']['pluginlinks'][$identifier][$module]) ? $_G['setting']['pluginlinks'][$identifier][$module] : (isset($_G['setting']['plugins']['script'][$identifier][$module]) ? $_G['setting']['plugins']['script'][$identifier][$module] : array('adminid' => 0, 'directory' => preg_match("/^[a-z]+[a-z0-9_]*$/i", $identifier) ? $identifier.'/' : ''));
 
-define('CURMODULE', $identifier);
-runhooks();
-
 if(!preg_match('/^[\w\_]+$/', $identifier)) {
 	showmessage('plugin_nonexistence');
 }
@@ -43,6 +40,9 @@ if(empty($identifier) || !preg_match("/^[a-z0-9_\-]+$/i", $module) || !in_array(
 } elseif(@!file_exists(DISCUZ_ROOT.($modfile = './source/plugin/'.$pluginmodule['directory'].$module.'.inc.php'))) {
 	showmessage('plugin_module_nonexistence', '', array('mod' => $modfile));
 }
+
+define('CURMODULE', $identifier);
+runhooks();
 
 include DISCUZ_ROOT.$modfile;
 

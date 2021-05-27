@@ -949,7 +949,7 @@ function threadpubsave($tid, $passapproval = false) {
 	return $return;
 }
 
-function getrelatecollection($tid, $all = false, &$num, &$more) {
+function getrelatecollection($tid, $all = false, &$num = null, &$more = null) {
 	global $_G;
 
 	$maxdisplay = $_G['setting']['collectionnum'];

@@ -813,7 +813,7 @@ class discuz_application extends discuz_base{
 			$mobile = isset($mobile_) ? $mobile_ : 2;
 		}
 
-		if(!$this->var['mobile'] && !$unallowmobile && $mobileflag) {
+		if(!$this->var['mobile'] && empty($unallowmobile) && $mobileflag) {
 			if(getgpc('showmobile')) {
 				dheader("Location:misc.php?mod=mobile");
 			}

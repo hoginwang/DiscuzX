@@ -548,6 +548,9 @@ function checktplrefresh($maintpl, $subtpl, $timecompare, $templateid, $cachefil
 function template($file, $templateid = 0, $tpldir = '', $gettplfile = 0, $primaltpl='') {
 	global $_G;
 
+	if(!defined('CURMODULE')) {
+		define('CURMODULE', '');
+	}
 	if(!defined('HOOKTYPE')) {
 		define('HOOKTYPE', !defined('IN_MOBILE') ? 'hookscript' : 'hookscriptmobile');
 	}
@@ -1186,6 +1189,9 @@ function hookscript($script, $hscript, $type = 'funcs', $param = array(), $func 
 			$script .= !empty($scriptextra) ? '_'.$scriptextra : '';
 		}
 	}
+	if(!defined('HOOKTYPE')) {
+		define('HOOKTYPE', !defined('IN_MOBILE') ? 'hookscript' : 'hookscriptmobile');
+	}
 	if(!isset($_G['setting'][HOOKTYPE][$hscript][$script][$type])) {
 		return;
 	}
@@ -1364,14 +1370,13 @@ function debug($var = null, $vardump = false) {
 function debuginfo() {
 	global $_G;
 	if(getglobal('setting/debug')) {
-		$db = & DB::object();
 		$_G['debuginfo'] = array(
 		    'time' => number_format((microtime(true) - $_G['starttime']), 6),
-		    'queries' => $db->querynum,
+		    'queries' => DB::object()->querynum,
 		    'memory' => ucwords(C::memory()->type)
 		    );
-		if($db->slaveid) {
-			$_G['debuginfo']['queries'] = 'Total '.$db->querynum.', Slave '.$db->slavequery;
+		if(DB::object()->slaveid) {
+			$_G['debuginfo']['queries'] = 'Total '.DB::object()->querynum.', Slave '.DB::object()->slavequery;
 		}
 		return TRUE;
 	} else {
