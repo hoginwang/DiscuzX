@@ -654,7 +654,7 @@ function template($file, $templateid = 0, $tpldir = '', $gettplfile = 0, $primal
 				$mobiletplfile = $tpldir.'/'.$file.'.htm';
 			}
 		}
-		!$mobiletplfile && $mobiletplfile = $file.'.htm';
+		empty($mobiletplfile) && $mobiletplfile = $file.'.htm';
 		if(strpos($tpldir, 'plugin') && (file_exists(DISCUZ_ROOT.$mobiletplfile) || file_exists(substr(DISCUZ_ROOT.$mobiletplfile, 0, -4).'.php'))) {
 			$tplfile = $mobiletplfile;
 		} elseif(!file_exists(DISCUZ_ROOT.TPLDIR.'/'.$mobiletplfile) && !file_exists(substr(DISCUZ_ROOT.TPLDIR.'/'.$mobiletplfile, 0, -4).'.php')) {

@@ -72,7 +72,7 @@ if(!submitcheck('searchsubmit', 1)) {
 	}
 
 } else {
-	$orderby = in_array($_GET['orderby'], array('dateline', 'replies', 'views')) ? $_GET['orderby'] : 'lastpost';
+	$orderby = in_array(getgpc('orderby'), array('dateline', 'replies', 'views')) ? $_GET['orderby'] : 'lastpost';
 	$ascdesc = isset($_GET['ascdesc']) && $_GET['ascdesc'] == 'asc' ? 'asc' : 'desc';
 
 	if(!empty($searchid)) {
@@ -163,9 +163,9 @@ if(!submitcheck('searchsubmit', 1)) {
 		} else {
 			$specialpluginstr = '';
 		}
-		$special = $_GET['special'];
+		$special = getgpc('special');
 		$specials = $special ? implode(',', $special) : '';
-		$srchfilter = in_array($_GET['srchfilter'], array('all', 'digest', 'top')) ? $_GET['srchfilter'] : 'all';
+		$srchfilter = in_array(getgpc('srchfilter'), array('all', 'digest', 'top')) ? $_GET['srchfilter'] : 'all';
 
 		$searchstring = 'forum|'.$srchtype.'|'.base64_encode($srchtxt).'|'.intval($srchuid).'|'.$srchuname.'|'.addslashes($fids).'|'.intval($srchfrom).'|'.intval($before).'|'.$srchfilter.'|'.$specials.'|'.$specialpluginstr.'|'.$seltableid;
 		$searchindex = array('id' => 0, 'dateline' => '0');
