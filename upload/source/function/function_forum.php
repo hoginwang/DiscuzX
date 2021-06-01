@@ -626,7 +626,7 @@ function get_thread_by_tid($tid, $forcetableid = null) {
 
 	if(!is_array($ret)) {
 		$ret = array();
-	} elseif($_G['setting']['optimizeviews']) {
+	} elseif(getglobal('setting/optimizeviews')) {
 		if(($row = C::t('forum_threadaddviews')->fetch($tid))) {
 			$ret['addviews'] = intval($row['addviews']);
 			$ret['views'] += $ret['addviews'];

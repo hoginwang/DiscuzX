@@ -139,7 +139,7 @@ if(!submitcheck('topicsubmit', 0, $seccodecheck, $secqaacheck)) {
 	getgpc('infloat') ? include template('forum/post_infloat') : include template('forum/post');
 
 } else {
-	if($_GET['mygroupid']) {
+	if(getgpc('mygroupid')) {
 		$mygroupid = explode('__', $_GET['mygroupid']);
 		$mygid = intval($mygroupid[0]);
 		if($mygid) {
@@ -178,11 +178,11 @@ if(!submitcheck('topicsubmit', 0, $seccodecheck, $secqaacheck)) {
 	$params['publishdate'] = $publishdate;
 	$params['save'] = $_GET['save'];
 
-	$params['sticktopic'] = $_GET['sticktopic'];
+	$params['sticktopic'] = getgpc('sticktopic');
 
-	$params['digest'] = $_GET['addtodigest'];
+	$params['digest'] = getgpc('addtodigest');
 	$params['readperm'] = $readperm;
-	$params['isanonymous'] = $_GET['isanonymous'];
+	$params['isanonymous'] = getgpc('isanonymous');
 	$params['price'] = $_GET['price'];
 
 
@@ -228,32 +228,32 @@ if(!submitcheck('topicsubmit', 0, $seccodecheck, $secqaacheck)) {
 
 	}
 
-	$params['typeexpiration'] = $_GET['typeexpiration'];
+	$params['typeexpiration'] = getgpc('typeexpiration');
 
 
 
 
 
 
-	$params['ordertype'] = $_GET['ordertype'];
+	$params['ordertype'] = getgpc('ordertype');
 
-	$params['hiddenreplies'] = $_GET['hiddenreplies'];
+	$params['hiddenreplies'] = getgpc('hiddenreplies');
 
 	$params['allownoticeauthor'] = $_GET['allownoticeauthor'];
 	$params['tags'] = $_GET['tags'];
-	$params['bbcodeoff'] = $_GET['bbcodeoff'];
-	$params['smileyoff'] = $_GET['smileyoff'];
-	$params['parseurloff'] = $_GET['parseurloff'];
+	$params['bbcodeoff'] = getgpc('bbcodeoff');
+	$params['smileyoff'] = getgpc('smileyoff');
+	$params['parseurloff'] = getgpc('parseurloff');
 	$params['usesig'] = $_GET['usesig'];
-	$params['htmlon'] = $_GET['htmlon'];
+	$params['htmlon'] = getgpc('htmlon');
 	if($_G['group']['allowimgcontent']) {
 		$params['imgcontent'] = $_GET['imgcontent'];
 		$params['imgcontentwidth'] = $_G['setting']['imgcontentwidth'] ? intval($_G['setting']['imgcontentwidth']) : 100;
 	}
 
-	$params['geoloc'] = diconv($_GET['geoloc'], 'UTF-8');
+	$params['geoloc'] = diconv(getgpc('geoloc'), 'UTF-8');
 
-	if($_GET['rushreply']) {
+	if(getgpc('rushreply')) {
 		$bfmethods[] = array('class' => 'extend_thread_rushreply', 'method' => 'before_newthread');
 		$afmethods[] = array('class' => 'extend_thread_rushreply', 'method' => 'after_newthread');
 	}
