@@ -380,7 +380,7 @@ if(!submitcheck('modsubmit')) {
 					if(in_array($thread['displayorder'], array(2, 3))) {
 						$stickmodify = 1;
 					}
-					if($_G['forum']['status'] == 3 && $thread['closed'] > 1) {
+					if($_G['forum']['status'] != 3 && $thread['closed'] > 1) {
 						$deleteredirect[] = $thread['closed'];
 					}
 					if($thread['isgroup'] == 1 && $thread['closed'] > 1) {
