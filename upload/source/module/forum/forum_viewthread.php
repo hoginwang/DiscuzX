@@ -177,7 +177,7 @@ if(empty($_G['forum']['allowview'])) {
 
 	if(!$_G['forum']['viewperm'] && !$_G['group']['readaccess']) {
 		showmessage('group_nopermission', NULL, array('grouptitle' => $_G['group']['grouptitle']), array('login' => 1));
-	} elseif($_G['forum']['viewperm'] && !forumperm($_G['forum']['viewperm'])) {
+	} elseif($_G['forum']['viewperm'] && !forumperm($_G['forum']['viewperm']) && $_G['forum_thread']['authorid'] != $_G['uid']) {
 		showmessagenoperm('viewperm', $_G['fid']);
 	}
 
