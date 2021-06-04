@@ -111,8 +111,8 @@ function getstatvars_basic() {
 	$bestmember = C::t('forum_post')->fetch_all_top_post_author(0, $_G['timestamp']-86400, 1);
 	$bestmember = isset($bestmember[0]) ? $bestmember[0] : array('username' => '');
 	$bestmember['author'] = $bestmember['username'];
-	$statvars['bestmem'] = $bestmember['author'];
-	$statvars['bestmemposts'] = $bestmember['posts'];
+	$statvars['bestmem'] = isset($bestmember['author']) ? $bestmember['author'] : null;
+	$statvars['bestmemposts'] = isset($bestmember['posts']) ? $bestmember['posts'] : null;
 	$postsinfo = C::t('forum_post')->fetch_posts(0);
 	$statvars['posts'] = $postsinfo['posts'];
 	$runtime= $postsinfo['runtime'];
