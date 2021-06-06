@@ -101,13 +101,13 @@
 	<!--{if $_GET[action] == 'reply'}-->
 		<input type="hidden" name="noticeauthor" value="$noticeauthor" />
 		<input type="hidden" name="noticetrimstr" value="$noticetrimstr" />
-		<input type="hidden" name="noticeauthormsg" value="$noticeauthormsg" />
-		<!--{if $reppid}-->
+		<input type="hidden" name="noticeauthormsg" value="{$noticeauthormsg or ''}" />
+		<!--{if !empty($reppid)}-->
 			<input type="hidden" name="reppid" value="$reppid" />
 		<!--{/if}-->
-		<!--{if $_GET[reppost]}-->
+		<!--{if !empty($_GET['reppost'])}-->
 			<input type="hidden" name="reppost" value="$_GET[reppost]" />
-		<!--{elseif $_GET[repquote]}-->
+		<!--{elseif !empty($_GET['repquote'])}-->
 			<input type="hidden" name="reppost" value="$_GET[repquote]" />
 		<!--{/if}-->
 	<!--{/if}-->
@@ -129,7 +129,7 @@
 				<!--{if $savecount}-->
 					<li class="y"><a id="draftlist" href="javascript:;" class="xi2" onmouseover="showMenu({'ctrlid':'draftlist','ctrlclass':'a','duration':2,'pos':'34'})">{lang draftbox}(<strong>$savecount</strong>)</a></li>
 				<!--{/if}-->
-				<!--{if empty($_G['forum']['threadsorts']['required']) && !$_G['forum']['allowspecialonly']}--><li$postspecialcheck[0]><a href="javascript:;" onclick="switchpost('forum.php?mod=post&action=newthread')">{lang post_newthread}</a></li><!--{/if}-->
+				<!--{if empty($_G['forum']['threadsorts']['required']) && !$_G['forum']['allowspecialonly']}--><li{$postspecialcheck[0] or ''}><a href="javascript:;" onclick="switchpost('forum.php?mod=post&action=newthread')">{lang post_newthread}</a></li><!--{/if}-->
 				<!--{loop $_G['forum']['threadsorts'][types] $tsortid $name}-->
 					<li{if $sortid == $tsortid} class="a"{/if}><a href="javascript:;" onclick="switchpost('forum.php?mod=post&action=newthread&sortid=$tsortid')"><!--{echo strip_tags($name);}--></a></li>
 				<!--{/loop}-->
@@ -227,7 +227,7 @@
 				</button>
 				<!--{if $_G['uid'] && $_G['group']['allowsave']}-->
 					<input type="hidden" id="postsave" name="save" value="" />
-					<!--{if $_GET[action] == 'newthread' && empty($modnewthreads) || $_GET[action] == 'edit' && $isfirstpost && !$modnewreplies && $thread['displayorder'] == -4}-->
+					<!--{if $_GET[action] == 'newthread' && empty($modnewthreads) || $_GET[action] == 'edit' && $isfirstpost && empty($modnewreplies) && $thread['displayorder'] == -4}-->
 						<button type="button" id="postsubmit" class="pn" value="true" onclick="$('postsave').value = 1;$('postsubmit').click();"><em>{lang save_draft}</em></button>
 					<!--{/if}-->
 				<!--{/if}-->

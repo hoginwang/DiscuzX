@@ -9,7 +9,7 @@
 				<!--{if $_GET[action] == 'newthread'}-->
 					<!--{eval $extcreditstype = $_G['setting']['creditstransextra'][10];}-->
 				<!--{else}-->
-					<!--{eval $extcreditstype = $replycredit_rule['extcreditstype'] ? $replycredit_rule['extcreditstype'] : $_G['setting']['creditstransextra'][10];}-->
+					<!--{eval $extcreditstype = !empty($replycredit_rule['extcreditstype']) ? $replycredit_rule['extcreditstype'] : $_G['setting']['creditstransextra'][10];}-->
 				<!--{/if}-->
 				<!--{eval $userextcredit = getuserprofile('extcredits'.$extcreditstype);}-->
 				<!--{if ($_GET[action] == 'newthread' && $userextcredit > 0) || ($_GET[action] == 'edit' && $isorigauthor && $isfirstpost)}-->

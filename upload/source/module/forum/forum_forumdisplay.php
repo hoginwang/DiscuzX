@@ -774,7 +774,7 @@ foreach($threadlist as $thread) {
 		$thread['folder'] = 'lock';
 	} else {
 		$thread['folder'] = 'common';
-		$thread['weeknew'] = TIMESTAMP - 604800 <= $thread['dbdateline'];
+		$thread['weeknew'] = TIMESTAMP - 604800 <= $thread['dateline'];
 		if($thread['allreplies'] > $thread['views']) {
 			$thread['views'] = $thread['allreplies'];
 		}

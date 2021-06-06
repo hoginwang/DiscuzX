@@ -1,6 +1,7 @@
 <!--{eval}-->
 <!--
 function profile_node_numbercard($post, $s, $e) {
+	$return = '';
 	foreach($post['numbercard'] as $numbercardkey => $numbercard) $return .= ($numbercardkey == 2 ? '<td>' : '<th>').'<p><a href="'.$numbercard['link'].'" class="xi2">'.dnumber($numbercard['value']).'</a></p>'.$numbercard['lang'].($numbercardkey == 2 ? '</td>' : '</th>');
 -->
 <!--{/eval}-->

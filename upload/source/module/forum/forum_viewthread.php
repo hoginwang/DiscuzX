@@ -126,7 +126,7 @@ if($_GET['from'] == 'portal') {
 
 } else {
 	$navigation = '';
-	$upnavlink = 'forum.php?mod=forumdisplay&amp;fid='.$_G['fid'].($_GET['extra'] && !IS_ROBOT ? '&amp;'.$_GET['extra'] : '');
+	$upnavlink = 'forum.php?mod=forumdisplay&amp;fid='.$_G['fid'].(getgpc('extra') && !IS_ROBOT ? '&amp;'.$_GET['extra'] : '');
 
 	if($_G['forum']['type'] == 'sub') {
 		$fup = $_G['cache']['forums'][$_G['forum']['fup']]['fup'];
@@ -140,7 +140,7 @@ if($_GET['from'] == 'portal') {
 		$navigation .= ' <em>&rsaquo;</em> <a href="'.$t_link.'">'.($_G['cache']['forums'][$fup]['name']).'</a>';
 	}
 
-	$t_link = 'forum.php?mod=forumdisplay&amp;fid='.$_G['fid'].($_GET['extra'] && !IS_ROBOT ? '&amp;'.$_GET['extra'] : '');
+	$t_link = 'forum.php?mod=forumdisplay&amp;fid='.$_G['fid'].(getgpc('extra') && !IS_ROBOT ? '&amp;'.$_GET['extra'] : '');
 	$navigation .= ' <em>&rsaquo;</em> <a href="'.$t_link.'">'.($_G['forum']['name']).'</a>';
 
 	if($archiveid) {
@@ -156,7 +156,7 @@ if($_GET['from'] == 'portal') {
 }
 
 
-$_GET['extra'] = $_GET['extra'] ? rawurlencode($_GET['extra']) : '';
+$_GET['extra'] = getgpc('extra') ? rawurlencode($_GET['extra']) : '';
 
 if(is_array($_G['setting']['rewritestatus']) && in_array('forum_viewthread', $_G['setting']['rewritestatus'])) {
 	$canonical = rewriteoutput('forum_viewthread', 1, '', $_G['tid'], 1, '', '');
@@ -320,7 +320,7 @@ $_G['forum']['allowpost'] = isset($_G['forum']['allowpost']) ? $_G['forum']['all
 $allowpostreply = ($_G['forum']['allowreply'] != -1) && (($_G['forum_thread']['isgroup'] || (!$_G['forum_thread']['closed'] && !checkautoclose($_G['forum_thread']))) || $_G['forum']['ismoderator']) && ((!$_G['forum']['replyperm'] && $_G['group']['allowreply']) || ($_G['forum']['replyperm'] && forumperm($_G['forum']['replyperm'])) || $_G['forum']['allowreply']);
 $fastpost = $_G['setting']['fastpost'] && !$_G['forum_thread']['archiveid'] && ($_G['forum']['status'] != 3 || $_G['isgroupuser']);
 $allowfastpost = $_G['setting']['fastpost'] && $allowpostreply;
-if(!$_G['uid'] && ($_G['setting']['need_avatar'] || $_G['setting']['need_secmobile'] || $_G['setting']['need_email'] || $_G['setting']['need_friendnum']) || in_array($_G['adminid'], array(0, -1)) && (!cknewuser(1) || $_G['setting']['newbiespan'] && (!getuserprofile('lastpost') || TIMESTAMP - getuserprofile('lastpost') < $_G['setting']['newbiespan'] * 60) && TIMESTAMP - $_G['member']['regdate'] < $_G['setting']['newbiespan'] * 60)) {
+if(!$_G['uid'] && (getglobal('setting/need_avatar') || getglobal('setting/need_secmobile') || getglobal('setting/need_email') || getglobal('setting/need_friendnum')) || in_array($_G['adminid'], array(0, -1)) && (!cknewuser(1) || $_G['setting']['newbiespan'] && (!getuserprofile('lastpost') || TIMESTAMP - getuserprofile('lastpost') < $_G['setting']['newbiespan'] * 60) && TIMESTAMP - getglobal('member/regdate') < $_G['setting']['newbiespan'] * 60)) {
 	$allowfastpost = false;
 }
 $_G['group']['allowpost'] = $_G['forum']['allowpost'] != -1 && ((!$_G['forum']['postperm'] && $_G['group']['allowpost']) || ($_G['forum']['postperm'] && forumperm($_G['forum']['postperm'])) || $_G['forum']['allowpost']);
@@ -947,7 +947,7 @@ if(!empty($_G['setting']['recommendthread']['status']) && $_G['forum_thread']['r
 	}
 }
 
-$allowblockrecommend = $_G['group']['allowdiy'] || getstatus($_G['member']['allowadmincp'], 4) || getstatus($_G['member']['allowadmincp'], 5) || getstatus($_G['member']['allowadmincp'], 6);
+$allowblockrecommend = getglobal('group/allowdiy') || getstatus(getglobal('member/allowadmincp'), 4) || getstatus(getglobal('member/allowadmincp'), 5) || getstatus(getglobal('member/allowadmincp'), 6);
 if($_G['setting']['portalstatus']) {
 	$allowpostarticle = $_G['group']['allowmanagearticle'] || $_G['group']['allowpostarticle'] || getstatus($_G['member']['allowadmincp'], 2) || getstatus($_G['member']['allowadmincp'], 3);
 	$allowpusharticle = empty($_G['forum_thread']['special']) && empty($_G['forum_thread']['sortid']) && !$_G['forum_thread']['pushedaid'];
@@ -1435,7 +1435,7 @@ function viewthread_profile_nodeparse($param) {
 function viewthread_profile_node($type, $post) {
 	global $_G;
 	$tpid = false;
-	if($post['verifyicon']) {
+	if(!empty($post['verifyicon'])) {
 		$tpid = isset($_G['setting']['profilenode']['groupid'][-$post['verifyicon'][0]]) ? $_G['setting']['profilenode']['groupid'][-$post['verifyicon'][0]] : false;
 	}
 	if($tpid === false) {
