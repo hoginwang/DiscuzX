@@ -3,21 +3,21 @@ branches: {
   }
 fileChange:
   /upload:
-    newFile: !uuid '28f1f076600e0623904f4ec49ba7f9424e05229d'
-    oldFile: !uuid '085ad6a1715aae01d7f66b797715e76973d85ad4'
+    newFile: !uuid '79d54e2abf7825cba14e4d6c7e321fcd7fdd030a'
+    oldFile: !uuid '28f1f076600e0623904f4ec49ba7f9424e05229d'
   /upload/template:
-    newFile: !uuid '580ff1db022301a3ff56d17591691abf7e4ebb35'
-    oldFile: !uuid 'e9d42f313b3f9d65ff13c474d44c1a6b3f274fea'
+    newFile: !uuid '0d58b3f7ec0e26029ad97f443a346c7563db2d08'
+    oldFile: !uuid '580ff1db022301a3ff56d17591691abf7e4ebb35'
   /upload/template/default:
-    newFile: !uuid 'a774b435462f1d0f381cd5768417eb82cff5ccdd'
-    oldFile: !uuid 'f823f6a361c91c8af32c987a3a97ccbb11c34e1d'
+    newFile: !uuid '661d376cf43750d3523cb367143dd68024c1c00f'
+    oldFile: !uuid 'a774b435462f1d0f381cd5768417eb82cff5ccdd'
   /upload/template/default/home:
-    newFile: !uuid '2d34f28bcf2e6e5cfbd1d3a756d06aa700841abd'
-    oldFile: !uuid '623d2dd82f52a3c413bdc94e0c56f99e7a036f30'
-  /upload/template/default/home/spacecp_usergroup.htm:
-    newFile: !uuid '95b86940670f4ab8b28abc0f335d7d207facd59d'
-    oldFile: !uuid '3a04b733a5cbf69d472f05046793346e8e37c9f8'
-gitCommitId: !uuid '5d5fdf3acdedea77b038adb7a8b5708595e3f984'
+    newFile: !uuid 'fa2a26353f3db6e08196a6292f02f622e20d066e'
+    oldFile: !uuid '2d34f28bcf2e6e5cfbd1d3a756d06aa700841abd'
+  /upload/template/default/home/space_favorite.htm:
+    newFile: !uuid '14e25bb0c60a106b8936bbd3a1f6159d00d84a7d'
+    oldFile: !uuid '4d9d4494a63ef36f6e489f8ac54879b2e0448c57'
+gitCommitId: !uuid '07a70671a9caed42f1f95f7cdadc39b180d204be'
 renames: {
   }
-revisionId: 748
+revisionId: 749
