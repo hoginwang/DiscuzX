@@ -485,6 +485,9 @@ function parsemedia($params, $url) {
 }
 
 function bbcodeurl($url, $tags) {
+	if ( strtolower(substr($url, 0, 6))  == 'data:i') {
+        return str_replace('{url}', addslashes($url), $tags);
+    }
 	if(!preg_match("/<.+?>/s", $url)) {
 		if(!in_array(strtolower(substr($url, 0, 6)), array('http:/', 'https:', 'ftp://', 'rtsp:/', 'mms://')) && !preg_match('/^static\//', $url) && !preg_match('/^data\//', $url)) {
 			$url = 'http://'.$url;
