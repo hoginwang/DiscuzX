@@ -147,8 +147,8 @@
 		<div class="subnavs_box">
 			<div id="subnavs_btn">
 				<ul class="y cl">
-					<li><a href="forum.php?mod=group&action=manage&op=checkuser&fid={$_G['fid']}&checkall=1" class="mon">{lang pass_all}</a></li>
-					<li><a href="forum.php?mod=group&action=manage&op=checkuser&fid={$_G['fid']}&checkall=2" class="mon">{lang ignore_all}</a></li>
+					<li><a href="forum.php?mod=group&action=manage&op=checkuser&fid={$_G['fid']}&checkall=1" class="mon dialog">{lang pass_all}</a></li>
+					<li><a href="forum.php?mod=group&action=manage&op=checkuser&fid={$_G['fid']}&checkall=2" class="mon dialog">{lang ignore_all}</a></li>
 				</ul>
 			</div>
 		</div>
@@ -161,8 +161,8 @@
 				</p>
 				<p class="mtxt">
 					$user['joindateline']
-					<a href="forum.php?mod=group&action=manage&op=checkuser&fid={$_G['fid']}&uid={$user['uid']}&checktype=1" class="mico">{lang pass}</a>
-					<a href="forum.php?mod=group&action=manage&op=checkuser&fid={$_G['fid']}&uid={$user['uid']}&checktype=2" class="mico">{lang ignore}</a>
+					<a href="forum.php?mod=group&action=manage&op=checkuser&fid={$_G['fid']}&uid={$user['uid']}&checktype=1" class="mico dialog">{lang pass}</a>
+					<a href="forum.php?mod=group&action=manage&op=checkuser&fid={$_G['fid']}&uid={$user['uid']}&checktype=2" class="mico dialog">{lang ignore}</a>
 				</p>
 			</li>
 			<!--{/loop}-->
@@ -300,21 +300,21 @@
 	<input type="hidden" value="{FORMHASH}" name="formhash" />
 	<input type="hidden"  name="tab" value="groupmanage"/>
 		<!--{if $groupmanagers}-->
-		<div class="setbox cl">
+		<div class="bodybox setbox p15 cl">
 			{lang group_demise_comment}
 			{lang group_demise_notice}
-			<h2 class="zo1Z4eqnNOMM">{lang transfer_group_to} :</h2>
 		</div>
 		<div class="imglist cl">
-			<ul class="flex-box">
+			<div class="subtit"><h2>{lang transfer_group_to} :</h2></div>
+			<ul>
 				<!--{loop $groupmanagers $user}-->
-				<li class="flex mli cl">
+				<li>
 					<!--{if $user['uid'] != $_G['uid']}-->
-					<label for="u{$user['uid']}"><input type="radio" name="suid" value="$user['uid']" /></label>
+					<label for="u{$user['uid']}" class="y"><input type="radio" name="suid" value="{$user['uid']}" /></label>
 					<!--{else}-->
-					<label for="u{$user['uid']}"><input type="radio" name="suid" value="$user['uid']" /></label>
+					<label for="u{$user['uid']}" class="y"><input type="radio" name="suid" value="{$user['uid']}" /></label>
 					<!--{/if}-->
-					<a href="home.php?mod=space&uid=$user[uid]&do=profile">
+					<a href="home.php?mod=space&uid={$user['uid']}&do=profile">
 						<img src="{avatar($user['uid'],'middle',true)}" class="mimg" />
 						$user[username]
 					</a>
@@ -322,13 +322,12 @@
 				<!--{/loop}-->
 			</ul>
 		</div>
-		<div class="setbox cl"><input type="password" name="grouppwd" placeholder="{lang group_input_password}" /></div>
+		<div class="bodybox setbox mt10 p10 cl"><div class="flex-box input cl"><input type="password" name="grouppwd" placeholder="{lang group_input_password}"  class="mtxt flex" /></div></div>
 		<div class="mt5 p10">
 			<input type="hidden" name="groupdemise" value="true">
 			<button type="submit" class="formdialog flex pn">{lang submit}</button>
 		</div>
 </form>
-<style type="text/css">.ftbox { height: 115px !important;}{if !$headershow} .scroll_openmenu { bottom: 140px; }{/if}</style>
 <!--{else}-->
 <div class="setbox cl">{lang group_no_admin_member}</div>
 <!--{/if}-->
