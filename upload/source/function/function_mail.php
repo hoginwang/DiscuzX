@@ -64,7 +64,7 @@ EOT;
 	$version = $_G['setting']['version'];
 	if($_G['setting']['mail']['mailsend'] == 1) {
 		$maildelimiter = $_G['setting']['mail']['maildelimiter'] == 1 ? "\r\n" : ($_G['setting']['mail']['maildelimiter'] == 2 ? "\r" : "\n");
-		$headers = "From: $email_from{$maildelimiter}X-Mailer: Discuz! $version {$maildelimiter}MIME-Version: 1.0{$maildelimiter}Content-type: text/html; charset=".CHARSET."{$maildelimiter}Content-Transfer-Encoding: base64{$maildelimiter}";
+		$headers = "From: ".$_G['setting']['sitename']." <$email_from>{$maildelimiter}X-Mailer: Discuz! $version {$maildelimiter}MIME-Version: 1.0{$maildelimiter}Content-type: text/html; charset=".CHARSET."{$maildelimiter}Content-Transfer-Encoding: base64{$maildelimiter}";
 		if(function_exists('mail') && @mail($email_to, $email_subject, $email_message, $headers)) {
 			return true;
 		}
@@ -172,7 +172,7 @@ EOT;
 
 		$maildomain = substr(strrchr($email_from, "@"), 1);
 		$maildelimiter = "\r\n";
-		$headers = "From: $email_from{$maildelimiter}X-Mailer: Discuz! $version {$maildelimiter}MIME-Version: 1.0{$maildelimiter}Content-type: text/html; charset=".CHARSET."{$maildelimiter}Content-Transfer-Encoding: base64{$maildelimiter}";
+		$headers = "From: ".$_G['setting']['sitename']." <$email_from>{$maildelimiter}X-Mailer: Discuz! $version {$maildelimiter}MIME-Version: 1.0{$maildelimiter}Content-type: text/html; charset=".CHARSET."{$maildelimiter}Content-Transfer-Encoding: base64{$maildelimiter}";
 		$headers .= 'Message-ID: <'.date('YmdHs').'.'.substr(md5($email_message.microtime()), 0, 6).rand(100000, 999999).'@'.$maildomain.">{$maildelimiter}";
 
 		fputs($fp, "Date: ".date('r')."\r\n");
@@ -198,7 +198,7 @@ EOT;
 		ini_set('sendmail_from', $email_from);
 
 		$maildelimiter = "\r\n";
-		$headers = "From: $email_from{$maildelimiter}X-Mailer: Discuz! $version {$maildelimiter}MIME-Version: 1.0{$maildelimiter}Content-type: text/html; charset=".CHARSET."{$maildelimiter}Content-Transfer-Encoding: base64{$maildelimiter}";
+		$headers = "From: ".$_G['setting']['sitename']." <$email_from>{$maildelimiter}X-Mailer: Discuz! $version {$maildelimiter}MIME-Version: 1.0{$maildelimiter}Content-type: text/html; charset=".CHARSET."{$maildelimiter}Content-Transfer-Encoding: base64{$maildelimiter}";
 
 		if(function_exists('mail') && @mail($email_to, $email_subject, $email_message, $headers)) {
 			return true;
