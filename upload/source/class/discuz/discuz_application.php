@@ -399,6 +399,9 @@ class discuz_application extends discuz_base{
 		if (isset($_SERVER["HTTP_SCHEME"]) && strtolower($_SERVER["HTTP_SCHEME"]) == "https") {
 			return true;
 		}
+		if (isset($_SERVER["HTTP_X_CLIENT_SCHEME"]) && strtolower($_SERVER["HTTP_X_CLIENT_SCHEME"]) == "https") {
+			return true;
+		}
 		if (isset($_SERVER["HTTP_FROM_HTTPS"]) && strtolower($_SERVER["HTTP_FROM_HTTPS"]) != "off") {
 			return true;
 		}
