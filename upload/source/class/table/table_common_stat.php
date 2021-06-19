@@ -41,8 +41,7 @@ class table_common_stat extends discuz_table
 			DB::query('UPDATE '.DB::table($this->_table)." SET `$type`=`$type`+$num WHERE `daytime` = '$nowdaytime'");
 		} else {
 			C::t('common_statuser')->clear_by_daytime($nowdaytime);
-			DB::insert($this->_table, array('daytime'=>$nowdaytime, $type=>$num));
-		}
+			DB::query("INSERT INTO ".DB::table($this->_table)." (daytime, $type) VALUES ($nowdaytime, $num) ON DUPLICATE KEY UPDATE $type = $type + $num");		}
 	}
 
 	public function fetch_post_avg() {
