@@ -351,8 +351,14 @@ if($op == 'add') {
 		}
 	} else {
 
-		dsetcookie('promptstate_'.$space['uid'], $newprompt, 31536000);
+		dsetcookie('promptstate_'.$space['uid'], $space['newprompt'], 31536000);
 
+	}
+	$ols = array();
+	foreach(C::app()->session->fetch_all_by_uid($fuids) as $value) {
+		if(!$value['invisible']) {
+			$ols[$value['uid']] = 1;
+		}
 	}
 
 	$multi = multi($count, $perpage, $page, "home.php?mod=spacecp&ac=friend&op=request");
