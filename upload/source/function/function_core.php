@@ -41,6 +41,11 @@ function setglobal($key , $value, $group = null) {
 	return true;
 }
 
+/**
+ * @param string $key
+ * @param null|string $group
+ * @return mixed
+ */
 function getglobal($key, $group = null) {
 	global $_G;
 	$key = explode('/', $group === null ? $key : $group.'/'.$key);
@@ -2198,5 +2203,3 @@ function dpreg_replace($pattern, $replacement, $subject, $limit = -1, &$count = 
 		return _dpreg_replace($pattern, $replacement, $subject, $limit, $count);
 	}
 }
-
-?>
