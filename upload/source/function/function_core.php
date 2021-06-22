@@ -50,9 +50,9 @@ function getglobal($key, $group = null) {
 		if (!isset($v[$k])) {
 			return null;
 		}
-		$ret = $v = &$v[$k];
+		$v = &$v[$k];
 	}
-	return $ret ? $ret : $v;
+	return $v;
 }
 
 function getgpc($k, $type='GP') {
@@ -2199,3 +2199,5 @@ function dpreg_replace($pattern, $replacement, $subject, $limit = -1, &$count = 
 		return _dpreg_replace($pattern, $replacement, $subject, $limit, $count);
 	}
 }
+
+?>
