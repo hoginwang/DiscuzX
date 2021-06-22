@@ -41,11 +41,6 @@ function setglobal($key , $value, $group = null) {
 	return true;
 }
 
-/**
- * @param string $key
- * @param null|string $group
- * @return mixed
- */
 function getglobal($key, $group = null) {
 	global $_G;
 
@@ -55,9 +50,9 @@ function getglobal($key, $group = null) {
 		if (!isset($v[$k])) {
 			return null;
 		}
-		$v = &$v[$k];
+		$ret = &$v[$k];
 	}
-	return $v;
+	return $ret ? $ret : $v;
 }
 
 function getgpc($k, $type='GP') {
