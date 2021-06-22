@@ -50,7 +50,7 @@ function getglobal($key, $group = null) {
 		if (!isset($v[$k])) {
 			return null;
 		}
-		$ret = &$v[$k];
+		$ret = $v = &$v[$k];
 	}
 	return $ret ? $ret : $v;
 }
