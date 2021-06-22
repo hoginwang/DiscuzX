@@ -48,6 +48,7 @@ function setglobal($key , $value, $group = null) {
  */
 function getglobal($key, $group = null) {
 	global $_G;
+
 	$key = explode('/', $group === null ? $key : $group.'/'.$key);
 	$v = &$_G;
 	foreach ($key as $k) {
