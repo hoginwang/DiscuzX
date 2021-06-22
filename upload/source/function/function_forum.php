@@ -128,7 +128,7 @@ function formulaperm($formula) {
 			}
 		}
 	}
-	$formulaperm = $formula ? TRUE : FALSE;
+	$formulaperm = $formula ? true : false;
 	if(!$formulaperm) {
 		if(!$permmessage) {
 			$language = lang('forum/misc');
@@ -235,7 +235,7 @@ function medalformulaperm($formula, $type) {
 			}
 		}
 	}
-	$formulaperm = $formula ? TRUE : FALSE;
+	$formulaperm = $formula ? true : false;
 	if(!$formulaperm || $type == 2) {
 		if(!$permmessage) {
 			$language = lang('forum/misc');
