@@ -24,6 +24,8 @@ function userlogin($username, $password, $questionid, $answer, $loginfield = 'us
 		$isuid = 0;
 	}
 
+	//测试
+
 	if(!function_exists('uc_user_login')) {
 		loaducenter();
 	}
