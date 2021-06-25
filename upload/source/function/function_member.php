@@ -312,7 +312,7 @@ function checkemail($email) {
 
 function make_getpws_sign($uid, $idstring) {
 	global $_G;
-	$link = "{$_G['siteurl']}member.php?mod=getpasswd&uid={$uid}&id={$idstring}";
+	$link = "{$_G['setting']['securesiteurl']}member.php?mod=getpasswd&uid={$uid}&id={$idstring}";
 	return dsign($link);
 }
 ?>
