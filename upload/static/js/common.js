@@ -1941,9 +1941,11 @@ function toggleBlind(dom) {
 		if(loadUserdata('is_blindman')) {
 			saveUserdata('is_blindman', '');
 			dom.title = '开启辅助访问';
+			dom.innerHTML = '开启辅助访问';
 		} else {
 			saveUserdata('is_blindman', '1');
 			dom.title = '关闭辅助访问';
+			dom.innerHTML = '关闭辅助访问';
 		}
 	}
 }
@@ -1953,8 +1955,10 @@ function checkBlind() {
 	if(dom) {
 		if(loadUserdata('is_blindman')) {
 			dom.title = '关闭辅助访问';
+			dom.innerHTML = '关闭辅助访问';
 		} else {
 			dom.title = '开启辅助访问';
+			dom.innerHTML = '开启辅助访问';
 		}
 	}
 }
