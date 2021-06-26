@@ -3,18 +3,33 @@ branches: {
   }
 fileChange:
   /upload:
-    newFile: !uuid 'f77ec4d50dafed8c59b94bc88ec0e945dcc2c8d9'
-    oldFile: !uuid 'df2926dd61d0a61159db2a3f74e66007aca91815'
+    newFile: !uuid 'b1338845326078bbe58390c8963efdd1544ef2d3'
+    oldFile: !uuid 'f77ec4d50dafed8c59b94bc88ec0e945dcc2c8d9'
+  /upload/member.php:
+    newFile: !uuid 'd0c2869bda42c62f3ed2ffb48f4af6a11443f078'
+    oldFile: !uuid 'ee7282e8db114581844fec5a0aab2f17f7c36736'
   /upload/source:
-    newFile: !uuid '718eec426a117566eb74b30a2647ab4495ca81be'
-    oldFile: !uuid '67bddcb0ffe1709d60582f3173e278b51b253f5b'
-  /upload/source/function:
-    newFile: !uuid 'e5798a52ef27ba159c899450ae2c6aded8ddbb2b'
-    oldFile: !uuid '0a8b40238edc22eb9345b271f0b2b0ddef61bde1'
-  /upload/source/function/function_member.php:
-    newFile: !uuid 'aafcd0e74038f3f8fa49ca9fdf599508f858192d'
-    oldFile: !uuid 'cff7c030a53d04bd3d152c6b5f06f85e0ae32abb'
-gitCommitId: !uuid 'ecc0eadd3ec2228df12e5a712c9c14c22b905d3c'
+    newFile: !uuid '653f3bbe767013395eb729f8d223236da55a3da0'
+    oldFile: !uuid '718eec426a117566eb74b30a2647ab4495ca81be'
+  /upload/source/class:
+    newFile: !uuid '08ad984305c60fc49858bfe9ed20d6515feea867'
+    oldFile: !uuid '6241ef7da9b0c4ba54adba86fe8b40f37983e31b'
+  /upload/source/class/class_member.php:
+    newFile: !uuid 'd68d3d9d6318df12e6ff0834ce8915558f4f753f'
+    oldFile: !uuid '3d148815abee519ed5bfffe4480b0b5023d8cfc9'
+  /upload/source/module:
+    newFile: !uuid 'ab12d576838080f1762118b1a4cf19bc0a33ac12'
+    oldFile: !uuid '0501fc08e21e7a0c02588c6fafc12ca33270425e'
+  /upload/source/module/member:
+    newFile: !uuid '2d633b8ce3ddf6d7c85d4de80e0db4103b8ca4d2'
+    oldFile: !uuid 'a1f5883c7ccd2abe43428dd9488b08ef2cdb7722'
+  /upload/source/module/member/member_activate.php:
+    newFile: null
+    oldFile: !uuid 'cc393f6b0e9e396d3a4188f1231a45bbb5a70476'
+  /upload/source/module/member/member_emailverify.php:
+    newFile: null
+    oldFile: !uuid '1cc9ed2b6b8cc0e9bc34b547e686cd0918cfda3f'
+gitCommitId: !uuid '4828c1025544bb39afd906a887e5c73a28e71cb2'
 renames: {
   }
-revisionId: 767
+revisionId: 768
