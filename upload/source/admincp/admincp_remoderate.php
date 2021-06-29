@@ -207,7 +207,7 @@ if(submitcheck('threadsubmit', 1)) {
 		$processed = 1;
 		if($censor->check($comment['message'])) {
 			C::t('portal_comment')->update($comment['cid'], array('status' => 1));
-			updatemoderate($comment['idtype'].'_cid', $cid);
+			updatemoderate($comment['idtype'].'_cid', $comment['cid']);
 		}
 	}
 
@@ -230,7 +230,7 @@ if(submitcheck('threadsubmit', 1)) {
 		$processed = 1;
 		if($censor->check($comment['message'])) {
 			C::t('portal_comment')->update($comment['cid'], array('status' => 1));
-			updatemoderate($comment['idtype'].'_cid', $cid);
+			updatemoderate($comment['idtype'].'_cid', $comment['cid']);
 		}
 	}
 
