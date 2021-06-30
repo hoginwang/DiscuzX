@@ -90,7 +90,7 @@ function bbcode2html(str) {
 		str = str.replace(/\[color=([\w#\(\),\s]+?)\]/ig, '<font color="$1">');
 		str = str.replace(/\[backcolor=([\w#\(\),\s]+?)\]/ig, '<font style="background-color:$1">');
 		str = str.replace(/\[size=(\d+?)\]/ig, '<font size="$1">');
-		str = str.replace(/\[size=(\d+(\.\d+)?(px|pt)+?)\]/ig, '<font style="font-size: $1">');
+		str = str.replace(/\[size=(\d*\.?\d+(px|pt|em|rem|in|cm|mm|pc|ex|%))\]/ig, '<font style="font-size: $1">');
 		str = str.replace(/\[font=([^\[\<\=]+?)\]/ig, '<font face="$1">');
 		str = str.replace(/\[align=([^\[\<\=]+?)\]/ig, '<div align="$1">');
 		str = str.replace(/\[p=(\d{1,2}|null), (\d{1,2}|null), (left|center|right)\]/ig, '<p style="line-height: $1px; text-indent: $2em; text-align: $3;">');
@@ -162,7 +162,7 @@ function clearcode(str) {
 	str= str.replace(/\[email=(.[^\[]*)\]\[\/email\]/ig, '', str);
 	str= str.replace(/\[color=([^\[\<]+?)\]\[\/color\]/ig, '', str);
 	str= str.replace(/\[size=(\d+?)\]\[\/size\]/ig, '', str);
-	str= str.replace(/\[size=(\d+(\.\d+)?(px|pt)+?)\]\[\/size\]/ig, '', str);
+	str= str.replace(/\[size=(\d*\.?\d+(px|pt|em|rem|in|cm|mm|pc|ex|%))\]\[\/size\]/ig, '', str);
 	str= str.replace(/\[font=([^\[\<]+?)\]\[\/font\]/ig, '', str);
 	str= str.replace(/\[align=([^\[\<]+?)\]\[\/align\]/ig, '', str);
 	str= str.replace(/\[p=(\d{1,2}), (\d{1,2}), (left|center|right)\]\[\/p\]/ig, '', str);
@@ -510,7 +510,7 @@ function parsestyle(tagoptions, prepend, append) {
 		['color', true, '(^|[;\\s])color:\\s*([^;]+);?', 2],
 		['backcolor', true, '(^|[;\\s])background-color:\\s*([^;]+);?', 2],
 		['font', true, 'font-family:\\s*([^;]+);?', 1],
-		['size', true, 'font-size:\\s*(\\d+(\\.\\d+)?(px|pt|in|cm|mm|pc|em|ex|%|));?', 1],
+		['size', true, 'font-size:\\s*(\\d*\\.?\\d+(px|pt|em|rem|in|cm|mm|pc|ex|%));?', 1],
 		['size', true, 'font-size:\\s*(x\\-small|small|medium|large|x\\-large|xx\\-large|\\-webkit\\-xxx\\-large);?', 1, 'size'],
 		['b', false, 'font-weight:\\s*(bold);?'],
 		['i', false, 'font-style:\\s*(italic);?'],
