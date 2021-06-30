@@ -454,6 +454,7 @@ $lang = array
 	'nav_misc_links' => '友情链接',
 	'nav_misc_relatedlink' => '关联链接',
 	'nav_posting_censor' => '词语过滤',
+	'nav_remoderate' => '内容重新审核',
 	'nav_posting_bbcode' => '编辑 Discuz! 代码',
 	'nav_thread_icon' => '主题图标',
 	'nav_thread_stamp' => '主题鉴定',
@@ -1171,6 +1172,8 @@ $lang = array
 	'setting_follow_base_default_follow_retain_day_comment' => '广播超过多少天移入存档表(单位：天)',
 	'setting_follow_base_default_view_profile' => '默认查看个人资料',
 	'setting_follow_base_default_view_profile_comment' => '该设置对管理员有效，开启后默认管理员查看将直接查看个人资料页面',
+	'setting_follow_base_default_follow_add_notice' => '被关注时通知被关注者',
+	'setting_follow_base_default_follow_add_notice_comment' => '开启后用户被关注时将会收到通知',
 	'setting_home' => '空间设置',
 	'setting_home_base' => '基本设置',
 	'setting_home_base_feedday' => '动态保留天数',
@@ -1915,6 +1918,10 @@ $lang = array
 	'setting_permissions_editby_comment' => '在 60 秒后编辑帖子添加“本帖由 xxx 于 xxxx-xx-xx 编辑”字样。管理员编辑不受此限制',
 	'setting_permissions_post_append' => '启用帖子补充功能',
 	'setting_permissions_post_append_comment' => '启用后，当用户无法编辑自己的帖子时，可以补充内容',
+	'setting_permissions_nsprofiles' => '个人空间内不展现个人信息',
+	'setting_permissions_nsprofiles_comment' => '启用后个人空间内将不展现个人信息',
+	'setting_permissions_modasban' => '不忽略审核关键词',
+	'setting_permissions_modasban_comment' => '启用后在不支持审核关键词的模块内发现此类关键词将拒绝提交，关闭则允许提交',
 
 	'setting_credits' => '积分设置',
 	'setting_credits_base' => '基本设置',
@@ -2284,7 +2291,9 @@ $lang = array
 	'setting_sec_accountguard_loginpwcheck_prompt' => '开启并提示',
 	'setting_sec_accountguard_loginpwcheck_force' => '开启并强制修改弱密码',
 	'setting_sec_accountguard_loginoutofdate' => '异常登录检测',
-	'setting_sec_accountguard_loginoutofdate_comment' => '当用户异地登录且距离上次登录超过 90 天时，帐号会进入未审核组，用户可以通过验证邮箱或者申诉解冻帐号，QQ登录的用户不受此功能影响 <a href="'.ADMINSCRIPT.'?action=moderate&operation=members">审核用户</a>',
+	'setting_sec_accountguard_loginoutofdate_comment' => '当用户距离上次登录超过一定期限时，帐号会进入未审核组，用户可以通过验证邮箱或者申诉解冻帐号，QQ登录的用户不受此功能影响 <a href="'.ADMINSCRIPT.'?action=moderate&operation=members">审核用户</a>',
+	'setting_sec_accountguard_loginoutofdatenum' => '异常登录检测天数',
+	'setting_sec_accountguard_loginoutofdatenum_comment' => '配置异常登录检测天数，默认值为 90 天',
 
 
 	'setting_attach' => '上传设置',
@@ -2473,6 +2482,10 @@ $lang = array
 	'setting_search_status_comment' => '勾选您要开启的搜索栏目',
 	'setting_search_onoff' => '开启',
 	'search_item_name' => '搜索项目',
+
+	'setting_search_srchsetting' => '搜索选项设置',
+	'setting_search_srchcensor' => '搜索受词语过滤控制',
+
 	'setting_search_srchhotkeywords' => '热门关键词',
 	'setting_search_srchhotkeywords_comment' => '每行一个',
 	'setting_search_srchhotkeywords_disabled' => '<strong>您已开启纵横搜索服务，搜索相关设置请到 <a href="'.ADMINSCRIPT.'?action=cloud&operation=search">云平台->纵横搜索</a> 设置</strong>',
@@ -6021,6 +6034,22 @@ $lang = array
 	'counter_forumid' => '版块ID',
 	'counter_have_cover' => '包含已有封面主题',
 	'counter_tips' => '<li>当下列数据不正常时，可以使用此功能对数据进行更新校正。请尽量避开会员访问的高峰时间</li>
+				<li>每个循环更新数量：数值请在一个合理范围，不要过大，否则会给服务器带来负载压力</li>
+				',
+
+	'remoderate' => '内容重新审核',
+	'remoderate_thread' => '主题/帖子标题及内容重新审核',
+	'remoderate_blog' => '日志标题及内容重新审核',
+	'remoderate_pic' => '图片标题重新审核',
+	'remoderate_doing' => '记录内容重新审核',
+	'remoderate_share' => '分享内容重新审核',
+	'remoderate_comment' => '家园评论内容重新审核',
+	'remoderate_article' => '文章标题及内容重新审核',
+	'remoderate_articlecomment' => '文章评论内容重新审核',
+	'remoderate_topiccomment' => '专题评论内容重新审核',
+	'remoderate_amount' => '每个循环更新数量',
+	'remoderate_processing' => '正在处理 从 {current} 到 {next}',
+	'remoderate_tips' => '<li>当词语过滤参数有较大变动或邻近敏感时间点时，可以使用此功能对历史数据进行重新审核。请尽量避开会员访问的高峰时间</li>
 				<li>每个循环更新数量：数值请在一个合理范围，不要过大，否则会给服务器带来负载压力</li>
 				',
 
