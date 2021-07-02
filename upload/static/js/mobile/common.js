@@ -263,11 +263,8 @@ var formdialog = {
 
 var redirect = {
 	init : function() {
-		qSelA('.redirect').forEach(function (rd) {
-			rd.addEventListener('click', function () {
-				popup.close();
-				window.location.href = this.href;
-			});
+		$(document).on('click', '.redirect', function() {
+			window.location.href = $(this).attr('href');
 		});
 	}
 };
