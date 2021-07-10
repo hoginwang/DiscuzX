@@ -1881,23 +1881,12 @@ function cknewuser($return=0) {
 	return $result;
 }
 
-function manyoulog($logtype, $uids, $action, $fid = '') {
-}
-
 function useractionlog($uid, $action) {
 	return helper_log::useractionlog($uid, $action);
 }
 
 function getuseraction($var) {
 	return helper_log::getuseraction($var);
-}
-
-function getuserapp($panel = 0) {
-	return '';
-}
-
-function getmyappiconpath($appid, $iconstatus=0) {
-	return '';
 }
 
 function getexpiration() {
