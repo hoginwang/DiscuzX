@@ -13,6 +13,7 @@ if(!empty($_SERVER['QUERY_STRING']) && is_numeric($_SERVER['QUERY_STRING'])) {
 } else {
 
 	$url = '';
+	$ren = '';
 	$domain = $_ENV = array();
 	$jump = false;
 	@include_once './data/sysdata/cache_domain.php';
