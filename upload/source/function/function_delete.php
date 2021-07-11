@@ -99,7 +99,6 @@ function deletemember($uids, $delpost = true) {
 	}
 	C::t('common_member')->delete($arruids, 1, 1);
 
-	manyoulog('user', $uids, 'delete');
 	if($_G['setting']['plugins']['func'][HOOKTYPE]['deletemember']) {
 		hookscript('deletemember', 'global', 'funcs', array('param' => $hookparam, 'step' => 'delete'), 'deletemember');
 	}
