@@ -19,6 +19,7 @@ $discuz->cachelist = $cachelist;
 $discuz->init();
 
 $_G['disabledwidthauto'] = 0;
+$_G['disabledglobalwidth'] = 1;
 
 $modarray = array('index', 'my', 'attentiongroup');
 $mod = !in_array($_G['mod'], $modarray) ? 'index' : $_G['mod'];

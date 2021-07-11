@@ -3312,6 +3312,7 @@ $lang = array
 	'styles_edit_specialbg' => '彩色区域背景色(帖子用户信息栏、需强调的表头等)',
 	'styles_edit_interleavecolor' => '隔行换色背景',
 	'styles_edit_noticetext' => '提示信息颜色',
+	'styles_edit_globalwidth' => '标准内容宽度',
 	'styles_edit_iconbgcolor' => '风格图标背景色',
 	'styles_edit_titlebgcolor' => '版块列表标题背景',
 

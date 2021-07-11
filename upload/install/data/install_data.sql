@@ -713,6 +713,7 @@ INSERT INTO `pre_common_stylevar` (`styleid`, `variable`, `substitute`) VALUES (
 INSERT INTO `pre_common_stylevar` (`styleid`, `variable`, `substitute`) VALUES (1, 'msgfontsize', '14px');
 INSERT INTO `pre_common_stylevar` (`styleid`, `variable`, `substitute`) VALUES (1, 'bgcolor', '#FFF');
 INSERT INTO `pre_common_stylevar` (`styleid`, `variable`, `substitute`) VALUES (1, 'noticetext', '#F26C4F');
+INSERT INTO `pre_common_stylevar` (`styleid`, `variable`, `substitute`) VALUES (1, 'globalwidth', '1200px');
 INSERT INTO `pre_common_stylevar` (`styleid`, `variable`, `substitute`) VALUES (1, 'highlightlink', '#369');
 INSERT INTO `pre_common_stylevar` (`styleid`, `variable`, `substitute`) VALUES (1, 'link', '#333');
 INSERT INTO `pre_common_stylevar` (`styleid`, `variable`, `substitute`) VALUES (1, 'lighttext', '#999');

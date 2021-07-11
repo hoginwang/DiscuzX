@@ -44,6 +44,8 @@ if(empty($identifier) || !preg_match("/^[a-z0-9_\-]+$/i", $module) || !in_array(
 define('CURMODULE', $identifier);
 runhooks();
 
+$_G['disabledglobalwidth'] = 1;
+
 include DISCUZ_ROOT.$modfile;
 
 ?>

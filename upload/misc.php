@@ -70,6 +70,8 @@ if(in_array($mod, array('seccode', 'secqaa', 'initsys', 'faq', 'swfupload', 'mob
 	define('ALLOWGUEST', 1);
 }
 
+$_G['disabledglobalwidth'] = ($mod == 'faq' || $mod == 'stat') ? 1 : 0;
+
 $cachelist = array();
 if(isset($modcachelist[$mod])) {
 	$cachelist = $modcachelist[$mod];

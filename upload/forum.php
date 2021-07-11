@@ -56,6 +56,9 @@ if(C::app()->var['mod'] == 'group') {
 C::app()->cachelist = $cachelist;
 C::app()->init();
 
+$disglobalwidth = array('announcement', 'group', 'modcp', 'trade');
+$_G['disabledglobalwidth'] = in_array($mod, $disglobalwidth) ? 1 : 0;
+
 loadforum();
 
 set_rssauth();

@@ -18,6 +18,7 @@ if (!$_G['setting']['portalstatus'] && !in_array($ac, array('index', 'block', 'p
 }
 
 $_G['disabledwidthauto'] = 0;
+$_G['disabledglobalwidth'] = 1;
 
 $admincp2 = getstatus($_G['member']['allowadmincp'], 2);
 $admincp3 = getstatus($_G['member']['allowadmincp'], 3);

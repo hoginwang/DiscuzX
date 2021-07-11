@@ -38,6 +38,8 @@ $curmod = !empty($_G['setting']['followstatus']) && (empty($_GET['diy']) && empt
 define('CURMODULE', $curmod);
 runhooks(getgpc('do') == 'profile' && $_G['inajax'] ? 'card' : getgpc('do'));
 
+$_G['disabledglobalwidth'] = 1;
+
 require_once libfile('home/'.$mod, 'module');
 
 
