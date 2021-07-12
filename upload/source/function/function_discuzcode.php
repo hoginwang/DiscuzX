@@ -499,9 +499,13 @@ function parsemedia($params, $url) {
 	if(preg_match('/^(100|[0-9]{1,2})%$/', $params[2], $matches)) {
 		$height = $matches[2] . '%';
 	} else {
-		$height = ($params[2] > 0 && $params[2] < 4096) ? intval($params[2]) : 600;
+		if(defined('IN_MOBILE')) {
+			$height = intval($params[2]) > 235 ? 235 : intval($params[2]);
+		}else{
+			$height = ($params[2] > 0 && $params[2] < 4096) ? intval($params[2]) : 600;
+		}
 	}
-
+	
 	$url = addslashes($url);
         if(!in_array(strtolower(substr($url, 0, 6)), array('http:/', 'https:', 'ftp://', 'rtsp:/', 'mms://')) && !preg_match('/^static\//', $url) && !preg_match('/^data\//', $url)) {
 		return dhtmlspecialchars($url);
