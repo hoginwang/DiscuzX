@@ -453,19 +453,37 @@ function parseaudio($url, $width = 400) {
 function parsemedia($params, $url) {
 	$params = explode(',', $params);
 
-	if(preg_match('/^(100|[0-9]{1,2})%$/', $params[1], $matches)) {
-		$width = $matches[1] . '%';
-	} else {
-		$width = ($params[1] > 0 && $params[1] < 8192) ? intval($params[1]) : 800;
-	}
-
-	if(defined('IN_MOBILE')) {
-		$height = intval($params[2]) > 235 ? 235 : intval($params[2]);
-	}else{
-		if(preg_match('/^(100|[0-9]{1,2})%$/', $params[2], $matches)) {
-			$height = $matches[2] . '%';
+	$video_width = intval($params[1]);
+	$video_height = intval($params[2]);
+	if(($video_height / $video_width) < 1){
+		if(preg_match('/^(100|[0-9]{1,2})%$/', $params[1], $matches)) {
+			$width = $matches[1] . '%';
 		} else {
-			$height = ($params[2] > 0 && $params[2] < 4096) ? intval($params[2]) : 600;
+			$width = ($params[1] > 0 && $params[1] < 8192) ? intval($params[1]) : 800;
+		}
+		if(defined('IN_MOBILE')) {
+			$height = intval($params[2]) > 235 ? 235 : intval($params[2]);
+		}else{
+			if(preg_match('/^(100|[0-9]{1,2})%$/', $params[2], $matches)) {
+				$height = $matches[2] . '%';
+			} else {
+				$height = ($params[2] > 0 && $params[2] < 4096) ? intval($params[2]) : 600;
+			}
+		}
+	}else{
+		if(preg_match('/^(100|[0-9]{1,2})%$/', $params[1], $matches)) {
+			$width = $matches[1] . '%';
+		} else {
+			$width = ($params[1] > 0 && $params[1] < 8192) ? intval($params[1]) : 800;
+		}
+		if(defined('IN_MOBILE')) {
+			$height = intval($params[2]) > 600 ? 600 : intval($params[2]);
+		}else{
+			if(preg_match('/^(100|[0-9]{1,2})%$/', $params[2], $matches)) {
+				$height = $matches[2] . '%';
+			} else {
+				$height = ($params[2] > 0 && $params[2] < 4096) ? intval($params[2]) : 600;
+			}
 		}
 	}
 
