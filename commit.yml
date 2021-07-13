@@ -3,33 +3,21 @@ branches: {
   }
 fileChange:
   /upload:
-    newFile: !uuid '8eac6f9495ca42ff62792095f22f7c3f474b69bd'
-    oldFile: !uuid '5060daedaf261efce7bbabc88ed1ece492abbb3a'
+    newFile: !uuid '9f0689a01ba916ff894c33dc2b89383467487d1d'
+    oldFile: !uuid '8eac6f9495ca42ff62792095f22f7c3f474b69bd'
   /upload/source:
-    newFile: !uuid '3cfa8b8e0eb23a475adf034a399a22e296c66c7e'
-    oldFile: !uuid '6db3f3cb29a9c82c40647c52947c50d2f55475f8'
-  /upload/source/function:
-    newFile: !uuid 'f7ec8bc97e63fcc6e063ec72c77b6d7acd009320'
-    oldFile: !uuid '92015e8799d04ada8526c757853403d11517db3f'
-  /upload/source/function/function_forumlist.php:
-    newFile: !uuid '91b2f31335c765f6b143c8b3e7a6d53e2fcfa0cd'
-    oldFile: !uuid '89bee694281d9aab572cb6975f5e80dbe249d0b1'
-  /upload/template:
-    newFile: !uuid '5bf4555083cccfd0eb41357653aad71e36a94e07'
-    oldFile: !uuid '0f5c94ccfaf92955965fc35a0c613770f29e4063'
-  /upload/template/default:
-    newFile: !uuid 'c3fd2f4f4639e4960bc33f196cc0b8580fd0de7e'
-    oldFile: !uuid '9dc86045ab768fac9f57f4de1a8175d8090d98c5'
-  /upload/template/default/touch:
-    newFile: !uuid 'dc3e14425295d65b618d6591d13d882c95b521af'
-    oldFile: !uuid '56ffcc5e3b1f723d62be25604b0c83bef77b4438'
-  /upload/template/default/touch/forum:
-    newFile: !uuid '0bdbacf4c8f06496dcd38b895d32f0be5b763040'
-    oldFile: !uuid '61aa08fa33873ee06a4fcf0111b4cd8003477ad3'
-  /upload/template/default/touch/forum/guide_list_row.htm:
-    newFile: !uuid 'f2134a357c600dadf7979b3b35d897b6ed48b0a0'
-    oldFile: !uuid '6234c2ab0ed685bf13cfd36d1b81d3f56fc81108'
-gitCommitId: !uuid '75e1f938f00a64f8cb14e43c1131b63ae6749b6e'
+    newFile: !uuid 'd8ec9a7bbfede83ae4a61025101939ea902d6c18'
+    oldFile: !uuid '3cfa8b8e0eb23a475adf034a399a22e296c66c7e'
+  /upload/source/class:
+    newFile: !uuid 'ee876ff87ae9245f60b95d57abc84db46ddacdd7'
+    oldFile: !uuid '63e32ff298834fba57685588cf454d3744e87623'
+  /upload/source/class/helper:
+    newFile: !uuid '24d5710d60abdcf89d368b4d9f6256dddbfcd19f'
+    oldFile: !uuid '0f6bfaf221fc7a8a5b3f9f4486728b857fbaefa9'
+  /upload/source/class/helper/helper_seo.php:
+    newFile: !uuid 'fc5388582ec19922b147d405a23d6342436c750c'
+    oldFile: !uuid '5d2548800bcd22c2e846f366bd9c6e7c9e4c7534'
+gitCommitId: !uuid '9e585b6e5e8b97b75ec7ee5b2ea59346aac75f21'
 renames: {
   }
-revisionId: 696
+revisionId: 697
