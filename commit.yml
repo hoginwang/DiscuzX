@@ -3,21 +3,27 @@ branches: {
   }
 fileChange:
   /upload:
-    newFile: !uuid 'c7094aaee06a88d237b6b24451b8638bfd8ce0f8'
-    oldFile: !uuid '9f0689a01ba916ff894c33dc2b89383467487d1d'
-  /upload/source:
-    newFile: !uuid 'b998eebe94eea59b94e2cff05d0cd9fcc359cad6'
-    oldFile: !uuid 'd8ec9a7bbfede83ae4a61025101939ea902d6c18'
-  /upload/source/function:
-    newFile: !uuid '25051d9f2ccf67d41eec9ef2ca899c430ccc4501'
-    oldFile: !uuid 'f7ec8bc97e63fcc6e063ec72c77b6d7acd009320'
-  /upload/source/function/cache:
-    newFile: !uuid '6b8576dcba654031939d8ceb20683d9655aee803'
-    oldFile: !uuid 'a553688cff08bcb7eaa43bf6521fad8f5a878798'
-  /upload/source/function/cache/cache_styles.php:
-    newFile: !uuid '7a6021cbe4a7a0163244c7e9286e8adfac99ff2b'
-    oldFile: !uuid 'afc67efdb1698a208a59f9b962e6822b7783c148'
-gitCommitId: !uuid '14bc7d3ba7d3b54a2e27bc0a23b31e741c15855b'
+    newFile: !uuid '561b3ee10571ce5395105f889394202ae078aff7'
+    oldFile: !uuid 'c7094aaee06a88d237b6b24451b8638bfd8ce0f8'
+  /upload/template:
+    newFile: !uuid '0f037e0ec97f8c7495a4dfb346ef40f35f5bcc2d'
+    oldFile: !uuid '5bf4555083cccfd0eb41357653aad71e36a94e07'
+  /upload/template/default:
+    newFile: !uuid '783a2e1071f46f617c89859b9ad0246d9aa89ff7'
+    oldFile: !uuid 'c3fd2f4f4639e4960bc33f196cc0b8580fd0de7e'
+  /upload/template/default/touch:
+    newFile: !uuid '8883a520b429a543afa29c01993ce340f9797747'
+    oldFile: !uuid 'dc3e14425295d65b618d6591d13d882c95b521af'
+  /upload/template/default/touch/home:
+    newFile: !uuid 'b06304ccda4182ab63674b06a6de15051212452a'
+    oldFile: !uuid 'accc5e5d7d97326e82ae69437b5f4edf7f41dc6f'
+  /upload/template/default/touch/home/space_medal.htm:
+    newFile: !uuid '8ffdf342132d122609c1bd3578a8f4bb10d2d1fe'
+    oldFile: !uuid '31d9bf053810b6f41ce047eb8dd2d7812cbac4d0'
+  /upload/template/default/touch/home/space_medal_float.htm:
+    newFile: !uuid '84680c502af16584e79d26eb515038b5df849a96'
+    oldFile: !uuid '97f7bfd63b8d9ca228775e009d64acccc804e109'
+gitCommitId: !uuid '8f9c7d18c957a28ed018bff691cab883477eeb01'
 renames: {
   }
-revisionId: 698
+revisionId: 699
