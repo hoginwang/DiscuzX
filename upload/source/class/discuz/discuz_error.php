@@ -296,6 +296,10 @@ EOT;
 		$title = 'Mobile '.($type == 'db' ? 'Database' : 'System');
 		echo <<<EOT
 <?xml version="1.0" encoding="utf-8"?>
+EOT;
+
+		if(!empty($_G['inajax'])) echo '<root><![CDATA[';
+		echo <<<EOT
 <!DOCTYPE html PUBLIC "-//WAPFORUM//DTD XHTML Mobile 1.0//EN" "http://www.wapforum.org/DTD/xhtml-mobile10.dtd">
 <html>
 <head>
@@ -352,6 +356,7 @@ EOT;
 </body>
 </html>
 EOT;
+		if(!empty($_G['inajax'])) echo ']]></root>';
 		$exit && exit();
 	}
 
