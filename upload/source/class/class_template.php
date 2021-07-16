@@ -465,7 +465,9 @@ class template {
 	}
 
 	function stripblock($var, $s) {
-		$var = $this->addquote($var);
+		if (!preg_match("/\[[A-Z_][A-Z0-9_]*\]/s", $var)) {
+			$var = $this->addquote($var);
+		}
 		$s = preg_replace("/<\?=\\\$(.+?)\?>/", "{\$\\1}", $s);
 		preg_match_all("/<\?=(.+?)\?>/", $s, $constary);
 		$constadd = '';
