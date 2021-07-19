@@ -85,7 +85,9 @@ if(!submitcheck('settingsubmit')) {
 			array('nav_ec_credit', 'ec&operation=credit', 0),
 			array('nav_ec_orders', 'ec&operation=orders', 0),
 			array('nav_ec_tradelog', 'tradelog&mod=forum', 0),
-			array('nav_ec_inviteorders', 'ec&operation=inviteorders', 0)
+			array('nav_ec_inviteorders', 'ec&operation=inviteorders', 0),
+			array('nav_ec_paymentorders', 'ec&operation=paymentorders', 0),
+			array('nav_ec_transferorders', 'ec&operation=transferorders', 0)
 		));
 	} elseif($operation == 'access') {
 		$_GET['anchor'] = in_array($_GET['anchor'], array('register', 'access')) ? $_GET['anchor'] : 'register';

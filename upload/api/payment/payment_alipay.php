@@ -87,7 +87,15 @@ class payment_alipay extends payment_base {
 
 	private function alipay_trade_query($out_biz_no) {
 		global $_G;
-		$data = array('method' => 'alipay.trade.query', 'charset' => 'utf-8', 'sign_type' => 'RSA2', 'format' => 'JSON', 'timestamp' => dgmdate(time(), 'Y-m-d H:i:s'), 'version' => '1.0', 'biz_content' => json_encode(array('out_trade_no' => $out_biz_no)),);
+		$data = array(
+			'method' => 'alipay.trade.query',
+			'charset' => 'utf-8',
+			'sign_type' => 'RSA2',
+			'format' => 'JSON',
+			'timestamp' => dgmdate(time(), 'Y-m-d H:i:s'),
+			'version' => '1.0',
+			'biz_content' => json_encode(array('out_trade_no' => $out_biz_no))
+		);
 		if($this->settings['ec_alipay_sign_mode']){
 			$appid = $this->settings['mode_b_appid'];
 			$private_key = $this->settings['mode_b_app_private_key'];
@@ -127,7 +135,24 @@ class payment_alipay extends payment_base {
 			$order['description'] = diconv($order['description'], $_G['charset'], 'UTF-8');
 		}
 
-		$data = array('method' => 'alipay.trade.page.pay', 'charset' => 'utf-8', 'sign_type' => 'RSA2', 'format' => 'JSON', 'timestamp' => dgmdate(time(), 'Y-m-d H:i:s'), 'version' => '1.0', 'biz_content' => json_encode(array('out_trade_no' => $order['out_biz_no'], 'product_code' => 'FAST_INSTANT_TRADE_PAY', 'total_amount' => $order['amount'] / 100, 'subject' => $order['subject'], 'body' => $order['description'], 'timeout_express' => '1d', 'qr_pay_mode' => '2', 'integration_type' => 'PCWEB',)),);
+		$data = array(
+			'method' => 'alipay.trade.page.pay',
+			'charset' => 'utf-8',
+			'sign_type' => 'RSA2',
+			'format' => 'JSON',
+			'timestamp' => dgmdate(time(), 'Y-m-d H:i:s'),
+			'version' => '1.0',
+			'biz_content' => json_encode(array(
+				'out_trade_no' => $order['out_biz_no'],
+				'product_code' => 'FAST_INSTANT_TRADE_PAY',
+				'total_amount' => $order['amount'] / 100,
+				'subject' => $order['subject'],
+				'body' => $order['description'],
+				'timeout_express' => '1d',
+				'qr_pay_mode' => '2',
+				'integration_type' => 'PCWEB'
+			))
+		);
 		if($this->notify_url){
 			$data['notify_url'] = $this->notify_url;
 		}
@@ -170,7 +195,24 @@ class payment_alipay extends payment_base {
 			$order['description'] = diconv($order['description'], $_G['charset'], 'UTF-8');
 		}
 
-		$data = array('method' => 'alipay.trade.wap.pay', 'format' => 'JSON', 'charset' => 'utf-8', 'sign_type' => 'RSA2', 'timestamp' => dgmdate(time(), 'Y-m-d H:i:s'), 'version' => '1.0', 'biz_content' => json_encode(array('out_trade_no' => $order['out_biz_no'], 'product_code' => 'FAST_INSTANT_TRADE_PAY', 'total_amount' => $order['amount'] / 100, 'subject' => $order['subject'], 'body' => $order['description'], 'timeout_express' => '1d', 'qr_pay_mode' => '2', 'integration_type' => 'PCWEB',)),);
+		$data = array(
+			'method' => 'alipay.trade.wap.pay',
+			'format' => 'JSON',
+			'charset' => 'utf-8',
+			'sign_type' => 'RSA2',
+			'timestamp' => dgmdate(time(), 'Y-m-d H:i:s'),
+			'version' => '1.0',
+			'biz_content' => json_encode(array(
+				'out_trade_no' => $order['out_biz_no'],
+				'product_code' => 'FAST_INSTANT_TRADE_PAY',
+				'total_amount' => $order['amount'] / 100,
+				'subject' => $order['subject'],
+				'body' => $order['description'],
+				'timeout_express' => '1d',
+				'qr_pay_mode' => '2',
+				'integration_type' => 'PCWEB'
+			))
+		);
 		if($this->notify_url){
 			$data['notify_url'] = $this->notify_url;
 		}
@@ -223,8 +265,24 @@ class payment_alipay extends payment_base {
 			return array('code' => 500, 'message' => 'not support sign mode.');
 		}
 
-		$data = array('app_id' => $this->settings['mode_b_appid'], 'method' => 'alipay.fund.trans.uni.transfer', 'format' => 'JSON', 'charset' => 'utf-8', 'sign_type' => 'RSA2', 'app_cert_sn' => $this->alipay_cert_sn($this->settings['mode_b_app_cert']), 'alipay_root_cert_sn' => $this->alipay_root_cert_sn($this->settings['mode_b_alipay_root_cert']), 'timestamp' => dgmdate(time(), 'Y-m-d H:i:s'), 'version' => '1.0',);
-		$biz_content = array('out_biz_no' => $transfer_no, 'trans_amount' => sprintf('%.2f', $amount / 100), 'product_code' => 'TRANS_ACCOUNT_NO_PWD', 'biz_scene' => 'DIRECT_TRANSFER', 'payee_info' => array('identity' => $account, 'identity_type' => 'ALIPAY_LOGON_ID', 'name' => $realname));
+		$data = array(
+			'app_id' => $this->settings['mode_b_appid'],
+			'method' => 'alipay.fund.trans.uni.transfer',
+			'format' => 'JSON',
+			'charset' => 'utf-8',
+			'sign_type' => 'RSA2',
+			'app_cert_sn' => $this->alipay_cert_sn($this->settings['mode_b_app_cert']),
+			'alipay_root_cert_sn' => $this->alipay_root_cert_sn($this->settings['mode_b_alipay_root_cert']),
+			'timestamp' => dgmdate(time(), 'Y-m-d H:i:s'),
+			'version' => '1.0'
+		);
+		$biz_content = array(
+			'out_biz_no' => $transfer_no,
+			'trans_amount' => sprintf('%.2f', $amount / 100),
+			'product_code' => 'TRANS_ACCOUNT_NO_PWD',
+			'biz_scene' => 'DIRECT_TRANSFER',
+			'payee_info' => array('identity' => $account, 'identity_type' => 'ALIPAY_LOGON_ID', 'name' => $realname)
+		);
 		if($title){
 			$biz_content['order_title'] = $title;
 		}

@@ -35,7 +35,9 @@ showsubmenu('nav_ec', array(
 	array('nav_ec_credit', 'ec&operation=credit&mod=forum', 0),
 	array('nav_ec_orders', 'ec&operation=orders&mod=forum', 0),
 	array('nav_ec_tradelog', 'tradelog&mod=forum', 1),
-	array('nav_ec_inviteorders', 'ec&operation=inviteorders', 0)
+	array('nav_ec_inviteorders', 'ec&operation=inviteorders', 0),
+	array('nav_ec_paymentorders', 'ec&operation=paymentorders', 0),
+	array('nav_ec_transferorders', 'ec&operation=transferorders', 0)
 ));
 showtableheader();
 showsubtitle(array('tradelog_trade_no', 'tradelog_trade_name', 'tradelog_buyer', 'tradelog_seller', 'tradelog_money', $lang['tradelog_credit']."({$_G['setting']['extcredits'][$_G['setting']['creditstransextra'][5]]['title']})", 'tradelog_fee', 'tradelog_order_status'));

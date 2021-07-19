@@ -21,7 +21,7 @@ class table_common_payment_order extends discuz_table {
 	}
 
 	public function update_order_finish($id, $trade_no, $payment_time, $channel) {
-		DB::query("UPDATE %t SET `trade_no` = %s,`payment_time` = %d, `channel` = %s, `status` = %d WHERE `id` = %d AND `status` = 0", array($this->_table, $trade_no, $payment_time, $channel, 1));
+		DB::query("UPDATE %t SET `trade_no` = %s,`payment_time` = %d, `channel` = %s, `status` = %d WHERE `id` = %d AND `status` = 0", array($this->_table, $trade_no, $payment_time, $channel, 1, $id));
 		return DB::affected_rows();
 	}
 

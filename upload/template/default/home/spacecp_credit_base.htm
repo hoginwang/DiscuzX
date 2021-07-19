@@ -10,7 +10,8 @@
 				<!--{eval $creditid=$_G['setting']['creditstrans'];}-->
 				<!--{if $_G['setting']['extcredits'][$creditid]}-->
 				<!--{eval $credit=$_G['setting']['extcredits'][$creditid]; }-->
-				<li class="xi1 cl"><em><!--{if $credit[img]}--> {$credit[img]}<!--{/if}--> {$credit[title]}: </em><!--{echo getuserprofile('extcredits'.$creditid);}--> {$credit[unit]} &nbsp; <!--{if ($_G['setting']['ec_ratio'] && ($_G['setting']['ec_tenpay_opentrans_chnid'] || $_G['setting'][ec_tenpay_bargainor] || $_G['setting']['ec_account'])) || $_G['setting']['card']['open']}--><a href="home.php?mod=spacecp&ac=credit&op=buy" class="xi2">{lang card_use}&raquo;</a><!--{/if}--></li>
+				<li class="xi1 cl">
+					<em><!--{if $credit[img]}--> {$credit[img]}<!--{/if}--> {$credit[title]}: </em><!--{echo getuserprofile('extcredits'.$creditid);}--> {$credit[unit]} &nbsp; <!--{if ($_G['setting']['ec_ratio'] && $is_enable_pay) || $_G['setting']['card']['open']}--><a href="home.php?mod=spacecp&ac=credit&op=buy" class="xi2">{lang card_use}&raquo;</a><!--{/if}--></li>
 				<!--{/if}-->
 			<!--{/if}-->
 			<!--{loop $_G['setting']['extcredits'] $id $credit}-->
@@ -54,83 +55,71 @@
 
 		<!--{elseif $_GET['op'] == 'buy'}-->
 
-			<!--{if $_G[setting][ec_ratio]}-->
-				<!--{if $is_enable_pay}-->
-				<form id="addfundsbuyform" name="addfundsbuyform" method="post" autocomplete="off" action="home.php?mod=spacecp&ac=credit&op=buy" onsubmit="ajaxpost(this.id, 'return_addfundsbuyform');">
-					<input type="hidden" name="formhash" value="{FORMHASH}" />
-					<input type="hidden" name="addfundsbuyform" value="true" />
-					<input type="hidden" name="handlekey" value="buycredit" />
-					<table cellspacing="0" cellpadding="0" class="tfm mtn">
-						<tr id="paybox">
-							<th>{lang memcp_credits_addfunds}</th>
-							<td class="pns">
-								<input type="text" size="5" class="px" style="width: auto;" id="addfundamount" name="addfundamount" value="0" onkeyup="addcalcredit()" />
-								&nbsp;{$_G[setting][extcredits][$_G[setting][creditstrans]][title]}&nbsp;
-								{lang credits_need}&nbsp;{lang memcp_credits_addfunds_caculate_radio}
-							</td>
-							<td width="300" class="d">
-								{lang memcp_credits_addfunds_rules_ratio} =  <strong>$_G[setting][ec_ratio]</strong> {$_G[setting][extcredits][$_G[setting][creditstrans]][unit]}{$_G[setting][extcredits][$_G[setting][creditstrans]][title]}
-								<!--{if $_G[setting][ec_mincredits]}--><br />{lang memcp_credits_addfunds_rules_min}  <strong>$_G[setting][ec_mincredits]</strong> {$_G[setting][extcredits][$_G[setting][creditstrans]][unit]}{$_G[setting][extcredits][$_G[setting][creditstrans]][title]}<!--{/if}-->
-								<!--{if $_G[setting][ec_maxcredits]}--><br />{lang memcp_credits_addfunds_rules_max}  <strong>$_G[setting][ec_maxcredits]</strong> {$_G[setting][extcredits][$_G[setting][creditstrans]][unit]}{$_G[setting][extcredits][$_G[setting][creditstrans]][title]}<!--{/if}-->
-								<!--{if $_G[setting][ec_maxcreditspermonth]}--><br />{lang memcp_credits_addfunds_rules_month}  <strong>$_G[setting][ec_maxcreditspermonth]</strong> {$_G[setting][extcredits][$_G[setting][creditstrans]][unit]}{$_G[setting][extcredits][$_G[setting][creditstrans]][title]}<!--{/if}-->
-							</td>
-						</tr>
-						<tr>
-							<th>&nbsp;</th>
-							<td colspan="2">
-								<button type="submit" name="addfundsbuysubmit_btn" class="pn" id="addfundsbuysubmit_btn" value="true"><em>{lang memcp_credits_addfunds}</em></button>
-							</td>
-						</tr>
-					</table>
-				</form>
-				<span style="display: none" id="return_addfundsbuyform"></span>
-				<script type="text/javascript">
-					function addcalcredit() {
-						var addfundamount = $('addfundamount').value.replace(/^0/, '');
-						var addfundamount = parseInt(addfundamount);
-						$('desamount').innerHTML = !isNaN(addfundamount) ? Math.ceil(((addfundamount / $_G[setting][ec_ratio]) * 100)) / 100 : 0;
-					}
-				</script>
-				<!--{/if}-->
-				<!--{if $_G[setting][card][open]}-->
-				<form id="addfundscardform" name="addfundscardform" method="post" autocomplete="off" action="home.php?mod=spacecp&ac=credit&op=buy" onsubmit="ajaxpost(this.id, 'return_addfundscardform');">
-					<input type="hidden" name="formhash" value="{FORMHASH}" />
-					<input type="hidden" name="addfundscardsubmit" value="true" />
-					<input type="hidden" name="handlekey" value="buycredit" />
-					<table cellspacing="0" cellpadding="0" class="tfm mtn">
-						<tr id="cardbox">
-							<th>{lang card}</th>
-							<td colspan="2">
-								<input type="text" class="px" id="cardid" name="cardid" />
-							</td>
-						</tr>
-						<!--{if $seccodecheck}-->
-					</table>
-					<!--{block sectpl}--><table id="card_box_sec" cellspacing="0" cellpadding="0" class="tfm mtn"><tr><th><sec></th><td colspan="2"><span id="sec<hash>" onclick="showMenu({'ctrlid':this.id,'win':'{$_GET[handlekey]}'})"><sec></span><div id="sec<hash>_menu" class="p_pop p_opt" style="display:none"><sec></div></td></tr></table><!--{/block}-->
-					<!--{subtemplate common/seccheck}-->
-					<table cellspacing="0" cellpadding="0" class="tfm mtn">
-						<!--{/if}-->
-						<tr>
-							<th>&nbsp;</th>
-							<td colspan="2">
-								<button type="submit" name="addfundscardsubmit_btn" class="pn" id="addfundscardsubmit_btn" value="true"><em>{lang memcp_credits_addfunds}</em></button>
-							</td>
-						</tr>
+			<!--{if $_G[setting][ec_ratio] && $is_enable_pay}-->
+			<form id="addfundsbuyform" name="addfundsbuyform" method="post" autocomplete="off" action="home.php?mod=spacecp&ac=credit&op=buy" onsubmit="ajaxpost(this.id, 'return_addfundsbuyform');">
+				<input type="hidden" name="formhash" value="{FORMHASH}" />
+				<input type="hidden" name="addfundsbuyform" value="true" />
+				<input type="hidden" name="handlekey" value="buycredit" />
+				<table cellspacing="0" cellpadding="0" class="tfm mtn">
+					<tr id="paybox">
+						<th>{lang memcp_credits_addfunds}</th>
+						<td class="pns">
+							<input type="text" size="5" class="px" style="width: auto;" id="addfundamount" name="addfundamount" value="0" onkeyup="addcalcredit()" />
+							&nbsp;{$_G[setting][extcredits][$_G[setting][creditstrans]][title]}&nbsp;
+							{lang credits_need}&nbsp;{lang memcp_credits_addfunds_caculate_radio}
+						</td>
+						<td width="300" class="d">
+							{lang memcp_credits_addfunds_rules_ratio} =  <strong>$_G[setting][ec_ratio]</strong> {$_G[setting][extcredits][$_G[setting][creditstrans]][unit]}{$_G[setting][extcredits][$_G[setting][creditstrans]][title]}
+							<!--{if $_G[setting][ec_mincredits]}--><br />{lang memcp_credits_addfunds_rules_min}  <strong>$_G[setting][ec_mincredits]</strong> {$_G[setting][extcredits][$_G[setting][creditstrans]][unit]}{$_G[setting][extcredits][$_G[setting][creditstrans]][title]}<!--{/if}-->
+							<!--{if $_G[setting][ec_maxcredits]}--><br />{lang memcp_credits_addfunds_rules_max}  <strong>$_G[setting][ec_maxcredits]</strong> {$_G[setting][extcredits][$_G[setting][creditstrans]][unit]}{$_G[setting][extcredits][$_G[setting][creditstrans]][title]}<!--{/if}-->
+							<!--{if $_G[setting][ec_maxcreditspermonth]}--><br />{lang memcp_credits_addfunds_rules_month}  <strong>$_G[setting][ec_maxcreditspermonth]</strong> {$_G[setting][extcredits][$_G[setting][creditstrans]][unit]}{$_G[setting][extcredits][$_G[setting][creditstrans]][title]}<!--{/if}-->
+						</td>
+					</tr>
+					<tr>
+						<th>&nbsp;</th>
+						<td colspan="2">
+							<button type="submit" name="addfundsbuysubmit_btn" class="pn" id="addfundsbuysubmit_btn" value="true"><em>{lang memcp_credits_addfunds}</em></button>
+						</td>
+					</tr>
+				</table>
+			</form>
+			<span style="display: none" id="return_addfundsbuyform"></span>
+			<script type="text/javascript">
+				function addcalcredit() {
+					var addfundamount = $('addfundamount').value.replace(/^0/, '');
+					var addfundamount = parseInt(addfundamount);
+					$('desamount').innerHTML = !isNaN(addfundamount) ? Math.ceil(((addfundamount / $_G[setting][ec_ratio]) * 100)) / 100 : 0;
+				}
+			</script>
+			<!--{/if}-->
+			<!--{if $_G[setting][card][open]}-->
+			<form id="addfundscardform" name="addfundscardform" method="post" autocomplete="off" action="home.php?mod=spacecp&ac=credit&op=buy" onsubmit="ajaxpost(this.id, 'return_addfundscardform');">
+				<input type="hidden" name="formhash" value="{FORMHASH}" />
+				<input type="hidden" name="addfundscardsubmit" value="true" />
+				<input type="hidden" name="handlekey" value="buycredit" />
+				<table cellspacing="0" cellpadding="0" class="tfm mtn">
+					<tr id="cardbox">
+						<th>{lang card}</th>
+						<td colspan="2">
+							<input type="text" class="px" id="cardid" name="cardid" />
+						</td>
+					</tr>
+					<!--{if $seccodecheck}-->
+				</table>
+				<!--{block sectpl}--><table id="card_box_sec" cellspacing="0" cellpadding="0" class="tfm mtn"><tr><th><sec></th><td colspan="2"><span id="sec<hash>" onclick="showMenu({'ctrlid':this.id,'win':'{$_GET[handlekey]}'})"><sec></span><div id="sec<hash>_menu" class="p_pop p_opt" style="display:none"><sec></div></td></tr></table><!--{/block}-->
+				<!--{subtemplate common/seccheck}-->
+				<table cellspacing="0" cellpadding="0" class="tfm mtn">
+					<!--{/if}-->
+					<tr>
+						<th>&nbsp;</th>
+						<td colspan="2">
+							<button type="submit" name="addfundscardsubmit_btn" class="pn" id="addfundscardsubmit_btn" value="true"><em>{lang memcp_credits_addfunds}</em></button>
+						</td>
+					</tr>
 
-					</table>
-				</form>
-				<span style="display: none" id="return_addfundscardform"></span>
-				<script type="text/javascript">
-					function activatecardbox() {
-						$('apitype_card').checked=true;
-						$('cardbox').style.display='';
-						if($('card_box_sec')){
-							$('card_box_sec').style.display='';
-						}
-						$('paybox').style.display='none';
-					}
-				</script>
-				<!--{/if}-->
+				</table>
+			</form>
+			<span style="display: none" id="return_addfundscardform"></span>
 			<!--{/if}-->
 		<!--{elseif $_GET['op'] == 'transfer'}-->
 

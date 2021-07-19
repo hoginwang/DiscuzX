@@ -269,7 +269,9 @@ if($operation == 'alipay') {
 			array('nav_ec_credit', 'ec&operation=credit', 0),
 			array('nav_ec_orders', 'ec&operation=orders', 0),
 			array('nav_ec_tradelog', 'tradelog', 0),
-			array('nav_ec_inviteorders', 'ec&operation=inviteorders', 0)
+			array('nav_ec_inviteorders', 'ec&operation=inviteorders', 0),
+			array('nav_ec_paymentorders', 'ec&operation=paymentorders', 0),
+			array('nav_ec_transferorders', 'ec&operation=transferorders', 0)
 		));
 
 		/*search={"nav_ec":"action=setting&operation=ec","nav_ec_tenpay":"action=ec&operation=tenpay"}*/
@@ -681,7 +683,9 @@ if($operation == 'alipay') {
 			array('nav_ec_credit', 'ec&operation=credit', 0),
 			array('nav_ec_orders', 'ec&operation=orders', 1),
 			array('nav_ec_tradelog', 'tradelog', 0),
-			array('nav_ec_inviteorders', 'ec&operation=inviteorders', 0)
+			array('nav_ec_inviteorders', 'ec&operation=inviteorders', 0),
+			array('nav_ec_paymentorders', 'ec&operation=paymentorders', 0),
+			array('nav_ec_transferorders', 'ec&operation=transferorders', 0)
 		));
 		/*search={"nav_ec":"action=setting&operation=ec","nav_ec_orders":"action=ec&operation=orders"}*/
 		showtips('ec_orders_tips');
@@ -816,7 +820,9 @@ if($operation == 'alipay') {
 			array('nav_ec_credit', 'ec&operation=credit', 1),
 			array('nav_ec_orders', 'ec&operation=orders', 0),
 			array('nav_ec_tradelog', 'tradelog', 0),
-			array('nav_ec_inviteorders', 'ec&operation=inviteorders', 0)
+			array('nav_ec_inviteorders', 'ec&operation=inviteorders', 0),
+			array('nav_ec_paymentorders', 'ec&operation=paymentorders', 0),
+			array('nav_ec_transferorders', 'ec&operation=transferorders', 0)
 		));
 
 		/*search={"nav_ec":"action=setting&operation=ec","nav_ec_credit":"action=ec&operation=credit"}*/
@@ -882,7 +888,9 @@ if($operation == 'alipay') {
 			array('nav_ec_credit', 'ec&operation=credit', 0),
 			array('nav_ec_orders', 'ec&operation=orders', 0),
 			array('nav_ec_tradelog', 'tradelog', 0),
-			array('nav_ec_inviteorders', 'ec&operation=inviteorders', 1)
+			array('nav_ec_inviteorders', 'ec&operation=inviteorders', 1),
+			array('nav_ec_paymentorders', 'ec&operation=paymentorders', 0),
+			array('nav_ec_transferorders', 'ec&operation=transferorders', 0)
 		));
 
 		$ordercount = C::t('forum_order')->count_by_search(0, $_GET['orderstatus'], $_GET['orderid'], $_GET['email']);

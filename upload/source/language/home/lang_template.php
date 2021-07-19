@@ -1096,6 +1096,7 @@ $lang = array (
   'follow_word' => '字',
   'post_add_inonetime' => '同时回复',
   'memcp_credit' => '积分',
+  'memcp_payment' => '订单',
   'memcp_privacy' => '隐私筛选',
   'memcp_promotion' => '访问推广',
   'memcp_sendmail' => '邮件提醒',

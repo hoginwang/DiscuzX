@@ -366,6 +366,8 @@ $lang = array
 	'nav_ec_orders' => '积分充值订单',
 	'nav_ec_tradelog' => '商品交易订单',
 	'nav_ec_inviteorders' => '邀请码订单',
+	'nav_ec_paymentorders' => '支付订单',
+	'nav_ec_transferorders' => '转账订单',
 
 	'nav_moderate_posts' => '审核帖子',
 	'nav_moderate_threads' => '审核主题',
