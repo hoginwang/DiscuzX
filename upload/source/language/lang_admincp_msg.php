@@ -257,6 +257,7 @@ $lang = array (
 
   'alipay_not_contract' => '请输入支付宝签约用户信息',
   'alipay_succeed' => '支付宝功能设定成功 ',
+  'wechat_succeed' => '微信支付功能设定成功 ',
   'tenpay_bargainor_invalid' => '请输入 10 位数字的财付通商户号',
   'tenpay_key_invalid' => '密钥只能用32位字母或数字组成',
   'tenpay_succeed' => '财付通功能设定成功 ',
@@ -675,6 +676,14 @@ $lang = array (
   'attach_readmod_error' => '抱歉，当前的本地文件读取模式会导致部分浏览器下视频播放异常，如需开启附件URL地址、媒体附件播放，请在 config_global.php 内修改本地文件读取模式为 1 或 4 后再试',
   'optimizer_dos8p3_optimizer' => '请您根据您底层的情况正确选择技术路线和解决方案, 通过对底层的正确配置以关闭 DOS 8.3 文件名支持',
   'optimizer_httphost_optimizer' => '请您根据您底层的情况正确选择技术路线和解决方案, 通过对底层的正确配置以关闭空 HOST 头支持',
+
+  'payment_succeed' => '支付成功',
+  'payment_transfer_succeed' => '转账成功',
+  'payment_error_50001' => '验签失败',
+  'payment_error_50002' => '订单不存在',
+  'payment_error_50003' => '订单已完成',
+  'payment_error_50004' => '更新订单失败',
+
 );
 
 ?>

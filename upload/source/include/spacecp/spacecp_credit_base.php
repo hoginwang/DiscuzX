@@ -132,29 +132,24 @@ if($_GET['op'] == 'base') {
 			}
 
 			$price = round(($amount / $_G['setting']['ec_ratio'] * 100) / 100, 2);
-			$orderid = '';
 
-			require_once libfile('function/trade');
-			$requesturl = credit_payurl($price, $orderid, $_GET['bank_type']);
+			$credits = $_G['setting']['extcredits'][$_G['setting']['creditstrans']];
 
-			if(C::t('forum_order')->fetch($orderid)) {
-				showmessage('credits_addfunds_order_invalid', '', array(), array('showdialog' => 1, 'showmsg' => true, 'closetime' => true));
-			}
-
-			C::t('forum_order')->insert(array(
-				'orderid' => $orderid,
-				'status' => '1',
-				'uid' => $_G['uid'],
-				'amount' => $amount,
-				'price' => $price,
-				'submitdate' => $_G['timestamp'],
-				'email' => $_G['member']['email'],
-				'ip' => $_G['clientip'],
-				'port' => $_G['remoteport'],
-			));
+			$return_url = $_G['siteurl'] . 'home.php?mod=spacecp&ac=credit&op=base';
+			$pay_url = payment::create_order(
+				'payment_credit',
+				$_G['setting']['bbname'].' - '.$_G['member']['username'].' - '.lang('forum/misc', 'credit_payment'),
+				trim(lang('forum/misc', 'credit_forum_payment') . ' ' . $credits['title'] . ' ' . $amount . ' ' . $credits['unit']),
+				$price * 100,
+				$return_url,
+				array(
+					'index' => $_G['setting']['creditstrans'],
+					'value' => $amount
+				)
+			);
 
 			include isset($_REQUEST['inajax']) ? template('common/header_ajax') : template('common/header');
-			echo '<form id="payform" action="'.$requesturl.'" method="post"></form><script type="text/javascript" reload="1">document.getElementById(\'payform\').submit();</script>';
+			echo '<script type="text/javascript" reload="1">window.location.href = \''.$pay_url.'\';</script>';
 			include isset($_REQUEST['inajax']) ? template('common/footer_ajax') : template('common/footer');
 			dexit();
 		}

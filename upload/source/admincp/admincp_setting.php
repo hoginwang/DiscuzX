@@ -80,6 +80,7 @@ if(!submitcheck('settingsubmit')) {
 		showsubmenu('nav_ec', array(
 			array('nav_ec_config', 'setting&operation=ec', 1),
 			array('nav_ec_tenpay', 'ec&operation=tenpay', 0),
+			array('nav_ec_wechat', 'ec&operation=wechat', 0),
 			array('nav_ec_alipay', 'ec&operation=alipay', 0),
 			array('nav_ec_credit', 'ec&operation=credit', 0),
 			array('nav_ec_orders', 'ec&operation=orders', 0),

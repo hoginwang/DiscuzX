@@ -30,6 +30,7 @@ shownav('extended', 'nav_ec');
 showsubmenu('nav_ec', array(
 	array('nav_ec_config', 'setting&operation=ec&mod=forum', 0),
 	array('nav_ec_tenpay', 'ec&operation=tenpay&mod=forum', 0),
+	array('nav_ec_wechat', 'ec&operation=wechat&mod=forum', 0),
 	array('nav_ec_alipay', 'ec&operation=alipay&mod=forum', 0),
 	array('nav_ec_credit', 'ec&operation=credit&mod=forum', 0),
 	array('nav_ec_orders', 'ec&operation=orders&mod=forum', 0),
