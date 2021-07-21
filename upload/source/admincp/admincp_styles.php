@@ -585,6 +585,7 @@ function imgpre_switch(id) {
 		$stylevar = $_GET['stylevar'];
 		$stylevarbgimg = $_GET['stylevarbgimg'];
 		$stylevarbgextra = $_GET['stylevarbgextra'];
+		!is_array($_GET['extstylenew']) ? $_GET['extstylenew'] = array() : '';
 		if(!in_array($_GET['defaultextstylenew'], $_GET['extstylenew'])) {
 			$_GET['extstylenew'][] = $_GET['defaultextstylenew'];
 		}
