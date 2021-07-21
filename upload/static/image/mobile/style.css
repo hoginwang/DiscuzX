@@ -378,9 +378,6 @@ select {-moz-appearance:none;}
 .magic_log_list .dhnv a.mon { border-bottom: 0;}
 .magic_log_list .dt { background: #FFF; border-top: 1px solid #EEE; }
 .magic_log_list .alt { background: #FAFAFA !important; border-top: 1px solid #EEE; border-bottom: 1px solid #EEE;}
-.ren-tdats .tdat.yi { width: 44%; }
-.ren-tdats .tdat.e { width: 56%; }
-.ren-tdats .alt { background: #F7F7F7; }
 .magic_log_list .dt th, .magic_log_list .dt td { padding: 11px 10px 9px 10px; height: 24px; line-height: 24px; font-size: 13px; overflow: hidden; }
 .medal_tip_box ul { padding: 12px 15px; }
 .medal_tip_box ul li { display: flex; position: relative; line-height: 22px; padding: 8px 12px; background: #FFF; font-size: 15px; overflow: hidden; }
