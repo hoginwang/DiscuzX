@@ -296,7 +296,8 @@ function check_exportfile(&$exportlog, &$exportziplog, &$exportsize, &$exportzip
 }
 
 function show_importfile_list($exportlog = array(), $exportziplog = array(), $exportsize = array(), $exportzipsize = array()) {
-
+	global $siteurl;
+    
 	show_header();
 	show_tips('db_import_tips');
 

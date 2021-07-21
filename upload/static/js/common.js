@@ -148,7 +148,7 @@ function mb_cutstr(str, maxlen, dot) {
 	return ret;
 }
 
-function dcutstr(str, maxlen, dot = false) {
+function dcutstr(str, maxlen, dot) {
 	var len = 0;
 	var ret = '';
 	var dot = (dot === false) ? '...' : dot;
