@@ -134,9 +134,11 @@ class logging_ctl {
 				if($_G['member']['lastip'] && $_G['member']['lastvisit']) {
 					dsetcookie('lip', $_G['member']['lastip'].','.$_G['member']['lastvisit']);
 				}
-				C::t('common_member_status')->update($_G['uid'], array('lastip' => $_G['clientip'], 'port' => $_G['remoteport'], 'lastvisit' =>TIMESTAMP, 'lastactivity' => TIMESTAMP));
+				$tem_res = C::t('common_member_status')->update($_G['uid'], array('lastip' => $_G['clientip'], 'port' => $_G['remoteport'], 'lastvisit' =>TIMESTAMP, 'lastactivity' => TIMESTAMP));
 				$ucsynlogin = $this->setting['allowsynlogin'] ? uc_user_synlogin($_G['uid']) : '';
-
+				if(!$tem_res){
+					C::t('common_member_status')->insert( array('uid' => $_G['uid'],'lastip' => $_G['clientip'], 'port' => $_G['remoteport'], 'lastvisit' =>TIMESTAMP, 'lastactivity' => TIMESTAMP));
+				}
 				$pwold = false;
 				if($this->setting['strongpw'] && !$this->setting['pwdsafety']) {
 					if(in_array(1, $this->setting['strongpw']) && !preg_match("/\d+/", $_GET['password'])) {
