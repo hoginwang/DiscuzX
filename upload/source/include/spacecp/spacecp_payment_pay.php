@@ -40,11 +40,20 @@ if(submitcheck('paysubmit')){
 	}
 	$pay_url = $result['url'];
 
-	include template('home/spacecp_payment_redirect');
+	if($pay_channel == 'wechat' && checkmobile() && strpos($_SERVER['HTTP_USER_AGENT'], 'MicroMessenger') !== false) {
+		$redirect_uri = $_G['siteurl'] . 'home.php?mod=spacecp&ac=payment&op=pay&sop=wxjsapi&order_id=' . $order_id;
+		$redirect_uri = urlencode($redirect_uri);
+		$state = md5($order_id . $order['dateline']);
+		$pay_url = $payclass -> wechat_authorize($redirect_uri, $state);
+		dheader('Location: ' . $pay_url);
+	}else{
+		include template('home/spacecp_payment_redirect');
+	}
+
 } elseif($_GET['sop'] == 'wxjsapi'){
 	$code = daddslashes($_GET['code']);
 	$state = daddslashes($_GET['state']);
-	if(!$code || !$state || !$order_id){
+	if(!$code || !$state || !$order_id || $state != md5($order_id . $order['dateline'])){
 		exit('Access Denied');
 	}
 

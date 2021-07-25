@@ -172,6 +172,9 @@ select {-moz-appearance:none;}
 .dzcell-item .dzcell-title {width:80px;}
 .dzcell-item .dzcell-value {flex:1;position: relative;overflow: hidden;color: #969799;text-align: right;vertical-align: middle;word-wrap: break-word;}
 
+/*------ 通用空记录 ------*/
+.empty-box h4{background-color:var(--dz-BG-0);height:30px;line-height:30px;padding:80px 0;text-align:center;font-size:14px;font-weight:400;color:var(--dz-FC-999);border-top:1px solid var(--dz-BOR-ed);border-bottom:var(--dz-BOR-ed);margin-bottom:10px;}
+
 /*----- 首页幻灯 -----*/
 .swiper-wrapper {position:relative;width:100%;z-index:1;display:-webkit-box;display:-moz-box;display:-ms-flexbox;display:-webkit-flex;display:flex;-webkit-transition-property:-webkit-transform;-moz-transition-property:-moz-transform;-o-transition-property:-o-transform;-ms-transition-property:-ms-transform;transition-property:transform;-webkit-box-sizing:content-box;-moz-box-sizing:content-box;box-sizing:content-box}
 .swiper-slide {-webkit-flex-shrink:0;-ms-flex:0 0 auto;flex-shrink:0;width:100%;position:relative}
@@ -815,7 +818,10 @@ body.pg_logging, body.pg_register {background-color:var(--dz-BG-0)}
 .home_credit_log li .txt a{color:var(--dz-FC-999)}
 .home_credit_log li .mtime{color:var(--dz-FC-999);text-align: right;min-width:120px;}
 .home_credit_log .xi1{color:var(--dz-BG-2)}
-.home_credit_log .xg1{color:var(--dz-FC-999)}
+.home_credit_log .xg1{color:green}
+.home-order-status-0 a {color:blue;}
+.home-order-status-1 {color:green;}
+.home-order-status-2 {color:#aaa;}
 
 /*----- 群组 -----*/
 .groupbox {}

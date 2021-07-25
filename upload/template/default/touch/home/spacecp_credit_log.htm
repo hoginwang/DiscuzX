@@ -13,7 +13,7 @@
 </div>
 
 <!--{if $loglist}-->
-<div class="home_credit_log mt10 cl">
+<div class="home_credit_log mt10 mb10 cl">
     <ul>
         <!--{loop $loglist $value}-->
         <!--{eval $value = makecreditlog($value, $otherinfo);}-->
@@ -44,7 +44,7 @@
     <!--{if $multi}--><div class="pgs cl mtm">$multi</div><!--{/if}-->
 </div>
 <!--{else}-->
-<div class="mt10 cl">
+<div class="empty-box mt10 cl">
     <h4>{lang doing_no_replay}</h4>
 </div>
 <!--{/if}-->

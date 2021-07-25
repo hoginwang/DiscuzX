@@ -124,6 +124,12 @@ class payment_wechat extends payment_base {
 		return json_encode($jsapidata);
 	}
 
+	public function wechat_authorize($redirect_uri, $state, $scope = 'snsapi_base') {
+		$appid = $this->settings['appid'];
+		$redirect_uri = urlencode($redirect_uri);
+		return SDK_WEIXIN_AUTHORIZE . "?appid={$appid}&redirect_uri={$redirect_uri}&response_type=code&scope={$scope}&state={$state}#wechat_redirect";
+	}
+
 	public function wechat_access_token_by_code($code) {
 		$appid = $this->settings['appid'];
 		$appsecret = $this->settings['appsecret'];
@@ -268,12 +274,6 @@ class payment_wechat extends payment_base {
 			$pay_time = strtotime(preg_replace('/^(\d{4})(\d{2})(\d{2})(\d{2})(\d{2})(\d{2})$/', '$1-$2-$3 $4:$5:$6', $res['time_end']));
 			return array('code' => 200, 'data' => array('trade_no' => $res['transaction_id'], 'payment_time' => $pay_time));
 		}
-	}
-
-	private function wechat_authorize($redirect_uri, $state, $scope = 'snsapi_base') {
-		$appid = $this->settings['appid'];
-		$redirect_uri = urlencode($redirect_uri);
-		return SDK_WEIXIN_AUTHORIZE . "?appid={$appid}&redirect_uri={$redirect_uri}&response_type=code&scope={$scope}&state={$state}#wechat_redirect";
 	}
 
 	private function wechat_refund($refund_no, $trade_no, $total_amount, $refund_amount, $refund_desc) {
@@ -543,7 +543,7 @@ class payment_wechat extends payment_base {
 	private function v3_wechat_request_json($api, $json = '', $method = 'POST') {
 		$client = filesock::open(array(
 			'url' => $api,
-			'method' => 'POST',
+			'method' => $method,
 			'rawdata' => $json,
 			'encodetype' => 'JSON',
 			'header' => array(
@@ -551,7 +551,11 @@ class payment_wechat extends payment_base {
 				'Authorization' => 'WECHATPAY2-SHA256-RSA2048 ' . $this->v3_wechat_authorization($api, $method, $json)
 			)
 		));
-		return $client->request();
+		$data = $client->request();
+		if(!$data) {
+			$data = $client->responsetext;
+		}
+		return $data;
 	}
 
 	private function wechat_device() {
