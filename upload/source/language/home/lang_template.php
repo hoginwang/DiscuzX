@@ -1545,6 +1545,7 @@ $lang = array (
   'payment_order_status_1' => '已支付',
   'payment_order_status_2' => '已过期',
   'payment_pay_order_id' => '订单号',
+  'payment_pay_order_info' => '订单信息',
   'payment_pay_subject' => '订单标题',
   'payment_pay_description' => '订单描述',
   'payment_pay_amount' => '订单金额',

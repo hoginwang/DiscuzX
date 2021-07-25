@@ -147,6 +147,13 @@ if($_GET['op'] == 'base') {
 			list($seccodecheck) = seccheck('card');
 			$secqaacheck = 0;
 		}
+
+		$active = array();
+		if($_G['setting']['ec_ratio'] && $is_enable_pay) {
+			$active['rmb'] = 1;
+		}elseif($_G['setting']['card']['open']) {
+			$active['card'] = 1;
+		}
 	}
 
 } elseif ($_GET['op'] == 'transfer') {
