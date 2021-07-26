@@ -5836,6 +5836,7 @@ $lang = array
 	'ec_paymentorders_status_1' => '已支付',
 	'ec_paymentorders_status_2' => '已过期',
 	'ec_paymentorders_status_3' => '已退款',
+	'ec_paymentorders_callback_tips' => '回调失败,点击重试',
 	'ec_paymentorders_no_data' => '目前没有支付记录',
 	'ec_paymentorders_refund_amount' => '已退款',
 	'ec_paymentorders_op_status' => '查询',

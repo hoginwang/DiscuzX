@@ -358,6 +358,15 @@ if($operation == 'alipay') {
 		} else {
 			cpmsg($result['message'], $_G['siteurl'] . ADMINSCRIPT . '?action=ec&operation=paymentorders', 'error');
 		}
+	} else if ($_GET['op'] == 'retry') {
+		$order_id = intval($_GET['order_id']);
+		$order = C::t('common_payment_order')->fetch($order_id);
+		$result = payment::retry_callback_order($order);
+		if($result['code'] == 200) {
+			cpmsg('payment_succeed', $_G['siteurl'] . ADMINSCRIPT . '?action=ec&operation=paymentorders', 'succeed');
+		}else{
+			cpmsg($result['message'], $_G['siteurl'] . ADMINSCRIPT . '?action=ec&operation=paymentorders', 'error');
+		}
 	} else if ($_GET['op'] == 'query') {
 		$order_id = intval($_GET['order_id']);
 		$order = C::t('common_payment_order')->fetch($order_id);
@@ -470,7 +479,7 @@ if($operation == 'alipay') {
 			'style="width: 60px; text-align: center"',
 			'style="width: 100px; text-align: right"',
 			'style="width: 100px; text-align: right"',
-			'style="width: 25px; text-align: right"'
+			'style="width: 110px; text-align: right"'
 		);
 		showtableheader('result');
 		showsubtitle(array('ec_paymentorders_no', 'ec_paymentorders_type', 'ec_paymentorders_desc', 'ec_paymentorders_buyer', 'ec_paymentorders_channel', 'ec_paymentorders_amount', 'ec_paymentorders_status', 'ec_orders_submitdate', 'ec_orders_confirmdate', ''), 'header', $tdstyles);
@@ -493,7 +502,10 @@ if($operation == 'alipay') {
 				$operations = '';
 				if (in_array($order['status'], array(0, 2))) {
 					$operations .= '<a href="' . ADMINSCRIPT . '?action=ec&operation=paymentorders&op=query&order_id=' . $order['id'] . '">' . $lang['ec_paymentorders_op_status'] . '</a>';
+				}elseif($order['status'] == 1 && !$order['callback_status']) {
+					$operations = '<a href="' . ADMINSCRIPT . '?action=ec&operation=paymentorders&op=retry&order_id=' . $order['id'] . '">'.$lang['ec_paymentorders_callback_tips'].'</a>';
 				}
+
 				showtablerow('class="order-status-' . $order['status'] . '"', $tdstyles, array(
 					$order['out_biz_no'],
 					$order['type_name'],

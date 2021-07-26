@@ -114,34 +114,14 @@ class payment {
 
 		$status = C::t('common_payment_order')->update_order_finish($order['id'], $order['trade_no'], $order['payment_time'], $order['channel']);
 		if($status){
-			$order_type = $order['type'];
-			if(strpos($order_type, ':') !== FALSE){
-				$order_type_values = explode(':', $order_type);
-				$callback_class = DISCUZ_ROOT . './source/plugin/' . $order_type_values[0] . '/payment/' . $order_type_values[1] . '.php';
-				$class_name = $order_type_values[1];
-			} else{
-				$callback_class = DISCUZ_ROOT . './source/class/payment/' . $order_type . '.php';
-				$class_name = $order_type;
-			}
-			if(file_exists($callback_class)){
-				require_once $callback_class;
-				if(class_exists($class_name)){
-					$callback = new $class_name();
-					$callback->callback(dunserialize($order['data']), $order);
-				}
-			}
-			C::t('common_payment_order')->update($order['id'], array('callback_status' => 1));
+			self::retry_callback_order($order);
 		} else{
 			self::paymentlog($channel, 0, $order['uid'], $order['id'], 50004, array('out_biz_no' => $out_biz_no, 'trade_no' => $trade_no));
 		}
 		return true;
 	}
 
-	public static function retry_callback_order($order_id) {
-		$order = C::t('common_payment_order')->fetch($order_id);
-		if(!$order){
-			return array('code' => 500, 'message' => lang('message', 'payment_retry_callback_no_exist'));
-		}
+	public static function retry_callback_order($order) {
 		if($order['status'] != 1){
 			return array('code' => 500, 'message' => lang('message', 'payment_retry_callback_no_pay'));
 		}
@@ -358,7 +338,7 @@ class payment {
 		global $_G;
 		require_once libfile('function/misc');
 
-		writelog('pmt', implode("\t", clearlogstring(array(
+		writelog('pmtlog', implode("\t", clearlogstring(array(
 			$_G['timestamp'],
 			$channel,
 			$status,

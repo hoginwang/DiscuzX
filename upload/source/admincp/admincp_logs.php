@@ -1032,7 +1032,7 @@ EOD;
 		}
 	}
 } elseif($operation == 'pmt') {
-	showtablerow('class="header"', array('class="td23"','class="td23"','class="td23"','class="td24"','class="td24"','class="td24"', ''), array(
+	showtablerow('class="header"', array('class="td23"','class="td23"','class="td23"','class="td24"','class="td24"','class="td31"', ''), array(
 		cplang('time'),
 		cplang('logs_payment_channel'),
 		cplang('logs_payment_status'),
@@ -1058,15 +1058,15 @@ EOD;
 
 	foreach($logs as $k => $logrow) {
 		$log = explode("\t", $logrow);
-		$log[0] = dgmdate($log[0], 'y-n-j H:i');
-		$log[1] = $channels[$log[1]]['title'];
-		$log[2] = cplang('logs_payment_status_' . $log[2]);
-		$log[5] = $log[5] . ':' . $log[6];
-		$log[7] = cplang('payment_error_' . $log[7]);
+		$log[1] = dgmdate($log[1], 'y-n-j H:i');
+		$log[2] = $channels[$log[2]]['title'];
+		$log[3] = cplang('logs_payment_status_' . $log[3]);
+		$log[6] = $log[6] . ':' . $log[7];
+		$log[8] = cplang('payment_error_' . $log[8]);
 
-		showtablerow('', array('class="bold"'), array($log[0], $log[1], $log[2], $log[3], $log[4], $log[5], '<a href="javascript:;" onclick="togglecplog('.$k.')">'.$log[7].'</a>'));
+		showtablerow('', array('class="bold"'), array($log[1], $log[2], $log[3], $log[4], $log[5], $log[6], '<a href="javascript:;" onclick="togglecplog('.$k.')">'.$log[8].'</a>'));
 		echo '<tbody id="cplog_'.$k.'" style="display:none;">';
-		echo '<tr><td colspan="6">'.$log[8].'</td></tr>';
+		echo '<tr><td colspan="6">'.$log[9].'</td></tr>';
 		echo '</tbody>';
 	}
 }
