@@ -31,12 +31,13 @@ if($_SERVER['HTTP_WECHATPAY_SIGNATURE']){
 			}
 		}
 	} else{
-		payment::paymentlog('wechat', 0, 0, 0, 50001, $data ? $data['data'] : '');
+		payment::paymentlog('wechat', 0, 0, 0, 50001, $data ? json_encode($data) : '');
 	}
 	exit('{"code":"fail","message":"fail"}');
 } else{
 	$data = $payment->wechat_sign_verify();
 	if($data && $data['code'] == 200){
+		$data = $data['data'];
 		$out_biz_no = $data['out_trade_no'];
 		$payment_time = strtotime(preg_replace('/^(\d{4})(\d{2})(\d{2})(\d{2})(\d{2})(\d{2})$/', '$1-$2-$3 $4:$5:$6', $data['time_end']));
 		$is_success = payment::finish_order('wechat', $out_biz_no, $data['transaction_id'], $payment_time);
@@ -45,7 +46,7 @@ if($_SERVER['HTTP_WECHATPAY_SIGNATURE']){
 			exit();
 		}
 	} else{
-		payment::paymentlog('wechat', 0, 0, 0, 50001, $data ? $data['data'] : '');
+		payment::paymentlog('wechat', 0, 0, 0, 50001, $data ? json_encode($data) : '');
 	}
 	echo '<xml><return_code><![CDATA[FAIL]]></return_code><return_msg><![CDATA[FAIL]]></return_msg></xml>';
 	exit();

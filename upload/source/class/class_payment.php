@@ -367,7 +367,7 @@ class payment {
 			$_G['clientip'],
 			$_G['remoteport'],
 			$error,
-			$data
+			is_array($data) ? json_encode($data) : $data
 		))));
 	}
 

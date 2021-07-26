@@ -38,24 +38,16 @@ class payment_wechat extends payment_base {
 	}
 
 	public function pay($order) {
-		global $_G;
 		if(!$this->enable()){
 			return array('code' => 500, 'message' => 'Did not open payment');
 		}
+
 		$device = $this->wechat_device();
 		if($device){
-			if(in_array($device, array('wechat'))){
-				$redirect_uri = $_G['siteurl'] . 'home.php?mod=spacecp&ac=payment&op=pay&sop=wxjsapi&&order_id=' . $order['id'];
-				$redirect_uri = urlencode($redirect_uri);
-				$state = md5(random(32));
-				$pay_url = $this->wechat_authorize($redirect_uri, $state);
-				return array('code' => 200, 'url' => $pay_url);
+			if($this->settings['ec_wechat_version']){
+				return $this->v3_wechat_h5_pay($order);
 			} else{
-				if($this->settings['ec_wechat_version']){
-					return $this->v3_wechat_h5_pay($order);
-				} else{
-					return $this->wechat_unifiedorder_pay($order, 'MWEB');
-				}
+				return $this->wechat_unifiedorder_pay($order, 'MWEB');
 			}
 		} else{
 			if($this->settings['ec_wechat_version']){
@@ -119,8 +111,19 @@ class payment_wechat extends payment_base {
 	}
 
 	public function wechat_jsapidata($prepay_id) {
-		$jsapidata = ['appId' => $this->settings['appid'], 'timeStamp' => time() . '', 'nonceStr' => $this->wechat_nonce(), 'package' => 'prepay_id=' . $prepay_id, 'signType' => 'MD5',];
-		$jsapidata['paySign'] = $this->wechat_sign($jsapidata);
+		if($this->settings['ec_wechat_version']){
+			$jsapidata = array(
+				'appId' => $this->settings['appid'],
+				'timeStamp' => time() . '',
+				'nonceStr' => $this->wechat_nonce(),
+				'package' => 'prepay_id=' . $prepay_id,
+				'signType' => 'RSA'
+			);
+			$jsapidata['paySign'] = $this->v3_wechat_jsapi_authorization($jsapidata);
+		}else{
+			$jsapidata = array('appId' => $this->settings['appid'], 'timeStamp' => time() . '', 'nonceStr' => $this->wechat_nonce(), 'package' => 'prepay_id=' . $prepay_id, 'signType' => 'MD5');
+			$jsapidata['paySign'] = $this->wechat_sign($this -> settings['v1_key'], $jsapidata);
+		}
 		return json_encode($jsapidata);
 	}
 
@@ -142,15 +145,15 @@ class payment_wechat extends payment_base {
 		$data = $this->wechat_x2o($xml);
 		$sign = $this->wechat_sign($this->settings['v1_key'], $data, 1);
 		if($sign != $data['sign']){
-			return array('code' => 500, 'data' => $data);
+			return array('code' => 50001, 'data' => $data);
 		}
 		if($data['return_code'] != 'SUCCESS'){
-			return array('code' => 500, 'data' => $data);
+			return array('code' => 50002, 'data' => $data);
 		}
 		if($data['result_code'] != 'SUCCESS'){
-			return array('code' => 500, 'data' => $data);
+			return array('code' => 50003, 'data' => $data);
 		}
-		return array('code' => 500, 'data' => $data);
+		return array('code' => 200, 'data' => $data);
 	}
 
 	public function v3_wechat_sign_verify() {
@@ -163,16 +166,16 @@ class payment_wechat extends payment_base {
 		$serial = strtoupper(ltrim($serial, '0'));
 		$public_key = $this->settings['v3_certificates'][$serial];
 		if(!$public_key){
-			return array('code' => 500, 'data' => $json);
+			return array('code' => 50001, 'data' => $json);
 		}
 		$signature = base64_decode($signature);
 		$signstr = $timestamp . "\n" . $nonce . "\n" . $json . "\n";
 		if(!openssl_verify($signstr, $signature, $public_key, 'sha256WithRSAEncryption')){
-			return array('code' => 500, 'data' => $json);
+			return array('code' => 50002, 'data' => $json);
 		}
 		$resource = json_decode($json, true);
 		if($resource['event_type'] != 'TRANSACTION.SUCCESS'){
-			return array('code' => 500, 'data' => $resource);
+			return array('code' => 50003, 'data' => $resource);
 		}
 		$resource = $resource['resource'];
 		$data = $this->v3_wechat_decrypt2string($resource['associated_data'], $resource['nonce'], $resource['ciphertext']);
@@ -247,6 +250,8 @@ class payment_wechat extends payment_base {
 		} else{
 			if($res['code_url']){
 				$url = $res['code_url'];
+			} elseif($res['mweb_url']) {
+				$url = $res['mweb_url'];
 			} else{
 				$url = $res['prepay_id'];
 			}
@@ -481,6 +486,13 @@ class payment_wechat extends payment_base {
 		return $randomString;
 	}
 
+	private function v3_wechat_jsapi_authorization($data) {
+		$message = $data['appId'] . "\n" . $data['timeStamp'] . "\n" . $data['nonceStr'] . "\n" . $data['package'];
+		openssl_sign($message, $sign, $this->settings['v3_private_key'], 'sha256WithRSAEncryption');
+		$sign = base64_encode($sign);
+		return $sign;
+	}
+
 	private function v3_wechat_authorization($api, $method, $json) {
 		$url_values = parse_url($api);
 		$timestamp = time();
@@ -500,7 +512,7 @@ class payment_wechat extends payment_base {
 
 		// ext-sodium (default installed on >= PHP 7.2)
 		if(function_exists('sodium_crypto_aead_aes256gcm_is_available') && sodium_crypto_aead_aes256gcm_is_available()){
-			return sodium_crypto_aead_aes256gcm_decrypt($ciphertext, $associateddata, $nonceStr, $this->settings['v3_key']);
+			return sodium_crypto_aead_aes256gcm_decrypt($ciphertext, $associateddata, $noncestr, $this->settings['v3_key']);
 		}
 		// openssl (PHP >= 7.1 support AEAD)
 		if(PHP_VERSION_ID >= 70100 && in_array('aes-256-gcm', openssl_get_cipher_methods())){
@@ -526,7 +538,8 @@ class payment_wechat extends payment_base {
 		$params = array(
 			'url' => $api,
 			'method' => 'POST',
-			'post' => $xml
+			'rawdata' => $xml,
+			'encodetype' => 'application/xml',
 		);
 
 		if($cert){
@@ -537,7 +550,11 @@ class payment_wechat extends payment_base {
 		}
 
 		$client = filesock::open($params);
-		return $client->request();
+		$data = $client -> request();
+		if(!$data) {
+			$data = $client -> responsetext;
+		}
+		return $data;
 	}
 
 	private function v3_wechat_request_json($api, $json = '', $method = 'POST') {

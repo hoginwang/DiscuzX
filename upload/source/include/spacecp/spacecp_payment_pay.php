@@ -34,19 +34,18 @@ if(submitcheck('paysubmit')){
 		showmessage('payment_type_no_exist', $_G['siteurl'] . 'home.php?mod=spacecp&ac=payment&op=pay&order_id=' . $order_id, array(), array('showdialog' => true, 'locationtime' => 3));
 	}
 
-	$result = $payclass->pay($order);
-	if($result['code'] != 200){
-		showmessage($result['message'], $_G['siteurl'] . 'home.php?mod=spacecp&ac=payment&op=pay&order_id=' . $order_id, array(), array('showdialog' => true, 'locationtime' => 3));
-	}
-	$pay_url = $result['url'];
-
 	if($pay_channel == 'wechat' && checkmobile() && strpos($_SERVER['HTTP_USER_AGENT'], 'MicroMessenger') !== false) {
 		$redirect_uri = $_G['siteurl'] . 'home.php?mod=spacecp&ac=payment&op=pay&sop=wxjsapi&order_id=' . $order_id;
-		$redirect_uri = urlencode($redirect_uri);
 		$state = md5($order_id . $order['dateline']);
 		$pay_url = $payclass -> wechat_authorize($redirect_uri, $state);
 		dheader('Location: ' . $pay_url);
 	}else{
+		$result = $payclass->pay($order);
+		if($result['code'] != 200){
+			showmessage($result['message'], $_G['siteurl'] . 'home.php?mod=spacecp&ac=payment&op=pay&order_id=' . $order_id, array(), array('showdialog' => true, 'locationtime' => 3));
+		}
+		$pay_url = $result['url'];
+
 		include template('home/spacecp_payment_redirect');
 	}
 
@@ -64,12 +63,12 @@ if(submitcheck('paysubmit')){
 		if(strtoupper($_G['charset']) != 'UTF-8'){
 			$result['errmsg'] = diconv($result['errmsg'], 'UTF-8', $_G['charset']);
 		}
-		showmessage($result['errmsg'], $order['referer_url'], array(), array('showdialog' => true, 'locationtime' => 3));
+		showmessage($result['errmsg'], $order['return_url'], array(), array('showdialog' => true, 'locationtime' => 3));
 	}
 
 	$result = $payment->pay_jsapi($order, $result['openid']);
 	if($result['code'] != 200){
-		showmessage($result['message'], $order['referer_url'], array(), array('showdialog' => true, 'locationtime' => 3));
+		showmessage($result['message'], $order['return_url'], array(), array('showdialog' => true, 'locationtime' => 3));
 	}
 
 	$jsapidata = $payment->wechat_jsapidata($result['url']);
