@@ -3,57 +3,18 @@ branches: {
   }
 fileChange:
   /upload:
-    newFile: !uuid '3928cb79748bc5781abcc1bcacea0bf05a26a42c'
-    oldFile: !uuid '6e0703fdec1144ced73662300797f640367776e5'
-  /upload/template:
-    newFile: !uuid '64286f2abe709b8267e93acc95a271561edc801d'
-    oldFile: !uuid 'aee2b21f2b897cfaee47ce3d728b8479f681fadb'
-  /upload/template/default:
-    newFile: !uuid 'd7f8070f967786681fc109b70f7f69f7dfab3dbd'
-    oldFile: !uuid '5b6f34fa38d49f3f652847c9b80876b14ab0a996'
-  /upload/template/default/touch:
-    newFile: !uuid '0e4de2e69f93aaca991579d19c40410ea6054fec'
-    oldFile: !uuid '56915b31e0f6587c8846774607d25b78db9a2bd5'
-  /upload/template/default/touch/home:
-    newFile: !uuid '743afcb8ccee27a9c24005e35757ce1fa65dcd8a'
-    oldFile: !uuid '494b7110d7eac35e4e3f84f6d5c81b01bb3ad2da'
-  /upload/template/default/touch/home/space_magic.htm:
-    newFile: !uuid 'c2b4dd9cfd483348d30c061b680daae83a26a805'
-    oldFile: !uuid 'f2de12fd987fa34865a7a5dc1d44e9f67c6c914d'
-  /upload/template/default/touch/home/space_magic_log.htm:
-    newFile: !uuid '60ac4cb755472e08eff7eb0a782ef2033a226f7c'
-    oldFile: !uuid '654c8dcf1d0b180bd6dcdb95fd105f8dac1da932'
-  /upload/template/default/touch/home/space_magic_mybox.htm:
-    newFile: !uuid '175b0b0f6e07a163529dc99bcb2e107fc747019f'
-    oldFile: !uuid '02743053e6d451952e82aeadeaba6bba7c33de96'
-  /upload/template/default/touch/home/space_magic_mybox_opreation.htm:
-    newFile: !uuid 'd61ece6f9fa738c49a7f839ca81282f95ca24e42'
-    oldFile: !uuid '5b2487fa8a7716ace61a2f3d93f44d4da7351c91'
-  /upload/template/default/touch/home/space_magic_shop.htm:
-    newFile: !uuid '89d6f1e3d316cde7eacdc3e1bd14e00f5801bb7c'
-    oldFile: !uuid '37d45dc29a30f963dc6e09f170966ca3dae1850e'
-  /upload/template/default/touch/home/space_magic_shop_opreation.htm:
-    newFile: !uuid 'fa8565c6ff5c4e492fd7362a299f8a6e407e1d1a'
-    oldFile: !uuid '5393a77b49e7cec84ecb066b06b1745a2ac2beb4'
-  /upload/template/default/touch/home/space_medal.htm:
-    newFile: !uuid 'b659157a58e20604b4ca569fde03c0335aa6fe48'
-    oldFile: !uuid '2428eab573a73a6cc90329157ffba2482d461279'
-  /upload/template/default/touch/home/space_medal_float.htm:
-    newFile: !uuid 'e4c7a117b62b9d7b7ea5dcf4533db8e32b392b5c'
-    oldFile: !uuid '84680c502af16584e79d26eb515038b5df849a96'
-  /upload/template/default/touch/home/space_task.htm:
-    newFile: !uuid '4d9729ce5b5bdeacdf47780bfd1aca7ba39ec76e'
-    oldFile: !uuid '6af411953a765dd547759b423d24459849d1c420'
-  /upload/template/default/touch/home/space_task_detail.htm:
-    newFile: !uuid '0f7bb401f62ee951d7425aceac639e8856de0075'
-    oldFile: !uuid 'e43b2f8868f1228d952aff171fd870e6e4f978fd'
-  /upload/template/default/touch/home/space_task_list.htm:
-    newFile: !uuid '1b0c85ea93bfe7a0676fe25aa06189cf3b18f7ed'
-    oldFile: !uuid '27d8f186fe3dee0d4e7c777eb43756aae89f9f9e'
-  /upload/template/default/touch/home/space_task_parter.htm:
-    newFile: !uuid 'fabfc0728efd0d350bb6eeb4bc0f9a82d326370f'
-    oldFile: !uuid '33c5846298c2c36343c2df7db54deb8c475f5483'
-gitCommitId: !uuid 'd684a2944bad072f0ebf500f76f4925d2aefa501'
+    newFile: !uuid '77f1ee8db8b72673625056a7c8859a0c0270b35b'
+    oldFile: !uuid '3928cb79748bc5781abcc1bcacea0bf05a26a42c'
+  /upload/static:
+    newFile: !uuid '53f549a33f7f5397a2654908efccfa5ddb6c99ba'
+    oldFile: !uuid '9cbd4358574374e125909e065a22f753debcb0ff'
+  /upload/static/js:
+    newFile: !uuid 'd6fa107424a4d1824a9cda01cfdb1fc4039490b1'
+    oldFile: !uuid 'f2c0d3d6c908c60894aadf1c4bf72dfb60944740'
+  /upload/static/js/common.js:
+    newFile: !uuid 'b81d05fc84285b24390a2ce8c5bd2a0ec68fe761'
+    oldFile: !uuid 'b5d5282628968084b59d1d037bede6b554f1efc2'
+gitCommitId: !uuid '805683245ac6ac18ed471ff445cd4745b63b6a7d'
 renames: {
   }
-revisionId: 710
+revisionId: 711
