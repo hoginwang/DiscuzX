@@ -3,27 +3,21 @@ branches: {
   }
 fileChange:
   /upload:
-    newFile: !uuid '6bfc5c3e15ef45acee871e5336a7bc425f9ac768'
-    oldFile: !uuid '1983aef18c2d1fdf1eca2b7ae2c58fb6d0d51ce8'
-  /upload/source:
-    newFile: !uuid '118e33ac32a8efe7a0057c62ab7300b12eeb58de'
-    oldFile: !uuid 'fb9d90015a37a1275d8988d33854913237818aef'
-  /upload/source/admincp:
-    newFile: !uuid '2581b3afc21f59f4f00421979d6fda7be971b99a'
-    oldFile: !uuid '0d83ee59efedc82e25c21912a8ff0bfcea50f237'
-  /upload/source/admincp/admincp_medals.php:
-    newFile: !uuid '619c5ce90edcd3704aceeaf38a63d19d2d32c8b0'
-    oldFile: !uuid 'd17e68d0886b404995f81d920acea4d3b7090657'
-  /upload/source/class:
-    newFile: !uuid '350019eb90a596c2ffca016638c635635b344511'
-    oldFile: !uuid 'a3f0b4e6505a1a7f82db282838b5520aa5214913'
-  /upload/source/class/table:
-    newFile: !uuid '3603a3812edd9d73aa1b21cf739ed5bedcb2b43c'
-    oldFile: !uuid '3c2664075d94f8e883ab6c6ca995636320f5f404'
-  /upload/source/class/table/table_forum_medal.php:
-    newFile: !uuid '1c569cb5d41d24624a39ac8052ee8903f70d1de6'
-    oldFile: !uuid 'e065d071e74b5d496934ac6be8f8c49052d03a79'
-gitCommitId: !uuid '2dc12fec4ef596ba424793bb4867482c1a00a20a'
+    newFile: !uuid '5ecc58aebb7cdcebadf655c3064aadc15fb70247'
+    oldFile: !uuid '6bfc5c3e15ef45acee871e5336a7bc425f9ac768'
+  /upload/template:
+    newFile: !uuid 'db9b7787ffdf997f88bb0072168b246788eadf0f'
+    oldFile: !uuid 'ffba9e441bc56e5e6203b390fe251ac5aebc68fe'
+  /upload/template/default:
+    newFile: !uuid 'b7bc0d97d1f53f960ca75757f236fe12f8793176'
+    oldFile: !uuid '8d950df0a694bc47fcb3b91b6fa634ef693fe10e'
+  /upload/template/default/forum:
+    newFile: !uuid '8731c0dbed76c4d95dc617fc01f1958e99f3925d'
+    oldFile: !uuid '87c10c2c7104eb034d86bcf54362ac28af424cf7'
+  /upload/template/default/forum/trade_info.htm:
+    newFile: !uuid 'dfdc5435223af9f99487ba0de5f023fd189d3473'
+    oldFile: !uuid '7dda11e526daf63d1bd216cff657b597c8ab95f4'
+gitCommitId: !uuid 'e8016d91f51a6510eb84f356e416dcdc1d99bb24'
 renames: {
   }
-revisionId: 814
+revisionId: 815
