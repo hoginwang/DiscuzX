@@ -315,7 +315,7 @@ if(!$gid && (!defined('FORUM_INDEX_PAGE_MEMORY') || !FORUM_INDEX_PAGE_MEMORY)) {
 	if(!IS_ROBOT && ($_G['setting']['whosonlinestatus'] == 1 || $_G['setting']['whosonlinestatus'] == 3)) {
 		$_G['setting']['whosonlinestatus'] = 1;
 
-		$onlineinfo = explode("\t", $_G['cache']['onlinerecord']);
+		$onlineinfo = $_G['cache']['onlinerecord'] ? explode("\t", $_G['cache']['onlinerecord']) : [0, 0];
 		if(empty($_G['cookie']['onlineusernum'])) {
 			$onlinenum = C::app()->session->count();
 			if($onlinenum > $onlineinfo[0]) {

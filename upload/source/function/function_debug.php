@@ -55,11 +55,11 @@ function debugmessage($ajax = 0) {
 					$sqldebugrow .= '<tr style="border-bottom:1px dotted gray"><td>&nbsp;'.implode('&nbsp;</td><td>&nbsp;', array_keys($row)).'&nbsp;</td></tr>';
 					$i++;
 				}
-				if(strexists($row['Extra'], 'Using filesort')) {
+				if($row['Extra'] && strexists($row['Extra'], 'Using filesort')) {
 					$sqlw['Using filesort']++;
 					$extra .= $row['Extra'] = str_replace('Using filesort', '<font color=red>Using filesort</font>', $row['Extra']);
 				}
-				if(strexists($row['Extra'], 'Using temporary')) {
+				if($row['Extra'] && strexists($row['Extra'], 'Using temporary')) {
 					$sqlw['Using temporary']++;
 					$extra .= $row['Extra'] = str_replace('Using temporary', '<font color=red>Using temporary</font>', $row['Extra']);
 				}
