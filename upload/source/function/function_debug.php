@@ -178,7 +178,7 @@ EOF;
 			} elseif(is_object($v)) {
 				$_GA .= "<li><br />['$k'] => <i>object of ".get_class($v)."</i></li>";
 			} else {
-				$_GS .= "<li><br />['$k'] => ".dhtmlspecialchars($v)."</li>";
+				$_GS .= "<li><br />['$k'] => ".($v ? dhtmlspecialchars($v) : '')."</li>";
 			}
 		}
 	}

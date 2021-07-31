@@ -39,10 +39,10 @@ $admincp_actions_normal = array('index', 'setting', 'members', 'admingroup', 'us
 	'doing', 'group', 'blog', 'feed', 'album', 'pic', 'comment', 'share', 'click', 'specialuser', 'postsplit', 'threadsplit', 'report',
 	'district', 'diytemplate', 'verify', 'nav', 'domain', 'postcomment', 'tag', 'connect', 'card', 'portalpermission', 'collection', 'membersplit', 'makehtml');
 
-$action = preg_replace('/[^\[A-Za-z0-9_\]]/', '', getgpc('action'));
-$operation = preg_replace('/[^\[A-Za-z0-9_\]]/', '', getgpc('operation'));
-$do = preg_replace('/[^\[A-Za-z0-9_\]]/', '', getgpc('do'));
-$frames = preg_replace('/[^\[A-Za-z0-9_\]]/', '', getgpc('frames'));
+$action = preg_replace('/[^\[A-Za-z0-9_\]]/', '', getgpc('action') ?: '');
+$operation = preg_replace('/[^\[A-Za-z0-9_\]]/', '', getgpc('operation') ?: '');
+$do = preg_replace('/[^\[A-Za-z0-9_\]]/', '', getgpc('do') ?: '');
+$frames = preg_replace('/[^\[A-Za-z0-9_\]]/', '', getgpc('frames') ?: '');
 lang('admincp');
 $lang = & $_G['lang']['admincp'];
 $page = max(1, intval(getgpc('page')));
