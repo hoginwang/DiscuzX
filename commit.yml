@@ -3,27 +3,45 @@ branches: {
   }
 fileChange:
   /upload:
-    newFile: !uuid '3dd8f0881751b3f771abb0960c647fc4d4755c68'
-    oldFile: !uuid '77f1ee8db8b72673625056a7c8859a0c0270b35b'
-  /upload/source:
-    newFile: !uuid 'f8523a2edfd936457f98931dc136fcdef1a8d980'
-    oldFile: !uuid 'cda2ec652954bfde4ed5d789c88b9be880315a26'
-  /upload/source/class:
-    newFile: !uuid '2372291bdcf175bcf482114b172114aca904c9ae'
-    oldFile: !uuid 'ce7edcc0d2e44fe36bfca0ebd85c47c52dc975ab'
-  /upload/source/class/filesock:
-    newFile: !uuid '77f9b538d12ba877137b54a5d8c0cc75a243c3a8'
-    oldFile: !uuid '57369fea02a8a74ea5bdce785d0cf2a9b22c6f39'
-  /upload/source/class/filesock/filesock_base.php:
-    newFile: !uuid 'ca292f3af96d123e230951d4aca250f7e6900e5a'
-    oldFile: !uuid 'cbf31297fa47ef5aa23d647922f9e04c7fa5948c'
-  /upload/source/class/filesock/filesock_curl.php:
-    newFile: !uuid 'b4354975f95896e22c225f9443351b8ffe1b9de1'
-    oldFile: !uuid '295a19ccad3ae5f73c750e1cbe15e6d054b2eca6'
-  /upload/source/class/filesock/filesock_stream.php:
-    newFile: !uuid '50ac42c4b45daa3e17c49d0497f073998f427226'
-    oldFile: !uuid 'b225f90ec0bfc746f1c57893c848250aa204cd9c'
-gitCommitId: !uuid '542b1e31c730bd56d1203654833a8d50760a5274'
+    newFile: !uuid '35a05887fcaa4d1343bd8abd51eae3339146ec7a'
+    oldFile: !uuid '3dd8f0881751b3f771abb0960c647fc4d4755c68'
+  /upload/static:
+    newFile: !uuid 'c084676439b00874e672063b88c61695e27fac34'
+    oldFile: !uuid '53f549a33f7f5397a2654908efccfa5ddb6c99ba'
+  /upload/static/image:
+    newFile: !uuid 'f8d7b16847fcfa57cb3d83a738de612d13dbef98'
+    oldFile: !uuid '32c03001c1b10b7081135fddfe310c9311b8d209'
+  /upload/static/image/mobile:
+    newFile: !uuid 'a3a128c28f6d0b4e5eb70aecc1fbf4c2413a965b'
+    oldFile: !uuid '4a6f83bec8df3745545d8766f363a3d9e8e72b54'
+  /upload/static/image/mobile/style.css:
+    newFile: !uuid 'a34cf82631effdff56e18ab6742cdd48f4f3b88f'
+    oldFile: !uuid '8fc3be619c8a325252262e826ee8179df7aac5f1'
+  /upload/template:
+    newFile: !uuid '88e670a7860c7b35d5843c659be0a6dc191d059b'
+    oldFile: !uuid '64286f2abe709b8267e93acc95a271561edc801d'
+  /upload/template/default:
+    newFile: !uuid 'fd6447c0ca695db932308c567f43cdb783c04abb'
+    oldFile: !uuid 'd7f8070f967786681fc109b70f7f69f7dfab3dbd'
+  /upload/template/default/touch:
+    newFile: !uuid '0e0b0bad942b62046d5cd1143e0a2f595ace75d0'
+    oldFile: !uuid '0e4de2e69f93aaca991579d19c40410ea6054fec'
+  /upload/template/default/touch/home:
+    newFile: !uuid 'c8205d5c2d9f1f49af475776aac20e959848b03d'
+    oldFile: !uuid '743afcb8ccee27a9c24005e35757ce1fa65dcd8a'
+  /upload/template/default/touch/home/space_doing.htm:
+    newFile: !uuid '61b9053390a119b8852841ae1a54292368831d77'
+    oldFile: null
+  /upload/template/default/touch/home/space_doing_form.htm:
+    newFile: !uuid 'e4cdd779c929397b83b5e822c8be7af9e0bbb829'
+    oldFile: null
+  /upload/template/default/touch/home/space_doing_li.htm:
+    newFile: !uuid 'df50af476c7ee7e50e41206f18c6689c781ada52'
+    oldFile: null
+  /upload/template/default/touch/home/spacecp_doing.htm:
+    newFile: !uuid '3572c1996ee5de8236459e32928a08319c0d54c4'
+    oldFile: null
+gitCommitId: !uuid '6339d8c6cde91ca9ce206de502cdd69330cf69cf'
 renames: {
   }
-revisionId: 712
+revisionId: 713
