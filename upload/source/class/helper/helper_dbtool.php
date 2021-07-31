@@ -13,7 +13,7 @@ if (!defined('IN_DISCUZ')) {
 class helper_dbtool {
 
 	public static function dbversion() {
-		$db = & DB::object();
+		$db = DB::object();
 		return $db->version();
 	}
 
