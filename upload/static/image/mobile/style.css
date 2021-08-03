@@ -437,7 +437,7 @@ select {-moz-appearance:none;}
 .wall_list .magic_doodle img { margin-right: 5px;margin-bottom: 2px;}
 .wall_magic_list .magic_doodle { margin-left: 10px;}
 
-    /*----- 通用资讯类列表 -----*/
+/*----- 通用资讯类列表 -----*/
 .wzlist {background-color:var(--dz-BG-0);border-top:1px solid var(--dz-BOR-ed)}
 .wzlist li {overflow:hidden;border-bottom:1px solid var(--dz-BOR-ed)}
 .wzlist li a {display:block;padding:15px;overflow:hidden}
