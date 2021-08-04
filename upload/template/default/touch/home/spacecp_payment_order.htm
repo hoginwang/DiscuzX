@@ -6,7 +6,7 @@
 	<div class="my"><a href="<!--{if $_G['setting']['mobile']['mobilehotthread']}--><!--{if !empty($_G['setting']['grid']['showgrid'])}-->forum.php<!--{else}-->forum.php?mod=guide&view=newthread<!--{/if}--><!--{else}-->forum.php?forumlist=1<!--{/if}-->"><i class="dm-house"></i></a></div>
 </div>
 
-<!--{if !$order_list}-->
+<!--{if $order_list}-->
 <div class="home_credit_log mt10 mb10 cl">
 	<ul>
 		<!--{loop $order_list $order}-->

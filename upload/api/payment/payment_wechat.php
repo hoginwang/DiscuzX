@@ -552,7 +552,7 @@ class payment_wechat extends payment_base {
 		$client = filesock::open($params);
 		$data = $client -> request();
 		if(!$data) {
-			$data = $client -> responsetext;
+			$data = $client -> filesockbody;
 		}
 		return $data;
 	}
@@ -570,7 +570,7 @@ class payment_wechat extends payment_base {
 		));
 		$data = $client->request();
 		if(!$data) {
-			$data = $client->responsetext;
+			$data = $client->filesockbody;
 		}
 		return $data;
 	}
