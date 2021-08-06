@@ -15,6 +15,7 @@ $order_id = intval($_GET['order_id']);
 if(!$order_id){
 	showmessage('payment_order_no_exist', '', array(), array('showdialog' => true));
 }
+
 $order = C::t('common_payment_order')->fetch($order_id);
 if(!$order || $order['expire_time'] < time() || $_G['uid'] != $order['uid']){
 	showmessage('payment_order_no_exist', '', array(), array('showdialog' => true));

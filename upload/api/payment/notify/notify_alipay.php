@@ -18,7 +18,6 @@ $discuz = C::app();
 $discuz->init();
 
 if(!$_POST['sign'] || !$_POST['sign_type']) exit('fail');
-
 $sign = $_POST['sign'];
 unset($_POST['sign']);
 

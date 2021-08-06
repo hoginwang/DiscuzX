@@ -5,14 +5,13 @@
 	<h2>{lang payment_order}</h2>
 	<div class="my"><a href="<!--{if $_G['setting']['mobile']['mobilehotthread']}--><!--{if !empty($_G['setting']['grid']['showgrid'])}-->forum.php<!--{else}-->forum.php?mod=guide&view=newthread<!--{/if}--><!--{else}-->forum.php?forumlist=1<!--{/if}-->"><i class="dm-house"></i></a></div>
 </div>
-
 <!--{if $order_list}-->
 <div class="home_credit_log mt10 mb10 cl">
 	<ul>
 		<!--{loop $order_list $order}-->
 		<li class="cl">
 			<p class="flex-box align-items-center justify-content-between">
-                <span>{$order['type_name']}</span>
+				<span>{$order['type_name']}</span>
 				<span class="home-order-status-{$order['status']}">
 					{$order['amount']}
 					<!--{if $order['status'] == 2}-->
@@ -23,12 +22,12 @@
 				</span>
 			</p>
 			<p class="flex-box align-items-center justify-content-between mt5">
-                <span class="txt">
-                    {$order['subject']}
+				<span class="txt">
+					{$order['subject']}
 					<!--{if $order['description']}-->
 							<br/>{$order['description']}
 					<!--{/if}-->
-                </span>
+				</span>
 				<span class="mtime">{$order['dateline']}</span>
 			</p>
 		</li>

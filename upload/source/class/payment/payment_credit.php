@@ -14,6 +14,7 @@ if(!defined('IN_DISCUZ')){
 class payment_credit {
 
 	public function callback($data, $order) {
+
 		global $_G;
 		C::t('forum_order')->insert(array(
 			'orderid' => $order['out_biz_no'],

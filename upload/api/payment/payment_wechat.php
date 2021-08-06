@@ -56,6 +56,7 @@ class payment_wechat extends payment_base {
 				return $this->wechat_unifiedorder_pay($order, 'NATIVE');
 			}
 		}
+
 	}
 
 	public function status($out_biz_no) {

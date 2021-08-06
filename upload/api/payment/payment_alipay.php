@@ -486,6 +486,7 @@ class payment_alipay extends payment_base {
 			'method' => 'POST',
 			'post' => $post
 		));
+
 		$data = $client->request();
 
 		if($client->curlstatus['http_code'] == 200){

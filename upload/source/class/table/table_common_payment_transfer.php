@@ -16,7 +16,6 @@ class table_common_payment_transfer extends discuz_table {
 	public function __construct() {
 		$this->_table = 'common_payment_transfer';
 		$this->_pk = 'id';
-
 		parent::__construct();
 	}
 

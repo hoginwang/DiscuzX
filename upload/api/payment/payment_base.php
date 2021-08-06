@@ -16,7 +16,7 @@ class payment_base {
 	var $settings;
 	var $notify_url;
 
-	public function __construct() { }
+	public function __construct() {}
 
 	protected function enable() {
 		if($this->settings && $this->settings['on']){

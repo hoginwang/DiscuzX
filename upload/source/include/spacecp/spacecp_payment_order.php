@@ -14,6 +14,7 @@ if(!defined('IN_DISCUZ')){
 $page = empty($_GET['page']) ? 1 : intval($_GET['page']);
 if($page < 1) $page = 1;
 $perpage = 20;
+
 $start = ($page - 1) * $perpage;
 
 $gets = array(

@@ -14,6 +14,7 @@ if(!defined('IN_DISCUZ')){
 class payment {
 
 	public static function enable() {
+
 		$channels = C::t('common_setting')->fetch_all_setting(array('ec_wechat', 'ec_alipay'), true);
 		if($channels['ec_alipay']['on']){
 			return true;

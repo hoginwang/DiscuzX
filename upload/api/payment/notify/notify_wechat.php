@@ -19,6 +19,7 @@ $discuz->init();
 
 $payment = new payment_wechat();
 if($_SERVER['HTTP_WECHATPAY_SIGNATURE']){
+
 	$data = $payment->v3_wechat_sign_verify();
 	if($data && $data['code'] == 200){
 		$data = json_decode($data['data'], true);
