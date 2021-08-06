@@ -194,8 +194,8 @@ class control extends adminbase {
 		$srchregdatestart = getgpc('srchregdatestart', 'R');
 		$srchregdateend = getgpc('srchregdateend', 'R');
 		$srchuid = intval(getgpc('srchuid', 'R'));
-		$srchregip = trim(getgpc('srchregip', 'R'));
-		$srchemail = trim(getgpc('srchemail', 'R'));
+		$srchregip = trim(getgpc('srchregip', 'R') ?: '');
+		$srchemail = trim(getgpc('srchemail', 'R') ?: '');
 
 		$sqladd = $urladd = '';
 		if($srchname) {

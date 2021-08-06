@@ -38,7 +38,7 @@ class appmodel {
 	function get_app_by_appid($appid, $includecert = FALSE) {
 		$appid = intval($appid);
 		$arr = $this->db->fetch_first("SELECT * FROM ".UC_DBTABLEPRE."applications WHERE appid='$appid'");
-		$arr['extra'] = unserialize($arr['extra']);
+		$arr['extra'] = unserialize($arr['extra']) ?: [];
 		if($tmp = $this->base->authcode($arr['authkey'], 'DECODE', UC_MYKEY)) {
 			$arr['authkey'] = $tmp;
 		}
