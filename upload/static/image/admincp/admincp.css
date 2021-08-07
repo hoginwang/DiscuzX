@@ -560,3 +560,13 @@ a.faq { background: url(faq.gif) no-repeat 0 2px; padding:1px; margin-left:10px;
 .pbg { position: relative; margin: 10px 0; width: 200px; height: 16px; background: url(bg_progressbar.png) 0 0 repeat-x; border-radius: 5px; }
 	.pbr { height: 16px; width: 200px; background-image: url(bg_progressbar.png); background-color: #5AAF4A; background-position: 0 -16px; background-repeat: repeat-x; border-radius: 5px; }
 	.pbg .xs0 { position: absolute; top: 0; right: 8px; }
+
+/* iconfont */
+@font-face { font-family: "dzicon"; src: url('../common/dzicon.eot'); src: url('../common/dzicon.eot?#iefix') format('eot'), url('../common/dzicon.woff2') format('woff2'), url('../common/dzicon.woff') format('woff'); font-weight: normal; font-style: normal; }
+[class^="fico-"]:before, [class*=" fico-"]:before { font-family: "dzicon"; font-style: normal; font-weight: normal; speak: none; display: inline-block; text-decoration: inherit; width: 1em; margin-right: .2em; text-align: center; font-variant: normal; text-transform: none; line-height: 1em; font-size: 120%; }
+.fc-v{ color: #7CBE00;} .fc-p { color: #2B7ACD;} .fc-i { color: #FF512C;}
+
+/* font icon图标列表 */
+.fico-remove_circle:before{content:"\f109";}
+.fico-check_right:before{content:"\f115";}
+.fico-stars:before{content:"\f12a";}
