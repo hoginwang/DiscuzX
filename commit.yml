@@ -3,21 +3,27 @@ branches: {
   }
 fileChange:
   /upload:
-    newFile: !uuid '112816111ab08136585114ab22b64718d8a2b1df'
-    oldFile: !uuid '8f7bd0dbe4b32b9c2afec85d78655a036b7df505'
+    newFile: !uuid 'd6243dcd3924280099dbbfacbe287671b79144d1'
+    oldFile: !uuid '112816111ab08136585114ab22b64718d8a2b1df'
   /upload/source:
-    newFile: !uuid '0b78425f262e91c419d599935dcc791cdacace71'
-    oldFile: !uuid 'f9800f06f2068196f7a0559717d1c8397c0675cb'
-  /upload/source/class:
-    newFile: !uuid '990f8c636718749bff8e82f4349910f759328b70'
-    oldFile: !uuid '350019eb90a596c2ffca016638c635635b344511'
-  /upload/source/class/discuz:
-    newFile: !uuid '85659a5a38c38a04a038ed49c8583426e2da7991'
-    oldFile: !uuid '282c2d65e01a26652c54cf5b50d60fde94cfed51'
-  /upload/source/class/discuz/discuz_error.php:
-    newFile: !uuid '3c6bae5b6c3acc4783c56772eb32d81cadf50e6d'
-    oldFile: !uuid 'f8851ec901289d02ffefacc4d6675c91befa97b0'
-gitCommitId: !uuid '2e9b692946de42c525c8ab8e14a35f5ee3c45164'
+    newFile: !uuid 'ec2f16cbfcd93fd4a5e66fc8f6b0ec1d264a3399'
+    oldFile: !uuid '0b78425f262e91c419d599935dcc791cdacace71'
+  /upload/source/admincp:
+    newFile: !uuid '50cb92ccc7af136c30e2e63d4e7b998ef4ca0ffe'
+    oldFile: !uuid '2581b3afc21f59f4f00421979d6fda7be971b99a'
+  /upload/source/admincp/admincp_plugins.php:
+    newFile: !uuid 'ebe3b2e4753a5a78ada772a31ee2c6bc9ea6c32e'
+    oldFile: !uuid '989e624032eb4badb5019484e01f8c0693484454'
+  /upload/source/admincp/admincp_styles.php:
+    newFile: !uuid 'a6fd38796b37eb90617921191316d633e95c2ebd'
+    oldFile: !uuid '1f70f9355f1eaea67a93b7a46f67c06355c10782'
+  /upload/source/function:
+    newFile: !uuid '5630861654ad875696871f6693bf5f2240dcb925'
+    oldFile: !uuid '0d1a799b7e3426554f3a7a11d11833645d41137b'
+  /upload/source/function/function_cloudaddons.php:
+    newFile: !uuid 'ff35e967bd3e55c9a115a0ff577de3eb3e21ac0a'
+    oldFile: !uuid 'c337618b7ecceddbc8c5b344f0dfd538875e1b1a'
+gitCommitId: !uuid '0a6b5cd5068c79354ed5b9c22a3d56b86c73402c'
 renames: {
   }
-revisionId: 821
+revisionId: 822
