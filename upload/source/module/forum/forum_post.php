@@ -24,7 +24,7 @@ $sortid = intval(getgpc('sortid'));
 $typeid = intval(getgpc('typeid'));
 $special = intval(getgpc('special'));
 
-parse_str(getgpc('extra'), $_GET['extra']);
+parse_str(getgpc('extra') ?: '', $_GET['extra']);
 $_GET['extra'] = http_build_query($_GET['extra']);
 
 $postinfo = array('subject' => '');

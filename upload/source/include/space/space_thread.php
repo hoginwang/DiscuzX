@@ -33,7 +33,7 @@ ckstart($start, $perpage);
 $list = array();
 $userlist = array();
 $hiddennum = $count = $pricount = 0;
-$_GET['from'] = dhtmlspecialchars(preg_replace("/[^\[A-Za-z0-9_\]]/", '', getgpc('from')));
+$_GET['from'] = dhtmlspecialchars(preg_replace("/[^\[A-Za-z0-9_\]]/", '', getgpc('from') ?: ''));
 $gets = array(
 	'mod' => 'space',
 	'uid' => $space['uid'],
@@ -301,7 +301,7 @@ $actives = array($_GET['view'] =>' class="a"');
 
 if($need_count) {
 
-	if($searchkey = stripsearchkey(getgpc('searchkey'))) {
+	if($searchkey = stripsearchkey(getgpc('searchkey') ?: '')) {
 		$searchkey = dhtmlspecialchars($searchkey);
 	}
 
