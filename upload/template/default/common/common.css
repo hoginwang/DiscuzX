@@ -721,7 +721,7 @@ CSS 写作注意事项：
 
 		/*	#scrolltop span { visibility: hidden; }*/
 
-		#nv_home #ft, .pg_announcement #ft, .pg_modcp #ft, .pg_portalcp #ft, .pg_ranklist #ft, #ft { border-top: none; }
+		#nv_home #ft, .pg_announcement #ft, .pg_modcp #ft, .pg_portalcp #ft, .pg_ranklist #ft { border-top: none; }
 
 /* 通用的区域块 */
 	/*
