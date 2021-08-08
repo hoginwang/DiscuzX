@@ -1629,7 +1629,7 @@ CREATE TABLE pre_common_payment_order  (
   KEY (`uid`),
   KEY (`type`),
   KEY (`status`)
-) ENGINE = InnoDB;
+) ENGINE=InnoDB;
 
 DROP TABLE IF EXISTS pre_common_payment_refund;
 CREATE TABLE pre_common_payment_refund  (
@@ -1647,7 +1647,7 @@ CREATE TABLE pre_common_payment_refund  (
   PRIMARY KEY (`id`),
   UNIQUE KEY (`out_biz_no`),
   INDEX (`order_id`)
-) ENGINE = InnoDB;
+) ENGINE=InnoDB;
 
 DROP TABLE IF EXISTS pre_common_payment_transfer;
 CREATE TABLE pre_common_payment_transfer  (
@@ -1671,7 +1671,7 @@ CREATE TABLE pre_common_payment_transfer  (
   UNIQUE KEY (`out_biz_no`),
   KEY (`uid`),
   KEY (`status`)
-) ENGINE = InnoDB;
+) ENGINE=InnoDB;
 
 DROP TABLE IF EXISTS pre_connect_disktask;
 CREATE TABLE pre_connect_disktask (

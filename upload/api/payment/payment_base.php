@@ -7,7 +7,7 @@
  *      $Id: payment_base.php 36342 2021-05-17 14:15:31Z dplugin $
  */
 
-if(!defined('IN_DISCUZ')){
+if(!defined('IN_DISCUZ')) {
 	exit('Access Denied');
 }
 
@@ -19,9 +19,9 @@ class payment_base {
 	public function __construct() {}
 
 	protected function enable() {
-		if($this->settings && $this->settings['on']){
+		if($this->settings && $this->settings['on']) {
 			return true;
-		} else{
+		} else {
 			return false;
 		}
 	}

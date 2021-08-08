@@ -7,7 +7,7 @@
  *      $Id: payment_credit.php 36342 2021-05-17 15:12:53Z dplugin $
  */
 
-if(!defined('IN_DISCUZ')){
+if(!defined('IN_DISCUZ')) {
 	exit('Access Denied');
 }
 

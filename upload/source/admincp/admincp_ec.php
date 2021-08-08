@@ -20,8 +20,8 @@ if($operation == 'alipay') {
 
 	$alipaysettings = C::t('common_setting')->fetch_setting('ec_alipay', true);
 
-	if (!empty($checktype)) {
-		if ($checktype == 'credit') {
+	if(!empty($checktype)) {
+		if($checktype == 'credit') {
 			$return_url = $_G['siteurl'] . 'home.php?mod=spacecp&ac=credit';
 			$pay_url = payment::create_order('payment_credit', $lang['ec_alipay_checklink_credit'], $lang['ec_alipay_checklink_credit'], 1, $return_url);
 			ob_end_clean();
@@ -30,7 +30,7 @@ if($operation == 'alipay') {
 		exit;
 	}
 
-	if (!submitcheck('alipaysubmit')) {
+	if(!submitcheck('alipaysubmit')) {
 
 		shownav('extended', 'nav_ec');
 		showsubmenu('nav_ec', array(
@@ -98,8 +98,10 @@ if($operation == 'alipay') {
 
 	} else {
 		$settingsnew = $_GET['settingsnew'];
-		foreach ($settingsnew as $name => $value) {
-			if ($value == $alipaysettings[$name] || strpos($value, '********') !== false) continue;
+		foreach($settingsnew as $name => $value) {
+			if($value == $alipaysettings[$name] || strpos($value, '********') !== false) {
+				continue;
+			}
 			$value = daddslashes($value);
 			$alipaysettings[$name] = $value;
 		}
@@ -109,11 +111,11 @@ if($operation == 'alipay') {
 		cpmsg('alipay_succeed', 'action=ec&operation=alipay', 'succeed');
 	}
 
-} elseif ($operation == 'wechat') {
+} elseif($operation == 'wechat') {
 
 	$wechatsettings = C::t('common_setting')->fetch_setting('ec_wechat', true);
-	if (!empty($checktype)) {
-		if ($checktype == 'credit') {
+	if(!empty($checktype)) {
+		if($checktype == 'credit') {
 			$return_url = $_G['siteurl'] . 'home.php?mod=spacecp&ac=credit';
 			$pay_url = payment::create_order('payment_credit', $lang['ec_alipay_checklink_credit'], $lang['ec_alipay_checklink_credit'], 1, $return_url);
 			ob_end_clean();
@@ -122,7 +124,7 @@ if($operation == 'alipay') {
 		exit;
 	}
 
-	if (!submitcheck('wechatsubmit')) {
+	if(!submitcheck('wechatsubmit')) {
 
 		shownav('extended', 'nav_ec');
 		showsubmenu('nav_ec', array(
@@ -154,7 +156,7 @@ if($operation == 'alipay') {
 		$check['hidden1'] = ' onclick="$(\'api_version_2\').style.display = \'none\';$(\'api_version_3\').style.display = \'\';"';
 		$check['hidden0'] = ' onclick="$(\'api_version_2\').style.display = \'\';$(\'api_version_3\').style.display = \'none\';"';
 		$html = '<ul onmouseover="altStyle(this);"><li' . ($check['false'] ? ' class="checked"' : '') . '><input class="radio" type="radio" name="settingsnew[ec_wechat_version]" value="0" ' . $check['false'] . $check['hidden0'] . '>&nbsp;' . $lang['ec_wechat_version_2'] . '</li>';
-		if ($wxpayment->v3_wechat_support()) {
+		if($wxpayment->v3_wechat_support()) {
 			$html .= '<li' . ($check['true'] ? ' class="checked"' : '') . '><input class="radio" type="radio" name="settingsnew[ec_wechat_version]" value="1" ' . $check['true'] . $check['hidden1'] . '>&nbsp;' . $lang['ec_wechat_version_3'] . '</li>';
 		} else {
 			$html .= '<li style="margin-left: 5px; color: red;">' . $lang['ec_wechat_version_3'] . '(' . $lang['ec_wechat_php_version_low'] . ')</li>';
@@ -193,18 +195,20 @@ if($operation == 'alipay') {
 
 	} else {
 		$settingsnew = $_GET['settingsnew'];
-		foreach ($settingsnew as $name => $value) {
-			if ($value == $wechatsettings[$name] || strpos($value, '********') !== false) continue;
+		foreach($settingsnew as $name => $value) {
+			if($value == $wechatsettings[$name] || strpos($value, '********') !== false) {
+				continue;
+			}
 			$value = daddslashes($value);
 			$wechatsettings[$name] = $value;
 		}
 		C::t('common_setting')->update_setting('ec_wechat', $wechatsettings);
 		updatecache('setting');
 
-		if ($wechatsettings['ec_wechat_version'] && $wechatsettings['appid'] && $wechatsettings['mch_id'] && $wechatsettings['v3_key'] && $wechatsettings['v3_private_key'] && $wechatsettings['v3_serial_no']) {
+		if($wechatsettings['ec_wechat_version'] && $wechatsettings['appid'] && $wechatsettings['mch_id'] && $wechatsettings['v3_key'] && $wechatsettings['v3_private_key'] && $wechatsettings['v3_serial_no']) {
 			$payment = payment::get('wechat');
 			$result = $payment->v3_wechat_certificates();
-			if ($result['code'] == 200) {
+			if($result['code'] == 200) {
 				$wechatsettings['v3_certificates'] = $result['data'];
 			}
 			C::t('common_setting')->update_setting('ec_wechat', $wechatsettings);
@@ -278,7 +282,7 @@ if($operation == 'alipay') {
 		showtips('ec_tenpay_tips');
 		showformheader('ec&operation=tenpay');
 
-		showtableheader('','nobottom');
+		showtableheader('', 'nobottom');
 
 
 		showtitle('ec_tenpay_opentrans');
@@ -332,7 +336,7 @@ if($operation == 'alipay') {
 
 	}
 
-} elseif ($operation == 'paymentorders') {
+} elseif($operation == 'paymentorders') {
 
 	shownav('extended', 'nav_ec');
 	showsubmenu('nav_ec', array(
@@ -348,26 +352,26 @@ if($operation == 'alipay') {
 		array('nav_ec_transferorders', 'ec&operation=transferorders', 0)
 	));
 
-	if (submitcheck('querysubmit')) {
+	if(submitcheck('querysubmit')) {
 		$order_id = intval($_GET['order_id']);
 		$channel = daddslashes($_GET['channel']);
 
 		$result = payment::query_order($channel, $order_id);
-		if ($result['code'] == 200) {
+		if($result['code'] == 200) {
 			cpmsg('payment_succeed', $_G['siteurl'] . ADMINSCRIPT . '?action=ec&operation=paymentorders', 'succeed');
 		} else {
 			cpmsg($result['message'], $_G['siteurl'] . ADMINSCRIPT . '?action=ec&operation=paymentorders', 'error');
 		}
-	} else if ($_GET['op'] == 'retry') {
+	} elseif($_GET['op'] == 'retry') {
 		$order_id = intval($_GET['order_id']);
 		$order = C::t('common_payment_order')->fetch($order_id);
 		$result = payment::retry_callback_order($order);
 		if($result['code'] == 200) {
 			cpmsg('payment_succeed', $_G['siteurl'] . ADMINSCRIPT . '?action=ec&operation=paymentorders', 'succeed');
-		}else{
+		} else {
 			cpmsg($result['message'], $_G['siteurl'] . ADMINSCRIPT . '?action=ec&operation=paymentorders', 'error');
 		}
-	} else if ($_GET['op'] == 'query') {
+	} elseif($_GET['op'] == 'query') {
 		$order_id = intval($_GET['order_id']);
 		$order = C::t('common_payment_order')->fetch($order_id);
 
@@ -385,7 +389,7 @@ if($operation == 'alipay') {
 		showsetting('ec_orders_submitdate', '', '', dgmdate($order['dateline']));
 		$channelradios = '<ul onmouseover="altStyle(this);">';
 		$channelindex = 0;
-		foreach ($channels as $index => $channel) {
+		foreach($channels as $index => $channel) {
 			$channelradios .= '<li'.($channelindex === 0 ? ' class="checked"' : '').'><input class="radio" type="radio" name="channel" '.($channelindex === 0 ? 'checked' : '').' value="' . $channel['id'] . '">&nbsp;' . $channel['title'] . '</li>';
 			$channelindex++;
 		}
@@ -414,7 +418,7 @@ if($operation == 'alipay') {
 		$types = C::t('common_payment_order')->fetch_type_all();
 		$typeoptions = array();
 		$typeoptions[] = '<option value="">' . $lang['all'] . '</option>';
-		foreach ($types as $k => $v) {
+		foreach($types as $k => $v) {
 			$typeoptions[] = "<option value=\"{$k}\"" . ($k == $queryparams['type'] ? ' selected' : '') . ">{$v}</option>";
 		}
 		showformheader('ec&operation=paymentorders');
@@ -434,7 +438,7 @@ if($operation == 'alipay') {
 		$channels = payment::channels();
 		$channeloptions = array();
 		$channeloptions[] = '<option value="">' . $lang['all'] . '</option>';
-		foreach ($channels as $channel) {
+		foreach($channels as $channel) {
 			$channeloptions[] = '<option value="' . $channel['id'] . '"' . ($queryparams['channel'] == $channel['id'] ? ' selected' : '') . '>' . $channel['title'] . '</option>';
 		}
 		$statusoptions = array();
@@ -454,12 +458,12 @@ if($operation == 'alipay') {
 		showsubmit('searchsubmit');
 		showtablefooter();
 		/** list */
-		if ($queryparams['user']) {
-			if (preg_match('/^\d+$/', $queryparams['user'])) {
+		if($queryparams['user']) {
+			if(preg_match('/^\d+$/', $queryparams['user'])) {
 				$queryparams['uid'] = $queryparams['user'];
 			} else {
 				$user = C::t('common_member')->fetch_uid_by_username($queryparams['user']);
-				if ($user) {
+				if($user) {
 					$queryparams['uid'] = $user['uid'];
 				} else {
 					$queryparams['uid'] = -1;
@@ -483,26 +487,26 @@ if($operation == 'alipay') {
 		);
 		showtableheader('result');
 		showsubtitle(array('ec_paymentorders_no', 'ec_paymentorders_type', 'ec_paymentorders_desc', 'ec_paymentorders_buyer', 'ec_paymentorders_channel', 'ec_paymentorders_amount', 'ec_paymentorders_status', 'ec_orders_submitdate', 'ec_orders_confirmdate', ''), 'header', $tdstyles);
-		if ($ordercount > 0) {
+		if($ordercount > 0) {
 			$order_list = C::t('common_payment_order')->fetch_all_by_search($queryparams['uid'], $queryparams['type'], $queryparams['starttime'], $queryparams['endtime'], $queryparams['out_biz_no'], $queryparams['channel'], $queryparams['status'], $start_limit, $_G['tpp']);
 			$refund_list = C::t('common_payment_refund')->sum_by_orders(array_keys($order_list));
-			foreach ($order_list as $order) {
+			foreach($order_list as $order) {
 				$user = getuserbyuid($order['uid']);
-				if (!$order['status'] && $order['expire_time'] < time()) {
+				if(!$order['status'] && $order['expire_time'] < time()) {
 					$order['status'] = 2;
-				} else if ($order['status'] == 1 && $refund_list[$order['id']]) {
+				} elseif($order['status'] == 1 && $refund_list[$order['id']]) {
 					$order['status'] = 3;
 					$order['refund_amount'] = $refund_list[$order['id']]['amount'];
 				}
 
 				$amountstr = number_format($order['amount'] / 100, 2, '.', ',');
-				if ($order['status'] == 3) {
+				if($order['status'] == 3) {
 					$amountstr .= '<br/>' . $lang['ec_paymentorders_refund_amount'] . ': ' . number_format($order['refund_amount'] / 100, 2, '.', ',');
 				}
 				$operations = '';
-				if (in_array($order['status'], array(0, 2))) {
+				if(in_array($order['status'], array(0, 2))) {
 					$operations .= '<a href="' . ADMINSCRIPT . '?action=ec&operation=paymentorders&op=query&order_id=' . $order['id'] . '">' . $lang['ec_paymentorders_op_status'] . '</a>';
-				}elseif($order['status'] == 1 && !$order['callback_status']) {
+				} elseif($order['status'] == 1 && !$order['callback_status']) {
 					$operations = '<a href="' . ADMINSCRIPT . '?action=ec&operation=paymentorders&op=retry&order_id=' . $order['id'] . '">'.$lang['ec_paymentorders_callback_tips'].'</a>';
 				}
 
@@ -527,7 +531,7 @@ if($operation == 'alipay') {
 		showformfooter();
 	}
 
-} elseif ($operation == 'transferorders') {
+} elseif($operation == 'transferorders') {
 
 	shownav('extended', 'nav_ec');
 	showsubmenu('nav_ec', array(
@@ -543,21 +547,21 @@ if($operation == 'alipay') {
 		array('nav_ec_transferorders', 'ec&operation=transferorders', 1)
 	));
 
-	if ($_GET['op'] == 'query') {
+	if($_GET['op'] == 'query') {
 		$transfer_no = daddslashes($_GET['transfer_no']);
 
 		$result = payment::transfer_status($transfer_no);
-		if ($result['code'] == 200) {
+		if($result['code'] == 200) {
 			cpmsg('payment_transfer_succeed', $_G['siteurl'] . ADMINSCRIPT . '?action=ec&operation=transferorders&out_biz_no=' . $transfer_no, 'succeed');
 		} else {
 			cpmsg($result['message'], $_G['siteurl'] . ADMINSCRIPT . '?action=ec&operation=transferorders&out_biz_no=' . $transfer_no, 'error');
 		}
-	} else if ($_GET['op'] == 'retry') {
+	} elseif($_GET['op'] == 'retry') {
 		$order_id = intval($_GET['order_id']);
 		$order = C::t('common_payment_transfer')->fetch($order_id);
 
 		$result = payment::transfer($order['channel'], $order['out_biz_no'], $order['amount'], $order['uid'], $order['realname'], $order['account'], $order['subject'], $order['description']);
-		if ($result['code'] == 200) {
+		if($result['code'] == 200) {
 			cpmsg('payment_transfer_succeed', $_G['siteurl'] . ADMINSCRIPT . '?action=ec&operation=transferorders&out_biz_no=' . $order['out_biz_no'], 'succeed');
 		} else {
 			cpmsg($result['message'], $_G['siteurl'] . ADMINSCRIPT . '?action=ec&operation=transferorders&out_biz_no=' . $order['out_biz_no'], 'error');
@@ -589,7 +593,7 @@ if($operation == 'alipay') {
 		$channels = payment::channels();
 		$channeloptions = array();
 		$channeloptions[] = '<option value="">' . $lang['all'] . '</option>';
-		foreach ($channels as $channel) {
+		foreach($channels as $channel) {
 			$channeloptions[] = '<option value="' . $channel['id'] . '"' . ($queryparams['channel'] == $channel['id'] ? ' selected' : '') . '>' . $channel['title'] . '</option>';
 		}
 		$statusoptions = array();
@@ -613,12 +617,12 @@ if($operation == 'alipay') {
 		showsubmit('searchsubmit');
 		showtablefooter();
 		/** list */
-		if ($queryparams['user']) {
-			if (preg_match('/^\d+$/', $queryparams['user'])) {
+		if($queryparams['user']) {
+			if(preg_match('/^\d+$/', $queryparams['user'])) {
 				$queryparams['uid'] = $queryparams['user'];
 			} else {
 				$user = C::t('common_member')->fetch_uid_by_username($queryparams['user']);
-				if ($user) {
+				if($user) {
 					$queryparams['uid'] = $user['uid'];
 				} else {
 					$queryparams['uid'] = -1;
@@ -642,13 +646,13 @@ if($operation == 'alipay') {
 		);
 		showtableheader('result');
 		showsubtitle(array('ec_paymentorders_no', 'ec_transferorders_user', 'ec_transferorders_channel', 'ec_transferorders_desc', 'ec_paymentorders_amount', 'ec_paymentorders_status', 'ec_transferorders_error', 'ec_orders_submitdate', 'ec_orders_confirmdate', ''), 'header', $tdstyles);
-		if ($ordercount > 0) {
+		if($ordercount > 0) {
 			$order_list = C::t('common_payment_transfer')->fetch_all_by_search($queryparams['uid'], $queryparams['type'], $queryparams['starttime'], $queryparams['endtime'], $queryparams['out_biz_no'], $queryparams['channel'], $queryparams['status'], $start_limit, $_G['tpp']);
-			foreach ($order_list as $order) {
+			foreach($order_list as $order) {
 				$user = getuserbyuid($order['uid']);
-				if ($order['status'] == 1) {
+				if($order['status'] == 1) {
 					$operations = '<a href="' . ADMINSCRIPT . '?action=ec&operation=transferorders&op=query&transfer_no=' . $order['out_biz_no'] . '">' . $lang['ec_paymentorders_op_status'] . '</a>';
-				} else if ($order['status'] == 3) {
+				} elseif($order['status'] == 3) {
 					$operations = '<a href="' . ADMINSCRIPT . '?action=ec&operation=transferorders&op=retry&order_id=' . $order['id'] . '">' . $lang['ec_transferorders_op_retry'] . '</a>';
 				}
 				showtablerow('class="order-status-' . $order['status'] . '"', $tdstyles, array(
@@ -730,7 +734,7 @@ if($operation == 'alipay') {
 			$ordercount = C::t('forum_order')->count_by_search(null, $_GET['orderstatus'], $_GET['orderid'], null, ($_GET['users'] ? explode(',', str_replace(' ', '', $_GET['users'])) : null), $_GET['buyer'], $_GET['admin'], strtotime($_GET['sstarttime']), strtotime($_GET['sendtime']), strtotime($_GET['cstarttime']), strtotime($_GET['cendtime']));
 			$multipage = multi($ordercount, $_G['tpp'], $page, ADMINSCRIPT."?action=ec&operation=orders&searchsubmit=yes&orderstatus={$_GET['orderstatus']}&orderid={$_GET['orderid']}&users={$_GET['users']}&buyer={$_GET['buyer']}&admin={$_GET['admin']}&sstarttime={$_GET['sstarttime']}&sendtime={$_GET['sendtime']}&cstarttime={$_GET['cstarttime']}&cendtime={$_GET['cendtime']}");
 
-			showtagheader('div', 'orderlist', TRUE);
+			showtagheader('div', 'orderlist', true);
 			showformheader('ec&operation=orders');
 			showtableheader('result');
 			showsubtitle(array('', 'ec_orders_id', 'ec_orders_status', 'ec_orders_buyer', 'ec_orders_amount', 'ec_orders_price', 'ec_orders_submitdate', 'ec_orders_confirmdate'));

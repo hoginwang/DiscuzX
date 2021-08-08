@@ -7,12 +7,12 @@
  *      $Id: table_common_payment_order.php 36342 2021-05-17 15:14:35Z dplugin $
  */
 
-if(!defined('IN_DISCUZ')){
+if(!defined('IN_DISCUZ')) {
 	exit('Access Denied');
 }
 
-class table_common_payment_order extends discuz_table {
-
+class table_common_payment_order extends discuz_table
+{
 	public function __construct() {
 		$this->_table = 'common_payment_order';
 		$this->_pk = 'id';
@@ -35,12 +35,12 @@ class table_common_payment_order extends discuz_table {
 
 	public function fetch_type_all($uid = 0) {
 		$wherestr = '';
-		if($uid){
+		if($uid) {
 			$wherestr = 'WHERE `uid` = ' . intval($uid);
 		}
 		$query = DB::query("SELECT `type`, `type_name` FROM %t $wherestr GROUP BY `type`", array($this->_table));
 		$result = array();
-		while ($item = DB::fetch($query)) {
+		while($item = DB::fetch($query)) {
 			$result[$item['type']] = $item['type_name'];
 		}
 		return $result;
@@ -54,44 +54,43 @@ class table_common_payment_order extends discuz_table {
 	private function make_query_condition($uid, $optype, $begintime = 0, $endtime = 0, $out_biz_no = '', $channel = '', $status = '') {
 		$wherearr = array();
 		$parameter = array($this->_table);
-		if($out_biz_no){
+		if($out_biz_no) {
 			$wherearr[] = 'out_biz_no = %s';
 			$parameter[] = $out_biz_no;
 		}
-		if($uid){
+		if($uid) {
 			$uid = dintval($uid, true);
 			$wherearr[] = is_array($uid) && $uid ? 'uid IN (%n)' : 'uid = %d';
 			$parameter[] = $uid;
 		}
-		if($optype){
+		if($optype) {
 			$wherearr[] = is_array($optype) && $optype ? '`type` IN (%n)' : '`type` = %s';
 			$parameter[] = $optype != -1 ? $optype : '';
 		}
-		if($channel){
+		if($channel) {
 			$wherearr[] = 'channel = %s';
 			$parameter[] = $channel;
 		}
-		if($status !== ''){
-			if($status == 2){
+		if($status !== '') {
+			if($status == 2) {
 				$wherearr[] = '`status` = 0 AND `expire_time` < %d';
 				$parameter[] = time();
-			} else{
+			} else {
 				$wherearr[] = '`status` = %d';
 				$parameter[] = $status;
 			}
 		}
-		if($begintime){
+		if($begintime) {
 			$wherearr[] = 'dateline > %d';
 			$parameter[] = dmktime($begintime);
 		}
-		if($endtime){
+		if($endtime) {
 			$wherearr[] = 'dateline < %d';
 			$parameter[] = dmktime($endtime);
 		}
 		$wheresql = !empty($wherearr) && is_array($wherearr) ? ' WHERE ' . implode(' AND ', $wherearr) : '';
 		return array($wheresql, $parameter);
 	}
-
 }
 
 ?>

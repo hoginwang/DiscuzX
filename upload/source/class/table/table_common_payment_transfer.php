@@ -7,12 +7,12 @@
  *      $Id: table_common_payment_transfer.php 36342 2021-05-17 15:17:43Z dplugin $
  */
 
-if(!defined('IN_DISCUZ')){
+if(!defined('IN_DISCUZ')) {
 	exit('Access Denied');
 }
 
-class table_common_payment_transfer extends discuz_table {
-
+class table_common_payment_transfer extends discuz_table
+{
 	public function __construct() {
 		$this->_table = 'common_payment_transfer';
 		$this->_pk = 'id';
@@ -40,35 +40,34 @@ class table_common_payment_transfer extends discuz_table {
 	private function make_query_condition($uid, $begintime = 0, $endtime = 0, $out_biz_no = '', $channel = '', $status = '') {
 		$wherearr = array();
 		$parameter = array($this->_table);
-		if($out_biz_no){
+		if($out_biz_no) {
 			$wherearr[] = 'out_biz_no = %s';
 			$parameter[] = $out_biz_no;
 		}
-		if($uid){
+		if($uid) {
 			$uid = dintval($uid, true);
 			$wherearr[] = is_array($uid) && $uid ? 'uid IN (%n)' : 'uid = %d';
 			$parameter[] = $uid;
 		}
-		if($channel){
+		if($channel) {
 			$wherearr[] = 'channel = %s';
 			$parameter[] = $channel;
 		}
-		if($status !== ''){
+		if($status !== '') {
 			$wherearr[] = 'status = %d';
 			$parameter[] = $status;
 		}
-		if($begintime){
+		if($begintime) {
 			$wherearr[] = 'dateline > %d';
 			$parameter[] = dmktime($begintime);
 		}
-		if($endtime){
+		if($endtime) {
 			$wherearr[] = 'dateline < %d';
 			$parameter[] = dmktime($endtime);
 		}
 		$wheresql = !empty($wherearr) && is_array($wherearr) ? ' WHERE ' . implode(' AND ', $wherearr) : '';
 		return array($wheresql, $parameter);
 	}
-
 }
 
 ?>

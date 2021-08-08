@@ -7,7 +7,7 @@
  *      $Id: class_payment.php 36342 2021-05-17 15:10:45Z dplugin $
  */
 
-if(!defined('IN_DISCUZ')){
+if(!defined('IN_DISCUZ')) {
 	exit('Access Denied');
 }
 
@@ -16,10 +16,10 @@ class payment {
 	public static function enable() {
 
 		$channels = C::t('common_setting')->fetch_all_setting(array('ec_wechat', 'ec_alipay'), true);
-		if($channels['ec_alipay']['on']){
+		if($channels['ec_alipay']['on']) {
 			return true;
 		}
-		if($channels['ec_wechat']['on']){
+		if($channels['ec_wechat']['on']) {
 			return true;
 		}
 		return false;
@@ -41,10 +41,10 @@ class payment {
 		);
 
 		$channels = C::t('common_setting')->fetch_all_setting(array('ec_wechat', 'ec_alipay'), true);
-		if($channels['ec_alipay']['on']){
+		if($channels['ec_alipay']['on']) {
 			$result['alipay']['enable'] = 1;
 		}
-		if($channels['ec_wechat']['on']){
+		if($channels['ec_wechat']['on']) {
 			$result['wechat']['enable'] = 1;
 		}
 		return $result;
@@ -52,24 +52,24 @@ class payment {
 
 	public static function get($channel) {
 		$sdk_class = DISCUZ_ROOT . './api/payment/payment_' . $channel . '.php';
-		if(!file_exists($sdk_class)){
+		if(!file_exists($sdk_class)) {
 			return false;
 		}
 		require_once $sdk_class;
 		$classname = 'payment_' . $channel;
-		if(!class_exists($classname)){
+		if(!class_exists($classname)) {
 			return false;
 		}
 		return new $classname();
 	}
 
-	public static function create_order($type, $subject, $description, $amount, $return_url, $params = NULL, $fee = 0, $expire = 3600) {
+	public static function create_order($type, $subject, $description, $amount, $return_url, $params = null, $fee = 0, $expire = 3600) {
 		global $_G;
 
-		if(strpos(':', $type) !== FALSE){
+		if(strpos(':', $type) !== false) {
 			$type_values = explode(':', $type);
 			$type_name = lang('plugin/' . $type_values[0], $type_values[1]);
-		} else{
+		} else {
 			$type_name = lang('payment/type', $type);
 		}
 
@@ -89,7 +89,7 @@ class payment {
 			'remoteport' => $_G['remoteport'],
 			'dateline' => time()
 		);
-		if($params){
+		if($params) {
 			$data['data'] = serialize($params);
 		}
 		$id = C::t('common_payment_order')->insert($data, true);
@@ -98,10 +98,10 @@ class payment {
 
 	public static function finish_order($channel, $out_biz_no, $trade_no, $payment_time) {
 		$order = C::t('common_payment_order')->fetch_by_biz_no($out_biz_no);
-		if(!$order || $order['status']){
-			if(!$order){
+		if(!$order || $order['status']) {
+			if(!$order) {
 				$error = 50002;
-			} else{
+			} else {
 				$error = 50003;
 			}
 			self::paymentlog($channel, 0, 0, 0, $error, array('out_biz_no' => $out_biz_no, 'trade_no' => $trade_no));
@@ -114,31 +114,31 @@ class payment {
 		$order['status'] = 1;
 
 		$status = C::t('common_payment_order')->update_order_finish($order['id'], $order['trade_no'], $order['payment_time'], $order['channel']);
-		if($status){
+		if($status) {
 			self::retry_callback_order($order);
-		} else{
+		} else {
 			self::paymentlog($channel, 0, $order['uid'], $order['id'], 50004, array('out_biz_no' => $out_biz_no, 'trade_no' => $trade_no));
 		}
 		return true;
 	}
 
 	public static function retry_callback_order($order) {
-		if($order['status'] != 1){
+		if($order['status'] != 1) {
 			return array('code' => 500, 'message' => lang('message', 'payment_retry_callback_no_pay'));
 		}
-		if(!$order['callback_status']){
+		if(!$order['callback_status']) {
 			$order_type = $order['type'];
-			if(strpos($order_type, ':') !== FALSE){
+			if(strpos($order_type, ':') !== false) {
 				$order_type_values = explode(':', $order_type);
 				$callback_class = DISCUZ_ROOT . './source/plugin/' . $order_type_values[0] . '/payment/' . $order_type_values[1] . '.php';
 				$class_name = $order_type_values[1];
-			} else{
+			} else {
 				$callback_class = DISCUZ_ROOT . './source/class/payment/' . $order_type . '.php';
 				$class_name = $order_type;
 			}
-			if(file_exists($callback_class)){
+			if(file_exists($callback_class)) {
 				require_once $callback_class;
-				if(class_exists($class_name)){
+				if(class_exists($class_name)) {
 					$callback = new $class_name();
 					$callback->callback(dunserialize($order['data']), $order);
 				}
@@ -150,15 +150,15 @@ class payment {
 
 	public static function query_order($channel, $order_id) {
 		$order = C::t('common_payment_order')->fetch($order_id);
-		if(!$order){
+		if(!$order) {
 			return array('code' => 500, 'message' => lang('message', 'payment_order_no_exist'));
 		}
 		$payment = payment::get($channel);
-		if(!$payment){
+		if(!$payment) {
 			return array('code' => 500, 'message' => lang('message', 'payment_type_no_exist'));
 		}
 		$result = $payment->status($order['out_biz_no']);
-		if($result['code'] == 200 && $order['status'] != 1 && $result['data']){
+		if($result['code'] == 200 && $order['status'] != 1 && $result['data']) {
 			payment::finish_order($channel, $order['out_biz_no'], $result['data']['trade_no'], $result['data']['payment_time']);
 		}
 		return $result;
@@ -167,21 +167,21 @@ class payment {
 	public static function refund($refund_no, $order_id, $amount, $refund_desc) {
 		global $_G;
 		$order = C::t('common_payment_order')->fetch($order_id);
-		if(!$order || $order['status'] != 1){
+		if(!$order || $order['status'] != 1) {
 			return array('code' => 500, 'message' => lang('message', 'payment_order_no_exist'));
 		}
 
 		$refund_order = C::t('common_payment_refund')->fetch_by_no($refund_no);
-		if($refund_order){
-			if($refund_order['order_id'] != $order_id){
+		if($refund_order) {
+			if($refund_order['order_id'] != $order_id) {
 				return array('code' => 500, 'message' => lang('message', 'payment_refund_id_exist'));
 			}
-			if($refund_order['status'] == 2){
+			if($refund_order['status'] == 2) {
 				return array('code' => 200, 'data' => array(
 					'refund_time' => $refund_order['refund_time']
 				));
 			}
-			if($refund_order['status'] == 1){
+			if($refund_order['status'] == 1) {
 				return array('code' => 500, 'message' => lang('message', 'payment_refund_exist'));
 			}
 
@@ -193,7 +193,7 @@ class payment {
 				'status' => 1,
 				'dateline' => time()
 			));
-		} else{
+		} else {
 			C::t('common_payment_refund')->insert(array(
 				'order_id' => $order_id,
 				'out_biz_no' => $refund_no,
@@ -208,12 +208,12 @@ class payment {
 
 		$payment = payment::get($order['channel']);
 		$result = $payment->refund($refund_no, $order['trade_no'], $order['amount'], $amount, $refund_desc);
-		if($result['code'] == 200){
+		if($result['code'] == 200) {
 			C::t('common_payment_refund')->update_refund_by_no($refund_no, array(
 				'status' => 2,
 				'refund_time' => $result['data']['refund_time']
 			));
-		} else{
+		} else {
 			C::t('common_payment_refund')->update_refund_by_no($refund_no, array(
 				'status' => 2,
 				'error' => $result['message']
@@ -224,26 +224,26 @@ class payment {
 
 	public static function refund_status($refund_no, $order_id) {
 		$order = C::t('common_payment_order')->fetch($order_id);
-		if(!$order || $order['status'] != 1){
+		if(!$order || $order['status'] != 1) {
 			return array('code' => 500, 'message' => lang('message', 'payment_order_no_exist'));
 		}
 		$refund_order = C::t('common_payment_refund')->fetch_by_no($refund_no);
-		if($refund_order){
-			if($refund_order['order_id'] != $order_id){
+		if($refund_order) {
+			if($refund_order['order_id'] != $order_id) {
 				return array('code' => 500, 'message' => lang('message', 'payment_refund_id_exist'));
-			} elseif($refund_order['status'] == 1){
+			} elseif($refund_order['status'] == 1) {
 				return array('code' => 200, 'data' => array('refund_time' => $refund_order['refund_time']));
 			}
 		}
 
 		$payment = payment::get($order['channel']);
 		$result = $payment->refund_status($refund_no, $order['trade_no']);
-		if($result['code'] == 200){
+		if($result['code'] == 200) {
 			C::t('common_payment_refund')->update_refund_by_no($refund_no, array(
 				'status' => 2,
 				'refund_time' => $result['data']['refund_time']
 			));
-		} else{
+		} else {
 			C::t('common_payment_refund')->update_refund_by_no($refund_no, array(
 				'status' => 2,
 				'error' => $result['message']
@@ -255,16 +255,16 @@ class payment {
 	public static function transfer($channel, $transfer_no, $amount, $uid, $realname, $account, $title = '', $desc = '') {
 		global $_G;
 		$transfer_order = C::t('common_payment_transfer')->fetch_by_no($transfer_no);
-		if($transfer_order){
-			if($transfer_order['channel'] != $channel || $transfer_order['amount'] != $amount || $transfer_order['account'] != $account){
+		if($transfer_order) {
+			if($transfer_order['channel'] != $channel || $transfer_order['amount'] != $amount || $transfer_order['account'] != $account) {
 				return array('code' => 500, 'message' => lang('message', 'payment_transfer_id_exist'));
 			}
-			if($transfer_order['status'] == 2){
+			if($transfer_order['status'] == 2) {
 				return array('code' => 200, 'data' => array(
 					'transfer_time' => $transfer_order['trade_time']
 				));
 			}
-			if($transfer_order['status'] == 1){
+			if($transfer_order['status'] == 1) {
 				return array('code' => 500, 'message' => lang('message', 'payment_transfer_exist'));
 			}
 
@@ -278,7 +278,7 @@ class payment {
 				'status' => 1,
 				'dateline' => time()
 			));
-		} else{
+		} else {
 			C::t('common_payment_transfer')->insert(array(
 				'out_biz_no' => $transfer_no,
 				'amount' => $amount,
@@ -297,12 +297,12 @@ class payment {
 
 		$payment = payment::get($channel);
 		$result = $payment->transfer($transfer_no, $amount, $realname, $account, $title, $desc);
-		if($result['code'] == 200){
+		if($result['code'] == 200) {
 			C::t('common_payment_transfer')->update_transfer_by_no($transfer_no, array(
 				'status' => 2,
 				'trade_time' => $result['data']['transfer_time']
 			));
-		} else{
+		} else {
 			C::t('common_payment_transfer')->update_transfer_by_no($transfer_no, array(
 				'status' => 3,
 				'error' => $result['message']
@@ -313,20 +313,20 @@ class payment {
 
 	public static function transfer_status($transfer_no) {
 		$refund_order = C::t('common_payment_transfer')->fetch_by_no($transfer_no);
-		if(!$refund_order){
+		if(!$refund_order) {
 			return array('code' => 500, 'message' => lang('message', 'payment_transfer_id_no_exist'));
-		} elseif($refund_order['status'] == 2){
+		} elseif($refund_order['status'] == 2) {
 			return array('code' => 200, 'data' => array('transfer_time' => $refund_order['trade_time']));
 		}
 
 		$payment = payment::get($refund_order['channel']);
 		$result = $payment->transfer_status($transfer_no);
-		if($result['code'] == 200){
+		if($result['code'] == 200) {
 			C::t('common_payment_transfer')->update_transfer_by_no($transfer_no, array(
 				'status' => 2,
 				'trade_time' => $result['data']['transfer_time']
 			));
-		} else{
+		} else {
 			C::t('common_payment_transfer')->update_transfer_by_no($transfer_no, array(
 				'status' => 3,
 				'error' => $result['message']
@@ -351,5 +351,4 @@ class payment {
 			is_array($data) ? json_encode($data) : $data
 		))));
 	}
-
 }
