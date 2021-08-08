@@ -35,6 +35,20 @@ if(submitcheck('paysubmit')) {
 		showmessage('payment_type_no_exist', $_G['siteurl'] . 'home.php?mod=spacecp&ac=payment&op=pay&order_id=' . $order_id, array(), array('showdialog' => true, 'locationtime' => 3));
 	}
 
+	// QQ 钱包 JSAPI 支付
+	if($pay_channel == 'qpay' && checkmobile() && strpos($_SERVER['HTTP_USER_AGENT'], ' QQ') !== false && strpos($_SERVER['HTTP_USER_AGENT'], 'MQQBrowser') !== false) {
+		$ec_qpay = C::t('common_setting')->fetch_setting('ec_qpay', true);
+		if($ec_qpay['jsapi']) {
+			$result = $payclass->pay_jsapi($order);
+			if($result['code'] == 200) {
+				$prepay_id = $result['prepay_id'];
+				$title = dhtmlspecialchars($order['subject']);
+				include template('home/spacecp_payment_qpayjsapi');
+				exit();
+			}
+		}
+	}
+
 	if($pay_channel == 'wechat' && checkmobile() && strpos($_SERVER['HTTP_USER_AGENT'], 'MicroMessenger') !== false) {
 		$redirect_uri = $_G['siteurl'] . 'home.php?mod=spacecp&ac=payment&op=pay&sop=wxjsapi&order_id=' . $order_id;
 		$state = md5($order_id . $order['dateline']);
@@ -84,7 +98,7 @@ if(submitcheck('paysubmit')) {
 	}
 	$order['amount'] = number_format($order['amount'] / 100, '2', '.', ',');
 
-	$payment_settings = C::t('common_setting')->fetch_all_setting(array('ec_wechat', 'ec_alipay'), true);
+	$payment_settings = C::t('common_setting')->fetch_all_setting(array('ec_wechat', 'ec_alipay', 'ec_qpay'), true);
 
 	$pay_channel_list = array();
 	$channels = payment::channels();

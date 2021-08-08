@@ -15,11 +15,14 @@ class payment {
 
 	public static function enable() {
 
-		$channels = C::t('common_setting')->fetch_all_setting(array('ec_wechat', 'ec_alipay'), true);
+		$channels = C::t('common_setting')->fetch_all_setting(array('ec_wechat', 'ec_alipay', 'ec_qpay'), true);
 		if($channels['ec_alipay']['on']) {
 			return true;
 		}
 		if($channels['ec_wechat']['on']) {
+			return true;
+		}
+		if($channels['ec_qpay']['on']) {
 			return true;
 		}
 		return false;
@@ -39,13 +42,22 @@ class payment {
 			'logo' => 'static/image/common/wechat.png',
 			'enable' => 0
 		);
+		$result['qpay'] = array(
+			'id' => 'qpay',
+			'title' => lang('spacecp', 'payment_qpay'),
+			'logo' => 'static/image/common/qpay.png',
+			'enable' => 0
+		);
 
-		$channels = C::t('common_setting')->fetch_all_setting(array('ec_wechat', 'ec_alipay'), true);
+		$channels = C::t('common_setting')->fetch_all_setting(array('ec_wechat', 'ec_alipay', 'ec_qpay'), true);
 		if($channels['ec_alipay']['on']) {
 			$result['alipay']['enable'] = 1;
 		}
 		if($channels['ec_wechat']['on']) {
 			$result['wechat']['enable'] = 1;
+		}
+		if($channels['ec_qpay']['on']) {
+			$result['qpay']['enable'] = 1;
 		}
 		return $result;
 	}

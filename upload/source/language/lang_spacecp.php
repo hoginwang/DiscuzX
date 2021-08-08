@@ -309,6 +309,7 @@ $lang = array(
 
 	'payment_alipay' => '支付宝',
 	'payment_wechat' => '微信支付',
+	'payment_qpay' => 'QQ 钱包支付',
 	'payment_status_0' => '未支付',
 	'payment_status_1' => '已支付',
 	'payment_status_2' => '已过期',

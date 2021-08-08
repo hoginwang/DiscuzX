@@ -35,7 +35,7 @@ if($operation == 'alipay') {
 		shownav('extended', 'nav_ec');
 		showsubmenu('nav_ec', array(
 			array('nav_ec_config', 'setting&operation=ec', 0),
-			array('nav_ec_tenpay', 'ec&operation=tenpay', 0),
+			array('nav_ec_qpay', 'ec&operation=qpay', 0),
 			array('nav_ec_wechat', 'ec&operation=wechat', 0),
 			array('nav_ec_alipay', 'ec&operation=alipay', 1),
 			array('nav_ec_credit', 'ec&operation=credit', 0),
@@ -129,7 +129,7 @@ if($operation == 'alipay') {
 		shownav('extended', 'nav_ec');
 		showsubmenu('nav_ec', array(
 			array('nav_ec_config', 'setting&operation=ec', 0),
-			array('nav_ec_tenpay', 'ec&operation=tenpay', 0),
+			array('nav_ec_qpay', 'ec&operation=qpay', 0),
 			array('nav_ec_wechat', 'ec&operation=wechat', 1),
 			array('nav_ec_alipay', 'ec&operation=alipay', 0),
 			array('nav_ec_credit', 'ec&operation=credit', 0),
@@ -218,56 +218,25 @@ if($operation == 'alipay') {
 		cpmsg('wechat_succeed', 'action=ec&operation=wechat', 'succeed');
 	}
 
-} elseif($operation == 'tenpay') {
+} elseif($operation == 'qpay') {
 
-	$settings = C::t('common_setting')->fetch_all_setting(array('ec_tenpay_direct', 'ec_tenpay_account', 'ec_tenpay_bargainor', 'ec_tenpay_key', 'ec_tenpay_opentrans_chnid', 'ec_tenpay_opentrans_key'));
+	$qpaysettings = C::t('common_setting')->fetch_setting('ec_qpay', true);
 	if(!empty($checktype)) {
-		require_once DISCUZ_ROOT.'./api/trade/api_tenpay.php';
 		if($checktype == 'credit') {
-			dheader('location: '.credit_payurl(1, $orderid));
-		} elseif($checktype == 'virtualgoods') {
-			$pay = array(
-				'logistics_type' => 'VIRTUAL'
-			);
-			$trade = array(
-				'subject' => $lang['ec_tenpay_check_virtualgoodssubject'],
-				'itemtype' => 1,
-				'tenpayaccount' => $settings['ec_tenpay_opentrans_chnid'],
-			);
-			$tradelog = array(
-				'orderid' => 'TEST'.dgmdate(TIMESTAMP, 'YmdHis').random(18),
-				'baseprice' => 1,
-				'number' => 1,
-				'transportfee' => 0,
-			);
-			dheader('location: '.trade_payurl($pay, $trade, $tradelog));
-		} elseif($checktype == 'goods') {
-			$pay = array(
-				'logistics_type' => 'EMS',
-				'transport' => 'SELLER_PAY',
-			);
-			$trade = array(
-				'subject' => $lang['ec_tenpay_check_goodssubject'],
-				'itemtype' => 1,
-				'tenpayaccount' => $settings['ec_tenpay_opentrans_chnid'],
-			);
-			$tradelog = array(
-				'orderid' => 'TEST'.dgmdate(TIMESTAMP, 'YmdHis').random(18),
-				'baseprice' => 1,
-				'number' => 1,
-				'transportfee' => 0,
-			);
-			dheader('location: '.trade_payurl($pay, $trade, $tradelog));
+			$return_url = $_G['siteurl'] . 'home.php?mod=spacecp&ac=credit';
+			$pay_url = payment::create_order('payment_credit', $lang['ec_alipay_checklink_credit'], $lang['ec_alipay_checklink_credit'], 1, $return_url);
+			ob_end_clean();
+			dheader('location: ' . $pay_url);
 		}
 		exit;
 	}
 
-	if(!submitcheck('tenpaysubmit')) {
+	if(!submitcheck('qpaysubmit')) {
 
 		shownav('extended', 'nav_ec');
 		showsubmenu('nav_ec', array(
 			array('nav_ec_config', 'setting&operation=ec', 0),
-			array('nav_ec_tenpay', 'ec&operation=tenpay', 1),
+			array('nav_ec_qpay', 'ec&operation=qpay', 1),
 			array('nav_ec_wechat', 'ec&operation=wechat', 0),
 			array('nav_ec_alipay', 'ec&operation=alipay', 0),
 			array('nav_ec_credit', 'ec&operation=credit', 0),
@@ -278,62 +247,54 @@ if($operation == 'alipay') {
 			array('nav_ec_transferorders', 'ec&operation=transferorders', 0)
 		));
 
-		/*search={"nav_ec":"action=setting&operation=ec","nav_ec_tenpay":"action=ec&operation=tenpay"}*/
-		showtips('ec_tenpay_tips');
-		showformheader('ec&operation=tenpay');
+		/*search={"nav_ec":"action=setting&operation=ec","nav_ec_qpay":"action=ec&operation=qpay"}*/
+		showtips('ec_qpay_tips');
+		showformheader('ec&operation=qpay');
 
 		showtableheader('', 'nobottom');
+		showtitle('ec_qpay');
+		showtagheader('tbody', 'alipay_wechat', true);
+		showsetting('ec_qpay_on', 'settingsnew[on]', $qpaysettings['on'], 'radio');
+		showsetting('ec_qpay_jsapi', 'settingsnew[jsapi]', $qpaysettings['jsapi'], 'radio');
 
+		showsetting('ec_qpay_appid', 'settingsnew[appid]', $qpaysettings['appid'], 'text');
+		showsetting('ec_qpay_mch_id', 'settingsnew[mch_id]', $qpaysettings['mch_id'], 'text');
+		showsetting('ec_qpay_op_user_id', 'settingsnew[op_user_id]', $qpaysettings['op_user_id'], 'text');
+		$qpay_securitycodemask = $qpaysettings['op_user_passwd'] ? $qpaysettings['op_user_passwd'][0] . '********' . substr($qpaysettings['op_user_passwd'], -4) : '';
+		showsetting('ec_qpay_op_user_passwd', 'settingsnew[op_user_passwd]', $qpay_securitycodemask, 'text');
+		showtagfooter('tbody');
 
-		showtitle('ec_tenpay_opentrans');
-		showsetting('ec_tenpay_opentrans_chnid', 'settingsnew[ec_tenpay_opentrans_chnid]', $settings['ec_tenpay_opentrans_chnid'], 'text');
-		$tenpay_securitycodemask = $settings['ec_tenpay_opentrans_key'] ? $settings['ec_tenpay_opentrans_key'][0].'********'.substr($settings['ec_tenpay_opentrans_key'], -4) : '';
-		showsetting('ec_tenpay_opentrans_key', 'settingsnew[ec_tenpay_opentrans_key]', $tenpay_securitycodemask, 'text');
+		showtagheader('tbody', 'api_version_2', true);
+		$qpay_securitycodemask = $qpaysettings['v1_key'] ? $qpaysettings['v1_key'][0] . '********' . substr($qpaysettings['v1_key'], -4) : '';
+		showsetting('ec_qpay_v1_key', 'settingsnew[v1_key]', $qpay_securitycodemask, 'text');
+		showsetting('ec_qpay_v1_cert', 'settingsnew[v1_cert_path]', $qpaysettings['v1_cert_path'], 'text', '', 0, lang('admincp', 'ec_qpay_v1_cert_comment', array('randomstr' => random(10))));
+		showtagfooter('tbody');
 
-		showtitle('ec_tenpay');
-		showsetting('ec_tenpay_bargainor', 'settingsnew[ec_tenpay_bargainor]', $settings['ec_tenpay_bargainor'], 'text');
-
-		$tenpay_securitycodemask = $settings['ec_tenpay_key'] ? $settings['ec_tenpay_key'][0].'********'.substr($settings['ec_tenpay_key'], -4) : '';
-		showsetting('ec_tenpay_key', 'settingsnew[ec_tenpay_key]', $tenpay_securitycodemask, 'text');
-		showsetting('ec_tenpay_check', '', '',
-			'<a href="'.ADMINSCRIPT.'?action=ec&operation=tenpay&checktype=credit" target="_blank">'.$lang['ec_alipay_checklink_credit'].'</a><br />'.
-			'<a href="'.ADMINSCRIPT.'?action=ec&operation=tenpay&checktype=virtualgoods" target="_blank">'.$lang['ec_alipay_checklink_virtualgoods'].'</a><br />'.
-			'<a href="'.ADMINSCRIPT.'?action=ec&operation=tenpay&checktype=goods" target="_blank">'.$lang['ec_alipay_checklink_goods'].'</a><br />'
+		showsetting('ec_qpay_check', '', '',
+			'<a href="' . ADMINSCRIPT . '?action=ec&operation=qpay&checktype=credit" target="_blank">' . $lang['ec_qpay_checklink_credit'] . '</a><br />'
 		);
-		showtablefooter();
 		/*search*/
-
 		showtableheader('', 'notop');
-		showsubmit('tenpaysubmit');
+		showsubmit('qpaysubmit');
 		showtablefooter();
 		showformfooter();
 
 	} else {
 		$settingsnew = $_GET['settingsnew'];
-		$settingsnew['ec_tenpay_bargainor'] = trim($settingsnew['ec_tenpay_bargainor']);
-		$settingsnew['ec_tenpay_key'] = trim($settingsnew['ec_tenpay_key']);
-		$tenpay_securitycodemask = $settings['ec_tenpay_key'] ? $settings['ec_tenpay_key'][0].'********'.substr($settings['ec_tenpay_key'], -4) : '';
-		$settingsnew['ec_tenpay_key'] = $tenpay_securitycodemask == $settingsnew['ec_tenpay_key'] ? $settings['ec_tenpay_key'] : $settingsnew['ec_tenpay_key'];
-
-		$settingsnew['ec_tenpay_opentrans_key'] = trim($settingsnew['ec_tenpay_opentrans_key']);
-		$tenpay_securitycodemask = $settings['ec_tenpay_opentrans_key'] ? $settings['ec_tenpay_opentrans_key'][0].'********'.substr($settings['ec_tenpay_opentrans_key'], -4) : '';
-		$settingsnew['ec_tenpay_opentrans_key'] = $tenpay_securitycodemask == $settingsnew['ec_tenpay_opentrans_key'] ? $settings['ec_tenpay_opentrans_key'] : $settingsnew['ec_tenpay_opentrans_key'];
-		if($settingsnew['ec_tenpay_direct'] && (!empty($settingsnew['ec_tenpay_bargainor']) && !preg_match('/^\d{10}$/', $settingsnew['ec_tenpay_bargainor']))) {
-			cpmsg('tenpay_bargainor_invalid', 'action=ec&operation=tenpay', 'error');
+		foreach($settingsnew as $name => $value) {
+			if($value == $qpaysettings[$name] || strpos($value, '********') !== false) {
+				continue;
+			}
+			$value = daddslashes($value);
+			if($name == 'op_user_passwd') {
+				$value = md5($value);
+			}
+			$qpaysettings[$name] = $value;
 		}
-		if($settingsnew['ec_tenpay_direct'] && (empty($settingsnew['ec_tenpay_key']) || !preg_match('/^[a-zA-Z0-9]{32}$/', $settingsnew['ec_tenpay_key']))) {
-			cpmsg('tenpay_key_invalid', 'action=ec&operation=tenpay', 'error');
-		}
-		$data = array('ec_tenpay_direct' => $settingsnew['ec_tenpay_direct'],
-			'ec_tenpay_bargainor' => $settingsnew['ec_tenpay_bargainor'],
-			'ec_tenpay_key' => $settingsnew['ec_tenpay_key'],
-			'ec_tenpay_opentrans_chnid' => $settingsnew['ec_tenpay_opentrans_chnid'],
-			'ec_tenpay_opentrans_key' => $settingsnew['ec_tenpay_opentrans_key']);
-		C::t('common_setting')->update_batch($data);
+		C::t('common_setting')->update_setting('ec_qpay', $qpaysettings);
 		updatecache('setting');
 
-		cpmsg('tenpay_succeed', 'action=ec&operation=tenpay', 'succeed');
-
+		cpmsg('qpay_succeed', 'action=ec&operation=qpay', 'succeed');
 	}
 
 } elseif($operation == 'paymentorders') {
@@ -341,7 +302,7 @@ if($operation == 'alipay') {
 	shownav('extended', 'nav_ec');
 	showsubmenu('nav_ec', array(
 		array('nav_ec_config', 'setting&operation=ec', 0),
-		array('nav_ec_tenpay', 'ec&operation=tenpay', 0),
+		array('nav_ec_qpay', 'ec&operation=qpay', 0),
 		array('nav_ec_wechat', 'ec&operation=wechat', 0),
 		array('nav_ec_alipay', 'ec&operation=alipay', 0),
 		array('nav_ec_credit', 'ec&operation=credit', 0),
@@ -536,7 +497,7 @@ if($operation == 'alipay') {
 	shownav('extended', 'nav_ec');
 	showsubmenu('nav_ec', array(
 		array('nav_ec_config', 'setting&operation=ec', 0),
-		array('nav_ec_tenpay', 'ec&operation=tenpay', 0),
+		array('nav_ec_qpay', 'ec&operation=qpay', 0),
 		array('nav_ec_wechat', 'ec&operation=wechat', 0),
 		array('nav_ec_alipay', 'ec&operation=alipay', 0),
 		array('nav_ec_credit', 'ec&operation=credit', 0),
@@ -693,7 +654,7 @@ if($operation == 'alipay') {
 		shownav('extended', 'nav_ec');
 		showsubmenu('nav_ec', array(
 			array('nav_ec_config', 'setting&operation=ec', 0),
-			array('nav_ec_tenpay', 'ec&operation=tenpay', 0),
+			array('nav_ec_qpay', 'ec&operation=qpay', 0),
 			array('nav_ec_wechat', 'ec&operation=wechat', 0),
 			array('nav_ec_alipay', 'ec&operation=alipay', 0),
 			array('nav_ec_credit', 'ec&operation=credit', 0),
@@ -830,7 +791,7 @@ if($operation == 'alipay') {
 		shownav('extended', 'nav_ec');
 		showsubmenu('nav_ec', array(
 			array('nav_ec_config', 'setting&operation=ec', 0),
-			array('nav_ec_tenpay', 'ec&operation=tenpay', 0),
+			array('nav_ec_qpay', 'ec&operation=qpay', 0),
 			array('nav_ec_wechat', 'ec&operation=wechat', 0),
 			array('nav_ec_alipay', 'ec&operation=alipay', 0),
 			array('nav_ec_credit', 'ec&operation=credit', 1),
@@ -898,7 +859,7 @@ if($operation == 'alipay') {
 		shownav('extended', 'nav_ec');
 		showsubmenu('nav_ec', array(
 			array('nav_ec_config', 'setting&operation=ec', 0),
-			array('nav_ec_tenpay', 'ec&operation=tenpay', 0),
+			array('nav_ec_qpay', 'ec&operation=qpay', 0),
 			array('nav_ec_wechat', 'ec&operation=wechat', 0),
 			array('nav_ec_alipay', 'ec&operation=alipay', 0),
 			array('nav_ec_credit', 'ec&operation=credit', 0),
