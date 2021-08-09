@@ -7,7 +7,7 @@
  *      $Id: spacecp_payment.php 36342 2021-05-17 15:26:19Z dplugin $
  */
 
-if(!defined('IN_DISCUZ')){
+if(!defined('IN_DISCUZ')) {
 	exit('Access Denied');
 }
 
@@ -16,12 +16,12 @@ $opactives = array($operation => ' class="a"');
 
 if($_G['setting']['ec_ratio']) {
 	$is_enable_pay = payment::enable();
-}else{
+} else {
 	$is_enable_pay = false;
 }
 
 if(!$_G['setting']['ec_ratio'] || !$is_enable_pay) {
-	showmessage('action_closed', NULL);
+	showmessage('action_closed', null);
 }
 
 include_once libfile('spacecp/payment_' . $operation, 'include');

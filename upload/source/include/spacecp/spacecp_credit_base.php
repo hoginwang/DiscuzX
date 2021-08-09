@@ -73,8 +73,8 @@ if($_GET['op'] == 'base') {
 	$navtitle = lang('core', 'title_credit');
 	$creditsformulaexp = str_replace('*', 'X', $_G['setting']['creditsformulaexp']);
 
-} elseif ($_GET['op'] == 'buy') {
-	if((!$_G['setting']['ec_ratio'] || !$is_enable_pay) && !$_G['setting']['card']['open'] ) {
+} elseif($_GET['op'] == 'buy') {
+	if((!$_G['setting']['ec_ratio'] || !$is_enable_pay) && !$_G['setting']['card']['open']) {
 		showmessage('action_closed', NULL);
 	}
 
@@ -115,7 +115,7 @@ if($_GET['op'] == 'base') {
 		echo '<script type="text/javascript" reload="1">window.location.href = \''.$pay_url.'\';</script>';
 		include isset($_REQUEST['inajax']) ? template('common/footer_ajax') : template('common/footer');
 		dexit();
-	}else if(submitcheck('addfundscardsubmit')) {
+	} elseif(submitcheck('addfundscardsubmit')) {
 		list($seccodecheck) = seccheck('card');
 		if($seccodecheck) {
 			if(!check_seccode($_GET['seccodeverify'], $_GET['seccodehash'])) {
@@ -151,13 +151,12 @@ if($_GET['op'] == 'base') {
 		$active = array();
 		if($_G['setting']['ec_ratio'] && $is_enable_pay) {
 			$active['rmb'] = 1;
-		}elseif($_G['setting']['card']['open']) {
+		} elseif($_G['setting']['card']['open']) {
 			$active['card'] = 1;
 		}
 	}
-
-} elseif ($_GET['op'] == 'transfer') {
-	if(!empty($_G['setting']['submitlock']) && discuz_process::islocked('transferlock_'.$_G['uid'], 0, 1)){
+} elseif($_GET['op'] == 'transfer') {
+	if(!empty($_G['setting']['submitlock']) && discuz_process::islocked('transferlock_'.$_G['uid'], 0, 1)) {
 		showmessage('credits_transfer_msg_locked', '', array(), array('showdialog' => 1, 'showmsg' => true, 'closetime' => true));
 	}
 
@@ -278,8 +277,7 @@ if($_GET['op'] == 'base') {
 
 		showmessage('credits_transaction_succeed', 'home.php?mod=spacecp&ac=credit&op=exchange', array(), array('showdialog' => 1, 'showmsg' => true, 'locationtime' => true));
 	}
-
-} else  {
+} else {
 	$wheresql = '';
 	$list = array();
 	$rid = intval($_GET['rid']);

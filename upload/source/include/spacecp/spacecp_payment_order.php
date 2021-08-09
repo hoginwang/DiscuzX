@@ -7,12 +7,14 @@
  *      $Id: spacecp_payment_order.php 36342 2021-05-17 15:26:53Z dplugin $
  */
 
-if(!defined('IN_DISCUZ')){
+if(!defined('IN_DISCUZ')) {
 	exit('Access Denied');
 }
 
 $page = empty($_GET['page']) ? 1 : intval($_GET['page']);
-if($page < 1) $page = 1;
+if($page < 1) {
+	$page = 1;
+}
 $perpage = 20;
 
 $start = ($page - 1) * $perpage;
@@ -28,28 +30,28 @@ $theurl = 'home.php?' . url_implode($gets);
 $multi = '';
 
 $endunixstr = $beginunixstr = 0;
-if($_GET['starttime']){
+if($_GET['starttime']) {
 	$beginunixstr = strtotime($_GET['starttime']);
 	$_GET['starttime'] = dgmdate($beginunixstr, 'Y-m-d');
 }
-if($_GET['endtime']){
+if($_GET['endtime']) {
 	$endunixstr = strtotime($_GET['endtime'] . ' 23:59:59');
 	$_GET['endtime'] = dgmdate($endunixstr, 'Y-m-d');
 }
-if($beginunixstr && $endunixstr && $endunixstr < $beginunixstr){
+if($beginunixstr && $endunixstr && $endunixstr < $beginunixstr) {
 	showmessage('start_time_is_greater_than_end_time');
 }
 
 $payment_type_data = C::t('common_payment_order')->fetch_type_all($_G['uid']);
 
 $optype = '';
-if($_GET['optype'] && in_array($_GET['optype'], array_keys($payment_type_data))){
+if($_GET['optype'] && in_array($_GET['optype'], array_keys($payment_type_data))) {
 	$optype = $_GET['optype'];
 }
 
 $count = C::t('common_payment_order')->count_by_search($_G['uid'], $optype, $beginunixstr, $endunixstr);
 $order_list = array();
-if($count){
+if($count) {
 	foreach(C::t('common_payment_order')->fetch_all_by_search($_G['uid'], $optype, $_GET['starttime'], $_GET['endtime'], '', '', '', $start, $perpage) as $order) {
 		$order['type_name'] = dhtmlspecialchars($order['type_name']);
 		$order['amount'] = number_format($order['amount'] / 100, 2, '.', ',');
@@ -57,7 +59,7 @@ if($count){
 		$order['description'] = dhtmlspecialchars($order['description']);
 		$order['dateline'] = dgmdate($order['dateline'], 'Y-m-d H:j');
 		$status = $order['status'];
-		if(!$order['status'] && $order['expire_time'] < time()){
+		if(!$order['status'] && $order['expire_time'] < time()) {
 			$status = 2;
 		}
 		$order['status'] = $status;
@@ -66,7 +68,7 @@ if($count){
 	}
 }
 
-if($count){
+if($count) {
 	$multi = multi($count, $perpage, $page, $theurl);
 }
 

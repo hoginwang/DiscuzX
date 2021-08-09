@@ -17,27 +17,29 @@ require '../payment_alipay.php';
 $discuz = C::app();
 $discuz->init();
 
-if(!$_POST['sign'] || !$_POST['sign_type']) exit('fail');
+if(!$_POST['sign'] || !$_POST['sign_type']) {
+	exit('fail');
+}
 $sign = $_POST['sign'];
 unset($_POST['sign']);
 
 $payment = new payment_alipay();
 $isright = $payment->alipay_sign_verify($sign, $_POST);
-if(!$isright){
+if(!$isright) {
 	$_POST['sign'] = $sign;
 	payment::paymentlog('alipay', 0, 0, 0, 50001, $_POST);
 	exit('fail');
 }
 
-if($_POST['trade_status'] == 'TRADE_SUCCESS'){
+if($_POST['trade_status'] == 'TRADE_SUCCESS') {
 	$out_biz_no = $_POST['out_trade_no'];
 	$payment_time = strtotime($_POST['gmt_payment']);
 
 	$is_success = payment::finish_order('alipay', $out_biz_no, $_POST['trade_no'], $payment_time);
-	if($is_success){
+	if($is_success) {
 		exit('success');
 	}
-}else{
+} else {
 	payment::paymentlog('alipay', 0, 0, 0, 50001, $_POST);
 }
 

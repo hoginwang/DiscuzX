@@ -32,7 +32,7 @@ if(in_array($operation, array('base', 'buy', 'transfer', 'exchange', 'rule'))) {
 
 if($_G['setting']['ec_ratio']) {
 	$is_enable_pay = payment::enable();
-}else{
+} else {
 	$is_enable_pay = false;
 }
 

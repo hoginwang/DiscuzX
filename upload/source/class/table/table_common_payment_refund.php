@@ -7,12 +7,12 @@
  *      $Id: table_common_payment_refund.php 36342 2021-05-17 15:17:15Z dplugin $
  */
 
-if(!defined('IN_DISCUZ')){
+if(!defined('IN_DISCUZ')) {
 	exit('Access Denied');
 }
 
-class table_common_payment_refund extends discuz_table {
-
+class table_common_payment_refund extends discuz_table
+{
 	public function __construct() {
 		$this->_table = 'common_payment_refund';
 		$this->_pk = 'id';
@@ -30,7 +30,6 @@ class table_common_payment_refund extends discuz_table {
 	public function sum_by_orders($ids) {
 		return DB::fetch_all("SELECT `order_id`, sum(`amount`) as `amount` FROM %t WHERE `order_id` in (%n) AND `status` = 2 GROUP BY `order_id`", array($this->_table, $ids), 'order_id');
 	}
-
 }
 
 ?>

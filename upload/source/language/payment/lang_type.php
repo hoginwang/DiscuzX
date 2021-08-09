@@ -7,7 +7,7 @@
  *      $Id: lang_type.php 36342 2021-05-17 15:38:43Z dplugin $
  */
 
-if (!defined('IN_DISCUZ')) {
+if(!defined('IN_DISCUZ')) {
 	exit('Access Denied');
 }
 
