@@ -3,27 +3,21 @@ branches: {
   }
 fileChange:
   /upload:
-    newFile: !uuid 'd6243dcd3924280099dbbfacbe287671b79144d1'
-    oldFile: !uuid '112816111ab08136585114ab22b64718d8a2b1df'
-  /upload/source:
-    newFile: !uuid 'ec2f16cbfcd93fd4a5e66fc8f6b0ec1d264a3399'
-    oldFile: !uuid '0b78425f262e91c419d599935dcc791cdacace71'
-  /upload/source/admincp:
-    newFile: !uuid '50cb92ccc7af136c30e2e63d4e7b998ef4ca0ffe'
-    oldFile: !uuid '2581b3afc21f59f4f00421979d6fda7be971b99a'
-  /upload/source/admincp/admincp_plugins.php:
-    newFile: !uuid 'ebe3b2e4753a5a78ada772a31ee2c6bc9ea6c32e'
-    oldFile: !uuid '989e624032eb4badb5019484e01f8c0693484454'
-  /upload/source/admincp/admincp_styles.php:
-    newFile: !uuid 'a6fd38796b37eb90617921191316d633e95c2ebd'
-    oldFile: !uuid '1f70f9355f1eaea67a93b7a46f67c06355c10782'
-  /upload/source/function:
-    newFile: !uuid '5630861654ad875696871f6693bf5f2240dcb925'
-    oldFile: !uuid '0d1a799b7e3426554f3a7a11d11833645d41137b'
-  /upload/source/function/function_cloudaddons.php:
-    newFile: !uuid 'ff35e967bd3e55c9a115a0ff577de3eb3e21ac0a'
-    oldFile: !uuid 'c337618b7ecceddbc8c5b344f0dfd538875e1b1a'
-gitCommitId: !uuid '0a6b5cd5068c79354ed5b9c22a3d56b86c73402c'
+    newFile: !uuid '95d689f2f0f9e55decd66ca189034eb1807fa40d'
+    oldFile: !uuid 'd6243dcd3924280099dbbfacbe287671b79144d1'
+  /upload/template:
+    newFile: !uuid '87dd665ee7e5d784ecfe2a2a0b1dd0b7ab3c9610'
+    oldFile: !uuid '909e761fa22a275aa5e7b250528dbea65f5b620f'
+  /upload/template/default:
+    newFile: !uuid '1f070cd5f9bd1abc3220da56feba66a237e2cbaf'
+    oldFile: !uuid '5008db63d0de4389ab0df39253391f7852e2c533'
+  /upload/template/default/forum:
+    newFile: !uuid '2ca119e222b9443127e81816a549f3e875caea48'
+    oldFile: !uuid 'fc34bef75533ce8c0b2392417874bc9962bac37e'
+  /upload/template/default/forum/viewthread_printable.htm:
+    newFile: !uuid 'ddb4fbea894023ab7a07131cb551948f46189b48'
+    oldFile: !uuid '311b6391f845097ab46450a4c611b47d4fe94152'
+gitCommitId: !uuid '95ba9cdfd2fbb981249bd6ea36899b0f5c7f2848'
 renames: {
   }
-revisionId: 822
+revisionId: 823
