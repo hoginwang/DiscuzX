@@ -264,7 +264,7 @@ EOT;
 
 	if(!submitcheck('ordersubmit')) {
 
-		echo '<script type="text/javascript" src="static/js/calendar.js"></script>';
+		echo '<script type="text/javascript" src="' . STATICURL . 'js/calendar.js"></script>';
 		shownav('extended', 'nav_ec');
 		showsubmenu('nav_ec', array(
 			array('nav_ec_config', 'setting&operation=ec', 0),
@@ -421,12 +421,14 @@ EOT;
 		showtableheader('ec_credit_rank', 'notop fixpadding');
 		showsubtitle(array('ec_credit_rank', 'ec_credit_between', 'ec_credit_sellericon', 'ec_credit_buyericon'));
 
+		$staticurl = STATICURL;
+
 		foreach($ec_credit['rank'] as $rank => $mincredits) {
 			showtablerow('', '', array(
 				$rank,
 				'<input type="text" class="txt" size="6" name="ec_creditnew[rank]['.$rank.']" value="'.$mincredits.'" /> ~ '.$ec_credit['rank'][$rank + 1],
-				"<img src=\"static/image/traderank/seller/$rank.gif\" border=\"0\">",
-				"<img src=\"static/image/traderank/buyer/$rank.gif\" border=\"0\">"
+				"<img src=\"{$staticurl}image/traderank/seller/$rank.gif\" border=\"0\">",
+				"<img src=\"{$staticurl}image/traderank/buyer/$rank.gif\" border=\"0\">"
 			));
 		}
 		showsubmit('creditsubmit');
