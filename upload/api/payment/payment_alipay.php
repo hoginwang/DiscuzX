@@ -484,7 +484,7 @@ class payment_alipay extends payment_base {
 		return implode('_', $sn);
 	}
 
-	private function alipay_request($api, $post = '') {
+	private function alipay_request($api, $post = array()) {
 		$client = filesock::open(array(
 			'url' => $api,
 			'method' => 'POST',
