@@ -4,10 +4,8 @@
 	<div class="z">
 		<a href="./" class="nvhm" title="{lang homepage}">$_G[setting][bbname]</a> <em>&rsaquo;</em>
 		<a href="misc.php?mod=tag">{lang tag}</a>
-		<!--{if $tagname}-->
-			<em>&rsaquo;</em>
-			<a href="misc.php?mod=tag&id=$id">$tagname</a>
-		<!--{/if}-->
+		<em>&rsaquo;</em>
+		<a href="misc.php?mod=tag&id=$id">$tagname</a>
 		<!--{if $showtype == 'thread'}-->
 			<em>&rsaquo;</em> {lang related_thread}
 		<!--{/if}-->
@@ -39,7 +37,7 @@
 								<td class="icn">
 									<a href="forum.php?mod=viewthread&tid=$thread[tid]{if $_GET['archiveid']}&archiveid={$_GET['archiveid']}{/if}" title="{lang target_blank}" target="_blank">
 									<!--{if $thread[folder] == 'lock'}-->
-										<img src="{IMGDIR}/folder_lock.gif" />
+										<img src="{IMGDIR}/folder_lock.gif" alt="" />
 									<!--{elseif $thread['special'] == 1}-->
 										<img src="{IMGDIR}/pollsmall.gif" alt="{lang thread_poll}" />
 									<!--{elseif $thread['special'] == 2}-->
@@ -53,8 +51,9 @@
 									<!--{elseif in_array($thread['displayorder'], array(1, 2, 3, 4))}-->
 										<img src="{IMGDIR}/pin_$thread[displayorder].gif" alt="$_G[setting][threadsticky][3-$thread[displayorder]]" />
 									<!--{else}-->
-										<img src="{IMGDIR}/folder_$thread[folder].gif" />
+										<img src="{IMGDIR}/folder_$thread[folder].gif" alt="" />
 									<!--{/if}-->
+									</a>
 								</td>
 								<th>
 									<a href="forum.php?mod=viewthread&tid=$thread[tid]" target="_blank" $thread[highlight]>$thread['subject']</a>
