@@ -2071,7 +2071,6 @@ function html5Player(randomid, ext, src, width, height) {
 		case '3gp':
 		case 'ogv':
 		case 'webm':
-			appendstyle(STATICURL + 'js/player/dplayer.min.css');
 			appendscript(STATICURL + 'js/player/dplayer.min.js');
 			html5DPlayer(randomid, ext, src, width, height);
 			break;
