@@ -26,7 +26,7 @@ ob_start();
 	.page {padding: 4px; border-top: 1px #EEEEEE solid}
 	.author {background-color:#EEEEFF; padding: 6px; border-top: 1px #ddddee solid}
 	#nav, #content, #end {padding: 8px; border: 1px solid #EEEEEE; clear: both; width: 95%; margin: auto; margin-top: 10px;}
-	#header, #footer { margin-top: 20px; text-align: center;}
+	#header, #footer { margin-top: 20px;}
 	#loginform {text-align: center;}
 </style>
 </head>
