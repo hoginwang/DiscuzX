@@ -531,10 +531,10 @@ function imgpre_switch(id) {
 		if($extstyle) {
 			showsetting('styles_edit_defaultextstyle', array('defaultextstylenew', $defaultextstyle), $style['defaultextstyle'], 'select');
 		}
-		showsetting('styles_edit_smileytype', array("stylevar[{$stylestuff[stypeid][id]}]", $smileytypes), $stylestuff['stypeid']['subst'], 'select');
+		showsetting('styles_edit_smileytype', array("stylevar[{$stylestuff['stypeid']['id']}]", $smileytypes), $stylestuff['stypeid']['subst'], 'select');
 		showsetting('styles_edit_imgdir', '', '', '<input type="text" class="txt" name="stylevar['.$stylestuff['imgdir']['id'].']" id="imgdir" value="'.$stylestuff['imgdir']['subst'].'" />');
 		showsetting('styles_edit_styleimgdir', '', '', '<input type="text" class="txt" name="stylevar['.$stylestuff['styleimgdir']['id'].']" id="styleimgdir" value="'.$stylestuff['styleimgdir']['subst'].'" />');
-		showsetting('styles_edit_logo', "stylevar[{$stylestuff[boardimg][id]}]", $stylestuff['boardimg']['subst'], 'text');
+		showsetting('styles_edit_logo', "stylevar[{$stylestuff['boardimg']['id']}]", $stylestuff['boardimg']['subst'], 'text');
 
 		foreach($predefinedvars as $predefinedvar => $v) {
 			if($v !== array()) {

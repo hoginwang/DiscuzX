@@ -211,7 +211,7 @@ if($operation == 'comment') {
 					$collection['threadnum'],
 					$collection['commentnum'],
 					dgmdate($collection['dateline']),
-					"<input class=\"txt\" type=\"text\" name=\"ctidorder[{$collection[ctid]}]\" value=\"{$collectionrecommend['ctids'][$collection[ctid]]}\" />",
+					"<input class=\"txt\" type=\"text\" name=\"ctidorder[{$collection['ctid']}]\" value=\"{$collectionrecommend['ctids'][$collection[ctid]]}\" />",
 				));
 			}
 		} else {

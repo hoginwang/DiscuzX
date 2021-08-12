@@ -857,7 +857,7 @@ EOT;
 				} else {
 					$grouplevelicon = $_G['setting']['attachurl'].'common/'.$grouplevel['icon'].'?'.random(6);
 				}
-				$groupleveliconhtml = '<label><input type="checkbox" class="checkbox" name="deleteicon[{$grouplevel[levelid]}]" value="yes" /> '.$lang['delete'].'</label><br /><img src="'.$grouplevelicon.'" />';
+				$groupleveliconhtml = "<label><input type=\"checkbox\" class=\"checkbox\" name=\"deleteicon[".$grouplevel['levelid']."]\" value=\"yes\" /> ".$lang['delete']."</label><br /><img src=\"".$grouplevelicon."\" />";
 			}
 			showsetting('group_level_icon', 'iconnew', $grouplevel['icon'], 'filetext', '', 0, $groupleveliconhtml);
 

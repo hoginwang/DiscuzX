@@ -39,8 +39,8 @@ echo <<<EOT
 <meta http-equiv="Content-Type" content="text/html; charset=$charset">
 <title>$title</title>
 <meta content="Comsenz Inc." name="Copyright" />
-<link rel="stylesheet" href="static/image/admincp/admincp.css?{$_G[style][verhash]}" type="text/css" media="all" />
-<script src="{$_G[setting][jspath]}common.js?{$_G[style][verhash]}" type="text/javascript"></script>
+<link rel="stylesheet" href="static/image/admincp/admincp.css?{$_G['style']['verhash']}" type="text/css" media="all" />
+<script src="{$_G['setting']['jspath']}common.js?{$_G['style']['verhash']}" type="text/javascript"></script>
 </head>
 <body style="margin: 0px" scroll="no">
 <div id="append_parent"></div>
@@ -132,7 +132,7 @@ echo <<<EOT
 </div>
 
 <script type="text/JavaScript">
-	var cookiepre = '{$_G[config][cookie][cookiepre]}', cookiedomain = '{$_G[config][cookie][cookiedomain]}', cookiepath = '{$_G[config][cookie][cookiepath]}';
+	var cookiepre = '{$_G['config']['cookie']['cookiepre']}', cookiedomain = '{$_G['config']['cookie']['cookiedomain']}', cookiepath = '{$_G['config']['cookie']['cookiepath']}';
 	var headers = new Array($headers), admincpfilename = '$basescript', menukey = '';
 	function switchheader(key) {
 		if(!key || !$('header_' + key)) {

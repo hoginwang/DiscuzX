@@ -1203,7 +1203,7 @@ EOF;
 
 	if(!submitcheck('creditsubmit')) {
 
-		eval("\$membercredit = @round({$_G[setting][creditsformula]});");
+		eval("\$membercredit = @round({$_G['setting']['creditsformula']});");
 
 		if(($jscreditsformula = C::t('common_setting')->fetch('creditsformula'))) {
 			$jscreditsformula = str_replace(array('digestposts', 'posts', 'threads'), array($member['digestposts'], $member['posts'],$member['threads']), $jscreditsformula);
@@ -1267,7 +1267,7 @@ EOT;
 
 		if($diffarray) {
 			foreach($diffarray as $id => $diff) {
-				$logs[] = dhtmlspecialchars("$_G[timestamp]\t{$_G[member][username]}\t$_G[adminid]\t$member[username]\t$id\t$diff\t0\t\t{$_GET['reason']}");
+				$logs[] = dhtmlspecialchars("$_G[timestamp]\t{$_G['member']['username']}\t$_G[adminid]\t$member[username]\t$id\t$diff\t0\t\t{$_GET['reason']}");
 			}
 			updatemembercount($_GET['uid'], $diffarray);
 			writelog('ratelog', $logs);
@@ -3342,7 +3342,7 @@ function notifymembers($operation, $variable) {
 function banlog($username, $origgroupid, $newgroupid, $expiration, $reason, $status = 0) {
 	global $_G, $_POST;
 	$cloud_apps = dunserialize($_G['setting']['cloud_apps']);	
-	writelog('banlog', dhtmlspecialchars("$_G[timestamp]\t{$_G[member][username]}\t$_G[groupid]\t$_G[clientip]\t$username\t$origgroupid\t$newgroupid\t$expiration\t$reason\t$status"));
+	writelog('banlog', dhtmlspecialchars("$_G[timestamp]\t{$_G['member']['username']}\t$_G[groupid]\t$_G[clientip]\t$username\t$origgroupid\t$newgroupid\t$expiration\t$reason\t$status"));
 }
 
 function selectday($varname, $dayarray) {

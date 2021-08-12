@@ -69,7 +69,7 @@ class table_common_session extends discuz_table
 			$guestspan = time() - $guestspan;
 			$session = daddslashes($session);
 
-			$condition = " sid='{$session[sid]}' ";
+			$condition = " sid='{$session['sid']}' ";
 			$condition .= " OR lastactivity<$onlinehold ";
 			$condition .= " OR (uid='0' AND ip1='{$session['ip1']}' AND ip2='{$session['ip2']}' AND ip3='{$session['ip3']}' AND ip4='{$session['ip4']}' AND lastactivity>$guestspan) ";
 			$condition .= $session['uid'] ? " OR (uid='{$session['uid']}') " : '';

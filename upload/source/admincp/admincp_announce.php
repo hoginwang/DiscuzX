@@ -35,7 +35,7 @@ if(empty($operation)) {
 			$announce['endtime'] = $announce['endtime'] ? dgmdate($announce['endtime'], 'Y-n-j H:i') : $lang['unlimited'];
 			showtablerow('', array('class="td25"', 'class="td28"'), array(
 				"<input class=\"checkbox\" type=\"checkbox\" name=\"delete[]\" value=\"$announce[id]\" $disabled>",
-				"<input type=\"text\" class=\"txt\" name=\"displayordernew[{$announce[id]}]\" value=\"$announce[displayorder]\" size=\"2\" $disabled>",
+				"<input type=\"text\" class=\"txt\" name=\"displayordernew[{$announce['id']}]\" value=\"$announce[displayorder]\" size=\"2\" $disabled>",
 				"<a href=\"./home.php?mod=space&username=".rawurlencode($announce['author'])."\" target=\"_blank\">$announce[author]</a>",
 				$announce['subject'],
 				cutstr(strip_tags($announce['message']), 20),

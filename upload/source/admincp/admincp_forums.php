@@ -16,6 +16,8 @@ cpheader();
 $operation = empty($operation) ? 'admin' : $operation;
 $fid = intval(getgpc('fid'));
 
+global $_G;
+
 if($operation == 'admin') {
 
 	if(!submitcheck('editsubmit')) {
@@ -231,8 +233,8 @@ var rowtypedata = [
 
 		foreach($moderators as $mod) {
 			showtablerow('', array('class="td25"', 'class="td28"'), array(
-				'<input type="checkbox" class="checkbox" name="delete[]" value="'.$mod[uid].'"'.($mod['inherited'] ? ' disabled' : '').' />',
-				'<input type="text" class="txt" name="displayordernew['.$mod[uid].']" value="'.$mod[displayorder].'" size="2" />',
+				'<input type="checkbox" class="checkbox" name="delete[]" value="'.$mod['uid'].'"'.($mod['inherited'] ? ' disabled' : '').' />',
+				'<input type="text" class="txt" name="displayordernew['.$mod['uid'].']" value="'.$mod['displayorder'].'" size="2" />',
 				"<a href=\"".ADMINSCRIPT."?mod=forum&action=members&operation=group&uid=$mod[uid]\" target=\"_blank\">{$users[$mod['uid']]['username']}</a>",
 				$modgroups[$users[$mod['uid']]['groupid']],
 				cplang($mod['inherited'] ? 'yes' : 'no'),
@@ -724,7 +726,7 @@ var rowtypedata = [
 								'<input type="checkbox" name="threadsortsnew[options][enable]['.$type['typeid'].']" value="1" class="checkbox"'.$enablechecked.' />',
 								$type['name'],
 								$type['description'],
-								"<input class=\"checkbox\" type=\"checkbox\" name=\"threadsortsnew[options][show][{$type[typeid]}]\" value=\"3\" $typeselected[3] />",
+								'<input class="checkbox" type="checkbox" name="threadsortsnew[options][show][{$type["typeid"]}]" value="3" $typeselected[3] />',
 								"<input class=\"radio\" type=\"radio\" name=\"threadsortsnew[defaultshow]\" value=\"$type[typeid]\" ".($forum['threadsorts']['defaultshow'] == $type['typeid'] ? 'checked' : '')." />"
 							), TRUE) : '';
 						}
@@ -799,7 +801,7 @@ var rowtypedata = [
 				showsetting('forums_edit_basic_rules', 'rulesnew', htmlspecialchars_decode(html2bbcode($forum['rules'])), 'textarea');
 				showsetting('forums_edit_basic_keys', 'keysnew', $forumkeys[$fid], 'text');
 				if(!empty($_G['setting']['domain']['root']['forum'])) {
-					$iname = $multiset ? "multinew[{$_G[showsetting_multi]}][domainnew]" : 'domainnew';
+					$iname = $multiset ? "multinew[{$_G['showsetting_multi']}][domainnew]" : 'domainnew';
 					showsetting('forums_edit_extend_domain', '', '', $_G['scheme'].'://<input type="text" name="'.$iname.'" class="txt" value="'.$forum['domain'].'" style="width:100px; margin-right:0px;" >.'.$_G['setting']['domain']['root']['forum']);
 				} elseif(!$multiset) {
 					showsetting('forums_edit_extend_domain', 'domainnew', '', 'text', 'disabled');
@@ -2170,7 +2172,7 @@ function getthreadclasses_html($fid) {
 		if($type['moderators']) {
 			$moderatorschecked = ' checked="checked"';
 		}
-		$typeselect .= showtablerow('', array('class="td25"'), array(
+		$typeselect = showtablerow('', array('class="td25"'), array(
 			"<input type=\"checkbox\" class=\"checkbox\" name=\"threadtypesnew[options][delete][]\" value=\"{$type['typeid']}\" />",
 			"<input type=\"text\" size=\"2\" name=\"threadtypesnew[options][displayorder][{$type['typeid']}]\" value=\"{$type['displayorder']}\" />",
 			"<input type=\"text\" name=\"threadtypesnew[options][name][{$type['typeid']}]\" value=\"".(str_replace(array("'", "\""), array(), $type['name']))."\" />",

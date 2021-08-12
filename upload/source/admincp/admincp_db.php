@@ -216,7 +216,7 @@ if($operation == 'export') {
 				$sqldump = "$idstring".
 					"# <?php exit();?>\n".
 					"# Discuz! Multi-Volume Data Dump Vol.$volume\n".
-					"# Version: Discuz! {$_G[setting][version]}\n".
+					"# Version: Discuz! {$_G['setting']['version']}\n".
 					"# Time: $time\n".
 					"# Type: {$_GET['type']}\n".
 					"# Table Prefix: $tablepre\n".

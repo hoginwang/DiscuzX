@@ -182,7 +182,7 @@ if($operation == 'set') {
 				$val['extcreditsval'].$_G['setting']['extcredits'][$val['extcreditskey']]['title'],
 				$card_type[$val['typeid']]['typename'] ? $card_type[$val['typeid']]['typename'] : cplang('card_type_default'),
 				cplang("card_manage_status_".$val['status']),
-				$val['uid'] ? "<a href='home.php?mod=space&uid={$val[uid]}' target='_blank'>".$members[$val['uid']]['username'] : ' -- ',
+				$val['uid'] ? "<a href='home.php?mod=space&uid={$val['uid']}' target='_blank'>".$members[$val['uid']]['username'] : ' -- ',
 				$val['useddateline'] ? dgmdate($val['useddateline']) : ' -- ',
 				$val['cleardateline'] ? dgmdate($val['cleardateline'], 'Y-m-d') : cplang('card_make_cleardateline_none'),
 				dgmdate($val['dateline'], 'u'),

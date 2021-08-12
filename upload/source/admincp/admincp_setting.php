@@ -1181,7 +1181,7 @@ EOF;
 	} elseif($operation == 'functions') {
 		$allowfuntype = array('portal', 'group', 'follow', 'collection', 'guide', 'feed', 'blog', 'doing', 'album', 'share', 'wall', 'homepage', 'ranklist');
 		$_GET['type'] = in_array($_GET['type'], $allowfuntype) ? trim($_GET['type']) : '';
-		echo "<script>disallowfloat = '{$_G[setting][disallowfloat]}';</script>";
+		echo "<script>disallowfloat = '{$_G['setting']['disallowfloat']}';</script>";
 
 		/*search={"setting_functions":"action=setting&operation=functions","setting_functions_curscript":"action=setting&operation=functions&anchor=curscript"}*/
 		showtableheader('setting_functions_curscript_list', 'nobottom', 'id="curscript"'.($_GET['anchor'] != 'curscript' ? ' style="display: none"' : ''));

@@ -194,7 +194,7 @@ $lang = array (
   'recommend_group' => '推荐{$_G[setting][navs][3][navname]}',
   'group_activities' => '活跃度',
   'group_category_no_groups' => '该分类下暂时没有{$_G[setting][navs][3][navname]}',
-  'group_category_no_groups_detail' => '返回上级分类重新选择，或者[<b><a href="forum.php?mod=group&action=create&fupid={$curtype[fup]}&groupid=$sgid">创建一个新的{$_G[setting][navs][3][navname]}</a></b>]',
+  'group_category_no_groups_detail' => '返回上级分类重新选择，或者[<b><a href="forum.php?mod=group&action=create&fupid={$curtype["fup"]}&groupid=$sgid">创建一个新的{$_G[setting][navs][3][navname]}</a></b>]',
   'group_create_time' => '建立时间',
   'group_founded_in' => '创建于',
   'group_member' => '{$_G[setting][navs][3][navname]}成员',
