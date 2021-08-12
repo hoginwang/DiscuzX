@@ -19,7 +19,7 @@ ob_start();
 <meta name="author" content="Discuz! Team and Comsenz UI Team" />
 <meta name="copyright" content="2001-2021, Tencent Cloud." />
 <style type="text/css">
-	body {font-family: Verdana;FONT-SIZE: 12px;MARGIN: 0;color: #000000;background: #ffffff;}
+	body {font-family: Verdana; font-size: 12px; margin: 0; color: #000000; background: #ffffff;}
 	img {border:0;}
 	li {margin-top: 8px;}
 	.center {text-align: center;}
