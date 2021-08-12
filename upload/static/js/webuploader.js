@@ -550,7 +550,7 @@ function uploadStart(file) {
 
 function uploadProgress(file, percentage) {
 	try {
-		var percent = Math.ceil((bytesLoaded / bytesTotal) * 100);
+		var percent = percentage * 100;
 		var progress = new FileProgress(file, this.customSettings.progressTarget);
 		progress.setStatus("正在上传(" + Math.round(percentage * 100) + "%)...");
 	} catch (ex) {
