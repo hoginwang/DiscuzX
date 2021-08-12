@@ -22,15 +22,16 @@ ob_start();
 	body {font-family: Verdana;FONT-SIZE: 12px;MARGIN: 0;color: #000000;background: #ffffff;}
 	img {border:0;}
 	li {margin-top: 8px;}
+	.center {text-align: center;}
 	.page {padding: 4px; border-top: 1px #EEEEEE solid}
 	.author {background-color:#EEEEFF; padding: 6px; border-top: 1px #ddddee solid}
 	#nav, #content, #end {padding: 8px; border: 1px solid #EEEEEE; clear: both; width: 95%; margin: auto; margin-top: 10px;}
-	#header, #footer { margin-top: 20px; }
+	#header, #footer { margin-top: 20px; text-align: center;}
 	#loginform {text-align: center;}
 </style>
 </head>
 <body vlink="#333333" link="#333333">
-<center id="header">
+<div id="header" class="center">
 <?php echo adshow('headerbanner'); ?>
 <h2><?php echo $_G['setting']['bbname']; ?>'s Archiver </h2>
-</center>
+</div>
