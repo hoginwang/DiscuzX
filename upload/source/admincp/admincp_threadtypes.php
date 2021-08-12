@@ -345,7 +345,7 @@ EOT;
 		}
 
 		foreach(C::t('common_member_profile_setting')->fetch_all_by_available_formtype(1, 'text') as $result) {
-			$threadtype_profile = !$threadtype_profile ? "<select id='rules[text][profile]' name='rules[text][profile]'><option value=''></option>" : $threadtype_profile."<option value='{$result[fieldid]}' ".($option['rules']['profile'] == $result['fieldid'] ? "selected='selected'" : '').">{$result[title]}</option>";
+			$threadtype_profile = !$threadtype_profile ? "<select id='rules[text][profile]' name='rules[text][profile]'><option value=''></option>" : $threadtype_profile."<option value='{$result['fieldid']}' ".($option['rules']['profile'] == $result['fieldid'] ? "selected='selected'" : '').">{$result['title']}</option>";
 		}
 		$threadtype_profile .= "</select>";
 
@@ -1097,7 +1097,7 @@ EOT;
 			showsubtitle(array('', 'subject', 'forum', 'author', 'threads_replies', 'threads_views', 'threads_lastpost'));
 			echo $threads;
 			echo $multipage;
-			showsubmit('', '', '', "<input type=\"submit\" class=\"btn\" name=\"delsortsubmit\" value=\"{$lang[threadtype_content_delete]}\"/>");
+			showsubmit('', '', '', "<input type=\"submit\" class=\"btn\" name=\"delsortsubmit\" value=\"{$lang['threadtype_content_delete']}\"/>");
 			showtablefooter();
 			showformfooter();
 

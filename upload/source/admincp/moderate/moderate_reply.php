@@ -213,7 +213,7 @@ if(!submitcheck('modsubmit') && !$_GET['fast']) {
 		}
 	}
 	if($ignorepids = dimplode($moderation['ignore'])) {
-		$ignores = C::t('forum_post')->update($posttable, $moderation['ignore'], array('invisible' => -3), false, false, 0, -2, $fidadd[fids]);
+		$ignores = C::t('forum_post')->update($posttable, $moderation['ignore'], array('invisible' => -3), false, false, 0, -2, $fidadd['fids']);
 		updatemoderate('pid', $moderation['ignore'], 1);
 	}
 

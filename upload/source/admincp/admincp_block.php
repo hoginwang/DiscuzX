@@ -234,8 +234,8 @@ if($operation=='perm') {
 		$firstrow = "<th>$searchlang[block_diytemplate]</th><td>$diytemplatename_sel</td><th>$searchlang[block_blockclass]</th><td colspan=\"2\">$blockclass_sel $addjscall</td>";
 		$adminscript = ADMINSCRIPT;
 		echo <<<SEARCH
-			<script>disallowfloat = '{$_G[setting][disallowfloat]}';</script>
-			<script type="text/javascript" src="{$_G[setting][jspath]}portal.js?{VERHASH}"></script>
+			<script>disallowfloat = '{$_G['setting']['disallowfloat']}';</script>
+			<script type="text/javascript" src="{$_G['setting']['jspath']}portal.js?{VERHASH}"></script>
 			<div id="ajaxwaitid"></div>
 			<form method="get" autocomplete="off" action="$adminscript" id="tb_search">
 				<div style="margin-top:8px;">

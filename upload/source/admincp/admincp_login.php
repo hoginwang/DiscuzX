@@ -42,6 +42,7 @@ if($this->cpaccess == -3) {
 html_login_footer();
 
 function html_login_header($form = true) {
+	global $_G;
 	$charset = CHARSET;
 	$title = lang('admincp_login', 'login_title');
 	$tips = lang('admincp_login', 'login_tips');
@@ -51,7 +52,7 @@ function html_login_header($form = true) {
 <head>
 <meta http-equiv="Content-Type" content="text/html;charset=$charset" />
 <title>$title</title>
-<link rel="stylesheet" href="static/image/admincp/admincp.css?{$_G[style][verhash]}" type="text/css" media="all" />
+<link rel="stylesheet" href="static/image/admincp/admincp.css?{$_G['style']['verhash']}" type="text/css" media="all" />
 <meta content="Comsenz Inc." name="Copyright" />
 </head>
 <body>

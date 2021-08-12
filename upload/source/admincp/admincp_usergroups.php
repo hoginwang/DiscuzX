@@ -24,7 +24,7 @@ if(!$operation) {
 		foreach(C::t('common_usergroup')->range_orderby_creditshigher() as $group) {
 			if($group['type'] == 'member') {
 
-				$membergroupoption .= "<option value=\"g{$group[groupid]}\">".addslashes($group['grouptitle'])."</option>";
+				$membergroupoption .= "<option value=\"g{$group['groupid']}\">".addslashes($group['grouptitle'])."</option>";
 
 				$membergroup .= showtablerow('', array('class="td25"', '', 'class="td23 lightfont"', 'class="td28"', 'class=td28'), array(
 					"<input class=\"checkbox\" type=\"checkbox\" name=\"delete[$group[groupid]]\" value=\"$group[groupid]\">",
@@ -49,7 +49,7 @@ if(!$operation) {
 				), TRUE);
 			} elseif($group['type'] == 'special' && $group['radminid'] == '0') {
 
-				$specialgroupoption .= "<option value=\"g{$group[groupid]}\">".addslashes($group['grouptitle'])."</option>";
+				$specialgroupoption .= "<option value=\"g{$group['groupid']}\">".addslashes($group['grouptitle'])."</option>";
 
 				$sgroups[] = $group;
 				$sgroupids .= ','.$group['groupid'];

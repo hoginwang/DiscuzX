@@ -258,7 +258,7 @@ if(submitcheck('forumsubmit', 1)) {
 			foreach($typeoptionvararr as $row) {
 				$row['fid'] = $tids[$row['tid']]['fid'];
 				$opname = $optionids[$sortid][$row['optionid']];
-				if(empty($inserts[$row[tid]])) {
+				if(empty($inserts[$row['tid']])) {
 					$inserts[$row['tid']]['tid'] = $row['tid'];
 					$inserts[$row['tid']]['fid'] = $row['fid'];
 				}

@@ -246,7 +246,7 @@ EOF;
 			$multipage = '';
 
 			showformheader("verify&operation=verify&do=".$vid.'&anchor='.$anchor);
-			echo "<script>disallowfloat = '{$_G[setting][disallowfloat]}';</script><input type=\"hidden\" name=\"verifysubmit\" value=\"trun\" />";
+			echo "<script>disallowfloat = '{$_G['setting']['disallowfloat']}';</script><input type=\"hidden\" name=\"verifysubmit\" value=\"trun\" />";
 			showtableheader('members_verify_manage', 'fixpadding');
 
 			if($anchor != 'pass') {
