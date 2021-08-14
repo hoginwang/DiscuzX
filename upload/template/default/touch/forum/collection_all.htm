@@ -1,0 +1,48 @@
+<!--{template common/header}-->
+<div class="header cl">
+	<div class="mz"><a href="javascript:history.back();"><i class="dm-c-left"></i></a></div>
+	<h2>
+		{lang collection}
+	</h2>
+	<div class="my">
+	<!--{if helper_access::check_module('collection')}-->
+	<a href="forum.php?mod=collection&amp;action=edit"><i class="dm-plus-c"></i></a>
+	<!--{else}-->
+	<a href="<!--{if $_G['setting']['mobile']['mobilehotthread']}--><!--{if !empty($_G['setting']['grid']['showgrid'])}-->forum.php<!--{else}-->forum.php?mod=guide&view=newthread<!--{/if}--><!--{else}-->forum.php?forumlist=1<!--{/if}-->"><i class="dm-house"></i></a>
+	<!--{/if}-->
+	</div>
+</div>
+<!--{subtemplate forum/collection_nav}-->
+<div id="ct" class="wp cl">
+	<div class="bm">
+		<div class="tbmu cl">
+			<div class="y">
+				<!--{if $_G['setting']['search']['collection']['status'] && ($_G['group']['allowsearch'] & 64 || $_G['adminid'] == 1)}-->
+					<form action="forum.php?mod=collection&amp;op=search" method="post">
+						<input type="text" name="kw" class="px vm" />
+						<button type="submit" value="submit" class="pn vm"><span>{lang search}</span></button>
+					</form>
+				<!--{/if}-->
+			</div>
+			<!--{if $op != 'search'}-->
+				<a href="forum.php?mod=collection&amp;op=all"{if !in_array($orderby, array('threadnum', 'commentnum', 'follownum'))} class="a"{/if}>{lang collection_sortby_update}</a>
+				<span class="pipe">|</span>
+				<a href="forum.php?mod=collection&amp;op=all&amp;order=threadnum"{if $orderby == 'threadnum'} class="a"{/if}>{lang collection_sortby_threadnum}</a>
+				<span class="pipe">|</span>
+				<a href="forum.php?mod=collection&amp;op=all&amp;order=commentnum"{if $orderby == 'commentnum'} class="a"{/if}>{lang collection_sortby_coomentnum}</a>
+				<span class="pipe">|</span>
+				<a href="forum.php?mod=collection&amp;op=all&amp;order=follownum"{if $orderby == 'follownum'} class="a"{/if}>{lang collection_sortby_follownum}</a>
+			<!--{else}-->
+				{lang search}
+			<!--{/if}-->
+		</div>
+		<div class="bm_c">
+			<!--{hook/collection_index_top}-->
+			<!--{subtemplate forum/collection_list}-->
+			<!--{hook/collection_index_bottom}-->
+		</div>
+	</div>
+	$multipage
+	<br /><br />
+</div>
+<!--{template common/footer}-->
