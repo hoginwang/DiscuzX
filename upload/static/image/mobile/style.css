@@ -853,13 +853,16 @@ body.pg_logging, body.pg_register {background-color:var(--dz-BG-0)}
 .collectionlist li div.collectiondisplaynum {text-align: center;width: 100%;line-height: 28px;font-size: 18px;font-weight: 900;white-space: nowrap;}
 .collectionlist li div.collectiondisplaytit {text-align: center;width: 100%;line-height: 20px;font-size: 12px;font-weight: 900;background-color: var(--dz-BG-color);color: var(--dz-FC-fff);}
 .collectionlist li div.collectioninfo {height: 48px;margin: 13px 0;display: inline-block;}
-.collectionaddbox {padding-bottom:10px;overflow:hidden;}
-.collectionaddbox li {padding:7px;min-height:30px;line-height:30px;font-size:14px;border-bottom:1px solid var(--dz-BOR-ed)}
-.collectionaddbox li textarea {background-color: var(--dz-BG-0);}
-.collectionaddbox li span {display: none;}
-.collectionaddbox li:hover span {display: inline;}
-.collectionaddform {padding:10px 15px;overflow:hidden}
-.collectionaddbtn {padding:7px 15px;overflow:hidden}
+
+/*----- 表单 -----*/
+form.mobileformbox {padding-bottom:10px;overflow:hidden;}
+.mobileformitem {background-color: var(--dz-BG-0);padding:7px;font-size:16px;border-bottom:1px solid var(--dz-BOR-ed)}
+.mobileformitem > span {font-size:14px;display:none;}
+.mobileformitem:hover > span {display: inline;}
+.mobileformitem > input {line-height:30px;border:none;padding:0;font-size:16px;}
+.mobileformitem > textarea {min-height:168px;line-height:24px;border:none;padding:0;background-color: var(--dz-BG-0);}
+.mobileformitem > button {height: 44px;line-height: 30px;color:var(--dz-BG-0);background-color:var(--dz-BG-color);border:none;border-radius:6px;padding:7px 15px;text-align:center;font-size:16px;overflow:hidden}
+.mobileformitem > .w100 {width:100%;}
 
 /*----- media --------*/
 .media { display: block; margin-bottom: 30px; max-width: 100%; }

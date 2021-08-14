@@ -12,31 +12,29 @@
 		<!--{/if}-->
 	</p>
 </div>
-<div class="collectionaddbox">
-	<form id="collectionaddform" action="forum.php?mod=collection&action=edit" onsubmit="return checklen();" method="POST">
-		<div class="collectionadd_from">
-			<ul>
-				<li>
-					<input type="text" value="{$_G['collection']['name']}" tabindex="1" class="px" autocomplete="off" name="title" id="formtitle" placeholder="{lang collection_title}" />
-					<!--{if $op != 'edit'}-->
-					<span>{lang collection_remain_tips}</span>
-					<!--{/if}-->
-				</li>
-				<li><textarea placeholder="{lang collection_desc}" name="desc" id="formdesc" rows="10" class="pt">{$_G['collection']['desc']}</textarea></li>
-				<li>
-					<input type="text" value="{$_G['collection']['keyword']}" name="keyword" id="formkeyword" class="px" placeholder="{lang collection_keywords}"/>
-					<span>{lang collection_keywords_desc}</span>
-				</li>
-			</ul>
-		</div>
-		<div class="collectionaddbtn"><button tabindex="3" type="submit" class="formdialog pn"><!--{if $op == 'edit'}-->{lang collection_edit}<!--{else}-->{lang collection_create}<!--{/if}--></button></div>
-		<input type="hidden" value="1" name="submitcollection" />
-		<input type="hidden" value="{$op}" name="op" />
-		<input type="hidden" value="{$ctid}" name="ctid" />
-		<input type="hidden" name="formhash" id="formhash" value="{FORMHASH}" />
-		<input type="hidden" name="collectionsubmit" id="collectionsubmit" value="submit" />
-	</form>
-</div>
+<form class="mobileformbox" action="forum.php?mod=collection&action=edit" onsubmit="return checklen();" method="POST">
+	<div class="mobileformitem">
+		<input id="formtitle" class="px" type="text" name="title" value="{$_G['collection']['name']}" placeholder="{lang collection_title}" autocomplete="off" tabindex="1" />
+		<!--{if $op != 'edit'}-->
+		<span>{lang collection_remain_tips}</span>
+		<!--{/if}-->
+	</div>
+	<div class="mobileformitem">
+		<textarea id="formdesc" class="w100" name="desc" rows="10" placeholder="{lang collection_desc}" tabindex="2">{$_G['collection']['desc']}</textarea>
+	</div>
+	<div class="mobileformitem">
+		<input id="formkeyword" class="w100" type="text" name="keyword" value="{$_G['collection']['keyword']}" placeholder="{lang collection_keywords}" autocomplete="off" tabindex="3"/>
+		<span>{lang collection_keywords_desc}</span>
+	</div>
+	<div class="mobileformitem">
+		<button class="w100" type="submit" tabindex="4"><!--{if $op == 'edit'}-->{lang collection_edit}<!--{else}-->{lang collection_create}<!--{/if}--></button>
+	</div>
+	<input type="hidden" value="1" name="submitcollection" />
+	<input type="hidden" value="{$op}" name="op" />
+	<input type="hidden" value="{$ctid}" name="ctid" />
+	<input type="hidden" name="formhash" id="formhash" value="{FORMHASH}" />
+	<input type="hidden" name="collectionsubmit" id="collectionsubmit" value="submit" />
+</form>
 <script>
 	var titlelimit = '$titlelimit';
 	var desclimit = '$desclimit';
