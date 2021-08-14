@@ -853,7 +853,13 @@ body.pg_logging, body.pg_register {background-color:var(--dz-BG-0)}
 .collectionlist li div.collectiondisplaynum {text-align: center;width: 100%;line-height: 28px;font-size: 18px;font-weight: 900;white-space: nowrap;}
 .collectionlist li div.collectiondisplaytit {text-align: center;width: 100%;line-height: 20px;font-size: 12px;font-weight: 900;background-color: var(--dz-BG-color);color: var(--dz-FC-fff);}
 .collectionlist li div.collectioninfo {height: 48px;margin: 13px 0;display: inline-block;}
-
+.collectionaddbox {padding-bottom:10px;overflow:hidden;}
+.collectionaddbox li {padding:7px;min-height:30px;line-height:30px;font-size:14px;border-bottom:1px solid var(--dz-BOR-ed)}
+.collectionaddbox li textarea {background-color: var(--dz-BG-0);}
+.collectionaddbox li span {display: none;}
+.collectionaddbox li:hover span {display: inline;}
+.collectionaddform {padding:10px 15px;overflow:hidden}
+.collectionaddbtn {padding:7px 15px;overflow:hidden}
 
 /*----- media --------*/
 .media { display: block; margin-bottom: 30px; max-width: 100%; }

@@ -1,0 +1,54 @@
+<!--{template common/header}-->
+<div class="header cl">
+	<div class="mz"><a href="javascript:history.back();"><i class="dm-c-left"></i></a></div><h2></h2><div class="my"></div>
+</div>
+<div class="header_toplogo">
+	<img src="{IMGDIR}/logo_m.svg" />
+	<p>
+		<!--{if $op == 'edit'}-->
+		{lang collection_edit}
+		<!--{else}-->
+		{lang collection_create}
+		<!--{/if}-->
+	</p>
+</div>
+<div class="collectionaddbox">
+	<form id="collectionaddform" action="forum.php?mod=collection&action=edit" onsubmit="return checklen();" method="POST">
+		<div class="collectionadd_from">
+			<ul>
+				<li>
+					<input type="text" value="{$_G['collection']['name']}" tabindex="1" class="px" autocomplete="off" name="title" id="formtitle" placeholder="{lang collection_title}" />
+					<!--{if $op != 'edit'}-->
+					<span>{lang collection_remain_tips}</span>
+					<!--{/if}-->
+				</li>
+				<li><textarea placeholder="{lang collection_desc}" name="desc" id="formdesc" rows="10" class="pt">{$_G['collection']['desc']}</textarea></li>
+				<li>
+					<input type="text" value="{$_G['collection']['keyword']}" name="keyword" id="formkeyword" class="px" placeholder="{lang collection_keywords}"/>
+					<span>{lang collection_keywords_desc}</span>
+				</li>
+			</ul>
+		</div>
+		<div class="collectionaddbtn"><button tabindex="3" value="true" name="submit" type="submit" class="formdialog pn"><!--{if $op == 'edit'}-->{lang collection_edit}<!--{else}-->{lang collection_create}<!--{/if}--></button></div>
+		<input type="hidden" value="1" name="submitcollection" />
+		<input type="hidden" value="{$op}" name="op" />
+		<input type="hidden" value="{$ctid}" name="ctid" />
+		<input type="hidden" name="formhash" id="formhash" value="{FORMHASH}" />
+	</form>
+</div>
+<script>
+	var titlelimit = '$titlelimit';
+	var desclimit = '$desclimit';
+	function checklen() {
+		if(mb_strlen($("formtitle").value) > titlelimit) {
+			showError({lang collection_title_exceed});
+			return false;
+		}
+		if(mb_strlen($("formdesc").value) > desclimit) {
+			showError({lang collection_desc_exceed});
+			return false;
+		}
+		return true;
+	}
+</script>
+<!--{template common/footer}-->
