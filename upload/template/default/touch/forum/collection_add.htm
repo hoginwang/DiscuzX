@@ -29,11 +29,12 @@
 				</li>
 			</ul>
 		</div>
-		<div class="collectionaddbtn"><button tabindex="3" value="true" name="submit" type="submit" class="formdialog pn"><!--{if $op == 'edit'}-->{lang collection_edit}<!--{else}-->{lang collection_create}<!--{/if}--></button></div>
+		<div class="collectionaddbtn"><button tabindex="3" type="submit" class="formdialog pn"><!--{if $op == 'edit'}-->{lang collection_edit}<!--{else}-->{lang collection_create}<!--{/if}--></button></div>
 		<input type="hidden" value="1" name="submitcollection" />
 		<input type="hidden" value="{$op}" name="op" />
 		<input type="hidden" value="{$ctid}" name="ctid" />
 		<input type="hidden" name="formhash" id="formhash" value="{FORMHASH}" />
+		<input type="hidden" name="collectionsubmit" id="collectionsubmit" value="submit" />
 	</form>
 </div>
 <script>
