@@ -27,8 +27,8 @@ class payment_credit {
 			'submitdate' => $_G['timestamp'],
 			'email' => $_G['member']['email'],
 			'confirmdate' => $order['payment_time'],
-			'ip' => $_G['clientip'],
-			'port' => $_G['remoteport']
+			'ip' => $data['ip'],
+			'port' => $data['port']
 		));
 		updatemembercount($order['uid'], array('extcredits' . $data['index'] => $data['value']), 1, 'AFD', $order['uid']);
 		C::t('forum_order')->delete_by_submitdate($_G['timestamp'] - 60 * 86400);

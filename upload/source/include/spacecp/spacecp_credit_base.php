@@ -107,7 +107,9 @@ if($_GET['op'] == 'base') {
 			$return_url,
 			array(
 				'index' => $_G['setting']['creditstrans'],
-				'value' => $amount
+				'value' => $amount,
+				'ip' => $_G['clientip'],
+				'port' => $_G['remoteport']
 			)
 		);
 

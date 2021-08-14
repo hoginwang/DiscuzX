@@ -13,6 +13,7 @@ if(!defined('IN_DISCUZ')) {
 
 $lang = array(
 	'payment_credit' => '积分充值',
+	'payment_invite' => '购买邀请码',
 );
 
 ?>

@@ -25,25 +25,26 @@ if(!in_array($ac, array('doing', 'upload', 'blog', 'album'))) {
 	$_G['mnid'] = 'mn_common';
 }
 
-
 if($ac != 'comment' || !$_G['group']['allowcomment']) {
-	if(empty($_G['uid'])) {
-		if($_SERVER['REQUEST_METHOD'] == 'GET') {
-			dsetcookie('_refer', rawurlencode($_SERVER['REQUEST_URI']));
-		} else {
-			dsetcookie('_refer', rawurlencode('home.php?mod=spacecp&ac='.$ac));
+	if($_G['uid'] || $ac.$op != 'paymentpay') {
+		if(empty($_G['uid'])) {
+			if($_SERVER['REQUEST_METHOD'] == 'GET') {
+				dsetcookie('_refer', rawurlencode($_SERVER['REQUEST_URI']));
+			} else {
+				dsetcookie('_refer', rawurlencode('home.php?mod=spacecp&ac='.$ac));
+			}
+			showmessage('to_login', '', array(), array('showmsg' => true, 'login' => 1));
 		}
-		showmessage('to_login', '', array(), array('showmsg' => true, 'login' => 1));
-	}
 
-	$space = getuserbyuid($_G['uid']);
-	if(empty($space)) {
-		showmessage('space_does_not_exist');
-	}
-	space_merge($space, 'field_home');
+		$space = getuserbyuid($_G['uid']);
+		if(empty($space)) {
+			showmessage('space_does_not_exist');
+		}
+		space_merge($space, 'field_home');
 
-	if(($space['status'] == -1 || in_array($space['groupid'], array(4, 5, 6))) && $ac != 'usergroup') {
-		showmessage('space_has_been_locked');
+		if(($space['status'] == -1 || in_array($space['groupid'], array(4, 5, 6))) && $ac != 'usergroup') {
+			showmessage('space_has_been_locked');
+		}
 	}
 }
 $actives = array($ac => ' class="a"');

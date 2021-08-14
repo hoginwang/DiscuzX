@@ -85,8 +85,9 @@ class payment {
 			$type_name = lang('payment/type', $type);
 		}
 
+		$out_biz_no = dgmdate(TIMESTAMP, 'YmdHis') . random(14, 1);
 		$data = array(
-			'out_biz_no' => dgmdate(TIMESTAMP, 'YmdHis') . random(14, 1),
+			'out_biz_no' => $out_biz_no,
 			'type' => $type,
 			'type_name' => $type_name,
 			'uid' => $_G['uid'],
@@ -96,7 +97,7 @@ class payment {
 			'description' => $description,
 			'expire_time' => time() + $expire,
 			'status' => 0,
-			'return_url' => $return_url,
+			'return_url' => str_replace(array('{out_biz_no}'), array($out_biz_no), $return_url),
 			'clientip' => $_G['clientip'],
 			'remoteport' => $_G['remoteport'],
 			'dateline' => time()
