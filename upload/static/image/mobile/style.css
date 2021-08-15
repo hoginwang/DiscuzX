@@ -855,17 +855,28 @@ body.pg_logging, body.pg_register {background-color:var(--dz-BG-0)}
 .collectionlist li div.collectioninfo {height: 48px;margin: 13px 0;display: inline-block;}
 
 /*----- 表单 -----*/
-form.mobileformbox {padding-bottom:10px;overflow:hidden;}
-.mobileformitem {background-color: var(--dz-BG-0);padding:7px;font-size:16px;border-bottom:1px solid var(--dz-BOR-ed)}
+.mobileformbox {padding-bottom:10px;overflow:hidden;}
+.mobileformitem {background-color:var(--dz-BG-0);padding:7px;font-size:16px;border-bottom:1pxsolidvar(--dz-BOR-ed)}
 .mobileformitem > span {font-size:14px;display:none;}
-.mobileformitem:hover > span {display: inline;}
+.mobileformitem:hover > span {display:inline;}
 .mobileformitem > input {line-height:30px;border:none;padding:0;font-size:16px;}
-.mobileformitem > textarea {min-height:168px;line-height:24px;border:none;padding:0;background-color: var(--dz-BG-0);}
-.mobileformitem > button {height: 44px;line-height: 30px;color:var(--dz-BG-0);background-color:var(--dz-BG-color);border:none;border-radius:6px;padding:7px 15px;text-align:center;font-size:16px;overflow:hidden}
+.mobileformitem > textarea {min-height:168px;line-height:24px;border:none;padding:0;background-color:var(--dz-BG-0);}
+.mobileformitem > button {height:44px;line-height:30px;color:var(--dz-BG-0);background-color:var(--dz-BG-color);border:none;border-radius:6px;padding:7px15px;text-align:center;font-size:16px;overflow:hidden}
 .mobileformitem > .w100 {width:100%;}
 
+/*----- 列表 -----*/
+.mobilelistbox {padding-bottom:10px;overflow:hidden;}
+.mobilelistitem {background-color:var(--dz-BG-0);padding:7px;font-size:16px;border-bottom:1pxsolidvar(--dz-BOR-ed)}
+.mobilelisttitle {line-height:30px;font-size:18px;}
+.mobilelisttitle > a {font-weight:900;color:var(--dz-BG-color);}
+.mobilelisttitle > span {padding:04px;border-radius:4px;margin-left:5px;font-size:12px;background-color:var(--dz-BG-color);}
+.mobilelisttitle > span.mobilelistme {background-color:var(--dz-BG-2);}
+.mobilelistdescription {line-height:20px;font-size:14px;color:var(--dz-FC-333);}
+.mobilelistinfo {line-height:20px;font-size:12px;color:var(--dz-FC-666);}
+.mobilelistinfo > span {margin:04px;font-weight:900;color:var(--dz-FC-color);}
+
 /*----- media --------*/
-.media { display: block; margin-bottom: 30px; max-width: 100%; }
+.media { display: block; margin-bottom: 30px; max-width: 100%;}
 .media_container { display: block; width: 100%; height: 100%; min-height: 20px; background: url("./images/img_loader.gif") no-repeat center; }
 .media_container a { text-decoration: none !important; }
 .media_tips { display: block; margin: 10px 0; text-align: center; }
