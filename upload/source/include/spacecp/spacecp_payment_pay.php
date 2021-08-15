@@ -98,8 +98,6 @@ if(submitcheck('paysubmit')) {
 	}
 	$order['amount'] = number_format($order['amount'] / 100, '2', '.', ',');
 
-	$payment_settings = C::t('common_setting')->fetch_all_setting(array('ec_wechat', 'ec_alipay', 'ec_qpay'), true);
-
 	$pay_channel_list = array();
 	$channels = payment::channels();
 	foreach($channels as $channel) {
