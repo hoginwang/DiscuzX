@@ -94,6 +94,7 @@ select {-moz-appearance:none;}
 .p10 {padding:10px !important;}
 .p15 {padding:15px !important;}
 .pl5 {padding-left: 5px !important;}
+.b0 {border:0 !important;}
 .f_g, .f_g a {color: var(--dz-BG-2);}
 
 /*----- 通用主体 -----*/
