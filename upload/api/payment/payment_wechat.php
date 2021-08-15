@@ -458,7 +458,9 @@ class payment_wechat extends payment_base {
 	}
 
 	private function wechat_x2o($xml) {
-		libxml_disable_entity_loader(true);
+		if(function_exists('libxml_disable_entity_loader')) {
+			libxml_disable_entity_loader(true);
+		}
 		$data = json_decode(json_encode(simplexml_load_string($xml, 'SimpleXMLElement', LIBXML_NOCDATA)), true);
 		return $data;
 	}
