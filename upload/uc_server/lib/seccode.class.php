@@ -141,7 +141,7 @@ class seccode {
 				$start[$i] = mt_rand(200, 255);$end[$i] = mt_rand(100, 150);$step[$i] = ($end[$i] - $start[$i]) / $this->width;$c[$i] = $start[$i];
 			}
 			for($i = 0;$i < $this->width;$i++) {
-				$color = imagecolorallocate($this->im, $c[0], $c[1], $c[2]);
+				$color = imagecolorallocate($this->im, round($c[0]), round($c[1]), round($c[2]));
 				imageline($this->im, $i, 0, $i-(isset($angle) ? $angle : 0), $this->height, $color);
 				$c[0] += $step[0];$c[1] += $step[1];$c[2] += $step[2];
 			}
@@ -224,11 +224,11 @@ class seccode {
 			$box = imagettfbbox($font[$i]['size'], $font[$i]['angle'], $font[$i]['font'], $seccode[$i]);
 			$font[$i]['height'] = max($box[1], $box[3]) - min($box[5], $box[7]);
 			$font[$i]['hd'] = $font[$i]['height'] - $font[$i]['zheight'];
-			$font[$i]['width'] = (max($box[2], $box[4]) - min($box[0], $box[6])) + mt_rand(0, $this->width / 8);
+			$font[$i]['width'] = (max($box[2], $box[4]) - min($box[0], $box[6])) + mt_rand(0, round($this->width / 8));
 			$font[$i]['width'] = $font[$i]['width'] > $this->width / $seccodelength ? $this->width / $seccodelength : $font[$i]['width'];
 			$widthtotal += $font[$i]['width'];
 		}
-		$x = mt_rand($font[0]['angle'] > 0 ? cos(deg2rad(90 - $font[0]['angle'])) * $font[0]['zheight'] : 1, $this->width - $widthtotal > 2 ? $this->width - $widthtotal : 2);
+		$x = mt_rand($font[0]['angle'] > 0 ? round(cos(deg2rad(90 - $font[0]['angle'])) * $font[0]['zheight']) : 1, $this->width - $widthtotal > 2 ? round($this->width - $widthtotal) : 2);
 		!$this->color && $text_color = imagecolorallocate($this->im, $this->fontcolor[0], $this->fontcolor[1], $this->fontcolor[2]);
 		for($i = 0; $i < $seccodelength; $i++) {
 			if($this->color) {
@@ -239,8 +239,8 @@ class seccode {
 				$text_shadowcolor = imagecolorallocate($this->im, 255 - $this->fontcolor[0], 255 - $this->fontcolor[1], 255 - $this->fontcolor[2]);
 			}
 			$y = $font[0]['angle'] > 0 ? mt_rand($font[$i]['height'], $this->height) : mt_rand($font[$i]['height'] - $font[$i]['hd'], $this->height - $font[$i]['hd']);
-			$this->shadow && imagettftext($this->im, $font[$i]['size'], $font[$i]['angle'], $x + 1, $y + 1, $text_shadowcolor, $font[$i]['font'], $seccode[$i]);
-			imagettftext($this->im, $font[$i]['size'], $font[$i]['angle'], $x, $y, $text_color, $font[$i]['font'], $seccode[$i]);
+			$this->shadow && imagettftext($this->im, $font[$i]['size'], $font[$i]['angle'], round($x) + 1, round($y) + 1, $text_shadowcolor, $font[$i]['font'], $seccode[$i]);
+			imagettftext($this->im, $font[$i]['size'], $font[$i]['angle'], round($x), round($y), $text_color, $font[$i]['font'], $seccode[$i]);
 			$x += $font[$i]['width'];
 		}
 	}

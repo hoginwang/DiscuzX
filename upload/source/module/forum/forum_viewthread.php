@@ -1447,7 +1447,7 @@ function viewthread_profile_node($type, $post) {
 	include_once template('forum/viewthread_profile_node');
 	foreach($code as $k => $p) {
 		$p[] = $post;
-		$template = str_replace($k, call_user_func('viewthread_profile_nodeparse', $p), $template);
+		$template = str_replace($k, call_user_func('viewthread_profile_nodeparse', $p) ?: '', $template);
 	}
 	echo $template;
 }

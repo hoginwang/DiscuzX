@@ -151,7 +151,7 @@ class notemodel {
 		} else {
 			$url = $this->get_url_code($note['operation'], $note['getdata'], $appid);
 			$note['postdata'] = str_replace(array("\n", "\r"), '', $note['postdata']);
-			$response = trim($_ENV['misc']->dfopen2($url, 0, $note['postdata'], '', 1, $app['ip'], UC_NOTE_TIMEOUT, TRUE));
+			$response = trim($_ENV['misc']->dfopen2($url, 0, $note['postdata'], '', 1, $app['ip'], UC_NOTE_TIMEOUT, TRUE) ?: '');
 		}
 
 		$returnsucceed = $response != '' && ($response == 1 || is_array(xml_unserialize($response)));

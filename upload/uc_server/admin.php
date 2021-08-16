@@ -98,7 +98,7 @@ function dhtmlspecialchars($string, $flags = null) {
 		}
 	} else {
 		if($flags === null) {
-			$string = str_replace(array('&', '"', '<', '>'), array('&amp;', '&quot;', '&lt;', '&gt;'), $string);
+			$string = str_replace(array('&', '"', '<', '>'), array('&amp;', '&quot;', '&lt;', '&gt;'), $string===null ? '' : $string);
 			if(strpos($string, '&amp;#') !== false) {
 				$string = preg_replace('/&amp;((#(\d{3,5}|x[a-fA-F0-9]{4}));)/', '&\\1', $string);
 			}

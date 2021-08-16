@@ -21,6 +21,7 @@ $header_welcome = cplang('header_welcome');
 $header_logout = cplang('header_logout');
 $header_bbs = cplang('header_bbs');
 $now = date('Y');
+$cpadmingroup = '';
 if(isfounder()) {
 	cplang('founder_admin');
 } else {
@@ -33,6 +34,7 @@ if(isfounder()) {
 }
 require './source/admincp/admincp_menu.php';
 $basescript = ADMINSCRIPT;
+$shownotice = isset($shownotice) ? $shownotice : '';
 
 echo <<<EOT
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">

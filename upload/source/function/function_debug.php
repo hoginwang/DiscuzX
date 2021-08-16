@@ -55,11 +55,11 @@ function debugmessage($ajax = 0) {
 					$sqldebugrow .= '<tr style="border-bottom:1px dotted gray"><td>&nbsp;'.implode('&nbsp;</td><td>&nbsp;', array_keys($row)).'&nbsp;</td></tr>';
 					$i++;
 				}
-				if(strexists($row['Extra'], 'Using filesort')) {
+				if($row['Extra'] && strexists($row['Extra'], 'Using filesort')) {
 					$sqlw['Using filesort']++;
 					$extra .= $row['Extra'] = str_replace('Using filesort', '<font color=red>Using filesort</font>', $row['Extra']);
 				}
-				if(strexists($row['Extra'], 'Using temporary')) {
+				if($row['Extra'] && strexists($row['Extra'], 'Using temporary')) {
 					$sqlw['Using temporary']++;
 					$extra .= $row['Extra'] = str_replace('Using temporary', '<font color=red>Using temporary</font>', $row['Extra']);
 				}
@@ -178,7 +178,7 @@ EOF;
 			} elseif(is_object($v)) {
 				$_GA .= "<li><br />['$k'] => <i>object of ".get_class($v)."</i></li>";
 			} else {
-				$_GS .= "<li><br />['$k'] => ".dhtmlspecialchars($v)."</li>";
+				$_GS .= "<li><br />['$k'] => ".($v ? dhtmlspecialchars($v) : '')."</li>";
 			}
 		}
 	}
@@ -232,7 +232,7 @@ EOF;
 					'<em>ModID:</em> <s>'.$modid.'</s><br />'.
 					'<em>包含:</em> '.
 						'<a id="__debug_3" href="#debugbar" onclick="switchTab(\'__debug\', 3, '.$max.')">[文件列表]</a>'.
-						' <s>'.(count($includes) - 1).($_G['debuginfo']['time'] ? ' in '.number_format(($_G['debuginfo']['time'] - $sqltime), 6).'s' : '').'</s><br />'.
+						' <s>'.(count($includes) - 1).(isset($_G['debuginfo']['time']) && $_G['debuginfo']['time'] ? ' in '.number_format(($_G['debuginfo']['time'] - $sqltime), 6).'s' : '').'</s><br />'.
 					'<em>执行:</em> '.
 						(isset($_ENV['analysis']['function']) ? '<a id="__debug_9" href="#debugbar" onclick="switchTab(\'__debug\', 9, '.$max.')">[函数列表]</a>'.
 						' <s>'.(count($_ENV['analysis']['function']) - 1).(' in '.number_format(($_ENV['analysis']['function']['sum'] / 1000), 6).'s').'</s>' : '').
@@ -243,7 +243,7 @@ EOF;
 					'<em>SQL:</em> '.
 						'<a id="__debug_1" href="#debugbar" onclick="switchTab(\'__debug\', 1, '.$max.')">[SQL列表]</a>'.
 						'<a id="__debug_4" href="#debugbar" onclick="switchTab(\'__debug\', 4, '.$max.');sqldebug_ajax.location.href = sqldebug_ajax.location.href;">[AjaxSQL列表]</a>'.
-						' <s>'.$queries.$sqlw.($_G['debuginfo']['time'] ? ' in '.$sqltime.'s' : '').'</s><br />'.
+						' <s>'.$queries.$sqlw.(isset($_G['debuginfo']['time']) && $_G['debuginfo']['time'] ? ' in '.$sqltime.'s' : '').'</s><br />'.
 					'<em>内存缓存:</em> '.$mc.
 			'<tr><td valign=top colspan="2">'.
 				'<b>客户端</b> <a id="__debug_2" href="#debugbar" onclick="switchTab(\'__debug\', 2, '.$max.')">[详情]</a> <span id="__debug_b"></span>'.

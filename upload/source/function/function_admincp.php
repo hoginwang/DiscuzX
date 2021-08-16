@@ -518,7 +518,7 @@ function showsubtitle($title = array(), $rowclass='header', $tdstyle=array()) {
 		$subtitle = "\n<tr class=\"$rowclass\">";
 		foreach($title as $k => $v) {
 			if($v !== NULL) {
-				$subtitle .= '<th'.($tdstyle[$k] ? ' '.$tdstyle[$k] : '').'>'.cplang($v).'</th>';
+				$subtitle .= '<th'.(isset($tdstyle[$k]) && $tdstyle[$k] ? ' '.$tdstyle[$k] : '').'>'.cplang($v).'</th>';
 			}
 		}
 		$subtitle .= '</tr>';

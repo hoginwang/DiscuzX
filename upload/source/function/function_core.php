@@ -1373,7 +1373,7 @@ function debuginfo() {
 		$_G['debuginfo'] = array(
 		    'time' => number_format((microtime(true) - $_G['starttime']), 6),
 		    'queries' => DB::object()->querynum,
-		    'memory' => ucwords(C::memory()->type)
+		    'memory' => C::memory()->type ? ucwords(C::memory()->type) : 'Not configured'
 		    );
 		if(DB::object()->slaveid) {
 			$_G['debuginfo']['queries'] = 'Total '.DB::object()->querynum.', Slave '.DB::object()->slavequery;

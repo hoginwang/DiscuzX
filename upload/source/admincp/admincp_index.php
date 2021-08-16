@@ -131,10 +131,10 @@ if(empty($newversion['newversion']) || !is_array($newversion['newversion']) || a
 showsubmenu('home_welcome', array(), '', array('bbname' => $_G['setting']['bbname']));
 
 $save_master = C::t('common_setting')->fetch_all_setting(array('mastermobile', 'masterqq', 'masteremail'));
-$save_mastermobile = $save_master['mastermobile'];
+$save_mastermobile = isset($save_master['mastermobile']) ? $save_master['mastermobile'] : '';
 $save_mastermobile = !empty($save_mastermobile) ? authcode($save_mastermobile, 'DECODE', $_G['config']['security']['authkey']) : '';
-$save_masterqq = $save_master['masterqq'] ? $save_master['masterqq'] : '';
-$save_masteremail = $save_master['masteremail'] ? $save_master['masteremail'] : '';
+$save_masterqq = isset($save_master['masterqq']) && $save_master['masterqq'] ? $save_master['masterqq'] : '';
+$save_masteremail = isset($save_master['masteremail']) && $save_master['masteremail'] ? $save_master['masteremail'] : '';
 
 $securityadvise = '';
 if($isfounder) {

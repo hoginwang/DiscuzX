@@ -122,7 +122,7 @@ class control extends adminbase {
 		$this->view->assign('addappbyurl', $addappbyurlchecked);
 		$this->view->assign('insecureuserdelete', $insecureuserdeletechecked);
 		$this->view->assign('passwordalgo', $settings['passwordalgo']);
-		$this->view->assign('passwordoptions', htmlspecialchars($settings['passwordoptions']));
+		$this->view->assign('passwordoptions', htmlspecialchars($settings['passwordoptions'] ?: ''));
 		$timeoffset = intval($settings['timeoffset'] / 3600);
 		$checkarray = array($timeoffset < 0 ? '0'.substr($timeoffset, 1) : $timeoffset => 'selected="selected"');
 		$this->view->assign('checkarray', $checkarray);

@@ -124,7 +124,7 @@ class seccode {
 				$start[$i] = mt_rand(200, 255);$end[$i] = mt_rand(100, 150);$step[$i] = ($end[$i] - $start[$i]) / $this->width;$c[$i] = $start[$i];
 			}
 			for($i = 0;$i < $this->width;$i++) {
-				$color = imagecolorallocate($this->im, $c[0], $c[1], $c[2]);
+				$color = imagecolorallocate($this->im, round($c[0]), round($c[1]), round($c[2]));
 				imageline($this->im, $i, 0, $i, $this->height, $color);
 				$c[0] += $step[0];$c[1] += $step[1];$c[2] += $step[2];
 			}
@@ -146,7 +146,7 @@ class seccode {
 	function adulterate() {
 		$linenums = $this->height / 10;
 		for($i = 0; $i <= $linenums;$i++) {
-			$color = $this->color ? imagecolorallocate($this->im, mt_rand(0, 255), mt_rand(0, 255), mt_rand(0, 255)) : imagecolorallocate($this->im, $this->fontcolor[0], $this->fontcolor[1], $this->fontcolor[2]);
+			$color = $this->color ? imagecolorallocate($this->im, mt_rand(0, 255), mt_rand(0, 255), mt_rand(0, 255)) : imagecolorallocate($this->im, round($this->fontcolor[0]), round($this->fontcolor[1]), round($this->fontcolor[2]));
 			$x = mt_rand(0, $this->width);
 			$y = mt_rand(0, $this->height);
 			if(mt_rand(0, 1)) {
@@ -172,7 +172,7 @@ class seccode {
 		$seccodeunits = 'BCEFGHJKMPQRTVWXY2346789';
 		$x = $this->width / 4;
 		$y = $this->height / 10;
-		$text_color = imagecolorallocate($this->im, $this->fontcolor[0], $this->fontcolor[1], $this->fontcolor[2]);
+		$text_color = imagecolorallocate($this->im, round($this->fontcolor[0]), round($this->fontcolor[1]), round($this->fontcolor[2]));
 		for($i = 0; $i <= 3; $i++) {
 			$adulteratecode = $seccodeunits[mt_rand(0, 23)];
 			imagechar($this->im, 5, $x * $i + mt_rand(0, $x - 10), mt_rand($y, $this->height - 10 - $y), $adulteratecode, $text_color);
@@ -219,12 +219,12 @@ class seccode {
 			$widthtotal += $font[$i]['width'];
 		}
 		$x = mt_rand($font[0]['angle'] > 0 ? cos(deg2rad(90 - $font[0]['angle'])) * $font[0]['zheight'] : 1, $this->width - $widthtotal);
-		!$this->color && $text_color = imagecolorallocate($this->im, $this->fontcolor[0], $this->fontcolor[1], $this->fontcolor[2]);
+		!$this->color && $text_color = imagecolorallocate($this->im, round($this->fontcolor[0]), round($this->fontcolor[1]), round($this->fontcolor[2]));
 		for($i = 0; $i < $seccodelength; $i++) {
 			if($this->color) {
 				$this->fontcolor = array(mt_rand(0, 255), mt_rand(0, 255), mt_rand(0, 255));
 				$this->shadow && $text_shadowcolor = imagecolorallocate($this->im, 0, 0, 0);
-				$text_color = imagecolorallocate($this->im, $this->fontcolor[0], $this->fontcolor[1], $this->fontcolor[2]);
+				$text_color = imagecolorallocate($this->im, round($this->fontcolor[0]), round($this->fontcolor[1]), round($this->fontcolor[2]));
 			} elseif($this->shadow) {
 				$text_shadowcolor = imagecolorallocate($this->im, 0, 0, 0);
 			}
@@ -312,7 +312,7 @@ class seccode {
 					imagecolorset($this->imcodeshadow, 0, 0, 0, 0);
 					imagecopyresized($this->im, $this->imcodeshadow, $x + 1, $y + 1, 0, 0, $font[$i]['width'], $font[$i]['height'], $font[$i]['data'][0], $font[$i]['data'][1]);
 				}
-				imagecolorset($this->imcode, 0 , $this->fontcolor[0], $this->fontcolor[1], $this->fontcolor[2]);
+				imagecolorset($this->imcode, 0 , round($this->fontcolor[0]), round($this->fontcolor[1]), round($this->fontcolor[2]));
 				imagecopyresized($this->im, $this->imcode, $x, $y, 0, 0, $font[$i]['width'], $font[$i]['height'], $font[$i]['data'][0], $font[$i]['data'][1]);
 			} else {
 				$y = mt_rand(0, $this->height - 20);
@@ -320,7 +320,7 @@ class seccode {
 					$text_shadowcolor = imagecolorallocate($this->im, 0, 0, 0);
 					imagechar($this->im, 5, $x + 1, $y + 1, $seccode[$i], $text_shadowcolor);
 				}
-				$text_color = imagecolorallocate($this->im, $this->fontcolor[0], $this->fontcolor[1], $this->fontcolor[2]);
+				$text_color = imagecolorallocate($this->im, round($this->fontcolor[0]), round($this->fontcolor[1]), round($this->fontcolor[2]));
 				imagechar($this->im, 5, $x, $y, $seccode[$i], $text_color);
 			}
 			$x += $font[$i]['width'];
