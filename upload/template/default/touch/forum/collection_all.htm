@@ -17,13 +17,13 @@
 	<div class="mobileformitem" style="display: flex;">
 		<!--{if $op != 'search'}-->
 		<!--{if $orderby == 'threadnum'}-->
-		<a href="forum.php?mod=collection&amp;op=all&amp;order=commentnum"><img src="" alt="{lang collection_sortby_coomentnum}"></a>
+		<a href="forum.php?mod=collection&amp;op=all&amp;order=commentnum"><img class="icon" src="static/image/mobile/touch/threadnum.svg" alt="{lang collection_sortby_coomentnum}"></a>
 		<!--{elseif $orderby == 'commentnum'}-->
-		<a href="forum.php?mod=collection&amp;op=all&amp;order=follownum"><img src="" alt="{lang collection_sortby_follownum}"></a>
+		<a href="forum.php?mod=collection&amp;op=all&amp;order=follownum"><img class="icon" src="static/image/mobile/touch/commentnum.svg" alt="{lang collection_sortby_follownum}"></a>
 		<!--{elseif $orderby == 'follownum'}-->
-		<a href="forum.php?mod=collection&amp;op=all"><img src="" alt="{lang collection_sortby_update}"></a>
+		<a href="forum.php?mod=collection&amp;op=all"><img class="icon" src="static/image/mobile/touch/follownum.svg" alt="{lang collection_sortby_update}"></a>
 		<!--{elseif !in_array($orderby, array('threadnum', 'commentnum', 'follownum'))}-->
-		<a href="forum.php?mod=collection&amp;op=all&amp;order=threadnum"><img src="" alt="{lang collection_sortby_threadnum}"></a>
+		<a href="forum.php?mod=collection&amp;op=all&amp;order=threadnum"><img class="icon" src="static/image/mobile/touch/time.svg" alt="{lang collection_sortby_threadnum}"></a>
 		<!--{/if}-->
 		<!--{/if}-->
 		<!--{if $_G['setting']['search']['collection']['status'] && ($_G['group']['allowsearch'] & 64 || $_G['adminid'] == 1)}-->
