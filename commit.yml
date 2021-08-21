@@ -3,78 +3,42 @@ branches: {
   }
 fileChange:
   /upload:
-    newFile: !uuid '5194621a483711fdd18c74c2cfde6092ce967589'
-    oldFile: !uuid '5f9ba159adb6b2a834877dc538c19ad2f54c5916'
-  /upload/source:
-    newFile: !uuid 'd1e694ae4c7b10586fae16fe6590ba72d0f9bec6'
-    oldFile: !uuid '040b0d2d1f88efec82be73b62eda6290602388e3'
-  /upload/source/class:
-    newFile: !uuid 'ef05fda3b11335e2553574a4a23354a193f95af6'
-    oldFile: !uuid '13f5c7efd040aba162584de7ec26c1a6dc1ee234'
-  /upload/source/class/class_payment.php:
-    newFile: !uuid '2207ed26340c54259a7603b0eb86840ddb42daf4'
-    oldFile: !uuid '51e72c5a5d8381d3751da7bbc55373babb78bab1'
+    newFile: !uuid 'c13113ab1b964df379e6b3cbc9b439f84926a149'
+    oldFile: !uuid '5194621a483711fdd18c74c2cfde6092ce967589'
   /upload/static:
-    newFile: !uuid 'fe1d6f0097c1d41178dc0e2df88bb1a53dc0bda1'
-    oldFile: !uuid 'e81c3bd68dc3645a03e6a205ca39fd9110ecc5f0'
+    newFile: !uuid '3594fffeead73443e9c4707173f9367b9b787e4e'
+    oldFile: !uuid 'fe1d6f0097c1d41178dc0e2df88bb1a53dc0bda1'
   /upload/static/image:
-    newFile: !uuid '9bd90ca073aa0df4fba80cc46a655038969c655c'
-    oldFile: !uuid '4c6d00d4dd21628d8b782fe47ab03da56a7c7624'
+    newFile: !uuid 'f068985d6b74d93d6c4e620ebcc8fc73ed79eaaf'
+    oldFile: !uuid '9bd90ca073aa0df4fba80cc46a655038969c655c'
   /upload/static/image/common:
-    newFile: !uuid '131171e30f7340913b07ad1196abb414d51dc912'
-    oldFile: !uuid '794b062984c68990c447ba85a30e8fd18d16b72e'
-  /upload/static/image/common/alipay.png:
-    newFile: null
-    oldFile: !uuid 'f60aea572563fd1d54f9fdc7872a0838d4625c29'
-  /upload/static/image/common/alipay_logo.gif:
-    newFile: null
-    oldFile: !uuid '671201d908558bec0faa208964fa71e73bebd12c'
-  /upload/static/image/common/alipay_logo.svg:
-    newFile: !uuid '9910c9e816c1e36d54f65cdf84844d3f5a8ab2c7'
-    oldFile: null
-  /upload/static/image/common/qpay.png:
-    newFile: null
-    oldFile: !uuid '7a54ef8c513c9d6b521837e2ba912d0eea55af87'
-  /upload/static/image/common/qpay_logo.svg:
-    newFile: !uuid '6153dd07c985f74ca456fe9dd4d1429ee06fcacf'
-    oldFile: null
-  /upload/static/image/common/tenpay_logo.gif:
-    newFile: null
-    oldFile: !uuid '7c740d8aebf716fbea08e8736d5e137793835264'
-  /upload/static/image/common/wechat.png:
-    newFile: null
-    oldFile: !uuid 'b79a76d0413954bbb93cef5f957b0f17893684ae'
-  /upload/static/image/common/wechatpay_logo.svg:
-    newFile: !uuid 'a080f04f60bd9e5b64e863dcf01895b5e11376e7'
-    oldFile: null
-  /upload/template:
-    newFile: !uuid '33cb34ec7855a69f716b917afa8f5f74f44c6ae6'
-    oldFile: !uuid '64c9cdd8f46f19e3c185e98de133a54ab0a738ab'
-  /upload/template/default:
-    newFile: !uuid 'a3dbcf80cc64f6a79d1c068e0acdf2e18cf67887'
-    oldFile: !uuid 'b4d4301466ba2a4d0de858d9cc1f39099bded8b9'
-  /upload/template/default/common:
-    newFile: !uuid '3aa15b42f9287196b31e9d289f2066bf6b4dfc8c'
-    oldFile: !uuid 'fb293d7557ecda9e4b27e8d8500194d8ed38d418'
-  /upload/template/default/common/module.css:
-    newFile: !uuid 'f249d0f09f272c02e79345d24ca7e832bbaf4f8e'
-    oldFile: !uuid '8b3f544f31c1500f0a35401193ac5092d1614f00'
-  /upload/template/default/home:
-    newFile: !uuid '3b35c30f380d39ca286e9ad7abc8d54fabe62fdb'
-    oldFile: !uuid '88dfd22e26e4a367cab1f21ce10ce9fb33dab85f'
-  /upload/template/default/home/spacecp_payment_pay.htm:
-    newFile: !uuid '6e1115d15c3ac0705de7196dc87ca5ba429b77e3'
-    oldFile: !uuid 'ade2c12090124e0c726f772c8c55a7e6408d3dc5'
-  /upload/template/default/touch:
-    newFile: !uuid '44099e6ce732ad3159ffb597a29b8c5d1c9c3832'
-    oldFile: !uuid '81de8998c5bba8ffcf630a0c03c0326fc8dd1eea'
-  /upload/template/default/touch/home:
-    newFile: !uuid 'a27daac99dde65568f23b05de704532c3381b19c'
-    oldFile: !uuid 'acd0c88ee31612b207e58dd9a7e9b2d6a2ac4284'
-  /upload/template/default/touch/home/spacecp_payment_pay.htm:
-    newFile: !uuid '3b5c129d0b6ce4524f411e0d72defcb2f5e5a6b0'
-    oldFile: !uuid 'f85695607d27d4df26961c99e28e86643293e87f'
-gitCommitId: !uuid '97dbbc6ce0643ce867c06103c691373773de4ed1'
+    newFile: !uuid '850afc4bab2ccc040c3b7978c380c61d5733a762'
+    oldFile: !uuid '131171e30f7340913b07ad1196abb414d51dc912'
+  /upload/static/image/common/logo.png:
+    newFile: !uuid 'c1da0b540adfbf0e2b62631acf59c3ae65aa0da3'
+    oldFile: !uuid 'bc5d117ee80e696fcc86dc141041288267d33a3f'
+  /upload/static/image/common/logo.svg:
+    newFile: !uuid 'a3be3ff091e2deefbd6dd0e435457818ce096a46'
+    oldFile: !uuid 'b3eef6550096cd3a1d944d8b87a98db15bf72043'
+  /upload/static/image/common/logo_sc.png:
+    newFile: !uuid 'c3c2b3547361a131f031d8a5ad4b66d8eb620a08'
+    oldFile: !uuid '3b2486cd3927f37ea7cd9908b6028e0395f9398c'
+  /upload/static/image/common/logo_sc.svg:
+    newFile: !uuid '5bd9d0d149315e62d872ef2d4f763656498021f3'
+    oldFile: !uuid '859f61c3d9f115546da95095da6776155bb0a394'
+  /upload/static/image/common/logo_sc_s.png:
+    newFile: !uuid '515306bd0a070225fe606d2cbc212274151f18d3'
+    oldFile: !uuid 'e51f384a8b5f8a3eca75f0bd9901ccbf8899d26b'
+  /upload/static/image/mobile:
+    newFile: !uuid 'ee0a2f192e43223798404d9db313a721991637f1'
+    oldFile: !uuid 'a19ebf3a9fd5abd97d0c06b521d0b7d79d62aa8d'
+  /upload/static/image/mobile/images:
+    newFile: !uuid 'b1c1099a9b2c48f408fc243ebcc89a7133a2c08f'
+    oldFile: !uuid '2e64a2ec2e08b26ba336f213e73094faa0777487'
+  /upload/static/image/mobile/images/logo.png:
+    newFile: !uuid 'd802ca95a90349b4f58cc0426612563fb86861ac'
+    oldFile: !uuid '8f8f14cc5d0772461ac39f6bdb623b204441f71e'
+gitCommitId: !uuid '48073e234f756102ee1e70d64c79d702085aa5a1'
 renames: {
   }
-revisionId: 720
+revisionId: 721
