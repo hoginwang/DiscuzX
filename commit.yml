@@ -3,42 +3,33 @@ branches: {
   }
 fileChange:
   /upload:
-    newFile: !uuid 'c13113ab1b964df379e6b3cbc9b439f84926a149'
-    oldFile: !uuid '5194621a483711fdd18c74c2cfde6092ce967589'
+    newFile: !uuid 'bef9e6508e5446ff5d83169dbe9900f7457119a2'
+    oldFile: !uuid 'c13113ab1b964df379e6b3cbc9b439f84926a149'
   /upload/static:
-    newFile: !uuid '3594fffeead73443e9c4707173f9367b9b787e4e'
-    oldFile: !uuid 'fe1d6f0097c1d41178dc0e2df88bb1a53dc0bda1'
+    newFile: !uuid '40784a42f0f42ef8a8a88ecf0c7f4b2617ae4cdb'
+    oldFile: !uuid '3594fffeead73443e9c4707173f9367b9b787e4e'
   /upload/static/image:
-    newFile: !uuid 'f068985d6b74d93d6c4e620ebcc8fc73ed79eaaf'
-    oldFile: !uuid '9bd90ca073aa0df4fba80cc46a655038969c655c'
+    newFile: !uuid '38fbc0920765c2cc1605f1e89c3842e057a7a6ab'
+    oldFile: !uuid 'f068985d6b74d93d6c4e620ebcc8fc73ed79eaaf'
   /upload/static/image/common:
-    newFile: !uuid '850afc4bab2ccc040c3b7978c380c61d5733a762'
-    oldFile: !uuid '131171e30f7340913b07ad1196abb414d51dc912'
-  /upload/static/image/common/logo.png:
-    newFile: !uuid 'c1da0b540adfbf0e2b62631acf59c3ae65aa0da3'
-    oldFile: !uuid 'bc5d117ee80e696fcc86dc141041288267d33a3f'
-  /upload/static/image/common/logo.svg:
-    newFile: !uuid 'a3be3ff091e2deefbd6dd0e435457818ce096a46'
-    oldFile: !uuid 'b3eef6550096cd3a1d944d8b87a98db15bf72043'
-  /upload/static/image/common/logo_sc.png:
-    newFile: !uuid 'c3c2b3547361a131f031d8a5ad4b66d8eb620a08'
-    oldFile: !uuid '3b2486cd3927f37ea7cd9908b6028e0395f9398c'
-  /upload/static/image/common/logo_sc.svg:
-    newFile: !uuid '5bd9d0d149315e62d872ef2d4f763656498021f3'
-    oldFile: !uuid '859f61c3d9f115546da95095da6776155bb0a394'
-  /upload/static/image/common/logo_sc_s.png:
-    newFile: !uuid '515306bd0a070225fe606d2cbc212274151f18d3'
-    oldFile: !uuid 'e51f384a8b5f8a3eca75f0bd9901ccbf8899d26b'
-  /upload/static/image/mobile:
-    newFile: !uuid 'ee0a2f192e43223798404d9db313a721991637f1'
-    oldFile: !uuid 'a19ebf3a9fd5abd97d0c06b521d0b7d79d62aa8d'
-  /upload/static/image/mobile/images:
-    newFile: !uuid 'b1c1099a9b2c48f408fc243ebcc89a7133a2c08f'
-    oldFile: !uuid '2e64a2ec2e08b26ba336f213e73094faa0777487'
-  /upload/static/image/mobile/images/logo.png:
-    newFile: !uuid 'd802ca95a90349b4f58cc0426612563fb86861ac'
-    oldFile: !uuid '8f8f14cc5d0772461ac39f6bdb623b204441f71e'
-gitCommitId: !uuid '48073e234f756102ee1e70d64c79d702085aa5a1'
+    newFile: !uuid '95b269d30edffe003a639b009a690fec035a402a'
+    oldFile: !uuid '850afc4bab2ccc040c3b7978c380c61d5733a762'
+  /upload/static/image/common/alipaysmall.gif:
+    newFile: null
+    oldFile: !uuid 'a541572f1650478e0822fe1a95979c360f74d724'
+  /upload/template:
+    newFile: !uuid 'af6078c254df64008622620f71b512682b0ca22e'
+    oldFile: !uuid '33cb34ec7855a69f716b917afa8f5f74f44c6ae6'
+  /upload/template/default:
+    newFile: !uuid '2c72a140476bb2287e1f468f3402f58d48865523'
+    oldFile: !uuid 'a3dbcf80cc64f6a79d1c068e0acdf2e18cf67887'
+  /upload/template/default/home:
+    newFile: !uuid 'cf5629bf671942260fac8fa51b7d23cdbededee4'
+    oldFile: !uuid '3b35c30f380d39ca286e9ad7abc8d54fabe62fdb'
+  /upload/template/default/home/space_eccredit.htm:
+    newFile: !uuid '7e69a1c41414f711721dae06af014aa138b1d2ea'
+    oldFile: !uuid '48e1c9826a2330fbe7c1ede147e2cdb60d04c6b7'
+gitCommitId: !uuid '71d78779f7e0bcd614cd9342bcb7b06cc46f27ea'
 renames: {
   }
-revisionId: 721
+revisionId: 722
