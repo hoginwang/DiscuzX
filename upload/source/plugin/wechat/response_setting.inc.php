@@ -80,19 +80,19 @@ if(!submitcheck('menusubmit')) {
 			"<p>".lang('plugin/wechat', 'response_plugin_mode', array('plugin' => $responsehook['receiveEvent::subscribe']['plugin']))." <a class=\"normal\" href=\"".ADMINSCRIPT."?action=plugins&operation=config&do=$pluginid&identifier=wechat&pmod=response_setting&subscribe=custom\">[".lang('plugin/wechat', 'response_switch_custom_mode')."]</a></p>"
 		));
 	}
-
-	showtablerow('class="header"', array('', 'class="td23 td28"', '', 'class="td29"'), array(
-		"",
-		lang('plugin/wechat', 'response_access'),
-		"<p class=\"mbn normal\">".lang('plugin/wechat', 'response_access_comment')
-	));
-	showtablerow('', array('', 'class="td23 td28"', '', 'class="td29"'), array(
-		"",
-		"<i>".lang('plugin/wechat', 'access')."</i>",
-		"<textarea class=\"tarea\" name=\"response[access]\" id=\"res_access\" rows=\"5\" cols=\"40\">".dhtmlspecialchars($response['access'])."</textarea>"
-		."<br /><a href=\"javascript:;\" id=\"rsel\" onclick=\"showResource('res_access')\">".lang('plugin/wechat', 'resource_select')."</a>"
-	));
-
+    if($_G['wechat']['setting']['wsq_siteid']) {
+        showtablerow('class="header"', array('', 'class="td23 td28"', '', 'class="td29"'), array(
+            "",
+            lang('plugin/wechat', 'response_access'),
+            "<p class=\"mbn normal\">" . lang('plugin/wechat', 'response_access_comment')
+        ));
+        showtablerow('', array('', 'class="td23 td28"', '', 'class="td29"'), array(
+            "",
+            "<i>" . lang('plugin/wechat', 'access') . "</i>",
+            "<textarea class=\"tarea\" name=\"response[access]\" id=\"res_access\" rows=\"5\" cols=\"40\">" . dhtmlspecialchars($response['access']) . "</textarea>"
+            . "<br /><a href=\"javascript:;\" id=\"rsel\" onclick=\"showResource('res_access')\">" . lang('plugin/wechat', 'resource_select') . "</a>"
+        ));
+    }
 	showtablerow('class="header"', array('', 'class="td23 td28"', '', 'class="td29"'), array(
 		"",
 		lang('plugin/wechat', 'response_scan'),

@@ -11,9 +11,9 @@
 			<item id="datatables"><![CDATA[]]></item>
 			<item id="directory"><![CDATA[wechat/]]></item>
 			<item id="copyright"><![CDATA[Comsenz Inc.]]></item>
-			<item id="version"><![CDATA[1.1.7]]></item>
+			<item id="version"><![CDATA[1.2.0]]></item>
 			<item id="__modules">
-				<item id="1">
+				<item id="0">
 					<item id="name"><![CDATA[wechat]]></item>
 					<item id="param"><![CDATA[]]></item>
 					<item id="menu"><![CDATA[]]></item>
@@ -26,7 +26,7 @@
 					<item id="navsubname"><![CDATA[]]></item>
 					<item id="navsuburl"><![CDATA[]]></item>
 				</item>
-				<item id="2">
+				<item id="1">
 					<item id="name"><![CDATA[spacecp]]></item>
 					<item id="param"><![CDATA[]]></item>
 					<item id="menu"><![CDATA[微信绑定]]></item>
@@ -39,7 +39,7 @@
 					<item id="navsubname"><![CDATA[]]></item>
 					<item id="navsuburl"><![CDATA[]]></item>
 				</item>
-				<item id="3">
+				<item id="2">
 					<item id="name"><![CDATA[wechat]]></item>
 					<item id="param"><![CDATA[]]></item>
 					<item id="menu"><![CDATA[]]></item>
@@ -52,131 +52,66 @@
 					<item id="navsubname"><![CDATA[]]></item>
 					<item id="navsuburl"><![CDATA[]]></item>
 				</item>
-				<item id="4">
-					<item id="name"><![CDATA[wsq_setting]]></item>
-					<item id="param"><![CDATA[]]></item>
-					<item id="menu"><![CDATA[微社区设置]]></item>
-					<item id="url"><![CDATA[]]></item>
-					<item id="type"><![CDATA[3]]></item>
-					<item id="adminid"><![CDATA[0]]></item>
-					<item id="displayorder"><![CDATA[]]></item>
-					<item id="navtitle"><![CDATA[]]></item>
-					<item id="navicon"><![CDATA[]]></item>
-					<item id="navsubname"><![CDATA[]]></item>
-					<item id="navsuburl"><![CDATA[]]></item>
-				</item>
-				<item id="5">
-					<item id="name"><![CDATA[showactivity_setting]]></item>
-					<item id="param"><![CDATA[]]></item>
-					<item id="menu"><![CDATA[晒图]]></item>
-					<item id="url"><![CDATA[]]></item>
-					<item id="type"><![CDATA[3]]></item>
-					<item id="adminid"><![CDATA[0]]></item>
-					<item id="displayorder"><![CDATA[]]></item>
-					<item id="navtitle"><![CDATA[]]></item>
-					<item id="navicon"><![CDATA[]]></item>
-					<item id="navsubname"><![CDATA[]]></item>
-					<item id="navsuburl"><![CDATA[]]></item>
-				</item>
-				<item id="6">
+				<item id="3">
 					<item id="name"><![CDATA[wechat_setting]]></item>
 					<item id="param"><![CDATA[]]></item>
-					<item id="menu"><![CDATA[微信设置]]></item>
+					<item id="menu"><![CDATA[基本设置]]></item>
 					<item id="url"><![CDATA[]]></item>
 					<item id="type"><![CDATA[3]]></item>
 					<item id="adminid"><![CDATA[0]]></item>
-					<item id="displayorder"><![CDATA[]]></item>
+					<item id="displayorder"><![CDATA[1]]></item>
 					<item id="navtitle"><![CDATA[]]></item>
 					<item id="navicon"><![CDATA[]]></item>
 					<item id="navsubname"><![CDATA[]]></item>
 					<item id="navsuburl"><![CDATA[]]></item>
 				</item>
-				<item id="7">
-					<item id="name"><![CDATA[menu_setting]]></item>
-					<item id="param"><![CDATA[]]></item>
-					<item id="menu"><![CDATA[菜单设置]]></item>
-					<item id="url"><![CDATA[]]></item>
-					<item id="type"><![CDATA[3]]></item>
-					<item id="adminid"><![CDATA[0]]></item>
-					<item id="displayorder"><![CDATA[]]></item>
-					<item id="navtitle"><![CDATA[]]></item>
-					<item id="navicon"><![CDATA[]]></item>
-					<item id="navsubname"><![CDATA[]]></item>
-					<item id="navsuburl"><![CDATA[]]></item>
-				</item>
-				<item id="8">
+				<item id="4">
 					<item id="name"><![CDATA[response_setting]]></item>
 					<item id="param"><![CDATA[]]></item>
 					<item id="menu"><![CDATA[消息设置]]></item>
 					<item id="url"><![CDATA[]]></item>
 					<item id="type"><![CDATA[3]]></item>
 					<item id="adminid"><![CDATA[0]]></item>
-					<item id="displayorder"><![CDATA[]]></item>
+					<item id="displayorder"><![CDATA[2]]></item>
 					<item id="navtitle"><![CDATA[]]></item>
 					<item id="navicon"><![CDATA[]]></item>
 					<item id="navsubname"><![CDATA[]]></item>
 					<item id="navsuburl"><![CDATA[]]></item>
 				</item>
-				<item id="9">
+				<item id="5">
+					<item id="name"><![CDATA[menu_setting]]></item>
+					<item id="param"><![CDATA[]]></item>
+					<item id="menu"><![CDATA[菜单设置]]></item>
+					<item id="url"><![CDATA[]]></item>
+					<item id="type"><![CDATA[3]]></item>
+					<item id="adminid"><![CDATA[0]]></item>
+					<item id="displayorder"><![CDATA[3]]></item>
+					<item id="navtitle"><![CDATA[]]></item>
+					<item id="navicon"><![CDATA[]]></item>
+					<item id="navsubname"><![CDATA[]]></item>
+					<item id="navsuburl"><![CDATA[]]></item>
+				</item>
+				<item id="6">
 					<item id="name"><![CDATA[resource_setting]]></item>
 					<item id="param"><![CDATA[]]></item>
 					<item id="menu"><![CDATA[素材设置]]></item>
 					<item id="url"><![CDATA[]]></item>
 					<item id="type"><![CDATA[3]]></item>
 					<item id="adminid"><![CDATA[0]]></item>
-					<item id="displayorder"><![CDATA[]]></item>
+					<item id="displayorder"><![CDATA[4]]></item>
 					<item id="navtitle"><![CDATA[]]></item>
 					<item id="navicon"><![CDATA[]]></item>
 					<item id="navsubname"><![CDATA[]]></item>
 					<item id="navsuburl"><![CDATA[]]></item>
 				</item>
-				<item id="10">
-					<item id="name"><![CDATA[api_setting]]></item>
-					<item id="param"><![CDATA[]]></item>
-					<item id="menu"><![CDATA[接口]]></item>
-					<item id="url"><![CDATA[]]></item>
-					<item id="type"><![CDATA[3]]></item>
-					<item id="adminid"><![CDATA[0]]></item>
-					<item id="displayorder"><![CDATA[]]></item>
-					<item id="navtitle"><![CDATA[]]></item>
-					<item id="navicon"><![CDATA[]]></item>
-					<item id="navsubname"><![CDATA[]]></item>
-					<item id="navsuburl"><![CDATA[]]></item>
-				</item>
-				<item id="11">
+				<item id="7">
 					<item id="name"><![CDATA[masssend_setting]]></item>
 					<item id="param"><![CDATA[]]></item>
 					<item id="menu"><![CDATA[群发设置]]></item>
 					<item id="url"><![CDATA[]]></item>
 					<item id="type"><![CDATA[3]]></item>
 					<item id="adminid"><![CDATA[0]]></item>
-					<item id="displayorder"><![CDATA[]]></item>
-					<item id="navtitle"><![CDATA[]]></item>
-					<item id="navicon"><![CDATA[]]></item>
-					<item id="navsubname"><![CDATA[]]></item>
-					<item id="navsuburl"><![CDATA[]]></item>
-				</item>
-                		<item id="12">
-					<item id="name"><![CDATA[wsq_stat]]></item>
-					<item id="param"><![CDATA[]]></item>
-					<item id="menu"><![CDATA[微社区统计]]></item>
-					<item id="url"><![CDATA[]]></item>
-					<item id="type"><![CDATA[3]]></item>
-					<item id="adminid"><![CDATA[0]]></item>
-					<item id="displayorder"><![CDATA[]]></item>
-					<item id="navtitle"><![CDATA[]]></item>
-					<item id="navicon"><![CDATA[]]></item>
-					<item id="navsubname"><![CDATA[]]></item>
-					<item id="navsuburl"><![CDATA[]]></item>
-				</item>
-				<item id="13">
-					<item id="name"><![CDATA[wsq_app]]></item>
-					<item id="param"><![CDATA[]]></item>
-					<item id="menu"><![CDATA[活动中心]]></item>
-					<item id="url"><![CDATA[]]></item>
-					<item id="type"><![CDATA[3]]></item>
-					<item id="adminid"><![CDATA[0]]></item>
-					<item id="displayorder"><![CDATA[0]]></item>
+					<item id="displayorder"><![CDATA[5]]></item>
 					<item id="navtitle"><![CDATA[]]></item>
 					<item id="navicon"><![CDATA[]]></item>
 					<item id="navsubname"><![CDATA[]]></item>
@@ -184,7 +119,7 @@
 				</item>
 			</item>
 		</item>
-		<item id="version"><![CDATA[X2.5,X3,X3.1,X3.2,X3.3,X3.4]]></item>
+		<item id="version"><![CDATA[X2.5,X3,X3.1,X3.2,X3.3,X3.4,X3.5]]></item>
 		<item id="language">
 			<item id="scriptlang">
 				<item id="wechat_undefined"><![CDATA[此链接已过期，请重新在微信中生成此链接]]></item>

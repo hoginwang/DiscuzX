@@ -48,7 +48,7 @@ if(!submitcheck('settingsubmit')) {
 		}
 	}
 
-	$apilisturl = ADMINSCRIPT.'?action=plugins&operation=config&do='.$pluginid.'&identifier=wechat&pmod=wsq_setting&viewapi=yes';
+	$apilisturl = ADMINSCRIPT.'?action=plugins&operation=config&do='.$pluginid.'&identifier=wechat&pmod=wechat_setting&dpmod=wsq_setting&viewapi=yes';
 
 	$setting['wsq_siteurl'] = $setting['wsq_siteurl'] ? $setting['wsq_siteurl'] : $_G['siteurl'];
 	$setting['wsq_sitename'] = $setting['wsq_sitename'] ? $setting['wsq_sitename'] : $_G['setting']['bbname'];
@@ -68,9 +68,9 @@ if(!submitcheck('settingsubmit')) {
 	$setting['wechat_forumdisplay_reply'] = isset($setting['wechat_forumdisplay_reply']) ? $setting['wechat_forumdisplay_reply'] : 1;
 
 	showtips(lang('plugin/wechat', 'wsq_tips', array('ADMINSCRIPT' => ADMINSCRIPT.'?action=', 'apiurl' => $apilisturl)));
-	showformheader('plugins&operation=config&do='.$pluginid.'&identifier=wechat&pmod=wsq_setting', 'enctype');
+	showformheader('plugins&operation=config&do='.$pluginid.'&identifier=wechat&pmod=wechat_setting&dpmod=wsq_setting', 'enctype');
 
-	showtableheader(lang('plugin/wechat', 'wechat_wsq_setting').' '.($setting['wsq_status'] ? ' ('.lang('plugin/wechat', 'wsq_status_open').')' : ($setting['wsq_siteid'] ? ' ('.lang('plugin/wechat', 'wsq_status_ing').(TIMESTAMP - $setting['wsq_lastrequest'] > 3600 ? ' <a href="'.ADMINSCRIPT.'?action=plugins&operation=config&do='.$pluginid.'&identifier=wechat&pmod=wsq_setting&recheck=yes">['.lang('plugin/wechat', 'wsq_status_try').']</a>)' : ')') : ' ('.lang('plugin/wechat', 'wsq_status_close').')')));
+	showtableheader(lang('plugin/wechat', 'wechat_wsq_setting').' '.($setting['wsq_status'] ? ' ('.lang('plugin/wechat', 'wsq_status_open').')' : ($setting['wsq_siteid'] ? ' ('.lang('plugin/wechat', 'wsq_status_ing').(TIMESTAMP - $setting['wsq_lastrequest'] > 3600 ? ' <a href="'.ADMINSCRIPT.'?action=plugins&operation=config&do='.$pluginid.'&identifier=wechat&pmod=wechat_setting&dpmod=wsq_setting&recheck=yes">['.lang('plugin/wechat', 'wsq_status_try').']</a>)' : ')') : ' ('.lang('plugin/wechat', 'wsq_status_close').')')));
 
 	showsetting(lang('plugin/wechat', 'wsq_allow'), 'setting[wsq_allow]', $setting['wsq_allow'], 'radio', 0, 0, lang('plugin/wechat', 'wsq_allow_comment'));
 	if($setting['wsq_allow'] && $setting['wsq_siteid']) {
@@ -168,10 +168,7 @@ if(!submitcheck('settingsubmit')) {
 	}
 
 	if(function_exists('domain_create')) {
-		if(isset($_GET['setting']['wsq_domain'])) {
-			$_GET['setting']['wsq_domain'] = strtolower($_GET['setting']['wsq_domain']);
-		}
-		if(!empty($_GET['setting']['wsq_domain']) && !preg_match('/^((?=[a-z0-9-]{1,63}\.)(xn--)?[a-z0-9]+(-[a-z0-9]+)*\.)+[a-z]{2,63}$/', $_GET['setting']['wsq_domain'])) {
+		if(preg_match('/^((http|https|ftp):\/\/|\.)|(\/|\.)$/i', $_GET['setting']['wsq_domain'])) {
 			cpmsg('setting_domain_http_error', '', 'error');
 		}
 	}
@@ -225,7 +222,7 @@ if(!submitcheck('settingsubmit')) {
 		}
 	}
 
-	cpmsg('setting_update_succeed', 'action=plugins&operation=config&do='.$pluginid.'&identifier=wechat&pmod=wsq_setting', 'succeed');
+	cpmsg('setting_update_succeed', 'action=plugins&operation=config&do='.$pluginid.'&identifier=wechat&pmod=wechat_setting&dpmod=wsq_setting', 'succeed');
 }
 
 ?>
