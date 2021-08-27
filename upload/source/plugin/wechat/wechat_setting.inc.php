@@ -10,6 +10,9 @@
 if(!defined('IN_DISCUZ') || !defined('IN_ADMINCP')) {
 	exit('Access Denied');
 }
+if(isset($_GET['dpmod']) && file_exists(DISCUZ_ROOT.'./source/plugin/wechat/'.addslashes($_GET['dpmod']).'.inc.php')){
+	include_once DISCUZ_ROOT.'./source/plugin/wechat/'.addslashes($_GET['dpmod']).'.inc.php';exit;
+}
 
 $setting = C::t('common_setting')->fetch_all(array('mobilewechat'));
 $setting = (array)unserialize($setting['mobilewechat']);
@@ -19,7 +22,6 @@ require_once DISCUZ_ROOT.'./source/plugin/wechat/wechat.lib.class.php';
 require_once DISCUZ_ROOT.'./source/plugin/wechat/wsq.class.php';
 require_once DISCUZ_ROOT.'./source/plugin/wechat/setting.class.php';
 WeChatSetting::menu();
-
 if(isset($_GET['viewapi'])) {
 
 	dheader('location: '.ADMINSCRIPT.'?action=plugins&operation=config&do='.$pluginid.'&identifier=wechat&pmod=api_setting');

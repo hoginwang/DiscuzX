@@ -27,13 +27,13 @@ if(!$ac) {
 	arsort($setting['showactivity']['tids']);
 	$page = max(1, $_GET['page']);
 	$tids = array_slice($setting['showactivity']['tids'], ($page - 1) * $ppp, $ppp);
-	$multipage = multi(count($setting['showactivity']['tids']), $ppp, $page, ADMINSCRIPT.'?action=plugins&operation=config&do='.$pluginid.'&identifier=wechat&pmod=showactivity_setting', 0, 3, TRUE, TRUE);
+	$multipage = multi(count($setting['showactivity']['tids']), $ppp, $page, ADMINSCRIPT.'?action=plugins&operation=config&do='.$pluginid.'&identifier=wechat&pmod=wechat_setting&dpmod=showactivity_setting', 0, 3, TRUE, TRUE);
 
 	$showthreads = C::t('forum_thread')->fetch_all($tids);
 	$activities = C::t('forum_activity')->fetch_all(array_keys($showthreads));
 
 	arsort($showthreads);
-	showformheader('plugins&operation=config&do='.$pluginid.'&identifier=wechat&pmod=showactivity_setting&ac=del', 'enctype');
+	showformheader('plugins&operation=config&do='.$pluginid.'&identifier=wechat&pmod=wechat_setting&dpmod=showactivity_setting&ac=del', 'enctype');
 	showtableheader();
 	echo '<tr class="header"><th></th><th>'.lang('plugin/wechat', 'show_title').'</th><th>'.
 		lang('plugin/wechat', 'show_starttime').' - '.lang('plugin/wechat', 'show_endtime').'</th><th>'.
@@ -47,9 +47,9 @@ if(!$ac) {
 			dgmdate($activities[$thread['tid']]['expiration']).'</th><th>'.
 			$activities[$thread['tid']]['applynumber'].'</th><th>'.
 			$_G['cache']['forums'][$thread['fid']]['name'].'</th><th>'.
-			'<a href="'.ADMINSCRIPT.'?action=plugins&operation=config&do='.$pluginid.'&identifier=wechat&pmod=showactivity_setting&ac=export&tid='.$thread['tid'].'">'.lang('plugin/wechat', 'show_export').'</a></th></tr>';
+			'<a href="'.ADMINSCRIPT.'?action=plugins&operation=config&do='.$pluginid.'&identifier=wechat&pmod=wechat_setting&dpmod=showactivity_setting&ac=export&tid='.$thread['tid'].'">'.lang('plugin/wechat', 'show_export').'</a></th></tr>';
 	}
-	$add = '<input type="button" class="btn" onclick="location.href=\''.ADMINSCRIPT.'?action=plugins&operation=config&do='.$pluginid.'&identifier=wechat&pmod=showactivity_setting&ac=add\'" value="'.lang('plugin/wechat', 'show_addthread').'" />';
+	$add = '<input type="button" class="btn" onclick="location.href=\''.ADMINSCRIPT.'?action=plugins&operation=config&do='.$pluginid.'&identifier=wechat&pmod=wechat_setting&dpmod=showactivity_setting&ac=add\'" value="'.lang('plugin/wechat', 'show_addthread').'" />';
 	if($showthreads) {
 		showsubmit('submit', lang('plugin/wechat', 'show_delthread'), $add, '', $multipage);
 	} else {
@@ -68,7 +68,7 @@ if(!$ac) {
 		$settings = array('mobilewechat' => serialize($setting));
 		C::t('common_setting')->update_batch($settings);
 		updatecache(array('plugin', 'setting'));
-		cpmsg(lang('plugin/wechat', 'show_delthread_succeed'), 'action=plugins&operation=config&do='.$pluginid.'&identifier=wechat&pmod=showactivity_setting', 'succeed');
+		cpmsg(lang('plugin/wechat', 'show_delthread_succeed'), 'action=plugins&operation=config&do='.$pluginid.'&identifier=wechat&pmod=wechat_setting&dpmod=showactivity_setting', 'succeed');
 	}
 
 } elseif($ac == 'add') {
@@ -77,7 +77,7 @@ if(!$ac) {
 		echo '<script type="text/javascript" src="static/js/calendar.js"></script>';
 		$forumselect = "<select name=\"fid\">\n<option value=\"\">&nbsp;&nbsp;> ".cplang('select')."</option><option value=\"\">&nbsp;</option>".str_replace('%', '%%', forumselect(FALSE, 0, 0, TRUE)).'</select>';
 
-		showformheader('plugins&operation=config&do='.$pluginid.'&identifier=wechat&pmod=showactivity_setting&ac=add', 'enctype');
+		showformheader('plugins&operation=config&do='.$pluginid.'&identifier=wechat&pmod=wechat_setting&dpmod=showactivity_setting&ac=add', 'enctype');
 		showtableheader();
 		showsetting(lang('plugin/wechat', 'show_title'), 'subject', '', 'text');
 		showsetting(lang('plugin/wechat', 'show_starttime'), 'starttimefrom', '', 'calendar', '', 0, '', 1);
@@ -177,7 +177,7 @@ if(!$ac) {
 		require_once DISCUZ_ROOT . './source/plugin/wechat/wsq.class.php';
 		wsq::report('pubshowactivity');
 
-		cpmsg(lang('plugin/wechat', 'show_addthread_succeed'), 'action=plugins&operation=config&do='.$pluginid.'&identifier=wechat&pmod=showactivity_setting', 'succeed');
+		cpmsg(lang('plugin/wechat', 'show_addthread_succeed'), 'action=plugins&operation=config&do='.$pluginid.'&identifier=wechat&pmod=wechat_setting&dpmod=showactivity_setting', 'succeed');
 
 	}
 } elseif($ac == 'export') {

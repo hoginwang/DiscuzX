@@ -43,7 +43,7 @@ $apihook = WeChatHook::getAPIHook();
 
 $plugins = DB::fetch_all('SELECT identifier, name FROM %t', array('common_plugin'), 'identifier');
 
-showformheader('plugins&operation=config&do='.$pluginid.'&identifier=wechat&pmod=api_setting');
+showformheader('plugins&operation=config&do='.$pluginid.'&identifier=wechat&pmod=wechat_setting&dpmod=api_setting');
 showtableheader(lang('plugin/wechat', 'api_wsq'));
 echo '<tr class="header"><th>'.lang('plugin/wechat', 'api_hook').'</th><th>'.cplang('plugins_name').'</th><th>'.cplang('enable').'/'.cplang('display_order').'</th><th>'.lang('plugin/wechat', 'api_method').'</th></tr>';
 

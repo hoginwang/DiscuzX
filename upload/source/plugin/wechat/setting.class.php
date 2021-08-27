@@ -37,11 +37,11 @@ EOF;
 
 	}
 
-	function menu() {
-		global $_G;
-		$_G['wechat']['setting'] = unserialize($_G['setting']['mobilewechat']);
-
-echo <<<EOF
+    function menu() {
+        global $_G;
+        $_G['wechat']['setting'] = unserialize($_G['setting']['mobilewechat']);
+        if(!$_G['wechat']['setting']['wsq_siteid']) return '';
+        echo <<<EOF
 <style>
 .floattop { display: none; }
 .floattopempty { display: none; }
@@ -51,46 +51,25 @@ echo <<<EOF
 </style>
 EOF;
 
-		echo '<div class="mymenu">';
-		showsubmenu(lang('plugin/wechat', 'menu_root'), array(
-			array(array('menu' => lang('plugin/wechat', 'menu_wsq'), 'submenu' => array(
-				array(lang('plugin/wechat', 'menu_wsq_base'), 'plugins&operation=config&identifier=wechat&pmod=wsq_setting', $_GET['pmod'] == 'wsq_setting'),
-				array(lang('plugin/wechat', 'menu_wsq_show'), 'plugins&operation=config&identifier=wechat&pmod=showactivity_setting', $_GET['pmod'] == 'showactivity_setting'),
-				array(lang('plugin/wechat', 'menu_wsq_stat'), 'plugins&operation=config&identifier=wechat&pmod=wsq_stat', $_GET['pmod'] == 'wsq_stat'),
-			))),
-			array(array('menu' => lang('plugin/wechat', 'menu_wechat'), 'submenu' => array(
-				array(lang('plugin/wechat', 'menu_wechat_base'), 'plugins&operation=config&identifier=wechat&pmod=wechat_setting', $_GET['pmod'] == 'wechat_setting'),
-				array(lang('plugin/wechat', 'menu_wechat_msg'), 'plugins&operation=config&identifier=wechat&pmod=response_setting', $_GET['pmod'] == 'response_setting'),
-				array(lang('plugin/wechat', 'menu_wechat_menu'), 'plugins&operation=config&identifier=wechat&pmod=menu_setting', $_GET['pmod'] == 'menu_setting'),
-				array(lang('plugin/wechat', 'menu_wechat_resource'), 'plugins&operation=config&identifier=wechat&pmod=resource_setting', $_GET['pmod'] == 'resource_setting'),
-				array(lang('plugin/wechat', 'menu_wechat_masssend'), 'plugins&operation=config&identifier=wechat&pmod=masssend_setting', $_GET['pmod'] == 'masssend_setting'),
-			))),
-			array(lang('plugin/wechat', 'menu_app'), 'plugins&operation=config&identifier=wechat&pmod=wsq_app', $_GET['pmod'] == 'wsq_app'),
-			array(lang('plugin/wechat', 'menu_api'), 'plugins&operation=config&identifier=wechat&pmod=api_setting', $_GET['pmod'] == 'api_setting'),
-		));
-		echo '</div>';
-
-		if($_G['wechat']['setting']['wsq_siteid']) {
-			$time = TIMESTAMP;
-
-echo <<<EOF
-<script>
-function pubEventCallbackCommon(re) {
-	if(re.errCode) {
-		return;
-	}
-	if(typeof re.data.event.peId != 'undefined') {
-		$('pubEventNum').innerHTML = 'New!';
-		$('pubEventNum').style.display = '';
-	}
-}
-</script>
-<script src="http://api.wsq.qq.com/publicEvent?sId={$_G[wechat][setting][wsq_siteid]}&resType=jsonp&isAjax=1&_=$time&isDiscuz=1&callback=pubEventCallbackCommon">
-</script>
-EOF;
-
-		}
-	}
+        echo '<div class="mymenu">';
+        showsubmenu(lang('plugin/wechat', 'menu_root'), array(
+            array(array('menu' => lang('plugin/wechat', 'menu_wsq'), 'submenu' => array(
+                array(lang('plugin/wechat', 'menu_wsq_base'), 'plugins&operation=config&identifier=wechat&pmod=wsq_setting', $_GET['pmod'] == 'wsq_setting'),
+                array(lang('plugin/wechat', 'menu_wsq_show'), 'plugins&operation=config&identifier=wechat&pmod=showactivity_setting', $_GET['pmod'] == 'showactivity_setting'),
+                array(lang('plugin/wechat', 'menu_wsq_stat'), 'plugins&operation=config&identifier=wechat&pmod=wsq_stat', $_GET['pmod'] == 'wsq_stat'),
+            ))),
+            array(array('menu' => lang('plugin/wechat', 'menu_wechat'), 'submenu' => array(
+                array(lang('plugin/wechat', 'menu_wechat_base'), 'plugins&operation=config&identifier=wechat&pmod=wechat_setting', $_GET['pmod'] == 'wechat_setting'),
+                array(lang('plugin/wechat', 'menu_wechat_msg'), 'plugins&operation=config&identifier=wechat&pmod=response_setting', $_GET['pmod'] == 'response_setting'),
+                array(lang('plugin/wechat', 'menu_wechat_menu'), 'plugins&operation=config&identifier=wechat&pmod=menu_setting', $_GET['pmod'] == 'menu_setting'),
+                array(lang('plugin/wechat', 'menu_wechat_resource'), 'plugins&operation=config&identifier=wechat&pmod=resource_setting', $_GET['pmod'] == 'resource_setting'),
+                array(lang('plugin/wechat', 'menu_wechat_masssend'), 'plugins&operation=config&identifier=wechat&pmod=masssend_setting', $_GET['pmod'] == 'masssend_setting'),
+            ))),
+            array(lang('plugin/wechat', 'menu_app'), 'plugins&operation=config&identifier=wechat&pmod=wsq_app', $_GET['pmod'] == 'wsq_app'),
+            array(lang('plugin/wechat', 'menu_api'), 'plugins&operation=config&identifier=wechat&pmod=api_setting', $_GET['pmod'] == 'api_setting'),
+        ));
+        echo '</div>';
+    }
 
 
 }

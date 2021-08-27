@@ -304,7 +304,7 @@ class WeChatServer {
 class WeChatClient {
 
 	public static $_URL_API_ROOT = 'https://api.weixin.qq.com';
-	public static $_URL_FILE_API_ROOT = 'https://api.weixin.qq.com';
+	public static $_URL_FILE_API_ROOT = 'http://file.api.weixin.qq.com';
 	public static $_URL_QR_ROOT = 'https://mp.weixin.qq.com';
 	public static $_QRCODE_TICKET_DEFAULT_ID = 1;
 	public static $ERRCODE_MAP = array(
@@ -427,9 +427,6 @@ class WeChatClient {
 	}
 
 	public static function get($url) {
-		if (!function_exists('curl_init')) {
-			return dfsockopen($url);
-		}
 		$ch = curl_init();
 		curl_setopt($ch, CURLOPT_URL, $url);
 		# curl_setopt($ch, CURLOPT_HEADER, 1);
@@ -450,7 +447,7 @@ class WeChatClient {
 
 	private static function post($url, $data) {
 		if (!function_exists('curl_init')) {
-			return dfsockopen($url, 0, $data);
+			return '';
 		}
 		$ch = curl_init();
 		curl_setopt($ch, CURLOPT_URL, $url);
