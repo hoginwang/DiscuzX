@@ -6,7 +6,7 @@
 */
 
 function _ajaxget(url, showid, waitid, loading, display, recall) {
-	waitid = typeof waitid == 'undefined' || waitid === null ? showid : waitid;
+	waitid = waitid || 'ajaxwaitid';
 	var x = new Ajax();
 	x.setLoading(loading);
 	x.setWaitId(waitid);
@@ -45,8 +45,8 @@ function _ajaxget(url, showid, waitid, loading, display, recall) {
 }
 
 function _ajaxpost(formid, showid, waitid, showidclass, submitbtn, recall) {
-	var waitid = typeof waitid == 'undefined' || waitid === null ? showid : (waitid !== '' ? waitid : '');
-	var showidclass = !showidclass ? '' : showidclass;
+	waitid = waitid || 'ajaxwaitid';
+	showidclass = showidclass || '';
 	var ajaxframeid = 'ajaxframe';
 	var ajaxframe = $(ajaxframeid);
 	var curform = $(formid);
