@@ -241,7 +241,7 @@ function Ajax(recvType, waitId) {
 	aj.XMLHttpRequest = aj.createXMLHttpRequest();
 	aj.showLoading = function() {
 		if(aj.waitId && (aj.XMLHttpRequest.readyState != 4 || aj.XMLHttpRequest.status != 200)) {
-			aj.waitId.style.display = '';
+			aj.waitId.style.display = 'block';
 			aj.waitId.innerHTML = '<span><img src="' + IMGDIR + '/loading.gif" class="vm"> ' + aj.loading + '</span>';
 		}
 	};
