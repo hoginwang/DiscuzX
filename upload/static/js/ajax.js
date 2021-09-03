@@ -56,7 +56,7 @@ function _ajaxpost(formid, showid, waitid, showidclass, submitbtn, recall) {
 	var showloading = function(display) {
 		if (!waitObj) return;
 		display = display || 'block';
-		var waiting = '<span class="loadicon vm"></span> 请稍候...';
+		var waiting = '请稍候...';
 		if (waitid == showid) {
 			var waitid2 = waitid+'_wait';
 			var waitObj2 = $(waitid2);
