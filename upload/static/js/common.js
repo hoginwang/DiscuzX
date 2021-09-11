@@ -1559,7 +1559,7 @@ function addClass(elem, className) {
 }
 
 function removeClass(elem, className) {
-	elem.className = trim(elem.className.replace(new RegExp("(^|\\s)" + className+"(\\s|$)"), " "));
+	elem.className = trim(elem.className.replace(new RegExp("(^|\\s)" + className + "(\\s|$)"), " "));
 }
 
 function toggleClass(elem, className) {
