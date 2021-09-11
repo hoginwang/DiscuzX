@@ -1551,18 +1551,18 @@ function openDiy(){
 }
 
 function hasClass(elem, className) {
-	return elem.className && elem.className.match(new RegExp("(^|\\s)" + className + "(\\s|$)"));
+	return elem.className && (" " + elem.className + " ").indexOf(" " + className + " ") != -1;
 }
 
-function addClass(elem, className){
-	if (!hasClass(elem, className)) elem.className = trim(elem.className += " " + className);
+function addClass(elem, className) {
+	if(!hasClass(elem, className)) elem.className = trim(elem.className += " " + className);
 }
 
-function removeClass(elem, className){
+function removeClass(elem, className) {
 	elem.className = trim(elem.className.replace(new RegExp("(^|\\s)" + className+"(\\s|$)"), " "));
 }
 
-function toggleClass(elem, className){
+function toggleClass(elem, className) {
 	elem.className = hasClass(elem, className) ? removeClass(elem, className) : trim(elem.className += " " + className);
 }
 
