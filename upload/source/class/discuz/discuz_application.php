@@ -76,8 +76,8 @@ class discuz_application extends discuz_base{
 	private function _init_env() {
 
 		error_reporting(E_ERROR);
-		if(PHP_VERSION < '5.3.0') {
-			set_magic_quotes_runtime(0);
+		if(function_exists('set_magic_quotes_runtime')) {
+			@set_magic_quotes_runtime(0);
 		}
 
 		define('MAGIC_QUOTES_GPC', function_exists('get_magic_quotes_gpc') && get_magic_quotes_gpc());
