@@ -74,7 +74,6 @@ class discuz_error
 
 			$show .= "<li>[Line: $error[line]]".$file."($func)</li>";
 			$log .= (!empty($log) ? ' -> ' : '').$file.':'.$error['line'];
-			$log .= $file.':'.$error['line'];
 		}
 		return array($show, $log);
 	}
