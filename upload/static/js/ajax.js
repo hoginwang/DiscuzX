@@ -45,8 +45,8 @@ function _ajaxget(url, showid, waitid, loading, display, recall) {
 }
 
 function _ajaxpost(formid, showid, waitid, showidclass, submitbtn, recall) {
-	var waitid = typeof waitid == 'undefined' || waitid === null ? showid : (waitid !== '' ? waitid : '');
-	var showidclass = !showidclass ? '' : showidclass;
+	waitid = typeof waitid == 'boolean' || typeof waitid == 'number' ? (waitid ? showid : false) : (!waitid || waitid == showid ? 'ajaxwaitid' : waitid);
+	showidclass = showidclass || '';
 	var ajaxframeid = 'ajaxframe';
 	var ajaxframe = $(ajaxframeid);
 	var curform = $(formid);
@@ -56,7 +56,7 @@ function _ajaxpost(formid, showid, waitid, showidclass, submitbtn, recall) {
 		var s = '';
 		var evaled = false;
 
-		showloading('none');
+		showloading('none', '', waitid);
 		try {
 			s = $(ajaxframeid).contentWindow.document.XMLDocument.text;
 		} catch(e) {
@@ -120,7 +120,7 @@ function _ajaxpost(formid, showid, waitid, showidclass, submitbtn, recall) {
 
 	_attachEvent(ajaxframe, 'load', handleResult);
 
-	showloading();
+	showloading('', '', waitid);
 	curform.target = ajaxframeid;
 	var action = curform.getAttribute('action');
 	action = hostconvert(action);

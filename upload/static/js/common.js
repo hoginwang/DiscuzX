@@ -576,11 +576,13 @@ function showPreview(val, id) {
 	}
 }
 
-function showloading(display, waiting) {
-	var display = display ? display : 'block';
-	var waiting = waiting ? waiting : '请稍候...';
-	$('ajaxwaitid').innerHTML = waiting;
-	$('ajaxwaitid').style.display = display;
+function showloading(display, waiting, waitid) {
+	display = display || 'block';
+	waiting = waiting || '请稍候...';
+	var waitObj = waitid ? $(waitid) : waitid !== false ? $('ajaxwaitid') : null;
+	if(!waitObj) return;
+	waitObj.innerHTML = waiting;
+	waitObj.style.display = display;
 }
 
 function doane(event, preventDefault, stopPropagation) {
