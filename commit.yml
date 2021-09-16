@@ -3,18 +3,36 @@ branches: {
   }
 fileChange:
   /upload:
-    newFile: !uuid 'e1f78f0e3cef482b9fe071ecc583e5f80606e757'
-    oldFile: !uuid 'bf323898478fdc520bc3b3f55f77a36d732cffda'
-  /upload/static:
-    newFile: !uuid 'f4622fae00754554923d5805706cedb3c58aa84c'
-    oldFile: !uuid 'd6521e673ca0fb07e2baa334015460f60a06d53e'
-  /upload/static/avatar:
-    newFile: !uuid 'e8ce10fbed77aaee6ded13ec0a3c68f1f87eb3fe'
-    oldFile: !uuid '9672379f8542b53a2a441e2cbd0899909328e004'
-  /upload/static/avatar/avatar.js:
-    newFile: !uuid 'adc407ffe02217a6941ed89ccfc3ca38eae793a8'
-    oldFile: !uuid 'c285660df29c27faa0072c776644206f8af49a85'
-gitCommitId: !uuid 'c0ad5518b1053df9d7a65151dbb3e4830397550c'
+    newFile: !uuid 'c6f7c7e2e030d4e700e5fb86495c5c00c9dba182'
+    oldFile: !uuid 'e1f78f0e3cef482b9fe071ecc583e5f80606e757'
+  /upload/index.php:
+    newFile: !uuid 'f826c6da32a6c9ca33c2a96ad54c5e2351500293'
+    oldFile: !uuid '374da65d139ac11b9bf1b61bdc656185d4f471e8'
+  /upload/install:
+    newFile: !uuid '4837c1bdac5ffd8f0b3a5b0d9d3d433f9e05c67a'
+    oldFile: !uuid 'c6b2664b7ece091b1fe487e4d88049b7e8285655'
+  /upload/install/include:
+    newFile: !uuid 'a31caafd7e91054cc4027ecc29b33052dc981cd0'
+    oldFile: !uuid '32be07c8d1e0a4423150d2ada3ebe12f6e8e928c'
+  /upload/install/include/install_function.php:
+    newFile: !uuid '6c0eba1eb4d4f753cfc027a92059b42a7abfb680'
+    oldFile: !uuid '56271f0f84863d793264136c8baf7f9aef6d00e1'
+  /upload/install/include/install_lang.php:
+    newFile: !uuid '4de2a37f498d60eefdb3f978279397cea916f3ce'
+    oldFile: !uuid '3141b9a8551dfcd2b2601a48b07451de09838a86'
+  /upload/install/index.php:
+    newFile: !uuid 'a5bdb0fb4393a036e130660dc8698dee42569167'
+    oldFile: !uuid '1c3457cbe5bdeec215762054355776746fe78971'
+  /upload/source:
+    newFile: !uuid '277880c92df6d81a6380d89b8ada6e79d298f535'
+    oldFile: !uuid 'ab89577d557f425bd8dfe140f3856b61fa0ba037'
+  /upload/source/function:
+    newFile: !uuid '76e840ef24d5653029c399b04bf93d126cd268d7'
+    oldFile: !uuid '607a90caca084716a322f6fa0e0ed0c0b737f08f'
+  /upload/source/function/function_cloudaddons.php:
+    newFile: !uuid 'f29018d419f0b58f0b481456b66c0c6bf7d84029'
+    oldFile: !uuid 'ff35e967bd3e55c9a115a0ff577de3eb3e21ac0a'
+gitCommitId: !uuid 'bfb865f3bc45f1e80a688ecd0e509593c27051a4'
 renames: {
   }
-revisionId: 850
+revisionId: 851
