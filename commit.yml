@@ -3,18 +3,57 @@ branches: {
   }
 fileChange:
   /upload:
-    newFile: !uuid '89d8d4b2b347bf90136b1834dfd807d92f07ee52'
-    oldFile: !uuid 'edc3619c7d2a34780a8187aea6cff476e7c2a429'
+    newFile: !uuid 'd1f16c02ccf1cc28db9c7632667dc9307259fb7f'
+    oldFile: !uuid '89d8d4b2b347bf90136b1834dfd807d92f07ee52'
+  /upload/install:
+    newFile: !uuid 'a14c376d09f2c68c84aec581df9e0f049cc10add'
+    oldFile: !uuid '156ba2535ce68c1b52a691c6d3aab7737288ab87'
+  /upload/install/data:
+    newFile: !uuid '9f4e9d5c3ca15b12919579bbc65126e722548f00'
+    oldFile: !uuid 'b90e6bdb1695c24af871ab6fc82f6b5dced2fa81'
+  /upload/install/data/install.sql:
+    newFile: !uuid '08a370993a786fb579aec774774054e933ec9ad4'
+    oldFile: !uuid 'f1d0c7d56d0b041ed0c43ae9bf66a1ee1018e24d'
   /upload/source:
-    newFile: !uuid '2a420fbae4b6dcbea2f97163fa83af923a607dbc'
-    oldFile: !uuid '765c46420897f670cddba511e4ad57b113ee73b1'
-  /upload/source/admincp:
-    newFile: !uuid 'a727c31be0d1a43b162437e7df7f9bff9631d5cc'
-    oldFile: !uuid 'b9b881c548eab37c2db6e21554bd9bf26217c878'
-  /upload/source/admincp/admincp_setting.php:
-    newFile: !uuid '51342414d09600ae49935deacf302bdbdd863fca'
-    oldFile: !uuid 'fd13493b85392141721c52c3c26359b3849bb9d6'
-gitCommitId: !uuid '045ba7a4abd536b4e19afa458e02dddd4e601c12'
+    newFile: !uuid 'e74197f141f59847e526647788a2bf8e510a0097'
+    oldFile: !uuid '2a420fbae4b6dcbea2f97163fa83af923a607dbc'
+  /upload/source/plugin:
+    newFile: !uuid 'b73deaece6ef666c9a76e4a1562e55f128f8315f'
+    oldFile: !uuid 'c86643341c5c0623813b232ee12bf0efffe0699d'
+  /upload/source/plugin/qqconnect:
+    newFile: !uuid 'cabdae43f294dbfcf251513d0d10a5c9a51183a2'
+    oldFile: !uuid 'fdd1692bbb85dd46de578247dae746e2930b4ec2'
+  /upload/source/plugin/qqconnect/install.php:
+    newFile: !uuid 'fde34f02b275e4dba8e0697c823320d45e85b45e'
+    oldFile: !uuid '417f235ee69b7ab88319ec1347c2cc3390459b66'
+  /upload/source/plugin/qqconnect/upgrade.php:
+    newFile: !uuid '294471ae4682f2a33b7ed87b247a61234ccb2d25'
+    oldFile: !uuid '94c8702754a2c39705136bc93efe26f3bef14936'
+  /upload/source/plugin/wechat:
+    newFile: !uuid '121f37a8718e55bab6d269a1c523a8b08238a0ab'
+    oldFile: !uuid '2af22fb9725e54beb1e1c99bd1eb9367a5a9db08'
+  /upload/source/plugin/wechat/install:
+    newFile: !uuid '9454ad3786c86b49e86de728524c273bb2e8e0fc'
+    oldFile: !uuid 'eafacc77ac45b8272cde7d08f6999785f68de49a'
+  /upload/source/plugin/wechat/install/checkupdate.inc.php:
+    newFile: !uuid 'c3952ad4de664753100d10dd882e9853fd526453'
+    oldFile: !uuid 'e0084b76bb6a59f73da97faef762d978e5f80489'
+  /upload/uc_server:
+    newFile: !uuid '8fd43a420bda4e43854292f601ec248d374b7c36'
+    oldFile: !uuid '413f2f6f4798cc4286752755fba01a934ab79aeb'
+  /upload/uc_server/install:
+    newFile: !uuid '5ac98dca24df905276dbce68f6c5e16721603ea5'
+    oldFile: !uuid '6dd2733d736fb83e907d335144fac4f851406f90'
+  /upload/uc_server/install/uc.sql:
+    newFile: !uuid '8009005de0a8405380683e12abbb96cf6e4c5ebd'
+    oldFile: !uuid 'b729776bdf7611b05168ab151388d25cb56d2aeb'
+  /upload/uc_server/upgrade:
+    newFile: !uuid '43623bde74d616fc99c258a0f193d9a78e6db50c'
+    oldFile: !uuid '38d7ea36fe7c27cf12e0f232c8a16f6c4b1ab528'
+  /upload/uc_server/upgrade/upgrade3.php:
+    newFile: !uuid '1e949754841736f687e36939b2b2e33c8c7fba95'
+    oldFile: !uuid 'c4798fef7975c654b83fec79ee3fef34c47d2378'
+gitCommitId: !uuid 'a4a8775e67b97053a4891ab6760add85841632c6'
 renames: {
   }
-revisionId: 726
+revisionId: 727
