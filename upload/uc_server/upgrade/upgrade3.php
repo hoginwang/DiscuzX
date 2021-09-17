@@ -21,7 +21,9 @@ if(function_exists("mysql_connect")) {
 	require UC_ROOT.'./lib/dbi.class.php';
 }
 error_reporting(0);
-@set_magic_quotes_runtime(0);
+if(function_exists('set_magic_quotes_runtime')) {
+	@set_magic_quotes_runtime(0);
+}
 $PHP_SELF = htmlspecialchars($_SERVER['PHP_SELF'] ? $_SERVER['PHP_SELF'] : $_SERVER['SCRIPT_NAME']);
 
 $action = getgpc('action');
