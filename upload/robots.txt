@@ -5,6 +5,7 @@
 User-agent: *
 Disallow: /api/
 Disallow: /data/addonmd5/
+Disallow: /data/backup*
 Disallow: /data/download/
 Disallow: /data/ipdata/
 Disallow: /data/log/
