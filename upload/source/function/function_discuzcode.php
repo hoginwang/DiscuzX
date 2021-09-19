@@ -150,7 +150,7 @@ function discuzcode($message, $smileyoff = false, $bbcodeoff = false, $htmlon = 
 			"/\[backcolor=([#\w]+?)\]/i",
 			"/\[backcolor=((rgb|rgba)\([\d\s,]+?\))\]/i",
 			"/\[size=(\d{1,2}?)\]/i",
-			"/\[size=(\d{1,2}(\.\d{1,2}+)?(px|pt)+?)\]/i",
+			"/\[size=(\d*\.?\d+(px|pt|em|rem|in|cm|mm|pc|ex|%))\]/i",
 			"/\[font=([^\[\<]+?)\]/i",
 			"/\[align=(left|center|right)\]/i",
 			"/\[p=(\d{1,2}|null), (\d{1,2}|null), (left|center|right)\]/i",
