@@ -1500,7 +1500,7 @@ function codetag(text, br) {
 	var br = !br ? 1 : br;
 	DISCUZCODE['num']++;
 	if(br > 0 && typeof wysiwyg != 'undefined' && wysiwyg) text = text.replace(/<br[^\>]*>/ig, '\n');
-	text = text.replace(/\$/ig, '$$');
+	text = text.replace(/\$/ig, '$$$$');
 	DISCUZCODE['html'][DISCUZCODE['num']] = '[code]' + text + '[/code]';
 	return '[\tDISCUZ_CODE_' + DISCUZCODE['num'] + '\t]';
 }
@@ -1552,6 +1552,18 @@ function openDiy(){
 
 function hasClass(elem, className) {
 	return elem.className && (" " + elem.className + " ").indexOf(" " + className + " ") != -1;
+}
+
+function addClass(elem, className) {
+	if(!hasClass(elem, className)) elem.className = trim(elem.className += " " + className);
+}
+
+function removeClass(elem, className) {
+	elem.className = trim((" " + elem.className + " ").replace(" " + trim(className) + " ", " "));
+}
+
+function toggleClass(elem, className) {
+	elem.className = hasClass(elem, className) ? removeClass(elem, className) : trim(elem.className += " " + className);
 }
 
 function runslideshow() {
@@ -2060,18 +2072,28 @@ function html5Player(randomid, ext, src, width, height) {
 		case 'wav':
 		case 'ogg':
 			height = 66;
-			appendstyle(STATICURL + 'js/player/aplayer.min.css');
-			appendscript(STATICURL + 'js/player/aplayer.min.js');
+			if(!HTML5PLAYER['apload']) {
+				appendstyle(STATICURL + 'js/player/aplayer.min.css');
+				appendscript(STATICURL + 'js/player/aplayer.min.js');
+				HTML5PLAYER['apload'] = 1;
+			}
 			html5APlayer(randomid, ext, src, width, height);
 			break;
 		case 'flv':
-			appendscript(STATICURL + 'js/player/flv.min.js');
+			if(!HTML5PLAYER['flvload']) {
+				appendscript(STATICURL + 'js/player/flv.min.js');
+				HTML5PLAYER['flvload'] = 1;
+			}
 		case 'mp4':
 		case 'm4v':
 		case '3gp':
 		case 'ogv':
 		case 'webm':
-			appendscript(STATICURL + 'js/player/dplayer.min.js');
+			if(!HTML5PLAYER['dpload']) {
+				appendstyle(STATICURL + 'js/player/dplayer.min.css');
+				appendscript(STATICURL + 'js/player/dplayer.min.js');
+				HTML5PLAYER['dpload'] = 1;
+			}
 			html5DPlayer(randomid, ext, src, width, height);
 			break;
 		default:
@@ -2169,6 +2191,11 @@ var CLIPBOARDSWFDATA = '';
 var NOTICETITLE = [];
 var NOTICECURTITLE = document.title;
 var safescripts = {}, evalscripts = [];
+
+var HTML5PLAYER = [];
+HTML5PLAYER['apload'] = 0;
+HTML5PLAYER['dpload'] = 0;
+HTML5PLAYER['flvload'] = 0;
 
 if(BROWSER.firefox && window.HTMLElement) {
 	HTMLElement.prototype.__defineGetter__( "innerText", function(){
