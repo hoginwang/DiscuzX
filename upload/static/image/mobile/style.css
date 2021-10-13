@@ -1,26 +1,26 @@
 @charset "utf-8";
 /*----- color -----*/
 body {
-	--dz-BG-body:#eee;/*全局body背景*/
-	--dz-BG-color:#2B7ACD;/*主色调背景*/
-	--dz-BG-0:#ffffff;
-	--dz-BG-1:#333;/*深色背景*/
-	--dz-BG-2:#FF5656;/*高亮色*/
-	--dz-BG-3:#FF9900;/*排行榜2&置顶图标背景*/
-	--dz-BG-4:#B3CC0D;/*排行榜3&精华图标背景*/
-	--dz-BG-5:#f3f3f3;/*浅色背景*/
-	--dz-FC-color:#2B7ACD;/*主色调*/
-	--dz-FC-fff:#fff;
-	--dz-FC-333:#333;
-	--dz-FC-666:#666;
-	--dz-FC-777:#777;
-	--dz-FC-888:#888;
-	--dz-FC-999:#999;
-	--dz-FC-aaa:#aaa;
-	--dz-FC-bbb:#bbb;
-	--dz-FC-ccc:#ccc;
-	--dz-FC-ddd:#ddd;
-	--dz-BOR-ed:#ededed;/*边框色*/
+--dz-BG-body:#eee;/*全局body背景*/
+--dz-BG-color:#2B7ACD;/*主色调背景*/
+--dz-BG-0:#ffffff;
+--dz-BG-1:#333;/*深色背景*/
+--dz-BG-2:#FF5656;/*高亮色*/
+--dz-BG-3:#FF9900;/*排行榜2&置顶图标背景*/
+--dz-BG-4:#B3CC0D;/*排行榜3&精华图标背景*/
+--dz-BG-5:#f3f3f3;/*浅色背景*/
+--dz-FC-color:#2B7ACD;/*主色调*/
+--dz-FC-fff:#fff;
+--dz-FC-333:#333;
+--dz-FC-666:#666;
+--dz-FC-777:#777;
+--dz-FC-888:#888;
+--dz-FC-999:#999;
+--dz-FC-aaa:#aaa;
+--dz-FC-bbb:#bbb;
+--dz-FC-ccc:#ccc;
+--dz-FC-ddd:#ddd;
+--dz-BOR-ed:#ededed;/*边框色*/
 }
 
 /*----- common -----*/
