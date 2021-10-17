@@ -404,6 +404,7 @@ class template {
 	}
 
 	function stripblock($var, $s) {
+        $var = $this->addquote($var);
 		$s = preg_replace("/<\?=\\\$(.+?)\?>/", "{\$\\1}", $s);
 		preg_match_all("/<\?=(.+?)\?>/", $s, $constary);
 		$constadd = '';
