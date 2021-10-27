@@ -123,7 +123,7 @@ class discuz_application extends discuz_base{
 			'connectguest' => 0,
 			'timestamp' => TIMESTAMP,
 			'starttime' => microtime(true),
-			'clientip' => $this->_get_client_ip(),
+			'clientip' => '',
 			'remoteport' => $_SERVER['REMOTE_PORT'],
 			'referer' => '',
 			'charset' => '',
@@ -547,7 +547,6 @@ class discuz_application extends discuz_base{
 		} else {
 			$this->_init_guest();
 		}
-		setglobal('groupid', getglobal('groupid', 'member'));
 		!empty($this->cachelist) && loadcache($this->cachelist);
 
 		if($this->var['member'] && $this->var['group']['radminid'] == 0 && $this->var['member']['adminid'] > 0 && $this->var['member']['groupid'] != $this->var['member']['adminid'] && !empty($this->var['cache']['admingroup_'.$this->var['member']['adminid']])) {
@@ -568,7 +567,7 @@ class discuz_application extends discuz_base{
 		} else {
 			$this->var['member']['lastvisit'] = $this->var['cookie']['lastvisit'];
 		}
-
+		setglobal('clientip',$this->_get_client_ip());
 		setglobal('uid', getglobal('uid', 'member'));
 		setglobal('username', getglobal('username', 'member'));
 		setglobal('adminid', getglobal('adminid', 'member'));
