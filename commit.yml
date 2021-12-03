@@ -3,18 +3,39 @@ branches: {
   }
 fileChange:
   /upload:
-    newFile: !uuid 'f64a3d00492ce0a4fd7138fe888fa35cce085b3c'
-    oldFile: !uuid '3ad954761a00cbfad4d4a64c0e6ec90aa12333a9'
-  /upload/install:
-    newFile: !uuid '4a03ead9db40ea435ec8f4e8a02e13438224aca8'
-    oldFile: !uuid '1c2904bb635e7983e6ae246e586d298ed4a3726b'
-  /upload/install/include:
-    newFile: !uuid '06fa6e5189373697d36426b17f94217c2cee0700'
-    oldFile: !uuid '1765ee6f78a86a72fa30ef446f7824ab12df9ac6'
-  /upload/install/include/install_var.php:
-    newFile: !uuid '4067ecc5d1ec5d08938779929f192b0c07252dde'
-    oldFile: !uuid '5725e38790bf55d29d544e20a62f92c84bcf1599'
-gitCommitId: !uuid '57897bb57a1e028e64ae956ab69256bad9bac42b'
+    newFile: !uuid 'd4f944e3eeb53d19120e2d171219b659be981438'
+    oldFile: !uuid 'f64a3d00492ce0a4fd7138fe888fa35cce085b3c'
+  /upload/source:
+    newFile: !uuid 'df640d76eacce5c41a5c04c771ec4f492e286f08'
+    oldFile: !uuid 'afa9f92d18bff7c311e80d237511a5261d7233c6'
+  /upload/source/plugin:
+    newFile: !uuid '0c11a14184d796ab7dba417885e9747468d80111'
+    oldFile: !uuid '32fb255900678a301dbda67974d3fea5a9604cd5'
+  /upload/source/plugin/wechat:
+    newFile: !uuid '9224e4e88ab9f6ac3bf636a920affc7458ca3588'
+    oldFile: !uuid 'a22c17c9811848fd5d18477e6f5da49253d67c69'
+  /upload/source/plugin/wechat/api_setting.inc.php:
+    newFile: !uuid 'ea6f670d1315c3ad5d51ae68fb5370c6ff91f6bb'
+    oldFile: !uuid '841d2f3ac627f55abb4e1249e3321a4af030f2a9'
+  /upload/source/plugin/wechat/discuz_plugin_wechat.xml:
+    newFile: !uuid 'cbd2c5115800464bb0dfa91ad4ed5177893218a0'
+    oldFile: !uuid '9978f46c11c377984fcec036c56bb589f77c969c'
+  /upload/source/plugin/wechat/setting.class.php:
+    newFile: !uuid '4558abfbd1c8a853f9add6f7feb9f26d4899df04'
+    oldFile: !uuid '434e2abaa1040ed453b9e06b952383dc0404da72'
+  /upload/source/plugin/wechat/showactivity_setting.inc.php:
+    newFile: !uuid '4857150592855a957ad22e8e9ac8afbf0b79691d'
+    oldFile: !uuid '8aeeb43c0ed4509cfa060f08185ba925dcaa8fbc'
+  /upload/source/plugin/wechat/wsq_app.inc.php:
+    newFile: !uuid 'f37765b74123f4c8d93896accb1fb87166ef8715'
+    oldFile: !uuid 'be7236f91f89aeee903373ac8fba303f126fe72a'
+  /upload/source/plugin/wechat/wsq_setting.inc.php:
+    newFile: !uuid '29a082bde8de6da81fdf4840e03b5a843f864caa'
+    oldFile: !uuid 'e7fb67be342d474779cad42593423a60b55f845c'
+  /upload/source/plugin/wechat/wsq_stat.inc.php:
+    newFile: !uuid 'cc149ab50488bc5da9e71090c47a8d5393edd8f2'
+    oldFile: !uuid '4de272de8897c8831c37b012fcb697aa0437305b'
+gitCommitId: !uuid 'e67d814c3a00f98d036c37be2d48509f240b2e36'
 renames: {
   }
-revisionId: 879
+revisionId: 880
