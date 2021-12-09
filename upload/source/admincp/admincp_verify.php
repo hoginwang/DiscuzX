@@ -539,9 +539,6 @@ EOF;
 		showsetting('members_verify_icon', 'iconnew', (!$icon_url['host'] ? str_replace($_G['setting']['attachurl'].'common/', '', $verifyarr['icon']) : $verifyarr['icon']), 'filetext', '', 0, $verificonhtml);
 		showtagfooter('tbody');
 
-		if($vid == 6) {
-			showsetting('members_verify_view_real_name', "verify[viewrealname]", $verifyarr['viewrealname'], 'radio');
-		}
 		if($vid) {
 			$varname = array('verify[field]', array(), 'isfloat');
 			foreach(C::t('common_member_profile_setting')->fetch_all_by_available(1) as $value) {
