@@ -3,30 +3,18 @@ branches: {
   }
 fileChange:
   /upload:
-    newFile: !uuid '3f8fd7d54eb67c7104bf8fa7d5dd572877930ac7'
-    oldFile: !uuid '82bff2e4f87fcabf48ac782829e9e96f3e6a064d'
+    newFile: !uuid '4505563230ff2f862b5bb688c42a69f265f847f9'
+    oldFile: !uuid '3f8fd7d54eb67c7104bf8fa7d5dd572877930ac7'
   /upload/source:
-    newFile: !uuid 'eabdf42494bac0fbdd1488fd31b0ce451c21c890'
-    oldFile: !uuid 'aece84d37a954ee11ad8e440cbb347978405df61'
-  /upload/source/class:
-    newFile: !uuid '86ad1070ccd3a6495005d24ab8b1ed01ee628ba7'
-    oldFile: !uuid '3a588e2ef1c730db64a08291bfc75c2383d87e9f'
-  /upload/source/class/discuz:
-    newFile: !uuid '35677e32f7885d6eb73f77f84c552f7c147d89cb'
-    oldFile: !uuid '91e7b14ef79a9a981f76585cf39924aaf936550c'
-  /upload/source/class/discuz/discuz_error.php:
-    newFile: !uuid '5e565b91a396ffd1205d7292a09e89b0df218210'
-    oldFile: !uuid '3d194c05e44cc0e71be1601ac3a80de1763c535b'
-  /upload/source/module:
-    newFile: !uuid '80caf09d0d8776e745fe162f54bc622a2724f9ff'
-    oldFile: !uuid '5bdcb8838b7aac30416ec0cb8b6fc84215a18693'
-  /upload/source/module/forum:
-    newFile: !uuid '6f618816c33a492bff88f6603396d7905f1fc116'
-    oldFile: !uuid '6ecfea15e0f5c67f8201eeadbb5e7817a99bd4cb'
-  /upload/source/module/forum/forum_attachment.php:
-    newFile: !uuid '7625e861ea92a5fa79da9d01fe37b219727e4683'
-    oldFile: !uuid 'e8600c234b87b151076bc9c5ba0eb1820e1ecbdc'
-gitCommitId: !uuid '69e8f591f06e510c06e12077b51814f13825ff5d'
+    newFile: !uuid '1f6f0cfd1ac9bcef23d2510289b0fbd116b2c30f'
+    oldFile: !uuid 'eabdf42494bac0fbdd1488fd31b0ce451c21c890'
+  /upload/source/language:
+    newFile: !uuid '4a752b6ddbeb084ac7c1ada9357ac755ce11bffb'
+    oldFile: !uuid '99d7545fc03729bbea4c456ad5856fa4d7dd31b3'
+  /upload/source/language/lang_admincp.php:
+    newFile: !uuid 'cbab3a0b241137bec7cefdeee284c296b7592d4c'
+    oldFile: !uuid 'a24cbbe1179be12d91b8189e8962b22a0ca67ee4'
+gitCommitId: !uuid '0e208103c35cd325b9c2f48c45b0e428445ad012'
 renames: {
   }
-revisionId: 743
+revisionId: 744
