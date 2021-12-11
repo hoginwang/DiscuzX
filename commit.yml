@@ -2,22 +2,19 @@
 branches: {
   }
 fileChange:
-  /.gitee:
-    newFile: !uuid '0c2f00ef0fe6d525a8eea4adc6bae847f21fd544'
-    oldFile: !uuid '9bfe879e3047d7cd8daa88c10958e42c1842e0b9'
-  /.gitee/ISSUE_TEMPLATE.en.md:
-    newFile: !uuid '65d2c74e120fa0a28197118846027573be13a467'
-    oldFile: !uuid 'd43d22b17bdcf48b52d7e68ec64f30b1f6d0277a'
-  /.gitee/ISSUE_TEMPLATE.zh-CN.md:
-    newFile: !uuid '1206c9b294373835bd5b7d6f7881c814193c197c'
-    oldFile: !uuid '2c66892c28a0f522cbc1b046ee69b2d03394ae5f'
-  /.gitee/ISSUE_TEMPLATE.zh-TW.md:
-    newFile: !uuid 'c1424fb46405b4b1e16d714ccf83135fbe9194be'
-    oldFile: !uuid '64046a5d10e0a40985ec358d707f7c63760f93f2'
-  /README.md:
-    newFile: !uuid 'c24afbaf8f602011d79491057c352ea30540925f'
-    oldFile: !uuid 'b1b0bdbef0d43ea8e1bb13b9d586bd1205864f49'
-gitCommitId: !uuid '3d6a2554d774a20144cebcf48f9dba7b19903278'
+  /upload:
+    newFile: !uuid 'ffcf4991d507f6e0f825662ac145799f2be8f0b1'
+    oldFile: !uuid 'b154c0b77b39d26baae8e9f2f96077d2767a01d4'
+  /upload/source:
+    newFile: !uuid '952981ccbf2b8040c520f73bed3c568e9b5fb1cb'
+    oldFile: !uuid '10715fbf3377bf8e7be072cdee0bcdf843b9dde8'
+  /upload/source/admincp:
+    newFile: !uuid '44329cd70fc3cf471d8e9d0bd0a4051aff3a21f4'
+    oldFile: !uuid '8049f9612766485dfa7fe4ada65027bd98eea41c'
+  /upload/source/admincp/admincp_specialuser.php:
+    newFile: !uuid 'b3a6fd5089a68c4574ed20e53d45e8c42f2be7d4'
+    oldFile: !uuid 'b31b1bb5f250e0b8b6d69f8129ab48cfddba06cd'
+gitCommitId: !uuid 'e8f9a7fc1d30694447f9ec2a33dc0a9cabb6e408'
 renames: {
   }
-revisionId: 888
+revisionId: 889
