@@ -2,19 +2,22 @@
 branches: {
   }
 fileChange:
-  /upload:
-    newFile: !uuid 'b154c0b77b39d26baae8e9f2f96077d2767a01d4'
-    oldFile: !uuid '1471ef16e48d33338ff56fa8148456c5d04c89a2'
-  /upload/source:
-    newFile: !uuid '10715fbf3377bf8e7be072cdee0bcdf843b9dde8'
-    oldFile: !uuid 'e99d6f97b9a29b73dc0bbcdeac73415b7ade3d1d'
-  /upload/source/language:
-    newFile: !uuid '277f3b1d59aed15467931442d45ba5fa00b3e754'
-    oldFile: !uuid '05f5365c08af7c38287912c63c29e9f6cc1842c8'
-  /upload/source/language/lang_admincp.php:
-    newFile: !uuid '3541adc2b2e52debeaeff02393759628e229316a'
-    oldFile: !uuid 'e0ea30ab493f5763e1f0697a9c3b558d6d1fadd5'
-gitCommitId: !uuid '1ccf429004fa3ba6d06e7e3430c0418f90a6f74e'
+  /.gitee:
+    newFile: !uuid '0c2f00ef0fe6d525a8eea4adc6bae847f21fd544'
+    oldFile: !uuid '9bfe879e3047d7cd8daa88c10958e42c1842e0b9'
+  /.gitee/ISSUE_TEMPLATE.en.md:
+    newFile: !uuid '65d2c74e120fa0a28197118846027573be13a467'
+    oldFile: !uuid 'd43d22b17bdcf48b52d7e68ec64f30b1f6d0277a'
+  /.gitee/ISSUE_TEMPLATE.zh-CN.md:
+    newFile: !uuid '1206c9b294373835bd5b7d6f7881c814193c197c'
+    oldFile: !uuid '2c66892c28a0f522cbc1b046ee69b2d03394ae5f'
+  /.gitee/ISSUE_TEMPLATE.zh-TW.md:
+    newFile: !uuid 'c1424fb46405b4b1e16d714ccf83135fbe9194be'
+    oldFile: !uuid '64046a5d10e0a40985ec358d707f7c63760f93f2'
+  /README.md:
+    newFile: !uuid 'c24afbaf8f602011d79491057c352ea30540925f'
+    oldFile: !uuid 'b1b0bdbef0d43ea8e1bb13b9d586bd1205864f49'
+gitCommitId: !uuid '3d6a2554d774a20144cebcf48f9dba7b19903278'
 renames: {
   }
-revisionId: 887
+revisionId: 888
