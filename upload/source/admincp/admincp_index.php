@@ -114,7 +114,7 @@ foreach(C::t('common_member_verify_info')->group_by_verifytype_count() as $value
 }
 
 cpheader();
-shownav();
+shownav('index', 'menu_home');
 
 require_once libfile('function/cloudaddons');
 $newversion = (CHARSET == 'utf-8') ? dunserialize($_G['setting']['cloudaddons_newversion']) : json_decode($_G['setting']['cloudaddons_newversion'],true);

@@ -1550,7 +1550,7 @@ var rowtypedata = [
 	];
 </script>
 EOT;
-			shownav('tools', 'nav_custommenu');
+			shownav('index', 'nav_custommenu');
 			showsubmenu('nav_custommenu');
 			showformheader('misc&operation=custommenu');
 			showtableheader();
