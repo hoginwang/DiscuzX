@@ -706,20 +706,21 @@ class dbstuffi {
 	function connect($dbhost, $dbuser, $dbpw, $dbname = '', $dbcharset = '', $pconnect = 0, $tablepre='', $time = 0) {
 		$this->time = $time;
 		$this->tablepre = $tablepre;
+
+		mysqli_report(MYSQLI_REPORT_OFF);
+
 		$this->link = new mysqli();
 		if(!$this->link->real_connect($dbhost, $dbuser, $dbpw, $dbname)) {
 			return FALSE;
 		}
 
-		if($this->version() > '4.1') {
-			if($dbcharset) {
-				$this->link->set_charset($dbcharset);
-			}
-
-			if($this->version() > '5.0.1') {
-				$this->query("SET sql_mode=''");
-			}
+		if($dbcharset) {
+			$this->link->set_charset($dbcharset);
 		}
+
+		$this->link->query("SET sql_mode=''");
+
+		$this->link->query("SET character_set_client=binary");
 
 		return TRUE;
 	}
