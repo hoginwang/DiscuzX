@@ -3,57 +3,30 @@ branches: {
   }
 fileChange:
   /upload:
-    newFile: !uuid 'acf9d4acd104a8ce72e8294723130d70aa3e29a9'
-    oldFile: !uuid 'ffcf4991d507f6e0f825662ac145799f2be8f0b1'
-  /upload/api:
-    newFile: !uuid '710fa8fa3f1ff13cf82ca35df0fa0c2fdc6501b8'
-    oldFile: !uuid '98405ec8e59392963a1ebf2f3bea1ad619a7e550'
-  /upload/api/uc.php:
-    newFile: !uuid '7c8c27b7ed3d515610f863867b9231136fed82a0'
-    oldFile: !uuid '09f012317c90b2a905084a50bf776af10273769a'
-  /upload/install:
-    newFile: !uuid 'a99d9fa3ad45d2e735d55514f6ae2fe5820e8098'
-    oldFile: !uuid 'e7811f68de925a864630960a0532b7bd8049a39e'
-  /upload/install/include:
-    newFile: !uuid '9495fac5f776d95763ffbe8c139282e8ec70d0f9'
-    oldFile: !uuid '36d3449705479fd0282de67ccb928ff7d4cba7bc'
-  /upload/install/include/install_function.php:
-    newFile: !uuid '6494b450a1d60d9fc8917ecf376a77c57ddbce5c'
-    oldFile: !uuid '37401168990890b561673207e73a48c87b2a5661'
-  /upload/install/index.php:
-    newFile: !uuid '537d8c8581c01bdbd0c7a349942515e5aa2bebfb'
-    oldFile: !uuid 'a5bdb0fb4393a036e130660dc8698dee42569167'
+    newFile: !uuid 'd7626f7aa5498e23463a06a0cbbd2bccb14e1425'
+    oldFile: !uuid 'acf9d4acd104a8ce72e8294723130d70aa3e29a9'
   /upload/source:
-    newFile: !uuid '3eabf1172845a6920e4b6ef8706ce76af2548df2'
-    oldFile: !uuid '952981ccbf2b8040c520f73bed3c568e9b5fb1cb'
-  /upload/source/function:
-    newFile: !uuid '81df787265155c6c8b5bea2fe4da4be6340940fd'
-    oldFile: !uuid 'f2b1652d81d21a3f06729d4f43f94f712819751d'
-  /upload/source/function/media:
-    newFile: !uuid 'f441698630bc6562bc725caed24f2978f7177c05'
-    oldFile: !uuid 'bc56816b9910501de9a440c89be1180e9fe3f9ac'
-  /upload/source/function/media/media_56.php:
-    newFile: !uuid '9698b0665166fccf4da51c34ed9c6675deb6139e'
-    oldFile: !uuid '9f31befa086247b329ed52dc7158050b2b5641e1'
-  /upload/source/function/media/media_ku6.php:
-    newFile: !uuid '5dab09a73e06843c23492d15d5754b705eb3115a'
-    oldFile: !uuid '5f6c502ab16d712fc1ecd4163fb09ffd6879775f'
-  /upload/source/function/media/media_sina.php:
-    newFile: !uuid 'b1f0ca955be81b85764509608c8f488b8e0385a3'
-    oldFile: !uuid 'fcb863225a6cffd67b7eee55a1a1e0f958f6bc5d'
-  /upload/source/function/media/media_sohu.php:
-    newFile: !uuid '7d86ce5eb5a734586139a85f5919bbd0e9bd4a16'
-    oldFile: !uuid '86020e886f2fd8274ddbe1438fcc0d121fe44274'
-  /upload/source/function/media/media_tudou.php:
-    newFile: !uuid '090bfdd97c57cc10764262fa00c0823f9f06ca2c'
-    oldFile: !uuid 'dde9d2747f9dadc01e774f585848147102da278e'
-  /upload/source/function/media/media_youku.php:
-    newFile: !uuid '410b0cb90247973274515953ef67f9a5cab86ef3'
-    oldFile: !uuid '8a98cbb47b38fc9953046bc332f7399a4f1c90cc'
-  /upload/source/function/media/media_youtube.php:
-    newFile: !uuid '3972fe77e001c415e46ec01e362fa0d0028403d6'
-    oldFile: !uuid 'b516a5cf4cf12441319b865ce1f20d2d8966e035'
-gitCommitId: !uuid '4831d4baf2810e204b57fcaefeb1cffd0d930cb5'
+    newFile: !uuid 'f8e4f94584ea21456972248df5ed8f19215c9ede'
+    oldFile: !uuid '3eabf1172845a6920e4b6ef8706ce76af2548df2'
+  /upload/source/admincp:
+    newFile: !uuid '4c09a255cc7fac57c918b172823c3c4616dacc04'
+    oldFile: !uuid '44329cd70fc3cf471d8e9d0bd0a4051aff3a21f4'
+  /upload/source/admincp/admincp_login.php:
+    newFile: !uuid '90090f5ba18fa5e345b0d24fc256f4fa27569691'
+    oldFile: !uuid 'f918d5ccfe972e235abf1c6aa509ddf12c80da54'
+  /upload/template:
+    newFile: !uuid '39eb732665ecd6388bca12e2bd609a2ff0241d03'
+    oldFile: !uuid '466f485aafacee7a9cad849197f80ad51a7554e0'
+  /upload/template/default:
+    newFile: !uuid '8e2e1e8d067d8f52b8e6d3967e6957bd4ed93fd2'
+    oldFile: !uuid '97166d36680f80b8931e573ca0015a52908aec81'
+  /upload/template/default/member:
+    newFile: !uuid '96cabf983a4606dfcf61009fc85b68783ed383e8'
+    oldFile: !uuid '2d2b159690ea09452fc80f460b3ebea8ccc197ba'
+  /upload/template/default/member/login_simple.htm:
+    newFile: !uuid 'aff679e678055bc0d733a40a6f48da1d2cb089f3'
+    oldFile: !uuid '83af8ef0971ff630f9638661697e459cf973ae98'
+gitCommitId: !uuid '700beb49b0152438071ae8b8bdc8b063e03d8326'
 renames: {
   }
-revisionId: 890
+revisionId: 891
