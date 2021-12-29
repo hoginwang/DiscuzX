@@ -3,21 +3,2469 @@ branches: {
   }
 fileChange:
   /upload:
-    newFile: !uuid 'b2ac6dd74b5599ed6815b1e228fc21529cc78c9e'
-    oldFile: !uuid 'c4f9f4bbf094b37da349a56682e959947b26ab0d'
+    newFile: !uuid '2691a54011b3c6806b97502ef1590c03461dc68b'
+    oldFile: !uuid 'b2ac6dd74b5599ed6815b1e228fc21529cc78c9e'
+  /upload/source:
+    newFile: !uuid '8bd41362dd1fae36a9917663d775080ac5dd76c9'
+    oldFile: !uuid '61f355e4e0c8adc0eacdfe57f5e25ccfe1ca5449'
+  /upload/source/plugin:
+    newFile: !uuid 'cdb894fd4081c330c3a8c3ef775efa2ecf54addf'
+    oldFile: !uuid 'da87e398c796ffa512fcdb0f8e96566f598f5897'
+  /upload/source/plugin/mobile:
+    newFile: !uuid 'c297eea96a6f3500cc2e5302fcc0a556cd74d01d'
+    oldFile: !uuid 'e8ff5e4dad360d0d22e0710d617e002d52ddc145'
+  /upload/source/plugin/mobile/template:
+    newFile: !uuid '07ed82661a4048d197feaec2d4924c5048ae3b29'
+    oldFile: !uuid '5bc97a191f93f5351f56e54db70b04e263e62655'
+  /upload/source/plugin/mobile/template/image:
+    newFile: !uuid 'ec8abcf7890fdb0e85fee3b1f2473a0a8e319f4b'
+    oldFile: !uuid '523e1ddeff30f7c0426ebc1a1b4c2742f1ccc485'
+  /upload/source/plugin/mobile/template/image/android.jpg:
+    newFile: !uuid 'eb5c90efdca089a81e702e73a113799636b9b06e'
+    oldFile: !uuid 'fcfecf390b3782bcd8a70241fc4a377485c9c68f'
+  /upload/source/plugin/mobile/template/image/close.jpg:
+    newFile: !uuid '5298e954565f39e7a4a4b889a6c132c1364636da'
+    oldFile: !uuid '105b38f9a709389d8d2def3776a99c3b45f665ee'
+  /upload/source/plugin/mobile/template/image/codebg.jpg:
+    newFile: !uuid '33bbc716248e05d51b7b55bbba70d0a4d979665b'
+    oldFile: !uuid '19155556d8f0e13ff72489b24795c7f56ef4025e'
+  /upload/source/plugin/mobile/template/image/iphone.jpg:
+    newFile: !uuid '28a0cda464ace797d66cd45a99500760ca4e3429'
+    oldFile: !uuid '1e4e989d50839bb3012c682315532fa9e8abb90b'
+  /upload/source/plugin/mobile/template/image/tipsbg.jpg:
+    newFile: !uuid 'a2a039f07c8a217964714ac436b1aa34738f00e1'
+    oldFile: !uuid 'f41f1ab5873be1e41cca9e4b19c5be5e02a7c395'
+  /upload/source/plugin/mobile/template/image/title_intro.jpg:
+    newFile: !uuid 'b45a6ed2835692f0c6fda26cd66c1878cd890033'
+    oldFile: !uuid 'a63c0d16b562dfac9a5dcbbb43f5846175a9ec89'
+  /upload/source/plugin/mobile/template/image/wp7.jpg:
+    newFile: !uuid 'd61618d9e9eea99d534be3874d6b37a7b6f05652'
+    oldFile: !uuid '07461162d4fa97f31eba669fca8de8d991bbd071'
+  /upload/source/plugin/mobile/template/image/wrapbg.jpg:
+    newFile: !uuid '354a15d91b67baae3207c95563546b1514a9ad64'
+    oldFile: !uuid '1bc889e4fe0be668ca5affb595de1d5a8e2ced58'
+  /upload/source/plugin/wechat:
+    newFile: !uuid 'e4e2b430ec76b7e5781855d03d7f9fbcc3e9798c'
+    oldFile: !uuid '8559d19bcde42f802afc89f74e76e02631cba924'
+  /upload/source/plugin/wechat/image:
+    newFile: !uuid '92c23378337c5b7a31c3c586c6dad4424c32cb91'
+    oldFile: !uuid '44aeb57b6d8a197b66a413223f2834d7d799a74d'
+  /upload/source/plugin/wechat/image/discuz_qr.jpg:
+    newFile: !uuid '1d1eb93450678578629bc2e991a0ec447d42675e'
+    oldFile: !uuid '1b4b06226b38224a97825c37c25a973a0c29307c'
+  /upload/source/plugin/wechat/image/share.png:
+    newFile: !uuid '980be927b44c1575148870808c9abc6192868e7d'
+    oldFile: !uuid '58974c3107e0b532d9591be43c4c6bd05e997fa9'
+  /upload/source/plugin/wechat/image/wechat_bind.png:
+    newFile: !uuid '324517643b3286670d52a43587c4e98204f3880f'
+    oldFile: !uuid 'f9ae51d53838e5d683111299ff047bd5654b5a59'
+  /upload/source/plugin/wechat/image/wechat_login.png:
+    newFile: !uuid '6bf89d5ce98067293d616ec46a1d5e7625bd1a7e'
+    oldFile: !uuid 'f4649a85a82d0d6aa5f7ba5205fc01d494bc3d3d'
+  /upload/source/plugin/wechat/image/wsq.png:
+    newFile: !uuid 'f69e582311d77ce19f83a383958c0a4fdd15290e'
+    oldFile: !uuid '8d7c227baad9140da6194263dafc18dee47d3141'
+  /upload/source/plugin/wechat/template:
+    newFile: !uuid '73a44929ba82e5dde6769306634f2200e0673a56'
+    oldFile: !uuid 'bde02f3ef561ebc7a6b427255bc60841c66d9e7f'
+  /upload/source/plugin/wechat/template/mobile:
+    newFile: !uuid '4b96ea717c4f0de2b346951b37da0d01f2816675'
+    oldFile: !uuid '5e27442f5776ee4b57cd2d880f718f05a5b2d7a8'
+  /upload/source/plugin/wechat/template/mobile/arrow_top.png:
+    newFile: !uuid '98c29c78a39fb425d738183a848fb64bcedbce40'
+    oldFile: !uuid 'e5cfddeece28b9b1310064032880ffd88e0ffb06'
+  /upload/source/plugin/wechat/template/mobile/icon_arrow.png:
+    newFile: !uuid 'cbd26938dcfea3137dfac218a070d7c8e01c22ff'
+    oldFile: !uuid '4a80157bd62fa581bab39673040812c60973fc39'
+  /upload/source/plugin/wechat/template/mobile/icon_close.png:
+    newFile: !uuid '1f7391046bc4e6d48006b85800d1c6152ce45de0'
+    oldFile: !uuid '92d54a3bda40dc504695fbd2957d02f4046b91eb'
+  /upload/source/plugin/wechat/template/mobile/login.png:
+    newFile: !uuid '62bd99f5fdc967cf6f0f6a7ff3db29d7f12a0500'
+    oldFile: !uuid '870d964cc3c7d97a2cf1f74725d76395049cc69a'
+  /upload/source/plugin/wechat/template/mobile/login_on.png:
+    newFile: !uuid '4ad1d4888dc3bac889ad97737c7f4ec540350c3a'
+    oldFile: !uuid 'db3b5b66e23ef66d5854071658dc98b382f710bf'
+  /upload/source/plugin/wechat/template/mobile/pic_bg.jpg:
+    newFile: !uuid 'ad65c41f6d98d67d6dd6d53253651c81e048d947'
+    oldFile: !uuid '42494175b92f59010323e4c1bfcc11bf39efb2e7'
+  /upload/source/plugin/wechat/template/mobile/qqlogin.png:
+    newFile: !uuid '6254d517097c8779c55df4681f359df2dd11aa5d'
+    oldFile: !uuid '77d0f66a88413475431a75d8958715270b6ab0fb'
+  /upload/source/plugin/wechat/template/mobile/qqlogin_on.png:
+    newFile: !uuid 'e9b3d64b1f67d282c288baeffbd9cfbe4f3057b6'
+    oldFile: !uuid '2e351780c655f7498f31e7b512cd91f5cd50fe67'
+  /upload/source/plugin/wechat/template/mobile/qqlogintext.png:
+    newFile: !uuid '1a8b5e917f0693fe663fe50d2c3ad2efd15a7301'
+    oldFile: !uuid 'f8e8deb62429ecf6e08ab1ad51b15f7bf50140ad'
+  /upload/static:
+    newFile: !uuid 'ef372c9a1410b9659ef0b83b831962022bc7ea6a'
+    oldFile: !uuid '33bc0276b5b7b5ac07e781b1c19ff3a32a6e8b71'
+  /upload/static/image:
+    newFile: !uuid '64a2505614af22c9d03959e8bad130cc794b1520'
+    oldFile: !uuid '08a98b0947cf81550cc7da3e9b7359256666fd53'
+  /upload/static/image/admincp:
+    newFile: !uuid '4051e110530fb42cf804fe2cdf3bbb107b289120'
+    oldFile: !uuid 'e24ff785328f764277534e443355ed93c5bb9f1d'
+  /upload/static/image/admincp/add.gif:
+    newFile: !uuid 'a4de46ab910cc0abe30bc981a2749cb2dd5b4932'
+    oldFile: !uuid '1caec6713ff2dc934c733524fb167a8720816023'
+  /upload/static/image/admincp/ajax_loader.gif:
+    newFile: !uuid 'dc8bd3ff133c22336509b97424671383a407d6f8'
+    oldFile: !uuid 'e630040ee196ac0d183c468bc2014ecfa0a1a8b2'
+  /upload/static/image/admincp/article.gif:
+    newFile: !uuid '78ceee619287d3fa3afeb34238590f1ebb809855'
+    oldFile: !uuid 'e63c42f9c6526b94b67b5744552c944518e54b96'
+  /upload/static/image/admincp/articlelist.gif:
+    newFile: !uuid 'ee843e6440f39e73a154b45e15eb9116e6872a37'
+    oldFile: !uuid 'eb51eee070a3bb41e4890572aa083ba032e197b9'
+  /upload/static/image/admincp/bg_button.gif:
+    newFile: !uuid '0903d4450e87eaf8d95b05bf44db301f41516823'
+    oldFile: !uuid '8aad465be7e41bdc9612d8b4fa55cb3b3c45bcff'
+  /upload/static/image/admincp/bg_custom.gif:
+    newFile: !uuid '9178daa6bcf059b09acceb0aaa9b882b4b28ea91'
+    oldFile: !uuid 'b93c1ec00c58864d8e431c9551abb920e9e79999'
+  /upload/static/image/admincp/bg_custom_t.gif:
+    newFile: !uuid 'c1f72b7bc3925fe70ee4d33a09e0068e515ed149'
+    oldFile: !uuid 'a6e62129e930b450036e0f6e3e4c43f5cef7ad57'
+  /upload/static/image/admincp/bg_header.gif:
+    newFile: !uuid '53aa19b24591670a635fb507c4572049d83abede'
+    oldFile: !uuid '1e3775947ec4c1c88fcc7d56cdcc2bcd58629e09'
+  /upload/static/image/admincp/bg_input.gif:
+    newFile: !uuid '70ea42ab5dd5f409ed3186e4b8d7ffaa3a44c1ca'
+    oldFile: !uuid 'dc177c5760e4cec1107a29e0decf818bf96806be'
+  /upload/static/image/admincp/bg_list.gif:
+    newFile: !uuid '2edb5ca867ac067dd48657a43084a5f5498fddd4'
+    oldFile: !uuid '817a785c38505fcbe8cef37a20ea4dfce503ac42'
+  /upload/static/image/admincp/bg_login.gif:
+    newFile: !uuid '8c1a5d238628729de83f9cd3d4fae62a3359c05c'
+    oldFile: !uuid 'b356e28943e6b9a40f040316ae264b703018908c'
+  /upload/static/image/admincp/bg_menu.gif:
+    newFile: !uuid 'f7638956e017bf471f6029e0fd30582f86a2c60c'
+    oldFile: !uuid '02184ee495b39c80ccc12ab0af832293796a24f1'
+  /upload/static/image/admincp/bg_menu2.gif:
+    newFile: !uuid '925ff565818efc1a117b189445cb60c6e2dc3da2'
+    oldFile: !uuid '066c411353b4c9f1cb3246cf76c05236364affa1'
+  /upload/static/image/admincp/bg_progressbar.png:
+    newFile: !uuid '2cde34e4f7072c6dd133c0aae0cb2e595e49ca9a'
+    oldFile: !uuid 'ec1354445ed39369623ae7dbb0b2d4028d3fd0ae'
+  /upload/static/image/admincp/bg_repx_h.gif:
+    newFile: !uuid '76baf7363b7e58a31f28d842ece31f6ea4470b01'
+    oldFile: !uuid '7cceeafa2b6fda88a4537e758f35ad8d31043fe5'
+  /upload/static/image/admincp/bg_repx_hb.gif:
+    newFile: !uuid '29fbe44bc1dfe359ecbf1bd51efb87ed99ade422'
+    oldFile: !uuid '3907a407bbd3f7852203e98300d9a768485aa269'
+  /upload/static/image/admincp/bg_repx_hd.gif:
+    newFile: !uuid '288ee961e33937a2c8bf4deedbce04f5e9bbb6c3'
+    oldFile: !uuid '82bad8ab5fadbc591debbbba6349dec63548ddd5'
+  /upload/static/image/admincp/blog.gif:
+    newFile: !uuid '56504e5ef59b0d709f92c876a6793a24f1e43fdd'
+    oldFile: !uuid '10c77de02a10c9e20899f1f5c7ab9cc7605606ce'
+  /upload/static/image/admincp/btn_big.png:
+    newFile: !uuid '6a217ba238fb54a9c5ad8f05e4a4a6d98be9146c'
+    oldFile: !uuid '21cc63e1cde6c8575e379662427f8881f1512b5d'
+  /upload/static/image/admincp/color.jpg:
+    newFile: !uuid 'ec503e29d9a43644e81845693c893287eaeb95f9'
+    oldFile: !uuid 'd12baf56764b08b9a5620c3261ae479f22cd8186'
+  /upload/static/image/admincp/couplebanner.gif:
+    newFile: !uuid '9b2e44da539e58aa4f92a89e186c7ac28369f2bc'
+    oldFile: !uuid '20618a6bd522b61511ffa42f551b67a294f10ee7'
+  /upload/static/image/admincp/custom.gif:
+    newFile: !uuid 'd8a0eaa6576d78561106b721536c487053e58774'
+    oldFile: !uuid 'ccc41c23926f836de651511e1ec0e3f1916c5d50'
+  /upload/static/image/admincp/desc.gif:
+    newFile: !uuid '6f5df6ffae2a5857b6a79309fdd2c25195493fc6'
+    oldFile: !uuid '72623d7b9e4aa24cf835e855c800884fb0ea506d'
+  /upload/static/image/admincp/discuz_qr.jpg:
+    newFile: !uuid '1d1eb93450678578629bc2e991a0ec447d42675e'
+    oldFile: !uuid '1b4b06226b38224a97825c37c25a973a0c29307c'
+  /upload/static/image/admincp/faq.gif:
+    newFile: !uuid 'f80eb63bac4bc815225124ad0b356e7351dd1e3b'
+    oldFile: !uuid '0c003da50ed0a9287ba0bf5729343c0f0935d7ea'
+  /upload/static/image/admincp/feed.gif:
+    newFile: !uuid 'dd1e379c5b1ad0c320e40541897f1beda0dc4c75'
+    oldFile: !uuid '693ad21ef0e993bb5bbe913c40753a9574ae7eff'
+  /upload/static/image/admincp/footerbanner.gif:
+    newFile: !uuid '54701cda4bace27fc9238e71360d5f6a67c3a486'
+    oldFile: !uuid 'd8ff63f03bce193c72288727067946c5781f2041'
+  /upload/static/image/admincp/headerbanner.gif:
+    newFile: !uuid 'dfab63348e0e193407b174915b5992ef5cc974d2'
+    oldFile: !uuid '9e1751d67496db00e4a7dd693a0b034d65f8af71'
+  /upload/static/image/admincp/intercat.gif:
+    newFile: !uuid '90a449c6abd0a108462fcc3ca8ad6e35a5f356a7'
+    oldFile: !uuid '076c64fb6548399c07120b5c66feb9a50fcaccd0'
+  /upload/static/image/admincp/interthread.gif:
+    newFile: !uuid '24b34aeb2a29e0f0d200bbd0bd0bc4e9600d272d'
+    oldFile: !uuid 'ec37cc17668cbf71cf53bb71fef2fc688da392f1'
+  /upload/static/image/admincp/login_header.gif:
+    newFile: !uuid 'cfa14274ab037b0dd05478b1dff84f4848248391'
+    oldFile: !uuid 'f94a42efcd983c798bc0e11c9a97b086dcb59c3c'
+  /upload/static/image/admincp/login_title.gif:
+    newFile: !uuid '255adbd2bcf84d12d3c9f412c9457a3559b1951d'
+    oldFile: !uuid 'b709a135a54724df3577248d470519131dbacb4a'
+  /upload/static/image/admincp/logo.gif:
+    newFile: !uuid '650c71d7ca81fc17d10ec7855e794ca491a95fbe'
+    oldFile: !uuid '93fb9ac7eb618dc34c1db892db15bf6c97ab5366'
+  /upload/static/image/admincp/logo_hover.gif:
+    newFile: !uuid '0f259c3a7819e03d031081fa345a61ceec69fa8f'
+    oldFile: !uuid '9e73ea95deaf07e28553aec099a7361764cc45de'
+  /upload/static/image/admincp/plugin_logo.png:
+    newFile: !uuid '3e440cbe715273b43ef541378e47eac396f0b992'
+    oldFile: !uuid 'bbf28bb229e0eb2678ba79f5df35ee101e494434'
+  /upload/static/image/admincp/process.gif:
+    newFile: !uuid '17dca8ee9d76aaa14891e51746db5c5b7e1634fc'
+    oldFile: !uuid '6af667800287f55353efee73d611ef8d21db5d06'
+  /upload/static/image/admincp/stylepreview.gif:
+    newFile: !uuid 'bb8d9a16d78695729d2df53ce88ef6d5ba740f90'
+    oldFile: !uuid '9eb3ba7d70c3f38a435139887ab30213e9467d51'
+  /upload/static/image/admincp/text.gif:
+    newFile: !uuid '8367bf0017f8ed4de566cc4565acd2ef6f0bd1e7'
+    oldFile: !uuid '529ef285df554311d5ee3124918b815041b28e5a'
+  /upload/static/image/admincp/thread.gif:
+    newFile: !uuid '057172dc40ef4f15405454eda3b635a82a5ec63e'
+    oldFile: !uuid 'a951708473766cd9db01f197c7105ef69496c9e4'
+  /upload/static/image/admincp/threadlist.gif:
+    newFile: !uuid '617d6739283962eb1d28f351dd4b3162f65a0dc6'
+    oldFile: !uuid '4e8880ea53ed95ac5168ddbfee9bfa1ce8b22c1c'
+  /upload/static/image/admincp/transparent.gif:
+    newFile: !uuid '430d9fa2e5313e5649ea22434c36bf8adfefc810'
+    oldFile: !uuid '03eb739d52ae6685433844c18bdd4d7838d438ad'
+  /upload/static/image/admincp/watermarkpreview.jpg:
+    newFile: !uuid 'e96aefe7529ca7bd5d296a965a4c2faa8439c442'
+    oldFile: !uuid '8d6376bfe38cca0cd520fa100e25e7fa57643393'
+  /upload/static/image/common:
+    newFile: !uuid '3cc122f7b714653c6f2bcbb90c58db094f8fb650'
+    oldFile: !uuid '95b269d30edffe003a639b009a690fec035a402a'
+  /upload/static/image/common/Google_small.png:
+    newFile: !uuid '8cd0e97b4817c140b2914255c2b58cba92883f51'
+    oldFile: !uuid 'a11e11d407f784cf4dd9453eec503654954c4425'
+  /upload/static/image/common/ad_close.gif:
+    newFile: !uuid 'fa16bf01b4425b486b9ba7bd399f7d042996d715'
+    oldFile: !uuid 'c040e49b35172e192881396a681cc8dfc6171d56'
+  /upload/static/image/common/agree.gif:
+    newFile: !uuid '733314ba77c4e38ad69cccc630365cc42bd8cc9d'
+    oldFile: !uuid '006873bdf5dace12c9d7a9f71246fc553814a89f'
+  /upload/static/image/common/andriod.png:
+    newFile: !uuid '5d8daf3acadcf2fd9cbb0528d303d9b4ec2d6dcc'
+    oldFile: !uuid '3f65ec19282406020a95fd249d2071a1acde968d'
+  /upload/static/image/common/annpm.png:
+    newFile: !uuid '52fe21c7cf32bb04d6f2e9319fe713895a1058c8'
+    oldFile: !uuid '16acecebf92fbe0ad5121994928dbd65b203f722'
+  /upload/static/image/common/app.png:
+    newFile: !uuid '2feb9ab800fc1db0b1d66299409e351b54465506'
+    oldFile: !uuid 'e95a64bece0bcdcd119213b0475b13144ec70e01'
+  /upload/static/image/common/app_add.gif:
+    newFile: !uuid 'c244e1551669415735f794914f21448c05409dae'
+    oldFile: !uuid '29f628d955f55b037e89a270ffd4c1cd8c29773f'
+  /upload/static/image/common/apphot.png:
+    newFile: !uuid '7f0d938f50df08dda6eee6650e827e8a8261503f'
+    oldFile: !uuid '743449c16321b98ddd2f7b849cc8ab7dda4acb91'
+  /upload/static/image/common/appnew.png:
+    newFile: !uuid '6b744cd7ea3ddaadbee7ae52026a64f05ca6e1cc'
+    oldFile: !uuid '4a2a5be6765303501e14bd12688fbab6ff835691'
+  /upload/static/image/common/arrow_up.png:
+    newFile: !uuid 'ae34d5c8bd52c93b4cffd6c38fee1771e311943a'
+    oldFile: !uuid '1cca58080bb2be4dac3a1b5b62385423b36286b4'
+  /upload/static/image/common/arrow_up_hover.png:
+    newFile: !uuid '1022b9a14976856af5c2902789aca0b234a4b20b'
+    oldFile: !uuid '526ad183212208a705ef8b5c01f50789d725253e'
+  /upload/static/image/common/arw.gif:
+    newFile: !uuid 'faeda34fa4cac8cbba89996cff7a2a947a3a0c4c'
+    oldFile: !uuid '4ad4f4d9c424174c0d18725fdd7a438577e23759'
+  /upload/static/image/common/arw_d2.gif:
+    newFile: !uuid '2ca8a09326f923ed091492f3151f0f4353a7174a'
+    oldFile: !uuid 'ab3c3755965df393e92f17eb24b3c3d597b7e79f'
+  /upload/static/image/common/arw_l.gif:
+    newFile: !uuid '74dca9d6f48a17c962e4932f7ddc49f31b3e29a5'
+    oldFile: !uuid '705f0652e07fc7775a59fbff4ee69b9b4bd32fda'
+  /upload/static/image/common/atarget.png:
+    newFile: !uuid 'df28a45c265b9cb737ba7dc88f4c8327485758b5'
+    oldFile: !uuid 'f07d01b26eaf068955368573bf8c3e0f92e3634e'
+  /upload/static/image/common/attach_nopermission.png:
+    newFile: !uuid 'e71c545b1be0617a0654f2177cec25557bf528cd'
+    oldFile: !uuid 'efa4f98d18c29d4d721834c6c132a5eb981d76f1'
+  /upload/static/image/common/attach_nopermission_bg.png:
+    newFile: !uuid 'eeb19122ef890ba8ec6e9e426ee03dd4b8b9d9f9'
+    oldFile: !uuid 'a7bf87eb6fce40712f9384ef08e661e1b80aff6b'
+  /upload/static/image/common/attachimg_2.png:
+    newFile: !uuid '2ad79ca42a1e07c8a625e136a14997a18237b671'
+    oldFile: !uuid '9b3dd23351d95c12e6d7ccc5721df46104a06d21'
+  /upload/static/image/common/atten.gif:
+    newFile: !uuid 'f1e60cd1af1fcd30ef1950764e1b3a09badb3fb5'
+    oldFile: !uuid '55875777a45f663b16af47a2bd475358edbf8bf0'
+  /upload/static/image/common/attention.gif:
+    newFile: !uuid 'f1e60cd1af1fcd30ef1950764e1b3a09badb3fb5'
+    oldFile: !uuid '55875777a45f663b16af47a2bd475358edbf8bf0'
+  /upload/static/image/common/attinbg.gif:
+    newFile: !uuid 'f97cfc8ea36a412f0ff6cfea1fc2394ac416e9bf'
+    oldFile: !uuid 'c82dcf89c0038d4eebec0db18ecb158837a73c40'
+  /upload/static/image/common/attl_icon.png:
+    newFile: !uuid '1bf4f5ed416568991ea963fd2422726b29d8c738'
+    oldFile: !uuid 'c207339a3996c9e0b34ee9580a4a96156a3cdd86'
+  /upload/static/image/common/avatar_blank.gif:
+    newFile: !uuid 'a505413fadbe80ca1702344a579f7745d6926176'
+    oldFile: !uuid '4f79f90b74d906548123106e253eebed4e1edb90'
+  /upload/static/image/common/background.png:
+    newFile: !uuid '62f412e6b8e7d3176fe3e300d135df9272c94e7f'
+    oldFile: !uuid 'de4c554f55119ce8481613b965164354d6b1073c'
+  /upload/static/image/common/bb_fly.gif:
+    newFile: !uuid '72f5a64295ec170644b98aeb8a5cf75a2c1e80d5'
+    oldFile: !uuid '696414ba833dfa1a88acf6d816ec364231fd2f91'
+  /upload/static/image/common/bg.png:
+    newFile: !uuid '10afee46873311bdd7cb81347e86d67172d044a8'
+    oldFile: !uuid 'd651a8dacd6c54987584603105730f866e6cb56c'
+  /upload/static/image/common/bg_doing.png:
+    newFile: !uuid 'aa9fdd98396595a66a8a14ab5c30a410c412b653'
+    oldFile: !uuid '551c414cee621bc962d65d1ae6a9fd7145a6e73a'
+  /upload/static/image/common/bg_doing_ico.jpg:
+    newFile: !uuid '44be7b8a52b072a67df7e9b36cae888d7bd347cd'
+    oldFile: !uuid 'd552e9a4a8cb59e49ca4e0840b554aef0402b35d'
+  /upload/static/image/common/bg_home.png:
+    newFile: !uuid '97d440d0bce67901a7eddbf6431184e9af5eccf6'
+    oldFile: !uuid '65aeb008ec4ff460bd68933f3652f768ffe63101'
+  /upload/static/image/common/bg_share.png:
+    newFile: !uuid 'b446c7167ff66c245b511648c04890dedc074380'
+    oldFile: !uuid 'a950fbee6450c008a4f318e40f43bbe2f5024b15'
+  /upload/static/image/common/bg_usergroup.png:
+    newFile: !uuid 'f03e9289a24a370ded3e3e40b0fcffaf0743728c'
+    oldFile: !uuid 'd5057da32b6f7a77b9031ff598ba29de8230a56b'
+  /upload/static/image/common/bg_waterfall.png:
+    newFile: !uuid '2b43581547e36889b1ddc74c914527192fb5a263'
+    oldFile: !uuid 'ffabdbccc139b6a4c04413ea693cf3b25b789188'
+  /upload/static/image/common/bigimg.png:
+    newFile: !uuid 'a114dae929d4e4a6b963fe4fe17a3b74865be4f2'
+    oldFile: !uuid '069fde4dadcd76c1f12c3265e6946ad727603f35'
+  /upload/static/image/common/bodybg.gif:
+    newFile: !uuid '6372de86fb3bec58700c97a0ca7e52eed801eff1'
+    oldFile: !uuid 'bc6d37c979dd0a3f6d1238b9206352e93f3bc408'
+  /upload/static/image/common/btnS.png:
+    newFile: !uuid '8cd729cf9bd459c21599f1282afb426a32fcef39'
+    oldFile: !uuid '090a5eb8c57dc11046eea9b5afeec02f005c1667'
+  /upload/static/image/common/card.png:
+    newFile: !uuid 'bb1099b363b29c7d6f116fda9aeffc1aba79ba35'
+    oldFile: !uuid 'f5eb6f38057ef8c78915cbf5d909628002363d8f'
+  /upload/static/image/common/card_btn.png:
+    newFile: !uuid '387125354a0b6d2a1e2c98a4097ec4feb04363d0'
+    oldFile: !uuid 'dcff0b2b0667d38449387a91f128e6d8bf55d90d'
+  /upload/static/image/common/category_lbg.png:
+    newFile: !uuid 'ace4835e36a3bc49a2afd6bb0ebe1028682f560f'
+    oldFile: !uuid '791d46b019b6bb3eaae7050c52d671ffac8d167e'
+  /upload/static/image/common/chart.png:
+    newFile: !uuid '6be6f584e4b59c4f2d18d4f4f39fc28e551f564b'
+    oldFile: !uuid '3d9de5faef7d73358c0966aeb2c9bea6506729af'
+  /upload/static/image/common/clock.gif:
+    newFile: !uuid '01824c10426395272be65cff11afdd41d00e4273'
+    oldFile: !uuid '59428cec8df300b2047bc0c1e75d5b5b145c7ece'
+  /upload/static/image/common/close-s.png:
+    newFile: !uuid '169a5e1c4160bc8c20487e11127572b7c45b8265'
+    oldFile: !uuid 'f6477ae95893642b8335f6157c2832f48e729b04'
+  /upload/static/image/common/closed.png:
+    newFile: !uuid '615a29e32959118a2d039f96ba7060ed138cfa26'
+    oldFile: !uuid 'd6b98b22b1b1af5a10135d9707af4edaade44ae4'
+  /upload/static/image/common/cmt_ico.png:
+    newFile: !uuid 'e903ebbad55badaedd668194ae6692f1fae3f937'
+    oldFile: !uuid '6949813cfb2a081e08ce71ee591c9aad5504c456'
+  /upload/static/image/common/code_bg.png:
+    newFile: !uuid '23ece9a28473c84ed1d83e62bd2f54de3a7feb2e'
+    oldFile: !uuid 'cd11191559c6ae84c0ae22283e2964b44200cc69'
+  /upload/static/image/common/codebg.gif:
+    newFile: !uuid 'e042008162a1f80beb2579680ab14c90baa81fa2'
+    oldFile: !uuid '8984f35a65f7e7edac89ca697c5c63893310f5e6'
+  /upload/static/image/common/collapsed_no.gif:
+    newFile: !uuid 'f9f1e9c8562509cef48900535e0a82036420a794'
+    oldFile: !uuid '1d5b8c5bd6c1a2c512dbdc85bfa8bbc7ca7df0f6'
+  /upload/static/image/common/collapsed_yes.gif:
+    newFile: !uuid '5a43b35a9193e9d8e5f2000d9e6eb413fe53eada'
+    oldFile: !uuid 'ee0689b544a538ec5b9d8cda862d499f914453be'
+  /upload/static/image/common/collection.png:
+    newFile: !uuid '4dc67f71affdfc5c770f224347413ec68f6086ee'
+    oldFile: !uuid 'a6849d0267cb8f720fc8e9090522e76b9bfe29dc'
+  /upload/static/image/common/connect_avatar.png:
+    newFile: !uuid '8102881bd76f3eee6e4cc70986d4acba8b27f636'
+    oldFile: !uuid '017fea0bc0e458511a955049ddaa9cf20789aa7d'
+  /upload/static/image/common/connect_config_mark.png:
+    newFile: !uuid '4d1faa4b9b8db8b7fd1b7eec8e66083bc70cf75d'
+    oldFile: !uuid 'a28dcd63d973cfb7ba8e3ecc708edd522109d58f'
+  /upload/static/image/common/connect_post_syn.png:
+    newFile: !uuid 'c178486a825d8a594572e6be130a5cf01d961122'
+    oldFile: !uuid '756baff4428aea256a7ed788c611a2abbd963257'
+  /upload/static/image/common/control_l.png:
+    newFile: !uuid 'c6a37450c35c61a2b2f76738da1cccb38b50ce6d'
+    oldFile: !uuid '2a4bcc0921a72621f170cb52c74e7ad57e5d3329'
+  /upload/static/image/common/control_r.png:
+    newFile: !uuid '5ff0f30450193a060d01a77971a2690509443d3d'
+    oldFile: !uuid '726cf2a5e99a6aab8b3548ca4ec5c7557d9cf8b6'
+  /upload/static/image/common/copy.png:
+    newFile: !uuid '8a577d03d709b4d57e7b80f3e0ac5156f70f0c92'
+    oldFile: !uuid 'fc66da34197256d281ea63063d4526a1c24b97c5'
+  /upload/static/image/common/create_group.png:
+    newFile: !uuid 'b5bcb554a8d905eaf0a423c3b8395c29ebdcfa00'
+    oldFile: !uuid '44ae8e6d549ad200fa4b3cb45b96139a889cda5a'
+  /upload/static/image/common/date_magnify.png:
+    newFile: !uuid 'a0efd1f5971418859b61e6850dde116aac37c2dd'
+    oldFile: !uuid '0ecbf948fcdd3934ad89afe5bc5ea6c0b6eb8f3c'
+  /upload/static/image/common/debate_dr.jpg:
+    newFile: !uuid '3089af7f609eccfedebc026627597e697342f798'
+    oldFile: !uuid 'fdfd98164951ba97bdf395f06ade5a2998d0b3aa'
+  /upload/static/image/common/digest_2.gif:
+    newFile: !uuid '447761b0a12bf716a0e9e4319ce4cefc53e13a41'
+    oldFile: !uuid 'cc3d1a3b46482b0045386db28fa178d4bb86efc5'
+  /upload/static/image/common/digest_3.gif:
+    newFile: !uuid 'b107c6d4ae564f97a543d38146ef50395fed8601'
+    oldFile: !uuid 'aa0669c30a4975385dcf20d8da7f0d5f94fa0d19'
+  /upload/static/image/common/disagree.gif:
+    newFile: !uuid '4761c28114afce2192cd889769b85f8b5a9cab13'
+    oldFile: !uuid '538cdda60f1588115b4fbe3693f375a073200bdb'
+  /upload/static/image/common/dot.gif:
+    newFile: !uuid 'd7d40c7dd9d481c49a4e288f475403caaf81d19b'
+    oldFile: !uuid '2c5b154752f396ce50c290ea2807b532d5027aee'
+  /upload/static/image/common/dot_c.gif:
+    newFile: !uuid 'd3f57ea04a82c912d789ae595e44752cad132a8c'
+    oldFile: !uuid '3023f75ba2ca85666e4f5a8ecf1efeda2b09d4d6'
+  /upload/static/image/common/facelist.gif:
+    newFile: !uuid '046367221fe98c2b5c1beba3559d045c4c20d4bc'
+    oldFile: !uuid '5080a1bd0fb9ddf3458c43d0fea2578ff3b74227'
+  /upload/static/image/common/fall.png:
+    newFile: !uuid 'c8b3327b0e851b1bfad3856a5b7fa1cca01343ae'
+    oldFile: !uuid 'cd2e78538a8209b0f848a16ca20f4e6e68b42f97'
+  /upload/static/image/common/faq.gif:
+    newFile: !uuid 'f80eb63bac4bc815225124ad0b356e7351dd1e3b'
+    oldFile: !uuid '0c003da50ed0a9287ba0bf5729343c0f0935d7ea'
+  /upload/static/image/common/feed.gif:
+    newFile: !uuid '6b2054f4dc4d6778f3e39f7fba1eb508e4864f02'
+    oldFile: !uuid '00569ef6deca40bc68c9555108003fe7c9c25567'
+  /upload/static/image/common/fj_btn.png:
+    newFile: !uuid '2a902ae55d68d8b8383ae2fbf1c206d83362b077'
+    oldFile: !uuid '94765b538f55e3eaa1c060d366cfe96b01c55d6b'
+  /upload/static/image/common/fl_ft.png:
+    newFile: !uuid '8ca82cd128a70412ecd58d434ba06532c5da56ce'
+    oldFile: !uuid '7117420983c0324581e35b91b55b01b27f531fe0'
+  /upload/static/image/common/fl_ft_r.png:
+    newFile: !uuid '9259f83bc4969880ecd818c03bb98bc9eb6d7dc4'
+    oldFile: !uuid 'ae9e45dd38217f5bd604e73f645363604e899c4d'
+  /upload/static/image/common/fl_hd.png:
+    newFile: !uuid '2e4fcc04d59aa02784da84df8b4710fb4069bfb5'
+    oldFile: !uuid '82c76b7b949e8332826d07f093bcf535058cfc35'
+  /upload/static/image/common/flw_allfeed.png:
+    newFile: !uuid '999ab20ac3533f872081b97478f5c7569fa8dce5'
+    oldFile: !uuid '4cabb111fb897e07ba12c92eee9e965406b52e35'
+  /upload/static/image/common/flw_attach_bg.png:
+    newFile: !uuid 'd6fadaa7540975660b7b5345cd5fd8b35b2a554e'
+    oldFile: !uuid '492f9ad9ab94b5c54a37a804fc225cd72c88b784'
+  /upload/static/image/common/flw_btn.png:
+    newFile: !uuid 'ce763e123045a7e75c1898145fed4bf5a020742d'
+    oldFile: !uuid '712e22968fbdf6b8aa8658206d75ec7b24d78cc0'
+  /upload/static/image/common/flw_btn_s.png:
+    newFile: !uuid '2673a2535bc54b31870806ee2ec11a08ff7b903a'
+    oldFile: !uuid '15e38aeafad00195794042ab32dbf4772faa6c55'
+  /upload/static/image/common/flw_btn_specialfo.png:
+    newFile: !uuid '0995738ce7efde8f2a45163f91fbd03536660073'
+    oldFile: !uuid 'de71a2002fae10a085abd807359092923c260ba1'
+  /upload/static/image/common/flw_btn_unfo.png:
+    newFile: !uuid '010b4f00aca986e2268958ae78e47389a6e3a88e'
+    oldFile: !uuid '59eda5bf9a31c0f53c42103fd5ee2b2f2e241c33'
+  /upload/static/image/common/flw_btn_unfo_s.png:
+    newFile: !uuid 'a5f1230e915e3d2c2c9dc2eace015315f3c591fc'
+    oldFile: !uuid 'ea51e631de50f3a7667d81b27418607391f39167'
+  /upload/static/image/common/flw_cnr_l.png:
+    newFile: !uuid '84f6a74092f7c0ba652666d2edde437d67d5916a'
+    oldFile: !uuid '9412cb401d5b46d90063bd24cc3c78e40a7059a5'
+  /upload/static/image/common/flw_cnr_t.png:
+    newFile: !uuid '0b8e419404bbe809c420757394a0634fc57a7128'
+    oldFile: !uuid '7fb1761c5cb84f9cc389039eb03c802c4d937b2e'
+  /upload/static/image/common/flw_feed.png:
+    newFile: !uuid 'ca13b9f9fb8ce4a7bcf28862bb755c89adcfeb8a'
+    oldFile: !uuid '4f1cb03a577a2e790c3e161ebd7f041a0ae869a5'
+  /upload/static/image/common/flw_following.png:
+    newFile: !uuid '4719c2a36c29d023658ba14474e203adfcb0bdd4'
+    oldFile: !uuid 'bf75c05891fd75575e2bffcf790f1ee0211ad208'
+  /upload/static/image/common/flw_guide.png:
+    newFile: !uuid '821814bc519f994c793069124daa5b0410be70a4'
+    oldFile: !uuid '6de78272b97543e81c1dcdeaf060016271e760b5'
+  /upload/static/image/common/flw_ico.png:
+    newFile: !uuid 'd926ee21b1df9b68fca34a4c65ae457ccee42cfe'
+    oldFile: !uuid '43c3d369a4178206025f98b24009a301d52fb0b5'
+  /upload/static/image/common/flw_post.jpg:
+    newFile: !uuid '14bf8ca8712a197e879ce0342ca2aff2db07b3aa'
+    oldFile: !uuid 'a8f8dc9db68bf4de5e084ea92dcd100c2fddd16b'
+  /upload/static/image/common/flw_post.png:
+    newFile: !uuid '0510b60ba8a103b04a163cbe7799e52fa82167d4'
+    oldFile: !uuid '0daa18183a5c24f583229b9e30958570b0dff606'
+  /upload/static/image/common/flw_post_attach.png:
+    newFile: !uuid '26523d77edc6ece423ffbf3b3259423f485cb13f'
+    oldFile: !uuid '8b2350a087250719873e9b547f14ac624dc819d4'
+  /upload/static/image/common/flw_post_w.jpg:
+    newFile: !uuid '0cb14d7f075efba9c8ddc88e2f0be07b71a549d3'
+    oldFile: !uuid '3a2c6f6a4bcd7c1431b92ceaf2ce2eedcc4a5d64'
+  /upload/static/image/common/flw_side_tab.png:
+    newFile: !uuid '73a5529d66e3d8385c41524535aea081698a54e6'
+    oldFile: !uuid 'cd2f03a565384c1c2d83bb65803543abe43280ed'
+  /upload/static/image/common/flw_statusico.png:
+    newFile: !uuid '7477ed22e620551ddc91405760bbc78e4c8f8c67'
+    oldFile: !uuid '32c8c8167ee898bf30abf9fc7087b482533d145b'
+  /upload/static/image/common/g_guide.png:
+    newFile: !uuid '733450c6ba560b459e55ff1a21a112b7da3c7f43'
+    oldFile: !uuid 'd169cef0080c6c2c299d9f9619cb3e6ec9c5c4e4'
+  /upload/static/image/common/gb.gif:
+    newFile: !uuid '936a1550c55ad4aab13dee308dc16c09a4d35976'
+    oldFile: !uuid '36e1c01fea315d2030b3a276ed70bdea1448686d'
+  /upload/static/image/common/gentlemanbg.png:
+    newFile: !uuid 'fa7fe541c0e16a3bc3934bc76e6331285e522a33'
+    oldFile: !uuid '162a908a22ae19cd604e6f8abbb8924081a335ce'
+  /upload/static/image/common/grid.png:
+    newFile: !uuid '785050f74c46e5ecc0876d0937d7732fdab72689'
+    oldFile: !uuid '5299cf93a29784847568cc637e3f7d401ef06086'
+  /upload/static/image/common/groupicon.gif:
+    newFile: !uuid 'eb92959082726b66cb9a09267801ed1ec429e63c'
+    oldFile: !uuid '23c87d19c15aefb4975cba26697f52d745fd5557'
+  /upload/static/image/common/grouppm.png:
+    newFile: !uuid 'd6bb1a7bcce38b9f67fe74f209106de72f43eefe'
+    oldFile: !uuid '4d08a913390b748393d1ab657a403a6933473888'
+  /upload/static/image/common/gst.gif:
+    newFile: !uuid '7ddfb99716aa44e5fbc17d8ce7a21955b722ff88'
+    oldFile: !uuid 'ea5f6bef8a9864af120d6892516756c38cd1da80'
+  /upload/static/image/common/hd_shadow.png:
+    newFile: !uuid 'ac28b2db5d4b9eeb82f9e1863df753249def4499'
+    oldFile: !uuid 'c2d455c055b726d58b97e567dcffe0e8b86e36ab'
+  /upload/static/image/common/hot.png:
+    newFile: !uuid '5805e25327bd4c84245163a2089caf455d9cc41b'
+    oldFile: !uuid 'cab4790aa87feef2c1ddeb975ff5d2b85f017dcd'
+  /upload/static/image/common/ico_jdt.png:
+    newFile: !uuid '51e81366c5c4e0ee3be4196b3ab52d6694df1da4'
+    oldFile: !uuid 'a818d6d125efba90435238f2fea4c712ef95aa68'
+  /upload/static/image/common/ico_lz.png:
+    newFile: !uuid '475edd863fb1d3fa4fa4b1c8a829a2587b3f6b78'
+    oldFile: !uuid 'c5db174f46bceb3549f3e591aede5f62200104ad'
+  /upload/static/image/common/ico_mulu.png:
+    newFile: !uuid '0099c6d245f1c07c06dee0ee5cc148c944ac96dd'
+    oldFile: !uuid '6f249b4f67001202b10a5df38c65533ee6328137'
+  /upload/static/image/common/ico_notice.png:
+    newFile: !uuid 'a3a2b8fc96fd54d47956b8013065a57bdb147cdc'
+    oldFile: !uuid '03ec17dee4b7a9f283257b7005251a2ce456baa2'
+  /upload/static/image/common/icon_append.png:
+    newFile: !uuid '0bf83d33a1e14c5d5f2cd43080318fa993bb5976'
+    oldFile: !uuid '647e782261be1744950bc4b89703753891189c10'
+  /upload/static/image/common/icon_collection.png:
+    newFile: !uuid '6727db7135bac36730724bc2b651a754b0804ae3'
+    oldFile: !uuid '6afe31e8da3ea2b7ddc5d36f5d74623566bdcb0a'
+  /upload/static/image/common/icon_fav.png:
+    newFile: !uuid 'dab86ac0912f6b8d19ceeba27e08984ca6548215'
+    oldFile: !uuid 'e1c4be685a6fe771c423bf68a4e86338237d2949'
+  /upload/static/image/common/icon_feed.png:
+    newFile: !uuid '889c2e6a00e9790bfa80e51588772cc2ad75b2d5'
+    oldFile: !uuid '70fe4239f5955ed95ad078454e46197f97a745d5'
+  /upload/static/image/common/icon_preview.png:
+    newFile: !uuid '7bfe11e5b9bb3425fccc2275fe328cb95d84b51b'
+    oldFile: !uuid '3c59c706b7f8f1159aa0025c4dc92e1d672ab4b9'
+  /upload/static/image/common/icon_quote_e.gif:
+    newFile: !uuid 'ee855d6bc998f85df287940c954db7f833675447'
+    oldFile: !uuid '572c35cfa547887da5ad879ae2895c475ff022be'
+  /upload/static/image/common/icon_quote_s.gif:
+    newFile: !uuid '78a931ae3bdd2c48668b8963ea19d5bffbd24e38'
+    oldFile: !uuid '59087d09463f0e552c0e70301c1d6e19aaa25763'
+  /upload/static/image/common/icon_search.png:
+    newFile: !uuid 'd3ea3713f11ecdae60ce29a381c88bfb57deccf8'
+    oldFile: !uuid 'e0a13bd9ff3adb74962b20a72167d81412c11516'
+  /upload/static/image/common/imagelist_nav.png:
+    newFile: !uuid 'ae9f739d89f19163befac7bf183f6ae4e6610e50'
+    oldFile: !uuid '36d31cc1772f3074e5b4424fd916aed67ef4e1c5'
+  /upload/static/image/common/imageloading.gif:
+    newFile: !uuid '20c5d6b7ede5253b032c95e1b163bdf00163118e'
+    oldFile: !uuid 'ab5a811e6d99cad31ada83aa639b5cf520ba1287'
+  /upload/static/image/common/img_loader.gif:
+    newFile: !uuid 'dc8bd3ff133c22336509b97424671383a407d6f8'
+    oldFile: !uuid 'e630040ee196ac0d183c468bc2014ecfa0a1a8b2'
+  /upload/static/image/common/img_nopermission.png:
+    newFile: !uuid '942b9e2df95d589cf685ffa3d05149e4c9a8834d'
+    oldFile: !uuid '9b5c28413993acaeb1aacf3813e23cdb85a31c30'
+  /upload/static/image/common/imgzoom_tb.gif:
+    newFile: !uuid '68bcb9b28b8a2d36d5978a530b1e441541810181'
+    oldFile: !uuid '472fabfff9d550eb77eb53af85776c6d0fe48589'
+  /upload/static/image/common/increase.png:
+    newFile: !uuid 'dc6bf3631f228ff43a1ae3d8cc5267909da20c63'
+    oldFile: !uuid '4883f70731dc9bfe0af12f0533cf179450af4b5b'
+  /upload/static/image/common/input_shadow.png:
+    newFile: !uuid 'dd055091265d9cdd67807e1cad9d2ff282264187'
+    oldFile: !uuid '901b784bdc9a35498c1d4421667fd2f9dda18636'
+  /upload/static/image/common/ios.png:
+    newFile: !uuid '2e26ef3ea9da237806a20d8cf663e038c6c2de69'
+    oldFile: !uuid 'b09795ddbc59cd3a6722279740399b93bb026add'
+  /upload/static/image/common/ladybg.png:
+    newFile: !uuid 'e54723c12e5792010e3f5d863a8fb9519fec702e'
+    oldFile: !uuid 'e314d22b22e6dadb25858540d03623b347683db1'
+  /upload/static/image/common/livethreadtitle.png:
+    newFile: !uuid 'e227917a476c871c31b89d3e59f2df03318b2e1a'
+    oldFile: !uuid '8bb4dbcc37f65c3f7cbc8bc965aebe0b67879b83'
+  /upload/static/image/common/loading.gif:
+    newFile: !uuid '7eb77d79274de69089aaeb22c62f3a079080aabc'
+    oldFile: !uuid 'd1602384ca3fcb20d9ea3fa1ebe1fd0cbdf84a0b'
+  /upload/static/image/common/logom.png:
+    newFile: !uuid '568d5afe09bafd50822a8248b0b675384e6d1792'
+    oldFile: !uuid 'a4a98f610741814b3b1339b1be9e1af3fcafaa64'
+  /upload/static/image/common/magic_imgbg.gif:
+    newFile: !uuid 'c5bebe925c5a3d48489dfd32501371cd97201f6f'
+    oldFile: !uuid 'a630bc18c879d38295bbecc3ee8c880baf3b2892'
+  /upload/static/image/common/mail_active.png:
+    newFile: !uuid '96f8d1ef1fb836711f27bef5df7fe9d3e6271970'
+    oldFile: !uuid 'a61973c754f32efd5037cbafdb652f33d51d720d'
+  /upload/static/image/common/mail_inactive.png:
+    newFile: !uuid '28568ca543d731b88dc579a3515ffb62b8985e02'
+    oldFile: !uuid '952a76e47622a2b5535e4984522eb7acfbb7d6a0'
+  /upload/static/image/common/mark.png:
+    newFile: !uuid 'e127182b8f91ec60dde5e067063a2a87e277df61'
+    oldFile: !uuid 'b5aae7a4ea6f9008684860891a3abe12191620f2'
+  /upload/static/image/common/mdly.png:
+    newFile: !uuid 'a208d3ace450d54b7f7fc1e3438fc963c04504a9'
+    oldFile: !uuid 'bb0ee68e0d0045b88924822ca268e821d384a7b3'
+  /upload/static/image/common/medal1.gif:
+    newFile: !uuid '3983009cf8d4bb04cb048fcb2c335a37f2b7dc47'
+    oldFile: !uuid 'a83cab5a103834c3b0a7e50ddefc56053e6a9b43'
+  /upload/static/image/common/medal10.gif:
+    newFile: !uuid '7249c3693b28c865d8801d6676abb300548483e2'
+    oldFile: !uuid 'aecc3730988ce917127a3c31680e37525c789075'
+  /upload/static/image/common/medal2.gif:
+    newFile: !uuid '169ed51627c5921e6b4f92a491e0fd2a52639cba'
+    oldFile: !uuid '5bda16fb8e3eeeab76766d06974c619a546ed4f4'
+  /upload/static/image/common/medal3.gif:
+    newFile: !uuid 'c25cf36517fa617424304e358fb07abc31b4b3a7'
+    oldFile: !uuid 'b2ffb778898a1ba753fc54774f67ffaf7cdb4e8a'
+  /upload/static/image/common/medal4.gif:
+    newFile: !uuid '746168d142dd633fe5ec91cf858e4ccf85897369'
+    oldFile: !uuid '25a068cb32f3e0f3baee938b2410337161ee10dd'
+  /upload/static/image/common/medal5.gif:
+    newFile: !uuid '1d0e433651a3a6db421a2b1970998a92ea5cb802'
+    oldFile: !uuid '6f9833d2759c9a3f750690c92bfb6e03e312294b'
+  /upload/static/image/common/medal6.gif:
+    newFile: !uuid '32fcd4c970d8030fd212d1e4b82855e1010f7005'
+    oldFile: !uuid '1c54fcd2c342042776d016342ace571be8280876'
+  /upload/static/image/common/medal7.gif:
+    newFile: !uuid 'a442dbc013458aaeb0d16750b9f51dd1cea74d78'
+    oldFile: !uuid '975bb8b6cd6b82fb70288e87415ee48d18a930d4'
+  /upload/static/image/common/medal8.gif:
+    newFile: !uuid 'e4d38a836c7e3c9e60acc383b2e7b4db39a17574'
+    oldFile: !uuid 'ad933e9bf22a57a547c7948e4a3cc22df898c3b8'
+  /upload/static/image/common/medal9.gif:
+    newFile: !uuid '33ef5f2b364f2eb9d20ff068f4b3cd78b326f772'
+    oldFile: !uuid '08c5aaf11a4a26ae7cf8bcbbc31650c83dba650a'
+  /upload/static/image/common/mifm.png:
+    newFile: !uuid '79b78c015da1a580aec69748bba943bcb5d7b1ed'
+    oldFile: !uuid 'ab6d77e85528cf61bb5993ae7a4461c0e0719b93'
+  /upload/static/image/common/mine_icn.png:
+    newFile: !uuid 'd592930a5807fa1bd2cd6313b548a60c9a306109'
+    oldFile: !uuid '5c0238da080b21b58bcce74faee6743cc49eb7f6'
+  /upload/static/image/common/mobile-attach-1.png:
+    newFile: !uuid 'b852058a108caa900f97efeae66ba667fce7ce63'
+    oldFile: !uuid '38eca5c93619d1ab260e65a49281b175de798645'
+  /upload/static/image/common/mobile-attach-2.png:
+    newFile: !uuid 'a7928eb2f84784e419c5fb39f3718d11f9adbdcd'
+    oldFile: !uuid 'c790f367051e62a7d76bd6fc62a691b3bb6671ca'
+  /upload/static/image/common/mobile-attach-3.png:
+    newFile: !uuid '1a5be6c2c6d219d81c116c66e16153c732bc315d'
+    oldFile: !uuid '735060fd07af15a31c8b2252544e8384cafa054e'
+  /upload/static/image/common/mobile-attach-4.png:
+    newFile: !uuid 'ccda0e81f2b0c914fe21b5f59433ec20b3126136'
+    oldFile: !uuid '8245a01a4654f23fa3e29bda459accd040c4db07'
+  /upload/static/image/common/mobile-type-ie6.png:
+    newFile: !uuid '094ae9bcd753c1059aa9814655fe254cd3820334'
+    oldFile: !uuid 'f3d0aa59ecef2357d5faefda798b0f3f64252a83'
+  /upload/static/image/common/mobile-type.png:
+    newFile: !uuid '22b01681950120ae8e4a552cafa1680f2feb5c3a'
+    oldFile: !uuid '44735d038da9c421eba8f8f5b75c93b04e123e57'
+  /upload/static/image/common/mobile.png:
+    newFile: !uuid 'eafb4392520e21d6ec1b59fbf7f6b29f6d1d25ab'
+    oldFile: !uuid '04b514f9a914930857a16b653bf41ae1d2d45712'
+  /upload/static/image/common/mood_input.png:
+    newFile: !uuid '5a0ab281ce2c650f1aea9cc8bd8fb3e53444aafa'
+    oldFile: !uuid 'a2f3a7d1260eb7adeed4e18470fed9af08c759af'
+  /upload/static/image/common/mood_input_btn.png:
+    newFile: !uuid '2d8946dad25839eee45c62ffedca4a89bda04bc5'
+    oldFile: !uuid '60f16f15476c7aaf68697c03433b4caced97d147'
+  /upload/static/image/common/more1.png:
+    newFile: !uuid '70c1d24fb4af692e23b2503ecdff71ea47cfc8cc'
+    oldFile: !uuid '30cd00d5f190dd7028155a85af91af198bb26554'
+  /upload/static/image/common/mu.png:
+    newFile: !uuid 'db57ab26c9f32a2f6f64d2097eac7d9a51d81c13'
+    oldFile: !uuid 'aef94e70d66cb041e23c0d02588831b0bdfde385'
+  /upload/static/image/common/mu_bg.png:
+    newFile: !uuid 'eb71357dd23507694dd323b0c4873023b52b3b5d'
+    oldFile: !uuid 'e4972f3d729245e02a649ca8205c4ca7340c1d4d'
+  /upload/static/image/common/n_rate.png:
+    newFile: !uuid 'e58eb46b3c7da9cd60a2bc3bfe2a0e5278ac36de'
+    oldFile: !uuid 'b450458d13052b5bcfd7bcd563a486c8e2e2ebda'
+  /upload/static/image/common/new_pm_2.png:
+    newFile: !uuid '30caea5c7a8a6251d915036bcbcc7e6782e9213d'
+    oldFile: !uuid '9019ef3b7575e64bcf44462f87d680637905baa8'
+  /upload/static/image/common/nophotosmall.gif:
+    newFile: !uuid 'c748e965dd8f30b98b3bef7798ad54e1e89c4c8e'
+    oldFile: !uuid '599312322d4ec0eae33ea7b8a450f3375025ab42'
+  /upload/static/image/common/nophototiny.png:
+    newFile: !uuid '15ad0aaa844c6018f924e723d5a0b53d74b4f27e'
+    oldFile: !uuid 'dc8efa7c7ed94cc2a94701cd18d83039474abb18'
+  /upload/static/image/common/nopublish.gif:
+    newFile: !uuid '6902362ed88b30f305cbdfc418cf94db98707b90'
+    oldFile: !uuid 'fed8eaa816771eb1cab921f81583420a2dbe527b'
+  /upload/static/image/common/nosexbg.png:
+    newFile: !uuid '9faf6f150af92a4e0d4611d76d9688d4948f77ba'
+    oldFile: !uuid '489e6d7b0eb8bb50f8158551a53343c4a233d86b'
+  /upload/static/image/common/nv.png:
+    newFile: !uuid '46be48a3266090087a9edaf57290356045ed179b'
+    oldFile: !uuid 'c517d539d677113189c38d084af0217944f84fd2'
+  /upload/static/image/common/nv_a.png:
+    newFile: !uuid 'c9a05fd65f0011d3a3beb33f1862d5afb591e6ac'
+    oldFile: !uuid 'ca1b7bb98644592632212fed0f22b364ea6bbf7b'
+  /upload/static/image/common/online_admin.gif:
+    newFile: !uuid 'ca51cfc1f6b7cb437abdb1faaf75d44a29cecf76'
+    oldFile: !uuid '87faa0641a52524bb3ae631daf09e94f95513f1c'
+  /upload/static/image/common/op.png:
+    newFile: !uuid '3a633a8caa90d7764843857dfc277f59ce7328cc'
+    oldFile: !uuid '193feb7b81625cee1bdda750650c1c9800bc2e6c'
+  /upload/static/image/common/oshr.png:
+    newFile: !uuid 'a93ba0a731be79681b670dd9dee78279aaf26dd8'
+    oldFile: !uuid '6361d3fcadffb97ebe0ddd1f39993babac6601cc'
+  /upload/static/image/common/p_debate_chart.png:
+    newFile: !uuid 'c1576ffa72e1bb3a30f5da73993934c7fa8b2b3c'
+    oldFile: !uuid '767f9af27a8ad6fc46c7a06dfff74a9ee738bb99'
+  /upload/static/image/common/p_reward_btn.png:
+    newFile: !uuid 'dd247cc1a9aa3d07366c01d238a0caf937cdb550'
+    oldFile: !uuid 'ce15a7aeec1bb6638e213b790c27bb1b28502a53'
+  /upload/static/image/common/p_topusr_btn.png:
+    newFile: !uuid '0a59607ac52492083986f3ec5108de8720f326ef'
+    oldFile: !uuid 'ee118be270880055fdec674c1f836b8eaf718a7f'
+  /upload/static/image/common/p_trade_btn.png:
+    newFile: !uuid '7b1aaaf774b8ea015950d6262472ff7fead425d3'
+    oldFile: !uuid '97b8d76cea048303b927882ea82f76e0b05d6ba9'
+  /upload/static/image/common/passlevel.png:
+    newFile: !uuid '8bfc18cad1f579a3c6184f61d4cac24f4b571782'
+    oldFile: !uuid '243ee3ee7137c797837a10fe3e947739b9c21510'
+  /upload/static/image/common/pdbtm.gif:
+    newFile: !uuid '0f3a94b1f28642202aa715c6339955cb810ec402'
+    oldFile: !uuid '981182bb2105d4be7d36b6188948140d22cad05f'
+  /upload/static/image/common/pengyou.png:
+    newFile: !uuid '03c23f1e9e18272558e93044e0f398ecac71c3ca'
+    oldFile: !uuid '3fafc84aab3b8a2202da328757262b290cf90333'
+  /upload/static/image/common/pg_arw.png:
+    newFile: !uuid '4e49d5611a9ee3f3f42b713978bbc69e4fe98d72'
+    oldFile: !uuid '0f75d7b9677fd7778319e9c5957b18e1c196694f'
+  /upload/static/image/common/pg_bg.png:
+    newFile: !uuid '0f05a9bfd75de343a29d9c9fe2abb10383a84050'
+    oldFile: !uuid '4b9a51147807d8d48670ec9f25eb75adbffaaa17'
+  /upload/static/image/common/pic-next.png:
+    newFile: !uuid 'cc831827332c34edd03851894c285cea2434ca5a'
+    oldFile: !uuid '13146c6d787f57a2bbd175ac2198f61c0b9e6fab'
+  /upload/static/image/common/pic-prev.png:
+    newFile: !uuid 'd7545dc1e504c10a7b8407e538c9bb0958564657'
+    oldFile: !uuid '5147bf05bc35a7b40e40c13a149b429e5f49d6a9'
+  /upload/static/image/common/pic_nv_next.gif:
+    newFile: !uuid 'e4c266506f70bf696463837b54a366a691e5a8f3'
+    oldFile: !uuid '8d5fbd4b479d589c9cf5ca6a4180ab74e93247cb'
+  /upload/static/image/common/pic_nv_prev.gif:
+    newFile: !uuid 'f7194d7b651b3ec5fa2f3149af078290ea0d692d'
+    oldFile: !uuid '414e268507329d3d3ca3b72b66069457d888032d'
+  /upload/static/image/common/pllb.png:
+    newFile: !uuid '2cde34e4f7072c6dd133c0aae0cb2e595e49ca9a'
+    oldFile: !uuid 'ec1354445ed39369623ae7dbb0b2d4028d3fd0ae'
+  /upload/static/image/common/pm-bg1.png:
+    newFile: !uuid 'e4455eadc2ce6eddeb39329c277630cc5246b08e'
+    oldFile: !uuid 'd24d9a8abeaf16f0364eefaf4b82933007a7a40d'
+  /upload/static/image/common/pm-bg2.png:
+    newFile: !uuid 'f08fbc45887bd40d31d11b6dcb8a4c589af9ffaa'
+    oldFile: !uuid '27ed47d9242d1ad48da0d87f11d0e9440f3274cf'
+  /upload/static/image/common/pm-bg3.png:
+    newFile: !uuid '8b006ac4b9a97c6f0a9bf1128a7780c09d51c676'
+    oldFile: !uuid 'c9c884a04320a788d47eb44f2b110600352efb38'
+  /upload/static/image/common/pm-ico5.png:
+    newFile: !uuid 'eea865fa0c8df0973d0d8d62047006231ff56a8a'
+    oldFile: !uuid '76ee30e2d14add740f79e02a7ddd2bc5da143bfc'
+  /upload/static/image/common/pm.png:
+    newFile: !uuid 'bcd9f6721227f9af25b9fa19424d164b32aec66b'
+    oldFile: !uuid '3cbcb0f0126f24d6efc5c3af929dd280ecdcdcdc'
+  /upload/static/image/common/pm_member.png:
+    newFile: !uuid '227bcad68b2faa49eab36617e67ade4c4dbc63ea'
+    oldFile: !uuid 'a5012b4b7fa26f314bab23a8ec5d088d4103e28b'
+  /upload/static/image/common/pn.png:
+    newFile: !uuid 'eab4eead2d70f4a7d69ac10809019cea799303da'
+    oldFile: !uuid '137cd10d8e165e10eb153e8814af9e92ec561ceb'
+  /upload/static/image/common/pn_color.png:
+    newFile: !uuid 'fd99fc680b0e97dc8c7616516cb60c3a9948192d'
+    oldFile: !uuid '7ce4f8bd4e75683e685273d3098724e8ce7bbdbe'
+  /upload/static/image/common/pn_post.png:
+    newFile: !uuid 'c8ba2a18eebf886d71f50ee110017b30b5656953'
+    oldFile: !uuid '94153d4ee7a879e09951a6b779a2a59de1bc2baa'
+  /upload/static/image/common/pn_reply.png:
+    newFile: !uuid '1a5446a36504b73328b6e2508a5fc77439466a13'
+    oldFile: !uuid '8a884bb6dd4b6da19a7490f36433d52e6160140d'
+  /upload/static/image/common/pn_rt.png:
+    newFile: !uuid 'b44d232c36230066c04062724cb6e5fd7d8a2774'
+    oldFile: !uuid '61502cf51a315cc98929cf64e74e596679247a6d'
+  /upload/static/image/common/pnp2.png:
+    newFile: !uuid '0ecf88dc1f96bb6e286deabfd2ce398daee240de'
+    oldFile: !uuid 'b3da100a3c79b8eece0d1cb145be6512c0c635c1'
+  /upload/static/image/common/polljoins.gif:
+    newFile: !uuid '797ebed74ca15ebd5e7ec5cfdfdfcf2b67d58b6d'
+    oldFile: !uuid 'dd5c6d7df668a86e244a22fb7615592417cd5e12'
+  /upload/static/image/common/pollsmall.gif:
+    newFile: !uuid 'a2a8877d3fd504167a017caa9330054692c0d857'
+    oldFile: !uuid '240d944f5cdf121b916bcb3edebd726b6869f71d'
+  /upload/static/image/common/portalbox_bg.gif:
+    newFile: !uuid 'b12b4cad52bdeff0f1dadbb3f83adf1219cc3f38'
+    oldFile: !uuid 'aeeb2d143a56bee93104ab94c30df864ce651418'
+  /upload/static/image/common/preview.png:
+    newFile: !uuid 'bcf61d5520e200d34b115af7377762bfb22bd123'
+    oldFile: !uuid '594aad46598a5dcf861bc255a334e54afbef78a9'
+  /upload/static/image/common/print.png:
+    newFile: !uuid '74bb7bafea9bc14642c06391fa31245f2e30e487'
+    oldFile: !uuid '6ecefa00f38223b39b65443c1584f52a173230ef'
+  /upload/static/image/common/pt_icn.png:
+    newFile: !uuid 'f9641eb50bc1fbc2dc31fc1cb3c6f2ce4908020b'
+    oldFile: !uuid '8a5f3b5246027ee2e4e8646079e314459f6d3622'
+  /upload/static/image/common/pt_item.png:
+    newFile: !uuid '7292bbe2f6de84dd2d402a947f6c9bcbe88ceb86'
+    oldFile: !uuid '327f699e079a957d47a060000c1c155875341db3'
+  /upload/static/image/common/pt_z.png:
+    newFile: !uuid '4ee5371c9c223b4ff8602dde3ea299ba06a88d3a'
+    oldFile: !uuid '3170cc02e02f2c1fa6b09747122edc80fbbe6e3d'
+  /upload/static/image/common/push.png:
+    newFile: !uuid '395323c7e03f9b84728ed4922223b436114d36e3'
+    oldFile: !uuid '3327f64b21dc534f6549495b15ff1ebde1245c57'
+  /upload/static/image/common/px.png:
+    newFile: !uuid 'e314698ef118372602542318a5100c6292267715'
+    oldFile: !uuid '8870043e1019a51cf327523fa75569e4636de998'
+  /upload/static/image/common/px_e.png:
+    newFile: !uuid '097e4f7ba95c2c2db5e6e45d6a93013a608a54ef'
+    oldFile: !uuid '4f19400939293c1e11399a9e25f71f7f3d5704ed'
+  /upload/static/image/common/qmenu.png:
+    newFile: !uuid 'b3f1b69232a2095c4e8d7b5000cb76417fc3b751'
+    oldFile: !uuid '92662a076076526a5272856f0c058c0705a13eee'
+  /upload/static/image/common/qq.gif:
+    newFile: !uuid 'f547a3dfb493609e62d3da43ed871c68ca9811c0'
+    oldFile: !uuid 'f902ed13a8a9892424daa4a7f96de957df575695'
+  /upload/static/image/common/qq_bind.gif:
+    newFile: !uuid 'b26cdafa2664c059066bc90f9106027ea42dbcd4'
+    oldFile: !uuid 'a6aea41c6679f2bd43af6b19be30cb72e9318277'
+  /upload/static/image/common/qq_bind_small.gif:
+    newFile: !uuid '14d1ebc4c85c593d2b5446f5841691694b6cc4e5'
+    oldFile: !uuid 'c5711fd0590f8f057e4b4974bf86bb098ed24a43'
+  /upload/static/image/common/qq_login.gif:
+    newFile: !uuid 'bb6c332c27d87b0628ad704c4337858fef0c95ce'
+    oldFile: !uuid 'cb7fe523b5d936e9cbff2f2c637e815a3ec37dca'
+  /upload/static/image/common/qq_share.png:
+    newFile: !uuid 'b0a2f4fccb0f7f30f225978cbacbc03034553392'
+    oldFile: !uuid '63f1c433827c9c6412d2d88bc93d164c86087c99'
+  /upload/static/image/common/quote.gif:
+    newFile: !uuid '7c78d243addbbde12c267033d4fbb621582d07e5'
+    oldFile: !uuid 'b3a85dbb369eb7ddb85b286275e5ea70aa915d31'
+  /upload/static/image/common/qzone.gif:
+    newFile: !uuid 'cb65f10ed944601c8d6d8b441748bd339409f770'
+    oldFile: !uuid '0199e14f5f3460e432f868e1e7cfd7c9a513dd98'
+  /upload/static/image/common/r_b_resize.png:
+    newFile: !uuid 'a95d999ae34b4ef6ac37186096eb5119999f5b74'
+    oldFile: !uuid '2d88d10420713bebb6da5f19f124fb74e71e5d33'
+  /upload/static/image/common/rank_1.gif:
+    newFile: !uuid '3efdae5cba052a760dae37be1b364e0eacd7bbcb'
+    oldFile: !uuid '20d65401be2e0be944b1a00f35a345ebac3222e9'
+  /upload/static/image/common/rank_2.gif:
+    newFile: !uuid '79a2d9cc5874597f548e21b5987e80adf32efd9e'
+    oldFile: !uuid '528588fc58b34cb77c3ec6fc105d31312e61bafd'
+  /upload/static/image/common/rank_3.gif:
+    newFile: !uuid 'dd76df9b7b1d65d8ed914566ca0d44cc306cc1a1'
+    oldFile: !uuid 'd0f534ff30877f57090d98e31496dc16c796e835'
+  /upload/static/image/common/ratbg.gif:
+    newFile: !uuid 'c9b8773119f37ab5b5d85648cf3969c560295697'
+    oldFile: !uuid 'a9fc3fe95dfc692b019e11246635e8f74cb7f463'
+  /upload/static/image/common/rec_add.gif:
+    newFile: !uuid '188ad8d43660a239edfe560d3cf5917a617545e5'
+    oldFile: !uuid '49d93c57baa4437aa08d60a742dc5659d92df906'
+  /upload/static/image/common/rec_subtract.gif:
+    newFile: !uuid '30e2c06190b81e8481c10fb8fcd971bd82dad60c'
+    oldFile: !uuid 'f7c0cf8c86c929fd3434a6355ce41871d7a649cc'
+  /upload/static/image/common/recommend_1.gif:
+    newFile: !uuid '5c2248aa0af0d630f82ef62ba8b4dca2f0724b99'
+    oldFile: !uuid '402bc6018ad228bab247e50dc2dff0c7dbef6a80'
+  /upload/static/image/common/recyclebin.gif:
+    newFile: !uuid '613662c11ad9787f09687071f5fe05662cff5e17'
+    oldFile: !uuid 'c68405cd23f0e4f6e48351248e480556d5159645'
+  /upload/static/image/common/refresh.png:
+    newFile: !uuid '8ba39828aa8037f99278ef1979fd982e05b9a580'
+    oldFile: !uuid '770cfbb42421407b8bcc3c500e1429a94f3b1e47'
+  /upload/static/image/common/rss.gif:
+    newFile: !uuid 'cc9cbc4e614d037f458d2d774058b66932f3381c'
+    oldFile: !uuid '35a8480be0b9d8352aba0e37906127f1a611ac08'
+  /upload/static/image/common/rt.png:
+    newFile: !uuid '5cf9d44eb2e83bf6c7063f57e7ac983fbb34472e'
+    oldFile: !uuid '8614fb49acd3ad1f776f041eb133f95abd965c50'
+  /upload/static/image/common/rushreply_s.png:
+    newFile: !uuid '81fdc0e2b05b4ad3466dc8aaaded48841e7fd754'
+    oldFile: !uuid '6e100bbdc11068777b460793fa54e0dc4893712f'
+  /upload/static/image/common/scrolltop.png:
+    newFile: !uuid '96d0fefa0e514f9fb08874f07ed2538d1344a7b5'
+    oldFile: !uuid 'd20101e775e6dd15d08e5e441fb3726acc96300e'
+  /upload/static/image/common/search.png:
+    newFile: !uuid '40f9196369b018c20777772ffa319d1b25d933bb'
+    oldFile: !uuid '2eb282b7f5ecfcaa18d3f6cddef52314042b761c'
+  /upload/static/image/common/searchbar.png:
+    newFile: !uuid '644332c40f656476f92f2c7f7162bce47aeeaae7'
+    oldFile: !uuid '59c248723de2685ffea32d4ef4303925ba80b7bd'
+  /upload/static/image/common/security.png:
+    newFile: !uuid '6f9fbba7d9c8b0e567f4826add3d8d76f2ceac4f'
+    oldFile: !uuid '2e452bc889df8081374e558f4c4204c1ad22ec86'
+  /upload/static/image/common/settop.png:
+    newFile: !uuid '07e41564473c09e0b82275e6ac1c69701589260c'
+    oldFile: !uuid 'b39ce2ca62560ccee040c2f80c194b47c4c02982'
+  /upload/static/image/common/share_btn.png:
+    newFile: !uuid '7e16f558e48e7a7c0c21a5da432cda058e5c62bc'
+    oldFile: !uuid '30df92c75a97bef08c65240dde60a8cf082ba4cc'
+  /upload/static/image/common/share_img.png:
+    newFile: !uuid 'e09d5cf497faec662a0df17e8ef61d3ba60c9623'
+    oldFile: !uuid '77acd68ade97b20bbe8b47604ce1b27bf0ea2d3a'
+  /upload/static/image/common/side.png:
+    newFile: !uuid '21800048660527e3b1c0fead74a5aab88a1da994'
+    oldFile: !uuid 'fa54c974738d31186d0eda8b3b04d112233fc5cb'
+  /upload/static/image/common/sidecontrol.png:
+    newFile: !uuid 'bad4fc0be333939fc2d02a94c93f2f3e1e745dd9'
+    oldFile: !uuid '463f5b3d9bd4d9fe67ccd2f62126f5dc0131a251'
+  /upload/static/image/common/sigline.gif:
+    newFile: !uuid '8e7a6f5b9b800a4e293bfed300438d9d99d31915'
+    oldFile: !uuid '7dd86a4e23e0a6d858aa63beebf233f9e25c0777'
+  /upload/static/image/common/site_qq.jpg:
+    newFile: !uuid 'eaac95ce99d1c780e3a9f6c21dcf4c8dfc5e3db5'
+    oldFile: !uuid '438195a5a5747804f66b5e10ea4dafde8260f5fa'
+  /upload/static/image/common/slide.png:
+    newFile: !uuid '4ddfdc348931ccb3c748197bced4080903c400c3'
+    oldFile: !uuid '0e815b7b2b1c9a666c26f775a4036af34d83ad32'
+  /upload/static/image/common/slisticon.gif:
+    newFile: !uuid '94e44d404133304a1198fc70efbb5e5fdcffe59a'
+    oldFile: !uuid '655185d4a303d89cd95a0605366087389486edfb'
+  /upload/static/image/common/sortnum.png:
+    newFile: !uuid 'f33a0969e7c0a9e8bccf8e6f22ccad3acb8db8fa'
+    oldFile: !uuid '7fe1ef2b4f75d982e5266336f499d7a37eb7dbee'
+  /upload/static/image/common/stand_label.gif:
+    newFile: !uuid '3acace9a0381e35d62e2aeb90a3e00d1ee5d1f02'
+    oldFile: !uuid '4ada744cd6107a428c195b8f1fe50e40823cd78f'
+  /upload/static/image/common/switch_style.png:
+    newFile: !uuid 'ae2ca314e0771d17968d0561ce364c3d41329fdc'
+    oldFile: !uuid '1cf2e378831b2322395311f2fa45e6e2f4a9f112'
+  /upload/static/image/common/switch_width.png:
+    newFile: !uuid '395155f72ff2e5e17e8ba979810078dababf15c4'
+    oldFile: !uuid '4c0adc6326212732f93fbda990052e40573289ed'
+  /upload/static/image/common/systempm.png:
+    newFile: !uuid 'd32e5c7190164c1ba629cb88d873e2a639e7e4f7'
+    oldFile: !uuid '800ac9d977a21948f0d1b9954bafbfd7c345c42b'
+  /upload/static/image/common/tavatar.gif:
+    newFile: !uuid 'b54631cc11bbd8aef6a33a6c2be3cc9e5d08f4b5'
+    oldFile: !uuid '44305ae5ed415ff33ed0853aad5ac8f9961c5623'
+  /upload/static/image/common/tb.png:
+    newFile: !uuid '68c11d12a6be87991c470f1a2e26e528be5c04ef'
+    oldFile: !uuid '6789f3fbf9710157fd157f7141b9c70341e47aca'
+  /upload/static/image/common/thead.png:
+    newFile: !uuid 'cfeb57ce8c1ddcf829919eed46064ca51d257453'
+    oldFile: !uuid '9a53ba9d54fca149950616ce17d2cc5efb6333f2'
+  /upload/static/image/common/thread-next.png:
+    newFile: !uuid '47c8c0f11527c80c12ca47633c023820faff7c1f'
+    oldFile: !uuid 'e31a940ec36f453d457715d75b2bbc2f3c633993'
+  /upload/static/image/common/thread-prev.png:
+    newFile: !uuid '5d13566f1888e898a512da61c9da801b5d3df641'
+    oldFile: !uuid '649d7b5ecbe8e828fdf54fcf38095a48c50f8701'
+  /upload/static/image/common/thread_prize_s.png:
+    newFile: !uuid 'e10a25eab96a880e43d3db28d1dd0ffd65775715'
+    oldFile: !uuid '6742d16ca09f1fcbcf535c16a32051db0fdf9b17'
+  /upload/static/image/common/tip_bottom.png:
+    newFile: !uuid 'e7fea341d92d2d4f55d06ae3c425e80affc05c71'
+    oldFile: !uuid 'c01a851e405d228186a99892c237c0db128fbc81'
+  /upload/static/image/common/tip_top.png:
+    newFile: !uuid '7394a4ba2e2f9f33c20cf75b44eb31278d7af2be'
+    oldFile: !uuid '28c50d17c2a8c20067146297191ae27d8debd498'
+  /upload/static/image/common/title.png:
+    newFile: !uuid 'cb3097a8e88a3d0ae952b34af7b30f3d54923b01'
+    oldFile: !uuid '25e500c5a79b5739240dbc6466e8214ee39c4f05'
+  /upload/static/image/common/titlebg.png:
+    newFile: !uuid 'e51e48d08203f345dbc3fcf5fdb69afb25fbb909'
+    oldFile: !uuid '42aba5032fd2e5d4a95a6e16ca0fb91b65c8f7e9'
+  /upload/static/image/common/titlebg_sd.png:
+    newFile: !uuid 'b2971ab00d4af1fc7843df102dda643778b8d0dd'
+    oldFile: !uuid 'e36a39bbc0276836e4d36791b9c5bc1a1a7f43f7'
+  /upload/static/image/common/topnav.png:
+    newFile: !uuid '265b482f661a565525efbe21d33211e4a2c378c0'
+    oldFile: !uuid '8989231d96e338fdf44738e10c5499e565d50a35'
+  /upload/static/image/common/transparent.gif:
+    newFile: !uuid 'e633c1b2336895bf25da1f1e0c93fa5951594a8b'
+    oldFile: !uuid 'c95709f1a549158cca1efcca9e9a8711e3717cd4'
+  /upload/static/image/common/tree_empty.gif:
+    newFile: !uuid '80dc865770affd7c09ee824613b8090c8652f1c1'
+    oldFile: !uuid 'b5cf52378fa5f361ff532bd66a89fb405f23f815'
+  /upload/static/image/common/tree_file.gif:
+    newFile: !uuid '1c55c5b1c857b1db604e0bde84c1f920100591b3'
+    oldFile: !uuid '33ddbc634eadf5536ffc52051b5d1ce6b8138a9c'
+  /upload/static/image/common/tree_folder.gif:
+    newFile: !uuid '34d14f3221cc6f56c009d0f2aa96dc56c2ef2ec5'
+    oldFile: !uuid '496ea8fbad156ac5c308fa17246966ca727fa919'
+  /upload/static/image/common/tree_folderopen.gif:
+    newFile: !uuid 'ea3efeca9dcbad8b8758cb9e835f11133ea25bec'
+    oldFile: !uuid '6280cd122e35926c3718e732a6afb985301802d5'
+  /upload/static/image/common/tree_root.gif:
+    newFile: !uuid 'fe207c398a4d5c2a481ea6a28455fa5a5e828f3a'
+    oldFile: !uuid '69dc5827e465e21ef9ef81948e7c6544407e0c9e'
+  /upload/static/image/common/un_selector.png:
+    newFile: !uuid 'd61700ec139929312cdca61d0d35ae4b3a59b89e'
+    oldFile: !uuid '856cc6d0b503e4f206f090334469e2d7a7f47bad'
+  /upload/static/image/common/uploadbutton.png:
+    newFile: !uuid '0ba81b957e6386f59795ee730da5b5093f90f364'
+    oldFile: !uuid '664117051c2bae34f5076d8eea66edcdfe2cbbf6'
+  /upload/static/image/common/uploadbutton_small.png:
+    newFile: !uuid 'e8daece6432a3ab65e2a8df455189c55d2effca6'
+    oldFile: !uuid '0f97d3c244723b5587510aa68c2b350a32063ddf'
+  /upload/static/image/common/uploadbutton_small_pic.png:
+    newFile: !uuid '9ad549ae3262c792e20cd6358ea7913c01db8767'
+    oldFile: !uuid '5a30407f8acc017adba02d136b44163db9c10485'
+  /upload/static/image/common/uploading.gif:
+    newFile: !uuid '27bf0b4a6cf8762eae805a34c4345505ec5e0c47'
+    oldFile: !uuid '9044284f80daa3635e61f6c01d5a39ec92dfd781'
+  /upload/static/image/common/user_online.gif:
+    newFile: !uuid '6fa40bdd748329ea5759e215c7dbf36191916802'
+    oldFile: !uuid 'bbb9d55d7ad08358c08848012f3596b09bd2ff04'
+  /upload/static/image/common/v.png:
+    newFile: !uuid '4a0d9f1e5248b579bbcee1cd90d2d18a9cd0e70f'
+    oldFile: !uuid '16de0d5f84aac2b6fb6973c82062730bda58074b'
+  /upload/static/image/common/vds.png:
+    newFile: !uuid '9122d7a9eccef7b24f7b0fc42126266c992a307f'
+    oldFile: !uuid '85566a41b786991231fd0e6ae8d483522d602821'
+  /upload/static/image/common/vline.png:
+    newFile: !uuid 'f82a2202dbb1329eea7af091b72422b6d898992b'
+    oldFile: !uuid '64e33c3b652a84da4d8873b52097142439ad36e6'
+  /upload/static/image/common/vline2.png:
+    newFile: !uuid '4248a838fb389ccbbb724b67a9637601dd69b2f2'
+    oldFile: !uuid 'fa79467785e4e9128dcef2bf2ff9413dee518aaf'
+  /upload/static/image/common/watermark.gif:
+    newFile: !uuid '989fc48d6b368ba572e371cce9a92e26d5408b39'
+    oldFile: !uuid '5cc26bbe9a9ac755f1d422ef75e40b5d92fb23cf'
+  /upload/static/image/common/watermark.png:
+    newFile: !uuid '7d7f3a56935d16c78edf0260f58f6fd078596658'
+    oldFile: !uuid '1ceeb05f550a5a1a9c6c12967bdbe46a0dfe9e1e'
+  /upload/static/image/common/weibo.png:
+    newFile: !uuid 'bacf0680dd64b5012018ed846a7fc0f6e52ab42d'
+    oldFile: !uuid '788de81befd455b9d550b805f508ec75e86d557c'
+  /upload/static/image/common/winner_flag.gif:
+    newFile: !uuid '7c968ac5c36a14ca48fb9c9fe108ffbb97e294a6'
+    oldFile: !uuid '2a634aaf466d162c3724628a08049a77f442037f'
+  /upload/static/image/common/zslt_andriod.png:
+    newFile: !uuid 'a5df5dbdd2ed86f947c095f6769f6204fbe64f05'
+    oldFile: !uuid 'e06edb693c4ad4595af3b8dac4530db5b6605c8a'
+  /upload/static/image/common/zslt_ios.png:
+    newFile: !uuid '2b206caa1926d4bd08a6d80e39b7c8d6e8909178'
+    oldFile: !uuid '843af07545db833624edbc354368f68c03d4f81c'
+  /upload/static/image/diy:
+    newFile: !uuid '5fd5a795e097d5c6d2e792d465a4fd00ee60ef81'
+    oldFile: !uuid '15706701ea0ca95d8f2a3715777483298ee31d9d'
+  /upload/static/image/diy/bs_2_ft.png:
+    newFile: !uuid 'ac8efb94f7da8f7480dc02f9c500f88bcfa7809c'
+    oldFile: !uuid 'e83c46f0c01cd5dbaf089a709a1537d10b5e8b69'
+  /upload/static/image/diy/bs_2_ft_r.png:
+    newFile: !uuid '03770b1d3877a7812fede9ae54bae3bd5649e581'
+    oldFile: !uuid 'd6c577befc14666f1c11c7c6e2b5f12c7c0ac9c6'
+  /upload/static/image/diy/bs_2_hd.png:
+    newFile: !uuid '14804b5851a1a731674fa425824b886d6185aaf9'
+    oldFile: !uuid '27df7cbd94970b87e9c210e34ce429e7dd42ecde'
+  /upload/static/image/diy/bs_3_ft.png:
+    newFile: !uuid 'c42b4bac818bb53188a7975b149f1989bae7347e'
+    oldFile: !uuid 'b63dfdff51e471f8a211bf1f651f91a90c8efa6b'
+  /upload/static/image/diy/bs_3_ft_r.png:
+    newFile: !uuid '25be322db154ac833fe4ea5608b3008fa7b0d24f'
+    oldFile: !uuid '651a886fb6f43d2beb8fc1fb7954d344c014effb'
+  /upload/static/image/diy/bs_3_hd.png:
+    newFile: !uuid 'f7db8fac1bb7f09514de23ab22870cd4ce6c0f4c'
+    oldFile: !uuid 'c77d6f7991a710e320267a3cdd7bf4c368e4a04f'
+  /upload/static/image/diy/bs_4_ft.png:
+    newFile: !uuid '953b3b64499acd4740be6ed68d17e78ad206f1de'
+    oldFile: !uuid '083772518517561514c26ac9294771cd2ecf5cdd'
+  /upload/static/image/diy/bs_4_ft_r.png:
+    newFile: !uuid '5d7a6fb0df6b6936cc87c64b0429ffa349e879a0'
+    oldFile: !uuid '4ee0d08b76c1506b39867073db98a4a44525c51e'
+  /upload/static/image/diy/bs_4_hd.png:
+    newFile: !uuid '6ef4eadbe2f36f755d460f1cd485c754c1dbd781'
+    oldFile: !uuid 'e0d1d9be9460f7ffb3b893a4c323af741bbe33b6'
+  /upload/static/image/diy/bs_5_ft.png:
+    newFile: !uuid 'c550fd0d80a7f0edf077ab3c59ce3ac540381848'
+    oldFile: !uuid '8dc75799686649accb420896dcd0fc8493cebb20'
+  /upload/static/image/diy/bs_5_ft_r.png:
+    newFile: !uuid '85686c23f26910390c96e4ab7e17fa81b90cd8c0'
+    oldFile: !uuid '14abcf4ba64d9abe63aee341e7607d31883097b0'
+  /upload/static/image/diy/bs_5_hd.png:
+    newFile: !uuid 'fb0e59bc927ec524d9d4ae3935bba055c5fe7d55'
+    oldFile: !uuid '754200a30fa76b3c5ab58e2d53c033166fc5ae63'
+  /upload/static/image/diy/bs_6_ft.png:
+    newFile: !uuid '52161deb73c4e884e1dca8b4154dacb43c74c171'
+    oldFile: !uuid '9207a71232fdeda885070f47a093a43a55bfd0e9'
+  /upload/static/image/diy/bs_6_ft_r.png:
+    newFile: !uuid 'a5b9dd1ec550836247e0b62269689700de3a053f'
+    oldFile: !uuid 'e0b2e2b44ab58cc40d1d44938b3c8222369b3637'
+  /upload/static/image/diy/bs_6_hd.png:
+    newFile: !uuid 'a83dc7dd0dbacb10f58ed7577afc19dde75c7d42'
+    oldFile: !uuid '92c3494b021ce8d091a19a0abc56263f2256c81b'
+  /upload/static/image/diy/bs_6_hd_r.png:
+    newFile: !uuid '508f60e92519e78b49617c1cebb73ff705e85cd7'
+    oldFile: !uuid 'c8db4366330602e74ebf96cdfb0ca33c891e71bb'
+  /upload/static/image/diy/bs_7_ft.png:
+    newFile: !uuid 'b8bd28cbeaafdfa2ba6bc087525836a527a3f722'
+    oldFile: !uuid '31bc9fe64783bc65362975a546c4c341607b196d'
+  /upload/static/image/diy/bs_7_ft_r.png:
+    newFile: !uuid '0420e962ed33318e6495b89d2b8926b0b490c677'
+    oldFile: !uuid 'a0c32fcb3d647d1657879370fd85c800354505f0'
+  /upload/static/image/diy/bs_7_hd.png:
+    newFile: !uuid '8c9cdf7bb28e9c050b2648e85ad3b3d545a99fa1'
+    oldFile: !uuid 'c36ad18e45e191d16017facba208a64f1dac0951'
+  /upload/static/image/diy/cp-bg.png:
+    newFile: !uuid 'd17623d533adbcfcf6ffc528411fbd729b96b6c9'
+    oldFile: !uuid '693ba5711b7873a9593d2023694f9cc6b7e0fef3'
+  /upload/static/image/diy/cp-close.png:
+    newFile: !uuid '2f29200413e5e43f7ae6efb38af3a75be871f842'
+    oldFile: !uuid '57547390cde70e662d8ddf1dc4fbfdcb282b5f27'
+  /upload/static/image/diy/cp-item-mini.png:
+    newFile: !uuid '6d7ad4205a9c3594ebb66ac97a12ba690f445bfb'
+    oldFile: !uuid '14b5481baa6721bd9f9799b70a17427b431b8b80'
+  /upload/static/image/diy/cp-item-selected.png:
+    newFile: !uuid '9f36bafa5994bb29eba06c2ef0b561d8041a29d2'
+    oldFile: !uuid '35128b931388299cef69eebed075919970e7813c'
+  /upload/static/image/diy/cp-more.png:
+    newFile: !uuid '56ace5a79475d2295011516e57ec8e8ee7caaf44'
+    oldFile: !uuid 'c2709ec242a806bb2acadb1a14c6c0ac8aae78be'
+  /upload/static/image/diy/cp-nav-active.png:
+    newFile: !uuid 'dce4e2112528ee395e473cabf544a54e1618d793'
+    oldFile: !uuid '4d8bb16ee873f6f118ca10f448a96fe5e8639320'
+  /upload/static/image/diy/cp-nav-corner-bl.png:
+    newFile: !uuid 'd6918ff5b691edfb3cf564222c9481e43002ec3e'
+    oldFile: !uuid '5a276aff25d3fdeba6d5f76aaeb202df2673ed85'
+  /upload/static/image/diy/cp-nav-corner-br.png:
+    newFile: !uuid '31cde3790ea6c97d07341b0fe160399c5d3402ba'
+    oldFile: !uuid 'ce74c8ea46a57756bfdcb9e3cd1f148dbb420905'
+  /upload/static/image/diy/cp-nav-corner-tr.png:
+    newFile: !uuid 'ff265336cfe21edd26b3364216f68aba9d73383e'
+    oldFile: !uuid '2db7491c801ace3d45768a8c5e301ade84408b5d'
+  /upload/static/image/diy/cp-nav.png:
+    newFile: !uuid '73b4965c042e7f3a102cde585d55db6b161cd53f'
+    oldFile: !uuid '222c1f8716310cc96ad4eadcdb29a8e8faa9b6cf'
+  /upload/static/image/diy/cp-preview.png:
+    newFile: !uuid '1431063bfc79756886ced481e742b8b08fc67b15'
+    oldFile: !uuid '5a1b248a98e283eeaad1d0771bb5b2f3241f732d'
+  /upload/static/image/diy/cp-save.png:
+    newFile: !uuid 'e67540ba09ade9673cb3c67292d68ea52e374945'
+    oldFile: !uuid 'ef3ec0061391f0aa051167f1a6d2b3ffd4c8cc96'
+  /upload/static/image/diy/cp-savecache.png:
+    newFile: !uuid '2962a4d870311c55f12c042b692ab539c3d8730e'
+    oldFile: !uuid 'cd3ecf9b4d4b772ec3ce9e896a48b16761df6429'
+  /upload/static/image/diy/cp-step.png:
+    newFile: !uuid '668cbd2cd56d9973edefbd22d8f4adec4b34400c'
+    oldFile: !uuid 'caa88e790da7bd4966d148de2f94f074d6aa57b9'
+  /upload/static/image/diy/diy.png:
+    newFile: !uuid '2d67f96bdc4e2e896cbcb40d478a87646fe4af26'
+    oldFile: !uuid 'b4b6740b61905a68df775064535fcd48af3e96a5'
+  /upload/static/image/diy/layout-1-1-1.png:
+    newFile: !uuid 'c61f59f99bf7c6c450f56ffd090c54388c9c6284'
+    oldFile: !uuid '5d02236c0e102c3970855878cf2c7ad889ba4b6c'
+  /upload/static/image/diy/layout-1-1.png:
+    newFile: !uuid '6740d73f2adce56f40c88a29f3f520912ae27e16'
+    oldFile: !uuid 'fe9120732a35049bdb65a91451cb96e6623102c3'
+  /upload/static/image/diy/layout-1-2.png:
+    newFile: !uuid '89a2c08150e41ac55257f29e860e58ba189e2ff9'
+    oldFile: !uuid '68edbd1a320789332fcf96ae0d90924a22619af1'
+  /upload/static/image/diy/layout-1-3.png:
+    newFile: !uuid '8213230a83421899322cb6410d1496939857bffe'
+    oldFile: !uuid '87a73408751c399c97335d698c00bbbba1347011'
+  /upload/static/image/diy/layout-1.png:
+    newFile: !uuid 'c77d005868119d0250996f7a8e0498b6c839dd08'
+    oldFile: !uuid '825af0afc1655a00c4629e962701a76b93b9384d'
+  /upload/static/image/diy/layout-2-1.png:
+    newFile: !uuid 'dfc6a65fb275c430bdc3588cbd1d14bdd5bec8a0'
+    oldFile: !uuid 'f3970a6fc14f5b5c5c3a7233c83e3e146b969229'
+  /upload/static/image/diy/layout-3-1.png:
+    newFile: !uuid '2715f7b611f43c239d39d6b12880fafba7b3cf23'
+    oldFile: !uuid '5802847c882b5ff5961b1d519cba82fb48417f90'
+  /upload/static/image/diy/layout-tab.png:
+    newFile: !uuid '51222056254a393e7c9c6dd20343d18e344ed811'
+    oldFile: !uuid '8654b329c74a087eb5ace4467c8a6aee3b96a119'
+  /upload/static/image/diy/layout.png:
+    newFile: !uuid '45ebcbb586d96a7011bddf6369825ead21da1c74'
+    oldFile: !uuid 'f7301ad69dedb3f06afc5aea9ab5de29c141b5fb'
+  /upload/static/image/diy/module-article.png:
+    newFile: !uuid 'cbaeae2fcffe1a81be0e2fe8a251d5cfed053656'
+    oldFile: !uuid 'e2857b806d6d7e37fd94fabea8c80542989f973e'
+  /upload/static/image/diy/module-forum.png:
+    newFile: !uuid 'b6c4ba2b311524d522cb19897f2bca8715f30c2d'
+    oldFile: !uuid 'cd6c0f85762950ffef476f03417d9cd3a255a2f8'
+  /upload/static/image/diy/module-group.png:
+    newFile: !uuid 'd73879fafbb6fc2968b016fe6be877c0ba41f572'
+    oldFile: !uuid 'd2610103382aefb9eb39ae09c8f3c1b158eb3466'
+  /upload/static/image/diy/module-html.png:
+    newFile: !uuid '165fff8d42c04c0cd25757b13f23a8651cce8c1c'
+    oldFile: !uuid '138e171a7ea70da8170a7c2f77358455740413d5'
+  /upload/static/image/diy/module-member.png:
+    newFile: !uuid 'd1ddf4a1916a5cfd62acc9e50ed400874e6db74b'
+    oldFile: !uuid '06a230bc9f93d412f0f9cdfea82f973bd16b395a'
+  /upload/static/image/diy/module-space.png:
+    newFile: !uuid '5810ecee12e5eee7a6542944f1af6e76e0ebd037'
+    oldFile: !uuid '0c2887e65e3556f0de8b1a5c68aac86d478e3410'
+  /upload/static/image/diy/module.png:
+    newFile: !uuid '7324b188d9fb5f54f74a807ac32d2b760ee0d86d'
+    oldFile: !uuid '6b4cd24c4e3e29dace343a70b8156820421dd54b'
+  /upload/static/image/diy/panel-toggle-drop.png:
+    newFile: !uuid '03bbfc700a54c9015d6772c133683a9c524a7bb7'
+    oldFile: !uuid 'e9d214c581fcb60658402506cd70ac164a402973'
+  /upload/static/image/diy/panel-toggle-space.png:
+    newFile: !uuid '5c4f60b71aca99c530309e3084776996a8cc6789'
+    oldFile: !uuid '7f0648cb9fa5c1d2c70debb0061156fbf4eb0066'
+  /upload/static/image/diy/panel-toggle.png:
+    newFile: !uuid '15429c66fdd6519adcd4012aad5dd4f65adccb38'
+    oldFile: !uuid 'f6efbf2aae5c8e0bb0ba2999eef3beb46a7674cd'
+  /upload/static/image/diy/style.png:
+    newFile: !uuid 'b6e59cb4d9c7561e50b6f8117527dd95e7b22be0'
+    oldFile: !uuid '94d4ee8281897c42871ad359c14d3df486b14ced'
+  /upload/static/image/diy/t-diy.png:
+    newFile: !uuid 'ed490a727f4e30e1294d9de6eb837dcb93e83be7'
+    oldFile: !uuid '69cab6004e265b0a09ed04facf37e71cdcb5b59a'
+  /upload/static/image/diy/vline.png:
+    newFile: !uuid 'c3ef2581e72e31e870c2dcd221513d7ce290915a'
+    oldFile: !uuid '28aef83ebda39df6e39e26ae5df22adbeabb1162'
+  /upload/static/image/diy/vline2.png:
+    newFile: !uuid '7d5e52cee5a985ee53fc0ddb6003791904e82475'
+    oldFile: !uuid '0d6b0207669d0d8eb9b2321ec11571951f0b852f'
+  /upload/static/image/editor:
+    newFile: !uuid '0257d7cb608f7ecce5de45e7e3cfd663954c6c19'
+    oldFile: !uuid '5d4a198b777915e76d5a8d3bbce22eb7c89560a9'
+  /upload/static/image/editor/editor_boolbar.gif:
+    newFile: !uuid '6def459db03661df8d2d0862941360d4a801d40f'
+    oldFile: !uuid '2c524e453f0398f59238970c6a36aad6a545bd91'
+  /upload/static/image/editor/editor_file_thumb.png:
+    newFile: !uuid '8c502a9eadca3e70d1b935b13bfdc9e7326f2921'
+    oldFile: !uuid 'c49df6e90b4ca4fc4f120e7d7b2f5a18f971e4c1'
+  /upload/static/image/feed:
+    newFile: !uuid '915303276586c48c5bccd73344f129e84ba01647'
+    oldFile: !uuid 'aa402549913491bf309fa37ef8c1f022a6f2cce4'
+  /upload/static/image/feed/album_b.png:
+    newFile: !uuid 'e2b2294449f44f455d99ac9c3f5a7c917c80abc4'
+    oldFile: !uuid '990abe73f69b27c24be30a88f553f6db1b2e6158'
+  /upload/static/image/feed/blog.gif:
+    newFile: !uuid '08548f3c9fb342edb5bd598b110ad072239d12db'
+    oldFile: !uuid '099f1c8d092bfedbab950a3782823156046f40c3'
+  /upload/static/image/feed/blog_b.png:
+    newFile: !uuid '51522a42df2a199ae280da0a583910e255204b55'
+    oldFile: !uuid '093b77f0c8b76ac5c4be47f88b28e6adad93b1fd'
+  /upload/static/image/feed/collection_b.png:
+    newFile: !uuid '6e1bd875903f9cb5da3cc1783bb562808a258ecb'
+    oldFile: !uuid '7ec318ebbcfd7f2ff029c666ddf8c554c4685729'
+  /upload/static/image/feed/doing.gif:
+    newFile: !uuid 'acccb137eb4490de2d8978b5a12d46cbe457a277'
+    oldFile: !uuid '46cbf2bf7000c613947f60815bb7aa633a589dae'
+  /upload/static/image/feed/doing_b.png:
+    newFile: !uuid '74867412d9989a758423ea3f08fefa02e553755b'
+    oldFile: !uuid '3b941413cc412e4592a031a8a2655cf9d28dad1d'
+  /upload/static/image/feed/dzwap_b.png:
+    newFile: !uuid 'c10d6d2d0fbfa1a9c293f59ba8867215b5eb5bfb'
+    oldFile: !uuid 'e13a67fdb4c7c346dd0c85c21c06d049ce81ea08'
+  /upload/static/image/feed/favorite_b.png:
+    newFile: !uuid 'a2ac0abd978cda9fbc28ff3b78f4e4f12abe6f05'
+    oldFile: !uuid '23ded320aace57967ae35df267b5d3bd978be297'
+  /upload/static/image/feed/feed_b.png:
+    newFile: !uuid 'a1dfa28837841e2dbfeaaea52afb886e305fa0c7'
+    oldFile: !uuid 'df24302ec9c82cc3496b84e9c6da5dbb4ae9738b'
+  /upload/static/image/feed/follow.gif:
+    newFile: !uuid '7a5f3b500a701cfb193f85df76201077cbad2da1'
+    oldFile: !uuid '1190fcb961e2b49eb3c490c6dd0367be9e17a8af'
+  /upload/static/image/feed/follow_b.png:
+    newFile: !uuid 'f74cdfc7809adbf26cf1d45574547148f7130b22'
+    oldFile: !uuid 'f542dd0ab65dfab30eb7f45faccdbcbe01bd585a'
+  /upload/static/image/feed/friend_b.png:
+    newFile: !uuid '7645431530e4d658ff3d28afe91fc38094944354'
+    oldFile: !uuid 'c55642f9c7eddca47b4597fbd3c76c550a6f2ed7'
+  /upload/static/image/feed/group_b.png:
+    newFile: !uuid '436fa9f85dc89db1bfb834735b89062d44807f69'
+    oldFile: !uuid '068e68bad42f968a76eb0490cc282100440b0361'
+  /upload/static/image/feed/guide_b.png:
+    newFile: !uuid '72d095c3e57cefe101ae70eba9db35fed2e6347d'
+    oldFile: !uuid 'c6f3cd0825dbc49e56509f984b5646f3cdfd7887'
+  /upload/static/image/feed/magic_b.png:
+    newFile: !uuid '70ca481674e4db22f1f64e631d86ceb799e2f09d'
+    oldFile: !uuid '9e6458cd71eecd8631382a2f8e69478425fb5f8b'
+  /upload/static/image/feed/medal_b.png:
+    newFile: !uuid '787f1ed0bb6c17e852ed7c7fa01abef1c5106a73'
+    oldFile: !uuid 'd8b18b89fe2c95710ad66048d3a9797c1db00215'
+  /upload/static/image/feed/poll.gif:
+    newFile: !uuid 'aa50e4d6887c43b3ebe527aef70a90462dbda240'
+    oldFile: !uuid '1b394994f8a61fceea4dc8fadca7ae1d254e21f9'
+  /upload/static/image/feed/portal_b.png:
+    newFile: !uuid '1ad02588d0233f8828ea772ee4da38b2b72011d6'
+    oldFile: !uuid 'fb1c689a92833390e1fa3cbe0cd24a9f207980d6'
+  /upload/static/image/feed/post_magic.gif:
+    newFile: !uuid '759c7503f539ab91eed03fad8519effd1eb3fce8'
+    oldFile: !uuid '90a848a6c317aa2bec1a73ecdd26b603fe84f640'
+  /upload/static/image/feed/ranklist_b.png:
+    newFile: !uuid 'c53c8d9add4864820d91b14c8f6c258ef903b5e0'
+    oldFile: !uuid '9f85d624760927e6ecccc48be34421f7516d7eb9'
+  /upload/static/image/feed/share_b.png:
+    newFile: !uuid 'b4d3ae3c7e66152694c67c6135f86fa2c7094452'
+    oldFile: !uuid 'fa503b1475c84a7b88fdfa33682ba88bc70b3063'
+  /upload/static/image/feed/task_b.png:
+    newFile: !uuid '71a42e97dac165d60ba6bc1c5c729d1fb0659858'
+    oldFile: !uuid 'ece9f5a246acb845a76462c1fdc619bbd4c82341'
+  /upload/static/image/feed/thread.gif:
+    newFile: !uuid '406a89dc402003adf52f3b0b83ce74385468e1a1'
+    oldFile: !uuid '41d6644ed0de2c99667406135a81c3129eca5b4e'
+  /upload/static/image/feed/thread_b.png:
+    newFile: !uuid '2a45bcbbf8efa796692b20e55c92bbacdc732904'
+    oldFile: !uuid 'e2b340e3a49478fc922ec6f3c2fc16abaa8e8425'
+  /upload/static/image/feed/thread_magic.gif:
+    newFile: !uuid '759c7503f539ab91eed03fad8519effd1eb3fce8'
+    oldFile: !uuid '90a848a6c317aa2bec1a73ecdd26b603fe84f640'
+  /upload/static/image/feed/thread_recommend.gif:
+    newFile: !uuid '5c2248aa0af0d630f82ef62ba8b4dca2f0724b99'
+    oldFile: !uuid '402bc6018ad228bab247e50dc2dff0c7dbef6a80'
+  /upload/static/image/feed/wall_b.png:
+    newFile: !uuid 'e24f057843bcac149236d694acf19deb039af76a'
+    oldFile: !uuid '3ceff00431f7186ad9c79b71897c8e7bcaababcc'
+  /upload/static/image/filetype:
+    newFile: !uuid '5ea85cf85e81934a9de9b733a8e373c984151d0e'
+    oldFile: !uuid 'de7cb55ff702585be25ae776fe7ea260cb8e722b'
+  /upload/static/image/filetype/av.gif:
+    newFile: !uuid 'aefa74489942585fd98083704abebdfb8e787b1d'
+    oldFile: !uuid 'd61b87cd6257f728ab95e2971421a8e0fc5878d1'
+  /upload/static/image/filetype/binary.gif:
+    newFile: !uuid '0786a573306229aed8f917ea1f21fcb542d9cce2'
+    oldFile: !uuid 'b7f77650518b66757e8fa8d66b21448e09971004'
+  /upload/static/image/filetype/common.gif:
+    newFile: !uuid '61a937eb0a9c957d63585880f81e522af68d870f'
+    oldFile: !uuid '368e4a3153b63218498b6f4b4264d0f7212add77'
+  /upload/static/image/filetype/file-excel.png:
+    newFile: !uuid '3829e0fd50394870bb2fe5be2003b1a51bf5afca'
+    oldFile: !uuid 'aca8702821eb252e417f20b795fc89e5046697dc'
+  /upload/static/image/filetype/file-image.png:
+    newFile: !uuid '4440502340641f855e3cfece4891fe8d2856b184'
+    oldFile: !uuid '607c25d102af2aff5be5b32d80adbd5eb75e3fc3'
+  /upload/static/image/filetype/file-music.png:
+    newFile: !uuid '23421ebc50080e0e7f97c4a8b82020f7cd03c03b'
+    oldFile: !uuid 'e6dc2de8c87649e1a350b322bb280613f4a0cf56'
+  /upload/static/image/filetype/file-video.png:
+    newFile: !uuid '35ed2145b96c4c634ae72b5a6b26b3a009398bc6'
+    oldFile: !uuid '4e0924daafc5ba13772392bd49739ee7f644e86e'
+  /upload/static/image/filetype/file-word.png:
+    newFile: !uuid 'fb4e9318573085922d5eb81420d98560b576287c'
+    oldFile: !uuid '91235a3131f8ea9cba61a4f7d486bb09260e6634'
+  /upload/static/image/filetype/file-zip.png:
+    newFile: !uuid 'b29f57aae2a93ba8addd323c74eb739f573c772f'
+    oldFile: !uuid 'b887de0d0c0869692dee8343d7917259ef8ec0c8'
+  /upload/static/image/filetype/flash.gif:
+    newFile: !uuid 'f3293e1286d1708a2a1545706f3752b5794090d5'
+    oldFile: !uuid '36101e663e163bbba80dcb86e2aabfb9c1fb979d'
+  /upload/static/image/filetype/html.gif:
+    newFile: !uuid 'd189e191bd505ca32d866b88c0cdaca42ba47875'
+    oldFile: !uuid 'd3a0bcf90a6c0d5a2fcf69ccd998b44686569cd4'
+  /upload/static/image/filetype/msoffice.gif:
+    newFile: !uuid '2620246232740611f2ed967d12aad466e275a52c'
+    oldFile: !uuid 'f0977df6a4a970ec72fdca9154b053337bd53c3e'
+  /upload/static/image/filetype/pdf.gif:
+    newFile: !uuid '8ea6a7d06341416cd4e6fe321ae3bfd5c5cb0a7d'
+    oldFile: !uuid 'cd309347aad43d55617640aa2f5292a1bfb1e13e'
+  /upload/static/image/filetype/rar.gif:
+    newFile: !uuid 'db71ae4d3c67cf72e98bbcfb134cbf1fdf6af219'
+    oldFile: !uuid '9e6fa54991777fd29499f2cee1470c8ea8aa948b'
+  /upload/static/image/filetype/real.gif:
+    newFile: !uuid '737b563f19cc96d3f860f38b618f750b3fe82cd7'
+    oldFile: !uuid 'd32381c9864cb40db80707f9b64c95070ce4ec9f'
+  /upload/static/image/filetype/zip.gif:
+    newFile: !uuid 'db71ae4d3c67cf72e98bbcfb134cbf1fdf6af219'
+    oldFile: !uuid '9e6fa54991777fd29499f2cee1470c8ea8aa948b'
+  /upload/static/image/foreground:
+    newFile: !uuid '166aeb31f92323a15442758c124dac41ba063076'
+    oldFile: !uuid 'cc0dbf7bc3e75a298dbc61e37b9b045ac939bef1'
+  /upload/static/image/foreground/default:
+    newFile: !uuid '8d93412e1a2ef1adb7463457bb0fedd8806d66de'
+    oldFile: !uuid '255637b807f3176d4b306ae318b450c5d4290075'
+  /upload/static/image/foreground/default/img001.png:
+    newFile: !uuid '30c0aed0d4fca7048161d06fab134ec538bdc635'
+    oldFile: !uuid '539bfe31814521082e7f161f47b0a9f7ff7ee7d4'
+  /upload/static/image/foreground/nature:
+    newFile: !uuid 'be6e91cc01fc76065dfb2c7a5702f9780bf3f75f'
+    oldFile: !uuid 'fe4c484766826d8eea46f0d0dcca70fc494b1f27'
+  /upload/static/image/foreground/nature/img101.png:
+    newFile: !uuid '3cf6b6e02648c5d95a68821c113fa8c1c99d957d'
+    oldFile: !uuid '329106fa2e63a73cd13db98ab95601a764706718'
+  /upload/static/image/help:
+    newFile: !uuid 'c46ab41b94239bc92539dc042bef78712acb91cf'
+    oldFile: !uuid 'cbc2bc888f83ca955cf7947bc7f5ab20a0f2b049'
+  /upload/static/image/help/blog.gif:
+    newFile: !uuid 'a5492b5246f2c717567aed568d002dd5101db1a2'
+    oldFile: !uuid 'cee63104b461cfe91183a2f1a0e296f05a3d0181'
+  /upload/static/image/help/cp.gif:
+    newFile: !uuid '1d02d9756a546041cfbeb6123150c59251dd2e56'
+    oldFile: !uuid '2eb112cc4e1c2170d41ee6c5b5e63e44e55d6fe1'
+  /upload/static/image/help/cp2.gif:
+    newFile: !uuid '9e33efee315ed8dfaae57e39d73ef4a28562cd7c'
+    oldFile: !uuid 'b383c2436a2108d3f47aeb14f7be1ab64fecdf3c'
+  /upload/static/image/help/doing.gif:
+    newFile: !uuid '97d8438f1b28b7385fc9edddd855efb9284e4a2f'
+    oldFile: !uuid '69c84f7bc26a2e04bfe3cafb79c213a06dfa9c0f'
+  /upload/static/image/help/home.gif:
+    newFile: !uuid '4399565516a970aaeb8b590e58fd7244d674d219'
+    oldFile: !uuid 'da48ffd3b75ce50625da72fb77e0502f74eb2594'
+  /upload/static/image/help/mtag1.gif:
+    newFile: !uuid '6501b6d2b4dc393fada26b402b18a839061cb632'
+    oldFile: !uuid 'db3f7a6997c208151fcb63523171e46246c52f7a'
+  /upload/static/image/help/share1.gif:
+    newFile: !uuid 'ea0d90698d0623a985b1ade0291711477c857da5'
+    oldFile: !uuid 'b772cb2a9b31722473d71297b5fb23e802289b4f'
+  /upload/static/image/help/space.gif:
+    newFile: !uuid 'e25f4c151d60dba01d345cf989f90c4294fb6af0'
+    oldFile: !uuid '1cc7372998a4eccd126d30b9b8827098f41a793f'
+  /upload/static/image/hrline:
+    newFile: !uuid 'bb73793970bdb3817ec38ef40f9d915b245a1635'
+    oldFile: !uuid '35c43b7511294779e8d2737e8994058f27d7e9f0'
+  /upload/static/image/hrline/0.gif:
+    newFile: !uuid '029c2b87609d8c29f586c320e07dd312e450d93d'
+    oldFile: !uuid 'cad4afb6de57deeb15c677ff572167e39b681d40'
+  /upload/static/image/hrline/1.gif:
+    newFile: !uuid 'cd31cac5222639d44ad50e09988c6bd589e2da8c'
+    oldFile: !uuid '1185d728d4d7791cc6b0badfd92aa7824b74802a'
+  /upload/static/image/hrline/4.gif:
+    newFile: !uuid '2f32a96efd2acbb6ad64bd7a2f66b06d73dcfe3a'
+    oldFile: !uuid '4f9bf15a27f6108e7e63b7d8817db59a693426cb'
+  /upload/static/image/hrline/line1.png:
+    newFile: !uuid '195339aeb352039c8e46454b1dfc6a474c8f6d86'
+    oldFile: !uuid '5142839c1a3f35baf3ee776e2b357c40825e2ae2'
+  /upload/static/image/hrline/line2.png:
+    newFile: !uuid 'f6f16f6a313a2cd8f9ec1b9de491d06fa8d09915'
+    oldFile: !uuid '02c9b4337da87b56017195bca504411203f67b8d'
+  /upload/static/image/hrline/line3.png:
+    newFile: !uuid '3dd8a436a86543d957d6c5070cd94ec9c0e2280f'
+    oldFile: !uuid '3ebf0f2b859df43a3ef67a93b8c27b7669267313'
+  /upload/static/image/hrline/line4.png:
+    newFile: !uuid 'd2a0e790804a2a01611de4e7a61c247b7f4a9277'
+    oldFile: !uuid '86df89717af3c8257ae902d369ee6f149041295f'
+  /upload/static/image/hrline/line5.png:
+    newFile: !uuid 'a1715ee0412574a78c08fc0cd9ed7f7c2a4c212d'
+    oldFile: !uuid 'f53a004c040ecc2f13b88a5816e391f5425c04d2'
+  /upload/static/image/hrline/line6.png:
+    newFile: !uuid '0df5d85a95467b74b8fd19ef67c43259e77ad3b1'
+    oldFile: !uuid '1f7e21a8a5431d23bbf9e020dee4ee733f273739'
+  /upload/static/image/hrline/line7.png:
+    newFile: !uuid '6a223997df5d83b96f884625cc3bd7bfc317dd92'
+    oldFile: !uuid '5f6664573dcaba2c63d201262005204c086a8eb6'
+  /upload/static/image/hrline/line8.png:
+    newFile: !uuid 'ea44a9ab8244ed36dfecc0fdae233e8a10dd5883'
+    oldFile: !uuid '858576d60d722a98bc53e5471f464d9544795b7e'
+  /upload/static/image/hrline/line9.png:
+    newFile: !uuid '381730e11f9f5266dcd4a90b524a009404042df7'
+    oldFile: !uuid 'f8738ec841079ab23c8de8d16456bd74f51363bc'
+  /upload/static/image/magic:
+    newFile: !uuid '8f722e2fe4b9f17e5aa8e234e903e3f916cca425'
+    oldFile: !uuid '005a7af56244fd471f61a55d600af2145a6885ad'
+  /upload/static/image/magic/attachsize.gif:
+    newFile: !uuid 'ac46a1112aa38eb859062430698e958aef4ce487'
+    oldFile: !uuid '18009c3643990e690e7e42427d9728eaa35ae067'
+  /upload/static/image/magic/attachsize.small.gif:
+    newFile: !uuid 'e68586f52cebdbaef27fe41d7ab0153c0b176c20'
+    oldFile: !uuid 'a329aac1c30e52906e65c77040db7adc7fb66e98'
+  /upload/static/image/magic/chgusername.small.gif:
+    newFile: !uuid '81ecd515069ba990f1646460f14384c2da65eb75'
+    oldFile: !uuid 'c7c2c36f716efe92d809584fd6119b77a43a71e4'
+  /upload/static/image/magic/friendnum.gif:
+    newFile: !uuid '40c7d692ca9e5dbb86a26c0a4ecc6c507a82db7d'
+    oldFile: !uuid '4002a5dbf0d483566c900469334af38997fafb56'
+  /upload/static/image/magic/friendnum.small.gif:
+    newFile: !uuid '042c920b282644523e005391169cab1498359ea7'
+    oldFile: !uuid '62be2c20f091e1955dd9895490f03d59f090ed70'
+  /upload/static/image/magic/jack.gif:
+    newFile: !uuid 'b7c1197aca40f3c408144a057f3107acf77d1b22'
+    oldFile: !uuid '9ede26072789d7297a8b84838099403c5f5f8f6d'
+  /upload/static/image/magic/jack.small.gif:
+    newFile: !uuid '789ac04d8b66170111c22de524b3658d0a2a64ce'
+    oldFile: !uuid '8dd32e3768668df35d161fbbb0a434ce8c937bde'
+  /upload/static/image/magic/visit.gif:
+    newFile: !uuid 'ceda4598e91ffef98e2c8f032817b6245c97b628'
+    oldFile: !uuid '4cce5184989f764ab4136ebd91605ef9952dae47'
+  /upload/static/image/magic/visit.small.gif:
+    newFile: !uuid '0e33f4422d7bda9a0746643f5a79bac9b2b61a86'
+    oldFile: !uuid '018b6bf101b75005a2cfd00521f88db4b2e9c138'
+  /upload/static/image/mobile:
+    newFile: !uuid 'c79547e9e022001074f44c8a471747b719a789eb'
+    oldFile: !uuid 'd6b38f3cf3d2aa2de7cc9e9ecfc3b44a248bf10a'
+  /upload/static/image/mobile/browser.jpg:
+    newFile: !uuid 'a47c613e67cb177f432d0cb78cc9c668fcbf2d40'
+    oldFile: !uuid '78225a57c54583f61e301d09522d92fd6238d3bd'
+  /upload/static/image/mobile/browser_big.jpg:
+    newFile: !uuid 'a47c613e67cb177f432d0cb78cc9c668fcbf2d40'
+    oldFile: !uuid '78225a57c54583f61e301d09522d92fd6238d3bd'
+  /upload/static/image/mobile/images:
+    newFile: !uuid '2a269073956b4c842c11489e825e5b324a1921bb'
+    oldFile: !uuid 'b1c1099a9b2c48f408fc243ebcc89a7133a2c08f'
+  /upload/static/image/mobile/images/arrow_top.png:
+    newFile: !uuid '98c29c78a39fb425d738183a848fb64bcedbce40'
+    oldFile: !uuid 'e5cfddeece28b9b1310064032880ffd88e0ffb06'
+  /upload/static/image/mobile/images/avatar_m_bg.png:
+    newFile: !uuid '1723588957703a23707d2cbeba8c90edee719a06'
+    oldFile: !uuid 'f1b2564e1a0a8b65151082f54854a2cb7f4049d4'
+  /upload/static/image/mobile/images/btn_s_bg.png:
+    newFile: !uuid 'bbc40294f799e01efc6b1407144993d26a551ba7'
+    oldFile: !uuid '91624cec65de5813de798b2ec470c800b50b99c0'
+  /upload/static/image/mobile/images/button_bg.gif:
+    newFile: !uuid '85cd98dc066b7356cb86abc43de36f05bd6354c5'
+    oldFile: !uuid '67d3f1fc7a36072154b63dde3416b80159b97d80'
+  /upload/static/image/mobile/images/button_bg.png:
+    newFile: !uuid '97bfa4aff15c13852fac2868d1c5fb95b2f847b7'
+    oldFile: !uuid 'eb896dd2d2933d58bbcde98592a2bf7364695a8d'
+  /upload/static/image/mobile/images/button_bg2.png:
+    newFile: !uuid '68886807b6e868ba719ff2491321e53cc59a9056'
+    oldFile: !uuid '489345e8b87aba36481fd79c94dc7d4287055488'
+  /upload/static/image/mobile/images/collapsed_no.png:
+    newFile: !uuid 'b51149e32d5b21b23b7c2956bd3c7eb16cb2864e'
+    oldFile: !uuid 'b37ac5522fb5cff430de1fa18633af7e04921806'
+  /upload/static/image/mobile/images/collapsed_yes.png:
+    newFile: !uuid '3c8e36af3695f1e93adbaf66d4264ed0df518224'
+    oldFile: !uuid '605cd1696505d7bca0f043e113b00de04b4f815f'
+  /upload/static/image/mobile/images/collect.png:
+    newFile: !uuid '307a091bc7e706eaa5f78e1945c95bdd89019a01'
+    oldFile: !uuid '5f57a80efc123e1caa73b460d7dbae45ea7a9b92'
+  /upload/static/image/mobile/images/dialog_b.png:
+    newFile: !uuid 'c849ca8ff42b642466bb2d68dff5ec57cd3dad2e'
+    oldFile: !uuid 'f80ecf326aa615afa2eb3df113d054453421bd63'
+  /upload/static/image/mobile/images/dialog_bg.png:
+    newFile: !uuid '12edb79241d43978159a245e549f6f145dfeef02'
+    oldFile: !uuid '5dd571e2a0687863731e66d613d5f87a68c4800d'
+  /upload/static/image/mobile/images/dialog_t.png:
+    newFile: !uuid '4557bdc51bbf6eb959afc720bcc4dd322658cb0c'
+    oldFile: !uuid '88177ed7bd4ce7b7ff07ee92e5736259b22444d3'
+  /upload/static/image/mobile/images/exit.png:
+    newFile: !uuid '96e44b8aecdcaa5148b34469f3dcec1b0ff4b93c'
+    oldFile: !uuid '20f38bd4f730c040f5367f1f0a716658f346e74e'
+  /upload/static/image/mobile/images/exit_on.png:
+    newFile: !uuid '101c21835ccd6b0a04c8f3618b8779620b94d544'
+    oldFile: !uuid '49ac8934e55ab1602ab0ba60e449d64e8286375c'
+  /upload/static/image/mobile/images/header_bg.jpg:
+    newFile: !uuid '96ab79376c884fad414f88fdebb61b735220ab42'
+    oldFile: !uuid 'dadb367e84a482bf4c7b3e4e28b68aa1ad91c19f'
+  /upload/static/image/mobile/images/icon.png:
+    newFile: !uuid '2ac0157ce96b07bf4ff3dc906ee1384c50888357'
+    oldFile: !uuid 'a9d0bd193058341de0ee4a701758c352baf0505d'
+  /upload/static/image/mobile/images/icon_arrow.png:
+    newFile: !uuid 'cbd26938dcfea3137dfac218a070d7c8e01c22ff'
+    oldFile: !uuid '4a80157bd62fa581bab39673040812c60973fc39'
+  /upload/static/image/mobile/images/icon_arrow_down.png:
+    newFile: !uuid '7bafe062360b9e2c5d933735eb67f1eb06dbc486'
+    oldFile: !uuid '6fa7bbe31473deeb1251bed028aa8f17f7367f75'
+  /upload/static/image/mobile/images/icon_back.png:
+    newFile: !uuid '1ae05d144baca23f2d60b0935d1f1bf431e16a96'
+    oldFile: !uuid 'd30bb5d6b295730b70f1373099489de319df76f7'
+  /upload/static/image/mobile/images/icon_close.png:
+    newFile: !uuid '1f7391046bc4e6d48006b85800d1c6152ce45de0'
+    oldFile: !uuid '92d54a3bda40dc504695fbd2957d02f4046b91eb'
+  /upload/static/image/mobile/images/icon_close_g.png:
+    newFile: !uuid '3e83a040b7f5dd1ee95c59b6ba774d9d648ee890'
+    oldFile: !uuid '5aadf1e0b244cf3338d9d887f857828815d23eab'
+  /upload/static/image/mobile/images/icon_del.png:
+    newFile: !uuid 'fbe96e85a86f7b07cafd654404cc4862768192ca'
+    oldFile: !uuid '3e818d1c2f66f4e89673c1d095ae4579a254ee5d'
+  /upload/static/image/mobile/images/icon_digest.png:
+    newFile: !uuid '84ccb8854f412153e3e738130e0221921a03daad'
+    oldFile: !uuid '330d1a20d5c18a73be5230f484d6a308ce6ac8c9'
+  /upload/static/image/mobile/images/icon_img.png:
+    newFile: !uuid '21bce1528ccb9f7c09415dd7d1a5a2dbf369ee3f'
+    oldFile: !uuid 'ae937fb01f956a51c61e0ecdfc09f5363a9614a2'
+  /upload/static/image/mobile/images/icon_more.png:
+    newFile: !uuid '117b9b4c9d01d87301858add07eee19d47cf2c9a'
+    oldFile: !uuid '414631d7ec2a44a2f29ba4014de7c767a2797a75'
+  /upload/static/image/mobile/images/icon_msg.png:
+    newFile: !uuid '0e047e1235451a5cb59c6db04ae5a815cd911b3f'
+    oldFile: !uuid '9e1a05699fe2c745ab28e756782959713e3d7655'
+  /upload/static/image/mobile/images/icon_num.png:
+    newFile: !uuid '610f705387b751c829919c99327d410ac3834cc8'
+    oldFile: !uuid '22cb2778c2dfcbfb0aa07aebf43e570f5bd82fe8'
+  /upload/static/image/mobile/images/icon_photo.png:
+    newFile: !uuid 'f32c4ba66447705e9f69d1855238929f59c573dd'
+    oldFile: !uuid 'ccf365afae03dfef2331c1e5c5e5b53ecdbd580e'
+  /upload/static/image/mobile/images/icon_reply.png:
+    newFile: !uuid 'df159c633f18fbc5b93a518f3c042760ac98d4fc'
+    oldFile: !uuid 'cd6de63258167ff751aade3569fdacc07039526e'
+  /upload/static/image/mobile/images/icon_top.png:
+    newFile: !uuid '037ddc01b3a1dd166858cdbf55aa7ddaf3f46c28'
+    oldFile: !uuid 'cae8ff0a4349eb0748c4fab5d30afeb31c845e47'
+  /upload/static/image/mobile/images/icon_tu.png:
+    newFile: !uuid 'd3504ef96cc3b136c2d388c782ee55e0767bb0c7'
+    oldFile: !uuid '5d6cc34f160c79fb5619932148954ec16edab4a0'
+  /upload/static/image/mobile/images/img_loader.gif:
+    newFile: !uuid 'dc8bd3ff133c22336509b97424671383a407d6f8'
+    oldFile: !uuid 'e630040ee196ac0d183c468bc2014ecfa0a1a8b2'
+  /upload/static/image/mobile/images/login.png:
+    newFile: !uuid '62bd99f5fdc967cf6f0f6a7ff3db29d7f12a0500'
+    oldFile: !uuid '870d964cc3c7d97a2cf1f74725d76395049cc69a'
+  /upload/static/image/mobile/images/login_on.png:
+    newFile: !uuid '4ad1d4888dc3bac889ad97737c7f4ec540350c3a'
+    oldFile: !uuid 'db3b5b66e23ef66d5854071658dc98b382f710bf'
+  /upload/static/image/mobile/images/my_subject_bg.png:
+    newFile: !uuid '46759a8aa0d89228f8823e31c9e9a1dd20605428'
+    oldFile: !uuid '2df2f565059dd78028d75db65abce2e3fb8c2dc6'
+  /upload/static/image/mobile/images/my_subject_bg151.png:
+    newFile: !uuid '617c90b4329d3ffe10b6289c77da46621bf50459'
+    oldFile: !uuid '239a1b16c8565fdb789ea967f9585aa3fb822cf3'
+  /upload/static/image/mobile/images/nav_b_line.png:
+    newFile: !uuid '13042aaecde61a676f237b68e6fa827684a341a4'
+    oldFile: !uuid '7cfe4c75cb1d3d7f42137bf28c5f8f6b6f012b28'
+  /upload/static/image/mobile/images/pic_bg.jpg:
+    newFile: !uuid 'ad65c41f6d98d67d6dd6d53253651c81e048d947'
+    oldFile: !uuid '42494175b92f59010323e4c1bfcc11bf39efb2e7'
+  /upload/static/image/mobile/images/pic_select.png:
+    newFile: !uuid '9ccf27c7a64c11a0866b6d5019448a672729dbbd'
+    oldFile: !uuid '7494d95806357dc51b5a9f640f45efb8e5b3d14b'
+  /upload/static/image/mobile/images/qqlogin.png:
+    newFile: !uuid '6254d517097c8779c55df4681f359df2dd11aa5d'
+    oldFile: !uuid '77d0f66a88413475431a75d8958715270b6ab0fb'
+  /upload/static/image/mobile/images/qqlogin_on.png:
+    newFile: !uuid 'e9b3d64b1f67d282c288baeffbd9cfbe4f3057b6'
+    oldFile: !uuid '2e351780c655f7498f31e7b512cd91f5cd50fe67'
+  /upload/static/image/mobile/images/qqlogintext.png:
+    newFile: !uuid '1a8b5e917f0693fe663fe50d2c3ad2efd15a7301'
+    oldFile: !uuid 'f8e8deb62429ecf6e08ab1ad51b15f7bf50140ad'
+  /upload/static/image/mobile/images/reply.png:
+    newFile: !uuid 'bd1a440e712422c1e54722d4d202448a1e519aa4'
+    oldFile: !uuid '063ec9c18afb4dfebb05fee2def1a4613ca6b5d1'
+  /upload/static/image/mobile/images/titlebg.png:
+    newFile: !uuid '9ba3fcfc2b7a66df9bf5b48f23ce33db658e6142'
+    oldFile: !uuid '3103bd1c00529ebd3df8317ffdbee4c54dccfba5'
+  /upload/static/image/mobile/input_bg.gif:
+    newFile: !uuid 'd990c674c0350453b7a9b51c56229d01bda5b43c'
+    oldFile: !uuid '6d931e02a7c835d9c0db1694678ea2075e64d896'
+  /upload/static/image/mobile/logo.gif:
+    newFile: !uuid 'c99724c85962245073bd8731f0f9da6d15f9da22'
+    oldFile: !uuid 'e67c208428a96ebc4c9ce2249c45a27aaee9fc38'
+  /upload/static/image/mobile/preview.png:
+    newFile: !uuid '0da0789d4197aa3a953205a93a5965fa618388fd'
+    oldFile: !uuid '8a6e419b0f8fb5f57662f43f4af225a7596bb944'
+  /upload/static/image/poke:
+    newFile: !uuid '8808913a4cfac85268731bd8162524c91f79b91e'
+    oldFile: !uuid 'a9366f0cf07cb1358ea7e2e2d4d5fe7e3f71a1da'
+  /upload/static/image/poke/cyx.gif:
+    newFile: !uuid 'a6dfa922094f9c9590d4929a48ef7c1832be9d28'
+    oldFile: !uuid '696a08c70e66b1995bbd88bb837df05d5ceb2d43'
+  /upload/static/image/poke/dyx.gif:
+    newFile: !uuid '49f6ec1e684b89fe61d8d6c6d5e9489e9cd98811'
+    oldFile: !uuid '59ed5db6f6d2b9ba253e73fa857630babd2a9d94'
+  /upload/static/image/poke/fw.gif:
+    newFile: !uuid '78602aa9c83291fb50287afb00f2839c2ba19052'
+    oldFile: !uuid '9735258ff8eb16cce5f31537ab8c30a4830a5a36'
+  /upload/static/image/poke/nyy.gif:
+    newFile: !uuid '638bc45f056a915ec24561092668cabfe2a99820'
+    oldFile: !uuid '7fc6c9183a28ea5cff9ed226254013eb435436b7'
+  /upload/static/image/poke/pmy.gif:
+    newFile: !uuid 'dbb63b6bb2212bac734b0f4361746fbefc1f9062'
+    oldFile: !uuid '04a96caabc29e4594771d290e0e9e4659b79764e'
+  /upload/static/image/poke/ppjb.gif:
+    newFile: !uuid '0ebb0b585bfaee9ceca37fd1b2b4ca2f9e284c75'
+    oldFile: !uuid '12c0f6aa2b5a00d0df0fe1ea5931c393e53bd843'
+  /upload/static/image/poke/wgs.gif:
+    newFile: !uuid '5cbac0fa0105fbc16a6b32d14f3bfaa30d8e8633'
+    oldFile: !uuid 'efe026429e13959ebd9ebb4967d235576df51b88'
+  /upload/static/image/poke/wx.gif:
+    newFile: !uuid '033443ccbffa7c4b6788717ff72328a0d443db1f'
+    oldFile: !uuid 'e75ec8420491d3cc23fd859489bdc45109645207'
+  /upload/static/image/poke/yb.gif:
+    newFile: !uuid 'f9351ea744d9035331fccb26e8b35a5d59f16327'
+    oldFile: !uuid 'aee016854b7354c52fc52abb57d228d4861696cd'
+  /upload/static/image/poke/yw.gif:
+    newFile: !uuid '1b20743286bb767af2aab3a78beca5b463fd7466'
+    oldFile: !uuid 'e72ad358f72f95623e852d0625885cf3f4f0cc39'
+  /upload/static/image/poke/yyk.gif:
+    newFile: !uuid 'f95b7b076feca978b14ca2b7f314ebad3e4f53df'
+    oldFile: !uuid '868be483eb67d32ca6276db3d70e61ffb8cf4a96'
+  /upload/static/image/postbg:
+    newFile: !uuid 'd1e15f1f4b55eb1ca80a6fc6d2c621c099391a48'
+    oldFile: !uuid 'd62e6d6547b382074968273adf1b780d8dddf8dc'
+  /upload/static/image/postbg/0.gif:
+    newFile: !uuid 'e633c1b2336895bf25da1f1e0c93fa5951594a8b'
+    oldFile: !uuid '75b945d2553848b8b6f41fe5e24599c0687b8472'
+  /upload/static/image/postbg/1.jpg:
+    newFile: !uuid '5fc909e87b804c6b98a23a59b2580d0813a8cada'
+    oldFile: !uuid 'd631476d5150d65e9ae464d6d3ec7b3d667a28c5'
+  /upload/static/image/postbg/2.jpg:
+    newFile: !uuid '24db087df9b19e12f278c017f6f379544a2b544f'
+    oldFile: !uuid '36c8f71b7ae0a0b8e12f0b6d6ef1c49d394b4277'
+  /upload/static/image/postbg/3.jpg:
+    newFile: !uuid 'd335a6e06fdcbc8e0fe5d39f930b2c58371d3b6d'
+    oldFile: !uuid 'eac3d63cac1a449573f4f2edc37c51da297e2774'
+  /upload/static/image/postbg/bg1.png:
+    newFile: !uuid 'daac8a154935f04b5dea895c2160fe61b7847772'
+    oldFile: !uuid '98b7bcbf89e50c31b2b186223af01dd2ff0840e3'
+  /upload/static/image/postbg/bg10.png:
+    newFile: !uuid 'a1d73eee8c52564134b74c7d0414703a43bb81ee'
+    oldFile: !uuid '0685e423f93af0836b135e4b0d16b9a39b722664'
+  /upload/static/image/postbg/bg2.png:
+    newFile: !uuid '4d5d135b204787abbb6e520e2a0f83cc8ccd4149'
+    oldFile: !uuid '6ad1567fc17227984811476c397591a1981e7ad1'
+  /upload/static/image/postbg/bg3.png:
+    newFile: !uuid 'f3b1c85806a860a336a5c2c9269138172d5fc35c'
+    oldFile: !uuid '5688c3a32169e36f1fd1c544f508032893c50584'
+  /upload/static/image/postbg/bg4.png:
+    newFile: !uuid 'fee931c1e95bfa90769cf4e6adc51dbd522e9698'
+    oldFile: !uuid 'c28efd5859f0957693def45be12889e8d25d1638'
+  /upload/static/image/postbg/bg5.png:
+    newFile: !uuid '207cf02a89bc466407c316d8379d1d787f60dd30'
+    oldFile: !uuid '37722a7c975d3ff226d7c8e07084d00068c32920'
+  /upload/static/image/postbg/bg6.png:
+    newFile: !uuid '48c5f1795387cdbcb58a85d5c05f1fc4ad7fa4fe'
+    oldFile: !uuid '151e3cd0a5dcd1b605462a4e5bfc33f66b842539'
+  /upload/static/image/postbg/bg7.png:
+    newFile: !uuid '04e22aa900c1ae79f2d0f6805dab99ce23ce02c5'
+    oldFile: !uuid '00f2b2bccc43eeaac38138d646c0943da327058a'
+  /upload/static/image/postbg/bg8.png:
+    newFile: !uuid 'f8a18ee1b14e2c248c64cf34d193c31534ab0c89'
+    oldFile: !uuid '8155f4b7488089e0272640737caef6f27394c592'
+  /upload/static/image/postbg/bg9.png:
+    newFile: !uuid 'c9d5749458bf14c44c451e8130c22847ee4e0f5e'
+    oldFile: !uuid 'b3fc11f1d573e7499e29b5ba4e7ae0f8e2b4404f'
+  /upload/static/image/seccode:
+    newFile: !uuid '0d7f0097a6dfa06ccd5bc8d4769e7bbe71c52574'
+    oldFile: !uuid '52b9f038eafb853be8f0662ce2dad58bbe79249c'
+  /upload/static/image/seccode/background:
+    newFile: !uuid '18d91ab37fbe7f44c404389417796c8e1e071fbf'
+    oldFile: !uuid '2542baf5a4ca114eb2cc1c634d83bbce76421c33'
+  /upload/static/image/seccode/background/background1.jpg:
+    newFile: !uuid '78b7bcedd60851ef1de3238bbf8b6f3a76d57aa6'
+    oldFile: !uuid '5c5689d65a2be18b5079d5ec2d84a940c35f5499'
+  /upload/static/image/seccode/background/background2.jpg:
+    newFile: !uuid 'd01899b7ed812a621d26829ee60dbd31aeaf7adf'
+    oldFile: !uuid 'ce601de8d5c88191abc3ed86e583102a4c794841'
+  /upload/static/image/seccode/background/background3.jpg:
+    newFile: !uuid 'a6233aa5de8926149f250cf1f0b27cbd1f9a7644'
+    oldFile: !uuid '40f4f526df1adc26b9d0d7c094529e175faf3091'
+  /upload/static/image/seccode/background/background4.jpg:
+    newFile: !uuid '1c4088354e1f18200b8da417d249440f3597859e'
+    oldFile: !uuid '8028dbaf8a89e9d7ec006804a04f753ad011282f'
+  /upload/static/image/seccode/background/background5.jpg:
+    newFile: !uuid '2ef389c52d76c440b38f31e1fa2122d5898a6208'
+    oldFile: !uuid '930c7dfd07542ab5960cab30a9aafdce06e1f59b'
+  /upload/static/image/seccode/background/background6.jpg:
+    newFile: !uuid '1c4fb340e581f175ffe4d5e99df0a1546eaab7e3'
+    oldFile: !uuid 'c0d7f36152ff5eab43c2634829bcc051068a01ba'
+  /upload/static/image/seccode/background/background7.jpg:
+    newFile: !uuid '3d3311ddaa026c90c0f9bca71ff4cb5bcaf1febb'
+    oldFile: !uuid '885e52860d24feaf01b8b38b6c234ff86cf932cb'
+  /upload/static/image/seccode/background/background8.jpg:
+    newFile: !uuid 'b75c977a26748334919c72be005920faae0680b3'
+    oldFile: !uuid '1d4d3274033bf0e4d5d16ff439283ee1cc6238c5'
+  /upload/static/image/seccode/gif:
+    newFile: !uuid 'd4043a8f551cef60ad0c851f15296e67e1c4897b'
+    oldFile: !uuid '0ad2b5355cae000faf46937fe37e61add4f478b7'
+  /upload/static/image/seccode/gif/OCR_A_Extended:
+    newFile: !uuid '03379eb66b2334df307df3b61e1a2f7333303e1e'
+    oldFile: !uuid '2ecbc51f23432d1b619adc40b5e81de7c76e8625'
+  /upload/static/image/seccode/gif/OCR_A_Extended/2.gif:
+    newFile: !uuid 'eaf206e5e0fdca00715fa19796f1fba3571e6912'
+    oldFile: !uuid 'd5469cbb23b59e87765e54b3197864fc8a0c7dde'
+  /upload/static/image/seccode/gif/OCR_A_Extended/3.gif:
+    newFile: !uuid '58863b2c672b8f65be6d6f1a6b89844ddb7f7995'
+    oldFile: !uuid '363fe159a87f43026b7615ce00bca80bf5c89518'
+  /upload/static/image/seccode/gif/OCR_A_Extended/4.gif:
+    newFile: !uuid 'ce1445d6722033ad8235e7bb4ae17df4b5a36d69'
+    oldFile: !uuid '0aa1b007feb68a39c847f9f19fb276b060dc69a8'
+  /upload/static/image/seccode/gif/OCR_A_Extended/6.gif:
+    newFile: !uuid '34c403908edacc1fa6e4c8b6fac9d330b59e4853'
+    oldFile: !uuid 'bdd0beeb4ff1b112248bf611cd0e8232b337e253'
+  /upload/static/image/seccode/gif/OCR_A_Extended/7.gif:
+    newFile: !uuid '0afea737150073f4ab214353105b84933797f117'
+    oldFile: !uuid '6c87bddea38302157745d19afc063123cc64a198'
+  /upload/static/image/seccode/gif/OCR_A_Extended/8.gif:
+    newFile: !uuid 'bcd908f18e2919b4a4e7e8c2404145e0515f0de7'
+    oldFile: !uuid '2bc9b1119c87a8397bbe834d6ed0430bc321aa77'
+  /upload/static/image/seccode/gif/OCR_A_Extended/9.gif:
+    newFile: !uuid '5b20f334ad41e81f5ee7a3d06823f228100744d3'
+    oldFile: !uuid 'ebf5eb9c1fa3ee1464aabb86d85ca02b7b6ac457'
+  /upload/static/image/seccode/gif/OCR_A_Extended/b.gif:
+    newFile: !uuid 'd524a79f21fdb04ac4eb631833416bdff99b6aea'
+    oldFile: !uuid 'e53fdfc28d2100a82e0852189c9fc1e8b38d628f'
+  /upload/static/image/seccode/gif/OCR_A_Extended/c.gif:
+    newFile: !uuid 'ec169df1bea9f7b619680f6fc36739978bd175df'
+    oldFile: !uuid '29d9a3440a348d9fdc953fa90e030a6a26fb10d8'
+  /upload/static/image/seccode/gif/OCR_A_Extended/e.gif:
+    newFile: !uuid '8e472f1f935195fa98d2042fb601397cbfe3cccd'
+    oldFile: !uuid '848624af833334156c5046b9064c73f4a159b51f'
+  /upload/static/image/seccode/gif/OCR_A_Extended/f.gif:
+    newFile: !uuid 'f4f40d511082752539d6c06c3113b69fd4f26704'
+    oldFile: !uuid '327df65b1270d95392bf7b08f7528c4c82095381'
+  /upload/static/image/seccode/gif/OCR_A_Extended/g.gif:
+    newFile: !uuid 'b9d85fa481f0cde4de16e851c89efd92fca83972'
+    oldFile: !uuid 'ec533c8ddc17c7b040ebea057d1bf04bd2f6c2d3'
+  /upload/static/image/seccode/gif/OCR_A_Extended/h.gif:
+    newFile: !uuid '90bebd5a50df14bb6b88a4c30d4fbfe9b6b43b2a'
+    oldFile: !uuid '453318888c7388e8aea6caf3637cc716623e373c'
+  /upload/static/image/seccode/gif/OCR_A_Extended/j.gif:
+    newFile: !uuid '7d84fddab368f18a44a59dabb268bf9fc0d756f2'
+    oldFile: !uuid '7846cf26cd8f37ff45421577f8ebcbd95e3b5c1c'
+  /upload/static/image/seccode/gif/OCR_A_Extended/k.gif:
+    newFile: !uuid '8498358ad58b6364f8e219d389adfd6b2d26f8f4'
+    oldFile: !uuid '2fb93558d67628e842a788241a847c76b23d4c9e'
+  /upload/static/image/seccode/gif/OCR_A_Extended/p.gif:
+    newFile: !uuid '98b0abe2162c742db22ccd4c5cb556f498023dd5'
+    oldFile: !uuid 'c542f0c1c3ed3af0a08ddaf68976e01a36fa1eb9'
+  /upload/static/image/seccode/gif/OCR_A_Extended/r.gif:
+    newFile: !uuid 'a6864e3521cabce289bfdd24ea02468f98b50813'
+    oldFile: !uuid 'a7fc7be748ebee4b49068612fc04ae4969534958'
+  /upload/static/image/seccode/gif/OCR_A_Extended/t.gif:
+    newFile: !uuid 'f60af1f66e719539938ebdb75e82e4580f22c1e1'
+    oldFile: !uuid '7f6358cd9bb93d2a8ec45225fb677856107c42ee'
+  /upload/static/image/seccode/gif/OCR_A_Extended/x.gif:
+    newFile: !uuid 'bb4eb7070e75767161f4ca279436c6d2b3cbccf5'
+    oldFile: !uuid 'da9c51f190b55cd7abe30f72ab3c4d2f763dac6b'
+  /upload/static/image/seccode/gif/OCR_A_Extended/y.gif:
+    newFile: !uuid '022836639cfaee5dcf319e421da077e4de2e93ca'
+    oldFile: !uuid '988eb41a9eb9b878fb9cea14a0f7e0de3c218f57'
+  /upload/static/image/seccode/gif/Small_Fonts:
+    newFile: !uuid '67580e7dea1fa4304591bf69eb4bb7f5b050943b'
+    oldFile: !uuid 'cf7b0ea13f7403ebbb334aab23c37cac89c169cd'
+  /upload/static/image/seccode/gif/Small_Fonts/2.gif:
+    newFile: !uuid 'd7f1461993e7f0d407ab46eb7c8dd290adfd45b9'
+    oldFile: !uuid '61d7901575fc03bb6fd420e735f0e82984d4be95'
+  /upload/static/image/seccode/gif/Small_Fonts/3.gif:
+    newFile: !uuid '8e072048967f41b6da32676d43be91ea6eab350b'
+    oldFile: !uuid '444a12e372d1a672fb4163045b000ecbfd588aed'
+  /upload/static/image/seccode/gif/Small_Fonts/4.gif:
+    newFile: !uuid '520cc487924e57b24d537ded9f2ee30ee4e47519'
+    oldFile: !uuid '411bdd023e15c0684842562a2b7e043ecad15ab8'
+  /upload/static/image/seccode/gif/Small_Fonts/6.gif:
+    newFile: !uuid 'da02caeffd3215103f06207eb2571d1ae15da599'
+    oldFile: !uuid '511ea448a46632f9413fe76e6eccbee2190b04c2'
+  /upload/static/image/seccode/gif/Small_Fonts/7.gif:
+    newFile: !uuid '1e526e832e5f3c2c689ddba21420a03f19558ce2'
+    oldFile: !uuid '52e8089829fddc4e8e9da7ed2ec2f14c6fa2b98b'
+  /upload/static/image/seccode/gif/Small_Fonts/8.gif:
+    newFile: !uuid '5ea9097ac14d97b01452285a450a34f7d6343757'
+    oldFile: !uuid '3764cbfc85c1bb67dda386b9515f777c654042f4'
+  /upload/static/image/seccode/gif/Small_Fonts/9.gif:
+    newFile: !uuid '1c49c46a24704753ef21fa0585bf9dda551d4b42'
+    oldFile: !uuid 'a3d9c33f2e7607ca6217f1c9f5c8b1384f59707c'
+  /upload/static/image/seccode/gif/Small_Fonts/b.gif:
+    newFile: !uuid 'e1d36bcfcea9c1d48990d1ab13cfa70f0466ce19'
+    oldFile: !uuid 'af04326a356bd280a4aa85bcc859808a8ef1f983'
+  /upload/static/image/seccode/gif/Small_Fonts/c.gif:
+    newFile: !uuid 'be7affa8c7d44de1277e5a39aba0062e8c6d8518'
+    oldFile: !uuid '023b8fe543daf26b5ffea8356b43d45c718d96a5'
+  /upload/static/image/seccode/gif/Small_Fonts/e.gif:
+    newFile: !uuid '765a9fdb74e5bcc836bc2419234438b60c2ecc0c'
+    oldFile: !uuid 'c29f20e04ea304792c617c436de2aab56f7a2309'
+  /upload/static/image/seccode/gif/Small_Fonts/f.gif:
+    newFile: !uuid 'c41208105f79da8b31d13a7f273fe77e73663b9e'
+    oldFile: !uuid '59d661b62e32eebb9bdeff6f6bde425fbb879ee0'
+  /upload/static/image/seccode/gif/Small_Fonts/g.gif:
+    newFile: !uuid 'aea4e478331d4d6996178e3afd012744c45454c3'
+    oldFile: !uuid '4f29a4db42e0a1ad1ac5fce96aa5f1977e68e5f3'
+  /upload/static/image/seccode/gif/Small_Fonts/h.gif:
+    newFile: !uuid '1ec341867d617272b6edac3854978222cc3fc450'
+    oldFile: !uuid '1f789f65885b67ee42edf7c61f885d913c478a7a'
+  /upload/static/image/seccode/gif/Small_Fonts/j.gif:
+    newFile: !uuid '8e7b95a921bd529c739b8a3fb8dacee17f4235d8'
+    oldFile: !uuid '279ce2e336f2754fe4b6241a7666ee7259aa0a9f'
+  /upload/static/image/seccode/gif/Small_Fonts/k.gif:
+    newFile: !uuid '2767d58a8f1eaf334d01dcd9ee3eab8f4db630a9'
+    oldFile: !uuid 'ae0ec33bba4de25cd816dcbc03e3bea1d2939d6a'
+  /upload/static/image/seccode/gif/Small_Fonts/m.gif:
+    newFile: !uuid 'cfa8405155442290e455522fc85f3cb71a7eda0c'
+    oldFile: !uuid '17ebbbb3606bac8e95418c3ea4faf36e41d65c20'
+  /upload/static/image/seccode/gif/Small_Fonts/p.gif:
+    newFile: !uuid '36e9095db0e188efc412a0912d2f4645edbe58a2'
+    oldFile: !uuid '8f459f3a3e454267325af0d7f597dffb8090663f'
+  /upload/static/image/seccode/gif/Small_Fonts/q.gif:
+    newFile: !uuid '8a4c573905832e27560aba29e49f2114e7bce382'
+    oldFile: !uuid 'c768bc78ff8160390b5e6813ad81896c5ee90024'
+  /upload/static/image/seccode/gif/Small_Fonts/r.gif:
+    newFile: !uuid 'adce0b34c50be0375dd670335f312b44670a2e52'
+    oldFile: !uuid 'c71b0cd7890b623aea20db3620edb1155d2756ae'
+  /upload/static/image/seccode/gif/Small_Fonts/t.gif:
+    newFile: !uuid '8219b22fcc3613182792aedece8d741bd5e13325'
+    oldFile: !uuid '66dc8cad2e193d23ee3405c0e90be85788ffa5f0'
+  /upload/static/image/seccode/gif/Small_Fonts/v.gif:
+    newFile: !uuid 'a77d330adeadf9414db9ad4c1ef4854dca6c696f'
+    oldFile: !uuid 'ff37e16d0673189adb24598e0d5f9b238c983cc8'
+  /upload/static/image/seccode/gif/Small_Fonts/w.gif:
+    newFile: !uuid 'eb1d201dcc86518e0b809d2cd038fe3a0de09ac4'
+    oldFile: !uuid '46f6a3c5e71d328f6f12e6a18d78dc1ec9e159dc'
+  /upload/static/image/seccode/gif/Small_Fonts/y.gif:
+    newFile: !uuid '85c0efcc5701528cf52225a6263703c34ac75807'
+    oldFile: !uuid 'ae0bc240c8a3628fb26cbf809f3ce839eff86ec1'
+  /upload/static/image/smiley:
+    newFile: !uuid 'a9339895ceb5ca5d8019cd77e607f6fcf9fe1874'
+    oldFile: !uuid '95214a755e5b035b08424ef086f1b2eb5941ac0f'
+  /upload/static/image/smiley/comcom:
+    newFile: !uuid '3a7cd358aa73f1e9506140d98310e41e3abb9f95'
+    oldFile: !uuid '6d51202fe9ee698570411fd79975f3efe135e959'
+  /upload/static/image/smiley/comcom/13.gif:
+    newFile: !uuid '443a3d046489aaf6714b44d57b060a6e4ee1b425'
+    oldFile: !uuid '559a5dea39be3cb05805e9aeba78c4f203b625f9'
+  /upload/static/image/smiley/comcom/14.gif:
+    newFile: !uuid '3a601a83b92a329488df12323f3f72a61e59ac87'
+    oldFile: !uuid 'ea1c8eb862797525f78d6516373dbd2f6b18c78a'
+  /upload/static/image/smiley/comcom/18.gif:
+    newFile: !uuid 'ede246aa1c7e012a32810373c4116a595c932b16'
+    oldFile: !uuid '462bb794a03069e813493dac549b3e5359922245'
+  /upload/static/image/smiley/comcom/25.gif:
+    newFile: !uuid '00aa9ceddf79a84d4ce69afc3afeed9a450ece88'
+    oldFile: !uuid 'da43095ee1abed122a970bab39736038dff7ba03'
+  /upload/static/image/smiley/default:
+    newFile: !uuid '507d2163d251f22e232034b04b2511011882fd67'
+    oldFile: !uuid 'bdf1c0d1aa648b4dffa6703b36d7b0242697d03e'
+  /upload/static/image/smiley/default/call.gif:
+    newFile: !uuid '8a51247c7b50b4c75f9331f21bf9376d9052d2f8'
+    oldFile: !uuid '343b2a9e9cf38974c5fc987dab16a8593e87790e'
+  /upload/static/image/smiley/default/funk.gif:
+    newFile: !uuid '2008ddede8a9286f9fd48aa8115476317d806f1d'
+    oldFile: !uuid '4cf4304b7819a4e7fbf6db4d158aabde14c4072a'
+  /upload/static/image/smiley/default/handshake.gif:
+    newFile: !uuid '7d298c35b95feaec3fc0d117e2a7ded7a3e3edef'
+    oldFile: !uuid '877cea834bee4efb04d16be52b02510ef8f434ff'
+  /upload/static/image/smiley/default/hug.gif:
+    newFile: !uuid '6c4f132b4eeb199e0aba5a1446af3348ab1af53d'
+    oldFile: !uuid 'ae5e2a1cc5f8e9d680b53a59f1b209142149baec'
+  /upload/static/image/smiley/default/kiss.gif:
+    newFile: !uuid '3a2bff5de24525a361a03880f31b6e756d24c170'
+    oldFile: !uuid 'd9fc3f9cb95f4c9fa8df11a2d7bb3adc0a3b2f01'
+  /upload/static/image/smiley/default/loveliness.gif:
+    newFile: !uuid '3eda2aef99e8c3b8c5adc98edfc5c00d7f62da8a'
+    oldFile: !uuid '3a6eb4382041648d63864961304c0ad51cd0adac'
+  /upload/static/image/smiley/default/mad.gif:
+    newFile: !uuid '286d4868af6c96b8f07886f81b6bee8f43786d47'
+    oldFile: !uuid '19493451319f67dfb2cb18209dacbc06c3f08f9a'
+  /upload/static/image/smiley/default/sleepy.gif:
+    newFile: !uuid '6f15b455e9e288d190094b39b4aadf1450f938ac'
+    oldFile: !uuid '1ea3cc99d7e8f63d947cef7b4bd4d2580dc571cc'
+  /upload/static/image/smiley/default/tongue.gif:
+    newFile: !uuid '674bbd7dbcf63243896d26b54204713afcf500c1'
+    oldFile: !uuid '8b3d68f05e87106abc90721c0ead9010a4ea66cd'
+  /upload/static/image/stamp:
+    newFile: !uuid '703610ee15ed9d5565b4eef448e22779c05238ef'
+    oldFile: !uuid 'b9f16cefc5f68db1c2e8dae897dbe36c1db5ffcf'
+  /upload/static/image/stamp/001.small.gif:
+    newFile: !uuid '803e5262a32f7c4b0ea2a01ee98964f4adea5e29'
+    oldFile: !uuid '0d378896090598a4f2ae8f8ae212ed760b9a3665'
+  /upload/static/image/stamp/002.small.gif:
+    newFile: !uuid 'aab641e26a1d54da2a363704bad5bd56ce8f6f88'
+    oldFile: !uuid '929e41909826d410adcbdacb88382681f54cc883'
+  /upload/static/image/stamp/003.small.gif:
+    newFile: !uuid 'd974b75ed1b189067e26f611c29e75119d32d5f8'
+    oldFile: !uuid 'd49b63adef7d6dda9c43ee703965b55394f43218'
+  /upload/static/image/stamp/004.small.gif:
+    newFile: !uuid 'd820f7dd26beaa6bb7ac6331c78f02d421ccac67'
+    oldFile: !uuid '5d7af5c822a8ea96fe786e06f128b696977df595'
+  /upload/static/image/stamp/005.small.gif:
+    newFile: !uuid '939c1e2520fef63da6c293fe400634b4278d7664'
+    oldFile: !uuid '05d7c3941f36104ef7bd1019094a999008301717'
+  /upload/static/image/stamp/006.small.gif:
+    newFile: !uuid 'e65133068fe808f2fce4e28d2dbef51405924c09'
+    oldFile: !uuid '21cb257aa5c6c4c2acf716dfa065cfe5dd7b4890'
+  /upload/static/image/stamp/007.small.gif:
+    newFile: !uuid 'd0eb03de0990af1229c86ac66d4985e358ad2dac'
+    oldFile: !uuid 'fdc6aceaadb2d0d20e36c91e802dcaa05e5fe763'
+  /upload/static/image/stamp/008.small.gif:
+    newFile: !uuid '31718e9806e9447730a3220fef7311ff2639f971'
+    oldFile: !uuid '4e19e0c45750b8029a1f09631876c42495c8e927'
+  /upload/static/image/stamp/009.small.gif:
+    newFile: !uuid '932ea18876b19d88bf4891ad5b67e2621cd4f60c'
+    oldFile: !uuid '3cf76b944d22e9e24d25f0908b6e97214fe04b96'
+  /upload/static/image/stamp/010.gif:
+    newFile: !uuid '3470696187e23b3db1fdba389ba61838d70a329e'
+    oldFile: !uuid '382b5daffee66432969388ab3e09259f944bca13'
+  /upload/static/image/stamp/010.small.gif:
+    newFile: !uuid 'f00d8d653834245cc893edc590b77ab456355e36'
+    oldFile: !uuid '9061447731bd8e3432c75713c2c95aebeb17b9f1'
+  /upload/static/image/stamp/011.small.gif:
+    newFile: !uuid 'b43cf516f22535ef35c9afa92be90f0a4d851bd9'
+    oldFile: !uuid '51d746f547fc08e19ce16ed06f894bb2daf0135d'
+  /upload/static/image/stat:
+    newFile: !uuid '7723b90ea3435fb68bd3f78ce4746f9d4139722a'
+    oldFile: !uuid '38cab922802d12416d57a97af0813d2c8cd97936'
+  /upload/static/image/stat/comments.gif:
+    newFile: !uuid '0fe1a7715df1e114496fb343c9cab6a5b4322497'
+    oldFile: !uuid 'd65c2670c7fc4c7ae3d495c0a6ddaff7a93b05d0'
+  /upload/static/image/stat/firefox.gif:
+    newFile: !uuid 'dce358a1de6d0376f74e046ca66048d87e848539'
+    oldFile: !uuid '90a0d5dc44416de6173e6caf0fdca8d6e4cfb039'
+  /upload/static/image/stat/mozilla.gif:
+    newFile: !uuid 'e55293eaed284bdbdb198cbfc061527f0e494e58'
+    oldFile: !uuid 'f671ca10da3e3f6802d02d5aa3bc54ff6f3b2437'
+  /upload/static/image/stat/msie.gif:
+    newFile: !uuid '12036f1ade279e9a4b2917c7260ecddd8ca3a2ea'
+    oldFile: !uuid '70d1bf91cc8c2be44041ced880ed6ab01cca1842'
+  /upload/static/image/stat/safari.gif:
+    newFile: !uuid '909b120503e996d5532917b96193b109fe1acd41'
+    oldFile: !uuid '3afd13810d5890bb9e388517dcf86fc665c8123a'
+  /upload/static/image/stat/sunos.gif:
+    newFile: !uuid '7cdb9aba1580e7171aab9097eefc63fbd2863b0d'
+    oldFile: !uuid '16fb05c97af2f9dc02f0d49274310c18dd849245'
+  /upload/static/image/task:
+    newFile: !uuid '6dd5be32b062c3bf783a37599919cc20d1067e36'
+    oldFile: !uuid '02fc037d304991180e63c8eaa5497d496b0c51dd'
+  /upload/static/image/task/avatar.gif:
+    newFile: !uuid 'd3e56649b7a7bd098ae443c0c4f19838d72a4ac7'
+    oldFile: !uuid 'cb8d7fd6b3b09fcb9a07bac247412b1f147f21c5'
+  /upload/static/image/task/blog.gif:
+    newFile: !uuid '46f3d5faf9b3a81a49c6e2cd7c7b0fb89ec566fe'
+    oldFile: !uuid '738e2b296a6fdbbc8ce46a0a2602559c70c70655'
+  /upload/static/image/task/cancel.gif:
+    newFile: !uuid 'c35c299feb0a1e3879b2bb46083cc8b9403317b4'
+    oldFile: !uuid 'fdc14bdab476e89787e8e7309acbfd5cef57439f'
+  /upload/static/image/task/email.gif:
+    newFile: !uuid '138676af32d6b7dfd0b73409660341aee268f623'
+    oldFile: !uuid '33f93cb3760d4ae859c8214995dfa32028059c01'
+  /upload/static/image/task/friend.gif:
+    newFile: !uuid 'e927404ca073d50f0ccfbf4181b9091fd0211c38'
+    oldFile: !uuid '6458baf6060f68de5ec0f0c0c66b390c89db32c6'
+  /upload/static/image/task/gift.gif:
+    newFile: !uuid 'fdd7848876051625ae0593d2be49521d960855f3'
+    oldFile: !uuid '6c3953b403cb3aa1af6959970fa0a081d90c1aeb'
+  /upload/static/image/task/gold.gif:
+    newFile: !uuid 'c6a6cf13de3c6a65dc23010483ebd06f50e0f35d'
+    oldFile: !uuid 'f196a533e91cf25f0326b0b2403784754f732744'
+  /upload/static/image/task/profile.gif:
+    newFile: !uuid '1fa2ddce2a7bcb276d3140190354937c0fd006a6'
+    oldFile: !uuid '904a07eaf872ad340794c8473c17b475419995c1'
+  /upload/static/image/task/task.gif:
+    newFile: !uuid '2099a27f890e0f39ee8f71b2a29e3be8be010396'
+    oldFile: !uuid 'be026c020926d906f1f1efdecd2cd309704f7249'
+  /upload/static/image/traderank:
+    newFile: !uuid '79f336dce84ec10e45ecbdd1438428ec7e15e0c9'
+    oldFile: !uuid '721a18331e1f60174c2fde97bc9c9bbcff04a1b0'
+  /upload/static/image/traderank/buyer:
+    newFile: !uuid 'c0248a2759447601bbf03f3e9d8cf8ec729276a1'
+    oldFile: !uuid 'aedd131de8f8506d8eb5089f1a8f77be0917109f'
+  /upload/static/image/traderank/buyer/1.gif:
+    newFile: !uuid 'bb8a7c8e0f8c7dac2e9171e49af12bd5d02a2c59'
+    oldFile: !uuid 'c77abcdd48f3d46d81f4b43ef8f0838446ea7bc9'
+  /upload/static/image/traderank/buyer/2.gif:
+    newFile: !uuid '390c01b4c4938a52813d507baf12e3bd6e299742'
+    oldFile: !uuid '45a5d9209be84062f8f246ed66c1e063c801279a'
+  /upload/static/image/traderank/buyer/3.gif:
+    newFile: !uuid '4642306ae7703f4bee817ebd38f9f4dbc9e2e640'
+    oldFile: !uuid '91092252aa1dbd5471cc10b1d5951f14517f9ce9'
+  /upload/static/image/traderank/buyer/4.gif:
+    newFile: !uuid '2f893b02da8bd0594e125c823af04f6b1279f316'
+    oldFile: !uuid '6597a792b4ab93c7c296b350211daf5a60a5d3b1'
+  /upload/static/image/traderank/buyer/5.gif:
+    newFile: !uuid 'f86a4ff6889445c9a1bfe80f42f1ca43c2eda42c'
+    oldFile: !uuid '6f9cb1c67a33833bea54ff206d53477da5bbbaf8'
+  /upload/static/image/traderank/seller:
+    newFile: !uuid '761ceb5c50c23fa6842166965277d1b191126713'
+    oldFile: !uuid '339afc9c1a919d7b7e4db705ef0d3ca29820428c'
+  /upload/static/image/traderank/seller/10.gif:
+    newFile: !uuid '67e0c19f3efdafd247f00db8a662a05050ad23e7'
+    oldFile: !uuid '4930bf7ac1fc40e465376a24f2e4ed75982297df'
+  /upload/static/image/traderank/seller/7.gif:
+    newFile: !uuid 'c1cbbda781ab7c395f85e03c6dce888617ffe035'
+    oldFile: !uuid '812fa3ab8f1675cf2ae3138e9663b5faae6f459b'
+  /upload/static/image/traderank/seller/8.gif:
+    newFile: !uuid 'e2364eea85f71bc7ae49bcdf5d6e89444a2f1d7c'
+    oldFile: !uuid '136f3cc42c1fb56b73b31e1c04ed6c7fea042404'
+  /upload/static/image/traderank/seller/9.gif:
+    newFile: !uuid 'e93edebd2afe110f5f1c56aa858da3c28f613216'
+    oldFile: !uuid 'fa3774bd58d2a93ac20b805652ea585b0a0acc69'
+  /upload/static/image/upgrade:
+    newFile: !uuid '091d4711ffcab81659aa5134deb87944f67a0f3b'
+    oldFile: !uuid 'ecfcd07fe52d585a6ef36bec3c4b6345949d3576'
+  /upload/static/image/upgrade/bg_footer.gif:
+    newFile: !uuid 'a0eee26b3a0b17b6b82c1021d0f96599d98d8402'
+    oldFile: !uuid 'a0ea31c8f3760430e12f407231222df1b41b3c27'
+  /upload/static/image/upgrade/bg_repx.gif:
+    newFile: !uuid '4f89fb98af921abd5aec095240807cec89f35655'
+    oldFile: !uuid 'ed6d22d3e27cbb6250d618bf28b7538d6b1f6296'
+  /upload/static/space:
+    newFile: !uuid '464b3343a9729b524141a18706de8d6febeca68c'
+    oldFile: !uuid '0bf91413240b2fe24879cd16b7be17d85611eba6'
+  /upload/static/space/t1:
+    newFile: !uuid 'ed74c534cd1de82a80a73d81bdfa9a612494c9fe'
+    oldFile: !uuid '1fa1517e05941d1dd7ce78fe5b93b9b2e10c93dd'
+  /upload/static/space/t1/images:
+    newFile: !uuid '57fdd261262ce41d5d6dd9029465199b87251882'
+    oldFile: !uuid '234be58a74242321188b6cb2f0c7ea28b4c98f7b'
+  /upload/static/space/t1/images/title.png:
+    newFile: !uuid 'ffa197683fc818214deefe24f4fea6273ac9a748'
+    oldFile: !uuid '5a6d39ba99b85140a6e9a925f0168d6f215cf96e'
+  /upload/static/space/t1/preview.jpg:
+    newFile: !uuid '76a1a9eed11ea262c330e9908bb5728f2735a16e'
+    oldFile: !uuid 'ca1cf7d533820d9ac3ba6c3efa4cba5c8008c221'
+  /upload/static/space/t2:
+    newFile: !uuid '5758d47534ad0e4a15b6ea3bff17f6bb56129aee'
+    oldFile: !uuid '7c4ef97db90788ffb15201ba7a3022a3ed63cae8'
+  /upload/static/space/t2/images:
+    newFile: !uuid 'e0b9e39da139963199c9d4d3eeedd3f3356147ba'
+    oldFile: !uuid '688b1f20ca17e187f1d6e57495dbe7ff2244445d'
+  /upload/static/space/t2/images/body_bg.png:
+    newFile: !uuid '628ee1d040c3b2b46e9da112e72ccd8a303ff9f4'
+    oldFile: !uuid '587475b7b2b99ecde52b7d17dd02c547c35aedd8'
+  /upload/static/space/t2/images/ct-bottom.png:
+    newFile: !uuid '480dd23f88db8750a8dfbcadde189603f59aa8c6'
+    oldFile: !uuid '469e1a12b8b28291b5177a2ef72115cf7a48f3c8'
+  /upload/static/space/t2/images/ct-top.png:
+    newFile: !uuid '1fc9ffd71d3c6aac19eb1d26cfcb992cb2f591bb'
+    oldFile: !uuid '93fb6dbf00c872fbddda129dc64f3e93e9f2e66f'
+  /upload/static/space/t2/images/header.png:
+    newFile: !uuid 'e34ef852b834c6b440ca9982cc12034e29577d29'
+    oldFile: !uuid '94d08458a8b62c4e7a35c6683682cde91948abb2'
+  /upload/static/space/t2/images/title.png:
+    newFile: !uuid '5b481b04a15c79de407895d2dbf4bf577fb04ad6'
+    oldFile: !uuid 'db2ea46ee74d37bcae4913617671d8d4cb47d988'
+  /upload/static/space/t2/preview.jpg:
+    newFile: !uuid 'ae4494f887ee6cd72340da021442c0dd6198c363'
+    oldFile: !uuid '5559fcd5ab08add7df6ed18cebfc843126cebfae'
+  /upload/static/space/t3:
+    newFile: !uuid '3fb29daff6ab9ba6d0f73ae30c6cd57b7a555c42'
+    oldFile: !uuid 'b57ab836c7539d7e77a0b37e6c4ad4c7e097c1f7'
+  /upload/static/space/t3/images:
+    newFile: !uuid '889c0b70d6eb5369f071652f6df93a3e83a0f968'
+    oldFile: !uuid 'a822875d80f9f6c94c486568ab1f866168028ed1'
+  /upload/static/space/t3/images/body_bg.png:
+    newFile: !uuid '4bb298dab9cf1a869dbc9de7356b2c03e1b10320'
+    oldFile: !uuid '66193e635695a6edc790c170ba1f9ea069a1227c'
+  /upload/static/space/t3/images/ct-bottom.png:
+    newFile: !uuid 'bc5178118601dc85aeac956736b600ee1cf601b4'
+    oldFile: !uuid 'c82b3474e799729d7f6c3d342e2a710cbe1b46b8'
+  /upload/static/space/t3/images/ct-top.png:
+    newFile: !uuid 'ca403963dec3fee22f1433a122ac6c27b332ea94'
+    oldFile: !uuid 'c420ecebc19a84e7b0dbfdf11237846d43c39206'
+  /upload/static/space/t3/preview.jpg:
+    newFile: !uuid '152a1836a3b03f8abae926459274095e5d20dd2d'
+    oldFile: !uuid 'c4efa9113feea8ca7531c88fe495f3f740dc2f2e'
+  /upload/static/space/t4:
+    newFile: !uuid '0d7e601586b8bcca2c6ac5795d5c5442bf1338dc'
+    oldFile: !uuid '0f627ea38fb6383de1b7b339b9749c2857ecc977'
+  /upload/static/space/t4/images:
+    newFile: !uuid 'fb80318f9d3aa48738b051eca5fc49da281c3324'
+    oldFile: !uuid 'f229eaa3b8bbd984aa15d574ae46f597e6b15cb3'
+  /upload/static/space/t4/images/bg.png:
+    newFile: !uuid '0362cb32d67f7a418954de029b1d3bcf304bdf63'
+    oldFile: !uuid '530a641186ce5c7ec1c7c6b60c2087414df556ea'
+  /upload/static/space/t4/images/header.png:
+    newFile: !uuid '9172365306daaa4a58a7f85818c32119f723438f'
+    oldFile: !uuid 'fa0cac2ca1db0547d27a5dd5f9955cd54bfdccd7'
+  /upload/static/space/t4/preview.jpg:
+    newFile: !uuid '924d7b0ca96833b5ae560fe612f71ea04e6066b9'
+    oldFile: !uuid '41ab69930c870099e2cbcda6cb0ab9a73bf6841a'
+  /upload/static/space/t5:
+    newFile: !uuid '001bbeaae9efd05b00bf57e7af1e835850a3f4f3'
+    oldFile: !uuid 'c8d98e555ca305d03ffdb4221acb84b3f6bcc394'
+  /upload/static/space/t5/images:
+    newFile: !uuid 'fd0906d91829c299c562301365a41b4355e83e8b'
+    oldFile: !uuid 'ffb8baea3991f3e9b9033b00628055ba62ad151d'
+  /upload/static/space/t5/images/bg.png:
+    newFile: !uuid 'b0a57f9ff2c0246ef7684c1a6fcc37b85c352a2d'
+    oldFile: !uuid 'dec661716bdde136a35e7feb5576d77266c862a8'
+  /upload/static/space/t5/preview.jpg:
+    newFile: !uuid 'ecbc77cba8bb7d84d0571ee0f2ad1bd28546babe'
+    oldFile: !uuid 'e703c5c04e2d3ed8775f679772501d945f76856f'
+  /upload/static/space/t6:
+    newFile: !uuid '295ae505900a285ee21a3bd1e7ee3f7c8295de88'
+    oldFile: !uuid '8a9be0e2c3fc0edbb41e2eb5a7e7bd3f51cfed56'
+  /upload/static/space/t6/images:
+    newFile: !uuid '398f32fa637abed512beee5f2d903dd57c05e2ff'
+    oldFile: !uuid '88fd6f7a98ae99b9676629609c7db118daf5dfa9'
+  /upload/static/space/t6/images/bg.png:
+    newFile: !uuid 'ebdcb0606694342af0a5f164a3c8e421beb87403'
+    oldFile: !uuid '11826f565db28b42e2451169a7853c76267f6785'
+  /upload/static/space/t6/images/ct-top.png:
+    newFile: !uuid 'fa5e30e0a69001f7c0e799c5fd1a285d754f4765'
+    oldFile: !uuid '2891858c1ae070e7714dbb726721895ef7b0c9f3'
+  /upload/static/space/t6/images/footer.png:
+    newFile: !uuid '9f58860a0530762b509352d65c052ccc322216a8'
+    oldFile: !uuid '101c5891924a62eb86087c299da91c2dfe5744c0'
+  /upload/static/space/t6/preview.jpg:
+    newFile: !uuid '6f5e5be7734b8af2594c7e454ffc6e4e51107dd9'
+    oldFile: !uuid '3fb128ef9c68a28adafab3af375654a876185538'
+  /upload/static/space/t7:
+    newFile: !uuid 'f9ddc2ce228c5acc97f13acdbfe0c469d2d18f97'
+    oldFile: !uuid 'effe7464dd8b7ad3982070b07294678897e8dd13'
+  /upload/static/space/t7/images:
+    newFile: !uuid 'b8b90c5a67ec895305a67ad57270e17216342e5d'
+    oldFile: !uuid '0c2d5d7321ec6ca3da6d713a5a420e2c95311638'
+  /upload/static/space/t7/images/bg.png:
+    newFile: !uuid '226272f673142f44ee5bbb3ed9a0c7a6fb06661d'
+    oldFile: !uuid '3804fd810a8786fccbdb27d91484602410c41df5'
+  /upload/static/space/t7/images/ct.png:
+    newFile: !uuid '405acc06bfadf007e95348e069290393c93feb05'
+    oldFile: !uuid 'd702f8e3c273171b888fdfbd090d14dff04c5272'
+  /upload/static/space/t7/images/header.png:
+    newFile: !uuid 'bfdc30a1e3283d08371a10b6a1993175999fdd77'
+    oldFile: !uuid '664f815687fafd382e5678756cc93069b694ccf8'
+  /upload/static/space/t7/images/title.png:
+    newFile: !uuid '2aeeeeecc7665c4ea5ed1af9c9ed8cefbf94812e'
+    oldFile: !uuid '6abb10fdd1c0f0866d038496f6f1381236d4f72b'
+  /upload/static/space/t7/preview.jpg:
+    newFile: !uuid '5826893c65a3cf1c9a17cc3cb475ab861568a0bf'
+    oldFile: !uuid '7e78b493191aa85a90789393ecbd3cc1a85bacd4'
+  /upload/static/space/t8:
+    newFile: !uuid 'c9b6e155079518fac9e0d46124918041487884cb'
+    oldFile: !uuid '5bb00ada2cb391a77e5da064416496aa137768fe'
+  /upload/static/space/t8/images:
+    newFile: !uuid '6fea3eb04817426c3ec7e90b85c18eafe5791e1c'
+    oldFile: !uuid 'a774014a2f62a9579a21bb960c806a8f7fcc1018'
+  /upload/static/space/t8/images/bg.png:
+    newFile: !uuid '396bef2a05dffde6be7f8c4ab0e73eb550cf44fc'
+    oldFile: !uuid '362f27b68dc27df2f7cdb5549eabd9a8bd100e40'
+  /upload/static/space/t8/images/ct-top.png:
+    newFile: !uuid 'fa5c21aa936d0e4e5ac4047dfeedf07a5e4e4f36'
+    oldFile: !uuid '3076fcc1b01f3e93dff65576f2a69dffd1ebe2be'
+  /upload/static/space/t8/images/footer.png:
+    newFile: !uuid '65022c9e28382bebd40745d454f930371f2d990a'
+    oldFile: !uuid '0d0bd7bd9ab3b2dfd442adfcefa03fc58a30b6a0'
+  /upload/static/space/t8/preview.jpg:
+    newFile: !uuid '25964d221d097c519a17d809dd79bfe56a49507a'
+    oldFile: !uuid '5ec54102df3ba308d672d49a4c42d7a5cb2c9617'
+  /upload/static/topic:
+    newFile: !uuid '3780129ab0a59153caacb8416673ecb3903850c9'
+    oldFile: !uuid 'e7a49aa128099336b8d7fcc8ef011d6aeeb025e7'
+  /upload/static/topic/t1:
+    newFile: !uuid 'd5bb9a4ec94b921c4af2315c68727e481c58cd10'
+    oldFile: !uuid 'd5b712daec01461fafa6ed33b65dd92e10fff38f'
+  /upload/static/topic/t1/images:
+    newFile: !uuid '32d58f36f1d8f71d47712b63cec8cff8e0e34b6a'
+    oldFile: !uuid '9b6ed5b09374a5584c3f090a2291f4038b42e51e'
+  /upload/static/topic/t1/images/blue:
+    newFile: !uuid 'e339922d146230e3b8dbd4d5f68927b2ddfcf3f6'
+    oldFile: !uuid '5bb9d71cc783dae97ce5e33aa94d1799c87fb9b9'
+  /upload/static/topic/t1/images/blue/btn.png:
+    newFile: !uuid '9bfb555a720dfc8f82db06a0dc7b247e6cfb26a3'
+    oldFile: !uuid 'b727a268cc8a75892a9cd325470abb7e526fe7ba'
+  /upload/static/topic/t1/images/blue/dot_1.png:
+    newFile: !uuid '1a136487e328e0117ba7d24ba51631456c903f7b'
+    oldFile: !uuid 'a77d1336851f919d3417f4183bfaeba2b56ce7c3'
+  /upload/static/topic/t1/images/blue/dot_2.png:
+    newFile: !uuid '41d290ceffd50c7c2c1ba23e4e458d898cc18460'
+    oldFile: !uuid '411a13710c10335177a45b06e98463202ab31720'
+  /upload/static/topic/t1/images/blue/dot_3.png:
+    newFile: !uuid '8eb6cbb715a7bb6aaf95fc714e61971d34b1bae7'
+    oldFile: !uuid 'b5531a4a0f21e79ece839c8e6e50006444c08509'
+  /upload/static/topic/t1/images/blue/dot_4.png:
+    newFile: !uuid 'b625ca58e51b382ee46dbbde102b9d095d42e333'
+    oldFile: !uuid 'a1d07decbc673abf7ec452d17fe20e840369d62b'
+  /upload/static/topic/t1/images/blue/nav.png:
+    newFile: !uuid '2af9aa27010bdb0a06b0e769d014b5be74141cf8'
+    oldFile: !uuid '9862cb2c0e7e8371ed5608fa23773f3a65e002fb'
+  /upload/static/topic/t1/images/blue/title_1.png:
+    newFile: !uuid '9571516ff076b1a93185a212dc4c2ceed19dd364'
+    oldFile: !uuid '99e4273e31e00b0aea1e0037c251250ce7625d79'
+  /upload/static/topic/t1/images/blue/title_5.png:
+    newFile: !uuid '4852fd2bcbe5ef80701d10dfcf3f9d8f712e365f'
+    oldFile: !uuid '20ab5cbe97f8298513efc296bd72d3a8b8607ef0'
+  /upload/static/topic/t1/images/blue/title_6.png:
+    newFile: !uuid 'd5229e29e916897d009b8c63ba3a241c23b713a5'
+    oldFile: !uuid '0737f50f65835e6ac34aa985807e5db5902d9bf2'
+  /upload/static/topic/t1/images/green:
+    newFile: !uuid 'a831245046081d2996e8d500aeaef08cf9cef562'
+    oldFile: !uuid '5085a3b602bd580f00720a925590cac8f321d35a'
+  /upload/static/topic/t1/images/green/btn.png:
+    newFile: !uuid '4697751acb33e399ea8985426f6a41797a5974a5'
+    oldFile: !uuid '302c2f4a159ae33611ba4b4894109c480df2217f'
+  /upload/static/topic/t1/images/green/dot_1.png:
+    newFile: !uuid '3772f0051b697a8db60f3feb18dc0d101794e2d9'
+    oldFile: !uuid 'de4fab4bdf147d97f1503960261aafaed54a3b8a'
+  /upload/static/topic/t1/images/green/dot_2.png:
+    newFile: !uuid '41d290ceffd50c7c2c1ba23e4e458d898cc18460'
+    oldFile: !uuid '411a13710c10335177a45b06e98463202ab31720'
+  /upload/static/topic/t1/images/green/dot_3.png:
+    newFile: !uuid '8eb6cbb715a7bb6aaf95fc714e61971d34b1bae7'
+    oldFile: !uuid 'b5531a4a0f21e79ece839c8e6e50006444c08509'
+  /upload/static/topic/t1/images/green/dot_4.png:
+    newFile: !uuid '56a9716506d9463453fb4d880464e17dfa0096c6'
+    oldFile: !uuid '3baf29a1b610bcb7d54a8b055e3be66941d65399'
+  /upload/static/topic/t1/images/green/dot_5.png:
+    newFile: !uuid '4ddad3b55f2cb865000d5bc5cbe52247c55d24b1'
+    oldFile: !uuid 'a0840476946bb26ece08e57e1f22b811875ca263'
+  /upload/static/topic/t1/images/green/nav.png:
+    newFile: !uuid '15f576306beff91fb00fc2f5ddd0de92a45a5f2c'
+    oldFile: !uuid '77c15bb2364d0904ec38ff6ab7e959566e89cfaf'
+  /upload/static/topic/t1/images/green/title_1.png:
+    newFile: !uuid 'e59267f71d81c0dfe228236ecaa018d28674cc77'
+    oldFile: !uuid '80bd69e0f1dc66c64316361fbc516b5ce15b7d38'
+  /upload/static/topic/t1/images/green/title_5.png:
+    newFile: !uuid '16125ab463aa08141d51a6492253badfcee6aba2'
+    oldFile: !uuid 'a16827fdd16f7efdebe51896ef6e9e44ceccad22'
+  /upload/static/topic/t1/images/green/title_6.png:
+    newFile: !uuid '8c5e79f2cfcafe3eae41c2d3e5c62dfab3647994'
+    oldFile: !uuid '8bc636bd2b177dd96e334acf994357680604385a'
+  /upload/static/topic/t1/images/grey:
+    newFile: !uuid '0e16dff3f5e2ed88659cd650b37693e6de289882'
+    oldFile: !uuid 'c3727dcbfe60528f1bc7fa6d31566e1933b6c0b2'
+  /upload/static/topic/t1/images/grey/btn.png:
+    newFile: !uuid '47d7115c93a324eb12891968d2e29d89c53ebffa'
+    oldFile: !uuid 'a7f2e7a395a1114969ee9cf8c20578d0a9a4bc7e'
+  /upload/static/topic/t1/images/grey/dot_1.png:
+    newFile: !uuid '37b9d4de13d3955f3cf42decb47698e82f92d756'
+    oldFile: !uuid '5681e0459580955332761fe35144ccd2d09940ed'
+  /upload/static/topic/t1/images/grey/dot_2.png:
+    newFile: !uuid '41d290ceffd50c7c2c1ba23e4e458d898cc18460'
+    oldFile: !uuid '411a13710c10335177a45b06e98463202ab31720'
+  /upload/static/topic/t1/images/grey/dot_3.png:
+    newFile: !uuid '23165bbe046d0dda2d9e86069fc6201fb5664424'
+    oldFile: !uuid '9adcae2f08b99ef36c1855a53f955ee76c94b6b7'
+  /upload/static/topic/t1/images/grey/dot_4.png:
+    newFile: !uuid '0bcb3506d8522f95f831f976b120fa1f21d9971c'
+    oldFile: !uuid '538b344b9f55d54c070c1898466e891b72829a55'
+  /upload/static/topic/t1/images/grey/nav.png:
+    newFile: !uuid '8db10a67d12bdf05ff704cff0820e79ed82e4d68'
+    oldFile: !uuid '39b519a3b87d6850667f60ef468aa11e9b430dc6'
+  /upload/static/topic/t1/images/grey/title_1.png:
+    newFile: !uuid '2d169cf4d4911f70bd1874187ded505eca87d69a'
+    oldFile: !uuid 'd42151572524e915ff2530464295908ffd740868'
+  /upload/static/topic/t1/images/grey/title_5.png:
+    newFile: !uuid '0ac51d7b64f1839b00fa44394716afe2917e9529'
+    oldFile: !uuid 'c7ac9063a9e99c804df1c69701b060a5faec8b06'
+  /upload/static/topic/t1/images/grey/title_6.png:
+    newFile: !uuid 'd5229e29e916897d009b8c63ba3a241c23b713a5'
+    oldFile: !uuid '0737f50f65835e6ac34aa985807e5db5902d9bf2'
+  /upload/static/topic/t1/images/red:
+    newFile: !uuid '002f65b5c6f9ef847457693c3e64922f4db52fe9'
+    oldFile: !uuid '024c243cbfd7ff316b7dc0df84a6ac1fac9443f8'
+  /upload/static/topic/t1/images/red/body.jpg:
+    newFile: !uuid 'b53cf409797efaaf469e318e6ac9accd38dd0440'
+    oldFile: !uuid '0e9288a734df36667a8ac15be2067e6040e2338c'
+  /upload/static/topic/t1/images/red/btn.png:
+    newFile: !uuid '6755f702192c1efbb8101db53d1cd06f956926bb'
+    oldFile: !uuid '64a6cded63b9afed31d2634c0f7568b8cb104b8c'
+  /upload/static/topic/t1/images/red/dot_1.png:
+    newFile: !uuid '720a2d378ed3dfd9775c8495e726693a96acedd7'
+    oldFile: !uuid '343d1ddd28ce5960180ca0c0b2f8e65a1d1c33bb'
+  /upload/static/topic/t1/images/red/dot_2.png:
+    newFile: !uuid '41d290ceffd50c7c2c1ba23e4e458d898cc18460'
+    oldFile: !uuid '411a13710c10335177a45b06e98463202ab31720'
+  /upload/static/topic/t1/images/red/dot_3.png:
+    newFile: !uuid '8eb6cbb715a7bb6aaf95fc714e61971d34b1bae7'
+    oldFile: !uuid 'b5531a4a0f21e79ece839c8e6e50006444c08509'
+  /upload/static/topic/t1/images/red/dot_4.png:
+    newFile: !uuid 'e31444537b7b1f696aa0ccf6f66277d6f51a8f83'
+    oldFile: !uuid '42e7d0083cda1ed2b2ba9ce87eebee2a955473cf'
+  /upload/static/topic/t1/images/red/dot_5.png:
+    newFile: !uuid 'f9752b60a1bf981f6d0c6db32d80650bb84e1158'
+    oldFile: !uuid '68321a6e1f41d9d8101a5def4148e7768c900b28'
+  /upload/static/topic/t1/images/red/nav.png:
+    newFile: !uuid '687b4e7d0fcc1cb2d3bace5b83dadc7158927343'
+    oldFile: !uuid '0ec92a27983f3908ded8f1242d699386a057b9bf'
+  /upload/static/topic/t1/images/red/title_1.png:
+    newFile: !uuid 'fc9a4293bbd6909e88aea5dfdc77824fbd7dbaed'
+    oldFile: !uuid 'c8198dc1c8e9624b4821d5e5200df72f1949c6e4'
+  /upload/static/topic/t1/images/red/title_5.png:
+    newFile: !uuid 'c9ef4c5a86a063d921ab94d584c635355767f361'
+    oldFile: !uuid '7516270755f18779358d4d78632a53d9a20325d7'
+  /upload/static/topic/t1/preview.jpg:
+    newFile: !uuid '68e4fb0b0c3cdb8ea7f5cd9d807fdba08cf980b1'
+    oldFile: !uuid 'abad2ff631820c5cb4e8472db37deb681bfe03cf'
+  /upload/static/topic/t2:
+    newFile: !uuid 'a2c4a445db7647f737dd64c477483fbbfe25711a'
+    oldFile: !uuid '8a54c13ba81d862ea60e0acee24389f7ea9c7c8f'
+  /upload/static/topic/t2/images:
+    newFile: !uuid 'b2bf677a02869228f9e078382d196d185025debb'
+    oldFile: !uuid '6001976753c812506a7b13b975ab964f6d75875f'
+  /upload/static/topic/t2/images/bg.png:
+    newFile: !uuid 'c39d7cc8a9ea123100b090bad165d8a26b1b413d'
+    oldFile: !uuid 'd245b83733aaf040bfd8289e60ed9f7db6d902cc'
+  /upload/static/topic/t2/images/bnr-1.jpg:
+    newFile: !uuid '2f61d5df0e668290d565685692129e0306f9fcd4'
+    oldFile: !uuid 'c1dd8f6320361e473159cbfcf0568cedfb692af0'
+  /upload/static/topic/t2/images/bnr-2.png:
+    newFile: !uuid 'fb85505344bf618673609eea258d8fc4882000d1'
+    oldFile: !uuid '4d60d6aa23850ed60a5df912c3ac7208340f6565'
+  /upload/static/topic/t2/images/title-2.png:
+    newFile: !uuid '403203f8a7942c573cdcf1bf9748d2894d9afd2a'
+    oldFile: !uuid '5822a66b4978f2fe20a243417964cc973ce9fa14'
+  /upload/static/topic/t2/images/title.png:
+    newFile: !uuid 'f492fa06b3a75c26c093b1ab96378308338a1042'
+    oldFile: !uuid '87e954049809c3f0a4c0f9be08e2af5d6fbcb04b'
+  /upload/static/topic/t2/preview.jpg:
+    newFile: !uuid '86d955ad3eded4a0f50b0ea0fc2d6edf3ee71330'
+    oldFile: !uuid 'f06724e2c1fc247e1fb4bce01f1e70987b22acac'
   /upload/template:
-    newFile: !uuid '52c3a6df09cea9088005c3aa6a4fc2eb913f4e5b'
-    oldFile: !uuid '6f64a58bd4db367e9f4aab2b652f9a9db1571456'
+    newFile: !uuid '8ab9af1f557c1142d778324b094e3fa15602068d'
+    oldFile: !uuid '52c3a6df09cea9088005c3aa6a4fc2eb913f4e5b'
   /upload/template/default:
-    newFile: !uuid 'a755941dc05e0d492a3a18fe8af4a64a06c49013'
-    oldFile: !uuid 'a7269ac3c2ba6b5a16929912bb952480a91a2227'
-  /upload/template/default/common:
-    newFile: !uuid 'da4be0695006991d4d5ce567916e7037b5c4caec'
-    oldFile: !uuid '5fa33ae989051155094a384983645f6a982c1653'
-  /upload/template/default/common/widthauto.css:
-    newFile: !uuid '84b85e985b69c7444a82df330569a79aa5eba113'
-    oldFile: !uuid 'f0a048bd46112029d4c5f70dc2baf11a31234bca'
-gitCommitId: !uuid '645f1f7c7f37a57f5d6e13a145d3c24a4e10c467'
+    newFile: !uuid 'feea44e813dccc6e9683216373839bceb154a51d'
+    oldFile: !uuid 'a755941dc05e0d492a3a18fe8af4a64a06c49013'
+  /upload/template/default/m:
+    newFile: !uuid '93095ea133129298cd43d0d3aec7ea890cae0496'
+    oldFile: !uuid '4fa925e2f6b959600309d881316143228e3016fd'
+  /upload/template/default/m/images:
+    newFile: !uuid '41ebb8125cd27ff09c246ea375e5576031f50fab'
+    oldFile: !uuid 'd403d7909e1bb509db767bb91cee204f69305667'
+  /upload/template/default/m/images/36Kr_logo.png:
+    newFile: !uuid '430d67112928d44ef3eb476aa8bfb8a705faf165'
+    oldFile: !uuid '15e1c561421e143acaf7745ba5b84296ca5e99b5'
+  /upload/template/default/m/images/addBtn.png:
+    newFile: !uuid '9a81ea047ca0e464c991910e4edf4dd713069c4a'
+    oldFile: !uuid '60abd72455131cf7f9039d013197e17f1fcbc784'
+  /upload/template/default/m/images/arrowUp.png:
+    newFile: !uuid '5d45ddba5babd97651aa6d46cb4e159d93556389'
+    oldFile: !uuid 'aea3baca6cf31176bca2c940ba8b426eec6abd39'
+  /upload/template/default/m/images/closeBtn.png:
+    newFile: !uuid '5cd4496883a4032e14f4859f2415209b62990c7c'
+    oldFile: !uuid '2e3704e11c118bd56326f93878a510db83d16a75'
+  /upload/template/default/m/images/closeHov.png:
+    newFile: !uuid '1521cf3d29424bb4e812e0b0123f5186f2284b3a'
+    oldFile: !uuid '3fbbf72a44dcb1e8584fbb8a397f0b0c8af96565'
+  /upload/template/default/m/images/defaultImg.jpg:
+    newFile: !uuid '3681677632bfc9f2fe35223aad3ae2e0fa19090f'
+    oldFile: !uuid 'a66770feb03da57b3ed33dc9404a854589ffc104'
+  /upload/template/default/m/images/detailImg1.jpg:
+    newFile: !uuid 'b83f5e1ab04c1a9293ce740aef04abcfc5c6984b'
+    oldFile: !uuid '27f71609f5138ad30e40ab1ce0f7164cf94b6656'
+  /upload/template/default/m/images/detailImg2.jpg:
+    newFile: !uuid '2e3333722661e469a004860d2474363ed20f5245'
+    oldFile: !uuid '2a335645551936f9b84acb18f5b9a28197de23d6'
+  /upload/template/default/m/images/errorImg.png:
+    newFile: !uuid 'ebbd66bd5670737c313ed13c3655aa73b44f69e2'
+    oldFile: !uuid 'e9d5d5dda8607767a8b53873f8449b60122daa7f'
+  /upload/template/default/m/images/expressImg1.png:
+    newFile: !uuid 'df3000abb833db8e49f26e2c16e69ae012286668'
+    oldFile: !uuid '7cdfef6f761c8e300b0456e4c9490005a1c92603'
+  /upload/template/default/m/images/expressImg2.png:
+    newFile: !uuid 'd6d028d8cdac0b48898e2f80f2bc53400d8a6ef5'
+    oldFile: !uuid '2e041640f26b58e53a1c5421728ffdf5ef45361c'
+  /upload/template/default/m/images/expressImg3.png:
+    newFile: !uuid 'bc9570227eebb1f9b0b6b42087d297dc27781225'
+    oldFile: !uuid 'b3d992014c107cc81a24386e90b3393ec7610083'
+  /upload/template/default/m/images/expressImg4.png:
+    newFile: !uuid 'e2428b208e6754122bb6e190cbb84954b823f567'
+    oldFile: !uuid 'faf0c2ee8f4923e913ff6dcd1081f7a07c35af04'
+  /upload/template/default/m/images/fullImg.jpg:
+    newFile: !uuid 'a46d43782b7275b5f88de9cbc4b1afd251feb898'
+    oldFile: !uuid '4be8c64c561c2dd308e7d2f20b473f908d187fd9'
+  /upload/template/default/m/images/inco_qq.png:
+    newFile: !uuid '00cf12aadd779361c52f234ac238190d13bc7928'
+    oldFile: !uuid '4eeef7a7c4bcfb0a71e6e847113c76b316096874'
+  /upload/template/default/m/images/personImg.jpg:
+    newFile: !uuid '5c751520e36a55a1eb70babe287f0efacd7072a7'
+    oldFile: !uuid '7107a8adefa5be3b1293ea598eb7db7c0553a669'
+  /upload/template/default/m/images/personManyImg.jpg:
+    newFile: !uuid '684fa39b2286ca04fa4edb6d119ee4f2300e1ef5'
+    oldFile: !uuid '7b5587e3e8f3c8765f48a9a90f2b51b9863d622e'
+  /upload/template/default/m/images/photoSelect.png:
+    newFile: !uuid '7d3dce1f6806392cd2bb683a8e69f1a51edc82bb'
+    oldFile: !uuid '71b96eb64ab9cf737361debc3f23102cdd592f03'
+  /upload/template/default/m/images/pohto1.jpg:
+    newFile: !uuid '950a2ee96dd4ddeccd17173b1d67718ac24d6d4c'
+    oldFile: !uuid '464a5c0957b5d198a585892994a87bcb4887848d'
+  /upload/template/default/m/images/pohto2.jpg:
+    newFile: !uuid 'ebbb9f65587b741b6a967fb0e52b0b6415018f09'
+    oldFile: !uuid '4a00d97f37c89a26183a6fa3dc50e8ff41b6208c'
+  /upload/template/default/m/images/qqlogin_on.png:
+    newFile: !uuid '31f6038d56a1e96694589a81a15e338200c8529d'
+    oldFile: !uuid 'f7969fe14d6c171ef4d4c7265c0eb8047dafa04c'
+  /upload/template/default/m/images/rankInco1.png:
+    newFile: !uuid '01b7c457cda59f657d4ce7327d199ffd8c55829a'
+    oldFile: !uuid '7404ec9a5a98f6e98310224eae20d785735137c5'
+  /upload/template/default/m/images/sprBg.png:
+    newFile: !uuid 'ffd254bab7fbee2fed781bb10bb62595883689a1'
+    oldFile: !uuid '266293662f0508cb54c7a5b5a79470227bdb5c15'
+  /upload/template/default/m/images/sprNewBg.png:
+    newFile: !uuid 'b2752f35b76edf2a31782071236de6dda9c14c96'
+    oldFile: !uuid '6f5f0fcbfae0777a977d6e962be1cfea6fda76e1'
+  /upload/template/default/m/images/topicImg.jpg:
+    newFile: !uuid '84602cb2bf1bd53924e4b7c1a8b681957c2d1a9d'
+    oldFile: !uuid 'b4975ec2efbae0efa5ccc4e3065046f5a8e22711'
+  /upload/template/default/m/images/topicImg2.jpg:
+    newFile: !uuid 'de788c60867b05e719827910460cbfb97ec0c415'
+    oldFile: !uuid '1fbb0ec9d338314f7c2d57f3b956ff94be4d88e3'
+  /upload/template/default/m/images/u1p_arrow.png:
+    newFile: !uuid '26a1b6a5e8eda03524352ab4cfbdc492e683f08f'
+    oldFile: !uuid '33e4bc0aae83c5df53147f542fdccc0adee6c055'
+  /upload/template/default/m/images/wxlogin_on.png:
+    newFile: !uuid '16dfe461c7889ec3cea75af4c3ccad1b34cfcf7c'
+    oldFile: !uuid '8e1bc0b671f813d8ea1c03d93a04570dfb942bb9'
+gitCommitId: !uuid 'a8e59eb3ae279ed32a0e80ab395983ab8a645bd2'
 renames: {
   }
-revisionId: 760
+revisionId: 761
