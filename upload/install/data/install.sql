@@ -37,8 +37,8 @@ CREATE TABLE pre_common_admincp_member (
 DROP TABLE IF EXISTS pre_common_admincp_perm;
 CREATE TABLE pre_common_admincp_perm (
   cpgroupid smallint(6) unsigned NOT NULL,
-  perm varchar(255) NOT NULL,
-  UNIQUE KEY cpgroupperm (cpgroupid,perm(40))
+  perm varchar(100) NOT NULL,
+  UNIQUE KEY cpgroupperm (cpgroupid,perm)
 ) ENGINE=InnoDB;
 
 DROP TABLE IF EXISTS pre_common_admincp_session;
@@ -318,15 +318,15 @@ CREATE TABLE pre_common_block_xml (
 
 DROP TABLE IF EXISTS pre_common_cache;
 CREATE TABLE pre_common_cache (
-  cachekey varchar(255) NOT NULL DEFAULT '',
+  cachekey varchar(190) NOT NULL DEFAULT '',
   cachevalue mediumblob NOT NULL,
   dateline int(10) unsigned NOT NULL DEFAULT '0',
-  PRIMARY KEY (cachekey(50))
+  PRIMARY KEY (cachekey)
 ) ENGINE=InnoDB;
 
 DROP TABLE IF EXISTS pre_common_card;
 CREATE TABLE pre_common_card (
-  id char(255) NOT NULL DEFAULT '',
+  id varchar(190) NOT NULL DEFAULT '',
   typeid smallint(6) unsigned NOT NULL DEFAULT '1',
   maketype tinyint(1) NOT NULL DEFAULT '0',
   makeruid mediumint(8) unsigned NOT NULL DEFAULT '0',
@@ -338,7 +338,7 @@ CREATE TABLE pre_common_card (
   cleardateline int(10) unsigned NOT NULL DEFAULT '0',
   useddateline int(10) unsigned NOT NULL DEFAULT '0',
   uid mediumint(8) unsigned NOT NULL DEFAULT '0',
-  PRIMARY KEY (id(50)),
+  PRIMARY KEY (id),
   KEY dateline (dateline)
 ) ENGINE=InnoDB;
 
@@ -701,7 +701,7 @@ CREATE TABLE pre_common_member (
   freeze tinyint(1) NOT NULL DEFAULT '0',
   PRIMARY KEY (uid),
   UNIQUE KEY username (username),
-  KEY email (email),
+  KEY email (email(40)),
   KEY groupid (groupid),
   KEY conisbind (conisbind),
   KEY regdate (regdate)
@@ -919,9 +919,68 @@ CREATE TABLE pre_common_member_profile (
   PRIMARY KEY (uid)
 ) ENGINE=InnoDB;
 
+DROP TABLE IF EXISTS pre_common_member_profile_history;
+CREATE TABLE pre_common_member_profile_history (
+  hid int(10) unsigned NOT NULL AUTO_INCREMENT,
+  uid mediumint(8) unsigned NOT NULL,
+  realname varchar(255) NOT NULL DEFAULT '',
+  gender tinyint(1) NOT NULL DEFAULT '0',
+  birthyear smallint(6) unsigned NOT NULL DEFAULT '0',
+  birthmonth tinyint(3) unsigned NOT NULL DEFAULT '0',
+  birthday tinyint(3) unsigned NOT NULL DEFAULT '0',
+  constellation varchar(255) NOT NULL DEFAULT '',
+  zodiac varchar(255) NOT NULL DEFAULT '',
+  telephone varchar(255) NOT NULL DEFAULT '',
+  mobile varchar(255) NOT NULL DEFAULT '',
+  idcardtype varchar(255) NOT NULL DEFAULT '',
+  idcard varchar(255) NOT NULL DEFAULT '',
+  address varchar(255) NOT NULL DEFAULT '',
+  zipcode varchar(255) NOT NULL DEFAULT '',
+  nationality varchar(255) NOT NULL DEFAULT '',
+  birthprovince varchar(255) NOT NULL DEFAULT '',
+  birthcity varchar(255) NOT NULL DEFAULT '',
+  birthdist varchar(20) NOT NULL DEFAULT '',
+  birthcommunity varchar(255) NOT NULL DEFAULT '',
+  resideprovince varchar(255) NOT NULL DEFAULT '',
+  residecity varchar(255) NOT NULL DEFAULT '',
+  residedist varchar(20) NOT NULL DEFAULT '',
+  residecommunity varchar(255) NOT NULL DEFAULT '',
+  residesuite varchar(255) NOT NULL DEFAULT '',
+  graduateschool varchar(255) NOT NULL DEFAULT '',
+  company varchar(255) NOT NULL DEFAULT '',
+  education varchar(255) NOT NULL DEFAULT '',
+  occupation varchar(255) NOT NULL DEFAULT '',
+  position varchar(255) NOT NULL DEFAULT '',
+  revenue varchar(255) NOT NULL DEFAULT '',
+  affectivestatus varchar(255) NOT NULL DEFAULT '',
+  lookingfor varchar(255) NOT NULL DEFAULT '',
+  bloodtype varchar(255) NOT NULL DEFAULT '',
+  height varchar(255) NOT NULL DEFAULT '',
+  weight varchar(255) NOT NULL DEFAULT '',
+  alipay varchar(255) NOT NULL DEFAULT '',
+  icq varchar(255) NOT NULL DEFAULT '',
+  qq varchar(255) NOT NULL DEFAULT '',
+  yahoo varchar(255) NOT NULL DEFAULT '',
+  msn varchar(255) NOT NULL DEFAULT '',
+  taobao varchar(255) NOT NULL DEFAULT '',
+  site varchar(255) NOT NULL DEFAULT '',
+  bio text NOT NULL,
+  interest text NOT NULL,
+  field1 text NOT NULL,
+  field2 text NOT NULL,
+  field3 text NOT NULL,
+  field4 text NOT NULL,
+  field5 text NOT NULL,
+  field6 text NOT NULL,
+  field7 text NOT NULL,
+  field8 text NOT NULL,
+  dateline int(10) unsigned NOT NULL DEFAULT '0',
+  PRIMARY KEY (hid)
+) ENGINE=InnoDB;
+
 DROP TABLE IF EXISTS pre_common_member_profile_setting;
 CREATE TABLE pre_common_member_profile_setting (
-  fieldid varchar(255) NOT NULL DEFAULT '',
+  fieldid varchar(190) NOT NULL DEFAULT '',
   available tinyint(1) NOT NULL DEFAULT '0',
   invisible tinyint(1) NOT NULL DEFAULT '0',
   needverify tinyint(1) NOT NULL DEFAULT '0',
@@ -938,7 +997,7 @@ CREATE TABLE pre_common_member_profile_setting (
   size smallint(6) unsigned NOT NULL DEFAULT '0',
   choices text NOT NULL,
   validate text NOT NULL,
-  PRIMARY KEY (fieldid(30))
+  PRIMARY KEY (fieldid)
 ) ENGINE=InnoDB;
 
 DROP TABLE IF EXISTS pre_common_member_security;
@@ -1240,9 +1299,9 @@ CREATE TABLE pre_common_session (
 
 DROP TABLE IF EXISTS pre_common_setting;
 CREATE TABLE pre_common_setting (
-  skey varchar(255) NOT NULL DEFAULT '',
+  skey varchar(190) NOT NULL DEFAULT '',
   svalue text NOT NULL,
-  PRIMARY KEY (skey(40))
+  PRIMARY KEY (skey)
 ) ENGINE=InnoDB;
 
 DROP TABLE IF EXISTS pre_common_smiley;
@@ -2449,11 +2508,11 @@ CREATE TABLE pre_forum_groupfield (
   fid mediumint(8) unsigned NOT NULL DEFAULT '0',
   privacy tinyint(1) NOT NULL DEFAULT '0',
   dateline int(10) unsigned NOT NULL DEFAULT '0',
-  `type` varchar(255) NOT NULL,
+  `type` varchar(100) NOT NULL,
   `data` text NOT NULL,
-  UNIQUE KEY `types` (fid,`type`(40)),
+  UNIQUE KEY `types` (fid,`type`),
   KEY fid (fid),
-  KEY `type` (`type`(40))
+  KEY `type` (`type`)
 ) ENGINE=InnoDB;
 
 DROP TABLE IF EXISTS pre_forum_groupinvite;
@@ -3768,9 +3827,9 @@ CREATE TABLE pre_home_visitor (
 
 DROP TABLE IF EXISTS pre_mobile_setting;
 CREATE TABLE pre_mobile_setting (
-  skey varchar(255) NOT NULL DEFAULT '',
+  skey varchar(190) NOT NULL DEFAULT '',
   svalue text NOT NULL,
-  PRIMARY KEY (skey(40))
+  PRIMARY KEY (skey)
 ) ENGINE=InnoDB;
 
 DROP TABLE IF EXISTS pre_portal_article_content;

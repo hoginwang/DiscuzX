@@ -407,6 +407,62 @@ function random($length, $numeric = 0) {
 	return $hash;
 }
 
+function secrandom($length, $numeric = 0, $strong = false) {
+	// Thank you @popcorner for your strong support for the enhanced security of the function.
+	$chars = $numeric ? array('A','B','+','/','=') : array('+','/','=');
+	$num_find = str_split('CDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz');
+	$num_repl = str_split('01234567890123456789012345678901234567890123456789');
+	$isstrong = false;
+	if(function_exists('random_bytes')) {
+		$isstrong = true;
+		$random_bytes = function($length) {
+			return random_bytes($length);
+		};
+	} elseif(extension_loaded('mcrypt') && function_exists('mcrypt_create_iv')) {
+		// for lower than PHP 7.0, Please Upgrade ASAP.
+		$isstrong = true;
+		$random_bytes = function($length) {
+			$rand = mcrypt_create_iv($length, MCRYPT_DEV_URANDOM);
+			if ($rand !== false && strlen($rand) === $length) {
+				return $rand;
+			} else {
+				return false;
+			}
+		};
+	} elseif(extension_loaded('openssl') && function_exists('openssl_random_pseudo_bytes')) {
+		// for lower than PHP 7.0, Please Upgrade ASAP.
+		// openssl_random_pseudo_bytes() does not appear to cryptographically secure
+		// https://github.com/paragonie/random_compat/issues/5
+		$isstrong = true;
+		$random_bytes = function($length) {
+			$rand = openssl_random_pseudo_bytes($length, $secure);
+			if($secure === true) {
+				return $rand;
+			} else {
+				return false;
+			}
+		};
+	}
+	if(!$isstrong) {
+		return $strong ? false : random($length, $numeric);
+	}
+	$retry_times = 0;
+	$return = '';
+	while($retry_times < 128) {
+		$getlen = $length - strlen($return); // 33% extra bytes
+		$bytes = $random_bytes(max($getlen, 12));
+		if($bytes === false) {
+			return false;
+		}
+		$bytes = str_replace($chars, '', base64_encode($bytes));
+		$return .= substr($bytes, 0, $getlen);
+		if(strlen($return) == $length) {
+			return $numeric ? str_replace($num_find, $num_repl, $return) : $return;
+		}
+		$retry_times++;
+	}
+}
+
 function strexists($string, $find) {
 	return !(strpos($string, $find) === FALSE);
 }
@@ -491,10 +547,11 @@ function lang($file, $langvar = null, $vars = array(), $default = null) {
 			}
 		}
 		$returnvalue = & $_G['cache']['pluginlanguage_script'];
+		!is_array($returnvalue) && $returnvalue = array();
 		$key = &$file;
 	}
-	$return = $langvar !== null ? (isset($returnvalue[$key][$langvar]) ? $returnvalue[$key][$langvar] : null) : $returnvalue[$key];
-	$return = $return === null ? ($default !== null ? $default : $langvar) : $return;
+	$return = $langvar !== null ? (isset($returnvalue[$key][$langvar]) ? $returnvalue[$key][$langvar] : null) : (is_array($returnvalue[$key]) ? $returnvalue[$key] : array());
+	$return = $return === null ? ($default !== null ? $default : ($path != 'plugin' ? '' : $file . ':') . $langvar) : $return;
 	$searchs = $replaces = array();
 	if($vars && is_array($vars)) {
 		foreach($vars as $k => $v) {
@@ -1098,18 +1155,15 @@ function output() {
 
 	if(defined('CACHE_FILE') && CACHE_FILE && !defined('CACHE_FORBIDDEN') && !defined('IN_MOBILE') && !IS_ROBOT && !checkmobile()) {
 		if(diskfreespace(DISCUZ_ROOT.'./'.$_G['setting']['cachethreaddir']) > 1000000) {
-			if($fp = @fopen(CACHE_FILE, 'w')) {
-				flock($fp, LOCK_EX);
-				$content = empty($content) ? ob_get_contents() : $content;
-				$temp_md5 = md5(substr($_G['timestamp'], 0, -3).substr($_G['config']['security']['authkey'], 3, -3));
-				$temp_formhash = substr($temp_md5, 8, 8);
-				$content = preg_replace('/(name=[\'|\"]formhash[\'|\"] value=[\'\"]|formhash=)('.constant("FORMHASH").')/ismU', '${1}'.$temp_formhash, $content);
-				//避免siteurl伪造被缓存
-				$temp_siteurl = 'siteurl_'.substr($temp_md5, 16, 8);
-				$content = preg_replace('/("|\')('.preg_quote($_G['siteurl'], '/').')/ismU', '${1}'.$temp_siteurl, $content);
-				fwrite($fp, empty($content) ? ob_get_contents() : $content);
-			}
-			@fclose($fp);
+			$content = empty($content) ? ob_get_contents() : $content;
+			$temp_md5 = md5(substr($_G['timestamp'], 0, -3).substr($_G['config']['security']['authkey'], 3, -3));
+			$temp_formhash = substr($temp_md5, 8, 8);
+			$content = preg_replace('/(name=[\'|\"]formhash[\'|\"] value=[\'\"]|formhash=)('.constant("FORMHASH").')/ismU', '${1}'.$temp_formhash, $content);
+			//避免siteurl伪造被缓存
+			$temp_siteurl = 'siteurl_'.substr($temp_md5, 16, 8);
+			$content = preg_replace('/("|\')('.preg_quote($_G['siteurl'], '/').')/ismU', '${1}'.$temp_siteurl, $content);
+			$content = empty($content) ? ob_get_contents() : $content;
+			file_put_contents(CACHE_FILE, $content, LOCK_EX);
 			chmod(CACHE_FILE, 0777);
 		}
 	}
