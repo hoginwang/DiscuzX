@@ -1,52 +1,58 @@
-<div class="mobilelistbox cl">
-	<!--{if is_array($collectiondata) && count($collectiondata) > 0}-->
+<!--{if is_array($collectiondata) && count($collectiondata) > 0}-->
+<div class="threadlist cl">
+	<ul>
 	<!--{loop $collectiondata $collectionvalues}-->
-	<div class="mobilelistitem">
-		<p class="mobilelisttitle">
-			<a href="forum.php?mod=collection&action=view&ctid={$collectionvalues['ctid']}{if $op}&fromop={$op}{/if}{if $tid}&fromtid={$tid}{/if}" class="xi2" {if $collectionvalues['updated'] && $op == 'my'}style='color:red;'{/if}>{$collectionvalues['name']}</a>
-			<!--{if $collectionvalues['arraykeyword']}-->
-			<!--{eval $keycount=0;}-->
-			<!--{loop $collectionvalues['arraykeyword'] $unique_keyword}-->
-			<span><a href="search.php?mod={if $_G['setting']['search']['collection']['status']}collection{else}forum{/if}&srchtxt={echo rawurlencode($unique_keyword)}&formhash={FORMHASH}&searchsubmit=true&source=collectionsearch">$unique_keyword</a></span>
-			<!--{eval $keycount++;}-->
-			<!--{/loop}-->
-			<!--{/if}-->
-			<!--{if $op == 'my'}-->
-			<span class="mobilelistme">
-				<!--{if $collectionvalues['uid'] == $_G['uid']}-->
-				{lang collection_myteam}
-				<!--{elseif is_array($twctid) && in_array($collectionvalues['ctid'], $twctid)}-->
-				{lang collection_myteam}
-				<!--{else}-->
-				{lang collection_mysubscribe}
+	<li class="list">
+		<div class="threadlist_top cl">
+			<a href="home.php?mod=space&uid={$collectionvalues['uid']}" class="mimg"><img src="<!--{avatar($collectionvalues['uid'], 'middle', true)}-->"></a>
+			<div class="muser">
+				<h3><a href="home.php?mod=space&uid={$collectionvalues['uid']}" class="mmc">{$collectionvalues['username']}</a></h3>
+				<span class="mtime">{$collectionvalues['dateline']}</span>
+			</div>
+		</div>
+		<a href="forum.php?mod=collection&action=view&ctid={$collectionvalues['ctid']}{if $op}&fromop={$op}{/if}{if $tid}&fromtid={$tid}{/if}">
+			<div class="threadlist_tit cl">
+				<!--{if $op == 'my'}-->
+				<span class="micon">
+					<!--{if $collectionvalues['uid'] == $_G['uid']}-->
+					{lang collection_mycreate}
+					<!--{elseif is_array($twctid) && in_array($collectionvalues['ctid'], $twctid)}-->
+					{lang collection_myteam}
+					<!--{else}-->
+					{lang collection_mysubscribe}
+					<!--{/if}-->
+				</span>
 				<!--{/if}-->
-			</span>
-			<!--{/if}-->
-		</p>
-		<p class="mobilelistdescription">
-			{$collectionvalues['shortdesc']}
-		</p>
-		<p class="mobilelistinfo">
-			{lang collection_follow}<span>{$collectionvalues['follownum']}</span>
-			{lang collection_threadnum}<span>{$collectionvalues['threadnum']}</span>
-			{lang collection_commentnum}<span>{$collectionvalues['commentnum']}</span>
-		</p>
-		<p class="mobilelistinfo">
-			<a href="home.php?mod=space&uid=$collectionvalues['uid']">{$collectionvalues['username']}</a> {lang collection_createtime}, {lang collection_lastupdate} {$collectionvalues['lastupdate']}
-		</p>
-	</div>
-	<!--{if $collectionvalues['lastpost']}-->
-	<div class="mobilelistitem">
-		<p>
-			{lang collection_lastthread}
-			<span><a href="forum.php?mod=viewthread&tid={$collectionvalues['lastpost']}" class="xi2">{$collectionvalues['lastsubject']}</a></span>
-		</p>
-	</div>
-	<!--{/if}-->
+				<em>{$collectionvalues['name']}</em>
+			</div>
+			<a href="forum.php?mod=viewthread&tid=$thread['tid']&extra=$extra"><div class="threadlist_mes cl">{$collectionvalues['shortdesc']}</div></a>
+			<div class="threadlist_foot cl">
+				<ul>
+				<!--{if $collectionvalues['arraykeyword']}-->
+				<!--{eval $keycount=0;}-->
+				<!--{loop $collectionvalues['arraykeyword'] $unique_keyword}-->
+					<li class="mr"><a href="search.php?mod={if $_G['setting']['search']['collection']['status']}collection{else}forum{/if}&srchtxt={echo rawurlencode($unique_keyword)}&formhash={FORMHASH}&searchsubmit=true&source=collectionsearch">#$unique_keyword</a></li>
+				<!--{eval $keycount++;}-->
+				<!--{/loop}-->
+				<!--{/if}-->
+					<li><i class="dm-star-fill"></i>{$collectionvalues['follownum']}</li>
+					<li><i class="dm-explore"></i>{$collectionvalues['follownum']}</li>
+					<li><i class="dm-chat-s-fill"></i>{$collectionvalues['commentnum']}</li>
+				</ul>
+			</div>
+		</a>
+	</li>
 	<!--{/loop}-->
-	<!--{else}-->
-	<div class="mobilelistitem">
-		<p>{lang collection_nocollection}</p>
-	</div>
-	<!--{/if}-->
+	</ul>
 </div>
+<!--{else}-->
+<div class="threadlist_box mt10 cl">
+	<h4>{lang collection_nocollection}</h4>
+</div>
+<!--{/if}-->
+<style>
+	.micon {
+		padding: 0 4px;
+		width: auto !important;
+	}
+</style>
