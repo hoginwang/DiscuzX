@@ -3,18 +3,18 @@ branches: {
   }
 fileChange:
   /upload:
-    newFile: !uuid 'b230d2c499006900259c037a3e081aef5a9c3756'
-    oldFile: !uuid '0b6a8adb83324f529b9ef23501bbe238c5893cf9'
+    newFile: !uuid '921f0776b3a3ade134136074fd1527137414c0c3'
+    oldFile: !uuid 'b230d2c499006900259c037a3e081aef5a9c3756'
   /upload/source:
-    newFile: !uuid '186cb02418c87b375e879348619222cb4d582c8d'
-    oldFile: !uuid '5ab8b19b5778d037b28bb95c1f9dea81803b6682'
+    newFile: !uuid '51efb54b4a2fb022a59041552db611e51e2c38c3'
+    oldFile: !uuid '186cb02418c87b375e879348619222cb4d582c8d'
   /upload/source/admincp:
-    newFile: !uuid '4f59aa34c5af020281e4051cd4f3a758e7dcc9e8'
-    oldFile: !uuid '10d183b87ca8b4e41c7925c6bf6dbb6b817db1e2'
-  /upload/source/admincp/admincp_makehtml.php:
-    newFile: !uuid 'bee59a623d8a0222ce4eacbe5fd581883991aa5d'
-    oldFile: !uuid '6b876e8a684e0042c11dc416479fb624a296d220'
-gitCommitId: !uuid 'ba112444145cf8554532ed31f20b99a84077e241'
+    newFile: !uuid '7a6cf48a914091633adb0bec5c7faaad1c0c5115'
+    oldFile: !uuid '4f59aa34c5af020281e4051cd4f3a758e7dcc9e8'
+  /upload/source/admincp/admincp_cloudaddons.php:
+    newFile: !uuid '83df144fb0baa5043f6212a83cec0dee7867134c'
+    oldFile: !uuid 'e88380ec42cd05f6352be02ef048815b656f6872'
+gitCommitId: !uuid '658095fa99ea6cb4244b9c736f64d4d6a29c6b4c'
 renames: {
   }
-revisionId: 902
+revisionId: 903
