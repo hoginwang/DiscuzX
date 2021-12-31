@@ -3,24 +3,24 @@ branches: {
   }
 fileChange:
   /upload:
-    newFile: !uuid 'd92ba522658f70e6e24ca3533a152e35aae0be3c'
-    oldFile: !uuid '3758c582b7a4b44043a3573e569b522b4e9ba3f2'
-  /upload/template:
-    newFile: !uuid '7dc4e316ff75d73159f7bd29fb6304d74746c91e'
-    oldFile: !uuid '9547559de845c9dc6c11524eede7657374598e4d'
-  /upload/template/default:
-    newFile: !uuid 'b29ab1862b4c80ad9ed38576dd978f7f3fa41c22'
-    oldFile: !uuid '39166c05a0ce62fd3a1916d6c9e71bd5315ca647'
-  /upload/template/default/touch:
-    newFile: !uuid '24253ae83958ad1702c8aabfaf65299ca7170228'
-    oldFile: !uuid '2a11a254321f824dc846ee85a982cde907af6ede'
-  /upload/template/default/touch/member:
-    newFile: !uuid '5d61804ee09c856c55d429e93766e0cebe40c7ab'
-    oldFile: !uuid '4c9575309355adf19cf23e62569fc72e3a7dbfee'
-  /upload/template/default/touch/member/register.htm:
-    newFile: !uuid 'cb25aee32e19619a8f106123eedbd627f2fa3dd9'
-    oldFile: !uuid '4d5e8124521d99fd23591c96efeb013a922621ec'
-gitCommitId: !uuid '2b61984518d8d8e4f9bb8d02791d50420d75f7b8'
+    newFile: !uuid '71579d18d4cccd75a60cebaf5f6dd4b63ff63598'
+    oldFile: !uuid 'd92ba522658f70e6e24ca3533a152e35aae0be3c'
+  /upload/source:
+    newFile: !uuid '1a25b8f627f24f26acae5c261ba22a757dc9eadc'
+    oldFile: !uuid 'ccfb4ee0e2668ec40c197ac04011ba448b4a9efe'
+  /upload/source/admincp:
+    newFile: !uuid 'a1751572039921e9ff5e5f2a9ebdfe4fabe4611e'
+    oldFile: !uuid '082d0a61f4354fffe5f598ddda9025b0fc28a07a'
+  /upload/source/admincp/admincp_db.php:
+    newFile: !uuid '5e85f451779aaf3e777cb016b173aea8033c6561'
+    oldFile: !uuid '49424c175766e3bd5c4491db9a86d1dd36d16a05'
+  /upload/source/function:
+    newFile: !uuid 'bf715cfed613ad179aab61c9ae3855995381bdd6'
+    oldFile: !uuid '133cc151b030600f52c249bf9a579e3f982db5ec'
+  /upload/source/function/function_plugin.php:
+    newFile: !uuid '78cd3e344abdb122c9a20ef539090d1486152444'
+    oldFile: !uuid '18f4a2ba7dad3419467bc47a0d6952e510889720'
+gitCommitId: !uuid '047eabf111355590d852ab4487537c8b5bcb5120'
 renames: {
   }
-revisionId: 771
+revisionId: 772
