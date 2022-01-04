@@ -3,24 +3,24 @@ branches: {
   }
 fileChange:
   /upload:
-    newFile: !uuid 'ab900d7a807f3ef8c3941f68c0960c552f71bbef'
-    oldFile: !uuid '7d8c7024814b9f67c37c321e462b947a55907bee'
-  /upload/source:
-    newFile: !uuid '8c6a74f257d611d82e6eef854d3d5fd677847236'
-    oldFile: !uuid '491bf73c38f5ad0544257258ac05addb50839c20'
-  /upload/source/admincp:
-    newFile: !uuid '9712c31f4bcf69801f1d8b520305ad5a07fea938'
-    oldFile: !uuid 'b3daff8a5308d63f8d4088f435b04c9fa0cb30ca'
-  /upload/source/admincp/admincp_prune.php:
-    newFile: !uuid '1f77965bdc704628168d43cf847f7c78486fd85b'
-    oldFile: !uuid '505dad1f4fce47066398ad2c17a12ef4b52dad1f'
-  /upload/source/language:
-    newFile: !uuid '71168760085414a9ea9bd2f9a8205960d68a21dd'
-    oldFile: !uuid '4ff0d0352a8ffc53bcee07804f34010536c01dba'
-  /upload/source/language/lang_admincp.php:
-    newFile: !uuid 'a09d974ad67f62eb7722083ffcb793196abb4ac3'
-    oldFile: !uuid '5c63036a84b5f883f7479fe33d3eb9912f463e37'
-gitCommitId: !uuid '40281882a051cf8826fcd22da3e7eeddb2e5ddde'
+    newFile: !uuid 'c7568a8a5fa2d9878a76e3ed5fd00569a832b88b'
+    oldFile: !uuid 'ab900d7a807f3ef8c3941f68c0960c552f71bbef'
+  /upload/template:
+    newFile: !uuid 'bddb9e36a78a167e2ed3fffa4999148b93cefc0c'
+    oldFile: !uuid 'f00222cab9e33a3e8a26060c7a43a82a644bea6d'
+  /upload/template/default:
+    newFile: !uuid '1974decec5889d1149dd3e96723c84e234688079'
+    oldFile: !uuid 'dba8df7dd394b586468f12c19d86587e6506c55f'
+  /upload/template/default/touch:
+    newFile: !uuid 'c4438cab1929278065bea223b2ca3a34bdd12a2f'
+    oldFile: !uuid 'b9d75dd2919de3bafd53ecbccd361fd4343166d5'
+  /upload/template/default/touch/portal:
+    newFile: !uuid 'f457ab1ff4ae9e60ea167d85b3f04ed1cc02da03'
+    oldFile: !uuid 'c3cec20fc3fa275b77eb045d93a96a9ede9014fd'
+  /upload/template/default/touch/portal/index.htm:
+    newFile: !uuid '095de72151f4833c25c7fdc126bb63325824a8a6'
+    oldFile: !uuid 'e69de29bb2d1d6434b8b29ae775ad8c2e48c5391'
+gitCommitId: !uuid '5ba62c9c2417b4e5c89361efa7be761255eb281a'
 renames: {
   }
-revisionId: 777
+revisionId: 778
