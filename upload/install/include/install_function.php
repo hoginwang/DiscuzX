@@ -575,7 +575,7 @@ function transfer_ucinfo(&$post) {
 function createtable($sql, $dbver) {
 	$type = strtoupper(preg_replace("/^\s*CREATE TABLE\s+.+\s+\(.+?\).*(ENGINE|TYPE)\s*=\s*([a-z]+?).*$/isU", "\\2", $sql));
 	$type = in_array($type, array('INNODB', 'MYISAM', 'HEAP', 'MEMORY')) ? $type : 'INNODB';
-	return 
+	return
 		preg_replace("/^\s*(CREATE TABLE\s+.+\s+\(.+?\)).*$/isU", "\\1", $sql) .
 		" ENGINE=$type DEFAULT CHARSET=" . DBCHARSET .
 		(DBCHARSET === 'utf8mb4' ? " COLLATE=utf8mb4_unicode_ci" : "");
@@ -849,7 +849,7 @@ function authcode($string, $operation = 'DECODE', $key = '', $expiry = 0) {
 		$box[$j] = $tmp;
 	}
 
-	// 从密钥簿得出密钥进行异或，再转成字符 
+	// 从密钥簿得出密钥进行异或，再转成字符
 	for($a = $j = $i = 0; $i < $string_length; $i++) {
 		$a = ($a + 1) % 256;
 		$j = ($j + $box[$a]) % 256;
@@ -1664,15 +1664,10 @@ function install_testdata($username, $uid) {
 	global $_G, $db, $tablepre;
 
 	showjsmessage(lang('install_test_data')." :  \n");
-	$sqlfile = ROOT_PATH.'./install/data/common_district_{#id}.sql';
-	for($i = 1; $i < 4; $i++) {
-		$sqlfileid = str_replace('{#id}', $i, $sqlfile);
-		if(file_exists($sqlfileid)) {
-			$sql = file_get_contents($sqlfileid);
-			$sql = str_replace("\r\n", "\n", $sql);
-			runquery($sql);
-		}
-	}
+	$sqlfile = ROOT_PATH.'./install/data/common_district.sql';
+    $sql = file_get_contents($sqlfile);
+    $sql = str_replace("\r\n", "\n", $sql);
+    runquery($sql);
 }
 
 function getvars($data, $type = 'VAR') {
@@ -2105,7 +2100,7 @@ function append_to_install_log_file($message, $close = false) {
 	if (!$fh) {
 		$fh = fopen($file, "a+");
 		flock($fh, LOCK_EX);
-	} 
+	}
 	if ($fh) {
 		fwrite($fh, $message);
 		fflush($fh);
