@@ -3,18 +3,60 @@ branches: {
   }
 fileChange:
   /upload:
-    newFile: !uuid 'ea7f69e5e20079297ea4afe3670bbea61aa4ca5f'
-    oldFile: !uuid '0b3f664ef95467eba3eea9e9051f706cad7e7222'
-  /upload/source:
-    newFile: !uuid '339e4cad9ee968846fcda1b0809d24a5f4aee541'
-    oldFile: !uuid '73b5ceae5be31512638b659fd718d40eed64dc31'
-  /upload/source/language:
-    newFile: !uuid '983d2acea8956b9b9782ea6d02576e873e5fae09'
-    oldFile: !uuid '133d294aa0cf64417075df0cb11010cfca10bb46'
-  /upload/source/language/lang_notification.php:
-    newFile: !uuid '95f93f18e5abd56bca537de63123d11ff1e98b69'
-    oldFile: !uuid 'fb9f65693fdc6e9d7b49583139c5e49a87bab1bb'
-gitCommitId: !uuid '7de3571f64b85cd2bbfbf94fd545142babdf66e8'
-renames: {
-  }
-revisionId: 785
+    newFile: !uuid '955c4c36eed496ab91aa1bb630eb8eac37d968d9'
+    oldFile: !uuid 'ea7f69e5e20079297ea4afe3670bbea61aa4ca5f'
+  /upload/install:
+    newFile: !uuid 'b22800c5a20bf803a6b71c69b9ea76a87c956f90'
+    oldFile: !uuid '2f83a7d31f7af8be3dbef9d235b4f5a8f7a004ab'
+  /upload/install/images:
+    newFile: null
+    oldFile: !uuid 'e7efdff6c6fc9a704c0dcf7436b30d44019b6f58'
+  /upload/install/images/bg_footer.gif:
+    newFile: null
+    oldFile: !uuid 'a0ea31c8f3760430e12f407231222df1b41b3c27'
+  /upload/install/images/bg_repno.gif:
+    newFile: null
+    oldFile: !uuid '5b4c048218a3419018a351b2e5a6878f5ff2ea7b'
+  /upload/install/images/bg_repx.gif:
+    newFile: null
+    oldFile: !uuid 'ed6d22d3e27cbb6250d618bf28b7538d6b1f6296'
+  /upload/install/images/bg_stepstatus.gif:
+    newFile: null
+    oldFile: !uuid 'f364e216c9d511dcf43b73794641ed87bc63345c'
+  /upload/install/images/close.gif:
+    newFile: null
+    oldFile: !uuid '5022b9b784a1af91efa4cadbfebf18cda05d58e8'
+  /upload/install/images/index.htm:
+    newFile: null
+    oldFile: !uuid 'e69de29bb2d1d6434b8b29ae775ad8c2e48c5391'
+  /upload/install/images/stepnum.gif:
+    newFile: null
+    oldFile: !uuid '35f41d5cbca76e0368a62fd5b668b2a899c72ca6'
+  /upload/install/images/style.css:
+    newFile: null
+    oldFile: !uuid '1f38b6089e8e0e2e3e838c8a51f0869599fe34ee'
+  /upload/install/include:
+    newFile: !uuid '4ca3e4077bec8d84d1dbdfb5883f149ea9ecf829'
+    oldFile: !uuid '9a934e3a609ee52734384f0b1b32a4c8678e2c9c'
+  /upload/install/include/install_function.php:
+    newFile: !uuid 'c9c6f03f5e488fc64dc92490098468d914b9e295'
+    oldFile: !uuid '2af83c591d600df990cba6d91c1f0bb504a9e08c'
+  /upload/install/include/install_lang.php:
+    newFile: !uuid '8db80a946bc056923ff14243067db80d39786e0e'
+    oldFile: !uuid 'b28e8e49551d2a4334adb11dcbff529bc782076d'
+  /upload/install/index.php:
+    newFile: !uuid '292dfb96b4f50864e8638f76120032b0607588c4'
+    oldFile: !uuid 'ec3cf40ca48f3d2b088c2186d8827f0310dec294'
+  /upload/install/static:
+    newFile: !uuid '2acb770ba3d0665be404b250cf847903b2c0b81c'
+    oldFile: null
+  /upload/install/static/index.htm:
+    newFile: !uuid 'e69de29bb2d1d6434b8b29ae775ad8c2e48c5391'
+    oldFile: null
+  /upload/install/static/style.css:
+    newFile: !uuid 'f343e5ad9ce4c01a8ef52f32030c6f0083175a06'
+    oldFile: null
+gitCommitId: !uuid '11f5389673ed8fda10a61f93201fb53948d21144'
+renames:
+  /upload/install/static/index.htm: /upload/install/images/index.htm
+revisionId: 786
