@@ -292,7 +292,8 @@ EOF;
 	}
 	$title = array('realname' => '', 'gender' => '', 'birthyear' => '', 'birthmonth' => '', 'birthday' => '', 'constellation' => '',
 		'zodiac' => '', 'telephone' => '', 'mobile' => '', 'idcardtype' => '', 'idcard' => '', 'address' => '', 'zipcode' => '','nationality' => '',
-		'birthprovince' => '', 'birthcity' => '', 'birthdist' => '', 'birthcommunity' => '', 'resideprovince' => '', 'residecity' => '', 'residedist' => '',
+		'birthcountry' => '', 'birthprovince' => '', 'birthcity' => '', 'birthdist' => '', 'birthcommunity' => '',
+		'residecountry' => '', 'resideprovince' => '', 'residecity' => '', 'residedist' => '',
 		'residecommunity' => '', 'residesuite' => '', 'graduateschool' => '', 'education' => '', 'company' => '', 'occupation' => '',
 		'position' => '', 'revenue' => '', 'affectivestatus' => '', 'lookingfor' => '', 'bloodtype' => '', 'height' => '', 'weight' => '',
 		'alipay' => '', 'icq' => '', 'qq' => '', 'yahoo' => '', 'msn' => '', 'taobao' => '', 'site' => '', 'bio' => '', 'interest' => '',
@@ -343,7 +344,8 @@ EOF;
 	}
 	$title = array('realname' => '', 'gender' => '', 'birthyear' => '', 'birthmonth' => '', 'birthday' => '', 'constellation' => '',
 		'zodiac' => '', 'telephone' => '', 'mobile' => '', 'idcardtype' => '', 'idcard' => '', 'address' => '', 'zipcode' => '','nationality' => '',
-		'birthprovince' => '', 'birthcity' => '', 'birthdist' => '', 'birthcommunity' => '', 'resideprovince' => '', 'residecity' => '', 'residedist' => '',
+		'birthcountry' => '', 'birthprovince' => '', 'birthcity' => '', 'birthdist' => '', 'birthcommunity' => '',
+		'residecountry' => '', 'resideprovince' => '', 'residecity' => '', 'residedist' => '',
 		'residecommunity' => '', 'residesuite' => '', 'graduateschool' => '', 'education' => '', 'company' => '', 'occupation' => '',
 		'position' => '', 'revenue' => '', 'affectivestatus' => '', 'lookingfor' => '', 'bloodtype' => '', 'height' => '', 'weight' => '',
 		'alipay' => '', 'icq' => '', 'qq' => '', 'yahoo' => '', 'msn' => '', 'taobao' => '', 'site' => '', 'bio' => '', 'interest' => '',
@@ -1269,7 +1271,8 @@ EOF;
 		showtablefooter();
 
 		showtableheader('members_edit_reason', 'notop');
-		showsetting('members_group_ban_reason', 'reason', '', 'textarea');
+		showsetting('members_group_reason', 'reason', '', 'textarea');
+		showsetting('members_group_reason_notify', 'reasonnotify', '', 'radio');
 		showsubmit('editsubmit');
 		showtablefooter();
 
@@ -1353,6 +1356,14 @@ EOF;
 			}
 		}
 
+		$exarr = is_array($_GET['extgroupidsnew']) ? $_GET['extgroupidsnew'] : array();
+		$exinfo = '';
+
+		foreach($exarr as $extgroupid) {
+			$extfetch = C::t('common_usergroup')->fetch($extgroupid);
+			$extgroupinfo .= (empty($extgroupinfo) ? '' : ', ') . $extfetch['grouptitle'] . ' => ' . (empty($groupterms['ext'][$extgroupid]) ? 0 : dgmdate($groupterms['ext'][$extgroupid], 'Y-m-d H:i:s'));
+		}
+
 		$grouptermsnew = serialize($groupterms);
 		$groupexpirynew = groupexpiry($groupterms);
 		$extgroupidsnew = $_GET['extgroupidsnew'] && is_array($_GET['extgroupidsnew']) ? implode("\t", $_GET['extgroupidsnew']) : '';
@@ -1367,6 +1378,20 @@ EOF;
 		if($_GET['groupidnew'] != $member['groupid'] && (in_array($_GET['groupidnew'], array(4, 5)) || in_array($member['groupid'], array(4, 5)))) {
 			$my_opt = in_array($_GET['groupidnew'], array(4, 5)) ? 'banuser' : 'unbanuser';			
 			banlog($member['username'], $member['groupid'], $_GET['groupidnew'], $groupexpirynew, $_GET['reason']);
+		}
+
+		if(isset($_GET['reason']) && isset($_GET['reasonnotify']) && !empty($_GET['reason']) && $_GET['reasonnotify']) {
+			$mainfetch = C::t('common_usergroup')->fetch($_GET['groupidnew']);
+			$notearr = array(
+				'user' => "<a href=\"home.php?mod=space&uid={$_G['uid']}\">{$_G['username']}</a>",
+				'day' => !empty($_GET['expirydatenew']) ? addslashes($_GET['expirydatenew']) : 0,
+				'groupname' => $mainfetch['grouptitle'],
+				'extgroupinfo' => empty($exinfo) ? cplang('members_group_extended_none') : $exinfo,
+				'reason' => addslashes($_GET['reason']),
+				'from_id' => 0,
+				'from_idtype' => 'changeusergroup'
+			);
+			notification_add($member['uid'], 'system', 'member_change_usergroup', $notearr, 1);
 		}
 
 		cpmsg('members_edit_groups_succeed', "action=members&operation=group&uid={$member['uid']}", 'succeed');
@@ -1427,6 +1452,7 @@ EOT;
 		showtableheader('', 'notop');
 		showtitle('members_edit_reason');
 		showsetting('members_credit_reason', 'reason', '', 'textarea');
+		showsetting('members_credit_reason_notify', 'reasonnotify', '', 'radio');
 		showsubmit('creditsubmit');
 		showtablefooter();
 		showformfooter();
@@ -1435,13 +1461,14 @@ EOT;
 	} else {
 
 		$diffarray = array();
-		$sql = $comma = '';
+		$sql = $comma = $notify = '';
 		if(is_array($_GET['extcreditsnew'])) {
 			foreach($_GET['extcreditsnew'] as $id => $value) {
 				if($member['extcredits'.$id] != ($value = intval($value))) {
 					$diffarray[$id] = $value - $member['extcredits'.$id];
 					$sql .= $comma."extcredits$id='$value'";
 					$comma = ', ';
+					$notify .= (empty($notify) ? '' : ', ') . $_G['setting']['extcredits'][$id]['title'] . ' => ' . $value;
 				}
 			}
 		}
@@ -1452,6 +1479,17 @@ EOT;
 			}
 			updatemembercount($_GET['uid'], $diffarray);
 			writelog('ratelog', $logs);
+			if(isset($_GET['reasonnotify']) && $_GET['reasonnotify']) {
+				$notearr = array(
+					'user' => "<a href=\"home.php?mod=space&uid={$_G['uid']}\">{$_G['username']}</a>",
+					'day' => isset($_GET['expirydatenew']) ? addslashes($_GET['expirydatenew']) : 0,
+					'extcredits' => $notify,
+					'reason' => addslashes($_GET['reason']),
+					'from_id' => 0,
+					'from_idtype' => 'changecredits'
+				);
+				notification_add($member['uid'], 'system', 'member_change_credits', $notearr, 1);
+			}
 		}
 
 		cpmsg('members_edit_credits_succeed', "action=members&operation=credit&uid={$_GET['uid']}", 'succeed');
@@ -2722,11 +2760,13 @@ EOF;
 				C::t('common_member_profile_setting')->update('birthmonth', $setarr);
 				C::t('common_member_profile_setting')->update('birthyear', $setarr);
 			} elseif($_GET['fieldid'] == 'birthcity') {
+				C::t('common_member_profile_setting')->update('birthcountry', $setarr);
 				C::t('common_member_profile_setting')->update('birthprovince', $setarr);
 				$setarr['required'] = 0;
 				C::t('common_member_profile_setting')->update('birthdist', $setarr);
 				C::t('common_member_profile_setting')->update('birthcommunity', $setarr);
 			} elseif($_GET['fieldid'] == 'residecity') {
+				C::t('common_member_profile_setting')->update('residecountry', $setarr);
 				C::t('common_member_profile_setting')->update('resideprovince', $setarr);
 				$setarr['required'] = 0;
 				C::t('common_member_profile_setting')->update('residedist', $setarr);
@@ -2769,9 +2809,11 @@ EOF;
 
 		unset($list['birthyear']);
 		unset($list['birthmonth']);
+		unset($list['birthcountry']);
 		unset($list['birthprovince']);
 		unset($list['birthdist']);
 		unset($list['birthcommunity']);
+		unset($list['residecountry']);
 		unset($list['resideprovince']);
 		unset($list['residedist']);
 		unset($list['residecommunity']);
@@ -2821,11 +2863,13 @@ EOF;
 					C::t('common_member_profile_setting')->update('birthmonth', $setarr);
 					C::t('common_member_profile_setting')->update('birthyear', $setarr);
 				} elseif($fieldid == 'birthcity') {
+					C::t('common_member_profile_setting')->update('birthcountry', $setarr);
 					C::t('common_member_profile_setting')->update('birthprovince', $setarr);
 					$setarr['required'] = 0;
 					C::t('common_member_profile_setting')->update('birthdist', $setarr);
 					C::t('common_member_profile_setting')->update('birthcommunity', $setarr);
 				} elseif($fieldid == 'residecity') {
+					C::t('common_member_profile_setting')->update('residecountry', $setarr);
 					C::t('common_member_profile_setting')->update('resideprovince', $setarr);
 					$setarr['required'] = 0;
 					C::t('common_member_profile_setting')->update('residedist', $setarr);
@@ -2868,7 +2912,7 @@ EOF;
 	}
 
 	$options = array('groupid'=>cplang('usergroup'));
-	$fieldids = array('gender', 'birthyear', 'birthmonth', 'constellation', 'zodiac','birthprovince', 'resideprovince');
+	$fieldids = array('gender', 'birthyear', 'birthmonth', 'constellation', 'zodiac', 'birthcountry', 'residecountry');
 	loadcache('profilesetting');
 	foreach($_G['cache']['profilesetting'] as $fieldid=>$value) {
 		if($value['formtype']=='select'||$value['formtype']=='radio'||in_array($fieldid,$fieldids)) {
@@ -3140,7 +3184,7 @@ function showsearchform($operation = '') {
 	unset($_G['cache']['profilesetting']['birthday']);
 	require_once libfile('function/profile');
 	foreach($_G['cache']['profilesetting'] as $fieldid=>$value) {
-		if(!$value['available'] || in_array($fieldid, array('birthprovince', 'birthdist', 'birthcommunity', 'resideprovince', 'residedist', 'residecommunity'))) {
+		if(!$value['available'] || in_array($fieldid, array('birthcountry', 'birthprovince', 'birthdist', 'birthcommunity', 'residecountry', 'resideprovince', 'residedist', 'residecommunity'))) {
 			continue;
 		}
 		if($fieldid == 'gender') {
@@ -3150,11 +3194,11 @@ function showsearchform($operation = '') {
 			$select .= "<option value=\"2\">".cplang('members_edit_gender_female')."</option>\n";
 			showsetting($value['title'], '', '', '<select class="txt" name="gender">'.$select.'</select>');
 		} elseif($fieldid == 'birthcity') {
-			$elems = array('birthprovince', 'birthcity', 'birthdist', 'birthcommunity');
-			showsetting($value['title'], '', '', '<div id="birthdistrictbox">'.showdistrict(array(0,0,0,0), $elems, 'birthdistrictbox', 1, 'birth').'</div>');
+			$elems = array('birthcountry', 'birthprovince', 'birthcity', 'birthdist', 'birthcommunity');
+			showsetting($value['title'], '', '', '<div id="birthdistrictbox">'.showdistrict(array(0,0,0,0,0), $elems, 'birthdistrictbox', 1, 'birth').'</div>');
 		} elseif($fieldid == 'residecity') {
-			$elems = array('resideprovince', 'residecity', 'residedist', 'residecommunity');
-			showsetting($value['title'], '', '', '<div id="residedistrictbox">'.showdistrict(array(0,0,0,0), $elems, 'residedistrictbox', 1, 'reside').'</div>');
+			$elems = array('residecountry', 'resideprovince', 'residecity', 'residedist', 'residecommunity');
+			showsetting($value['title'], '', '', '<div id="residedistrictbox">'.showdistrict(array(0,0,0,0,0), $elems, 'residedistrictbox', 1, 'reside').'</div>');
 		} elseif($fieldid == 'constellation') {
 			$select = "<option value=\"\">".cplang('nolimit')."</option>\n";
 			for($i=1; $i<=12; $i++) {
@@ -3499,7 +3543,9 @@ function notifymembers($operation, $variable) {
 					runlog('sendmail', "{$member['email']} sendmail failed.");
 				}
 			} elseif($_GET['notifymembers'] == 'sms') {
-				sms::sendmessage($member['uid'], 1, $member['secmobicc'], $member['secmobile'], "[$subject]$message$addmsg", 1);
+				// 用户 UID : $member['uid'], 短信类型: 通知类短信, 服务类型: 系统级短消息通知业务
+				// 国家代码: $member['secmobicc'], 手机号: $member['secmobile'], 内容: "[$subject]$message$addmsg", 强制发送: true
+				sms::send($member['uid'], 1, 2, $member['secmobicc'], $member['secmobile'], "[$subject]$message$addmsg", 1);
 			}
 
 			$log = array();

@@ -109,14 +109,14 @@ if(submitcheck('profilesubmit')) {
 			$verifyconfig = array();
 		}
 	}
-	if(isset($_POST['birthprovince'])) {
-		$initcity = array('birthprovince', 'birthcity', 'birthdist', 'birthcommunity');
+	if(isset($_POST['birthcountry'])) {
+		$initcity = array('birthcountry', 'birthprovince', 'birthcity', 'birthdist', 'birthcommunity');
 		foreach($initcity as $key) {
 			$_GET[''.$key] = $_POST[$key] = !empty($_POST[$key]) ? $_POST[$key] : '';
 		}
 	}
-	if(isset($_POST['resideprovince'])) {
-		$initcity = array('resideprovince', 'residecity', 'residedist', 'residecommunity');
+	if(isset($_POST['residecountry'])) {
+		$initcity = array('residecountry', 'resideprovince', 'residecity', 'residedist', 'residecommunity');
 		foreach($initcity as $key) {
 			$_GET[''.$key] = $_POST[$key] = !empty($_POST[$key]) ? $_POST[$key] : '';
 		}
@@ -165,9 +165,9 @@ if(submitcheck('profilesubmit')) {
 		} elseif(profile_check($key, $value, $space)) {
 			$setarr[$key] = dhtmlspecialchars(trim($value));
 		} else {
-			if($key=='birthprovince') {
+			if($key=='birthcountry' || $key=='birthprovince') {
 				$key = 'birthcity';
-			} elseif($key=='resideprovince' || $key=='residecommunity'||$key=='residedist') {
+			} elseif($key=='residecountry' || $key=='resideprovince' || $key=='residecommunity'||$key=='residedist') {
 				$key = 'residecity';
 			} elseif($key=='birthyear' || $key=='birthmonth') {
 				$key = 'birthday';
@@ -320,7 +320,7 @@ if(submitcheck('profilesubmit')) {
 	$emailnew = dhtmlspecialchars($_GET['emailnew']);
 	$secmobiccnew = intval($_GET['secmobiccnew']);
 	$secmobilenew = intval($_GET['secmobilenew']);
-	$secmobileseccode = intval($_GET['secmobileseccodenew']);
+	$secmobseccode = intval($_GET['secmobseccodenew']);
 	$ignorepassword = 0;
 	if($_G['setting']['connect']['allow']) {
 		$connect = C::t('#qqconnect#common_member_connect')->fetch($_G['uid']);
@@ -385,14 +385,7 @@ if(submitcheck('profilesubmit')) {
 		include_once libfile('function/member');
 		checkemail($emailnew);
 	}
-	// 校验验证码状态
-	$secmobileseccodestatus = empty($secmobileseccode) ? null : sms::checkseccode($_G['uid'], 0, $secmobiccnew, $secmobilenew, $secmobileseccode);
-	// 如果开启短信功能, 则必须有验证码才允许更新 UCenter 数据
-	if($_G['setting']['smsstatus'] && !$secmobileseccodestatus) {
-		$ucresult = uc_user_edit(addslashes($_G['username']), $_GET['oldpassword'], $_GET['newpassword'], '', $ignorepassword, $_GET['questionidnew'], $_GET['answernew']);
-	} else {
-		$ucresult = uc_user_edit(addslashes($_G['username']), $_GET['oldpassword'], $_GET['newpassword'], '', $ignorepassword, $_GET['questionidnew'], $_GET['answernew'], $secmobiccnew, $secmobilenew);
-	}
+	$ucresult = uc_user_edit(addslashes($_G['username']), $_GET['oldpassword'], $_GET['newpassword'], '', $ignorepassword, $_GET['questionidnew'], $_GET['answernew'], $secmobiccnew, $secmobilenew);
 	if($ucresult == -1) {
 		showmessage('profile_passwd_wrong', '', array(), array('return' => true));
 	} elseif($ucresult == -4) {
@@ -424,16 +417,16 @@ if(submitcheck('profilesubmit')) {
 		}
 	}
 	// 如果开启了短信验证, 输入了手机号却没有输入验证码, 就尝试发送验证码
-	if($_G['setting']['smsstatus'] && (strcmp($secmobiccnew, $_G['member']['secmobicc']) != 0 || strcmp($secmobilenew, $_G['member']['secmobile']) != 0) && empty($secmobileseccode)) {
-		$secmobileseccode = random(8, 1);
-		sms::sendseccode($_G['uid'], 0, $secmobiccnew, $secmobilenew, $secmobileseccode);
+	if($_G['setting']['smsstatus'] && (strcmp($secmobiccnew, $_G['member']['secmobicc']) != 0 || strcmp($secmobilenew, $_G['member']['secmobile']) != 0) && empty($secmobseccode)) {
+		$length = $_G['setting']['smsdefaultlength'] ? $_G['setting']['smsdefaultlength'] : 4;
+		// 用户 UID : $_G['uid'], 短信类型: 验证类短信, 服务类型: 系统级手机号码验证业务
+		// 国家代码: $secmobiccnew, 手机号: $secmobilenew, 内容: $secmobseccode, 强制发送: false
+		sms::send($_G['uid'], 0, 1, $secmobiccnew, $secmobilenew, random($length, 1), 0);
 	}
-	// 如果未开启短信验证, 或者开启了短信验证且正确输入验证码, 则更新用户基础信息
-	if(($_G['setting']['smsstatus'] && $secmobileseccodestatus) || !$_G['setting']['smsstatus']) {
-		$setarr['secmobicc'] = $secmobiccnew;
-		$setarr['secmobile'] = $secmobilenew;
-		$setarr['secmobilestatus'] = $_G['setting']['smsstatus'];
-	}
+	// 如果保存时未输入验证码就把用户切换至未验证状态, 下次提交验证通过后才能切回正常状态
+	$setarr['secmobicc'] = $secmobiccnew;
+	$setarr['secmobile'] = $secmobilenew;
+	$setarr['secmobilestatus'] = sms::verify($_G['uid'], 1, $secmobiccnew, $secmobilenew, $secmobseccode);
 	if($setarr) {
 		if($_G['member']['freeze'] == 1) {
 			$setarr['freeze'] = 0;

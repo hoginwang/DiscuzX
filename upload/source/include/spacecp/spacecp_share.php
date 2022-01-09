@@ -80,13 +80,13 @@ if($_GET['op'] == 'delete') {
 			$arr['body_template'] = '<b>{username}</b><br>{reside}<br>{spacenote}';
 			$arr['body_data'] = array(
 			'username' => "<a href=\"home.php?mod=space&uid=$id\">".$tospace['username']."</a>",
-			'reside' => $tospace['resideprovince'].$tospace['residecity'],
+			'reside' => $tospace['residecountry'].$tospace['resideprovince'].$tospace['residecity'],
 			'spacenote' => $tospace['spacenote']
 			);
 
 			loaducenter();
 			$isavatar = uc_check_avatar($id);
-			$arr['image'] = $isavatar?avatar($id, 'middle', true):UC_API.'/images/noavatar.svg';
+			$arr['image'] = $isavatar?avatar($id, 'middle', true):$_G['setting']['avatarurl'].'/noavatar.svg';
 			$arr['image_link'] = "home.php?mod=space&uid=$id";
 
 			$note_uid = $id;

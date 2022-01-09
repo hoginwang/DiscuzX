@@ -493,16 +493,38 @@ DROP TABLE IF EXISTS pre_common_smslog;
 CREATE TABLE pre_common_smslog (
   `smslogid` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `uid` mediumint(8) unsigned NOT NULL,
-  `type` int(10) NOT NULL DEFAULT '0',
+  `smstype` int(10) NOT NULL DEFAULT '0',
+  `svctype` int(10) NOT NULL DEFAULT '0',
   `smsgw` int(10) NOT NULL DEFAULT '0',
   `status` int(10) NOT NULL DEFAULT '0',
   `verify` int(10) NOT NULL DEFAULT '0',
   `secmobicc` varchar(3) NOT NULL DEFAULT '',
   `secmobile` varchar(12) NOT NULL DEFAULT '',
-  `sendtime` int(10) unsigned NOT NULL DEFAULT '0',
+  `ip` varchar(45) NOT NULL DEFAULT '',
+  `port` smallint(6) unsigned NOT NULL DEFAULT '0',
   `content` text NOT NULL DEFAULT '',
-  PRIMARY KEY (smslogid),
-  KEY lastsent (secmobicc,secmobile,sendtime)
+  `dateline` int(10) unsigned NOT NULL DEFAULT '0',
+  PRIMARY KEY (`smslogid`),
+  KEY dateline (`secmobicc`, `secmobile`, `dateline`),
+  KEY uid (uid)
+) ENGINE=InnoDB;
+
+DROP TABLE IF EXISTS pre_common_smslog_archive;
+CREATE TABLE pre_common_smslog_archive (
+  `smslogid` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `uid` mediumint(8) unsigned NOT NULL,
+  `smstype` int(10) NOT NULL DEFAULT '0',
+  `svctype` int(10) NOT NULL DEFAULT '0',
+  `smsgw` int(10) NOT NULL DEFAULT '0',
+  `status` int(10) NOT NULL DEFAULT '0',
+  `verify` int(10) NOT NULL DEFAULT '0',
+  `secmobicc` varchar(3) NOT NULL DEFAULT '',
+  `secmobile` varchar(12) NOT NULL DEFAULT '',
+  `ip` varchar(45) NOT NULL DEFAULT '',
+  `port` smallint(6) unsigned NOT NULL DEFAULT '0',
+  `content` text NOT NULL DEFAULT '',
+  `dateline` int(10) unsigned NOT NULL DEFAULT '0',
+  PRIMARY KEY (`smslogid`)
 ) ENGINE=InnoDB;
 
 DROP TABLE IF EXISTS pre_common_devicetoken;
@@ -704,7 +726,8 @@ CREATE TABLE pre_common_member (
   KEY email (email(40)),
   KEY groupid (groupid),
   KEY conisbind (conisbind),
-  KEY regdate (regdate)
+  KEY regdate (regdate),
+  KEY secmobile (`secmobile`, `secmobicc`)
 ) ENGINE=InnoDB;
 
 DROP TABLE IF EXISTS pre_common_member_action_log;
@@ -879,10 +902,12 @@ CREATE TABLE pre_common_member_profile (
   address varchar(255) NOT NULL DEFAULT '',
   zipcode varchar(255) NOT NULL DEFAULT '',
   nationality varchar(255) NOT NULL DEFAULT '',
+  birthcountry varchar(255) NOT NULL DEFAULT '',
   birthprovince varchar(255) NOT NULL DEFAULT '',
   birthcity varchar(255) NOT NULL DEFAULT '',
   birthdist varchar(20) NOT NULL DEFAULT '',
   birthcommunity varchar(255) NOT NULL DEFAULT '',
+  residecountry varchar(255) NOT NULL DEFAULT '',
   resideprovince varchar(255) NOT NULL DEFAULT '',
   residecity varchar(255) NOT NULL DEFAULT '',
   residedist varchar(20) NOT NULL DEFAULT '',
@@ -937,10 +962,12 @@ CREATE TABLE pre_common_member_profile_history (
   address varchar(255) NOT NULL DEFAULT '',
   zipcode varchar(255) NOT NULL DEFAULT '',
   nationality varchar(255) NOT NULL DEFAULT '',
+  birthcountry varchar(255) NOT NULL DEFAULT '',
   birthprovince varchar(255) NOT NULL DEFAULT '',
   birthcity varchar(255) NOT NULL DEFAULT '',
   birthdist varchar(20) NOT NULL DEFAULT '',
   birthcommunity varchar(255) NOT NULL DEFAULT '',
+  residecountry varchar(255) NOT NULL DEFAULT '',
   resideprovince varchar(255) NOT NULL DEFAULT '',
   residecity varchar(255) NOT NULL DEFAULT '',
   residedist varchar(20) NOT NULL DEFAULT '',
@@ -2749,11 +2776,15 @@ CREATE TABLE pre_forum_post (
   pid int(10) unsigned NOT NULL,
   fid mediumint(8) unsigned NOT NULL DEFAULT '0',
   tid int(10) unsigned NOT NULL DEFAULT '0',
+  repid int(10) unsigned NOT NULL DEFAULT '0',
   `first` tinyint(1) NOT NULL DEFAULT '0',
   author varchar(15) NOT NULL DEFAULT '',
   authorid mediumint(8) unsigned NOT NULL DEFAULT '0',
   `subject` varchar(255) NOT NULL DEFAULT '',
   dateline int(10) unsigned NOT NULL DEFAULT '0',
+  lastupdate int(10) unsigned NOT NULL DEFAULT '0',
+  updateuid mediumint(8) unsigned NOT NULL DEFAULT '0',
+  premsg text NOT NULL,
   message mediumtext NOT NULL,
   useip varchar(45) NOT NULL DEFAULT '',
   `port` smallint(6) unsigned NOT NULL DEFAULT '0',
@@ -2838,6 +2869,17 @@ CREATE TABLE pre_forum_postcomment (
   KEY authorid (authorid),
   KEY score (score),
   KEY rpid (rpid),
+  KEY pid (pid,dateline)
+) ENGINE=InnoDB;
+
+DROP TABLE IF EXISTS pre_forum_post_history;
+CREATE TABLE pre_forum_post_history (
+  id int(10) unsigned NOT NULL,
+  pid int(10) unsigned NOT NULL,
+  dateline int(10) unsigned NOT NULL,
+  `subject` varchar(255) NOT NULL DEFAULT '',
+  message mediumtext NOT NULL,
+  PRIMARY KEY (id),
   KEY pid (pid,dateline)
 ) ENGINE=InnoDB;
 
