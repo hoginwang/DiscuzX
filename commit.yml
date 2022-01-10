@@ -3,69 +3,24 @@ branches: {
   }
 fileChange:
   /upload:
-    newFile: !uuid '7cb21148a55b69d2279f6b627f201835cffc3b27'
-    oldFile: !uuid '764a5df8db9c774f7392995bc60dc8700a1dcb94'
+    newFile: !uuid 'da7299c56063f93584fed550ea9a14aefb958865'
+    oldFile: !uuid '7cb21148a55b69d2279f6b627f201835cffc3b27'
   /upload/source:
-    newFile: !uuid '6ea0b64e00d1843db4542f92f950044ff164884b'
-    oldFile: !uuid '605b0a69e41c01ef46744b1d50e0d6baba213204'
+    newFile: !uuid '205f68c143beba571e3a2f493cb7fa962f3a7192'
+    oldFile: !uuid '6ea0b64e00d1843db4542f92f950044ff164884b'
   /upload/source/admincp:
-    newFile: !uuid 'c0b93b6f39ec8f27ca7ca5ff0048e827be072a07'
-    oldFile: !uuid '1b7d5e3fce6be8f130b8badd8267407ee3b78f31'
-  /upload/source/admincp/admincp_setting.php:
-    newFile: !uuid '3aef9586f99592d8d4e1f50284635c512f3f83cd'
-    oldFile: !uuid 'ba4cc8bce7094d820209da0029eb1e9d20db2b95'
-  /upload/source/class:
-    newFile: !uuid '8c768d6acca081cb9a2f071e3f77695d8495ddf9'
-    oldFile: !uuid 'c93dd1a1feb8eaee810b6b45e73c437cf1e9d927'
-  /upload/source/class/discuz:
-    newFile: !uuid '28a4e8cf72af5d154a2c6352e1d0f82f139d6c78'
-    oldFile: !uuid 'b5dcde660481d4c8466b345267168a7799520a91'
-  /upload/source/class/discuz/discuz_application.php:
-    newFile: !uuid 'b00f9aa76ae1393f0ba3ddaf8d7d4e6090ea7080'
-    oldFile: !uuid '1076e3963bb13effbe18fcb121e67491fb8aab92'
-  /upload/source/language:
-    newFile: !uuid '5ef5bfad8ace97a1167ebc6af5eb0ce580bbb15e'
-    oldFile: !uuid '983d2acea8956b9b9782ea6d02576e873e5fae09'
-  /upload/source/language/lang_admincp.php:
-    newFile: !uuid '8cad6e5cbe0a2b76f3d56ed3f281238a4b255931'
-    oldFile: !uuid '391047f48ed927a309a1567a8482999ef62cd7e2'
-  /upload/template:
-    newFile: !uuid '9e1b0e5a84638d0a0110f3b8c691f0f5b42d52c2'
-    oldFile: !uuid '4fb505773b3f1bb7ad7177915b4c93344eb2a759'
-  /upload/template/default:
-    newFile: !uuid '8f6f5a85a0c0c4963cbe44061abb612d84e5cf01'
-    oldFile: !uuid '6abfc1ebd6ec2c0ecd0514653d8351ea3fe44ea8'
-  /upload/template/default/touch:
-    newFile: !uuid '6206ba3db633637b49493a6099bedfcb02231bbe'
-    oldFile: !uuid '38aaa1735888a4e1f82681bb2983f9f367923684'
-  /upload/template/default/touch/common:
-    newFile: !uuid '7abf4a3376d875bd8adbd6e905426cd7182c40ba'
-    oldFile: !uuid '7adff71a30dab4bb0f2cc46d1a9bafd396ffc583'
-  /upload/template/default/touch/common/footer.htm:
-    newFile: !uuid '718731f4f205715cc988cf9df886af5a7f34eb94'
-    oldFile: !uuid '7563364541ca6c2d6f1a7410f78cfc5f9942a706'
-  /upload/template/default/touch/forum:
-    newFile: !uuid '4e5c67a7735565678380716cdb62c187e65b50cf'
-    oldFile: !uuid '7cae695c68462060f03f018dd4cffc7e371468c4'
-  /upload/template/default/touch/forum/discuz.htm:
-    newFile: !uuid 'c08d8224a1bab0e4712f99f86273e500cf2b0b34'
-    oldFile: !uuid 'e68d6a090d188970e98da514b72e053081849d79'
-  /upload/template/default/touch/forum/forumdisplay.htm:
-    newFile: !uuid '6ef0e4aa2192468bc57da55c561a2b7cfd94a521'
-    oldFile: !uuid '16386e7cf3be2cc8bd5a198b1b4aa792de14760f'
-  /upload/template/default/touch/group:
-    newFile: !uuid 'dc3a0318470d18111841dde412c0a805a9eaa9b3'
-    oldFile: !uuid '4d59b539d0ff90c08e1d975dc678cdef4d9f46d3'
-  /upload/template/default/touch/group/group_list.htm:
-    newFile: !uuid '6e8712abeccdf9f67cc20b881756e7ffdd046909'
-    oldFile: !uuid '3ef39fb107eae0b18e54229802e7a73d86f49e02'
-  /upload/template/default/touch/portal:
-    newFile: !uuid 'f7fb8d61038cd393fb47cd12b55f6f9490608241'
-    oldFile: !uuid 'a594da13b966e59b25ca962f735ac38a5c4bd3b3'
-  /upload/template/default/touch/portal/index.htm:
-    newFile: !uuid 'd5c15e2e49032c413ac3246689a7bf3036468080'
-    oldFile: !uuid '00d07317d50ef0a09bfd3d21860c0746cba3f5cb'
-gitCommitId: !uuid 'b57a3afa5d9821bfedfda2dce6637989a0ed6fec'
+    newFile: !uuid '8a7d0bf8bebbb9f289040c6b71345eb618eab524'
+    oldFile: !uuid 'c0b93b6f39ec8f27ca7ca5ff0048e827be072a07'
+  /upload/source/admincp/admincp_admingroup.php:
+    newFile: !uuid 'cb0c42e213fc21e2f379910f4605aeac0b305d1c'
+    oldFile: !uuid '0ced1430a9a6294d6502f60a28680defe7638fa3'
+  /upload/source/admincp/admincp_group.php:
+    newFile: !uuid '9a5ad90435be16fee4cb6bb1efa1f8daf302a854'
+    oldFile: !uuid 'fd27e25b87a541f689122d4cde237e46959acc2c'
+  /upload/source/admincp/admincp_usergroups.php:
+    newFile: !uuid 'ce7d5899b29d88fbd42077aa669425e5bc47b8ac'
+    oldFile: !uuid '9515c4b16a1efb7e52fee16a9a50983eb67ad327'
+gitCommitId: !uuid '6592651dd822fe813c87774a4f1798aa49a9487d'
 renames: {
   }
-revisionId: 789
+revisionId: 790
