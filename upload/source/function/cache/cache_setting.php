@@ -314,7 +314,7 @@ function build_cache_setting() {
 
 	require_once DISCUZ_ROOT.'./config/config_ucenter.php';
 	$data['ucenterurl'] = UC_STANDALONE ? '.' : UC_API;
-	$data['avatarurl'] = UC_AVTURL;
+	$data['avatarurl'] = defined('UC_AVTURL') ? UC_AVTURL : '';
 
 	foreach(C::t('common_magic')->fetch_all_data(1) as $magic) {
 		$magic['identifier'] = str_replace(':', '_', $magic['identifier']);
