@@ -1,24 +1,27 @@
 <!--{template common/header}-->
-<div class="header cl">
-	<div class="mz"><a href="javascript:history.back();"><i class="dm-c-left"></i></a></div><h2></h2><div class="my"></div>
+<div class="setbox cl" id="recommend">
+	<form action="forum.php?mod=collection&action=edit&op=invite&ctid={$ctid}" method="POST">
+		<input type="hidden" name="formhash" id="formhash" value="{FORMHASH}" />
+		<input type="hidden" name="submitaddthread" value="submit" />
+		<ul class="bodybox post_box mt15 cl">
+			<div class="bodybox p10">
+				<div class="quote">
+					<p>{lang collection_max_invite}</p>
+				</div>
+			</div>
+			<li class="flex-box mli">
+				<div class="tit">{lang collection_username}<span class="f_g">*</span></div>
+				<div class="flex input"><input type="text" id="username" autocomplete="off" name="username"></div>
+			</li>
+		</ul>
+		<div class="mt5 p10">
+			<button type="submit" class="formdialog flex pn">{lang invite}</button>
+		</div>
+  </form>
 </div>
-<div class="header_toplogo">
-	<img src="{IMGDIR}/logo_m.svg" />
-	<p>
-		{lang collection_invite}
-	</p>
-</div>
-<form class="mobileformbox" action="forum.php?mod=collection&action=edit&op=invite&ctid={$ctid}" method="post">
-	<div class="mobileformitem">
-		<input class="w100" type="text" name="username" id="username" placeholder="{lang collection_username}" autocomplete="off" />
-		<span>
-			{lang collection_max_invite}
-		</span>
-	</div>
-	<div class="mobileformitem">
-		<button class="w100" type="submit">{lang invite}</button>
-	</div>
-	<input type="hidden" name="formhash" id="formhash" value="{FORMHASH}" />
-	<input type="hidden" name="submitaddthread" value="submit" />
-</form>
+<style>
+	#recommend {
+		background-color: #fff;
+	}
+</style>
 <!--{template common/footer}-->
