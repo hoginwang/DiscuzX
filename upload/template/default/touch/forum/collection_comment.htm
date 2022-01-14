@@ -3,83 +3,168 @@
 	<div class="mz"><a href="javascript:history.back();"><i class="dm-c-left"></i></a></div>
 	<h2>
 		{lang collection_commentlist}
-	</h2>
+    </h2>
 	<div class="my">
-	<!--{if helper_access::check_module('collection')}-->
-	<a href="forum.php?mod=collection&amp;action=edit"><i class="dm-plus-c"></i></a>
-	<!--{else}-->
-	<a href="<!--{if $_G['setting']['mobile']['mobilehotthread']}--><!--{if !empty($_G['setting']['grid']['showgrid'])}-->forum.php<!--{else}-->forum.php?mod=guide&view=newthread<!--{/if}--><!--{else}-->forum.php?forumlist=1<!--{/if}-->"><i class="dm-house"></i></a>
-	<!--{/if}-->
-	</div>
+        <a href="#moption" class="popup"><i class="dm-edit"></i></a>
+    </div>
+    <div class="mtime">
+        <div class="dialogbox" id="moption" popup="true" class="manage" style="display:none">
+            <!--{hook/collection_viewoptions}-->
+            <!--{if $permission}-->
+                <input type="button" value="{lang edit}" class="redirect button" href="forum.php?mod=collection&action=edit&op=edit&ctid={$_G['collection']['ctid']}&formhash={FORMHASH}">
+                <input type="button" value="{lang delete}" class="dialog button" href="forum.php?mod=collection&action=edit&op=remove&ctid={$_G['collection']['ctid']}&formhash={FORMHASH}">
+                <input type="button" value="{lang collection_invite_team}" class="dialog button" href="forum.php?mod=collection&action=edit&op=invite&ctid=$ctid">
+            <!--{/if}-->
+            <!--{if $_G['uid']!=$_G['collection']['uid']}-->
+                <input type="button" value="{lang collection_recommend}" class="dialog button" href="forum.php?mod=collection&action=comment&op=recommend&ctid=$ctid">
+            <!--{/if}-->
+            <!--{if $isteamworkers}-->
+                <input type="button" value="{lang collection_exit_team}" class="dialog button" href="forum.php?mod=collection&action=edit&op=removeworker&ctid={$_G['collection']['ctid']}&uid={$_G['uid']}&formhash={FORMHASH}">
+            <!--{/if}-->
+        </div>
+    </div>
 </div>
-<script type="text/javascript" src="{$_G[setting][jspath]}home_friendselector.js?{VERHASH}"></script>
-<script type="text/javascript">
-	var fs;
-	var clearlist = 0;
-</script>
-<div class="mobilelistbox">
-	<div class="mobilelistitem">
-		<span style="float: right;">
-			$avgrate {lang collection_totalrates}
-		</span>
+<!--{hook/collection_view_top}-->
+<!--{if $_G['page'] == 1}-->
+	<div class="forumdisplay-top cl">
 		<h2>
-			<a href="forum.php?mod=collection&action=view&ctid={$_G['collection']['ctid']}">{$_G['collection']['name']}</a>
-		</h2>
-		<span>
-			{$_G['collection']['desc']}
-		</span>
+        <!--{if $_G['group']['allowfollowcollection'] && $_G['collection']['uid'] != $_G['uid']}-->
+            <!--{if !$collectionfollowdata['ctid']}-->
+				<input type="button" id="a_favorite" value="{lang collection_follow}" class="dialog button" href="forum.php?mod=collection&action=follow&op=follow&ctid={$ctid}&formhash={FORMHASH}">
+            <!--{else}-->
+				<input type="button" id="a_favorite" value="{lang collection_unfollow}" class="dialog button" href="forum.php?mod=collection&action=follow&op=unfo&ctid={$ctid}&formhash={FORMHASH}">
+            <!--{/if}-->
+        <!--{/if}-->
+        {$_G['collection']['name']}
+        </h2>
+        <p><a href="javascript:;">{lang collection_threadnum}</a><span> {$_G['collection']['threadnum']}</span><a href="javascript:;">{lang collection_commentnum}</a><span> {$_G['collection']['commentnum']}</span><a href="javascript:;">{lang collection_follow}</a><span> {$_G['collection']['follownum']}</span></p>
+		<p class="mt5">
+            <!--{if $_G['collection']['desc']}-->
+            {$_G['collection']['desc']}
+            <!--{/if}-->
+            <span class="y">
+                <!--{if $_G['collection']['ratenum'] > 0}-->
+                <i class="dm-star-fill" style="color: {if (1<=$star)}var(--dz-BG-color){else}#ccc{/if};"></i>
+                <i class="dm-star-fill" style="color: {if (2<=$star)}var(--dz-BG-color){else}#ccc{/if};"></i>
+                <i class="dm-star-fill" style="color: {if (3<=$star)}var(--dz-BG-color){else}#ccc{/if};"></i>
+                <i class="dm-star-fill" style="color: {if (4<=$star)}var(--dz-BG-color){else}#ccc{/if};"></i>
+                <i class="dm-star-fill" style="color: {if (5<=$star)}var(--dz-BG-color){else}#ccc{/if};"></i>
+                <!--{else}-->
+                {lang collection_norate}
+                <!--{/if}-->
+            </span>
+        </p>
+	</div>
+<!--{/if}-->
+<div class="dhnav_box">
+	<div id="dhnav">
+		<div id="dhnav_li">
+		<ul class="flex-box">
+			<li class="flex"><a href="forum.php?mod=collection&action=view&ctid={$_G['collection']['ctid']}">{lang all}</a></li>
+			<li class="flex mon"><a href="forum.php?mod=collection&action=view&op=comment&ctid={$_G['collection']['ctid']}">{lang collection_commentlist}</a></li>
+			<li class="flex"><a href="forum.php?mod=collection&action=view&op=followers&ctid={$_G['collection']['ctid']}">{lang collection_followlist}</a></li>
+		</ul>
+		</div>
 	</div>
 </div>
 <!--{if $_G['collection']['commentnum'] > 0}-->
-<form action="forum.php?mod=collection&action=comment&op=del" method="POST" class="mobileformbox">
-	<div class="dhnv flex-box cl">
-		<a class="flex mon" href="forum.php?mod=collection&action=view&op=comment&ctid={$_G['collection']['ctid']}">{lang collection_commentlist}</a>
-		<a class="flex" href="forum.php?mod=collection&action=view&op=followers&ctid={$_G['collection']['ctid']}">{lang collection_followlist}</a>
-		<!--{hook/collection_nav_extra}-->
-	</div>
+<!--{if $permission}-->
+<form action="forum.php?mod=collection&action=comment&op=del" method="POST" id="form_delComment">
+<input type="hidden" name="delcomment[]" />
+<input type="hidden" name="ctid" value="{$ctid}" />
+<input type="hidden" name="formhash" value="{FORMHASH}" />
+<!--{/if}-->
+<div class="viewthread">
 	<!--{loop $commentlist $comment}-->
-	<div class="mobilelistitem">
-		<!--{if $permission}-->
-		<input type="checkbox" value="$comment[cid]" name="delcomment[]" />
-		<!--{/if}-->
-		<span>
-			<a href="home.php?mod=space&uid={$comment['uid']}">$comment[username]</a>
-			$comment[dateline]:
-		</span>
-		<!--{if trim($comment[message])}--><p{if $comment[rateimg]} class="mbn"{/if}>$comment[message]</p><!--{/if}-->
+	<div class="plc cl" id="cid$comment['cid']">
+		<div class="avatar"><img src="<!--{avatar($comment['uid'], 'small', true)}-->" /></div>
+		<div class="display pi" href="#replybtn_$comment['cid']">
+			<ul class="authi">
+				<li class="mtit">
+					<!--{if $comment[rate]}-->
+					<span class="y">
+						<i class="dm-star-fill" style="color: {if (1<=$comment[rate])}var(--dz-BG-color){else}#ccc{/if};"></i>
+						<i class="dm-star-fill" style="color: {if (2<=$comment[rate])}var(--dz-BG-color){else}#ccc{/if};"></i>
+						<i class="dm-star-fill" style="color: {if (3<=$comment[rate])}var(--dz-BG-color){else}#ccc{/if};"></i>
+						<i class="dm-star-fill" style="color: {if (4<=$comment[rate])}var(--dz-BG-color){else}#ccc{/if};"></i>
+						<i class="dm-star-fill" style="color: {if (5<=$comment[rate])}var(--dz-BG-color){else}#ccc{/if};"></i>
+					</span>
+					<!--{/if}-->
+					<!--{if $comment['uid'] && $comment['username']}-->
+					<span class="z">
+						<a href="home.php?mod=space&uid=$comment['uid']">$comment['username']</a>
+					</span>
+					<!--{/if}-->
+				</li>
+				<li class="mtime">
+					<!--{if $permission}-->
+					<em class="mgl"><a href="javascript:;" onclick="document.getElementsByName('delcomment[]')[0].value={$comment['cid']};document.getElementById('form_delComment').submit();" class="dialog blue">{lang delete}</a></em>
+					<!--{/if}-->
+					$comment['dateline']
+				</li>
+			</ul>
+			<div class="message">
+				$comment['message']
+			</div>
+		</div>
 	</div>
 	<!--{/loop}-->
-	<!--{if $permission}-->
-	<div class="mobileformitem">
-		<button type="submit" class="w100">{lang delete}</button>
-	</div>
-	<input type="hidden" value="{$ctid}" name="ctid" />
-	<input type="hidden" name="formhash" id="formhash" value="{FORMHASH}" />
-	<!--{/if}-->
-	<!--{if $multipage}-->$multipage<!--{/if}-->
+</div>
+<!--{if $permission}-->
 </form>
+<!--{/if}-->
 <!--{/if}-->
 <!--{if $_G['group']['allowcommentcollection']}-->
-<form id="form_addComment" class="mobileformbox" name="form_addComment" action="forum.php?mod=collection&action=comment&ctid={$_G['collection']['ctid']}" method="POST">
-	<div class="mobileformitem">
-		<textarea class="w100" name="message" placeholder="{lang collection_ratecollection}"></textarea>
-	</div>
-	<div class="bm_c {if $memberrate}bbda{/if}">
+<form id="form_addComment" enctype="multipart/form-data" action="forum.php?mod=collection&action=comment&ctid={$_G['collection']['ctid']}" name="form_addComment" method="post" autocomplete="off" accept-charset="utf-8" onsubmit="document.charset='utf-8';">
+	<div class="setbox cl">
+		<ul class="bodybox post_box cl">
+            <li class="tit">{lang collection_ratecollection} </li>
+			<li class="cl">
+				<textarea name="message" rows="5" class="pxs"></textarea>
+			</li>
 		<!--{if !$memberrate}-->
-			<!-- 打分，暂无 -->
+			<li class="flex-box mli">
+				<input type="hidden" name="ratescore" id="ratescore" />
+				<span id="clct_ratestar_star">
+					<a href="javascript:;" onclick="rateStarSet('clct_ratestar_star',1,'ratescore')"><i class="dm-star-fill"></i></a>
+					<a href="javascript:;" onclick="rateStarSet('clct_ratestar_star',2,'ratescore')"><i class="dm-star-fill"></i></a>
+					<a href="javascript:;" onclick="rateStarSet('clct_ratestar_star',3,'ratescore')"><i class="dm-star-fill"></i></a>
+					<a href="javascript:;" onclick="rateStarSet('clct_ratestar_star',4,'ratescore')"><i class="dm-star-fill"></i></a>
+					<a href="javascript:;" onclick="rateStarSet('clct_ratestar_star',5,'ratescore')"><i class="dm-star-fill"></i></a>
+				</span>
+				<script>
+					function rateStarSet(target, level, input) {
+						if(input) document.getElementById(input).value = level;
+						var stars = document.getElementById(target).children;
+						for(var i = 0; i < stars.length; i++) {
+							document.getElementById(target).children[i].style.color = (i < level) ? "var(--dz-BG-color)" : "#ccc";
+						}
+					}
+				</script>
+				<style>
+					#clct_ratestar_star a {
+						color: #ccc;
+					}
+				</style>
+			</li>
+		<!--{else}-->
+			<li class="flex-box mli">
+				<div class="tit">{lang collection_rated} </div>
+				<span id="clct_ratestar_star">
+					<i class="dm-star-fill" style="color: {if (1<=$memberrate)}var(--dz-BG-color){else}#ccc{/if};"></i>
+					<i class="dm-star-fill" style="color: {if (2<=$memberrate)}var(--dz-BG-color){else}#ccc{/if};"></i>
+					<i class="dm-star-fill" style="color: {if (3<=$memberrate)}var(--dz-BG-color){else}#ccc{/if};"></i>
+					<i class="dm-star-fill" style="color: {if (4<=$memberrate)}var(--dz-BG-color){else}#ccc{/if};"></i>
+					<i class="dm-star-fill" style="color: {if (5<=$memberrate)}var(--dz-BG-color){else}#ccc{/if};"></i>
+				</span>
+			</li>
 		<!--{/if}-->
-		<div class="mobileformitem">
-			<button id="btnCommentSubmit" class="w100" type="submit">{lang collection_comment_submit}</button>
+		</ul>
+		<div class="mt5 p10">
+			<button id="btnCommentSubmit" type="submit" class="formdialog flex pn">{lang collection_comment_submit}</button>
 		</div>
 	</div>
-	<!--{if $memberrate}-->
-		<div class="bm_c ptn pbn cl">
-			<span class="z">{lang collection_rated}&nbsp;</span>
-			<span class="clct_ratestar"><span class="star star$memberrate"></span></span>
-		</div>
-	<!--{/if}-->
-	<input type="hidden" name="inajax" value="1">
-	<input type="hidden" name="handlekey" value="k_addComment">
 </form>
 <!--{/if}-->
+<!--{hook/collection_side_bottom}-->
 <!--{template common/footer}-->
