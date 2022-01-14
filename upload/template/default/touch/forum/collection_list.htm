@@ -2,27 +2,29 @@
 <div class="threadlist cl">
 	<ul>
 	<!--{loop $collectiondata $collectionvalues}-->
-	<li class="list">
+	<li class="list{if $op == 'my'} {if $collectionvalues['uid'] == $_G['uid']}mycreate{elseif is_array($twctid) && in_array($collectionvalues['ctid'], $twctid)}myteam{else}mysubscribe{/if}{/if}">
 		<div class="threadlist_top cl">
 			<a href="home.php?mod=space&uid={$collectionvalues['uid']}" class="mimg"><img src="<!--{avatar($collectionvalues['uid'], 'middle', true)}-->"></a>
 			<div class="muser">
 				<h3><a href="home.php?mod=space&uid={$collectionvalues['uid']}" class="mmc">{$collectionvalues['username']}</a></h3>
-				<span class="mtime">{$collectionvalues['dateline']}</span>
+				<span class="mtime">
+					{$collectionvalues['dateline']}
+					<span class="y">
+						<!--{if $collectionvalues['ratenum'] > 0}-->
+						<i class="dm-star-fill" style="color: {if (1<=$collectionvalues['star'])}var(--dz-BG-color){else}#ccc{/if};"></i>
+						<i class="dm-star-fill" style="color: {if (2<=$collectionvalues['star'])}var(--dz-BG-color){else}#ccc{/if};"></i>
+						<i class="dm-star-fill" style="color: {if (3<=$collectionvalues['star'])}var(--dz-BG-color){else}#ccc{/if};"></i>
+						<i class="dm-star-fill" style="color: {if (4<=$collectionvalues['star'])}var(--dz-BG-color){else}#ccc{/if};"></i>
+						<i class="dm-star-fill" style="color: {if (5<=$collectionvalues['star'])}var(--dz-BG-color){else}#ccc{/if};"></i>
+						<!--{else}-->
+						{lang collection_norate}
+						<!--{/if}-->
+					</span>
+				</span>
 			</div>
 		</div>
 		<a href="forum.php?mod=collection&action=view&ctid={$collectionvalues['ctid']}{if $op}&fromop={$op}{/if}{if $tid}&fromtid={$tid}{/if}">
 			<div class="threadlist_tit cl">
-				<!--{if $op == 'my'}-->
-				<span class="micon">
-					<!--{if $collectionvalues['uid'] == $_G['uid']}-->
-					{lang collection_mycreate}
-					<!--{elseif is_array($twctid) && in_array($collectionvalues['ctid'], $twctid)}-->
-					{lang collection_myteam}
-					<!--{else}-->
-					{lang collection_mysubscribe}
-					<!--{/if}-->
-				</span>
-				<!--{/if}-->
 				<em>{$collectionvalues['name']}</em>
 			</div>
 			<a href="forum.php?mod=viewthread&tid=$thread['tid']&extra=$extra"><div class="threadlist_mes cl">{$collectionvalues['shortdesc']}</div></a>
@@ -50,9 +52,3 @@
 	<h4>{lang collection_nocollection}</h4>
 </div>
 <!--{/if}-->
-<style>
-	.micon {
-		padding: 0 4px;
-		width: auto !important;
-	}
-</style>
