@@ -1,53 +1,94 @@
 <!--{template common/header}-->
 <div class="header cl">
-	<div class="mz"><a href="javascript:history.back();"><i class="dm-c-left"></i></a></div><h2></h2><div class="my"></div>
-</div>
-<div class="header_toplogo">
-	<img src="{IMGDIR}/logo_m.svg" />
-	<p>
+	<div class="mz"><a href="javascript:history.back();"><i class="dm-c-left"></i></a></div>
+	<h2>
 		<!--{if $op == 'edit'}-->
 		{lang collection_edit}
 		<!--{else}-->
 		{lang collection_create}
 		<!--{/if}-->
-	</p>
+	</h2>
 </div>
-<form class="mobileformbox" action="forum.php?mod=collection&action=edit" onsubmit="return checklen();" method="POST">
-	<div class="mobileformitem">
-		<input id="formtitle" class="px" type="text" name="title" value="{$_G['collection']['name']}" placeholder="{lang collection_title}" autocomplete="off" tabindex="1" />
-		<!--{if $op != 'edit'}-->
-		<span>{lang collection_remain_tips}</span>
-		<!--{/if}-->
+<div class="setbox cl" id="creatgroup">
+	<!--{if $op != 'edit'}-->
+	<div class="bodybox p10">
+		<div class="quote">
+			<p>{lang collection_remain_tips}</p>
+		</div>
 	</div>
-	<div class="mobileformitem">
-		<textarea id="formdesc" class="w100" name="desc" rows="10" placeholder="{lang collection_desc}" tabindex="2">{$_G['collection']['desc']}</textarea>
-	</div>
-	<div class="mobileformitem">
-		<input id="formkeyword" class="w100" type="text" name="keyword" value="{$_G['collection']['keyword']}" placeholder="{lang collection_keywords}" autocomplete="off" tabindex="3"/>
-		<span>{lang collection_keywords_desc}</span>
-	</div>
-	<div class="mobileformitem">
-		<button class="w100" type="submit" tabindex="4"><!--{if $op == 'edit'}-->{lang collection_edit}<!--{else}-->{lang collection_create}<!--{/if}--></button>
-	</div>
-	<input type="hidden" value="1" name="submitcollection" />
-	<input type="hidden" value="{$op}" name="op" />
-	<input type="hidden" value="{$ctid}" name="ctid" />
-	<input type="hidden" name="formhash" id="formhash" value="{FORMHASH}" />
-	<input type="hidden" name="collectionsubmit" id="collectionsubmit" value="submit" />
-</form>
-<script>
-	var titlelimit = '$titlelimit';
-	var desclimit = '$desclimit';
-	function checklen() {
-		if(mb_strlen($("formtitle").value) > titlelimit) {
-			showError({lang collection_title_exceed});
-			return false;
-		}
-		if(mb_strlen($("formdesc").value) > desclimit) {
-			showError({lang collection_desc_exceed});
-			return false;
-		}
-		return true;
-	}
+	<!--{/if}-->
+	<form method="post" autocomplete="off" name="groupform" id="groupform"  action="forum.php?mod=collection&action=edit" onsubmit="return checklen();">
+		<input type="hidden" value="1" name="submitcollection" />
+		<input type="hidden" value="{$op}" name="op" />
+		<input type="hidden" value="{$ctid}" name="ctid" />
+		<input type="hidden" name="formhash" id="formhash" value="{FORMHASH}" />
+		<input type="hidden" name="collectionsubmit" id="collectionsubmit" value="submit" />
+		<ul class="bodybox post_box mt15 cl">
+			<li class="flex-box mli">
+				<div class="tit">{lang collection_title}<span class="f_g">*</span></div>
+				<div class="flex input"><input type="text" id="formtitle"{if $_G['collection']['name']} value="{$_G['collection']['name']}"{/if} autocomplete="off" name="title"></div>
+			</li>
+			<li class="tit">{lang collection_desc} </li>
+			<li class="cl">
+				<textarea name="desc" id="formdesc" rows="5" class="pxs">
+					{$_G['collection']['desc']}
+				</textarea>
+			</li>
+			<div class="bodybox p10">
+				<div class="quote">
+					<p>{lang collection_keywords_desc}</p>
+				</div>
+			</div>
+			<li class="flex-box mli">
+				<div class="tit">{lang collection_keywords}</div>
+				<div class="flex input"><input type="text" id="formkeyword"{if $_G['collection']['keyword']} value="{$_G['collection']['keyword']}"{/if} autocomplete="off" name="keyword"></div>
+			</li>
+		</ul>
+		<div class="mt5 p10">
+			<button type="submit" class="formdialog flex pn"><!--{if $op == 'edit'}-->{lang collection_edit}<!--{else}-->{lang collection_create}<!--{/if}--></button>
+		</div>
+  </form>
+</div>
+<script type="text/javascript">
+var titlelimit = '$titlelimit';
+var desclimit = '$desclimit';
+  function checklen() {
+    if(mb_strlen($("formtitle").value) > titlelimit) {
+      showError({lang collection_title_exceed});
+      return false;
+    }
+    if(mb_strlen($("formdesc").value) > desclimit) {
+      showError({lang collection_desc_exceed});
+      return false;
+    }
+    return true;
+  }
+  function preview(id){
+    var file=$('#'+id).val();
+    var arr=file.split('\\');
+    var name=arr[arr.length-1];
+    $('#'+id+'_name').html(name);
+  }
+  function show(id){
+    if($('#'+id).css('display')=='none'){
+      $('#'+id).css('display', '');
+    }else{
+      $('#'+id).css('display', 'none');
+    }
+  }
+  function group_ajaxget(url) {
+    $.ajax({
+      type:'GET',
+      url: url + '&inajax=1' ,
+      dataType:'xml',
+    }).success(function(s) {
+		var sencondgroup = s.lastChild.firstChild.nodeValue.replace("class=\"ps\"", "class=\"sort_sel\"");
+		$('#linkage').html(sencondgroup);
+		$('#secondgroup').css('display', '');
+		return;
+    });
+  }
 </script>
-<!--{template common/footer}-->
+
+<!--{eval $nofooter = true;}-->
+<!--{block footerplus}--><div class="O1JmykD4eNwe"></div><!--{/block}-->
