@@ -9,7 +9,7 @@
 		<!--{/if}-->
 	</h2>
 </div>
-<div class="setbox cl" id="creatgroup">
+<div class="setbox cl">
 	<!--{if $op != 'edit'}-->
 	<div class="bodybox p10">
 		<div class="quote">
@@ -17,7 +17,7 @@
 		</div>
 	</div>
 	<!--{/if}-->
-	<form method="post" autocomplete="off" name="groupform" id="groupform"  action="forum.php?mod=collection&action=edit" onsubmit="return checklen();">
+	<form method="post" autocomplete="off" action="forum.php?mod=collection&action=edit" onsubmit="return checklen();">
 		<input type="hidden" value="1" name="submitcollection" />
 		<input type="hidden" value="{$op}" name="op" />
 		<input type="hidden" value="{$ctid}" name="ctid" />
@@ -62,31 +62,6 @@ var desclimit = '$desclimit';
       return false;
     }
     return true;
-  }
-  function preview(id){
-    var file=$('#'+id).val();
-    var arr=file.split('\\');
-    var name=arr[arr.length-1];
-    $('#'+id+'_name').html(name);
-  }
-  function show(id){
-    if($('#'+id).css('display')=='none'){
-      $('#'+id).css('display', '');
-    }else{
-      $('#'+id).css('display', 'none');
-    }
-  }
-  function group_ajaxget(url) {
-    $.ajax({
-      type:'GET',
-      url: url + '&inajax=1' ,
-      dataType:'xml',
-    }).success(function(s) {
-		var sencondgroup = s.lastChild.firstChild.nodeValue.replace("class=\"ps\"", "class=\"sort_sel\"");
-		$('#linkage').html(sencondgroup);
-		$('#secondgroup').css('display', '');
-		return;
-    });
   }
 </script>
 
