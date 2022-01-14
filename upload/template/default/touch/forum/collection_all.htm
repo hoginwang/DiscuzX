@@ -13,25 +13,6 @@
 	</div>
 </div>
 <!--{subtemplate forum/collection_nav}-->
-<form action="forum.php?mod=collection&amp;op=search" class="mobileformbox">
-	<div class="mobileformitem" style="display: flex;">
-		<!--{if $op != 'search'}-->
-		<!--{if $orderby == 'threadnum'}-->
-		<a href="forum.php?mod=collection&amp;op=all&amp;order=commentnum"><img class="icon" src="static/image/mobile/touch/threadnum.svg" alt="{lang collection_sortby_coomentnum}"></a>
-		<!--{elseif $orderby == 'commentnum'}-->
-		<a href="forum.php?mod=collection&amp;op=all&amp;order=follownum"><img class="icon" src="static/image/mobile/touch/commentnum.svg" alt="{lang collection_sortby_follownum}"></a>
-		<!--{elseif $orderby == 'follownum'}-->
-		<a href="forum.php?mod=collection&amp;op=all"><img class="icon" src="static/image/mobile/touch/follownum.svg" alt="{lang collection_sortby_update}"></a>
-		<!--{elseif !in_array($orderby, array('threadnum', 'commentnum', 'follownum'))}-->
-		<a href="forum.php?mod=collection&amp;op=all&amp;order=threadnum"><img class="icon" src="static/image/mobile/touch/time.svg" alt="{lang collection_sortby_threadnum}"></a>
-		<!--{/if}-->
-		<!--{/if}-->
-		<!--{if $_G['setting']['search']['collection']['status'] && ($_G['group']['allowsearch'] & 64 || $_G['adminid'] == 1)}-->
-		<input class="w100" type="text" placeholder="{lang search}">
-		<button style="min-width: 70px" type="submit" value="submit">{lang search}</button>
-		<!--{/if}-->
-	</div>
-</form>
 <!--{hook/collection_index_top}-->
 <!--{subtemplate forum/collection_list}-->
 <!--{hook/collection_index_bottom}-->
