@@ -902,36 +902,7 @@ body.pg_logging, body.pg_register {background-color:var(--dz-BG-0)}
 #group_manage_userlist li { width:auto; margin:0 5px;}
 #threadtype input { background-color:var(--dz-BG-5); width:100%;}
 
-/*----- 淘帖 -----*/
-.mobileformitem .icon {width: 38px; height: 38px;padding-right: 10px;}
-
-/*----- 表单 -----*/
-.mobileformbox {overflow:hidden;}
-.mobileformitem {background-color: var(--dz-BG-0);padding:7px;font-size:16px;border-bottom:1px solid var(--dz-BOR-ed)}
-.mobileformitem > span {font-size:14px;display:none;}
-.mobileformitem:hover > span {display: inline;}
-.mobileformitem > input {line-height:30px;border:none;padding:0;font-size:16px;}
-.mobileformitem > textarea {min-height:168px;line-height:24px;border:none;padding:0;background-color: var(--dz-BG-0);}
-.mobileformitem > select {line-height:30px;border:none;padding:0;background-color: var(--dz-BG-0);}
-.mobileformitem > button {height: 44px;line-height: 30px;color:var(--dz-BG-0);background-color:var(--dz-BG-color);border:none;border-radius:6px;padding:7px 15px;text-align:center;font-size:16px;overflow:hidden}
-.mobileformitem > .w100 {width:100%;}
-.mobileformitem > .w80 {width:80%;}
-.mobileformitem > .w60 {width:60%;}
-.mobileformitem > .w30 {width:30%;margin: 0 2.5%;}
-.mobileformitem > .w20 {width:20%;}
-
-/*----- 列表 -----*/
-.mobilelistbox {overflow:hidden;}
-.mobilelistitem {background-color: var(--dz-BG-0);padding:7px;font-size:16px;border-bottom:1px solid var(--dz-BOR-ed)}
-.mobilelisttitle {line-height: 30px;font-size: 18px;}
-.mobilelisttitle > a {font-weight: 900;color: var(--dz-BG-color);}
-.mobilelisttitle > span {padding: 0 4px; border-radius: 4px; margin-left: 5px;font-size: 12px;background-color: var(--dz-BG-color);}
-.mobilelisttitle > span.mobilelistme {background-color: var(--dz-BG-2);}
-.mobilelistdescription {line-height: 20px;font-size: 14px; color: var(--dz-FC-333);}
-.mobilelistinfo {line-height: 20px;font-size: 12px; color: var(--dz-FC-666);}
-.mobilelistinfo > span {margin: 0 4px;font-weight: 900;color: var(--dz-FC-color);}
-
-/*----- media -----*/
+/*----- media --------*/
 .media { display: block; margin-bottom: 30px; max-width: 100%; }
 .media_container { display: block; width: 100%; height: 100%; min-height: 20px; background: url("./images/img_loader.gif") no-repeat center; }
 .media_container a { text-decoration: none !important; }
