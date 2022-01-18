@@ -3,51 +3,42 @@ branches: {
   }
 fileChange:
   /upload:
-    newFile: !uuid 'f74189625fd62ecd2f7cfe5b55883ba2ccda39da'
-    oldFile: !uuid '837c118947a2cf79f39193e5914ce3387aeee04b'
+    newFile: !uuid '3893ee7ac02dc9a53a903850086cadc00e86d8dc'
+    oldFile: !uuid 'f74189625fd62ecd2f7cfe5b55883ba2ccda39da'
+  /upload/static:
+    newFile: !uuid '4f377a9b66587d70e46089d2705ac43c62692ffd'
+    oldFile: !uuid 'fe3487901c6539781dbe12df905971f1d8766ebb'
+  /upload/static/image:
+    newFile: !uuid '1e72d2fe2b27d575cae15a8c1c817099b3e32bc8'
+    oldFile: !uuid 'bfd567aff1eec3dd28d38de0e20e6adc0a27686c'
+  /upload/static/image/mobile:
+    newFile: !uuid 'e8cb43d4967d61ba501c130830b6fb3d33e6b36d'
+    oldFile: !uuid '1f17e16be872f10156455911c21dc481506b00d6'
+  /upload/static/image/mobile/style.css:
+    newFile: !uuid 'ea0ee2060809c4a8bc997a83ff0c5653a19dea82'
+    oldFile: !uuid 'e91d156f3706e2a10709b1ec9f31ea17417bff23'
   /upload/template:
-    newFile: !uuid 'ef4d4c72342aee9836af22feb1a4b298507006f1'
-    oldFile: !uuid '1b77c4000d5a1496d935d15ab33770d297306a38'
+    newFile: !uuid 'f64bb95924c634ddfb1f0b5922103c4bd1c29a8c'
+    oldFile: !uuid 'ef4d4c72342aee9836af22feb1a4b298507006f1'
   /upload/template/default:
-    newFile: !uuid '643e6657f4a28f82a3c1b62bb40e80d9d6d72552'
-    oldFile: !uuid '17c48e1b32fb1793229e3dca723b2141c23e2f8d'
+    newFile: !uuid '3e8e03745b1006d12f233ce2e51fd13a1acd38cb'
+    oldFile: !uuid '643e6657f4a28f82a3c1b62bb40e80d9d6d72552'
   /upload/template/default/touch:
-    newFile: !uuid '0881bbb76cf3bdf0bde34a42dd3b02845f9e38aa'
-    oldFile: !uuid '4bf1e46e57062541f5a62abc4250e7548256fe6e'
-  /upload/template/default/touch/search:
-    newFile: !uuid 'f609e4c8b86f93e024f5e220465de02cbce55500'
-    oldFile: !uuid 'b5a5bebe42ece033581835e8045cb0b0b60b0a04'
-  /upload/template/default/touch/search/album.htm:
-    newFile: !uuid '9bfec26c4fa3b5fbc24d223a271335f30eee31ed'
-    oldFile: null
-  /upload/template/default/touch/search/album_list.htm:
-    newFile: !uuid '727e3951c3ca3e63c4bd7808dff035564dcdf85c'
-    oldFile: null
-  /upload/template/default/touch/search/blog.htm:
-    newFile: !uuid 'aaf1964ac73d20528eeff8e61c5770ce86fa6101'
-    oldFile: null
-  /upload/template/default/touch/search/blog_list.htm:
-    newFile: !uuid '0243582c659c8672d1cb782ae003fdf420d6e700'
-    oldFile: null
-  /upload/template/default/touch/search/collection.htm:
-    newFile: !uuid '6a4f033716a5ae2f9f38892b93f6ea3277e8c6b5'
-    oldFile: null
-  /upload/template/default/touch/search/collection_list.htm:
-    newFile: !uuid '27dfbea03b04a7fc28ba68ed0b416b042ebbfd6f'
-    oldFile: null
-  /upload/template/default/touch/search/group.htm:
-    newFile: !uuid 'cee7bf2a089065ca51d187593ba091e5af7d08dd'
-    oldFile: null
-  /upload/template/default/touch/search/group_list.htm:
-    newFile: !uuid 'ab214ee2cf35d13a700ee8fefb1d30996f0c126a'
-    oldFile: null
-  /upload/template/default/touch/search/portal.htm:
-    newFile: !uuid '350a14ec1be694a144c5605c4ee8250a08406f28'
-    oldFile: null
-  /upload/template/default/touch/search/portal_list.htm:
-    newFile: !uuid '88354cec4cb3c65504d56bbda214edd0785cfd1d'
-    oldFile: null
-gitCommitId: !uuid 'fa9e44be5e482a29423d9ccae2f8aa0792089949'
+    newFile: !uuid 'caa13ae6d3fd32b31e0fefb92af078f6d1d61c25'
+    oldFile: !uuid '0881bbb76cf3bdf0bde34a42dd3b02845f9e38aa'
+  /upload/template/default/touch/forum:
+    newFile: !uuid 'a8ec5db23770bad36c7e00f1f1fc8160ecd94773'
+    oldFile: !uuid '2d2c9fb27720dba4c170efde18a5b1a0b8ee8b68'
+  /upload/template/default/touch/forum/post.htm:
+    newFile: !uuid 'fa54bb4342e28b8231dd729dbc1384ea79f1b285'
+    oldFile: !uuid 'a7245852cf0e3f358676975073f9c443948451ff'
+  /upload/template/default/touch/home:
+    newFile: !uuid '972b422e625afbb50b090e16ede27dae4ec4c835'
+    oldFile: !uuid '6f04f41407bededdb75729d02229d111df9f30a6'
+  /upload/template/default/touch/home/follow_feed_li.htm:
+    newFile: !uuid 'd1c9a9e22e64e4a5f5603437e75641bd15a7a865'
+    oldFile: !uuid '532c272d73a0dac6e0f83936fd2384aaaf39abd8'
+gitCommitId: !uuid '90032a4a103df04855f5cb462ecc948157537253'
 renames: {
   }
-revisionId: 794
+revisionId: 795
