@@ -103,13 +103,11 @@ class image {
 		if(!$this->param['watermarkstatus'][$type] || ($this->param['watermarkminwidth'][$type] && $this->imginfo['width'] <= $this->param['watermarkminwidth'][$type] && $this->param['watermarkminheight'][$type] && $this->imginfo['height'] <= $this->param['watermarkminheight'][$type])) {
 			return $this->returncode(0);
 		}
-		if($this->imginfo['width'] >= $this->param['watermarkminwidth3k'][$type]){
+		if($this->imginfo['width'] >= $this->param['watermarkminwidth3k'][$type]) {
 			$this->param['watermarkfile'][$type] = './static/image/common/'.($this->param['watermarktype'][$type] == 'png' ? 'watermark-3k.png' : 'watermark.gif');
-		}
-		elseif($this->imginfo['width'] >= $this->param['watermarkminwidth2k'][$type]){
+		} elseif($this->imginfo['width'] >= $this->param['watermarkminwidth2k'][$type]) {
 			$this->param['watermarkfile'][$type] = './static/image/common/'.($this->param['watermarktype'][$type] == 'png' ? 'watermark-2k.png' : 'watermark.gif');
-		}
-		else{
+		} else {
 			$this->param['watermarkfile'][$type] = './static/image/common/'.($this->param['watermarktype'][$type] == 'png' ? 'watermark.png' : 'watermark.gif');
 		}
 
