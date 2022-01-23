@@ -3,42 +3,30 @@ branches: {
   }
 fileChange:
   /upload:
-    newFile: !uuid '04874b74f5c60c391f5a7a038f922b5155250feb'
-    oldFile: !uuid 'e58360656c557122f3442c5a1828888bfe4c7599'
-  /upload/install:
-    newFile: !uuid '5eee2f68ac3c3bad8d1003046562b77d994f627f'
-    oldFile: !uuid '83eb06f41ab3685daa6f662ec01b780c5b82e5d7'
-  /upload/install/data:
-    newFile: !uuid '7af26100f80dd40ca515433757459554be42c9ae'
-    oldFile: !uuid 'ce41d451e763e5670c304bafbf6c4fb921528423'
-  /upload/install/data/install_data.sql:
-    newFile: !uuid '28b5121f099f83c813a9edfad35176cd8e179d93'
-    oldFile: !uuid '6a58cd1ef75a643da4ab57a1a048d356261f4046'
-  /upload/source:
-    newFile: !uuid 'eefa113092aa663c050d92c9cf1694cd6ca62da6'
-    oldFile: !uuid '5570fedd4495c73df5c218a02167265833df1c8c'
-  /upload/source/admincp:
-    newFile: !uuid '4a13196383cb6a65a22fd1f78721e5b012fa9818'
-    oldFile: !uuid '099ae214f61ff776654b7fdf30e7ab2ea18c27c7'
-  /upload/source/admincp/admincp_setting.php:
-    newFile: !uuid '96d91510840954350539f84ea178ce3fc90500f0'
-    oldFile: !uuid '3aef9586f99592d8d4e1f50284635c512f3f83cd'
-  /upload/source/class:
-    newFile: !uuid '4dc504ecd4d76d36de1ce80e2753c9213f9a1ea0'
-    oldFile: !uuid '8c768d6acca081cb9a2f071e3f77695d8495ddf9'
-  /upload/source/class/helper:
-    newFile: !uuid '3d6d462a4d9937ac8d3dfc5c69878dd4dbc8075b'
-    oldFile: !uuid '2897fb5d876a48b20bae5b1ca6c53bee3b7800f2'
-  /upload/source/class/helper/helper_mobile.php:
-    newFile: !uuid 'cdd039c8a3544f47098def5adf55ae147e60f70c'
-    oldFile: !uuid 'a7aaf1a68e1bb39239cd3c45c2e6ffee3eb25889'
-  /upload/source/language:
-    newFile: !uuid '32da7ec61e17eec4b5a7ad0dd7cbdbcb5245433f'
-    oldFile: !uuid 'c97851a8b65ce4b4e9a9d0d2bf016ea61ef90c73'
-  /upload/source/language/lang_admincp.php:
-    newFile: !uuid '5b2682e3300b65e7d4e0986b574a2844786f7e16'
-    oldFile: !uuid '8cad6e5cbe0a2b76f3d56ed3f281238a4b255931'
-gitCommitId: !uuid '54523e677b2f313ac436988a475f6f93a0e79b7c'
+    newFile: !uuid 'b4ea210fadfde53e4db5b75f42ef8d60384622f6'
+    oldFile: !uuid '04874b74f5c60c391f5a7a038f922b5155250feb'
+  /upload/template:
+    newFile: !uuid '58823ab9c6343ed06ca439058ad135db6c6171ef'
+    oldFile: !uuid '13b057eed546bb22e57d55dfdf42adbe618abc6e'
+  /upload/template/default:
+    newFile: !uuid 'ac6eb18502b022edacc94272eeabb41b3daa189e'
+    oldFile: !uuid '0c75298313d3f327fc5ddd9cfd8347f40271e0dc'
+  /upload/template/default/touch:
+    newFile: !uuid '2194728e780e64e0893df526db2208b4ffd8eaae'
+    oldFile: !uuid '94f56a0999e57e8c96d2ab1d8b64be7e358575d7'
+  /upload/template/default/touch/forum:
+    newFile: !uuid 'e6c42ea84def445425f6cf3edb6ca63743d0834b'
+    oldFile: !uuid '07e492c8c03a2920977a83bdd3204c1c154a8a15'
+  /upload/template/default/touch/forum/forumdisplay_passwd.htm:
+    newFile: !uuid '89dfdcaaf861a91029289a455ed8d9eeb197df5f'
+    oldFile: null
+  /upload/template/default/touch/home:
+    newFile: !uuid '7646ae7d8bdb1a120db9568681028bef3fdbde6d'
+    oldFile: !uuid '972b422e625afbb50b090e16ede27dae4ec4c835'
+  /upload/template/default/touch/home/misc_inputpwd.htm:
+    newFile: !uuid 'a2dbd1f7ccf7f38c99e431ff19ba0711d00bae0b'
+    oldFile: null
+gitCommitId: !uuid '80072695badcb499d2862998433fdef5a004982b'
 renames: {
   }
-revisionId: 800
+revisionId: 801
