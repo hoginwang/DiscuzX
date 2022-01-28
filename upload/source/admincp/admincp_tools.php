@@ -28,7 +28,7 @@ if($operation == 'updatecache') {
 	/*search*/
 
 	if($step == 1) {
-		cpmsg("<input type=\"checkbox\" name=\"type[]\" value=\"data\" id=\"datacache\" class=\"checkbox\" checked /><label for=\"datacache\">".$lang[tools_updatecache_data]."</label><input type=\"checkbox\" name=\"type[]\" value=\"tpl\" id=\"tplcache\" class=\"checkbox\" checked /><label for=\"tplcache\">".$lang[tools_updatecache_tpl]."</label><input type=\"checkbox\" name=\"type[]\" value=\"blockclass\" id=\"blockclasscache\" class=\"checkbox\" /><label for=\"blockclasscache\">".$lang[tools_updatecache_blockclass].'</label>', 'action=tools&operation=updatecache&step=2', 'form', '', FALSE);
+		cpmsg("<input type=\"checkbox\" name=\"type[]\" value=\"data\" id=\"datacache\" class=\"checkbox\" checked /><label for=\"datacache\">".$lang[tools_updatecache_data]."</label>&nbsp;&nbsp;<input type=\"checkbox\" name=\"type[]\" value=\"tpl\" id=\"tplcache\" class=\"checkbox\" checked /><label for=\"tplcache\">".$lang[tools_updatecache_tpl]."</label>&nbsp;&nbsp;<input type=\"checkbox\" name=\"type[]\" value=\"css\" id=\"tplcache\" class=\"checkbox\" checked /><label for=\"tplcache\">".$lang[styles_csscache_update]."</label>&nbsp;&nbsp;<input type=\"checkbox\" name=\"type[]\" value=\"blockclass\" id=\"blockclasscache\" class=\"checkbox\" /><label for=\"blockclasscache\">".$lang[tools_updatecache_blockclass].'</label>', 'action=tools&operation=updatecache&step=2', 'form', '', FALSE);
 	} elseif($step == 2) {
 		$type = implode('_', (array)$_GET['type']);
 		cpmsg(cplang('tools_updatecache_waiting'), "action=tools&operation=updatecache&step=3&type=$type", 'loading', '', FALSE);
@@ -56,6 +56,18 @@ if($operation == 'updatecache') {
 		if(in_array('blockclass', $type)) {
 			include_once libfile('function/block');
 			blockclass_cache();
+		}
+		if(in_array('css', $type)) {
+			updatecache(array('setting', 'styles'));
+			loadcache('style_default', true);
+			updatecache('updatediytemplate');
+			$tpl = dir(DISCUZ_ROOT.'./data/template');
+			while($entry = $tpl->read()) {
+				if(preg_match("/\.tpl\.php$/", $entry)) {
+					@unlink(DISCUZ_ROOT.'./data/template/'.$entry);
+				}
+			}
+			$tpl->close();
 		}
 		cpmsg('update_cache_succeed', '', 'succeed', '', FALSE);
 	}
