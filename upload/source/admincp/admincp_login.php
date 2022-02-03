@@ -26,7 +26,7 @@ if($this->cpaccess == -3) {
 if(!getglobal('uid') && getglobal('config/admincp/mustlogin')) {
 	echo  '<p class="logintips">'.lang('admincp_login', 'login_cp_guest').'</p>';
 
-} elseif(!getstatus(getglobal('member/allowadmincp'), 1) || $this->cpaccess == -3) {
+} elseif((getglobal('uid') && !getstatus(getglobal('member/allowadmincp'), 1)) || $this->cpaccess == -3) {
 	echo  '<p class="logintips">'.lang('admincp_login', 'login_cp_noaccess').'</p>';
 
 
