@@ -54,6 +54,7 @@ if($space['lastactivity']) {
 }
 if($space['lastpost']) $space['lastpost'] = dgmdate($space['lastpost']);
 if($space['lastsendmail']) $space['lastsendmail'] = dgmdate($space['lastsendmail']);
+$follow = C::t('home_follow')->fetch_by_uid_followuid($_G['uid'], $space['uid']);//是否收听对方
 
 
 if($_G['uid'] == $space['uid'] || $_G['group']['allowviewip']) {
