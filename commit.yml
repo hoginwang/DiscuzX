@@ -3,36 +3,21 @@ branches: {
   }
 fileChange:
   /upload:
-    newFile: !uuid '09d0ce91a9fe9c30a23b69739e0870cf8041f36a'
-    oldFile: !uuid '6b86434ba06ea5ada8f28344a6aaa935e84f9a42'
-  /upload/install:
-    newFile: !uuid '096383d6fddf159a1591e8dccb8d3c70d39e2142'
-    oldFile: !uuid '89a22b4065f071055ddd4334a8d6d3b04a9f2e7e'
-  /upload/install/data:
-    newFile: !uuid '7837d3ca2372292caf51ee8a7a4572cffe0fd6c4'
-    oldFile: !uuid 'ec7f1b0a9b5e29bd486e7639907ae2c0fa0c1c5a'
-  /upload/install/data/install_data.sql:
-    newFile: !uuid '4cbfefb61269be33146dde08fa07286b54090991'
-    oldFile: !uuid 'f4da6342cf74bc511ca88c47a9fc5df474a1594c'
-  /upload/source:
-    newFile: !uuid '664017fc7f1b09ca12b69690192137b6be18dff0'
-    oldFile: !uuid '1fdfe91fe0536643b3383826926150084481ee60'
-  /upload/source/class:
-    newFile: !uuid '313a36a565ab9ffba745151c3b4b8dc183cfcc2b'
-    oldFile: !uuid '2691bba04e8f99852619558f4998f154dd9cb53e'
-  /upload/source/class/discuz:
-    newFile: !uuid 'd5360b9338ec51ef81775a90cd5e08d9c11d5d52'
-    oldFile: !uuid '28a4e8cf72af5d154a2c6352e1d0f82f139d6c78'
-  /upload/source/class/discuz/discuz_application.php:
-    newFile: !uuid 'b9747ceb7054a692897b74d33007065c66cfdcab'
-    oldFile: !uuid 'b00f9aa76ae1393f0ba3ddaf8d7d4e6090ea7080'
-  /upload/source/language:
-    newFile: !uuid 'e69052437805ddba246f3e76e2f4547ace3d7c45'
-    oldFile: !uuid 'b0f6a0517cb10961f17952135733d48bd9813317'
-  /upload/source/language/lang_admincp.php:
-    newFile: !uuid 'c38691a90d498f00492eb3ad7b748166c2e22675'
-    oldFile: !uuid 'b13c754ab92b2c2759f734a61243f93fd33c6ce3'
-gitCommitId: !uuid 'd6b7dae47b42e15cc9442cfb991a04616b9ceb30'
+    newFile: !uuid '6d5f9a0fd55771b79a311f94ed62735810d5ebe8'
+    oldFile: !uuid '09d0ce91a9fe9c30a23b69739e0870cf8041f36a'
+  /upload/static:
+    newFile: !uuid '05b7d404719034f4ce291b065fb0f05eb42d15cc'
+    oldFile: !uuid '0d7e9265393c4ca011eb0a96b3222b9685b2d1ba'
+  /upload/static/js:
+    newFile: !uuid '1ed6c89dc21fe3298fb87803a10b60899453d0db'
+    oldFile: !uuid 'b20a016667e13e62200ffe45cb5587d7fe55c5ae'
+  /upload/static/js/mobile:
+    newFile: !uuid 'eca1d95828f8c5e1dfcee47bad0a028cc123a7ff'
+    oldFile: !uuid '39fc65203e23dffa9fcb37b2ff4c48d74adf859c'
+  /upload/static/js/mobile/common.js:
+    newFile: !uuid '01d1e0dac711bde84899b5dd6d3eb0fab042ae04'
+    oldFile: !uuid '6c0fdd3170cddabff5429e0e22a26828251fe4d7'
+gitCommitId: !uuid '426b25ab4a9b612c6e4a666ba2ac6e0519c92051'
 renames: {
   }
-revisionId: 817
+revisionId: 818
