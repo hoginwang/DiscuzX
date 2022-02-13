@@ -280,11 +280,15 @@ function dsetcookie($var, $value = '', $life = 0, $prefix = 1, $httponly = false
 	$path = $httponly && PHP_VERSION < '5.2.0' ? $config['cookiepath'].'; HttpOnly' : $config['cookiepath'];
 
 	$secure = $_G['isHTTPS'];
-	if(PHP_VERSION < '5.2.0') {
-		setcookie($var, $value, $life, $path, $config['cookiedomain'], $secure);
-	} else {
-		setcookie($var, $value, $life, $path, $config['cookiedomain'], $secure, $httponly);
-	}
+    if(defined('IN_API')){
+        header("Set-Cookie: {$var}=".urlencode($value)."; expires=".date("D, d M Y H:i:s",$life)." GMT; domain={$config['cookiedomain']}; path={$config['cookiepath']}; HTTPOnly; Secure; SameSite=None;",false);
+    }else{
+	    if(PHP_VERSION < '5.2.0') {
+		    setcookie($var, $value, $life, $path, $config['cookiedomain'], $secure);
+	    } else {
+		    setcookie($var, $value, $life, $path, $config['cookiedomain'], $secure, $httponly);
+	    }
+    }
 }
 
 function getcookie($key) {
