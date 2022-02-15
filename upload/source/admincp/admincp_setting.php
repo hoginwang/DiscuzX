@@ -1859,7 +1859,9 @@ EOT;
 		showsetting('setting_sec_secqaa_status', array('settingnew[secqaa][status]', array(
 			cplang('setting_sec_seccode_status_register'),
 			cplang('setting_sec_seccode_status_post'),
-			cplang('setting_sec_seccode_status_password')
+			cplang('setting_sec_seccode_status_password'),
+			cplang('setting_sec_seccode_status_login'),
+			cplang('setting_sec_seccode_status_card')
 		)), $setting['secqaa']['status'], 'binmcheckbox');
 		showsetting('setting_sec_secqaa_minposts', 'settingnew[secqaa][minposts]', $setting['secqaa']['minposts'], 'text');
 		showtablefooter();
@@ -3043,7 +3045,7 @@ EOT;
 
 		updatecache('secqaa');
 
-		$settingnew['secqaa']['status'] = bindec(intval($settingnew['secqaa']['status'][3]).intval($settingnew['secqaa']['status'][2]).intval($settingnew['secqaa']['status'][1]));
+		$settingnew['secqaa']['status'] = bindec(intval($settingnew['secqaa']['status'][5]).intval($settingnew['secqaa']['status'][4]).intval($settingnew['secqaa']['status'][3]).intval($settingnew['secqaa']['status'][2]).intval($settingnew['secqaa']['status'][1]));
 		$settingnew['secqaa'] = serialize($settingnew['secqaa']);
 
 	} elseif($operation == 'sec') {
