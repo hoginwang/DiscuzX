@@ -3,33 +3,21 @@ branches: {
   }
 fileChange:
   /upload:
-    newFile: !uuid '90cd8f1ae3faf7d43c886e1e98c61dd62a209116'
-    oldFile: !uuid '005c81e77663184a9b0e8da4a0f4d55e2eb2d299'
-  /upload/template:
-    newFile: !uuid '427a86442f35ad27e93942ecab61f39fa9d0e47d'
-    oldFile: !uuid '7628f4957320514a18f96f56d7ec569201bfa284'
-  /upload/template/default:
-    newFile: !uuid '2f001d2b7352a61a265df08a9f221c49ea12e113'
-    oldFile: !uuid 'aad85c495d4e4c33bd24ef74ad78f6f557835db3'
-  /upload/template/default/forum:
-    newFile: !uuid '6a96f0da1989867848004f0f10702691548a0a89'
-    oldFile: !uuid '723a059f73045637c05ac3834cd0d87ab0f29295'
-  /upload/template/default/forum/trade_info.htm:
-    newFile: !uuid '28f68dcb58b6e4da62abfcbf4101eb6885bf9616'
-    oldFile: !uuid 'dfdc5435223af9f99487ba0de5f023fd189d3473'
-  /upload/template/default/home:
-    newFile: !uuid '0bda95bb5abcdc6ec66cd1bebb2d57992c72530a'
-    oldFile: !uuid '7a3ab722d4423ac70d8da23d27241d11507a0d52'
-  /upload/template/default/home/space_eccredit.htm:
-    newFile: !uuid '4b837def25d16744bcd2c827bc120a28c76597fb'
-    oldFile: !uuid '1cea8c2fd82addcd3e270f820b552b2dcf691ab8'
-  /upload/template/default/home/space_profile_body.htm:
-    newFile: !uuid '5eb85d8effb77f3c87e7f724e7c93c2c7b968f6b'
-    oldFile: !uuid '9de0b2f5a6d4aefbd01ad9dba480041c65670d43'
-  /upload/template/default/home/space_trade.htm:
-    newFile: !uuid 'b1ff6b4703acc83363c41ed918f90e6504c33c2d'
-    oldFile: !uuid 'd55bdb9d0f6452be5f3d181f13f3d58d04a1de72'
-gitCommitId: !uuid '58901c53fe3cde4446efc94f79f9d0f3e545eea5'
+    newFile: !uuid '4e5abca6e89ec03a5e6013a85ccda7ddb31c7cad'
+    oldFile: !uuid '90cd8f1ae3faf7d43c886e1e98c61dd62a209116'
+  /upload/source:
+    newFile: !uuid '4a3a5e7901a3c7c22076bf1ef82042d2593e4181'
+    oldFile: !uuid '7d9de575037baf60b5de0f53b72b98701e105d04'
+  /upload/source/class:
+    newFile: !uuid 'e90c6bc99ba016c0ff935ec581c85c28e59e2a97'
+    oldFile: !uuid '6da51dce7dc524acdf800c28f7a7b6728bf98728'
+  /upload/source/class/magic:
+    newFile: !uuid '9984772230410bc4d0430b3e75000cb06e0c04e7'
+    oldFile: !uuid 'dc7cbecac1c5e9406f12decc1211d0072e85a61b'
+  /upload/source/class/magic/magic_repent.php:
+    newFile: !uuid 'b25d687f30862f1d8ded7ba6b395eeef794687f3'
+    oldFile: !uuid '40e3da2bcec9558f0ee552815070d0271c40bf65'
+gitCommitId: !uuid '016882cfe052ac490db26d44f15dbe53a5086dc8'
 renames: {
   }
-revisionId: 937
+revisionId: 938
