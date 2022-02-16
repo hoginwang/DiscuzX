@@ -98,7 +98,7 @@ class db_driver_mysqli
 	function table_name($tablename) {
 		if(!empty($this->map) && !empty($this->map[$tablename])) {
 			$id = $this->map[$tablename];
-			if(!empty($this->config[$id]['tablepre'])){
+			if(isset($this->config[$id]['tablepre'])){
 				$this->tablepre = $this->config[$id]['tablepre'];
 			}
 			if(!$this->link[$id]) {
