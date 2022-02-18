@@ -383,6 +383,7 @@ $lang = array (
   'guide_new' => '最新回复',
   'guide_newthread' => '最新发表',
   'guide_sofa' => '抢沙发',
+  'guide_stick' => '置顶推荐',
   'guide_nothreads' => '暂时还没有帖子',
   'keyword' => '关键字',
   'posts_type' => '帖子类型',
