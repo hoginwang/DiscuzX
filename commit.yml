@@ -3,21 +3,27 @@ branches: {
   }
 fileChange:
   /upload:
-    newFile: !uuid '934993e7479e0bbe1c048c298ec7ae6278b4b371'
-    oldFile: !uuid '4e5abca6e89ec03a5e6013a85ccda7ddb31c7cad'
+    newFile: !uuid '0f8eebe2e89d23315b460b29249841b7026340c5'
+    oldFile: !uuid '934993e7479e0bbe1c048c298ec7ae6278b4b371'
   /upload/source:
-    newFile: !uuid 'f4f426fcb095d1359d400f46c5160cb25fc1cc59'
-    oldFile: !uuid '4a3a5e7901a3c7c22076bf1ef82042d2593e4181'
-  /upload/source/class:
-    newFile: !uuid 'b5f1074731af191449115c4e258ed470dc21d26b'
-    oldFile: !uuid 'e90c6bc99ba016c0ff935ec581c85c28e59e2a97'
-  /upload/source/class/magic:
-    newFile: !uuid 'a9497dc241b06a45e1a86f5c16c3c4b8348be342'
-    oldFile: !uuid '9984772230410bc4d0430b3e75000cb06e0c04e7'
-  /upload/source/class/magic/magic_friendnum.php:
-    newFile: !uuid '089a0b04c0579d3cfb70d249a6c52eaee6f4d77e'
-    oldFile: !uuid '036e3afa5cf26143d4e016fa503a47df08d1e79e'
-gitCommitId: !uuid 'c17ab13c1c438f2662764faa78f112b25bb41897'
+    newFile: !uuid '7fc418937b3af992b6b055157fd30d2033924bbb'
+    oldFile: !uuid 'f4f426fcb095d1359d400f46c5160cb25fc1cc59'
+  /upload/source/language:
+    newFile: !uuid '41bdbfdcdc5922d92dfbfcbb7f8b4c9c1d3b23ae'
+    oldFile: !uuid '8c05676e23ddaabe4ae0ae21b125125540ea8d39'
+  /upload/source/language/lang_message.php:
+    newFile: !uuid '10ab473984e82fd6d8b48443117915efa8f0f60d'
+    oldFile: !uuid '603ee089b675d718a1fdbaa03bd9bacebc29e490'
+  /upload/source/module:
+    newFile: !uuid 'e44ac356d4efbd4d7fecc8d689d6c8ef8f569bc1'
+    oldFile: !uuid '98835f843eed9130c5ea1e186680b065f28e333f'
+  /upload/source/module/forum:
+    newFile: !uuid '684b824d5baa74b2856cb92bf7910d63024ec39b'
+    oldFile: !uuid '2a624f85f48e3e3ed415c99e12323efdc519eb89'
+  /upload/source/module/forum/forum_misc.php:
+    newFile: !uuid 'bea8658ca2259b3c8ba748fe093a4600c8a5cda5'
+    oldFile: !uuid '1234ac6f752ebf25be7abb27f5213f247df13db2'
+gitCommitId: !uuid '00fc97ae457c07f55e94afdc67460798bf165796'
 renames: {
   }
-revisionId: 939
+revisionId: 940
