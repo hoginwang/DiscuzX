@@ -1112,6 +1112,9 @@ class table_forum_thread extends discuz_table
 			}
 			if($type == 'newthread') {
 				$orderby = 'tid';
+			} elseif($type == 'stick') {
+				$orderby = 'displayorder';
+				$addsql .= ' AND displayorder > 0';
 			} elseif($type == 'reply') {
 				$orderby = 'lastpost';
 				$addsql .= ' AND replies > 0';
