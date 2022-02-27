@@ -313,7 +313,7 @@ function get_my_threads($viewtype, $fid = 0, $filter = '', $searchkey = '', $sta
 		unset($pids, $tids, $postcommentarr);
 		if($fids) {
 			$fids = array_unique($fids);
-			$forumnames = C::t('forum_forum')->fetch_all_name_by_fid($gids);
+			$forumnames = C::t('forum_forum')->fetch_all_name_by_fid($fids);
 		}
 		$listcount = count($list);
 	} else {
