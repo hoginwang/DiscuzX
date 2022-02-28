@@ -3,33 +3,21 @@ branches: {
   }
 fileChange:
   /upload:
-    newFile: !uuid '012d091c52840be5c2f34f8e09e4daa22152c3c3'
-    oldFile: !uuid '01a03469356d253733cf9b2558284cf40b7df9da'
+    newFile: !uuid '34602364002cda745e590847308abe11b870e162'
+    oldFile: !uuid '012d091c52840be5c2f34f8e09e4daa22152c3c3'
   /upload/source:
-    newFile: !uuid '15db2f81e7d2180e7f4986e52cd432f642276107'
-    oldFile: !uuid 'bec1983afd3ff63734f0211076b977999c65b1e3'
-  /upload/source/module:
-    newFile: !uuid '36c46d5aab72890eabf16a18433ae1d92b8f9ca8'
-    oldFile: !uuid 'a098476ab233819d5d60eb62511c56da2b80ac61'
-  /upload/source/module/forum:
-    newFile: !uuid '1f205a2b83b8cb149155208b51de0942175b8bea'
-    oldFile: !uuid '684b824d5baa74b2856cb92bf7910d63024ec39b'
-  /upload/source/module/forum/forum_guide.php:
-    newFile: !uuid '8ff86c2708985511089fed41ea3ef98bf8edbc23'
-    oldFile: !uuid 'c9e8a95e42a73108f7a93bf359b194542d08cae0'
-  /upload/template:
-    newFile: !uuid '16805f7ac76dac7f0e0090c523a38466778d7ad4'
-    oldFile: !uuid 'ad21f7e6cfba7636b19a7ac3759e9070fdbd63a4'
-  /upload/template/default:
-    newFile: !uuid 'a6c6cabd091d0732cff058b47ffb34619c27643e'
-    oldFile: !uuid 'f21c2b0873c68b60e327939c1a116f8d4bf984e0'
-  /upload/template/default/forum:
-    newFile: !uuid '8165e1c3ce8bb5da3695d66a28b6defc0730dc10'
-    oldFile: !uuid '6a96f0da1989867848004f0f10702691548a0a89'
-  /upload/template/default/forum/guide.htm:
-    newFile: !uuid '28b2c9ecc58827df92cc7d3788df00d9ed1be4a0'
-    oldFile: !uuid 'd6f5c11337fdf0da66b9278ae69f5d699ce57b88'
-gitCommitId: !uuid '3d6ad55787a1551fa0e408c5fa3be7d8d4c7e586'
+    newFile: !uuid 'f2d78b28a0805dfdcddd834fb1ac704f46e703af'
+    oldFile: !uuid '15db2f81e7d2180e7f4986e52cd432f642276107'
+  /upload/source/include:
+    newFile: !uuid '40ba83a076fb36dee4f9d7e36b34deaece3f31a0'
+    oldFile: !uuid '380d893f33936d78ef120044ec6bf4443d1bb55e'
+  /upload/source/include/misc:
+    newFile: !uuid '2be186bfdd610b36ecacda3fc8949102c4f507b0'
+    oldFile: !uuid '834023dbb807583a1469e6946da3a3ce4f8fe6ff'
+  /upload/source/include/misc/misc_ranklist_index.php:
+    newFile: !uuid '0ffd726cff60b43615776df58c0d616ac857bafe'
+    oldFile: !uuid '76c29372a9c522b588b979e3440ffeb263a4a2f2'
+gitCommitId: !uuid '367f0f2a78464edbaaa7bbf5751ab05654d8de46'
 renames: {
   }
-revisionId: 946
+revisionId: 947
