@@ -31,14 +31,7 @@ if(!empty($_GET['findpost']) && ($attach = C::t('forum_attachment')->fetch($aid)
 	dheader('location: forum.php?mod=redirect&goto=findpost&pid='.$attach['pid'].'&ptid='.$attach['tid']);
 }
 
-if($_GET['uid'] != $_G['uid'] && $_GET['uid']) {
-	$_G['uid'] = $_GET['uid'] = intval($_GET['uid']);
-	$member = getuserbyuid($_GET['uid']);
-	loadcache('usergroup_'.$member['groupid']);
-	$_G['group'] = $_G['cache']['usergroup_'.$member['groupid']];
-	$_G['group']['grouptitle'] = $_G['cache']['usergroup_'.$_G['groupid']]['grouptitle'];
-	$_G['group']['color'] = $_G['cache']['usergroup_'.$_G['groupid']]['color'];
-}
+
 
 
 $tableid = 'aid:'.$aid;
