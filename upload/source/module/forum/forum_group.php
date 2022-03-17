@@ -245,7 +245,7 @@ if($action == 'index') {
 
 		if($confirmjoin) {
 			C::t('forum_groupuser')->insert($_G['fid'], $_G['uid'], $_G['username'], $modmember, TIMESTAMP, TIMESTAMP);
-			if($_G['forum']['jointype'] == 2 && (empty($inviteuid) || empty($groupmanagers[$inviteuid]))) {
+			if($_G['forum']['jointype'] == 2 && $modmember == 0) {
 				foreach($groupmanagers as $manage) {
 					notification_add($manage['uid'], 'group', 'group_member_join', array('fid' => $_G['fid'], 'groupname' => $_G['forum']['name'], 'url' => $_G['siteurl'].'forum.php?mod=group&action=manage&op=checkuser&fid='.$_G['fid']), 1);
 				}
