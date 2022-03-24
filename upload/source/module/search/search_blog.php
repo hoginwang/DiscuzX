@@ -66,8 +66,9 @@ if(!submitcheck('searchsubmit', 1)) {
 		$data_blog = C::t('home_blog')->fetch_all($blogidarray, 'dateline', 'DESC', $start_limit, $_G['tpp']);
 		$data_blogfield = C::t('home_blogfield')->fetch_all($blogidarray);
 
+		$_G['colorarray'] = array('', '#EE1B2E', '#EE5023', '#996600', '#3C9D40', '#2897C5', '#2B65B7', '#8F2A90', '#EC1282');
 		foreach($data_blog as $curblogid => $value) {
-			$result = array_merge($result, (array)$data_blogfield[$curblogid]);
+			$value = array_merge($value, (array)$data_blogfield[$curblogid]);
 			if(ckfriend($value['uid'], $value['friend'], $value['target_ids']) && ($value['status'] == 0 || $value['uid'] == $_G['uid'] || $_G['adminid'] == 1)) {
 				if($value['friend'] == 4) {
 					$value['message'] = $value['pic'] = '';
