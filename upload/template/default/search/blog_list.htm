@@ -10,7 +10,7 @@
 			<ul>
 				<!--{loop $bloglist $blog}-->
 				<li class="pbw">
-					<h3 class="xs3"><a href="home.php?mod=space&uid=$blog[uid]&do=blog&id=$blog[blogid]"{if $blog[magiccolor]} class="magiccolor$blog[magiccolor]"{/if} target="_blank">$blog[subject]</a></h3>
+					<h3 class="xs3"><a href="home.php?mod=space&uid=$blog[uid]&do=blog&id=$blog[blogid]"{if $value[magiccolor]} style="color: {$_G[colorarray][$value[magiccolor]]}"{/if} target="_blank">$blog[subject]</a></h3>
 					<p class="xg1">$blog[replynum] {lang a_comment} - $blog[viewnum] {lang a_visit} - $blog[hot] {lang heat}</p>
 					<p>$blog[message]</p>
 					<p>
