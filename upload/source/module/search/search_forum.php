@@ -59,9 +59,6 @@ $srhfid = intval($_GET['srhfid']);
 $keyword = isset($srchtxt) ? dhtmlspecialchars(trim($srchtxt)) : '';
 
 $forumselect = forumselect();
-if(!empty($srchfid) && !is_numeric($srchfid)) {
-	$forumselect = str_replace('<option value="'.$srchfid.'">', '<option value="'.$srchfid.'" selected="selected">', $forumselect);
-}
 
 if(!submitcheck('searchsubmit', 1)) {
 
@@ -94,11 +91,16 @@ if(!submitcheck('searchsubmit', 1)) {
 		$searchstring = explode('|', $index['searchstring']);
 		$index['searchtype'] = $searchstring[0];//preg_replace("/^([a-z]+)\|.*/", "\\1", $index['searchstring']);
 		$searchstring[2] = base64_decode($searchstring[2]);
-		$srchuname = $searchstring[3];
+		$srchuname = $searchstring[4];
 		$modfid = 0;
 		if($keyword) {
 			$modkeyword = str_replace(' ', ',', $keyword);
 			$fids = explode(',', str_replace('\\\'', '', $searchstring[5]));
+			foreach ($fids as $srchfid) {
+				if(!empty($srchfid) ) {
+					$forumselect = str_replace('<option value="'.$srchfid.'">', '<option value="'.$srchfid.'" selected="selected">', $forumselect);
+				}
+			}			
 			if(count($fids) == 1 && in_array($_G['adminid'], array(1,2,3))) {
 				$modfid = $fids[0];
 				if($_G['adminid'] == 3 && !C::t('forum_moderator')->fetch_uid_by_fid_uid($modfid, $_G['uid'])) {
@@ -127,7 +129,11 @@ if(!submitcheck('searchsubmit', 1)) {
 
 		$fulltextchecked = $searchstring[1] == 'fulltext' ? 'checked="checked"' : '';
 
-		include template('search/forum');
+		if($_GET['adv']) {
+			include template('search/forum_adv');
+		} else {
+			include template('search/forum');
+		}
 
 	} else {
 
