@@ -2734,6 +2734,21 @@ EOT;
 		$configfile = str_replace("define('UC_IP', '".addslashes(UC_IP)."')", "define('UC_IP', '".$settingnew['uc']['ip']."')", $configfile);
 		$configfile = str_replace("define('UC_APPID', '".addslashes(UC_APPID)."')", "define('UC_APPID', '".$settingnew['uc']['appid']."')", $configfile);
 
+		if (!defined('UC_STANDALONE')) {
+			define('UC_STANDALONE', 0);
+			$configfile = str_replace("define('UC_DBHOST'", "define('UC_STANDALONE', 0);" . PHP_EOL . PHP_EOL . "define('UC_DBHOST'", $configfile);
+		}
+
+		if (!defined('UC_AVTPATH')) {
+			define('UC_AVTPATH', '');
+			$configfile = str_replace("define('UC_CHARSET'", "define('UC_AVTPATH', '');" . PHP_EOL . PHP_EOL . "define('UC_CHARSET'", $configfile);
+		}
+
+		if (!defined('UC_AVTURL')) {
+			define('UC_AVTURL', '');
+			$configfile = str_replace("define('UC_AVTPATH'", "define('UC_AVTURL', '');" . PHP_EOL . "define('UC_AVTPATH'", $configfile);
+		}
+
 		if(file_put_contents('./config/config_ucenter.php', trim($configfile), LOCK_EX) === false) {
 			cpmsg('uc_config_write_error', '', 'error');
 		}
