@@ -38,6 +38,18 @@ $_config['db'][1]['dbname']  		= 'ultrax';
 $_config['db'][1]['tablepre'] 		= 'pre_';
 
 /**
+ * 数据库前缀扩展定义，通过此配置可以让DZ实现多站共享文章、用户、帖子等信息，但分开存储全局配置等内容。
+ * 最终达到简单轻松的实现：多网站共享数据的目的
+ * @example
+ *$_config['db']['extend_table_pre']['common_syscache'] = 'wujigu_';
+ *$_config['db']['extend_table_pre']['common_setting'] = 'wujigu_';
+ * ...
+ *重要说明：common_syscache表在不启用内存缓存时必须同时配置，否则会出现加载缓存时错乱的情况
+ */
+$_config['db']['extend_table_pre']['common_syscache'] = $_config['db'][1]['tablepre'];
+$_config['db']['extend_table_pre']['common_setting'] = $_config['db'][1]['tablepre'];
+
+/**
  * 数据库从服务器设置( slave, 只读 ), 支持多组服务器设置, 当设置多组服务器时, 系统根据每次随机使用
  * @example
  * $_config['db']['1']['slave']['1']['dbhost'] = 'localhost';
