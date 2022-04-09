@@ -42,6 +42,7 @@ if(!submitcheck('modsubmit')) {
 		'modaction'	=> $modaction,
 		'modlog'	=> $thread
 	);
+	$modpostsnum = 1;	
 }
 
 ?>

@@ -44,10 +44,11 @@ if(!submitcheck('modsubmit')) {
 	$logarray = array();
 	foreach(C::t('common_credit_log')->fetch_all_by_uid_operation_relatedid(0, 'BTC', $_G['tid']) as $log) {
 		$amount = abs($log['extcredits'.$_G['setting']['creditstransextra'][1]]);
-		$totalamount += $amount;
 		$amountarray[$amount][] = $log['uid'];
 	}
 
+	$payment = C::t('common_credit_log')->count_stc_by_relatedid($_G['tid'], $_G['setting']['creditstransextra'][1]);
+	$totalamount = $payment['income'];
 	updatemembercount($thread['authorid'], array($_G['setting']['creditstransextra'][1] => -$totalamount));
 	C::t('forum_thread')->update($_G['tid'], array('price'=>-1, 'moderated'=>1));
 

@@ -32,6 +32,7 @@ foreach($topiclist as $pid) {
 
 if(!submitcheck('modsubmit')) {
 
+	$_GET['undo'] = C::t('forum_poststick')->count_by_tid($_G['tid']);
 	$stickpid = '';
 	foreach($sticktopiclist as $id => $postnum) {
 		$stickpid .= '<input type="hidden" name="topiclist[]" value="'.dintval($id).'" />';
