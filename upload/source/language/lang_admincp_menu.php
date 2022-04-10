@@ -128,7 +128,7 @@ $lang = array
 	'menu_moderate_recyclebinpost' => '回帖回收站',
 
 	'menu_founder' => '站点信息',
-	'menu_founder_perm' => '后台管理团队',
+	'menu_founder_perm' => '管理中心管理团队',
 	'menu_founder_groupperm' => '编辑团队职务权限 - {group}',
 	'menu_founder_permgrouplist' => '编辑权限 - {perm}',
 	'menu_founder_memberperm' => '编辑团队成员 - {username}',

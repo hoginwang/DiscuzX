@@ -160,7 +160,7 @@ $lang = array (
   'punctualupdate_tips' => '为了减轻系统负载，系统设定为同一时间最多只更新一个模块；勾选此项可以忽略此优化，保证模块按指定缓存时间及时更新(警告：这会严重加重系统负载！不要同一页面内设置大量“准时更新”模块！)',
   'reference_call_data' => '参考调用格式',
   'reference_call_field' => '可调用字段',
-  'reference_message' => '请参考： 后台 - 门户 - 模块模板 - 编辑/添加模板',
+  'reference_message' => '请参考： 管理中心 - 门户 - 模块模板 - 编辑/添加模板',
   'replace_loop_content' => '替代对应loop中指定数据内容，[order=odd]为奇数行，[order=even]为偶数行',
   'seodescription' => 'SEO Description',
   'seodescription_tips' => '设置更多页的页面SEO Description',

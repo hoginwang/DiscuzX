@@ -54,7 +54,7 @@ $lang = array (
   'viewnewthread' => '新帖排序',
   'admin_threadtopicadmin_error' => '手机版不支持复杂管理操作',
   'expiry' => '期限<span class="xg2">(0为永久/1为1天)</span>',
-  'mod_message_goto_admincp' => '需要您使用电脑浏览器进入后台进行高级功能操作',
+  'mod_message_goto_admincp' => '需要您使用电脑浏览器进入管理中心进行高级功能操作',
   'result' => '查找结果',
   'join_thread' => '回复',
   'required' => '必填',

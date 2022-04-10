@@ -476,7 +476,7 @@ $lang = array (
   'uc_config_ip_error' => 'UCenter IP 地址必须为合法的 IP 地址，请检查设置',
   'uc_config_load_data_local_infile_error' => '服务器开启了 MySQL LOAD DATA LOCAL IN FILE 功能，为避免可能发生的安全威胁，不允许在线编辑 UCenter 数据库服务器地址，如需修改请编辑 config/config_ucenter.php 内 UC_DBHOST 常量',
   'setting_ipaccess_invalid' => '操作错误！您必须将自己的 IP 加入到允许访问站点的 IP 列表中',
-  'setting_adminipaccess_invalid' => '操作错误！您必须将自己的 IP 加入到允许访问后台的 IP 列表中',
+  'setting_adminipaccess_invalid' => '操作错误！您必须将自己的 IP 加入到允许访问管理中心的 IP 列表中',
   'setting_creditsformula_invalid' => '积分公式包含无效变量或运算符',
   'setting_credits_title_invalid' => '您没有为启用的积分设置积分名称',
   'setting_creditstrans_invalid' => '交易积分必须是已经被启用的积分类型',
@@ -661,7 +661,7 @@ $lang = array (
   'attach_readmod_error' => '抱歉，当前的本地文件读取模式会导致部分浏览器下视频播放异常，如需开启附件URL地址、媒体附件播放，请在 config_global.php 内修改本地文件读取模式为 1 或 4 后再试',
   'optimizer_dos8p3_optimizer' => '请您根据您底层的情况正确选择技术路线和解决方案, 通过对底层的正确配置以关闭 DOS 8.3 文件名支持',
   'optimizer_httphost_optimizer' => '请您根据您底层的情况正确选择技术路线和解决方案, 通过对底层的正确配置以关闭空 HOST 头支持',
-  'optimizer_filesafe_optimizer' => '已经尝试为您删除安装程序、数据恢复程序以及重复的后台入口文件, 如果检测仍异常则需要您自查相关目录文件是否存在, 尤其是 old 目录以及 utility 目录是否删除',
+  'optimizer_filesafe_optimizer' => '已经尝试为您删除安装程序、数据恢复程序以及重复的管理中心入口文件, 如果检测仍异常则需要您自查相关目录文件是否存在, 尤其是 old 目录以及 utility 目录是否删除',
   'optimizer_remote_optimizer' => '如此功能并非您主动开启的, 请在 config_global.php 内关闭远程调用功能并修改远程密钥',
 );
 
