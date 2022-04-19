@@ -25,7 +25,7 @@ function _relatedlinks(rlinkmsgid) {
 	});
 	var relatedid = new Array();
 	msg = msg.replace(/(^|>)([^<]+)(?=<|$)/ig, function($1, $2, $3) {
-		for(var j = 0; j < relatedlink.length; j++) {
+		for(j in relatedlink) {
 			if(relatedlink[j] && !relatedid[j]) {
 				if(relatedlink[j]['surl'] != '') {
 					var ra = '<a href="'+relatedlink[j]['surl']+'" target="_blank" class="relatedlink">'+relatedlink[j]['sname']+'</a>';
