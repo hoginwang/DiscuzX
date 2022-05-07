@@ -2,25 +2,34 @@
 branches: {
   }
 fileChange:
-  /readme:
-    newFile: !uuid 'e7087465300b6b65b1c28760b170e8d85eccd3e1'
-    oldFile: !uuid 'b0dd44578716915523faccc7833db2dbe1f304a9'
-  /readme/readme.txt:
-    newFile: !uuid '97c1fedad725fc83ec45fed1db46e24a43ea1348'
-    oldFile: !uuid '23c586424834835cf66385ad5d801549b9a9ce1b'
   /upload:
-    newFile: !uuid '847d1f3394493422fec82da9fa81700bee4be7c8'
-    oldFile: !uuid '952ac092daf8e6021a72aadd119b80e2ebf2b98d'
-  /upload/install:
-    newFile: !uuid '8eb62fa8a393f5224feeae58f98f2755fc41425e'
-    oldFile: !uuid 'aa6d737c04fd39dbd4ec3f3089018a601e8a15d9'
-  /upload/install/include:
-    newFile: !uuid 'f320190a0119bbcc15eb608b9feb33aa54ea234f'
-    oldFile: !uuid '05b0e351955fb48fbfae23791714451b9fe0640e'
-  /upload/install/include/install_lang.php:
-    newFile: !uuid '9fb20097bb8b07db9e0a983e3d290a2aa30c6864'
-    oldFile: !uuid '2d6f8e7bcdf2dc4ed4b80082628dec24988c8341'
-gitCommitId: !uuid '46fb6be274d9fbec790a92d6ae25844426a50a06'
+    newFile: !uuid 'e3108bf8ab675331f440c4bf474c040daabf11bc'
+    oldFile: !uuid '847d1f3394493422fec82da9fa81700bee4be7c8'
+  /upload/source:
+    newFile: !uuid '974a45b4200e981d5f615f272efaed6ab46657c5'
+    oldFile: !uuid 'f581ab8f1ac621d609ea34a1890661d6fc92196c'
+  /upload/source/include:
+    newFile: !uuid '425e15274f23f5fcd4d9bef5e6cdaaa373f8424b'
+    oldFile: !uuid '5d8f908867d70846b7e9b820ef01b28610e7f77a'
+  /upload/source/include/modcp:
+    newFile: !uuid '777a3e23c2804446c858c6c5c315b637b18f3c51'
+    oldFile: !uuid '62bfa4de65ef17f9791bd14c3f25eade794d6f2f'
+  /upload/source/include/modcp/modcp_member.php:
+    newFile: !uuid '880c4f5f6bda059e1a1721257de3be0b511bcd26'
+    oldFile: !uuid '91c41366a5ab47c931470c952e97e13b8bf226cf'
+  /upload/template:
+    newFile: !uuid '49b2fc2637cf76dbdc8a9bb6ad6b2ae8b3024d5d'
+    oldFile: !uuid '31c796db876a086f81077c2da1d18b84949d58c2'
+  /upload/template/default:
+    newFile: !uuid '217983c06a2f65c21d37f15e738ca703250a234e'
+    oldFile: !uuid '51dadf9cd0e234c9ea489dcef0a6b84401f78aef'
+  /upload/template/default/forum:
+    newFile: !uuid '1fea38d0f135c6d3e64addc45b442e92baf30d8f'
+    oldFile: !uuid 'be20fa193e4864f2e219d0b936ddf94cdb2c8542'
+  /upload/template/default/forum/modcp_member.htm:
+    newFile: !uuid '482ad3a7e2a42add1aa8b90fb30b6bdb10292ea3'
+    oldFile: !uuid '60a582ffe3ce0cf2650b426f9c186814aa507e25'
+gitCommitId: !uuid '0c8a9b6f6f917c06b509ae4ede0cd6c921076ee1'
 renames: {
   }
-revisionId: 971
+revisionId: 972
