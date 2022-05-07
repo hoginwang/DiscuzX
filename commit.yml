@@ -2,28 +2,13 @@
 branches: {
   }
 fileChange:
-  /LICENSE:
-    newFile: !uuid 'e6faaf192e46a47b129433f940e28b30ef001a51'
-    oldFile: !uuid '7f66157050391e1bc1bc6df2a9c7c9036c744e45'
   /readme:
-    newFile: !uuid 'caaaf46fd2a65ae9fc85c8c38dfe5da3cd9cfcfb'
-    oldFile: !uuid '96c0b268e9cabc6b99fad601fa0ac715d2c5d905'
-  /readme/license.txt:
-    newFile: !uuid 'e6faaf192e46a47b129433f940e28b30ef001a51'
-    oldFile: !uuid '66be7a0f508a754dca995ff3905eccc98a920886'
-  /upload:
-    newFile: !uuid '61bfb29c6959a4872a883740c486d92dc8f0fc4d'
-    oldFile: !uuid '0f18139256080ff8f510eb54804df5cc019b3774'
-  /upload/install:
-    newFile: !uuid '0e9c38ef7dc46cbf87be2cfc4e626fa07fedfdf0'
-    oldFile: !uuid 'b53680fa5990a7bb87ae7fc81ad9e7c2e1be6d2b'
-  /upload/install/include:
-    newFile: !uuid 'b53ab666fbb2c702e433163d80adc6d15ba6f5b9'
-    oldFile: !uuid '15788436e9d67a5c2a6ef8904d366bc5a016b468'
-  /upload/install/include/install_lang.php:
-    newFile: !uuid '5a891a70cfbddc21a7a90198fb6dd4f74ef75b2b'
-    oldFile: !uuid 'c38c5711eff64867dfd2ebabe1c1a9a9c7c57962'
-gitCommitId: !uuid '40fc9ac0c136921a12deb5844e13d7d3dfbc8540'
+    newFile: !uuid 'd6eacfe8e96022f86f3176df95b8d6930de690e5'
+    oldFile: !uuid 'caaaf46fd2a65ae9fc85c8c38dfe5da3cd9cfcfb'
+  /readme/readme.txt:
+    newFile: !uuid '97c1fedad725fc83ec45fed1db46e24a43ea1348'
+    oldFile: !uuid '23c586424834835cf66385ad5d801549b9a9ce1b'
+gitCommitId: !uuid '0598c933d52f33a7105980c84b519cce2882207e'
 renames: {
   }
-revisionId: 828
+revisionId: 829
