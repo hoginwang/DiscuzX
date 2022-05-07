@@ -39,6 +39,8 @@ class image {
 				'thumbquality'		=> $_G['setting']['thumbquality'],
 				'watermarkstatus'	=> dunserialize($_G['setting']['watermarkstatus']),
 				'watermarkminwidth'	=> dunserialize($_G['setting']['watermarkminwidth']),
+				'watermarkminwidth2k'   => dunserialize($_G['setting']['watermarkminwidth2k']),
+				'watermarkminwidth3k'   => dunserialize($_G['setting']['watermarkminwidth3k']),
 				'watermarkminheight'	=> dunserialize($_G['setting']['watermarkminheight']),
 				'watermarktype'		=> $_G['setting']['watermarktype'],
 				'watermarktext'		=> $_G['setting']['watermarktext'],
@@ -101,7 +103,14 @@ class image {
 		if(!$this->param['watermarkstatus'][$type] || ($this->param['watermarkminwidth'][$type] && $this->imginfo['width'] <= $this->param['watermarkminwidth'][$type] && $this->param['watermarkminheight'][$type] && $this->imginfo['height'] <= $this->param['watermarkminheight'][$type])) {
 			return $this->returncode(0);
 		}
-		$this->param['watermarkfile'][$type] = './static/image/common/'.($this->param['watermarktype'][$type] == 'png' ? 'watermark.png' : 'watermark.gif');
+		if($this->imginfo['width'] >= $this->param['watermarkminwidth3k'][$type]) {
+			$this->param['watermarkfile'][$type] = './static/image/common/'.($this->param['watermarktype'][$type] == 'png' ? 'watermark-3k.png' : 'watermark.gif');
+		} elseif($this->imginfo['width'] >= $this->param['watermarkminwidth2k'][$type]) {
+			$this->param['watermarkfile'][$type] = './static/image/common/'.($this->param['watermarktype'][$type] == 'png' ? 'watermark-2k.png' : 'watermark.gif');
+		} else {
+			$this->param['watermarkfile'][$type] = './static/image/common/'.($this->param['watermarktype'][$type] == 'png' ? 'watermark.png' : 'watermark.gif');
+		}
+
 		if(!is_readable($this->param['watermarkfile'][$type]) || ($this->param['watermarktype'][$type] == 'text' && (!file_exists($this->param['watermarktext']['fontpath'][$type]) || !is_file($this->param['watermarktext']['fontpath'][$type])))) {
 			return $this->returncode(-3);
 		}
