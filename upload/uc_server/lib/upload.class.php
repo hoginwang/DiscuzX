@@ -30,7 +30,7 @@ Class upload{
 			'binary' => array('dat'),
 			'flash' => array('swf'),
 			'html' => array('html', 'htm'),
-			'image' => array('gif', 'jpg', 'jpeg', 'png', 'bmp'),
+			'image' => array('gif', 'jpg', 'jpeg', 'png', 'bmp', 'webp'),
 			'office' => array('doc', 'xls', 'ppt'),
 			'pdf' => array('pdf'),
 			'rar' => array('rar', 'zip'),
@@ -81,7 +81,7 @@ Class upload{
 			$filethumb = '0'.$tfilename.'.'.($this->thumb_ext ? $this->thumb_ext : $fileext);
 			$this->copy($file['tmp_name'], $this->dir.'/'.$filename);
 			$arr[$key]['file'] = $filename;
-			if(in_array($fileext, array('jpg', 'gif', 'png'))) {
+			if(in_array($fileext, array('jpg', 'gif', 'png', 'webp'))) {
 				if($this->thumb_width) {
 					if($this->thumb($this->thumb_width, $this->thumb_height, $this->dir.'/'.$filename, $this->dir.'/'.$filethumb, ($this->thumb_ext ? $this->thumb_ext : $fileext))) {
 						$arr[$key]['thumb'] = $filethumb;
@@ -131,6 +131,7 @@ Class upload{
 		if(function_exists('imageAlphaBlending') && function_exists('getimagesize')) {
 			if(function_exists('imageGIF')) $gdsurporttype[]='gif';
 			if(function_exists('imagePNG')) $gdsurporttype[]='png';
+			if(function_exists('imageWEBP')) $gdsurporttype[]='webp';
 			if(function_exists('imageJPEG')) {
 				$gdsurporttype[]='jpg';
 				$gdsurporttype[]='jpeg';
@@ -165,6 +166,9 @@ Class upload{
 						break;
 					case 'image/png':
 						$dst_photo = imageCreateFromPNG($target);
+						break;
+					case 'image/webp':
+						$dst_photo = imageCreateFromWEBP($target);
 						break;
 				}
 
@@ -221,6 +225,9 @@ Class upload{
 					case 'image/png':
 						imagePNG($dst_photo, $target);
 						break;
+					case 'image/webp':
+						imageWEBP($dst_photo, $target);
+						break;
 				}
 			}
 		}
@@ -256,6 +263,9 @@ Class upload{
 					break;
 				case 'png':
 					$img_src = imagecreatefrompng($g_srcfile);
+					break;
+				case 'webp':
+					$img_src = imagecreatefromwebp($g_srcfile);
 					break;
 			}
 			$img_dst = imagecreatetruecolor($g_iw, $g_ih);

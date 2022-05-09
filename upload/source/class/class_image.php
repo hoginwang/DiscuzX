@@ -181,6 +181,10 @@ class image {
 					$this->imagecreatefromfunc = function_exists('imagecreatefrompng') ? 'imagecreatefrompng' : '';
 					$this->imagefunc = function_exists('imagepng') ? 'imagepng' : '';
 					break;
+				case 'image/webp':
+					$this->imagecreatefromfunc = function_exists('imagecreatefromwebp') ? 'imagecreatefromwebp' : '';
+					$this->imagefunc = function_exists('imagewebp') ? 'imagewebp' : '';
+					break;
 			}
 		} else {
 			$this->imagecreatefromfunc = $this->imagefunc = TRUE;
