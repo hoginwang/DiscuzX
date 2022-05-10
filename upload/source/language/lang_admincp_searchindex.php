@@ -5335,6 +5335,9 @@ $lang = array (
 			19 => 'setting_attach_image_preview',
 			20 => '预览',
 			21 => '无需保存设置即可预览',
+			22 => 'setting_attach_image_webp_support',
+			23 => '是否支持上传WebP格式图片文件',
+			24 => '设置是否支持上传WebP图片文件到论坛，WebP支持大部分现代浏览器，但不支持IE浏览器及旧版本浏览器。注意：开启后，您可能需要在用户组可上传文件格式中添加webp才可上传',
 		),
 	),
 	255 => 

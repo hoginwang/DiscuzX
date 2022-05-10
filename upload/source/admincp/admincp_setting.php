@@ -1969,6 +1969,7 @@ EOT;
 		showsetting('setting_attach_image_gdlimit', 'settingnew[gdlimit]', $setting['gdlimit'], 'text');
 		showsetting('setting_attach_image_thumbquality', 'settingnew[thumbquality]', $setting['thumbquality'], 'text');
 		showsetting('setting_attach_image_disabledmobile', 'settingnew[thumbdisabledmobile]', !$setting['thumbdisabledmobile'], 'radio');
+		showsetting('setting_attach_image_webp_support', 'settingnew[webpimagesupport]', $setting['webpimagesupport'], 'radio');
 		showsetting('setting_attach_image_preview', '', '', cplang('setting_attach_image_thumb_preview_btn'));
 		showtagfooter('tbody');
 		showsubmit('settingsubmit');

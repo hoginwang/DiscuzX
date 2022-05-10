@@ -19,7 +19,7 @@ function getuploadconfig($uid=0, $fid=0, $limit=true) {
 	$authkey = $_G['config']['security']['authkey'];
 	$config['hash'] = md5(substr(md5($authkey), 8).$uid);
 
-	$imageexts = array('jpg','jpeg','gif','png','bmp','webp');
+	$imageexts = $_G['setting']['webpimagesupport']?array('jpg','jpeg','gif','png','bmp','webp'):array('jpg','jpeg','gif','png','bmp');
 	$forumattachextensions = '';
 	$fid = intval($fid);
 	if($fid) {
