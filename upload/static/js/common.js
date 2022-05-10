@@ -1778,16 +1778,21 @@ function navShow(id) {
 		return;
 	}
 	var uls = $('mu').getElementsByTagName('ul');
+	var lastobj = null;    
 	for(i = 0;i < uls.length;i++) {
 		if(uls[i].className != 'cl current') {
 			uls[i].style.display = 'none';
+		} else {
+			lastobj = uls[i];
 		}
 	}
 	if(mnobj.className != 'cl current') {
-		showMenu({'ctrlid':'mn_' + id,'menuid':'snav_mn_' + id,'pos':'*'});
-		mnobj.className = 'cl floatmu';
+		//showMenu({'ctrlid':'mn_' + id,'menuid':'snav_mn_' + id,'pos':'*'});
+		mnobj.className = 'cl current';
 		mnobj.style.width = ($('nv').clientWidth) + 'px';
 		mnobj.style.display = '';
+		lastobj.style.display = 'none';
+		lastobj.className = 'cl';        
 	}
 }
 
