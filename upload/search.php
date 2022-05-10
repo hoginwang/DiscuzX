@@ -34,6 +34,17 @@ if(empty($mod)) {
 	showmessage('search_closed');
 }
 define('CURMODULE', $mod);
+loadcache('creditrule');
+if(!($_G['group']['exempt'] & 2) && is_array($_G['cache']['creditrule']['search'])) {
+	$data = [];
+	$creditrule = $_G['cache']['creditrule']['search'];
+	for($i = 1; $i <= 8; $i++) {
+		if($creditrule['extcredits'.$i]) {
+			$data[$i] = $creditrule['extcredits'.$i];
+		}
+	}
+	$_G['setting']['creditspolicy']['search'] = $data;
+}
 
 
 runhooks();

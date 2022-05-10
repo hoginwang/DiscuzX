@@ -6,12 +6,6 @@
 
 			<!--{subtemplate search/pubsearch}-->
 
-			<!--{eval $policymsgs = $p = '';}-->
-			<!--{loop $_G['setting']['creditspolicy']['search'] $id $policy}-->
-			<!--{block policymsg}--><!--{if $_G['setting']['extcredits'][$id][img]}-->$_G['setting']['extcredits'][$id][img] <!--{/if}-->$_G['setting']['extcredits'][$id][title] $policy $_G['setting']['extcredits'][$id][unit]<!--{/block}-->
-			<!--{eval $policymsgs .= $p.$policymsg;$p = ', ';}-->
-			<!--{/loop}-->
-			<!--{if $policymsgs}--><p>{lang search_credit_msg}</p><!--{/if}-->
 		</form>
 
 		<div class="bm bw0">
@@ -25,7 +19,7 @@
 							<th>{lang keywords}</th>
 							<td>
 								<input type="text" name="srchtxt" id="srchtxt_1" class="px" size="25" maxlength="40" value="$keyword" />
-								<!--{if ($_G['group']['allowsearch'] & 32)}--><label><input type="checkbox" name="srchtype" class="pc" value="fulltext" {$fulltextchecked}{if $posttableselect} onclick="if(this.checked){$('seltableid').style.display='';}else{$('seltableid').style.display='none';}"{/if}/>{lang search_fulltext}</label><!--{/if}-->
+								<!--{if ($_G['group']['allowsearch'] & 32)}--><label><input type="checkbox" name="srchtype" class="pc" value="fulltext" {$fulltextchecked}{if $posttableselect} onclick="if($('seltableid')){if(this.checked){$('seltableid').style.display='';}else{$('seltableid').style.display='none';}}"{/if}/>{lang search_fulltext}</label><!--{/if}-->
 								<!--{if $posttableselect}-->&nbsp; $posttableselect<!--{/if}-->
 								<script type="text/javascript">initSearchmenu('srchtxt_1');$('srchtxt_1').focus();</script>
 							</td>
