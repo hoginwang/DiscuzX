@@ -22,7 +22,7 @@ function _smilies_show(id, smcols, seditorkey) {
 		scriptNode.type = "text/javascript";
 		scriptNode.charset = charset ? charset : (BROWSER.firefox ? document.characterSet : document.charset);
 		scriptNode.src = 'data/cache/common_smilies_var.js?' + VERHASH;
-		$('append_parent').appendChild(scriptNode);
+		document.getElementById('append_parent').appendChild(scriptNode);
 		if(BROWSER.ie) {
 			scriptNode.onreadystatechange = function() {
 				smilies_onload(id, smcols, seditorkey);

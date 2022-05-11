@@ -22,7 +22,7 @@ function attachimgshow(pid, onlyinpost) {
 	aimgcomplete = 0;
 	loadingcount = 0;
 	for(i = 0;i < aimgs.length;i++) {
-		obj = $('aimg_' + aimgs[i]);
+		obj = document.getElementById('aimg_' + aimgs[i]);
 		if(!obj) {
 			aimgcomplete++;
 			continue;
