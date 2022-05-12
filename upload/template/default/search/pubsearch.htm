@@ -81,3 +81,9 @@
 		<li><a href="search.php?mod=forum&srchfrom=31536000&searchsubmit=yes">{lang search_quick_day_365}</a></li>
 	</ul>
 <!--{/if}-->
+<!--{eval $policymsgs = $p = '';}-->
+<!--{loop $_G['setting']['creditspolicy']['search'] $id $policy}-->
+<!--{block policymsg}--><!--{if $_G['setting']['extcredits'][$id][img]}-->$_G['setting']['extcredits'][$id][img] <!--{/if}-->$_G['setting']['extcredits'][$id][title] $policy $_G['setting']['extcredits'][$id][unit]<!--{/block}-->
+<!--{eval $policymsgs .= $p.$policymsg;$p = ', ';}-->
+<!--{/loop}-->
+<!--{if $policymsgs}--><p>{lang search_credit_msg}</p><!--{/if}-->
