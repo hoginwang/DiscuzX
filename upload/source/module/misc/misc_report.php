@@ -45,7 +45,11 @@ if(submitcheck('reportsubmit')) {
 		C::t('common_report')->update_num($reportid, $message);
 	} else {
 		$data = array('url' => $url, 'urlkey' => $urlkey, 'uid' => $_G['uid'], 'username' => $_G['username'], 'message' => $message, 'dateline' => TIMESTAMP);
-		if($fid) {
+		if($fid && $rtype == 'post') {
+			$post = C::t('forum_post')->fetch_by_pid_condition('tid:'.$tid, $rid, '', 'fid');
+			if (empty($post) || $post['fid'] != $fid) {
+				showmessage('report_parameters_invalid');
+			}
 			$data['fid'] = $fid;
 		}
 		C::t('common_report')->insert($data);
