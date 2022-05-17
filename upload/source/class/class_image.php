@@ -207,7 +207,7 @@ class image {
 			if(!($fp = @fopen($source, 'rb'))) {
 				return -2;
 			}
-		    $content = fread($fp, 40);
+		   	$content = fread($fp, 40);
 			fclose($fp);
 			if (stripos($content, 'WEBPVP8X') !== false || stripos($content, 'ANIM') !== false) {
 				$this->imginfo['animated'] = 1;
