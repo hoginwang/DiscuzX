@@ -209,7 +209,7 @@ class image {
 			}
 		   	$content = fread($fp, 40);
 			fclose($fp);
-			if (stripos($content, 'WEBPVP8X') !== false || stripos($content, 'ANIM') !== false) {
+			if (stripos($content, 'WEBPVP8X') !== FALSE || stripos($content, 'ANIM') !== FALSE) {
 				$this->imginfo['animated'] = 1;
 			}else{
 				$this->imginfo['animated'] = 0;
