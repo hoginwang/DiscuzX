@@ -155,8 +155,19 @@ Class upload{
 				fclose($fp);
 				$animatedgif = strpos($targetcontent, 'NETSCAPE2.0') === FALSE ? 0 : 1;
 			}
+			$animatedwebp = 0;
+			if($attachinfo['mime'] == 'image/webp') {
+				$fp = fopen($target, 'rb');
+				$targetcontent = fread($fp, 40);
+				fclose($fp);
+				if (stripos($targetcontent, 'WEBPVP8X') !== FALSE || stripos($targetcontent, 'ANIM') !== FALSE) {
+					$animatedwebp = 1;
+				}else{
+					$animatedwebp = 0;
+				}
+			}
 
-			if($watermark_logo && $wmwidth > 10 && $wmheight > 10 && !$animatedgif) {
+			if($watermark_logo && $wmwidth > 10 && $wmheight > 10 && !$animatedgif && !$animatedwebp) {
 				switch ($attachinfo['mime']) {
 					case 'image/jpeg':
 						$dst_photo = imageCreateFromJPEG($target);
