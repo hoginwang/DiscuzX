@@ -23,6 +23,7 @@ class db_driver_mysql
 	var $config = array();
 	var $sqldebug = array();
 	var $map = array();
+	var $extend_table_pre_map = array();
 
 	function db_mysql($config = array()) {
 		if(!empty($config)) {
@@ -33,6 +34,7 @@ class db_driver_mysql
 	function set_config($config) {
 		$this->config = &$config;
 		$this->tablepre = $config['1']['tablepre'];
+		$this->extend_table_pre_map = $config['extend_table_pre'];
 		if(!empty($this->config['map'])) {
 			$this->map = $this->config['map'];
 			for($i = 1; $i <= 100; $i++) {
@@ -109,7 +111,7 @@ class db_driver_mysql
 		} else {
 			$this->curlink = $this->link[1];
 		}
-		return $this->tablepre.$tablename;
+		return $this->get_table_pre($tablename) . $tablename;
 	}
 
 	function select_db($dbname) {
@@ -222,7 +224,16 @@ class db_driver_mysql
 	function halt($message = '', $code = 0, $sql = '') {
 		throw new DbException($message, $code, $sql);
 	}
-
+	
+	function get_table_pre($table_name = '')
+	{
+		if (!empty($this->extend_table_pre_map) && !empty($this->extend_table_pre_map[$table_name])) {
+			$exte_pre = $this->extend_table_pre_map[$table_name];
+			return $exte_pre ;
+		} else {
+			return $this->tablepre;
+		}
+	}
 }
 
 ?>
