@@ -170,13 +170,13 @@ $_config['security']['creditsafe']['times'] 	= 10;
 
 $_config['security']['fsockopensafe']['port']	= array(80);	//fsockopen 有效的端口
 
-$_config['admincp']['founder']			= '1';		// 站点创始人：拥有站点管理后台的最高权限，每个站点可以设置 1名或多名创始人
+$_config['admincp']['founder']			= '1';		// 站点创始人：拥有站点管理中心的最高权限，每个站点可以设置 1名或多名创始人
 								// 可以使用uid，也可以使用用户名；多个创始人之间请使用逗号“,”分开;
 $_config['admincp']['forcesecques']		= 0;		// 管理人员必须设置安全提问才能进入系统设置 0=否, 1=是[安全]
-$_config['admincp']['checkip']			= 1;		// 后台管理操作是否验证管理员的 IP, 1=是[安全], 0=否。仅在管理员无法登陆后台时设置 0。
-$_config['admincp']['runquery']			= 0;		// 是否允许后台运行 SQL 语句 1=是 0=否[安全]
-$_config['admincp']['dbimport']			= 1;		// 是否允许后台恢复论坛数据  1=是 0=否[安全]
-$_config['admincp']['mustlogin']		= 1;		// 是否必须前台登录后才允许后台登录  1=是[安全] 0=否
+$_config['admincp']['checkip']			= 1;		// 管理中心管理操作是否验证管理员的 IP, 1=是[安全], 0=否。仅在管理员无法登录管理中心时设置 0。
+$_config['admincp']['runquery']			= 0;		// 是否允许管理中心运行 SQL 语句 1=是 0=否[安全]
+$_config['admincp']['dbimport']			= 1;		// 是否允许管理中心恢复论坛数据  1=是 0=否[安全]
+$_config['admincp']['mustlogin']		= 1;		// 是否必须前台登录后才允许管理中心登录  1=是[安全] 0=否
 
 /**
  * 系统远程调用功能模块

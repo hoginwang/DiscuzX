@@ -127,7 +127,7 @@ $lang = array(
 	'uc_url_invalid' => 'URL 格式错误',
 	'uc_url_unreachable' => 'UCenter 的 URL 地址可能填写错误，请检查',
 	'uc_ip_invalid' => '无法解析该域名，请填写站点的 IP',
-	'uc_admin_invalid' => 'UCenter 创始人密码校验未通过, 可能原因有:<br />1. UCenter 创始人密码不正确<br />2. 多次错误输入密码导致创始人用户和 IP 地址被锁定<br />3. UCenter 后台 “ 通过 URL 添加应用功能 ” 未开启',
+	'uc_admin_invalid' => 'UCenter 创始人密码校验未通过, 可能原因有:<br />1. UCenter 创始人密码不正确<br />2. 多次错误输入密码导致创始人用户和 IP 地址被锁定<br />3. UCenter 管理中心 “ 通过 URL 添加应用功能 ” 未开启',
 	'uc_data_invalid' => '通信失败，请检查 UCenter 的URL 地址是否正确 ',
 	'uc_dbcharset_incorrect' => 'UCenter 数据库字符集与当前应用字符集不一致',
 	'uc_api_add_app_error' => '向 UCenter 添加应用错误',
@@ -178,7 +178,7 @@ $lang = array(
 	'install_in_processed' => '正在安装...',
 	'install_succeed' => '安装成功，点击进入',
 	'install_cloud' => '安装成功，欢迎开通Discuz!云平台<br>Discuz!云平台致力于帮助站长提高网站流量，增强网站运营能力，增加网站收入。<br>Discuz!云平台目前免费提供了QQ互联、腾讯分析、纵横搜索、漫游应用、SOSO表情服务。Discuz!云平台将陆续提供更多优质服务项目。<br>开通Discuz!平台之前，请确保您的网站（Discuz!、UCHome或SupeSite）已经升级到Discuz! X3。',
-	'to_install_cloud' => '到后台开通',
+	'to_install_cloud' => '到管理中心开通',
 	'to_index' => '暂不开通',
 
 	'init_credits_karma' => '威望',

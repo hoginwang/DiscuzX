@@ -163,7 +163,7 @@
 				<item id="connect_error_code_100032"><![CDATA[过载，一开始未细分时可以用。]]></item>
 				<item id="connect_error_code_100033"><![CDATA[缺少UIN参数。]]></item>
 				<item id="connect_error_code_100034"><![CDATA[缺少skey参数。]]></item>
-				<item id="connect_error_code_100035"><![CDATA[用户未登陆。]]></item>
+				<item id="connect_error_code_100035"><![CDATA[用户未登录。]]></item>
 				<item id="connect_error_code_100036"><![CDATA[RefreshToken失效。]]></item>
 				<item id="connect_error_code_100037"><![CDATA[RefreshToken已过期]]></item>
 				<item id="connect_error_code_100038"><![CDATA[RefreshToken已废除]]></item>

@@ -63,9 +63,9 @@ $lang = array(
 	'tips_dbinfo' => '填写数据库信息',
 	'tips_dbinfo_comment' => '',
 	'tips_admininfo' => '填写管理员信息',
-	'tips_admininfo_comment' => '请牢记 UCenter 创始人密码，凭该密码登陆 UCenter。',
+	'tips_admininfo_comment' => '请牢记 UCenter 创始人密码，凭该密码登录 UCenter。',
 	'step_ext_info_title' => '安装成功 ',
-	'step_ext_info_desc' => '点击进入登陆',
+	'step_ext_info_desc' => '点击进入登录',
 
 	'ext_info_succ' => '安装成功 ',
 	'install_locked' => '安装锁定，已经安装过了，如果您确定要重新安装，请到服务器上删除<br /> '.str_replace(ROOT_PATH, '', $lockfile),
@@ -167,7 +167,7 @@ $lang = array(
 
 <h3>II. 协议规定的约束和限制</h3>
 <ol>
-<li>未获商业授权之前，不得将本软件用于商业用途（包括但不限于企业网站、经营性网站、以营利为目或实现盈利的网站）。购买商业授权请登陆http://www.discuz.com参考相关说明，也可以致电8610-51657885了解详情。</li>
+<li>未获商业授权之前，不得将本软件用于商业用途（包括但不限于企业网站、经营性网站、以营利为目或实现盈利的网站）。购买商业授权请登录http://www.discuz.com参考相关说明，也可以致电8610-51657885了解详情。</li>
 <li>不得对本软件或与之关联的商业授权进行出租、出售、抵押或发放子许可证。</li>
 <li>无论如何，即无论用途如何、是否经过修改或美化、修改程度如何，只要使用 UCenter 的整体或任何部分，未经书面许可，页面页脚处的 UCenter 名称和北京康盛新创科技有限责任公司下属网站（http://www.comsenz.com、http://www.discuz.com 或 http://www.discuz.net） 的链接都必须保留，而不能清除或修改。</li>
 <li>禁止在 UCenter 的整体或任何部分基础上以发展任何派生版本、修改版本或第三方版本用于重新分发。</li>

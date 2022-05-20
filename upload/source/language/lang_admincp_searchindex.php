@@ -1268,11 +1268,11 @@ $lang = array (
 	array (
 		'index' => 
 		array (
-			'后台管理团队' => 'action=founder&operation=perm',
+			'管理中心管理团队' => 'action=founder&operation=perm',
 		),
 		'text' => 
 		array (
-			0 => '后台管理团队',
+			0 => '管理中心管理团队',
 		),
 	),
 	115 => 
@@ -1872,7 +1872,7 @@ $lang = array (
 			0 => '允许前台充值',
 			1 => 'card_config_open',
 			2 => '允许前台充值',
-			3 => '设置是否允许前台充值，关闭前台充值功能，不影响后台卡密的生成充值卡密验证码开关：全局->安全->验证设置',
+			3 => '设置是否允许前台充值，关闭前台充值功能，不影响管理中心卡密的生成充值卡密验证码开关：全局->安全->验证设置',
 		),
 	),
 	140 => 
@@ -2126,7 +2126,7 @@ $lang = array (
 		array (
 			0 => '数据库 &raquo; 升级',
 			1 => 'db_runquery_tips',
-			2 => '您可以通过修改 /source/admincp/admincp_quickquery.php 来添加常用 SQL 操作进行功能扩充。出于安全考虑，Discuz! 后台默认情况下禁止 SQL 语句直接执行，只能使用常用 SQL 当中的内容，如果您想自己随意书写 SQL 升级语句，需要将 config/config_global.php 当中的 $_config[admincp][runquery] 设置修改为 1。',
+			2 => '您可以通过修改 /source/admincp/admincp_quickquery.php 来添加常用 SQL 操作进行功能扩充。出于安全考虑，Discuz! 管理中心默认情况下禁止 SQL 语句直接执行，只能使用常用 SQL 当中的内容，如果您想自己随意书写 SQL 升级语句，需要将 config/config_global.php 当中的 $_config[admincp][runquery] 设置修改为 1。',
 			3 => 'db_runquery_simply',
 			4 => '常用 SQL 升级语句',
 			5 => 'db_runquery_sql',
@@ -2813,13 +2813,13 @@ $lang = array (
 	array (
 		'index' => 
 		array (
-			'后台管理团队' => 'action=founder',
+			'管理中心管理团队' => 'action=founder',
 		),
 		'text' => 
 		array (
-			0 => '后台管理团队',
+			0 => '管理中心管理团队',
 			1 => 'home_security_founder',
-			2 => '您可以制定多种团队职务分配给您网站管理团队的各个成员，让他们管理网站的不同事务“副站长”拥有除“创始人(站长)”专有权限以外的所有后台权限，仅次于“创始人(站长)”',
+			2 => '您可以制定多种团队职务分配给您网站管理团队的各个成员，让他们管理网站的不同事务“副站长”拥有除“创始人(站长)”专有权限以外的所有管理中心权限，仅次于“创始人(站长)”',
 		),
 	),
 	173 => 
@@ -5091,7 +5091,7 @@ $lang = array (
 			18 => '当用户本地登录 IP 为异地登录时启用验证码',
 			19 => 'setting_sec_seccode_rule_login_pwsimple',
 			20 => '用户密码太简单时启用',
-			21 => '当用户登录时使用的密码的长度与复杂度不符合后台设置时',
+			21 => '当用户登录时使用的密码的长度与复杂度不符合管理中心设置时',
 			22 => 'setting_sec_seccode_rule_login_pwerror',
 			23 => '尝试密码错误 2 次后启用',
 			24 => 'setting_sec_seccode_rule_login_outofday',
@@ -6302,7 +6302,7 @@ $lang = array (
 			65 => '开启验证机制可以防止灌水机等，但会增加用户操作易用度。修改密码不受此限制，开启验证码或验证问答后，该设置有效',
 			66 => 'usergroups_edit_basic_forcesecques',
 			67 => '强制设置安全提问',
-			68 => '选择“是”则此用户组的用户在登录后台前必须设置安全提问后才可登录后台, config中为全局开关',
+			68 => '选择“是”则此用户组的用户在登录管理中心前必须设置安全提问后才可登录管理中心, config中为全局开关',
 			69 => 'usergroups_edit_basic_forcelogin',
 			70 => '安全登录方式',
 			71 => '选择此用户组用户安全登录的方式',

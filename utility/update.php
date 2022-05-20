@@ -1099,7 +1099,7 @@ if($_GET['step'] == 'start') {
 		if($count) {
 			DB::query("DELETE FROM ".DB::table('common_credit_rule')." WHERE action IN(".dimplode($delrule).")");
 		}
-		DB::update('common_credit_rule', array('rulename' => '每天登录'), "rulename='每天登陆'");
+		DB::update('common_credit_rule', array('rulename' => '每天登录'), "rulename='每天登录'");
 		$count = DB::result_first("SELECT COUNT(*) FROM ".DB::table('common_credit_rule')." WHERE action='portalcomment'");
 		if(!$count) {
 			DB::query("INSERT INTO ".DB::table('common_credit_rule')." (`rulename`, `action`, `cycletype`, `cycletime`, `rewardnum`, `norepeat`, `extcredits1`, `extcredits2`, `extcredits3`, `extcredits4`, `extcredits5`, `extcredits6`, `extcredits7`, `extcredits8`, `fids`) VALUES ('文章评论','portalcomment','1','0','40','1','0','1','0','0','0','0','0','0','')");
