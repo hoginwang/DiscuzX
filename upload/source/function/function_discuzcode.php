@@ -55,6 +55,8 @@ function codedisp($code) {
 	$_G['forum_discuzcode']['pcodecount']++;
 	$code = dhtmlspecialchars(str_replace('\\"', '"', $code));
 	$code = str_replace("\n", "<li>", $code);
+	$code = str_replace('[', '&#x5B;', $code);
+	$code = str_replace(']', '&#x5D;', $code);
 	$_G['forum_discuzcode']['codehtml'][$_G['forum_discuzcode']['pcodecount']] = tpl_codedisp($code);
 	$_G['forum_discuzcode']['codecount']++;
 	return "[\tDISCUZ_CODE_".$_G['forum_discuzcode']['pcodecount']."\t]";

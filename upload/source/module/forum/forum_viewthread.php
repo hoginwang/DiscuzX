@@ -1212,6 +1212,7 @@ function viewthread_procpost($post, $lastvisit, $ordertype, $maxposition = 0) {
 		if($post['first']) {
 			if(!defined('IN_MOBILE')) {
 				$messageindex = false;
+				$post['message'] = preg_replace_callback("/\s?\[code\](.+?)\[\/code\]\s?/is", 'discuzcode_callback_codedisp_1', $post['message']);
 				if(strpos($post['message'], '[/index]') !== FALSE) {
 					$post['message'] = preg_replace_callback("/\s?\[index\](.+?)\[\/index\]\s?/is", create_function('$matches', 'return parseindex($matches[1], '.intval($post['pid']).');'), $post['message']);
 					$messageindex = true;
