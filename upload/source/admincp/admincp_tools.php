@@ -67,7 +67,7 @@ if($operation == 'updatecache') {
 			require_once libfile('function/searchindex');
 			searchindex_cache();
 		}
-		cpmsg('update_cache_succeed', '', 'succeed', '', FALSE);
+        cpmsg('update_cache_succeed', 'action=tools&operation=updatecache', 'succeed', '', FALSE);
 	}
 
 } elseif($operation == 'fileperms') {
