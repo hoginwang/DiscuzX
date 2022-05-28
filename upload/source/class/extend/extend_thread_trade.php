@@ -107,6 +107,7 @@ class extend_thread_trade extends extend_thread_base {
 			'item_credit' => $_GET['item_credit'],
 			'item_costcredit' => $_GET['item_costcredit']
 		));
+		$this->param['tradepid'] = $pid;		
 
 		if(!empty($_GET['tradeaid'])) {
 			convertunusedattach($_GET['tradeaid'], $this->tid, $pid);
@@ -132,6 +133,7 @@ class extend_thread_trade extends extend_thread_base {
 				'itemcredit'=> $_GET['item_credit'],
 				'creditunit'=> $this->setting['extcredits'][$this->setting['creditstransextra'][5]]['unit'].$this->setting['extcredits'][$this->setting['creditstransextra'][5]]['title']
 			);
+			$pid = $this->param['tradepid'];			
 			if($_GET['tradeaid']) {
 				$this->feed['images'] = array(getforumimg($_GET['tradeaid']));
 				$this->feed['image_links'] = array("forum.php?mod=viewthread&do=tradeinfo&tid=".$this->tid."&pid=$pid");
