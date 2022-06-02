@@ -114,6 +114,10 @@ if($action == 'shop') {
 			showmessage('magics_nonexistence');
 		}
 		$magicperm = dunserialize($magic['magicperm']);
+		$useperm = (strstr($magicperm['usergroups'], "\t$_G[groupid]\t") || empty($magicperm['usergroups'])) ? '1' : '0';
+		if(!$useperm) {
+			showmessage('magics_use_nopermission');
+		}        
 		$querystring = array();
 		foreach($_GET as $k => $v) {
 			$querystring[] = rawurlencode($k).'='.rawurlencode($v);
