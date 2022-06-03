@@ -2,19 +2,13 @@
 branches: {
   }
 fileChange:
-  /upload:
-    newFile: !uuid '6c2ae32d86525f237551cf6702bcc1627238a8f1'
-    oldFile: !uuid 'ed16658ce61d23171b0d7a872400a0141d37027f'
-  /upload/install:
-    newFile: !uuid 'f469e0223f018414573c40ecad7644d786a8f38e'
-    oldFile: !uuid '0e9c38ef7dc46cbf87be2cfc4e626fa07fedfdf0'
-  /upload/install/data:
-    newFile: !uuid '4dc704ab977e6f7131d09e2eea80e3d1c077162f'
-    oldFile: !uuid '3199fa6b0ac1d187bbc73243b65b836245ed6cfe'
-  /upload/install/data/install.sql:
-    newFile: !uuid '9d00e7ad1d978e85df872eece6406c5d072fdf68'
-    oldFile: !uuid '1dc8fa34b349c19569ec67c21b33de398f75c67f'
-gitCommitId: !uuid '34890a1e6769d2615a4801d536b698ddf128331e'
+  /utility:
+    newFile: !uuid 'a8709175a1da1adadcdc77b5ff57082978b2178c'
+    oldFile: !uuid 'b644229b9182777c8cff54415c54fc2ae0a3bb36'
+  /utility/update.php:
+    newFile: !uuid '83d4f4836c9389f4da359aed84003877e283b2e7'
+    oldFile: !uuid '2e2878e5947297d410413428a7030ace8bca8784'
+gitCommitId: !uuid '6ec30958f811f1f87e69e05da7f766697eb94b30'
 renames: {
   }
-revisionId: 836
+revisionId: 837
