@@ -730,6 +730,17 @@ CREATE TABLE pre_common_member (
   KEY secmobile (`secmobile`, `secmobicc`)
 ) ENGINE=InnoDB;
 
+DROP TABLE IF EXISTS pre_common_member_plugin;
+CREATE TABLE pre_common_member_plugin (
+  uid mediumint(8) unsigned NOT NULL,
+  pluginid smallint(6) unsigned NOT NULL,
+  loginid varchar(200) NOT NULL DEFAULT '',
+  regdate int(10) unsigned NOT NULL DEFAULT '0',
+  `status` tinyint(1) NOT NULL DEFAULT '0',
+  PRIMARY KEY (uid, pluginid),
+  UNIQUE KEY loginid (loginid, pluginid)
+) ENGINE=InnoDB;
+
 DROP TABLE IF EXISTS pre_common_member_action_log;
 CREATE TABLE pre_common_member_action_log (
   id int(10) unsigned NOT NULL AUTO_INCREMENT,
