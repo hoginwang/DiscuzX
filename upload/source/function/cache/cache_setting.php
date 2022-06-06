@@ -556,6 +556,7 @@ function get_cachedata_setting_plugin($method = '') {
 		$addadminmenu = $plugin['available'] && C::t('common_pluginvar')->count_by_pluginid($plugin['pluginid']) ? TRUE : FALSE;
 		$plugin['modules'] = dunserialize($plugin['modules']);
 		if($available) {
+			$data['plugins']['id'][$plugin['identifier']] = $plugin['pluginid'];
 			$data['plugins']['available'][] = $plugin['identifier'];
 			$data['plugins']['version'][$plugin['identifier']] = $plugin['version'];
 		}
