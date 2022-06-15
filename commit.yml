@@ -3,21 +3,21 @@ branches: {
   }
 fileChange:
   /upload:
-    newFile: !uuid '0f80e38ceb8a72c33cc86c237837649b03008ade'
-    oldFile: !uuid '61086f36a474f55f1e232d936dc302ba73543442'
+    newFile: !uuid '78c3874f532b48127e733038f2b7adc70a7415e0'
+    oldFile: !uuid '0f80e38ceb8a72c33cc86c237837649b03008ade'
   /upload/source:
-    newFile: !uuid '03951231b756a210b20ce990f936072fea15346a'
-    oldFile: !uuid '98511c03346c5789b2a39ddbe5b33b7bbaaa989c'
-  /upload/source/module:
-    newFile: !uuid '4e52e4424aee7ed4caf70ad0bada4b5de277dce8'
-    oldFile: !uuid '806061a5b3291bd151495cfda7ee989090fec092'
-  /upload/source/module/forum:
-    newFile: !uuid '58850c38872eabc4a9cfb390fae634408cf9f501'
-    oldFile: !uuid '9dd57291565f590a7adb4ad165c1a9d3da648e5b'
-  /upload/source/module/forum/forum_ajax.php:
-    newFile: !uuid '073a0357a2ea05eac19a0dbb9aa9d024a4dfda23'
-    oldFile: !uuid 'f81f262b9598a6618e80f0bb417d087cdc9573fe'
-gitCommitId: !uuid '4ce90a99d174401779d251302b89f4935268fe92'
+    newFile: !uuid 'f16cd65305dd7e57b2fcd817b87fe257b81e85de'
+    oldFile: !uuid '03951231b756a210b20ce990f936072fea15346a'
+  /upload/source/class:
+    newFile: !uuid '2b8815d14f4bad474ce8a682269f8fd223fe8bb3'
+    oldFile: !uuid '63241f29e356e2297d6c16138949ff94cec81ad7'
+  /upload/source/class/discuz:
+    newFile: !uuid 'ed37ffbe475b822e3a1645522bbb5e77c7688ce0'
+    oldFile: !uuid 'c96b8aea363d8da2eefa5f8e0a96f2945659ace0'
+  /upload/source/class/discuz/discuz_memory.php:
+    newFile: !uuid '6db820fb9894d2ca0d79e7a36acac4eb139f64cd'
+    oldFile: !uuid '082d6d0e227909391d2f8d82a9784d289090410b'
+gitCommitId: !uuid '6000b0364c9590535338aaf81e200891cb54dffa'
 renames: {
   }
-revisionId: 842
+revisionId: 843
