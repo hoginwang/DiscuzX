@@ -3,21 +3,30 @@ branches: {
   }
 fileChange:
   /upload:
-    newFile: !uuid '2164079d52195f9b1b56c82589e958ccb65e78d5'
-    oldFile: !uuid 'f7166b7245e6d2ce77085581dccf566bd740e9e5'
-  /upload/source:
-    newFile: !uuid '2d27d0013698fb4bd4a2f193728fb8070ad21b95'
-    oldFile: !uuid '5a37dd62fefc46740d89a686a677f670137e5281'
-  /upload/source/module:
-    newFile: !uuid 'dd06d1133135920a070e8318e14cbcdb756acc65'
-    oldFile: !uuid 'bed25685f47db8a3651fbbc10faf12098d91e9c0'
-  /upload/source/module/forum:
-    newFile: !uuid '3cb41378f5fa35073d7f58bf9704c7c1cb019fa1'
-    oldFile: !uuid '5356598d10f1eee8044276cd9f8d64fe7ea660c3'
-  /upload/source/module/forum/forum_viewthread.php:
-    newFile: !uuid '0816939a3bbfb62f5a61bfe847b9bed50fc8cae4'
-    oldFile: !uuid '1d85b59d0266a7c293ebc72b25e76ac5e0cee9a8'
-gitCommitId: !uuid 'a71552b2f16667815b88eeddef100d30cfe6bada'
+    newFile: !uuid 'a7ee63a52eb1a7837d6201251ac9b3c91ae52115'
+    oldFile: !uuid '2164079d52195f9b1b56c82589e958ccb65e78d5'
+  /upload/static:
+    newFile: !uuid '83dae98325245f288c56d9008776d873e5eca4f7'
+    oldFile: !uuid '6375873b7ef6aedb5c29409ebd338371130b6e46'
+  /upload/static/js:
+    newFile: !uuid 'a8da246ed4365ced4b29d97ceda8728a73563069'
+    oldFile: !uuid '2e0fde909022ad8d9e9dcd677087c49aaed6d16e'
+  /upload/static/js/webuploader.js:
+    newFile: !uuid '249a220d5066b5a421868821c60728fe058f954c'
+    oldFile: !uuid '77e666a8cd2e4ad135a1bdf5047487530225e240'
+  /upload/template:
+    newFile: !uuid '4048bc199e58d80afbdc0d53c055bb6ab2a6242c'
+    oldFile: !uuid '07285e4a74396cead350b223dbdae0aa2238bbfa'
+  /upload/template/default:
+    newFile: !uuid 'f0822a7729e53b96685df4138064c7b7a53cd8a3'
+    oldFile: !uuid 'f21d491a4ffdc7769e28845ad32233cf7b6e9109'
+  /upload/template/default/common:
+    newFile: !uuid '16b636ec646ad170a37a8ef9b9c6fa848e5ad1a7'
+    oldFile: !uuid '4c70d722d2f2006e73b64b9f0b1ad67d85e88c54'
+  /upload/template/default/common/upload.htm:
+    newFile: !uuid '3c3f2818c0ebfb2bd71e888958fb85cf15b26e96'
+    oldFile: !uuid '51986119fa494550bfef670ff60abc4183123657'
+gitCommitId: !uuid '0c6cf13a2b37972e84f9a1024fc5d38e2c770032'
 renames: {
   }
-revisionId: 1015
+revisionId: 1016
