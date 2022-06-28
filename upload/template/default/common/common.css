@@ -1787,3 +1787,9 @@ DIY图片幻灯片未加载时隐藏,模块标识隐藏
 	.media_tips { display: block; margin: 10px 0; text-align: center; }
 		.media_tips a { font-size: 12px !important; color: #999 !important; text-decoration: none !important; }
 			.media_tips a:hover { text-decoration: underline !important; }
+
+/* 进度条 */
+	.pbg { height: 16px; border: 1px solid #CCC; background: #EEE; -webkit-border-radius: 8px; -moz-border-radius: 8px; border-radius: 8px; overflow: hidden; }
+	.pbr { height: 16px; width: 470px; background-color: #5AAF4A; -webkit-border-radius: 0; -moz-border-radius: 0; border-radius: 0; overflow: hidden; }
+	.pbg2 { display: block; height: 10px; width: 130px; margin: 0 auto; background: #FFF; -webkit-border-radius: 5px; -moz-border-radius: 5px; border-radius: 5px; overflow: hidden; }
+	.pbr2 { display: block; height: 10px; background: #F155C8; -webkit-border-radius: 0; -moz-border-radius: 0; border-radius: 0; overflow: hidden; }
