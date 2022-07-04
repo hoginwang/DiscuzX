@@ -105,7 +105,7 @@ if(!$action) {
 	@touch(UC_ROOT.'./data/install.lock');
 	@unlink(UC_ROOT.'./install/index.php');
 
-	$db = new db;
+	$db = new ucserver_db;
 	$db->connect(UC_DBHOST, UC_DBUSER, UC_DBPW, UC_DBNAME, UC_DBCHARSET);
 
 	runquery($sql);
@@ -135,7 +135,7 @@ if(!$action) {
 
 	echo "<h4>处理短消息数据</h4>";
 
-	$db = new db;
+	$db = new ucserver_db;
 	$db->connect(UC_DBHOST, UC_DBUSER, UC_DBPW, UC_DBNAME, UC_DBCHARSET);
 
 	$total = getgpc('total');
@@ -224,7 +224,7 @@ if(!$action) {
 	} else {
 		showheader();
 		$sql = file_get_contents($dump_file);
-		$db = new db;
+		$db = new ucserver_db;
 		$db->connect(UC_DBHOST, UC_DBUSER, UC_DBPW, UC_DBNAME, UC_DBCHARSET);
 		runquery($sql);
 		$num++;
@@ -277,10 +277,11 @@ function generate_key() {
 }
 
 function createtable($sql, $dbcharset) {
+	global $db;
 	$type = strtoupper(preg_replace("/^\s*CREATE TABLE\s+.+\s+\(.+?\).*(ENGINE|TYPE)\s*=\s*([a-z]+?).*$/isU", "\\2", $sql));
 	$type = in_array($type, array('MYISAM', 'HEAP')) ? $type : 'MYISAM';
 	return preg_replace("/^\s*(CREATE TABLE\s+.+\s+\(.+?\)).*$/isU", "\\1", $sql).
-	(mysql_get_server_info() > '4.1' ? " ENGINE=$type default CHARSET=".UC_DBCHARSET : " TYPE=$type");
+	($db->version() > '4.1' ? " ENGINE=$type default CHARSET=".UC_DBCHARSET : " TYPE=$type");
 }
 
 function runquery($query) {
