@@ -12,7 +12,17 @@ if(!defined('IN_DISCUZ')) {
 }
 
 function xml2array(&$xml, $isnormal = FALSE) {
-	$xml_parser = new XMLparse($isnormal);
+	// 只有 X3.5 或者更高版本支持 UTF-8 入参的 XML
+	// 因此默认出参保留为 ISO-8859-1
+	if(preg_match('/^<\\?xml[^>]+encoding="(.+?)"/', $xml, $match)) {
+		$encoding = strtoupper($match[1]);
+		if(!in_array($encoding, array('UTF-8', 'ISO-8859-1'))) {
+			$encoding = 'UTF-8';
+		}
+	} else {
+		$encoding = 'UTF-8';
+	}
+	$xml_parser = new XMLparse($isnormal, $encoding);
 	$data = $xml_parser->parse($xml);
 	$xml_parser->destruct();
 	return $data;
@@ -43,13 +53,13 @@ class XMLparse {
 	var $attrs = array();
 	var $failed = FALSE;
 
-	function __construct($isnormal) {
-		$this->XMLparse($isnormal);
+	function __construct($isnormal, $encoding = 'UTF-8') {
+		$this->XMLparse($isnormal, $encoding);
 	}
 
-	function XMLparse($isnormal) {
+	function XMLparse($isnormal, $encoding = 'UTF-8') {
 		$this->isnormal = $isnormal;
-		$this->parser = xml_parser_create('ISO-8859-1');
+		$this->parser = xml_parser_create($encoding);
 		xml_parser_set_option($this->parser, XML_OPTION_CASE_FOLDING, false);
 		xml_set_object($this->parser, $this);
 		xml_set_element_handler($this->parser, 'open','close');
