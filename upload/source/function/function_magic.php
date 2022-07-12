@@ -44,17 +44,6 @@ function getmagicweight($uid, $magicarray) {
 
 function getpostinfo($id, $type, $colsarray = '') {
 	global $_G;
-	$sql = $comma = '';
-	$type = in_array($type, array('tid', 'pid', 'blogid')) && !empty($type) ? $type : 'tid';
-	$cols = '*';
-
-	if(!empty($colsarray) && is_array($colsarray)) {
-		$cols = '';
-		foreach($colsarray as $val) {
-			$cols .= $comma.$val;
-			$comma = ', ';
-		}
-	}
 
 	switch($type) {
 		case 'tid':
@@ -67,11 +56,8 @@ function getpostinfo($id, $type, $colsarray = '') {
 				$thread['thread_author'] = $thread['author'];
 				$thread['thread_authorid'] = $thread['authorid'];
 				$thread['thread_status'] = $thread['status'];
-				unset($thread['author']);
-				unset($thread['authorid']);
-				unset($thread['dateline']);
-				unset($thread['status']);
-				$info = array_merge($info, $thread);
+				$thread['thread_replycredit'] = $thread['replycredit'];
+				$info = array_merge($thread, $info);
 			} else {
 				$info = array();
 			}
@@ -84,7 +70,7 @@ function getpostinfo($id, $type, $colsarray = '') {
 			break;
 	}
 
-	if(!$info) {
+	if(empty($info)) {
 		showmessage('magics_target_nonexistence');
 	} else {
 		return daddslashes($info, 1);
