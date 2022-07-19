@@ -3,21 +3,51 @@ branches: {
   }
 fileChange:
   /upload:
-    newFile: !uuid '844064011fd1614a2118beddc91e450e49926a91'
-    oldFile: !uuid 'b496646fbc69d4c971b18991eabb132f0fc89aab'
+    newFile: !uuid '51cc8c3fe25906d52a6267da14203b22ffa99f37'
+    oldFile: !uuid '844064011fd1614a2118beddc91e450e49926a91'
+  /upload/install:
+    newFile: !uuid '6d84cca71a83cc709f33e835d0afe1e995e99a88'
+    oldFile: !uuid '57c517b8400572f9f666364c6b2109ba54d7bf31'
+  /upload/install/data:
+    newFile: !uuid '58ef342391f90d6b858fdd5ea8df9990e4e25c99'
+    oldFile: !uuid 'e144597901598bbb59de4d78ac548634a87a7caf'
+  /upload/install/data/install_data.sql:
+    newFile: !uuid '09c7ed3395d28b659ec582a9e16383cee6dea552'
+    oldFile: !uuid 'f2609d4104ba48c0dbe86cbd04f4402bcc98f364'
+  /upload/source:
+    newFile: !uuid '08446fd8687e433dac996179feac52a94c92c48f'
+    oldFile: !uuid '0d5fbfc91e1f75460718d8347c7066fbca05bfef'
+  /upload/source/admincp:
+    newFile: !uuid 'a83c902b9eff7c521f610fd54b3e24a03341bcd0'
+    oldFile: !uuid 'ddd4f86910d610762180565d00767268657f0b6c'
+  /upload/source/admincp/admincp_setting.php:
+    newFile: !uuid 'a32cbec1e1d227c13be019cbdeff38205a53567b'
+    oldFile: !uuid '96ffb40578d323dc92397376a85729f0b761a7fc'
+  /upload/source/language:
+    newFile: !uuid '4d8480643c9a9a8fc02bdd30a264d1b39351438f'
+    oldFile: !uuid '457334ff84d573b67f71cc8f33bc88915f576c6e'
+  /upload/source/language/lang_admincp.php:
+    newFile: !uuid '7b6131ad29a3c7b0a23480766dc82dda34aa53e3'
+    oldFile: !uuid '56225c60d85f93f9ad5caf5bab04ce8b3d440f9b'
   /upload/template:
-    newFile: !uuid '63ac024f2969d1340d4f485bfebff1132c421353'
-    oldFile: !uuid 'b6f552e7b753beb94f51c0919611c88b894a9dec'
+    newFile: !uuid '1030e784a8f72f0f15ba61e65b48874649c4c937'
+    oldFile: !uuid '63ac024f2969d1340d4f485bfebff1132c421353'
   /upload/template/default:
-    newFile: !uuid 'd0cf97f973d0c7fd158d7669b3e0c6b0514547c2'
-    oldFile: !uuid '27aaa47d7581dd4143a79b94b839f4b125310896'
-  /upload/template/default/forum:
-    newFile: !uuid '97ebd487bdbba041d7da3ad5cc3e259bab922365'
-    oldFile: !uuid 'a35e0be085bb389a2d3bc5595ab7547a44d67ced'
-  /upload/template/default/forum/guide.htm:
-    newFile: !uuid 'd45b5650217bde6dd0beacb87848fc577211cb27'
-    oldFile: !uuid '19079e6b6e04262fc2e08d775cc7e3324a86c642'
-gitCommitId: !uuid '19ad5de75816e622f4a7b32c5e8a5c1b2887d353'
+    newFile: !uuid '528b5034213653cd33358d215389e9403ead7e77'
+    oldFile: !uuid 'd0cf97f973d0c7fd158d7669b3e0c6b0514547c2'
+  /upload/template/default/common:
+    newFile: !uuid '16b636ec646ad170a37a8ef9b9c6fa848e5ad1a7'
+    oldFile: !uuid 'c07493f241a41aa0aa5e0abc626850156fd283c5'
+  /upload/template/default/common/footer.htm:
+    newFile: !uuid 'b0d803ee9e1a8a95c33a80bedc944a6e57a9b09e'
+    oldFile: !uuid '6ba6340b409269491c54a3134b195a8b9e6365f2'
+  /upload/template/default/search:
+    newFile: !uuid 'bc1b9332f22902c7bf6b0e843c00c311734596c4'
+    oldFile: !uuid 'c5517036bb39443d1ee707309329c13d7a85f57a'
+  /upload/template/default/search/footer.htm:
+    newFile: !uuid 'd4ba2f56c3ef83ef16c5e9ae6eb2591cab232408'
+    oldFile: !uuid '7cc14bfc31b9720f7e340e5ad02e1e605bfea68f'
+gitCommitId: !uuid '5287c2a868fd43e32e403ee74f2f4f678eb58f25'
 renames: {
   }
-revisionId: 1028
+revisionId: 1029
