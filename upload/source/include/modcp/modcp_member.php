@@ -91,7 +91,11 @@ if($op == 'edit') {
 			$banexpirynew = $banexpirynew > TIMESTAMP ? $banexpirynew : 0;
 			if($banexpirynew) {
 				$member['groupterms'] = $member['groupterms'] && is_array($member['groupterms']) ? $member['groupterms'] : array();
-				$member['groupterms']['main'] = array('time' => $banexpirynew, 'adminid' => $member['adminid'], 'groupid' => $member['groupid']);
+				if($member['groupid'] == 4 || $member['groupid'] == 5) {
+					$member['groupterms']['main']['time'] = $banexpirynew;
+				}else{
+					$member['groupterms']['main'] = array('time' => $banexpirynew, 'adminid' => $member['adminid'], 'groupid' => $member['groupid']);
+				}
 				$member['groupterms']['ext'][$groupidnew] = $banexpirynew;
 				$setarr['groupexpiry'] = groupexpiry($member['groupterms']);
 			} else {
