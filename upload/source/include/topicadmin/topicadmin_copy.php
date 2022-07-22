@@ -96,7 +96,7 @@ if(!submitcheck('modsubmit')) {
 	'reasonpm'	=> ($sendreasonpm ? array('data' => array($thread), 'var' => 'thread', 'item' => 'reason_copy', 'notictype' => 'post') : array()),
 	'reasonvar'	=> array('tid' => $thread['tid'], 'subject' => $thread['subject'], 'modaction' => $modaction, 'reason' => $reason, 'threadid' => $threadid),
 	'modtids'	=> $thread['tid'],
-	'modlog'	=> array($thread, $other)
+	'modlog'	=> array($thread)
 	);
 }
 
