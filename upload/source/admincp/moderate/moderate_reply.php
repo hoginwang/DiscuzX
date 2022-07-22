@@ -251,7 +251,7 @@ if(!submitcheck('modsubmit') && !$_GET['fast']) {
 
 	if($validatepids = dimplode($moderation['validate'])) {
 		$forums = $threads = $attachments = $pidarray = $authoridarray = array();
-		$tids = $postlist = array();
+		$tids = $postlist = $replypids = $replies = array();
 		foreach(C::t('forum_post')->fetch_all($posttable, $moderation['validate']) as $post) {
 			if($post['first'] != 0) {
 				continue;
@@ -262,6 +262,14 @@ if(!submitcheck('modsubmit') && !$_GET['fast']) {
 		$threadlist = C::t('forum_thread')->fetch_all($tids);
 		$firsttime_validatepost = [];//首次审核通过帖子
 		$uids = [];
+		foreach($postlist as $post) {
+			if(preg_match('/^\[quote\]\[size=2\]\[url=forum\.php\?mod=redirect&goto=findpost&pid=(\d+)&ptid=(\d+)\]/',$post['message'],$matches) && $matches ){
+				$replypids[$post['pid']] = $matches[1];
+			}
+		}
+		if($replypids){
+			$replies = C::t('forum_post')->fetch_all($posttable, $replypids);
+		}
 		foreach($postlist as $post) {
 			$post['lastpost'] = $threadlist[$post['tid']]['lastpost'];
 
@@ -294,6 +302,17 @@ if(!submitcheck('modsubmit') && !$_GET['fast']) {
 					'notevar' => array('pid' => $post['pid'], 'tid' => $post['tid'], 'post' => dhtmlspecialchars(cutstr($post['message'], 30)), 'reason' => dhtmlspecialchars($_GET[''.$pm]), 'from_id' => 0, 'from_idtype' => 'modreplies'),
 					'authorid' => $post['authorid'],
 				);
+			}
+			$notice_uid = $threadlist[$post['tid']]['authorid'];
+			$from_id = $post['tid'];
+			$from_idtype = 'post';
+			if(isset($replypids[$post['pid']])){
+				$notice_uid = $replies[$replypids[$post['pid']]]['authorid'];
+				$from_id = $post['pid'];
+				$from_idtype = 'quote';
+			}
+			if($notice_uid != $post['authorid']){
+				$noticelist[] = array('authorid' => $notice_uid,'tid' => $post['tid'],'subject' => $threadlist[$post['tid']]['subject'],'fid' => $threadlist[$post['tid']]['fid'],'from_id' => $from_id,'from_idtype' => $from_idtype);
 			}
 		}
 		unset($postlist, $tids, $threadlist);
@@ -350,6 +369,11 @@ if(!submitcheck('modsubmit') && !$_GET['fast']) {
 	if($pmlist) {
 		foreach($pmlist as $pm) {
 			notification_add($pm['authorid'], 'system', $pm['action'], $pm['notevar'], 1);
+		}
+	}
+	if($noticelist){
+		foreach ($noticelist as $notcie){
+			notification_add($notcie['authorid'], 'post', 'reppost_noticeauthor', $notcie);
 		}
 	}
 	if($_GET['fast']) {
