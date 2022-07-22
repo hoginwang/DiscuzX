@@ -628,7 +628,8 @@ if($op == 'delete') {
 		$article['dateline'] = dgmdate($article['dateline']);
 	}
 	if(!empty($attachs)) {
-		$article['attachs'] = get_upload_content($attachs);
+		$article['attachs']['imagelist'] = get_upload_content($attachs,'',true);
+		$article['attachs']['attachlist'] = get_upload_content($attachs,'',false);
 	}
 	$article_tags = article_parse_tags($article['tag']);
 	$tag_names = article_tagnames();

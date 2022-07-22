@@ -52,7 +52,7 @@
 		</div>
 		<div class="upfilelist upfl bbda">
 			<div id="imgattachlist">
-				<!--{if $_G['basescript'] == 'portal'}-->$article[attachs]<!--{/if}-->
+				<!--{if $_G['basescript'] == 'portal' && $article['attachs']['imagelist']}-->{$article['attachs']['imagelist']}<!--{/if}-->
 			</div>
 			<div class="fieldset flash" id="imgUploadProgress"></div>
 		</div>
@@ -108,6 +108,7 @@
 						<div class="upfl">
 							<div id="attachlist"></div>
 							<div class="fieldset flash" id="fsUploadProgress"></div>
+							<!--{if $_G['basescript'] == 'portal' && $article['attachs']['attachlist']}-->{$article['attachs']['attachlist']}<!--{/if}-->
 						</div>
 						<div class="notice upnf">
 							<p id="attach_notice">{lang click_filename_to_article}</p>

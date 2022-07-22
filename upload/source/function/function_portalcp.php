@@ -44,19 +44,21 @@ function get_uploadcontent($attach, $type='portal', $dotype='') {
 
 }
 
-function get_upload_content($attachs, $dotype='') {
+function get_upload_content($attachs, $dotype='',$isimage = true) {
 	$html = '';
 	$dotype = $dotype ? 'checked' : '';
 	$i = 0;
 	foreach($attachs as $key => $attach) {
+		if(($isimage && $attach['isimage']<=0) || (!$isimage && $attach['isimage']>0)){
+		continue;
+		}
 		$type = $attach['from'] == 'forum' ? 'forum' : 'portal';
-		$html .= '<td id="attach_list_'.$attach['attachid'].'">';
-		if($attach['isimage']) {
+		$html .= $isimage?'<td id="attach_list_'.$attach['attachid'].'">':'<table cellpadding="0" cellspacing="0" id="attach_list_'.$attach['attachid'].'" summary="post_attachbody" border="0" width="100%"><tbody><td class="attswf">';
+		if($isimage && $attach['isimage']>0){
 			$pic = pic_get($attach['attachment'], $type, $attach['thumb'], $attach['remote'], 0);
 			$small_pic = $attach['thumb'] ? getimgthumbname($pic) : '';
 			$check = $attach['pic'] == $type.'/'.$attach['attachment'] ? 'checked' : $dotype;
 			$aid = $check ? $attach['aid'] : '';
-
 			$html .= '<a href="javascript:;" class="opattach">';
 			$html .= '<span class="opattach_ctrl">';
 			$html .= '<span onclick="insertImage(\''.$pic.'\');" class="cur1">'.lang('portalcp', 'insert_large_image').'</span><span class="pipe">|</span>';
@@ -66,23 +68,31 @@ function get_upload_content($attachs, $dotype='') {
 			if($type == 'portal') {
 				$html .= '<span class="pipe">|</span><span class="cur1 xi2" onclick="deleteAttach(\''.$attach['attachid'].'\', \'portal.php?mod=attachment&id='.$attach['attachid'].'&aid='.$aid.'&op=delete\');">'.lang('portalcp', 'delete').'</span>';
 			}
-		} else {
-			$html .= '<img src="static/image/editor/editor_file_thumb.png" class="cur1" onclick="insertFile(\''.$attach['filename'].'\', \'portal.php?mod=attachment&id='.$attach['attachid'].'\');" tip="'.$attach['filename'].'" onmouseover="showTip(this);" /><br/>';
-			$html .= '<span onclick="deleteAttach(\''.$attach['attachid'].'\', \'portal.php?mod=attachment&id='.$attach['attachid'].'&op=delete\');" class="cur1 xi2">'.lang('portalcp', 'delete').'</span>';
+		}elseif(!$isimage && $attach['isimage']<=0){
+			require_once libfile('function/attachment');
+			$attach['filetype'] = attachtype($attach['filetype']."\t".$attach['filetype']);
+			$html .= '<p id="attach'.$attach['attachid'].'">';
+			$html .= '<span>'.$attach['filetype'].' <a href="javascript:;" class="xi2" id="attachname'.$attach['attachid'].'" isimage="'.($attach['isimage']?1:0).'" onclick="'.($attach['isimage']?'insertImage(\''.$pic.'\')':'insertFile(\''.$attach['filename'].'\', \'portal.php?mod=attachment&id='.$attach['attachid'].'\')').';doane(event);">'.$attach['filename'].'</a></span>';
+			$html .= '</p></td><td class="atds">'.$attach['filesize'].'</td>';
+			$html .= '<td class="attc"><a href="javascript:;" class="d" onclick="deleteAttach('.$attach['attachid'].', \'portal.php?mod=attachment&id='.$attach['attachid'].'&op=delete\');;return false;" title="{lang delete}">{lang delete}</a>';
 		}
 		$html .= '</td>';
 		$i++;
-
-		if($i % 4 == 0 && isset($attachs[$i])) {
-			$html .= '</tr><tr>';
+		if($isimage){
+			if($i % 4 == 0 && isset($attachs[$i])) {
+				$html .= '</tr><tr>';
+			}
+		}else{
+			$html .= '</tbody></table>';
 		}
 	}
 	if(!empty($html)) {
-		if(($imgpad = $i % 4) > 0) {
-			$html .= str_repeat('<td width="25%"></td>', 4 - $imgpad);
+		if($isimage){
+			if(($imgpad = $i % 4) > 0) {
+				$html .= str_repeat('<td width="25%"></td>', 4 - $imgpad);
+			}
+			$html = '<table class="imgl"><tr>'.$html.'</tr></table>';
 		}
-
-		$html = '<table class="imgl"><tr>'.$html.'</tr></table>';
 	}
 	return $html;
 }
