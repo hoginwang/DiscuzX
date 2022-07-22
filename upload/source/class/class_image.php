@@ -279,12 +279,17 @@ class image {
 			return $attach_photo;
 		}
 		$copy_photo = imagecreatetruecolor($this->imginfo['width'], $this->imginfo['height']);
+		if( $this->imginfo['mime'] == 'image/png' ){
+			$transparent = imagecolorallocatealpha($copy_photo, 255, 255, 255,0);
+			imagefilledrectangle($copy_photo, 0, 0, $this->imginfo['width'] , $this->imginfo['height'] , $transparent);
+		}
 		imagecopy($copy_photo, $attach_photo ,0, 0, 0, 0, $this->imginfo['width'], $this->imginfo['height']);
 		$attach_photo = $copy_photo;
 
 		$thumb_photo = null;
 		switch($this->param['thumbtype']) {
 			case 'fixnone':
+				break;
 			case 1:
 				if($this->imginfo['width'] >= $this->param['thumbwidth'] || $this->imginfo['height'] >= $this->param['thumbheight']) {
 					$thumb = array();
@@ -296,6 +301,7 @@ class image {
 				}
 				break;
 			case 'fixwr':
+				break;
 			case 2:
 				if(!($this->imginfo['width'] <= $this->param['thumbwidth'] || $this->imginfo['height'] <= $this->param['thumbheight'])) {
 					list($startx, $starty, $cutw, $cuth) = $this->sizevalue(1);
