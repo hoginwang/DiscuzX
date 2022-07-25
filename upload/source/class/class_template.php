@@ -24,6 +24,7 @@ class template {
 
 	function parse_template($tplfile, $templateid = 1, $tpldir = '', $file = '', $cachefile = '', $postparse = null) {
 		$basefile = basename(DISCUZ_ROOT.$tplfile, '.'.$this->filetype);
+		$this->tplfile = $tplfile;
 		$file == 'common/header' && defined('CURMODULE') && CURMODULE && $file = 'common/header_'.CURMODULE;
 		$this->file = $file;
 
@@ -94,6 +95,7 @@ class template {
 
 		$template = preg_replace_callback("/[\n\r\t]*\{template\s+([a-z0-9_:\/]+)\}[\n\r\t]*/is", array($this, 'parse_template_callback_stripvtags_template1'), $template);
 		$template = preg_replace_callback("/[\n\r\t]*\{template\s+(.+?)\}[\n\r\t]*/is", array($this, 'parse_template_callback_stripvtags_template1'), $template);
+		$template = preg_replace_callback("/[\n\r\t]*\{loadscss\s+(.+?)\}[\n\r\t]*/is", array($this, 'parse_template_callback_stripvtags_loadscss'), $template);
 		$template = preg_replace_callback("/[\n\r\t]*\{echo\s+(.+?)\}[\n\r\t]*/is", array($this, 'parse_template_callback_stripvtags_echo1'), $template);
 
 		$template = preg_replace_callback("/([\n\r\t]*)\{if\s+(.+?)\}([\n\r\t]*)/is", array($this, 'parse_template_callback_stripvtags_if123'), $template);
@@ -385,7 +387,45 @@ class template {
 		}
 		return $scriptcss;
 	}
-
+	public function parse_template_callback_stripvtags_loadscss($matches)
+	{
+		$file = 'data/cache/style_'.STYLEID.'_'.str_replace('.scss','',basename($matches[1])).'.css';
+		$sitepath = str_replace(array($_SERVER["DOCUMENT_ROOT"],'\\'),array('','/'),dirname(__DIR__,2)).'/';
+		$this->sitepath = $sitepath;
+		//if(!is_file(DISCUZ_ROOT.$file)){
+			$filepath = str_replace('\\./','\\',DISCUZ_ROOT.dirname($this->tplfile)).'/';
+			#$filesite = str_replace(array($_SERVER["DOCUMENT_ROOT"],'\\'),array('','/'),$filepath);
+			if(!isset(C::app()->var['scss'])){
+				C::app()->var['scss'] = new ScssPhp\ScssPhp\Compiler();
+				C::app()->var['scss']->setOutputStyle('compressed');#or expanded
+			}
+			$scssfile = $this->get_abspath($matches[1],$filepath);
+			if(is_file($scssfile)){
+				C::app()->var['scss']->setImportPaths(dirname($scssfile).'/');
+				file_put_contents(DISCUZ_ROOT.$file,C::app()->var['scss']->compileString(file_get_contents($scssfile))->getCss());
+			}
+		//}
+		return '<link rel="stylesheet" type="text/css" href="'.$sitepath.$file.'?'.VERHASH.'" />';
+	}
+	public function get_abspath($file, $current)
+	{
+		if (stripos($file,$_SERVER["DOCUMENT_ROOT"]) !== false) {
+			return $file;
+		} elseif (substr($file, 0, 1) == '/') {
+			$current_file = DISCUZ_ROOT . substr($file, 1);
+		} else {
+			$file = preg_replace('/^\.\//', '', $file);
+			if (preg_match('/^(\.\.\/)+?/', $file, $matches)) {
+				$num = substr_count($matches[1], '../');
+				$file = str_replace($matches[1], '', $file);
+				if ($num >= 1) {
+					$current = dirname($current, $num) . '/';
+				}
+			}
+			$current_file = $current . $file;
+		}
+		return $current_file;
+	}
 	function loadcsstemplate_callback_cssvtags_12($matches) {
 		return $this->cssvtags($matches[1], $matches[2]);
 	}
