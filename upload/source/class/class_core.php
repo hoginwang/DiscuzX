@@ -136,7 +136,14 @@ class core
 
 	public static function autoload($class) {
 		$class = strtolower($class);
-		if(strpos($class, '_') !== false) {
+		if(strpos($class, '\\') !== false) {
+			$list = explode('\\', $class);
+			$file = 'class/'.array_slice($list,1,1)[0].'/src/'.implode('/',array_slice($list,2)).'.php';
+			if(is_file(DISCUZ_ROOT.'/source/'.$file)){
+				include DISCUZ_ROOT.'/source/'.$file;
+				return;
+			}
+		}else if(strpos($class, '_') !== false) {
 			list($folder) = explode('_', $class);
 			$file = 'class/'.$folder.'/'.substr($class, strlen($folder) + 1);
 		} else {
