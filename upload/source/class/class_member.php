@@ -40,7 +40,7 @@ class logging_ctl {
 		list($seccodecheck) = seccheck('login');
 		if(!empty($_GET['auth'])) {
 			$dauth = authcode($_GET['auth'], 'DECODE', $_G['config']['security']['authkey']);
-			list(,,,$secchecklogin2) = explode("\t", $dauth);
+			list(,,,$secchecklogin2, $account_correct) = explode("\t", $dauth);
 			if($secchecklogin2) {
 				$seccodecheck = true;
 			}
@@ -74,7 +74,7 @@ class logging_ctl {
 
 		} else {
 
-			if(!empty($_GET['auth'])) {
+			if(!empty($_GET['auth']) && $account_correct) {
 				list($_GET['username'], $_GET['password']) = daddslashes(explode("\t", authcode($_GET['auth'], 'DECODE', $_G['config']['security']['authkey'])));
 			}
 
@@ -184,15 +184,9 @@ class logging_ctl {
 					if(!$seccodecheck && $seccheckrule['outofday'] && $_G['member']['lastvisit'] && TIMESTAMP - $_G['member']['lastvisit'] > $seccheckrule['outofday'] * 86400) {
 						$seccodecheck = true;
 					}
-					if(!$seccodecheck && $_G['member_loginperm'] != -1 && $_G['member_loginperm'] < 4) {
-						$seccodecheck = true;
-					}
-					if(!$seccodecheck && $seccheckrule['numiptry']) {
-						$seccodecheck = failedipcheck($seccheckrule['numiptry'], $seccheckrule['timeiptry']);
-					}
 					if($seccodecheck && !$secchecklogin2) {
 						clearcookies();
-						$auth = authcode($_GET['username']."\t".$_GET['password']."\t".($_GET['questionid'] ? 1 : 0)."\t1", 'ENCODE', $_G['config']['security']['authkey']);
+						$auth = authcode($_GET['username']."\t".$_GET['password']."\t".($_GET['questionid'] ? 1 : 0)."\t1\t1", 'ENCODE', $_G['config']['security']['authkey']);
 						$location = 'member.php?mod=logging&action=login&auth='.rawurlencode($auth).'&referer='.rawurlencode(dreferer()).(!empty($_GET['cookietime']) ? '&cookietime=1' : '');
 						if(defined('IN_MOBILE')) {
 							showmessage('login_seccheck2', $location);
@@ -283,7 +277,27 @@ class logging_ctl {
 				writelog('illegallog', $errorlog);
 				loginfailed($_GET['username']);
 				failedip();
-				$fmsg = $result['ucresult']['uid'] == '-3' ? (empty($_GET['questionid']) || $answer == '' ? 'login_question_empty' : 'login_question_invalid') : 'login_invalid';
+				$seccheckrule = & $_G['setting']['seccodedata']['rule']['login'];
+				if($seccheckrule['allow'] == 2) {
+					if(!$seccodecheck && $seccheckrule['pwerror'] && $_G['member_loginperm'] != -1 && $_G['member_loginperm'] <= 4) {//尝试密码错误 2 次后启用
+						$seccodecheck = true;
+					}
+					if(!$seccodecheck && $seccheckrule['numiptry']) {//重复 IP 段尝试密码错误上限
+						$seccodecheck = failedipcheck($seccheckrule['numiptry'], $seccheckrule['timeiptry']);
+					}
+					if($seccodecheck && !$secchecklogin2) {
+						clearcookies();
+						$auth = authcode($_GET['username']."\t".$_GET['password']."\t".($_GET['questionid'] ? 1 : 0)."\t1\t0", 'ENCODE', $_G['config']['security']['authkey']);
+						$location = 'member.php?mod=logging&action=login&auth='.rawurlencode($auth).'&referer='.rawurlencode(dreferer()).(!empty($_GET['cookietime']) ? '&cookietime=1' : '');
+						if(defined('IN_MOBILE')) {
+							showmessage('login_seccheck2', $location);
+						} else {
+							$js = '<script type="text/javascript">location.href=\''.$location.'\'</script>';
+							showmessage('login_seccheck2', '', array('type' => 1), array('extrajs' => $js));
+						}
+					}
+				}
+				$fmsg = $result['ucresult']['uid'] == '-3' ? (empty($_GET['questionid']) || $_GET['answer'] == '' ? 'login_question_empty' : 'login_question_invalid') : 'login_invalid';
 				if($_G['member_loginperm'] > 1) {
 					showmessage($fmsg, '', array('loginperm' => $_G['member_loginperm'] - 1));
 				} elseif($_G['member_loginperm'] == -1) {
