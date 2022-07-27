@@ -338,7 +338,7 @@ function build_cache_setting() {
 	list($data['plugins'], $data['pluginlinks'], $data['hookscript'], $data['hookscriptmobile'], $data['threadplugins'], $data['specialicon']) = get_cachedata_setting_plugin();
 
 	if(empty($data['defaultindex'])) $data['defaultindex'] = array();
-	list($data['navs'], $data['subnavs'], $data['menunavs'], $data['navmns'], $data['navmn'], $data['navdms'], $data['navlogos']) = get_cachedata_mainnav();
+	$data += get_cachedata_mainnav();
 
 	$data['footernavs'] = get_cachedata_footernav();
 	$data['spacenavs'] = get_cachedata_spacenavs();
@@ -791,15 +791,17 @@ function get_cachedata_mainnav() {
 			$nav['available'] = 0;
 		}
 		$nav['style'] = parsehighlight($nav['highlight']);
-		$data['navs'][$id]['navname'] = $nav['name'];
-		$data['navs'][$id]['filename'] = $nav['url'];
-		$data['navs'][$id]['available'] = $nav['available'];
+		$data['navs'][$id] =set_cachedata_mainnav_list($nav);
 		$nav['name'] = $nav['name'].($nav['title'] ? '<span>'.$nav['title'].'</span>' : '');
 		$subnavs = '';
 		foreach(C::t('common_nav')->fetch_all_subnav($nav['id']) as $subnav) {
+			$data['navs'][$id]['subnav'][$subnav['id']] = set_cachedata_mainnav_list($subnav);
 			$item = "<a href=\"{$subnav['url']}\" hidefocus=\"true\" ".($subnav['title'] ? "title=\"{$subnav['title']}\" " : '').($subnav['target'] == 1 ? "target=\"_blank\" " : '').parsehighlight($subnav['highlight']).">{$subnav['name']}</a>";
 			$liparam = !$nav['subtype'] || !$nav['subcols'] ? '' : ' style="width:'.sprintf('%1.1f', (1 / $nav['subcols']) * 100).'%"';
 			$subnavs .= '<li'.$liparam.'>'.$item.'</li>';
+		}
+		if(!empty($data['navs'][$id]['subnav'])){
+			$data['navs'][$id]['class'] .=' dropmenu';
 		}
 		list($navid) = explode('.', basename($nav['url']));
 		if($nav['type'] || $navid == 'misc' || $nav['identifier'] == 6) {
@@ -811,6 +813,7 @@ function get_cachedata_mainnav() {
 				$navid = 'N'.substr(md5(($nav['url'] != '#' ? $nav['url'] : $nav['name'])), 0, 4);
 			}
 		}
+		$data['navs'][$id]['itemid'] = $navid;
 		$navid = 'mn_'.$navid;
 		if(in_array($navid, $navids)) {
 			$navid .= '_'.$nav['identifier'];
@@ -870,11 +873,44 @@ function get_cachedata_mainnav() {
 		$data['navs'][$id]['nav'] = "id=\"$navid\" ".($onmouseover ? 'onmouseover="'.$onmouseover.'"' : '')."><a href=\"$nav[url]\" hidefocus=\"true\" ".($nav['title'] ? "title=\"$nav[title]\" " : '').($nav['target'] == 1 ? "target=\"_blank\" " : '')." $nav[style]>$nav[name]".($nav['identifier'] == 5 && $nav['type'] == 0 ? '<b class="icon_down"></b>' : '')."</a";
 	}
 	$data['menunavs'] = implode('', $data['menunavs']);
-
-	return array($data['navs'], $data['subnavs'], $data['menunavs'], $data['navmns'], $data['navmn'], $data['navdms'], $data['navlogos']);
-
+	return $data;
 }
-
+function set_cachedata_mainnav_list($nav){
+	$attr = !empty($nav['target'])?'target="_blank" ':'';
+	$attr .= $nav['title']?'title="'.$nav['title'].'"':'';
+	$class = get_cachedata_mainnav_style($nav['highlight']);
+	$class .= !empty($nav['subtype']) ? ' flex-row':'';
+	/**
+	 * $img = template::get_absstie($nav['logo'],'/dx35/data/attachment/common/');
+	 */
+	return array(
+		'navname' => $nav['name'],
+		'href' => $nav['url'],
+		'title' => $nav['title'],
+		'class'=> $class,
+		'attr'=> $attr,
+		'img'=> $nav['logo'],
+		'subcols'=>$nav['subcols'],
+		'level' => $nav['level'],
+		'icon'=> $nav['icon'],
+		'filename' => $nav['url'],
+		'available' => $nav['available'],
+	);
+}
+function get_cachedata_mainnav_style($highlight) {
+	if(!empty($highlight)) {
+		$colorarray = array('', 'red', 'orange', 'yellow', 'green', 'cyan', 'blue', 'purple', 'gray');
+		$string = sprintf('%02d', $highlight);
+		$stylestr = sprintf('%03b', $string[0]);
+		$style = $stylestr[0] ? 'text-bold ' : '';
+		$style .= $stylestr[1] ? 'text-italic ' : '';
+		$style .= $stylestr[2] ? 'text-underline ' : '';
+		$style .= $string[1] ? 'color-'.$colorarray[$string[1]] : '';
+	} else {
+		$style = '';
+	}
+	return $style;
+}
 function get_cachedata_footernav() {
 	global $_G;
 
