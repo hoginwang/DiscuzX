@@ -85,7 +85,8 @@ function build_cache_portalcategory() {
 		include_once libfile('cache/setting','function');
 	}
 	$data = $_G['setting'];
-	list($data['navs'], $data['subnavs'], $data['menunavs'], $data['navmns'], $data['navmn'], $data['navdms']) = get_cachedata_mainnav();
+	$data += get_cachedata_mainnav();
+	unset($data['navlogos']);
 	savecache('setting', $data);
 }
 
