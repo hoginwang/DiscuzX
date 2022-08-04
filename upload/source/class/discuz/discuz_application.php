@@ -866,7 +866,7 @@ class discuz_application extends discuz_base{
 		parse_str($_SERVER['QUERY_STRING'], $query);
 		$query['mobile'] = 'no';
 		unset($query['simpletype']);
-        $query_sting_tmp = http_build_query($query);
+		$query_sting_tmp = http_build_query($query);
 		$this->var['setting']['mobile']['nomobileurl'] = ($this->var['setting']['domain']['app']['forum'] ? $this->var['scheme'].'://'.$this->var['setting']['domain']['app']['forum'].'/' : $this->var['siteurl']).$this->var['basefilename'].'?'.$query_sting_tmp;
 
 		$this->var['setting']['lazyload'] = 0;
