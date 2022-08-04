@@ -866,7 +866,6 @@ class discuz_application extends discuz_base{
 		parse_str($_SERVER['QUERY_STRING'], $query);
 		$query['mobile'] = 'no';
 		unset($query['simpletype']);
-		$query_sting_tmp = http_build_query($query);
 		$this->var['setting']['mobile']['nomobileurl'] = ($this->var['setting']['domain']['app']['forum'] ? $this->var['scheme'].'://'.$this->var['setting']['domain']['app']['forum'].'/' : $this->var['siteurl']).$this->var['basefilename'].'?'.$query_sting_tmp;
 
 		$this->var['setting']['lazyload'] = 0;
@@ -890,18 +889,7 @@ class discuz_application extends discuz_base{
 		}
 
 		$this->var['setting']['regstatus'] = $this->var['setting']['mobile']['mobileregister'] ? $this->var['setting']['regstatus'] : 0 ;
-
-		if(in_array(constant('IN_MOBILE'), array('1', '3'))) {
-			$this->var['setting']['thumbquality'] = 50;
-		}
-
 		$this->var['setting']['avatarmethod'] = 0;
-
-		$this->var['setting']['mobile']['simpletypeurl'] = array();
-		$this->var['setting']['mobile']['simpletypeurl'][0] = $this->var['siteurl'].$this->var['basefilename'].($query_sting_tmp ? '?'.$query_sting_tmp.'&' : '?').'mobile=1&simpletype=no';
-		$this->var['setting']['mobile']['simpletypeurl'][1] =  $this->var['siteurl'].$this->var['basefilename'].($query_sting_tmp ? '?'.$query_sting_tmp.'&' : '?').'mobile=1&simpletype=yes';
-		$this->var['setting']['mobile']['simpletypeurl'][2] =  $this->var['siteurl'].$this->var['basefilename'].($query_sting_tmp ? '?'.$query_sting_tmp.'&' : '?').'mobile=2';
-		unset($query_sting_tmp);
 		ob_start();
 	}
 
