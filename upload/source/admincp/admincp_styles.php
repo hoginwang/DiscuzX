@@ -172,7 +172,7 @@ if($operation == 'admin') {
 			$isdefault1 = $id == $defaultid1 ? 'checked' : '';
 			$isdefault2 = $id == $defaultid2 ? 'checked' : '';
 			$isdefault3 = $id == $defaultid3 ? 'checked' : '';
-			$d2exists = file_exists($style['directory'].'/touch') || file_exists($style['directory'].'/m');
+			$d2exists = file_exists($style['directory'].'/touch');
 			$available = $style['available'] ? 'checked' : NULL;
 			$preview = file_exists($style['directory'].'/preview.jpg') ? $style['directory'].'/preview.jpg' : STATICURL.'image/admincp/stylepreview.gif';
 			$previewlarge = file_exists($style['directory'].'/preview_large.jpg') ? $style['directory'].'/preview_large.jpg' : '';
