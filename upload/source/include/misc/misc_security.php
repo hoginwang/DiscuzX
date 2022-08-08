@@ -87,6 +87,8 @@ function securitymessage($subject, $message, $reload = TRUE, $form = FALSE) {
 		echo '<div id="attackevasive_1" class="popupmenu_option"><b style="font-size: 16px">'.$subject.'</b><br /><br />'.$message.'</div>';
 		security_ajaxshowfooter();
 	} else {
+		$charset = getglobal('config/output/charset');
+		@header('Content-Type: text/html; charset='.$charset);
 		echo '<html>';
 		echo '<head>';
 		echo '<title>'.$subject.'</title>';
