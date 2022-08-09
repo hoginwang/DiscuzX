@@ -576,6 +576,8 @@ function get_cachedata_setting_plugin($method = '') {
 							if($module['type'] == 24) $navtype = 2;
 						case 25:
 							if($module['type'] == 25) $navtype = 3;
+						case 30:
+							if($module['type'] == 30) $navtype = 5;
 						case 27:
 							if($module['type'] == 27) $navtype = 4;
 							$module['url'] = $module['url'] ? $module['url'] : 'plugin.php?id='.$plugin['identifier'].':'.$module['name'];
