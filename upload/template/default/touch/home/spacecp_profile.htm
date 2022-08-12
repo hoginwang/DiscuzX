@@ -263,32 +263,33 @@
 			</form>
 			<script type="text/javascript">
 				function show_error(fieldid, extrainfo) {
-					var elem = $('th_'+fieldid);
+					var elem = document.getElementById('th_'+fieldid);
 					if(elem) {
 						elem.className = "rq";
 						fieldname = elem.innerHTML;
 						extrainfo = (typeof extrainfo == "string") ? extrainfo : "";
-						$('showerror_'+fieldid).innerHTML = "{lang check_date_item} " + extrainfo;
-						$(fieldid).focus();
+						document.getElementById('showerror_'+fieldid).innerHTML = "{lang check_date_item} " + extrainfo;
+						document.getElementById(fieldid).focus();
 					}
 				}
 				function show_success(message) {
 					message = message == '' ? '{lang update_date_success}' : message;
-					showDialog(message, 'right', '{lang reminder}', function(){
-						top.window.location.href = top.window.location.href;
-					}, 0, null, '', '', '', '', 3);
+					popup.open(message, 'alert');
 				}
 				function clearErrorInfo() {
-					var spanObj = $('profilelist').getElementsByTagName("div");
+					var spanObj = document.getElementById('profilelist').getElementsByTagName("div");
 					for(var i in spanObj) {
 						if(typeof spanObj[i].id != "undefined" && spanObj[i].id.indexOf("_")) {
 							var ids = explode('_', spanObj[i].id);
 							if(ids[0] == "showerror") {
 								spanObj[i].innerHTML = '';
-								$('th_'+ids[1]).className = '';
+								document.getElementById('th_'+ids[1]).className = '';
 							}
 						}
 					}
+				}
+				function explode(sep, string) {
+					return string.split(sep);
 				}
 			</script>
 		<!--{/if}-->
