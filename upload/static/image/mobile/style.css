@@ -207,6 +207,7 @@ select {-moz-appearance:none;}
 .f_9, .f_9 a {color: var(--dz-FC-999);}
 .b_t {border-top:1px solid var(--dz-BOR-ed) !important;}
 .b_b {border-bottom:1px solid var(--dz-BOR-ed) !important}
+.b_a {border:1px solid var(--dz-BOR-ed) !important;}
 .tbms { padding: 10px; border: 1px dashed #FF9A9A; }
 .tbms:before { font-family: dzicon; line-height: 14px; content: "\f145"; font-size: 16px; color: #F26C4F; }
 .tbms_r:before { content: "\f128"; color: #7CBE00; }
@@ -225,6 +226,10 @@ select {-moz-appearance:none;}
 .tdat th, .tdat td { padding: 4px 5px; border: 1px solid var(--dz-BOR-ed); }
 .notice { clear: both; margin: 5px 0; padding: 3px 0; }
 .notice:before { content: "\f145"; font-family: dzicon; font-size: 16px; line-height: 14px; margin-right: 4px; color: #F26C4F; }
+.pipe { margin: 0 5px; color: #CCC; }
+.xg1, .xg1 a { color: var(--dz-FC-999) !important; }
+.xg1 .xi2 { color: var(--dz-BG-2) !important; }
+.xg2 { color: var(--dz-FC-333); }
 
 /*----- 通用主体 -----*/
 .bodybox {background-color:var(--dz-BG-0);}
@@ -1109,3 +1114,22 @@ body.pg_logging, body.pg_register {background-color:var(--dz-BG-0)}
 .tdats #c4 { border-color: #1A588D; background-color: #1A588D; background-position: 0 -160px; }
 .tdats .c1 #c1, .tdats .c2 #c2, .tdats .c3 #c3, .tdats .c4 #c4 { line-height: 35px; }
 .ftb td { width: 12%; }
+
+.et { margin: 20px 0 10px; }
+.el li { padding: 10px 20px; min-height: 20px; border-bottom: 1px dashed var(--dz-BOR-ed); }
+.el .t { position: absolute; margin: 1px 0 0 -20px; }
+.el .o { overflow: hidden; float: right; margin: 4px -20px -4px 0; width: 16px; height: 16px; font-size: 16px; line-height: 16px; font-family: dzicon; text-align: center; color: #FF9A9A; }
+/* 外宽改变时 .ie6 .el .o, .ie6 .xlda .el .o 的 margin 值需要更改 */
+.el .o:before { content: "\f149"; }
+.el .o:hover { text-decoration: none; }
+.el .del:before { content: "\f116"; }
+.el .d { padding-top: 10px; }
+.ec .tn { margin: 10px 10px 0 0; cursor: pointer; }
+.ec a .tn { float: left; padding: 2px; max-width: 90px; max-height: 90px; border: 1px solid var(--dz-BOR-ed); }
+.el .ec .hot { float: right; margin: 10px 0 0 10px; width: 55px; height: 50px; background: linear-gradient(0deg, #B2C0DC 40%, #D8DEEA 40%) no-repeat; border-radius: 3px; }
+.el .ec .hot a { display: block; line-height: 20px; text-align: center; color: #FFF; }
+.el .ec .hot a:hover { text-decoration: none; }
+.el .ec .hot em { display: block; line-height: 30px; font-size: 16px; cursor: pointer; }
+
+.sl li { padding: 10px 0; border-bottom: none; }
+.sl .h { padding: 6px 10px; background: var(--dz-BG-5); border-bottom: 1px solid var(--dz-BOR-ed); }
