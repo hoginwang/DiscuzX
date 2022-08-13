@@ -168,8 +168,8 @@
 			<script type="text/javascript">
 			function memcp_sendsecmobseccode() {
 				memcp_svctype = 1;
-				memcp_secmobicc = document.getElementById("secmobiccnew").value;
-				memcp_secmobile = document.getElementById("secmobilenew").value;
+				memcp_secmobicc = getID("secmobiccnew").value;
+				memcp_secmobile = getID("secmobilenew").value;
 				return sendsecmobseccode(memcp_svctype, memcp_secmobicc, memcp_secmobile);
 			}
 			</script>
@@ -263,13 +263,13 @@
 			</form>
 			<script type="text/javascript">
 				function show_error(fieldid, extrainfo) {
-					var elem = document.getElementById('th_'+fieldid);
+					var elem = getID('th_'+fieldid);
 					if(elem) {
 						elem.className = "rq";
 						fieldname = elem.innerHTML;
 						extrainfo = (typeof extrainfo == "string") ? extrainfo : "";
-						document.getElementById('showerror_'+fieldid).innerHTML = "{lang check_date_item} " + extrainfo;
-						document.getElementById(fieldid).focus();
+						getID('showerror_'+fieldid).innerHTML = "{lang check_date_item} " + extrainfo;
+						getID(fieldid).focus();
 					}
 				}
 				function show_success(message) {
@@ -277,19 +277,16 @@
 					popup.open(message, 'alert');
 				}
 				function clearErrorInfo() {
-					var spanObj = document.getElementById('profilelist').getElementsByTagName("div");
+					var spanObj = getID('profilelist').getElementsByTagName("div");
 					for(var i in spanObj) {
 						if(typeof spanObj[i].id != "undefined" && spanObj[i].id.indexOf("_")) {
 							var ids = explode('_', spanObj[i].id);
 							if(ids[0] == "showerror") {
 								spanObj[i].innerHTML = '';
-								document.getElementById('th_'+ids[1]).className = '';
+								getID('th_'+ids[1]).className = '';
 							}
 						}
 					}
-				}
-				function explode(sep, string) {
-					return string.split(sep);
 				}
 			</script>
 		<!--{/if}-->
