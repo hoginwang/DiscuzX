@@ -3,18 +3,51 @@ branches: {
   }
 fileChange:
   /upload:
-    newFile: !uuid '89f2ab77de48afba72fb6d487ccc46f8a5cf082f'
-    oldFile: !uuid 'c64f7e2c0f82c6f16e597869a1ebd60b892bd5df'
-  /upload/install:
-    newFile: !uuid '2781702813a978edde30615260a729dedc50f0ec'
-    oldFile: !uuid '42e25a398b1945b283dca12c63d61a61c7f0a5fd'
-  /upload/install/data:
-    newFile: !uuid '16ae955bc58e74ccbd01576f3ed947249df3d625'
-    oldFile: !uuid '8361e9fd313e06bf40e1d59c451126be2e92899b'
-  /upload/install/data/install_data.sql:
-    newFile: !uuid '45587dfe52afa251eb3e2970a65fe1783c8fd56f'
-    oldFile: !uuid 'a59af92de67f6837b913c4091b82412b3e4028c1'
-gitCommitId: !uuid 'ef90dc69a465bffb07195bfc9836707aeb8e2e83'
+    newFile: !uuid 'ac71cd63f05db57d4297bc6da7f7a80567bb4358'
+    oldFile: !uuid '89f2ab77de48afba72fb6d487ccc46f8a5cf082f'
+  /upload/template:
+    newFile: !uuid '26ad97c501a17e5370e84f97965445394d5df85a'
+    oldFile: !uuid 'aff884bde2cee96d608edc83a025c6b87b12ef48'
+  /upload/template/default:
+    newFile: !uuid '6f38c97cb15a9e742f9eff89c84903b108fe43d7'
+    oldFile: !uuid '9af7c55f5ab95773a81d391388ed1639f472e547'
+  /upload/template/default/touch:
+    newFile: !uuid 'b7e497baceb387ce35c1472b88b6e623818557ba'
+    oldFile: !uuid '36756927fb678c95f0d2f22a498e24b66af690f6'
+  /upload/template/default/touch/home:
+    newFile: !uuid '2600b4db823756b2d9a4fec0ed77fc94b7a56207'
+    oldFile: !uuid '4e88b7d3572096dbde7b16a418a4a592a61b9136'
+  /upload/template/default/touch/home/spacecp_header.htm:
+    newFile: !uuid 'fae44e94eccc10278612f6debb317103c6e43ddf'
+    oldFile: !uuid '0215d414210119a95d8720c509080a2ee7b5035f'
+  /upload/template/default/touch/home/spacecp_privacy.htm:
+    newFile: !uuid '44ae6395a703746f257cbf2259506c2c1c4d0868'
+    oldFile: !uuid '4dea2b0cebeff0e8b8585f28efabf6e566762126'
+  /upload/template/default/touch/home/spacecp_profile_nav.htm:
+    newFile: !uuid '025f87563a82b25ab493eba02fd4e8a09db8deb1'
+    oldFile: !uuid '5ae079fe6886c64af23720fa0b0ef999b66b1317'
+  /upload/template/default/touch/ranklist:
+    newFile: !uuid '9499e9fb9882e1926f9a80356aefbf63248334b5'
+    oldFile: !uuid '2206bf477260811715fb20696c27af7bfd9ff687'
+  /upload/template/default/touch/ranklist/blog.htm:
+    newFile: !uuid '498bb7346e8cd673bbb25529d5e76ea389d973d9'
+    oldFile: !uuid '1bfda38e6998c808321e2f819a4d52fd2d6f8766'
+  /upload/template/default/touch/ranklist/forum.htm:
+    newFile: !uuid '9beebb01429ee54659629768b7d16b33bf5e4188'
+    oldFile: !uuid 'fb88d55ffb8e3718c8cf91cb0c47b6de5c56dad9'
+  /upload/template/default/touch/ranklist/group.htm:
+    newFile: !uuid 'd99514f8ec84335356e17a836b94588309ba7064'
+    oldFile: !uuid '45a6c803557cd319a6183b20ea2925131b8d6969'
+  /upload/template/default/touch/ranklist/member.htm:
+    newFile: !uuid '639dcbe1b60e0dc0e7635374926f56304e7bd864'
+    oldFile: !uuid 'abbebae34c2a903168db0b1a6eba493515bf9ab6'
+  /upload/template/default/touch/ranklist/picture.htm:
+    newFile: !uuid '0576f1b3d74d53d97cd74fc536895f7b43c44342'
+    oldFile: !uuid '5d6827fc8448bc9d55c8da2bb712bd7fea88e5f3'
+  /upload/template/default/touch/ranklist/side_top.htm:
+    newFile: !uuid 'f8c179dcaef1543ebf323935424c24f92e289d7b'
+    oldFile: !uuid 'b3aacf4b7df938a187caca2fadda779bff428957'
+gitCommitId: !uuid 'a49608819064dae659ee5c8dd2e5a306e493ccde'
 renames: {
   }
-revisionId: 857
+revisionId: 858
