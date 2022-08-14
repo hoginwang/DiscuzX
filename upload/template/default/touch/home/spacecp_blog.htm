@@ -1,35 +1,34 @@
 <!--{template common/header}-->
 
 <!--{if $_GET[op] == 'delete'}-->
-<h3 class="flb">
-	<em>{lang delete_blog}</em>
-	<!--{if $_G[inajax]}--><span><a href="javascript:;" onclick="hideWindow('$_GET[handlekey]');return false;" class="flbc" title="{lang close}">{lang close}</a></span><!--{/if}-->
-</h3>
-<form method="post" autocomplete="off" action="home.php?mod=spacecp&ac=blog&op=delete&blogid=$blogid">
-	<input type="hidden" name="referer" value="{echo dreferer()}" />
-	<input type="hidden" name="deletesubmit" value="true" />
-	<input type="hidden" name="formhash" value="{FORMHASH}" />
-	<div class="c">{lang sure_delete_blog}?</div>
-	<p class="o pns">
-		<button type="submit" name="btnsubmit" value="true" class="pn pnc"><strong>{lang determine}</strong></button>
-	</p>
-</form>
+<div class="tip">
+	<dt>{lang delete_blog}</dt>
+	<dt>{lang sure_delete_blog}?</dt>
+	<form method="post" autocomplete="off" action="home.php?mod=spacecp&ac=blog&op=delete&blogid=$blogid">
+		<input type="hidden" name="referer" value="{echo dreferer()}" />
+		<input type="hidden" name="deletesubmit" value="true" />
+		<input type="hidden" name="formhash" value="{FORMHASH}" />
+		<dd>
+			<button type="submit" name="btnsubmit" value="true" class="formdialog button z"><strong>{lang determine}</strong></button>
+			<a href="javascript:;" onclick="popup.close();return false;" class="button y" title="{lang close}">{lang close}</a>
+		</dd>
+	</form>
+</div>
 <!--{elseif $_GET[op] == 'stick'}-->
-<h3 class="flb">
-	<em><!--{if $stickflag}-->{lang stick_blog}<!--{else}-->{lang cancel_stick_blog}<!--{/if}--></em>
-	<!--{if $_G[inajax]}--><span><a href="javascript:;" onclick="hideWindow('$_GET[handlekey]');return false;" class="flbc" title="{lang close}">{lang close}</a></span><!--{/if}-->
-</h3>
-<form method="post" autocomplete="off" action="home.php?mod=spacecp&ac=blog&op=stick&blogid=$blogid">
-	<input type="hidden" name="referer" value="{echo dreferer()}" />
-	<input type="hidden" name="sticksubmit" value="true" />
-	<input type="hidden" name="stickflag" value="$stickflag" />
-	<input type="hidden" name="formhash" value="{FORMHASH}" />
-	<div class="c"><!--{if $stickflag}-->{lang sure_stick_blog}<!--{else}-->{lang sure_cancel_stick_blog}<!--{/if}-->?</div>
-	<p class="o pns">
-		<button type="submit" name="btnsubmit" value="true" class="pn pnc"><strong>{lang determine}</strong></button>
-	</p>
-</form>
-
+<div class="tip">
+	<dt><!--{if $stickflag}-->{lang stick_blog}<!--{else}-->{lang cancel_stick_blog}<!--{/if}--></dt>
+	<dt><!--{if $stickflag}-->{lang sure_stick_blog}<!--{else}-->{lang sure_cancel_stick_blog}<!--{/if}-->?</dt>
+	<form method="post" autocomplete="off" action="home.php?mod=spacecp&ac=blog&op=stick&blogid=$blogid">
+		<input type="hidden" name="referer" value="{echo dreferer()}" />
+		<input type="hidden" name="sticksubmit" value="true" />
+		<input type="hidden" name="stickflag" value="$stickflag" />
+		<input type="hidden" name="formhash" value="{FORMHASH}" />
+		<dd>
+			<button type="submit" name="btnsubmit" value="true" class="formdialog button z"><strong>{lang determine}</strong></button>
+			<a href="javascript:;" onclick="popup.close();return false;" class="button y" title="{lang close}">{lang close}</a>
+		</dd>
+	</form>
+</div>
 <!--{elseif $_GET[op] == 'addoption'}-->
 	<h3 class="flb">
 		<em>{lang create_category}</em>
