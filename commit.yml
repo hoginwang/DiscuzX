@@ -3,33 +3,21 @@ branches: {
   }
 fileChange:
   /upload:
-    newFile: !uuid 'c15c9b5723f996fe26f6876c97890c1b17bf37f9'
-    oldFile: !uuid '510a2ce6099f111ac86bfd5d5c0f58aa3d6ae42d'
+    newFile: !uuid '5657d6099a7ed25b29b932671ab1f758c9406a07'
+    oldFile: !uuid 'c15c9b5723f996fe26f6876c97890c1b17bf37f9'
   /upload/source:
-    newFile: !uuid '2d2a79e88f7ae564ce597ad37df65a069d6b4d16'
-    oldFile: !uuid 'cd5b61213385a3f41af0a6763049477f19227699'
-  /upload/source/admincp:
-    newFile: !uuid 'abbea6b643d75e0f576608b0fca72f89df945d7f'
-    oldFile: !uuid '1e971df7450ec3ffce5390e14c73e2dc0f3fbc15'
-  /upload/source/admincp/admincp_logs.php:
-    newFile: !uuid '2cca2a41bdb4dd929c77af30ba2fc25ce963af3a'
-    oldFile: !uuid 'be634bfc3b5d021e82aadac51ae9314f24026aa0'
-  /upload/source/function:
-    newFile: !uuid 'b1bb6b8c6cf44b121e0381ed07a5626861a2187a'
-    oldFile: !uuid 'dcb2c647c5cd908f20b50e32e92716dd93268527'
-  /upload/source/function/function_credit.php:
-    newFile: !uuid '106de0baa085996cf503550457cddc95ecec42f9'
-    oldFile: !uuid '88724ccbdc65277c1ad8de21c5e02265d6543dfc'
-  /upload/source/include:
-    newFile: !uuid '1a533a857ad25f7ac56fe6bb8a56c1ed3b3ef76c'
-    oldFile: !uuid 'd60a2c9c196bcf70f8f713d5b2f191086fa87409'
-  /upload/source/include/spacecp:
-    newFile: !uuid '9c39f27a3b445869698a6b219842e9996de192d8'
-    oldFile: !uuid '74c17509ca3eb514c37bab9809a5d84154a6bb6b'
-  /upload/source/include/spacecp/spacecp_credit.php:
-    newFile: !uuid '21676c36893081547c43a4993f66dd28799adeac'
-    oldFile: !uuid '214b0a70f6d08a9a64641b2e6ea4e095135ed5c3'
-gitCommitId: !uuid '6440cafca1eee05a13ac62d1f4e2214efbac71bf'
+    newFile: !uuid '67356705617b5dbd078ae8df4eed803a549dbd9c'
+    oldFile: !uuid '2d2a79e88f7ae564ce597ad37df65a069d6b4d16'
+  /upload/source/plugin:
+    newFile: !uuid 'c508f51948f636b3cad9ce5ac1dbb8e350af7cc4'
+    oldFile: !uuid 'aad224f1876d8f3dc518fefda16236e26f75ce00'
+  /upload/source/plugin/qqconnect:
+    newFile: !uuid '2b7e9e5dfdf93ba3273ffc43326e1c10e5f2deec'
+    oldFile: !uuid 'b9418b6cf882876333fd6e8c1414cff6c9e7bee6'
+  /upload/source/plugin/qqconnect/connect.class.php:
+    newFile: !uuid '23176434f0d53a8bcb0538a7333248f9af9cbf45'
+    oldFile: !uuid 'a7791fb0ec83d0d625eb57e7818345de9b64a13f'
+gitCommitId: !uuid 'b1181fcd028638d184ed48d6d6e715f0a7f78cb3'
 renames: {
   }
-revisionId: 1038
+revisionId: 1039
