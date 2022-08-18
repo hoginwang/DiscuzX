@@ -883,7 +883,7 @@ function threadmodstatus($string) {
 
 function threadpubsave($tid, $passapproval = false) {
 	global $_G;
-	if($_G['setting']['plugins']['func'][HOOKTYPE]['threadpubsave']) {
+	if(defined('HOOKTYPE') && $_G['setting']['plugins']['func'][HOOKTYPE]['threadpubsave']) {
 		$hookparam = func_get_args();
 		hookscript('threadpubsave', 'global', 'funcs', array('param' => $hookparam, 'step' => 'check'), 'threadpubsave');
 	}
