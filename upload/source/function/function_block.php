@@ -893,8 +893,8 @@ function blockclass_cache() {
 		}
 		$blockclass['subs'] = array();
 
-		$dh = opendir($dir);
-		while(($filename = readdir($dh))) {
+		$filelist = scandir($dir);
+		foreach($filelist as $filename) {
 			$match = $infos = $oneinfo = $fieldsconvert = array();
 			$scriptname = $scriptclass = '';
 			if(preg_match('/^(block_[\w]+)\.php$/i', $filename, $match)) {
