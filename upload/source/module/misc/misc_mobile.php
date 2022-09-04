@@ -65,9 +65,6 @@ if(getgpc('view') == true) {
 	if(getglobal('setting/domain/app/mobile')) {
 		$url = $_G['scheme'].'://'.$_G['setting']['domain']['app']['mobile'];
 		$file = 'newmobiledomain.png';
-	} elseif($_G['setting']['mobile']['allowmnew']) {
-		$url = $_G['siteurl'].'m/';
-		$file = 'newmobileurl.png';
 	} else {
 		$url = $_G['siteurl'];
 		$file = 'newmobile.png';
