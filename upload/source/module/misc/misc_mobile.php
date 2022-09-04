@@ -18,7 +18,7 @@ if($mod == 'mobile' && defined('IN_MOBILE')) {
 } elseif(!$_G['setting']['mobile']['allowmobile']) {
 	dheader("Location:".($_G['setting']['domain']['app']['default'] ? $_G['scheme'].'://'.$_G['setting']['domain']['app']['default'] : $_G['siteurl']));
 }
-include DISCUZ_ROOT.'./source/language/mobile/lang_template.php';
+include DISCUZ_ROOT.'./source/language/touch/lang_template.php';
 $_G['lang'] = array_merge($_G['lang'], $lang);
 $navtitle = $_G['lang']['misc_mobile_title'];
 if(getgpc('view') == true) {
@@ -77,7 +77,7 @@ if(getgpc('view') == true) {
 		require_once DISCUZ_ROOT.'source/plugin/mobile/qrcode.class.php';
 		QRcode::png($url, $qrimg, QR_ECLEVEL_Q, 4);
 	}
-	include template('mobile/common/preview');
+	include template('touch/common/preview');
 }
 function output_preview() {
 	$content = ob_get_contents();
