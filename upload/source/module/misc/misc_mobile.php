@@ -87,7 +87,7 @@ function output_preview() {
 }
 
 function output_preview_callback_replace_href_21($matches) {
-	return $matches[1].'#'.$matches[2];;
+	return $matches[1].'javascript:;'.$matches[2];;
 }
 
 ?>
