@@ -207,6 +207,5 @@ $lang = array (
   'home_credit_buy_rmb' => '人民币',
   'home_credit_buy_rmb_placeholder' => '请输入充值的数量',
   'home_credit_buy_card' => '充值卡',
-
 );
 ?>
