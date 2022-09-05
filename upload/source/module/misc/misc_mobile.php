@@ -82,12 +82,13 @@ function output_preview() {
 	ob_start();
 	$content = preg_replace_callback("/(\<a[^\>]+href=\").*?(\"[^\>]*\>)/", 'output_preview_callback_replace_href_21', $content);
 	$content = preg_replace("/\<script.+?\<\/script\>/", '', $content);
+	$content = str_replace('</body>' , '<script>document.querySelectorAll(\'a\').forEach(function (a) {a.addEventListener(\'click\', function (e) {e.preventDefault();return false;});})</script></body>', $content);
 	echo $content;
 	exit;
 }
 
 function output_preview_callback_replace_href_21($matches) {
-	return $matches[1].'javascript:;'.$matches[2];;
+	return $matches[1].'misc.php?mod=mobile&view=true'.$matches[2];;
 }
 
 ?>
