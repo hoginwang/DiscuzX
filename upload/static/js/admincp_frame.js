@@ -14,13 +14,21 @@
 			$('header_' + prevnav).className = '';
 			$('lm_' + prevnav).className = '';
 		}
-		$('header_' + key).className = 'active';
-		$('lm_' + key).className = 'active';
-		if (key != 'cloudaddons' && key != 'uc') {
+		if (prevnav == key) {
+			$('header_' + prevnav).className = '';
+			$('lm_' + prevnav).className = '';
+			prevnav = null;
+		} else {
+			$('header_' + key).className = 'active';
+			$('lm_' + key).className = 'active';
 			href = $('lm_' + key).childNodes[1].childNodes[0].childNodes[0].href;
-			parent.main.location = href;
+			if (key != 'cloudaddons' && key != 'uc') {
+				parent.main.location = href;
+			} else {
+				window.open(href);
+			}
+			prevnav = key;
 		}
-		prevnav = key;
 	}
 	function switchtab(key) {
 		if (!key || !key.href) {
