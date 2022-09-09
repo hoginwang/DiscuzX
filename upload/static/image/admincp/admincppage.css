@@ -393,8 +393,8 @@ textarea {font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
 	.tb2 tr.hl td, .drow.hl { border-top:1px #F4E4B4 solid; border-bottom:1px #F4E4B4 solid }
 	.tb2.tdhover tr:hover td { background: none; }
 	.tb2.tdhover tr td:hover { background: #F2F9FD; }
-	.tb2 td{ padding:5px 5px 10px 0; border-top: 1px dotted #DEEFFB; }
-	.tb2 th{ padding:5px 5px 3px 0; line-height:1.5; }
+	.tb2 td{ padding:5px 5px 10px 16px; border-top: 1px dotted #DEEFFB; }
+	.tb2 th{ padding:5px 5px 3px 16px; line-height:1.5; }
 	.tb2 .txt, .tb2 .txtnobd{ width:100px; margin-right:10px; }
 	.tb2 .smtxt { margin-right: 5px; width: 25px; }
 	.nowrap { white-space: nowrap; }
@@ -468,8 +468,8 @@ textarea {font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
 		.cmen a { overflow: hidden; float:left; width: 20px; height: 20px; }
 
 .tb3{ margin-top:-15px; border:none; }
-	.tb3 th{ padding:10px 0 5px; }
-	.tb3 td{ padding:0; line-height:180%; }
+	.tb3 th{ padding:10px 0 5px 16px; }
+	.tb3 td{ padding:0 0 0 16px; line-height:180%; }
 
 .mod_validate td, .mod_export td { background: #CFC !important; }
 .mod_invalidate td, .mod_refusal td { background: #FFEBE7 !important; }
@@ -623,6 +623,11 @@ textarea {font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
 	font-size: 14px;
 	color: #666;
 }
+
+	.dbox .tb2 td{ padding:5px 5px 10px 0px;}
+	.dbox .tb2 th{ padding:5px 5px 3px 0px;}
+	.dbox .tb3 th{ padding:10px 0 5px; }
+	.dbox .tb3 td{ padding:0;}
 
 .tipsbody {
 	padding: 10px 20px;
