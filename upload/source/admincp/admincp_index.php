@@ -293,8 +293,8 @@ function show_filecheck() {
 	$filecheck = C::t('common_cache')->fetch('checktools_filecheck_result');
 	if($filecheck) {
 		list($modifiedfiles, $deletedfiles, $unknownfiles, $doubt) = unserialize($filecheck['cachevalue']);
-		$filecheckresult = "<div><em class=\"edited\">{$lang['filecheck_modify']}<span class=\"bignum\">$modifiedfiles</span></em>".
-			"<em class=\"del\">{$lang['filecheck_delete']}<span class=\"bignum\">$deletedfiles</span></em>".
+		$filecheckresult = "<div><em class=\"".($modifiedfiles ? 'edited' : 'correct')."\">{$lang['filecheck_modify']}<span class=\"bignum\">$modifiedfiles</span></em>".
+			"<em class=\"".($deletedfiles ? 'del' : 'correct')."\">{$lang['filecheck_delete']}<span class=\"bignum\">$deletedfiles</span></em>".
 			"<em class=\"unknown\">{$lang['filecheck_unknown']}<span class=\"bignum\">$unknownfiles</span></em>".
 			"<em class=\"unknown\">{$lang['filecheck_doubt']}<span class=\"bignum\">$doubt</span></em></div><p>".
 			$lang['filecheck_last_homecheck'].': '.dgmdate($filecheck['dateline'], 'u').' <a href="'.ADMINSCRIPT.'?action=checktools&operation=filecheck&step=3">['.$lang['filecheck_view_list'].']</a></p>';
