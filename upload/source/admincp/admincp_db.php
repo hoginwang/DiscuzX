@@ -926,22 +926,26 @@ if($operation == 'export') {
 		$showlist = $addlists = '';
 		foreach($discuzdb as $dbtable => $fields) {
 			$addlist = $modifylist = $dellist = array();
+			if(is_array($excepttables) && in_array($dbtable, $excepttables)) {
+				continue;
+			}
 			if($fields != $discuzdbnew[$dbtable]) {
 				foreach($discuzdb[$dbtable] as $key => $value) {
-					$tempvalue = str_replace('mediumtext', 'text', $value);
-					$discuzdbnew[$dbtable][$key] = str_replace('mediumtext', 'text', $discuzdbnew[$dbtable][$key]);
-					if(is_array($missingtables) && in_array($tablepre.$dbtable, $missingtables)) {
-					} elseif(!isset($discuzdbnew[$dbtable][$key])) {
+					if(empty($discuzdbnew[$dbtable][$key])) {
 						$dellist[] = $value;
-					} elseif($tempvalue != $discuzdbnew[$dbtable][$key]) {
-						// MySQL 8.0.17 开始不再支持除tinyint(1)以外的任何int类数据类型的显示宽度，检测到此行为则移除数值。
-						if((strpos($tempvalue['Type'], 'int(') !== false) && !empty($discuzdbnew[$dbtable][$key]['Type']) && (strpos($discuzdbnew[$dbtable][$key]['Type'], '(') === false)) {
-							$tempvalue['Type'] = preg_replace('/\(\d+\)/', '', $tempvalue['Type']);
-							if($tempvalue != $discuzdbnew[$dbtable][$key]) {
+					} else {
+						$tempvalue = str_replace('mediumtext', 'text', $value);
+						$discuzdbnew[$dbtable][$key] = str_replace('mediumtext', 'text', $discuzdbnew[$dbtable][$key]);
+						if($tempvalue != $discuzdbnew[$dbtable][$key]) {
+							// MySQL 8.0.17 开始不再支持除tinyint(1)以外的任何int类数据类型的显示宽度，检测到此行为则移除数值。
+							if((strpos($tempvalue['Type'], 'int(') !== false) && !empty($discuzdbnew[$dbtable][$key]['Type']) && (strpos($discuzdbnew[$dbtable][$key]['Type'], '(') === false)) {
+								$tempvalue['Type'] = preg_replace('/\(\d+\)/', '', $tempvalue['Type']);
+								if($tempvalue != $discuzdbnew[$dbtable][$key]) {
+									$modifylist[] = $value;
+								}
+							} else {
 								$modifylist[] = $value;
 							}
-						} else {
-							$modifylist[] = $value;
 						}
 					}
 				}
