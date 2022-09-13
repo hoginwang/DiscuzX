@@ -107,7 +107,7 @@
 					<li class="flex-box mli">
 						<div class="tit">{lang price}:</div>
 						<div class="flex input">
-							<input type="text" id="price" name="price" class="px pxs" value="$thread[pricedisplay]" onblur="extraCheck(2)" />
+							<input type="number" id="price" name="price" class="px pxs" value="$thread[pricedisplay]" {if $_G['group']['maxprice']}max="{$_G['group']['maxprice']}" onchange="this.value = this.value <= {$_G['group']['maxprice']} ? this.value : {$_G['group']['maxprice']} "{/if} />
 						</div>
 						<div class="pipe">
 							{$_G['setting']['extcredits'][$_G['setting']['creditstransextra'][1]][unit]}{$_G['setting']['extcredits'][$_G['setting']['creditstransextra'][1]][title]}
