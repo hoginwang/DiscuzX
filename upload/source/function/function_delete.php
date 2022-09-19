@@ -125,6 +125,7 @@ function deletepost($ids, $idtype = 'pid', $credit = false, $posttableid = false
 	$idsstr = dimplode($ids);
 
 	if($credit) {
+		$losslessdel = $_G['setting']['losslessdel'] > 0 ? TIMESTAMP - $_G['setting']['losslessdel'] * 86400 : 0;
 		$replycredit_list = $tuidarray = $ruidarray = $_G['deleteauthorids'] = array();
 		foreach($posttableids as $id) {
 			$postlist = array();
@@ -137,12 +138,20 @@ function deletepost($ids, $idtype = 'pid', $credit = false, $posttableid = false
 			}
 			foreach($postlist as $post) {
 				if($post['invisible'] != -1 && $post['invisible'] != -5) {
-					if($post['first']) {
-						$tuidarray[$post['fid']][] = $post['authorid'];
+					if($post['dateline'] < $losslessdel) {
+						if($post['first']) {
+							updatemembercount($post['authorid'], array('threads' => -1, 'post' => -1), false);
+						} else {
+							updatemembercount($post['authorid'], array('posts' => -1), false);
+						}
 					} else {
-						$ruidarray[$post['fid']][] = $post['authorid'];
-						if($post['authorid'] > 0 && $post['replycredit'] > 0) {
-							$replycredit_list[$post['authorid']][$post['tid']] += $post['replycredit'];
+						if($post['first']) {
+							$tuidarray[$post['fid']][] = $post['authorid'];
+						} else {
+							$ruidarray[$post['fid']][] = $post['authorid'];
+							if($post['authorid'] > 0 && $post['replycredit'] > 0) {
+								$replycredit_list[$post['authorid']][$post['tid']] += $post['replycredit'];
+							}
 						}
 					}
 					$tids[$post['tid']] = $post['tid'];
