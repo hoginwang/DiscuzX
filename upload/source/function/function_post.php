@@ -301,7 +301,7 @@ function updateattach($modnewthreads, $tid, $pid, $attachnew, $attachupdate = ar
 			$unusedaids[] = $attach['aid'];
 			$update = $attach;
 			$update['dateline'] = TIMESTAMP;
-			$update['remote'] = 0;
+			$update['remote'] = $attach['remote'];
 			unset($update['aid']);
 			if($attach['isimage'] && $_G['setting']['watermarkstatus'] && empty($_G['forum']['disablewatermark'])) {
 				$image->Watermark($_G['setting']['attachdir'].'/forum/'.$attach['attachment'], '', 'forum');
