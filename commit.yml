@@ -3,21 +3,42 @@ branches: {
   }
 fileChange:
   /upload:
-    newFile: !uuid 'f925fc0ebf88580aa21478225b3c795abf3ed242'
-    oldFile: !uuid 'ebb1bd671be077364b24df074dbb22e0712dbc4d'
+    newFile: !uuid 'dccf317833b52f4580eb6f78824e8b5afee2f737'
+    oldFile: !uuid 'f925fc0ebf88580aa21478225b3c795abf3ed242'
+  /upload/source:
+    newFile: !uuid '10e508b5b61f4e7409034bae7346188b46f1d9ed'
+    oldFile: !uuid '3fe6c6926c5c8f8a67fca6cd83d8cd9b49eb3c26'
+  /upload/source/language:
+    newFile: !uuid 'f7fc7a22159cd3ec56d53bdbf96077fc9b2b280e'
+    oldFile: !uuid '4269876f82f1c0ecd09e2547ce1e5bd817c63919'
+  /upload/source/language/group:
+    newFile: !uuid '4b682b3918ef3227e8c3bd389151d83d5e3cffca'
+    oldFile: !uuid '1c3267e82de86fbcbd184e2c467ea7062ca7ec30'
+  /upload/source/language/group/lang_template.php:
+    newFile: !uuid '24f9f9233d06100f17d143927b84983a2ea61b2e'
+    oldFile: !uuid '59dd31f7a787b8a7f3a51021443e011061eadf26'
+  /upload/source/module:
+    newFile: !uuid 'eaa03ce56c372ccb522b3f9f65befb88d6e8e24d'
+    oldFile: !uuid 'dc1e1ca422e5d60552a5569cf7f2efcbabfee57a'
+  /upload/source/module/forum:
+    newFile: !uuid '83bd1cc01dcacd400c684457764ef92fb7986020'
+    oldFile: !uuid '22d2ebd59da0ef1767afde3dfefef21ad9338fcb'
+  /upload/source/module/forum/forum_group.php:
+    newFile: !uuid '90204bce537828bd1e1198f3d30091b83840073c'
+    oldFile: !uuid 'ab81042539944c1865afeeeb1e765b55e0324144'
   /upload/template:
-    newFile: !uuid '5df481e16f2839c20d9d587f15fa261fc640c55a'
-    oldFile: !uuid 'a2516e0e3637f537aa4959f4199a6e54ae42e155'
+    newFile: !uuid '73633e4778eb59d740f22d132065b637d09fbb29'
+    oldFile: !uuid '5df481e16f2839c20d9d587f15fa261fc640c55a'
   /upload/template/default:
-    newFile: !uuid '0683a6c3f662751944d351b31443a247e888cafe'
-    oldFile: !uuid '3e61b3644d00f56cedd9393da8939735a33e3bbc'
-  /upload/template/default/common:
-    newFile: !uuid '6b5c4fc36f0d7eea5d808a974040ba707175f3e8'
-    oldFile: !uuid '390255cfd585c0fb557351d26e291ef3721d4d48'
-  /upload/template/default/common/css_space.css:
-    newFile: !uuid '43d3a726257ea0b571e274132eed0db043295fa9'
-    oldFile: !uuid '2440efe838fb155e9f5a00118ac0be99b77e530e'
-gitCommitId: !uuid 'a633acd3c1a2a1f19aec54c5e903b375ba2435f8'
+    newFile: !uuid 'c70f51cac138d646b49ba88d044f713d11e7ff29'
+    oldFile: !uuid '0683a6c3f662751944d351b31443a247e888cafe'
+  /upload/template/default/group:
+    newFile: !uuid 'b123d430091deffab02f8d420efc2241eacd3f22'
+    oldFile: !uuid '0292e1b68e6a735fc025fa0a6d4e8d74d22c0b01'
+  /upload/template/default/group/group.htm:
+    newFile: !uuid 'a2060ddd5fd481cf661cda9a83289148184cb62f'
+    oldFile: !uuid 'e655ccd98889fb926c812aa6769a723edd6c8f08'
+gitCommitId: !uuid 'd8f0ef6b97c200530dcde0157e4c558c0e0fcd86'
 renames: {
   }
-revisionId: 892
+revisionId: 893
