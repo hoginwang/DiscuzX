@@ -3,30 +3,21 @@ branches: {
   }
 fileChange:
   /upload:
-    newFile: !uuid 'ebb1bd671be077364b24df074dbb22e0712dbc4d'
-    oldFile: !uuid '9b869cc9ee4e1a691c700acad73b8d8c2bfc0d6a'
-  /upload/static:
-    newFile: !uuid '222353ae32bf32d12a3381110933502ed311f926'
-    oldFile: !uuid 'ddedcfe8903d9828d1fb6ff92b48ed9e5f61688f'
-  /upload/static/js:
-    newFile: !uuid 'adbce896bcdf0bb0b9b3fbb9e945eafcafcc7753'
-    oldFile: !uuid 'ef6443e98a63f73edc402c35898d54143c336959'
-  /upload/static/js/home_friendselector.js:
-    newFile: !uuid '7d6c252e7fb582025176a83bfe3192790d776919'
-    oldFile: !uuid 'f0bf11a8f387ea5d60fb9796f768b20dc2ce1efc'
+    newFile: !uuid 'f925fc0ebf88580aa21478225b3c795abf3ed242'
+    oldFile: !uuid 'ebb1bd671be077364b24df074dbb22e0712dbc4d'
   /upload/template:
-    newFile: !uuid 'a2516e0e3637f537aa4959f4199a6e54ae42e155'
-    oldFile: !uuid 'ac82160ab81124cfd3691ce0d9631245a307707d'
+    newFile: !uuid '5df481e16f2839c20d9d587f15fa261fc640c55a'
+    oldFile: !uuid 'a2516e0e3637f537aa4959f4199a6e54ae42e155'
   /upload/template/default:
-    newFile: !uuid '3e61b3644d00f56cedd9393da8939735a33e3bbc'
-    oldFile: !uuid '50fe61c6ecad1ac2f32a9e28ae233e00e810e026'
+    newFile: !uuid '0683a6c3f662751944d351b31443a247e888cafe'
+    oldFile: !uuid '3e61b3644d00f56cedd9393da8939735a33e3bbc'
   /upload/template/default/common:
-    newFile: !uuid '390255cfd585c0fb557351d26e291ef3721d4d48'
-    oldFile: !uuid '4c51cf6289f8ce9e43fb7d1e255919cd4ba3b89b'
-  /upload/template/default/common/module.css:
-    newFile: !uuid '63a63ccf20446ef78d72b1c48c93ec63adce3ac8'
-    oldFile: !uuid '67d855b4522f838c87df841a8688c00fa53b0109'
-gitCommitId: !uuid '6bd1b0b0f65759c5f277d7c90be17b3aa6c331b6'
+    newFile: !uuid '6b5c4fc36f0d7eea5d808a974040ba707175f3e8'
+    oldFile: !uuid '390255cfd585c0fb557351d26e291ef3721d4d48'
+  /upload/template/default/common/css_space.css:
+    newFile: !uuid '43d3a726257ea0b571e274132eed0db043295fa9'
+    oldFile: !uuid '2440efe838fb155e9f5a00118ac0be99b77e530e'
+gitCommitId: !uuid 'a633acd3c1a2a1f19aec54c5e903b375ba2435f8'
 renames: {
   }
-revisionId: 891
+revisionId: 892
