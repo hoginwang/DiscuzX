@@ -69,14 +69,14 @@ class magic_repent {
 				C::t('common_credit_log')->delete_by_operation_relatedid(array('RCT', 'RCA', 'RCB'), $post['tid']);
 			}
 
-			deletethread(array($post['tid']));
+			deletethread(array($post['tid']), true, true, true);
 			updateforumcount($post['fid']);
 		} else {
 			if($post['replycredit'] > 0) {
 				updatemembercount($post['authorid'], array($_G['setting']['creditstransextra'][10] => -$post['replycredit']));
 				C::t('common_credit_log')->delete_by_uid_operation_relatedid($post['authorid'], 'RCA', $post['tid']);
 			}
-			deletepost(array($_GET['pid']));
+			deletepostarray($_GET['pid']), 'pid', true, false, true);
 			updatethreadcount($post['tid']);
 		}
 
