@@ -8,7 +8,7 @@
 <!--{hook/viewthread_top_mobile}-->
 <div class="viewthread">
 	<div class="view_tit">
-		<!--{if $_G['forum_thread']['typeid'] && $_G['forum']['threadtypes']['types'][$_G['forum_thread']['typeid']]}-->
+		<!--{if $_G['forum_thread']['typeid'] && $_G['forum']['threadtypes']['types'][$_G['forum_thread']['typeid']] && $_G['forum']['threadtypes']['prefix'] !=0}-->
 			<em>[{$_G['forum']['threadtypes']['types'][$_G['forum_thread']['typeid']]}]</em>
 		<!--{/if}-->
 		<!--{if $threadsorts && $_G['forum_thread']['sortid']}-->
