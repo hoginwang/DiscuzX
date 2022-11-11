@@ -69,7 +69,7 @@ if(!tradepost) {
 	var tradepost = 0;
 }
 
-function validate(theform) {
+function validate(theform, repeat = 1) {
 	var message = wysiwyg ? html2bbcode(getEditorContents()) : theform.message.value;
 	if(!theform.parseurloff.checked) {
 		message = parseurl(message);
@@ -131,8 +131,14 @@ function validate(theform) {
 					setTimeout(function () { validate(theform); }, 100);
 					chk = 0;
 				} else if(chkv.indexOf('check_right') == -1) {
-					showError('验证问答错误，请重新填写');
-					chk = 0;
+					if(repeat && (chkv.indexOf('error') == -1 || (!isUndefined($('secqaakeycode_' + theform.secqaahash.value)) && $('secqaakeycode_' + theform.secqaahash.value).value == '13'))) {
+						checksec('qaa', theform.secqaahash.value);
+						setTimeout(function () { validate(theform, 0); }, 200);
+						chk = 0;
+					} else {
+						showError('验证问答错误，请重新填写');
+						chk = 0;
+					}
 				}
 			}
 			if(seccodecheck) {
@@ -141,8 +147,15 @@ function validate(theform) {
 					setTimeout(function () { validate(theform); }, 100);
 					chk = 0;
 				} else if(chkv.indexOf('check_right') === -1) {
-					showError('验证码错误，请重新填写');
-					chk = 0;
+					if(repeat && (chkv.indexOf('error') == -1 || (!isUndefined($('seccodekeycode_' + theform.seccodehash.value)) && $('seccodekeycode_' + theform.seccodehash.value).value == '13'))) {
+						var modid = isUndefined($('scbar_form').srhlocality.value) ? 'forum::post' : $('scbar_form').srhlocality.value;
+						checksec('code', theform.seccodehash.value, 0, '', modid);
+						setTimeout(function () { validate(theform, 0); }, 200);
+						chk = 0;
+					} else {
+						showError('验证码错误，请重新填写');
+						chk = 0;
+					}
 				}
 			}
 			if(chk) {
