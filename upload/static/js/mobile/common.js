@@ -269,11 +269,10 @@ var formdialog = {
 
 var redirect = {
 	init : function() {
-		qSelA('.redirect').forEach(function (rd) {
-			rd.addEventListener('click', function () {
-				popup.close();
-				window.location.href = this.getAttribute('href');
-			});
+		$(document).on('click', '.redirect', function() {
+			var obj = $(this);
+			popup.close();
+			window.location.href = obj.attr('href');
 		});
 	}
 };
