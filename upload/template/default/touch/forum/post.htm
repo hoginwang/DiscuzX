@@ -136,6 +136,20 @@
 			}
 		});
 		<!--{/if}-->
+		$('#typeid').on('keyup input', function() {
+			var obj = $(this);
+			if(obj.val()) {
+				typeid = true;
+				if(typeid == true) {
+					$('.btn_pn').removeClass('btn_pn_grey').addClass('btn_pn_blue');
+					$('.btn_pn').attr('disable', 'false');
+				}
+			} else {
+				typeid = false;
+				$('.btn_pn').removeClass('btn_pn_blue').addClass('btn_pn_grey');
+				$('.btn_pn').attr('disable', 'true');
+			}
+		});
 		$('#needmessage').on('keyup input', function() {
 			var obj = $(this);
 			if(obj.val()) {
