@@ -3,18 +3,57 @@ branches: {
   }
 fileChange:
   /upload:
-    newFile: !uuid 'd9410180e9f8c564ea069a8243d016e46b509cca'
-    oldFile: !uuid '02e4fe55f75ca49e0f0a17f16a5f11904470b868'
-  /upload/source:
-    newFile: !uuid '449a3d9fa0414a551e6f1dbb82e8d0f5484110a0'
-    oldFile: !uuid '78797aa0b74f6cc39ce497bd102c02be67143c8e'
-  /upload/source/language:
-    newFile: !uuid 'aefe042d7a21dcd37bc2e143362a71b5dc756c40'
-    oldFile: !uuid '572187e67d7371dde4f994cea39ac19f1d1125f6'
-  /upload/source/language/lang_admincp.php:
-    newFile: !uuid '0b54e2f553f3f1c55c1d55aa0a683355be04b556'
-    oldFile: !uuid 'ef68c87e9ede7591762f8ce3fbdf18ec0c03e71d'
-gitCommitId: !uuid 'abbf55a018969c537a5219e04509bb0e8399e5a5'
+    newFile: !uuid '2a9fa7adef48a19949d6a98124b1c8f3e3210c22'
+    oldFile: !uuid 'd9410180e9f8c564ea069a8243d016e46b509cca'
+  /upload/static:
+    newFile: !uuid 'ff2bc6d14260349eaf268df0b21fff267145e992'
+    oldFile: !uuid 'f013a1887f49b2212bf8c7bf5d4441456f16cfc8'
+  /upload/static/image:
+    newFile: !uuid 'dd57693378536aefa831ae203b17f610411c3d05'
+    oldFile: !uuid '513f3d3b34b1e0031c892ace492dcf71044816c3'
+  /upload/static/image/common:
+    newFile: !uuid '58a20f98a12d5328d6e984ea5348ba88a13b53ac'
+    oldFile: !uuid '3cc122f7b714653c6f2bcbb90c58db094f8fb650'
+  /upload/static/image/common/imageloading.gif:
+    newFile: !uuid '02bd7827e1420eb6c5b1c2eebf9b7f8a55acb638'
+    oldFile: !uuid '20c5d6b7ede5253b032c95e1b163bdf00163118e'
+  /upload/static/image/common/img_loader.gif:
+    newFile: !uuid '30ae08bfb919d767623fbca4261fe022a3af2607'
+    oldFile: !uuid 'dc8bd3ff133c22336509b97424671383a407d6f8'
+  /upload/static/image/common/loading.gif:
+    newFile: !uuid '81ccc5de274b47d66c8c794694e943d621a72e42'
+    oldFile: !uuid '7eb77d79274de69089aaeb22c62f3a079080aabc'
+  /upload/static/image/common/medal1.gif:
+    newFile: !uuid '1dbb073b25dd8ebf4f12daf9628f74b951b2d413'
+    oldFile: !uuid '3983009cf8d4bb04cb048fcb2c335a37f2b7dc47'
+  /upload/static/image/common/medal10.gif:
+    newFile: !uuid '7f8a09400fb8f9c9a4c8b290d82c6418c9e09caf'
+    oldFile: !uuid '7249c3693b28c865d8801d6676abb300548483e2'
+  /upload/static/image/common/medal2.gif:
+    newFile: !uuid '28367f7d382b775030ebb7d0a5b9798769b2b57f'
+    oldFile: !uuid '169ed51627c5921e6b4f92a491e0fd2a52639cba'
+  /upload/static/image/common/medal3.gif:
+    newFile: !uuid '0f1baf3cdd51428116f2d040ee2a967435e6ae8e'
+    oldFile: !uuid 'c25cf36517fa617424304e358fb07abc31b4b3a7'
+  /upload/static/image/common/medal4.gif:
+    newFile: !uuid '6d1c59423ee1e5841507b6b98c5a921f189d1afa'
+    oldFile: !uuid '746168d142dd633fe5ec91cf858e4ccf85897369'
+  /upload/static/image/common/medal5.gif:
+    newFile: !uuid '1379c9981852b5c0347d319b1389629487a00650'
+    oldFile: !uuid '1d0e433651a3a6db421a2b1970998a92ea5cb802'
+  /upload/static/image/common/medal6.gif:
+    newFile: !uuid '0b1b08b4e1af4f9e7a2bc175c7b44276e0144aae'
+    oldFile: !uuid '32fcd4c970d8030fd212d1e4b82855e1010f7005'
+  /upload/static/image/common/medal7.gif:
+    newFile: !uuid 'b49376086e6b38dc2104a132ca2929c99898ca7c'
+    oldFile: !uuid 'a442dbc013458aaeb0d16750b9f51dd1cea74d78'
+  /upload/static/image/common/medal8.gif:
+    newFile: !uuid 'efaab446d4fbcd4f26574a09d1d50bac3399bd9e'
+    oldFile: !uuid 'e4d38a836c7e3c9e60acc383b2e7b4db39a17574'
+  /upload/static/image/common/medal9.gif:
+    newFile: !uuid '47947a878c5f5693be8cdd302c6505a74b36e63d'
+    oldFile: !uuid '33ef5f2b364f2eb9d20ff068f4b3cd78b326f772'
+gitCommitId: !uuid 'fabab0054b4ee9b67e2ea37816b151b50fc8b73c'
 renames: {
   }
-revisionId: 912
+revisionId: 913
