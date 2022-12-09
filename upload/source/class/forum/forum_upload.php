@@ -90,7 +90,7 @@ class forum_upload {
 		if(is_array($filename)) {
 			return $this->uploadmsg(12);
 		} else {
-			$filename = dhtmlspecialchars($filename);
+			$filename = $filename;
 		}
 
 		if(isset($_GET['type']) && $_GET['type'] == 'image' && !$upload->attach['isimage']) {
