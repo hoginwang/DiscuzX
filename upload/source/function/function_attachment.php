@@ -84,6 +84,7 @@ function parseattach($attachpids, $attachtags, &$postlist, $skipaids = array()) 
 			continue;
 		}
 		$attached = 0;
+		$attach['filename'] = html_entity_decode($attach['filename']);
 		$extension = strtolower(fileext($attach['filename']));
 		$attach['ext'] = $extension;
 		$attach['imgalt'] = $attach['isimage'] ? strip_tags(str_replace('"', '', $attach['description'] ? $attach['description'] : $attach['filename'])) : '';

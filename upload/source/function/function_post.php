@@ -37,6 +37,7 @@ function getattach($pid, $posttime = 0, $aids = '') {
 	}
 	foreach(C::t('forum_attachment')->fetch_all_unused_attachment($_G['uid'], empty($aidsnew) ? null : $aidsnew, $posttime > 0 ? $posttime : null) as $attach) {
 		$attach['filenametitle'] = $attach['filename'];
+		$attach['filename'] = html_entity_decode($attach['filename']);
 		$attach['ext'] = fileext($attach['filename']);
 		if($allowext && !in_array($attach['ext'], $allowext)) {
 			continue;
