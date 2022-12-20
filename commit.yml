@@ -3,18 +3,39 @@ branches: {
   }
 fileChange:
   /upload:
-    newFile: !uuid 'd83c4fa1c6b6566304b56e7eea148e93ada77871'
-    oldFile: !uuid 'f457e383905fb741294ead6b125ca614016f3ea2'
+    newFile: !uuid '993823f4aea86b49c0e3c2b82a279782afb4bde0'
+    oldFile: !uuid 'd83c4fa1c6b6566304b56e7eea148e93ada77871'
   /upload/source:
-    newFile: !uuid 'fd9146b967381793a14e9857ceb944f32805b539'
-    oldFile: !uuid 'ffc5aa56ea5f7eed0f0d011e665dbfefb3481f13'
+    newFile: !uuid '041ea860130dd8b50074cde513ecb4284a2bb6fc'
+    oldFile: !uuid 'fd9146b967381793a14e9857ceb944f32805b539'
   /upload/source/admincp:
-    newFile: !uuid '06e6ae385677e2fbc10293e08342e483bd092f06'
-    oldFile: !uuid '4d12a4cccc10c6a7b5baa84f2c93b6d4317b19d8'
-  /upload/source/admincp/admincp_plugins.php:
-    newFile: !uuid '13eba77169ece63c2a771ec297c087c1ff6ade52'
-    oldFile: !uuid '8e0e2ddfbe1008acdff83d43770ba04a7844785c'
-gitCommitId: !uuid 'f8ab1cced10a7dc77c37afaf14cc4b9754d4cd71'
+    newFile: !uuid '2d4b6b166bfcf91d07c3f495e9375437bf020602'
+    oldFile: !uuid '06e6ae385677e2fbc10293e08342e483bd092f06'
+  /upload/source/admincp/admincp_ec.php:
+    newFile: !uuid '37552ef229a92524e3e11fa4bfc2b7ec81a37b28'
+    oldFile: !uuid 'a24a2ae7000a5c93841a17cdd202eaf918ec7e1f'
+  /upload/source/admincp/admincp_index.php:
+    newFile: !uuid 'baf7fe89a3ef7e1e8107147884fc60d800529f60'
+    oldFile: !uuid '58477520fcb52f41b3074ebb2c1c7bc8ebb77ad1'
+  /upload/source/admincp/admincp_setting.php:
+    newFile: !uuid 'a24413a7edbda8ca51e2bd8f1833ba63590aabe1'
+    oldFile: !uuid '6f47b05a53e33b4781425d9ea7c93b99abbcfa42'
+  /upload/source/language:
+    newFile: !uuid 'd8ac116cb800e435e8547871d6c8d6ad1a069ab0'
+    oldFile: !uuid '27ff17ab65e551f600f0f2fe5161d7849460d1a3'
+  /upload/source/language/lang_admincp.php:
+    newFile: !uuid '2b8e5441d1ef7d579e49226e5da09d4ac1dcb639'
+    oldFile: !uuid '0b54e2f553f3f1c55c1d55aa0a683355be04b556'
+  /upload/static:
+    newFile: !uuid 'c3ebfd19ed8d3c7c7491fa79cfcf9228ad9f06b2'
+    oldFile: !uuid 'ff2bc6d14260349eaf268df0b21fff267145e992'
+  /upload/static/js:
+    newFile: !uuid '909777ddd04ddfebef4a7fec47c72136a0e3dda8'
+    oldFile: !uuid 'cd4023bb581a4447d728613146a063822cc3cf3e'
+  /upload/static/js/admincp_frame.js:
+    newFile: !uuid '2bcd236502fa0681132b23fec3f89ac41a28ba90'
+    oldFile: !uuid '3ae1166c855c4fc159cffaea9729063d7bf57bc7'
+gitCommitId: !uuid 'adfc005295b1b490ce52b037a29903ffbe7f771b'
 renames: {
   }
-revisionId: 919
+revisionId: 920
