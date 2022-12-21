@@ -39,7 +39,7 @@ class Cloud_Service_Client_ConnectOAuth extends Cloud_Service_Client_OAuth {
 	private $_accessTokenURL_V2 = 'https://graph.qq.com/oauth2.0/token';
 
 	private $_openIdURL_V2 = 'https://graph.qq.com/oauth2.0/me';
-
+41
 	private $_getUserInfoURL_V2 = 'https://graph.qq.com/user/get_user_info';
 
 	private $_addShareURL_V2 = 'https://graph.qq.com/share/add_share';
@@ -410,14 +410,14 @@ class Cloud_Service_Client_ConnectOAuth extends Cloud_Service_Client_OAuth {
 		$params = array(
 			'access_token' => $accessToken,
 			'oauth_consumer_key' => $this->_appKey,
-			'openid' => $openId,
-			'format' => 'xml'
+			'openid' => $openId
 		);
 		require_once DISCUZ_ROOT.'/source/plugin/qqconnect/lib/Util.php';
 		$utilService = new Cloud_Service_Util();
 		$response = $this->dfsockopen($this->_getUserInfoURL_V2.'?'.$utilService->httpBuildQuery($params, '', '&'));
+		$data = json_decode($response,true);
+		$data = $this->_iconv($data, 'UTF-8', CHARSET);
 
-		$data = $this->_xmlParse($response);
 		if(isset($data['ret']) && $data['ret'] == 0) {
 			return $data;
 		} else {
