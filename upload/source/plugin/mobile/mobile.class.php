@@ -275,9 +275,9 @@ class mobile_core {
 					continue;
 				}
 				if(!$isavariables) {
-					$value[$module.'_'.$hookname][$plugin] = call_user_func(array($pluginclasses[$hook['class']], $hook['method']), $param);
+					$value[$module.'_'.$hookname][$plugin] = call_user_func_array(array($pluginclasses[$hook['class']], $hook['method']), array(&$param));
 				} else {
-					call_user_func(array($pluginclasses[$hook['class']], $hook['method']), $param);
+					call_user_func_array(array($pluginclasses[$hook['class']], $hook['method']), array(&$param));
 				}
 			}
 		}
