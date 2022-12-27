@@ -10,6 +10,57 @@
 if(!defined('IN_DISCUZ')) {
 	exit('Access Denied');
 }
+
+/* 
+copy all eval function from `template/module.htm` to here to avoid undefined function problem
+*/
+function tpl_global_login_extra() {
+	global $_G;
+}
+
+function tpl_global_usernav_extra1() {
+	global $_G;
+}
+
+function tpl_login_bar() {
+	global $_G;
+}
+
+function tpl_viewthread_share_method() {
+	global $_G;
+	if (!$_G['setting']['connect']['allow']) return;
+	$connect_thread_subject = addslashes(strip_tags($_G['thread']['subject']));
+}
+
+function tpl_viewthread_bottom($jsurl) {
+	global $_G;
+}
+
+function tpl_register_input() {
+	global $_G;
+	
+	$connect_app_id = $_G['qc']['connect_app_id'];
+	$connect_openid = $_G['qc']['connect_openid'];
+}
+
+function tpl_register_bottom() {
+	global $_G;
+	
+	$loginhash = 'L'.random(4);
+	$change_qq_url = $_G['connect']['discuz_change_qq_url'];
+	$qq_nick = $_G['qc']['qq_nick'];
+	$connect_app_id = $_G['qc']['connect_app_id'];
+	$connect_openid = $_G['qc']['connect_openid'];
+	$connect_tab_1 = $_GET['ac'] != 'bind' && $_G['setting']['regconnect'] ? ' class="a"' : '';
+	$connect_tab_2 = $_GET['ac'] == 'bind' ? ' class="a"' : '';
+}
+
+$js2 = str_replace(array("'", "\r", "\n"), array("\'", '', ''), $js2);
+
+/* 
+end of copy
+*/
+
 class plugin_qqconnect_base {
 
 	public $retryInterval = 60;
