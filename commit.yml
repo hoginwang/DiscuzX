@@ -3,45 +3,18 @@ branches: {
   }
 fileChange:
   /upload:
-    newFile: !uuid '05067f66ce328318282548ccef3ba9a019fb9456'
-    oldFile: !uuid 'ca995de4138d6ab836297606002a2ce9c99774b9'
-  /upload/template:
-    newFile: !uuid '9760d5c0d194248d1932b8e5b61046d36ad0d76b'
-    oldFile: !uuid '20d76a86dba740ca483e22167041ef42bdb19921'
-  /upload/template/default:
-    newFile: !uuid '12837c0ca92aa8697c14c24cf951b75609382223'
-    oldFile: !uuid 'dbbcdc602f23f18974f6aa5b214272f199c7ba02'
-  /upload/template/default/touch:
-    newFile: !uuid '0358cddee7afe3974e1812de6220b63becdb41e2'
-    oldFile: !uuid '70e6d423391a4c62260df17464c8bfc23b3e9671'
-  /upload/template/default/touch/home:
-    newFile: !uuid '126fd34c93f66290a57e86ad1f1436790ac08e42'
-    oldFile: !uuid '58d22e31d7ad827c25c51b40487aec0f21af0874'
-  /upload/template/default/touch/home/spacecp_credit_buy.htm:
-    newFile: !uuid '97864fe541e89718dde4be3770374058d4ed6634'
-    oldFile: !uuid '7f4301b917549f5c3bd3e5d7d0910950259b48f5'
-  /upload/template/default/touch/home/spacecp_credit_header.htm:
-    newFile: !uuid '09b94becc0b16293489dd68f9b4a51021e9b20e9'
-    oldFile: null
-  /upload/template/default/touch/home/spacecp_credit_log.htm:
-    newFile: !uuid '8a17a2619725437d63c635389c8f31c776d6219c'
-    oldFile: !uuid '504dc33089e6a5e9d08cafcf2b6334ad0d479a14'
-  /upload/template/default/touch/home/spacecp_footer.htm:
-    newFile: !uuid '2583e19d4fdee5566fc9fdee7dc4cff4b9b4f2e0'
-    oldFile: !uuid '6019a82fa5f5c8f36b07e7d43f085c9c96739c80'
-  /upload/template/default/touch/home/spacecp_plugin.htm:
-    newFile: !uuid '27655be9a9d33ed0e38ec38a040af3af46e72b9b'
-    oldFile: null
-  /upload/template/default/touch/home/spacecp_sendmail.htm:
-    newFile: !uuid '2848bd5cb5be06c8c05fdbab555889c071bce117'
-    oldFile: null
-  /upload/template/default/touch/home/spacecp_usergroup.htm:
-    newFile: !uuid 'f4c4ca4ba47a7124d1979c3bfa555ef086408d93'
-    oldFile: !uuid 'cb53ff1aa8e6750cbe2dbe43a1cfbde23e2a1e06'
-  /upload/template/default/touch/home/spacecp_usergroup_header.htm:
-    newFile: !uuid 'b3a58a35377b8553fe7fb1cedf8996f74745589e'
-    oldFile: !uuid '9775a5a14661fc1c8b97079a6136e29d54a09924'
-gitCommitId: !uuid 'd3b6d07598dced5e675a0e184bd4047dc6bba76f'
+    newFile: !uuid '6062bb444527e0095c4ff17180db8cf8fc421455'
+    oldFile: !uuid '05067f66ce328318282548ccef3ba9a019fb9456'
+  /upload/source:
+    newFile: !uuid '93e729d1ae0b2be316cfe3f07a4ec9f2b1ff09bf'
+    oldFile: !uuid '347fe5d380ec7debef988b36a3355692e33704c1'
+  /upload/source/language:
+    newFile: !uuid '5296aebecf5ba5b90bb5be5775a6e2a5f6a716dd'
+    oldFile: !uuid '4cc73c5c56b7a2e1736108e2ee28f84abdd8c96d'
+  /upload/source/language/lang_admincp_searchindex.php:
+    newFile: !uuid 'b5808fdd65986071fafaa4cdcf797c1230266541'
+    oldFile: !uuid '1139802ae7627a14e498521b1ac196e683351a14'
+gitCommitId: !uuid '53e0bfcc9f7d54f0157919e5f607221ef5ad8949'
 renames: {
   }
-revisionId: 930
+revisionId: 931
