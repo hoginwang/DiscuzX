@@ -3,18 +3,18 @@ branches: {
   }
 fileChange:
   /upload:
-    newFile: !uuid '9b855d2658a370f6e00267e4b88bd8a798252655'
-    oldFile: !uuid '6062bb444527e0095c4ff17180db8cf8fc421455'
+    newFile: !uuid '034ccb862dbca2d991fe63cc473e06549e508417'
+    oldFile: !uuid '9b855d2658a370f6e00267e4b88bd8a798252655'
   /upload/source:
-    newFile: !uuid 'db9cb03f8ad1bed8379c410f3ff1652cd7002664'
-    oldFile: !uuid '93e729d1ae0b2be316cfe3f07a4ec9f2b1ff09bf'
+    newFile: !uuid 'd2a91a917e1259893c1873d86a7e37668acabfc5'
+    oldFile: !uuid 'db9cb03f8ad1bed8379c410f3ff1652cd7002664'
   /upload/source/admincp:
-    newFile: !uuid 'ab985daadfea7b5949c00beed10c00348e15b5db'
-    oldFile: !uuid 'd9909457669801eeb846e04033ea7a50775aee29'
-  /upload/source/admincp/discuzhook.dat:
-    newFile: !uuid '890ba78fd7dac21df34bd7353cbdc73d9bffafac'
-    oldFile: !uuid '123383d84b940eae6351a534bca26cd0ed483e3b'
-gitCommitId: !uuid '809293f83047b2557345cd16df7f60751a6a20fb'
+    newFile: !uuid '1ff3e8856075d4b03566811b244d2a787d996c39'
+    oldFile: !uuid 'ab985daadfea7b5949c00beed10c00348e15b5db'
+  /upload/source/admincp/admincp_setting.php:
+    newFile: !uuid '9f87e289125e32fcaf24b84c67e8ebb05ab6f508'
+    oldFile: !uuid 'a24413a7edbda8ca51e2bd8f1833ba63590aabe1'
+gitCommitId: !uuid 'b182787ee6d76892186c97e261b894bc26ac0692'
 renames: {
   }
-revisionId: 932
+revisionId: 933
