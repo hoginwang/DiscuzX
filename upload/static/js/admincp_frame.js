@@ -71,7 +71,7 @@
 			id = this.id.substring(7);
 			setTimeout(function () {
 				switchnav(id, true);
-			}, 500);
+			}, 1000);
 		});
 	});
 	document.querySelectorAll('nav ul ul a').forEach(function (tab) {
