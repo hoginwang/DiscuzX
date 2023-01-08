@@ -1,20 +1,9 @@
 !revision
 branches: {
   }
-fileChange:
-  /upload:
-    newFile: !uuid 'f09c92b5bac556185c0300c3cc91291f1c509267'
-    oldFile: !uuid 'b81234f6e3110b09496f040752137b01bd639945'
-  /upload/static:
-    newFile: !uuid '5c45ec73efde844e385828cd1a2bbe2683bd8ddd'
-    oldFile: !uuid '21935f6a7dcf8ad1a843cefd9aee444833a39368'
-  /upload/static/js:
-    newFile: !uuid 'c16ae61c23c99578b39a723a029a80c474f10dae'
-    oldFile: !uuid '6f4ccde0279d1026f9a83f4b0b5c9d7d58b00aa9'
-  /upload/static/js/admincp_frame.js:
-    newFile: !uuid '0f06cd23075d6ca3993f9d0073435ed05a77cc54'
-    oldFile: !uuid 'ba0ece214e42c044ac769e55dd75fe4332745ee6'
-gitCommitId: !uuid 'd69737088362bc4c939c782803333d16757e9b47'
+fileChange: {
+  }
+gitCommitId: !uuid '193b56f1a252b99189ae308b7575b14836709a28'
 renames: {
   }
-revisionId: 940
+revisionId: 941
