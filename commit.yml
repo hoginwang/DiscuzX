@@ -3,18 +3,18 @@ branches: {
   }
 fileChange:
   /upload:
-    newFile: !uuid 'b81234f6e3110b09496f040752137b01bd639945'
-    oldFile: !uuid '193590db8ab3eb20202fd42924959e24cd291f17'
+    newFile: !uuid 'f09c92b5bac556185c0300c3cc91291f1c509267'
+    oldFile: !uuid 'b81234f6e3110b09496f040752137b01bd639945'
   /upload/static:
-    newFile: !uuid '21935f6a7dcf8ad1a843cefd9aee444833a39368'
-    oldFile: !uuid '7cd8e1ef466629a2dd11bf603f00bee2c4ad43d2'
+    newFile: !uuid '5c45ec73efde844e385828cd1a2bbe2683bd8ddd'
+    oldFile: !uuid '21935f6a7dcf8ad1a843cefd9aee444833a39368'
   /upload/static/js:
-    newFile: !uuid '6f4ccde0279d1026f9a83f4b0b5c9d7d58b00aa9'
-    oldFile: !uuid 'f46da59d759bc1afa4f3688d2939f0c23248af37'
+    newFile: !uuid 'c16ae61c23c99578b39a723a029a80c474f10dae'
+    oldFile: !uuid '6f4ccde0279d1026f9a83f4b0b5c9d7d58b00aa9'
   /upload/static/js/admincp_frame.js:
-    newFile: !uuid 'ba0ece214e42c044ac769e55dd75fe4332745ee6'
-    oldFile: !uuid '0eaf8ca13e25f52039b47e899de10b85f6116dd9'
-gitCommitId: !uuid '9b346a6d0d5c4638acc94e13c512f20d55ae6810'
+    newFile: !uuid '0f06cd23075d6ca3993f9d0073435ed05a77cc54'
+    oldFile: !uuid 'ba0ece214e42c044ac769e55dd75fe4332745ee6'
+gitCommitId: !uuid 'd69737088362bc4c939c782803333d16757e9b47'
 renames: {
   }
-revisionId: 939
+revisionId: 940
