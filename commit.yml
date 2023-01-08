@@ -3,27 +3,21 @@ branches: {
   }
 fileChange:
   /upload:
-    newFile: !uuid '826f902e350c944fe22b8422f096374c8013d9b1'
-    oldFile: !uuid '7e99d8d12a1222897ad2a96e2449978e2990b133'
-  /upload/source:
-    newFile: !uuid 'dc98b905b7c99a3b6fe11378678fce51e0713d16'
-    oldFile: !uuid '224b38bb122793222525408877e55f7ae00a0755'
-  /upload/source/plugin:
-    newFile: !uuid 'ecd43ae0d691b3ab929c685a564e1090827f6d47'
-    oldFile: !uuid '2591062014c1c342f9b027f9ceba596180c6c78c'
-  /upload/source/plugin/qqconnect:
-    newFile: !uuid '05fbceb11331024dcb543ee6d246ced097e3e660'
-    oldFile: !uuid 'd5a77a28229242d50ca8f710738205a973da300c'
-  /upload/source/plugin/qqconnect/lib:
-    newFile: !uuid 'a880b7faa02d73e4cd667359c9d17bf0ebd6e49e'
-    oldFile: !uuid '0d3af90847ce4efbaec3cf597fd15694380a498f'
-  /upload/source/plugin/qqconnect/lib/ConnectOAuth.php:
-    newFile: !uuid '7b384336d8d350f213a278288b9e9a7abeb29e72'
-    oldFile: !uuid '521079128efdb8667539b42b174fc0304c834e07'
-  /upload/source/plugin/qqconnect/lib/OAuth.php:
-    newFile: !uuid '260182a496e08b3f56d7174eb10c19389ac3eb67'
-    oldFile: !uuid '8691f610872d9bee1943ac819ec3b80a69ebf981'
-gitCommitId: !uuid '781249b59e7238097127d96f5529ffb1c83b113b'
+    newFile: !uuid '0f2b654a8df29a0c4a9cb6399edc4cb4a44b348c'
+    oldFile: !uuid '826f902e350c944fe22b8422f096374c8013d9b1'
+  /upload/static:
+    newFile: !uuid '7cd8e1ef466629a2dd11bf603f00bee2c4ad43d2'
+    oldFile: !uuid '98a3c14cf6ded26162ef40b0fd07a68949885ffe'
+  /upload/static/image:
+    newFile: !uuid '92d4b1c99ebcd2db0fd9fd949efbccbb2d970773'
+    oldFile: !uuid 'dd57693378536aefa831ae203b17f610411c3d05'
+  /upload/static/image/admincp:
+    newFile: !uuid '5fd4f17c432cb5be762f56c8577ba38c51d432c6'
+    oldFile: !uuid 'af3fd79f8b4dad8869c6aa3fd5c5375c4f9250e1'
+  /upload/static/image/admincp/admincpframe.css:
+    newFile: !uuid 'a836bff0dee35a79a083a60eef325b085a2ad95a'
+    oldFile: !uuid 'bd369c0074df7d3d9452e2bb25250547f7112c04'
+gitCommitId: !uuid '47fd8de55be2c7703e9ea1726146f0e94156d7ae'
 renames: {
   }
-revisionId: 936
+revisionId: 937
