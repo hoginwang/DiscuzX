@@ -3,18 +3,30 @@ branches: {
   }
 fileChange:
   /upload:
-    newFile: !uuid '712d7a7c463ca6951a67c4ef4d8c1abe34e9d7bf'
-    oldFile: !uuid 'ed8f8c709b374a412ba30be5e8c01ba180fa6dc5'
-  /upload/source:
-    newFile: !uuid '6fdaada72f9e73137c16d790743c4c7fd60b8f98'
-    oldFile: !uuid 'd3485fcb780d4dc920a4e6526a0a4b7a5e983e6a'
-  /upload/source/admincp:
-    newFile: !uuid '0a6a1d9a7c3552424d250c38718f2a3694a555ba'
-    oldFile: !uuid '218ed259ac9b40268902ee09602aa3496cf11d0f'
-  /upload/source/admincp/admincp_setting.php:
-    newFile: !uuid 'c1d9a73440afade7f242df7f895d5abbec655094'
-    oldFile: !uuid '8ac466f0a6d28a7fae600e7c55b7786f0eddf6af'
-gitCommitId: !uuid '6ff08e0cac2f9bfd765ef3ca3aa849156e9191f1'
+    newFile: !uuid '8cb63d2203158ae9f4e9800b50458c559de9c6f4'
+    oldFile: !uuid '712d7a7c463ca6951a67c4ef4d8c1abe34e9d7bf'
+  /upload/template:
+    newFile: !uuid 'd8781044421e537d11f8a6785fa25e3adf91ea9d'
+    oldFile: !uuid '16a921ddf6c2b58eacde79144a27ac4b5099abc8'
+  /upload/template/default:
+    newFile: !uuid 'ec20fff009d656c314b941699a5ab6d538419431'
+    oldFile: !uuid 'd2ac863ded0923066d0d33901e63949e4e8eecb3'
+  /upload/template/default/touch:
+    newFile: !uuid 'ba51abe7342e2be24c1c316438d5f36e0e1e7dc7'
+    oldFile: !uuid '720dad942d656f1de08d1add38890543dd899499'
+  /upload/template/default/touch/home:
+    newFile: !uuid '80adbd51169dac374bc4ff5875fe7d873487ea55'
+    oldFile: !uuid 'd94713fd1bf28c731e4da74ad05e15047afcb68a'
+  /upload/template/default/touch/home/spacecp_footer.htm:
+    newFile: !uuid '4730ac06cc2d1384148d0c648af607235fe3d62d'
+    oldFile: !uuid '2583e19d4fdee5566fc9fdee7dc4cff4b9b4f2e0'
+  /upload/template/default/touch/home/spacecp_header_name.htm:
+    newFile: !uuid 'f79f0e1d91d2f14e0ffd3f44b7210ef9af2d4cca'
+    oldFile: !uuid 'f54d848706041be40626a9285d42ed0f8719b4ef'
+  /upload/template/default/touch/home/spacecp_payment_order.htm:
+    newFile: !uuid '8f122f6564d719c32ecdacf6761696b14c506583'
+    oldFile: !uuid '61f66b4ae5d78394f195b6b16fa173c81cee6b54'
+gitCommitId: !uuid '1c56491572c8a7eb8bd9aeaece3dcd731648435a'
 renames: {
   }
-revisionId: 955
+revisionId: 956
