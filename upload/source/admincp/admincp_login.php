@@ -50,7 +50,7 @@ function html_login_header($form = true) {
 	$staticurl = STATICURL;
 	$light_mode = lang('admincp_login', 'login_dk_light_mode');
 	$by_system = lang('admincp_login', 'login_dk_by_system');
-	$lnormal_mode = lang('admincp_login', 'login_dk_normal_mode');
+	$normal_mode = lang('admincp_login', 'login_dk_normal_mode');
 	$dark_mode = lang('admincp_login', 'login_dk_dark_mode');
 	echo <<<EOT
 <!DOCTYPE html>
@@ -82,7 +82,7 @@ function html_login_header($form = true) {
 </svg>
 </div>
 </div>
-<ul id="dkm_menu" style="display: none;"><li class="current">$by_system</li><li>$lnormal_mode</li><li>$dark_mode</li></ul>
+<ul id="dkm_menu" style="display: none;"><li class="current">$by_system</li><li>$normal_mode</li><li>$dark_mode</li></ul>
 </div>
 EOT;
 
