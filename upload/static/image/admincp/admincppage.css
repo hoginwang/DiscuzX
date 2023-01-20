@@ -216,7 +216,7 @@ textarea {font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
 	span.bignum { display: block; font-size: 36px; }
 		/* crons */
 		.crons{ width:200px; }
-		.crons .txt{ margin-bottom:3px; width:150px; }
+		.crons .txt{ margin-bottom:3px; width:100%; }
 
 	/* faqlist & boardlist */
 	.node, .board{ padding-left:55px; background:url(bg_repno.gif) no-repeat -240px -550px; }
