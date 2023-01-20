@@ -35,7 +35,7 @@ if(!submitcheck('modsubmit')) {
 			showmessage('admin_copy_hava_mod');
 		}
 	}
-	$toforum['threadsorts_arr'] = unserialize($toforum['threadsorts']);
+	$toforum['threadsorts_arr'] = dunserialize($toforum['threadsorts']);
 
 	if($thread['sortid'] != 0 && $toforum['threadsorts_arr']['types'][$thread['sortid']]) {
 		foreach(C::t('forum_typeoptionvar')->fetch_all_by_search($thread['sortid'], null, $thread['tid']) as $result) {
@@ -92,7 +92,7 @@ if(!submitcheck('modsubmit')) {
 
 	$modpostsnum ++;
 	$resultarray = array(
-	'redirect'	=> "forum.php?mod=forumdisplay&fid=$_G[fid]",
+	'redirect'	=> "forum.php?mod=forumdisplay&fid={$_G['fid']}",
 	'reasonpm'	=> ($sendreasonpm ? array('data' => array($thread), 'var' => 'thread', 'item' => 'reason_copy', 'notictype' => 'post') : array()),
 	'reasonvar'	=> array('tid' => $thread['tid'], 'subject' => $thread['subject'], 'modaction' => $modaction, 'reason' => $reason, 'threadid' => $threadid),
 	'modtids'	=> $thread['tid'],

@@ -10,10 +10,6 @@
 error_reporting(E_ERROR | E_WARNING | E_PARSE);
 @set_time_limit(1000);
 
-if(function_exists('set_magic_quotes_runtime')) {
-	@set_magic_quotes_runtime(0);
-}
-
 define('IN_DISCUZ', TRUE);
 define('ROOT_PATH', dirname(__FILE__).'/../');
 
@@ -33,7 +29,7 @@ $operation = $operation ? $operation : 'import';
 $phpself = htmlspecialchars($_SERVER['SCRIPT_NAME'] ? $_SERVER['SCRIPT_NAME'] : $_SERVER['PHP_SELF']);
 $siteurl = htmlspecialchars((is_https() ? 'https' : 'http').'://'.$_SERVER['HTTP_HOST'].preg_replace("/\/+(api)?\/*$/i", '', substr($phpself, 0, strrpos($phpself, '/'))).'/');
 
-$db = function_exists("mysql_connect") ? new dbstuff : new dbstuffi;
+$db = new dbstuffi;
 if(!@$db->connect($_config['db']['1']['dbhost'], $_config['db']['1']['dbuser'], $_config['db']['1']['dbpw'], $_config['db']['1']['dbname'], $_config['db']['1']['dbcharset'])) {
 	show_msg('connect_error');
 }
@@ -108,7 +104,7 @@ if($operation == 'import') {
 
 			foreach($sqlquery as $sql) {
 
-				$sql = syntablestruct(trim($sql), $db->version() > '4.1', DBCHARSET);
+				$sql = syntablestruct(trim($sql), true, DBCHARSET);
 
 				if($sql != '') {
 					$db->query($sql, 'SILENT');
@@ -122,7 +118,7 @@ if($operation == 'import') {
 				@unlink($datafile);
 			}
 
-			$datafile_next = preg_replace("/-($dumpinfo[volume])(\..+)$/", "-".($dumpinfo['volume'] + 1)."\\2", $datafile);
+			$datafile_next = preg_replace("/-({$dumpinfo['volume']})(\..+)$/", "-".($dumpinfo['volume'] + 1)."\\2", $datafile);
 			$datafile_next = urlencode($datafile_next);
 			if($dumpinfo['volume'] == 1) {
 				show_msg(lang('database_import_multivol_redirect', TRUE, array('volume' => $dumpinfo['volume'])),
@@ -194,10 +190,14 @@ if($operation == 'import') {
 	$sqlfilecount = 0;
 	foreach($unzip->Entries as $entry) {
 		if(preg_match("/\.sql$/i", $entry->Name)) {
-			$fp = fopen('../data/'.$backupdir.'/'.$entry->Name, 'w');
-			fwrite($fp, $entry->Data);
-			fclose($fp);
-			$sqlfilecount++;
+			$fp = fopen('../data/'.$backupdir.'/'.$entry->Name, 'c');
+			if($fp && flock($fp, LOCK_EX) && ftruncate($fp, 0) && fwrite($fp, $entry->Data) && fflush($fp) && flock($fp, LOCK_UN) && fclose($fp)) {
+				$sqlfilecount++;
+			} else {
+				flock($fp, LOCK_UN);
+				fclose($fp);
+				show_msg('database_import_file_write_error');
+			}
 		}
 	}
 
@@ -327,7 +327,7 @@ function show_importfile_list($exportlog = array(), $exportziplog = array(), $ex
 			'<td width="80">'.$info['size'].'</td>',
 			'<td width="30">'.$info['method'].'</td>',
 			'<td width="30">'.$info['volume'].'</td>',
-			'<td width="40">'.($info['type'] == 'zip' ? "<a href=\"{$siteurl}restore.php?operation=importzip&datafile_server=$info[filename]&importsubmit=yes\" onclick=\"return confirm('".lang('database_import_confirm_zip')."');\">".lang('db_import_unzip')."</a>" : "<a href=\"{$siteurl}restore.php?operation=import&datafile_server=$info[filename]&importsubmit=yes\" ".(($info['version'] != DISCUZ_VERSION) ? "onclick=\"return confirm('".lang('database_import_confirm')."');\"" : "onclick=\"return confirm('".lang('database_import_confirm_sql')."');\"").">".lang('import')."</a>")."</td>"
+			'<td width="40">'.($info['type'] == 'zip' ? "<a href=\"{$siteurl}restore.php?operation=importzip&datafile_server={$info['filename']}&importsubmit=yes\" onclick=\"return confirm('".lang('database_import_confirm_zip')."');\">".lang('db_import_unzip')."</a>" : "<a href=\"{$siteurl}restore.php?operation=import&datafile_server={$info['filename']}&importsubmit=yes\" ".(($info['version'] != DISCUZ_VERSION) ? "onclick=\"return confirm('".lang('database_import_confirm')."');\"" : "onclick=\"return confirm('".lang('database_import_confirm_sql')."');\"").">".lang('import')."</a>")."</td>"
 		;
 		echo "</tr>\n";
 		echo '<tbody id="exportlog_'.$key.'" style="display:none">';
@@ -336,7 +336,7 @@ function show_importfile_list($exportlog = array(), $exportziplog = array(), $ex
 			$info['size'] = sizecount($info['size']);
 			echo "<tr>";
 			echo
-				"<td colspan='2' class='subtb'><a href=\"$info[filename]\">".$info['filename']."</a></td>",
+				"<td colspan='2' class='subtb'><a href=\"{$info['filename']}\">".$info['filename']."</a></td>",
 				"<td>".$info['version']."</td>",
 				"<td>".$info['dateline']."</td>",
 				'<td></td>',
@@ -365,7 +365,7 @@ function show_importfile_list($exportlog = array(), $exportziplog = array(), $ex
 			"<td width='170'>".($info['volume'] > 1 ? lang('db_multivol') : '').lang('db_export_'.$info['type'])."</td>",
 			"<td width='80'>".$info['size']."</td>",
 			"<td colspan='2'>".$info['method']."</td>",
-			"<td width='40'><a href=\"{$siteurl}restore.php?operation=importzip&datafile_server=$info[filename]&importsubmit=yes\" onclick=\"return confirm('".lang('database_import_confirm_zip')."');\">".lang('db_import_unzip')."</a></td>"
+			"<td width='40'><a href=\"{$siteurl}restore.php?operation=importzip&datafile_server={$info['filename']}&importsubmit=yes\" onclick=\"return confirm('".lang('database_import_confirm_zip')."');\">".lang('db_import_unzip')."</a></td>"
 		;
 		echo "</tr>\n";
 		echo '<tbody id="exportlog_zip_'.$key.'" style="display:none">';
@@ -375,7 +375,7 @@ function show_importfile_list($exportlog = array(), $exportziplog = array(), $ex
 			$info['method'] = $info['method'] == 'multivol' ? lang('db_multivol') : lang('db_zip');
 			echo "<tr>";
 			echo
-				"<td colspan='3' class='subtb'><a href=\"$info[filename]\">".$info['filename']."</a></td>",
+				"<td colspan='3' class='subtb'><a href=\"{$info['filename']}\">".$info['filename']."</a></td>",
 				"<td>".$info['dateline']."</td>",
 				"<td>".lang('db_export_'.$info['type'])."</td>",
 				"<td>".$info['size']."</td>",
@@ -502,9 +502,11 @@ EOT;
 
 function show_footer($quit = true) {
 
+	$now = date('Y');
+
 	echo <<< EOT
 	</div>
-	<div id="footer">Copyright &copy; 2001-2021, Tencent Cloud.</div>
+	<div id="footer">Copyright &copy; 2001-$now Tencent Cloud.</div>
 </div>
 </body>
 </html>
@@ -606,6 +608,7 @@ function lang($lang_key, $force = true, $replace = array()) {
 		'tableprediff' => ' 表前缀('.$_config['db']['1']['tablepre'].')',
 		'database_import_multivol_succeed' => '分卷数据成功导入站点数据库<br />请在后台更新缓存<br /><span class="red">出于安全考虑，我们强烈建议您恢复数据库备份文件后删除文件或设置文件不可通过 URL 访问。</span><br /><span class="red">请尽快删除restore.php文件，以免对数据造成影响</span>',
 		'database_import_file_illegal' => '数据文件不存在：可能服务器不允许上传文件或文件大小超过限制',
+		'database_import_file_write_error' => '数据文件解压写入失败，请检查服务器是否有可写入权限',
 		'database_import_multivol_prompt' => '分卷数据第一卷成功导入数据库，您需要自动导入本次备份的其他分卷吗？',
 		'database_import_succeed' => '数据已成功导入站点数据库<br />请在后台更新缓存<br /><span class="red">出于安全考虑，我们强烈建议您恢复数据库备份文件后删除文件或设置文件不可通过 URL 访问。</span><br /><span class="red">请尽快删除restore.php文件，以免对数据造成影响</span>',
 		'database_import_format_illegal' => '数据文件非 Discuz! 格式，无法导入',
@@ -697,134 +700,6 @@ function is_https() {
 	return false;
 }
 
-class dbstuff {
-	var $querynum = 0;
-	var $drivertype = 'mysql';
-	var $link;
-	var $histories;
-	var $time;
-	var $tablepre;
-
-	function connect($dbhost, $dbuser, $dbpw, $dbname = '', $dbcharset, $pconnect = 0, $tablepre='', $time = 0) {
-		$this->time = $time;
-		$this->tablepre = $tablepre;
-		if($pconnect) {
-			if(!$this->link = mysql_pconnect($dbhost, $dbuser, $dbpw)) {
-				return FALSE;
-			}
-		} else {
-			if(!$this->link = mysql_connect($dbhost, $dbuser, $dbpw, 1)) {
-				return FALSE;
-			}
-		}
-
-		if($this->version() > '4.1') {
-			if($dbcharset) {
-				mysql_query("SET character_set_connection=".$dbcharset.", character_set_results=".$dbcharset.", character_set_client=binary", $this->link);
-			}
-
-			if($this->version() > '5.0.1') {
-				mysql_query("SET sql_mode=''", $this->link);
-			}
-		}
-
-		if($dbname) {
-			mysql_select_db($dbname, $this->link);
-		}
-		return TRUE;
-	}
-
-	function fetch_array($query, $result_type = MYSQL_ASSOC) {
-		return mysql_fetch_array($query, $result_type);
-	}
-
-	function result_first($sql, &$data) {
-		$query = $this->query($sql);
-		$data = $this->result($query, 0);
-	}
-
-	function fetch_first($sql, &$arr) {
-		$query = $this->query($sql);
-		$arr = $this->fetch_array($query);
-	}
-
-	function fetch_all($sql, &$arr) {
-		$query = $this->query($sql);
-		while($data = $this->fetch_array($query)) {
-			$arr[] = $data;
-		}
-	}
-
-	function cache_gc() {
-		$this->query("DELETE FROM {$this->tablepre}sqlcaches WHERE expiry<$this->time");
-	}
-
-	function query($sql, $type = '', $cachetime = FALSE) {
-		$func = $type == 'UNBUFFERED' && @function_exists('mysql_unbuffered_query') ? 'mysql_unbuffered_query' : 'mysql_query';
-		if(!($query = $func($sql, $this->link)) && $type != 'SILENT') {
-			$this->halt('SQL:', $sql);
-		}
-		$this->querynum++;
-		$this->histories[] = $sql;
-		return $query;
-	}
-
-	function affected_rows() {
-		return mysql_affected_rows($this->link);
-	}
-
-	function error() {
-		return (($this->link) ? mysql_error($this->link) : mysql_error());
-	}
-
-	function errno() {
-		return intval(($this->link) ? mysql_errno($this->link) : mysql_errno());
-	}
-
-	function result($query, $row) {
-		$query = @mysql_result($query, $row);
-		return $query;
-	}
-
-	function num_rows($query) {
-		$query = mysql_num_rows($query);
-		return $query;
-	}
-
-	function num_fields($query) {
-		return mysql_num_fields($query);
-	}
-
-	function free_result($query) {
-		return mysql_free_result($query);
-	}
-
-	function insert_id() {
-		return ($id = mysql_insert_id($this->link)) >= 0 ? $id : $this->result($this->query("SELECT last_insert_id()"), 0);
-	}
-
-	function fetch_row($query) {
-		$query = mysql_fetch_row($query);
-		return $query;
-	}
-
-	function fetch_fields($query) {
-		return mysql_fetch_field($query);
-	}
-
-	function version() {
-		return mysql_get_server_info($this->link);
-	}
-
-	function close() {
-		return mysql_close($this->link);
-	}
-
-	function halt($message = '', $sql = '') {
-		show_error('run_sql_error', $message.$sql.'<br /> Error:'.$this->error().'<br />Errno:'.$this->errno(), 0);
-	}
-}
-
 class dbstuffi {
 	var $querynum = 0;
 	var $drivertype = 'mysqli';
@@ -833,9 +708,12 @@ class dbstuffi {
 	var $time;
 	var $tablepre;
 
-	function connect($dbhost, $dbuser, $dbpw, $dbname = '', $dbcharset, $pconnect = 0, $tablepre='', $time = 0) {
+	function connect($dbhost, $dbuser, $dbpw, $dbname = '', $dbcharset = '', $pconnect = 0, $tablepre='', $time = 0) {
 		$this->time = $time;
 		$this->tablepre = $tablepre;
+
+		mysqli_report(MYSQLI_REPORT_OFF);
+
 		$this->link = new mysqli();
 		if(!$this->link->real_connect($dbhost, $dbuser, $dbpw, $dbname)) {
 			return FALSE;
@@ -892,11 +770,11 @@ class dbstuffi {
 	}
 
 	function error() {
-		return (($this->link) ? $this->link->error : mysqli_error());
+		return $this->link->error;
 	}
 
 	function errno() {
-		return intval(($this->link) ? $this->link->errno : mysqli_errno());
+		return $this->link->errno;
 	}
 
 	function result($query, $row) {

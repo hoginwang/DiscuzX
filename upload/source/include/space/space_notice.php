@@ -27,13 +27,11 @@ $multi = '';
 if(empty($_G['member']['category_num']['manage']) && !in_array($_G['adminid'], array(1,2,3))) {
 	unset($_G['notice_structure']['manage']);
 }
-$view = (!empty($_GET['view']) && (isset($_G['notice_structure'][$_GET[view]]) || in_array($_GET['view'], array('userapp'))))?$_GET['view']:'mypost';
+$view = (!empty($_GET['view']) && (isset($_G['notice_structure'][$_GET['view']]))) ? $_GET['view'] : 'all';
 $actives = array($view=>' class="a"');
 $opactives[$view] = 'class="a"';
 $categorynum = $newprompt = array();
-if($view == 'userapp') {
-
-} else {
+if($view) {
 
 	if(!empty($_GET['ignore'])) {
 		C::t('home_notification')->ignore($_G['uid']);
@@ -99,9 +97,6 @@ if($view == 'userapp') {
 		C::t('home_notification')->ignore($_G['uid'], $type, $category, true, true);
 	}
 	helper_notification::update_newprompt($_G['uid'], ($type ? $type : $category));
-	if($_G['setting']['my_app_status']) {
-		$mynotice = C::t('common_myinvite')->count_by_touid($_G['uid']);
-	}
 	if($_G['member']['newprompt']) {
 		$recountprompt = 0;
 		foreach($_G['member']['category_num'] as $promptnum) {
@@ -117,7 +112,7 @@ if($view == 'userapp') {
 
 
 }
-dsetcookie('promptstate_'.$_G['uid'], $newprompt, 31536000);
+dsetcookie('promptstate_'.$_G['uid'], '', 31536000);
 include_once template("diy:home/space_notice");
 
 ?>

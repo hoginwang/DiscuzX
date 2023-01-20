@@ -1,0 +1,10 @@
+<!--{template common/header}-->
+
+<!--{if $_GET['op'] == 'buy'}-->
+<!--{subtemplate home/spacecp_credit_buy}-->
+<!--{elseif $_GET['op'] == 'base'}-->
+<!--{eval dheader('Location: home.php?mod=spacecp&ac=credit&op=log');}-->
+<!--{/if}-->
+
+
+<!--{template common/footer}-->

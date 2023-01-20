@@ -20,9 +20,9 @@ if(empty($_GET['updated'])) {
 	}
 }
 
-$setting = C::t('common_setting')->fetch_all(array('mobilewechat', 'mobile'));
-$mobilesetting = (array)unserialize($setting['mobile']);
-$setting = (array)unserialize($setting['mobilewechat']);
+$setting = C::t('common_setting')->fetch_all_setting(array('mobilewechat', 'mobile'));
+$mobilesetting = (array)dunserialize($setting['mobile']);
+$setting = (array)dunserialize($setting['mobilewechat']);
 
 require_once DISCUZ_ROOT.'./source/plugin/wechat/wechat.lib.class.php';
 require_once DISCUZ_ROOT.'./source/plugin/wechat/wsq.class.php';
@@ -45,7 +45,7 @@ if(!empty($_GET['recheck'])) {
 if(!submitcheck('settingsubmit')) {
 
 	if($setting['wsq_siteid']) {
-		if(in_array('plugin', $_G['setting']['rewritestatus'])) {
+		if(is_array($_G['setting']['rewritestatus']) && in_array('plugin', $_G['setting']['rewritestatus'])) {
 			$url = $_G['siteurl'].rewriteoutput('plugin', 1, 'wechat', 'access');
 		} else {
 			$url = $_G['siteurl'].'plugin.php?id=wechat:access';

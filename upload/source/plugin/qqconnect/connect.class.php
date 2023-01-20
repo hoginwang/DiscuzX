@@ -18,9 +18,7 @@ class plugin_qqconnect_base {
 
 	function init() {
 		global $_G;
-		if(!defined('IN_MOBILE')) {
-			include_once template('qqconnect:module');
-		}
+		include_once template('qqconnect:module');
 		if(!$_G['setting']['connect']['allow'] || $_G['setting']['bbclosed']) {
 			return;
 		}
@@ -77,7 +75,7 @@ class plugin_qqconnect extends plugin_qqconnect_base {
 
 	var $allow = false;
 
-	function plugin_qqconnect() {
+	function __construct() {
 		$this->init();
 	}
 
@@ -266,7 +264,7 @@ class mobileplugin_qqconnect extends plugin_qqconnect_base {
 
 	var $allow = false;
 
-	function mobileplugin_qqconnect() {
+	function __construct() {
 		global $_G;
 		if(!$_G['setting']['connect']['allow'] || $_G['setting']['bbclosed']) {
 			return;

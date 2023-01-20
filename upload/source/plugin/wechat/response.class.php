@@ -227,7 +227,7 @@ class WSQResponse {
 		'res_errorcount' => $data['errorcount'],
 		'res_finish_at' => $data['time']
 	    );
-	    DB::update('mobile_wechat_masssend', $updatedata, "msg_id='$data[msg_id]'");
+	    DB::update('mobile_wechat_masssend', $updatedata, "msg_id='{$data['msg_id']}'");
 	}
 
 	private static function _checkrobot() {
@@ -237,7 +237,7 @@ class WSQResponse {
 	private static function _init() {
 		global $_G;
 		if(!$_G['wechat']['setting']) {
-			$_G['wechat']['setting'] = unserialize($_G['setting']['mobilewechat']);
+			$_G['wechat']['setting'] = dunserialize($_G['setting']['mobilewechat']);
 		}
 	}
 

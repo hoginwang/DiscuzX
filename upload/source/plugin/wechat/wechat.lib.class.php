@@ -108,7 +108,7 @@ class WeChatServer {
 			case 'voice':
 				$result['mid'] = (string) $postObj->MediaId;
 				$result['format'] = (string) $postObj->Format;
-				if (property_exists($postObj, Recognition)) {
+				if (property_exists($postObj, 'Recognition')) {
 					$result['txt'] = (string) $postObj->Recognition;
 				}
 				break;
@@ -119,7 +119,7 @@ class WeChatServer {
 
 					case 'subscribe':
 					case 'scan':
-						if (property_exists($postObj, EventKey)) {
+						if (property_exists($postObj, 'EventKey')) {
 							$result['key'] = str_replace(
 								'qrscene_', '', (string) $postObj->EventKey
 							);
@@ -611,7 +611,7 @@ class WeChatClient {
 
 	public function sendMusic($to, $url, $thumb_mid, $title, $desc = '', $hq_url = '') {
 		return $this->_send($to, 'music', array(
-			    'media_id' => $mid,
+			    'media_id' => null,
 			    'title' => $title,
 			    'description' => $desc || $title,
 			    'musicurl' => $url,
@@ -622,21 +622,17 @@ class WeChatClient {
 
 	static private function _filterForRichMsg($articles) {
 		$i = 0;
-		$ii = len($articles);
+		$ii = is_array($articles) ? count($articles) : 0;
 		$list = array('title', 'desc', 'url', 'thumb_url');
 		$result = array();
 		while ($i < $ii) {
 			$currentArticle = $articles[$i++];
-			try {
-				array_push($result, array(
-				    'title' => $currentArticle['title'],
-				    'description' => $currentArticle['desc'],
-				    'url' => $currentArticle['url'],
-				    'picurl' => $currentArticle['thumb_url']
-				));
-			} catch (Exception $e) {
-
-			}
+			array_push($result, array(
+				'title' => $currentArticle['title'],
+				'description' => $currentArticle['desc'],
+				'url' => $currentArticle['url'],
+				'picurl' => $currentArticle['thumb_url']
+			));
 		}
 		return $result;
 	}
@@ -845,7 +841,7 @@ class WeChatClient {
 	}
 
 	public static function getQrcodeImgByTicket($ticket) {
-		return self::get($this->getQrcodeImgUrlByTicket($ticket));
+		return self::get(self::getQrcodeImgUrlByTicket($ticket));
 	}
 
 	public static function getQrcodeImgUrlByTicket($ticket) {
@@ -918,7 +914,7 @@ class WeChatHook {
 
 	public static function updateAppInfo($extId, $appId = '', $appSecret = '') {
 		global $_G;
-		$wechatappInfos = unserialize($_G['setting']['wechatappInfos']);
+		$wechatappInfos = dunserialize($_G['setting']['wechatappInfos']);
 		if ($appId) {
 			$wechatappInfos[$extId] = array('appId' => $appId, 'appSecret' => $appSecret);
 		} else {
@@ -931,7 +927,7 @@ class WeChatHook {
 
 	public static function getAppInfo($extId) {
 		global $_G;
-		$wechatappInfos = unserialize($_G['setting']['wechatappInfos']);
+		$wechatappInfos = dunserialize($_G['setting']['wechatappInfos']);
 		if (isset($wechatappInfos[$extId])) {
 			return $wechatappInfos[$extId];
 		} else {
@@ -954,7 +950,7 @@ class WeChatHook {
 			$settings = array('wechatresponse' => serialize($response));
 		} else {
 			global $_G;
-			$wechatresponseExts = unserialize($_G['setting']['wechatresponseExts']);
+			$wechatresponseExts = dunserialize($_G['setting']['wechatresponseExts']);
 			if ($data) {
 				$wechatresponseExts[$extId] = $response;
 			} else {
@@ -970,9 +966,9 @@ class WeChatHook {
 	public static function getResponse($extId = '') {
 		global $_G;
 		if (!$extId) {
-			return unserialize($_G['setting']['wechatresponse']);
+			return dunserialize($_G['setting']['wechatresponse']);
 		} else {
-			$wechatresponseExts = unserialize($_G['setting']['wechatresponseExts']);
+			$wechatresponseExts = dunserialize($_G['setting']['wechatresponseExts']);
 			return $wechatresponseExts[$extId];
 		}
 	}
@@ -987,7 +983,7 @@ class WeChatHook {
 
 	public static function getRedirect() {
 		global $_G;
-		return unserialize($_G['setting']['wechatredirect']);
+		return dunserialize($_G['setting']['wechatredirect']);
 	}
 
 	public static function getViewPluginId() {
@@ -1027,7 +1023,7 @@ class WeChatHook {
 
 	public static function getAPIHook($getplugin = '') {
 		global $_G;
-		$data = unserialize($_G['setting']['mobileapihook']);
+		$data = dunserialize($_G['setting']['mobileapihook']);
 		if (!$getplugin) {
 			return $data;
 		} else {
@@ -1067,7 +1063,7 @@ class WeChatHook {
 
 	public static function getPluginUrl($pluginid, $param = array()) {
 		global $_G;
-		if (in_array('plugin', $_G['setting']['rewritestatus'])) {
+		if (is_array($_G['setting']['rewritestatus']) && in_array('plugin', $_G['setting']['rewritestatus'])) {
 			$url = $_G['siteurl'] . rewriteoutput('plugin', 1, 'wechat', 'access') . '?';
 		} else {
 			$url = $_G['siteurl'] . 'plugin.php?id=wechat:access&';

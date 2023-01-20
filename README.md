@@ -13,7 +13,7 @@ Discuz! X 官方 Git (https://gitee.com/Discuz/DiscuzX) ，简体中文 UTF8 版
 ### **发布版下载**
 [点击下载发布版](https://gitee.com/Discuz/DiscuzX/attach_files) 
 |
-[备用下载地址](https://www.dismall.com/thread-73-1-1.html)
+[备用下载地址](https://www.dismall.com/thread-14660-1-1.html)
 
 ### **免费协助安装** 
 
