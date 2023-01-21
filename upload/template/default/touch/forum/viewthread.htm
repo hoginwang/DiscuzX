@@ -237,24 +237,31 @@ $multipage
 </div>
 <div class="foot_height_view"></div>
 <script type="text/javascript">
-	$('.favbtn').on('click', function() {
-		var obj = $(this);
-		$.ajax({
-			type:'POST',
-			url:obj.attr('href') + '&handlekey=favbtn&inajax=1',
-			data:{'favoritesubmit':'true', 'formhash':'{FORMHASH}'},
-			dataType:'xml',
-		})
-		.success(function(s) {
-			popup.open(s.lastChild.firstChild.nodeValue);
-			evalscript(s.lastChild.firstChild.nodeValue);
-		})
-		.error(function() {
-			window.location.href = obj.attr('href');
-			popup.close();
+	var btns = qSelA('.favbtn');
+	for (var i = 0; i < btns.length; i++) {
+		btns[i].addEventListener('click', function(e) {
+			e.preventDefault();
+			var obj = this;
+			var xhr = new XMLHttpRequest();
+			xhr.open('POST', obj.getAttribute('href') + '&handlekey=favbtn&inajax=1');
+			xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+			xhr.onload = function() {
+				if (xhr.readyState === 4 && xhr.status === 200) {
+					var s = xhr.responseXML;
+					if (typeof(s) == undefined) {
+						window.location.href = obj.getAttribute('href');
+					} else {
+						popup.open(s.lastChild.firstChild.nodeValue);
+						evalscript(s.lastChild.firstChild.nodeValue);
+					}
+				} else {
+					window.location.href = obj.getAttribute('href');
+					popup.close();
+				}
+			};
+			xhr.send('favoritesubmit=true&formhash={FORMHASH}');
 		});
-		return false;
-	});
+	}
 </script>
 <a href="javascript:;" title="{lang scrolltop}" class="scrolltop bottom"></a>
 <!--{eval $nofooter = true;}-->

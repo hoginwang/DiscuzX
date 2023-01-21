@@ -162,7 +162,7 @@
 					<!--{/loop}-->
 				<!--{/if}-->
 				var pwlength = <!--{if $_G['setting']['pwlength']}-->$_G['setting']['pwlength']<!--{else}-->0<!--{/if}-->;
-				checkPwdComplexity($('newpassword'), $('newpassword2'), true);
+				checkPwdComplexity(getID('newpassword'), getID('newpassword2'), true);
 			</script>
 			<!--{if $_G['setting']['smsstatus']}-->
 			<script type="text/javascript">

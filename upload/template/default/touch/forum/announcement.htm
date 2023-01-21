@@ -32,32 +32,21 @@
 	</ul>	
 </div>
 <script>
-	if($("#dhnav_li .mon").length > 0) {
-		var discuz_nav = $("#dhnav_li .mon").offset().left + $("#dhnav_li .mon").width() >= $(window).width() ? $("#dhnav_li .mon").index() : 0;
-	}else{
-		var discuz_nav = 0;
-	}	
-	mySwiper = new Swiper('#dhnav_li', {
-		freeMode : true,
-		slidesPerView : 'auto',
-		initialSlide : discuz_nav,
-		onTouchMove: function(swiper){
-			Discuz_Touch_on = 0;
-		},
-		onTouchEnd: function(swiper){
-			Discuz_Touch_on = 1;
-		},
+var elements = qSelA('.ann_more');
+elements.forEach(function(elem) {
+	elem.addEventListener('click', function() {
+		var obj = elem;
+		var sub_obj = getID(obj.id + '_box');
+		if (sub_obj.style.display === 'none') {
+			sub_obj.style.display = 'block';
+			obj.querySelector('i').classList.remove('dm-c-right');
+			obj.querySelector('i').classList.add('dm-c-down');
+		} else {
+			sub_obj.style.display = 'none';
+			obj.querySelector('i').classList.remove('dm-c-down');
+			obj.querySelector('i').classList.add('dm-c-right');
+		}
 	});
-$('.ann_more').on('click', function() {
-	var obj = $(this);
-	var sub_obj = $('#' + obj.attr('id') + '_box');
-	if(sub_obj.css('display') == 'none') {
-		sub_obj.css('display', 'block');
-		obj.find('i').removeClass().addClass('dm-c-down');
-	} else {
-		sub_obj.css('display', 'none');
-		obj.find('i').removeClass().addClass('dm-c-right');
-	}
 });
 </script>
 <!--{eval $nofooter = true;}-->

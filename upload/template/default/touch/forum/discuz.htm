@@ -121,19 +121,25 @@
 		window.onload = function() {
 			var tabsSwiper = new Swiper('#tabs-box', {
 				speed: 500,
-				on: {
-					slideChangeTransitionStart: function() {
-						$(".tabs .mon").removeClass('mon');
-						$(".tabs a").eq(this.activeIndex).addClass('mon');
-					}
+			});
+			tabsSwiper.on('slideChangeTransitionStart', function () {
+				var tabs = qSelA(".tabs a");
+				for (var i = 0; i < tabs.length; i++) {
+					tabs[i].classList.remove("mon");
 				}
-			})
-			$(".tabs a").on('click', function(e) {
-				e.preventDefault()
-				$(".tabs .mon").removeClass('mon')
-				$(this).addClass('mon')
-				tabsSwiper.slideTo($(this).index())
-			})
+				tabs[this.activeIndex].classList.add("mon");
+			});
+			qSelA('.tabs a').forEach(function(item) {
+				item.addEventListener('click', function(e) {
+					if(Array.from(qSelA(".tabs a")).indexOf(this) == 4) {
+						location.href = this.href;
+					}
+					e.preventDefault();
+					qSel('.tabs .mon').classList.remove('mon');
+					this.classList.add('mon');
+					tabsSwiper.slideTo(Array.from(qSelA(".tabs a")).indexOf(this));
+				});
+			});
 		}
 		</script>
 		<!--{/if}-->
@@ -185,20 +191,28 @@
 		<script type="text/javascript">
 			(function() {
 				<!--{if !$_G['setting']['mobile']['forum']['forumview']}-->
-					$('.sub-forum').css('display', 'block');
+					qSelA('.sub-forum').forEach(function(el) {
+						el.style.display = 'block';
+					});
 				<!--{else}-->
-					$('.sub-forum').css('display', 'none');
+					qSelA('.sub-forum').forEach(function(el) {
+						el.style.display = 'none';
+					});
 				<!--{/if}-->
-				$('.subforumshow').on('click', function() {
-					var obj = $(this);
-					var subobj = $(obj.attr('href'));
-					if(subobj.css('display') == 'none') {
-						subobj.css('display', 'block');
-						obj.find('i').removeClass().addClass('dm-minus-c');
-					} else {
-						subobj.css('display', 'none');
-						obj.find('i').removeClass().addClass('dm-plus-c');
-					}
+				qSelA('.subforumshow').forEach(function(el) {
+					el.addEventListener('click', function(event) {
+						event.preventDefault();
+						var subobj = qSel(el.getAttribute('href'));
+						if (subobj.style.display === 'none') {
+							subobj.style.display = 'block';
+							el.querySelector('i').classList.remove('dm-plus-c');
+							el.querySelector('i').classList.add('dm-minus-c');
+						} else {
+							subobj.style.display = 'none';
+							el.querySelector('i').classList.remove('dm-minus-c');
+							el.querySelector('i').classList.add('dm-plus-c');
+						}
+					});
 				});
 			 })();
 		</script>

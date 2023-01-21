@@ -62,10 +62,10 @@
 </form>
 <script type="text/javascript">
 	(function() {
-		$('#amount').on('input',function() {
-			var amount = $('#amount').val().replace(/^0/, '');
+		qSel('#amount').addEventListener('input', function() {
+			var amount = this.value.replace(/^0/, '');
 			amount = parseInt(amount);
-			$('#desamount').html(!isNaN(amount) ? amount * $_G['setting']['inviteconfig']['invitecodeprice'] : 0);
+			qSel('#desamount').innerHTML = !isNaN(amount) ? amount * $_G['setting']['inviteconfig']['invitecodeprice'] : 0;
 		});
 	})();
 </script>

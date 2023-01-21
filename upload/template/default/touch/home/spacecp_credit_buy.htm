@@ -61,18 +61,23 @@
 
 <script type="text/javascript">
 	(function() {
-		$('#addfundamount').on('input',function() {
-			var addfundamount = parseInt($(this).val().replace(/^0/,''));
-			$('#desamount').html(!isNaN(addfundamount) ? Math.ceil(((addfundamount / $_G['setting']['ec_ratio']) * 100)) / 100 : 0);
+		qSel("#addfundamount").addEventListener("input", function() {
+			var addfundamount = parseInt(this.value.replace(/^0/, ''));
+			qSel("#desamount").innerHTML = !isNaN(addfundamount) ? Math.ceil(((addfundamount / $_G['setting']['ec_ratio']) * 100)) / 100 : 0;
 		});
-		$('#buy_tabs a').click(function() {
-			if($(this).hasClass('mon')) return;
-			var current = $(this).siblings('.mon');
-			current.removeClass('mon')
-			$(current.data('id')).hide();
-			$(this).addClass('mon');
-			$($(this).data('id')).show();
-		});
+		var buy_tabs = qSelA("#buy_tabs a");
+		for (var i = 0; i < buy_tabs.length; i++) {
+			buy_tabs[i].addEventListener("click", function() {
+				if (this.classList.contains('mon')) {
+					return;
+				}
+				var current = this.parentNode.querySelector('.mon');
+				current.classList.remove('mon');
+				qSel(current.dataset.id).style.display = 'none';
+				this.classList.add('mon');
+				qSel(this.dataset.id).style.display = 'block';
+			});
+		}
 	})();
 </script>
 <!--{hook/spacecp_credit_bottom}-->

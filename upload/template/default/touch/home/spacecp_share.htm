@@ -42,7 +42,7 @@
 			<p>{lang description}:</p>
 			<p class="mtn mbm"><textarea id="share_general" name="general" cols="30" rows="3" class="pt" onkeydown="ctrlEnter(event, 'sharesubmit_btn')">$generaldefault</textarea></p>
 			<!--{if $type == 'thread'}-->
-				<p><a href="javascript:;" onclick="setCopy($('share_general').value + '\n ' + $('share_link').value, '{lang share_copylink}')" />{lang share_im}</a></p>
+				<p><a href="javascript:;" onclick="setCopy(getID('share_general').value + '\n ' + getID('share_link').value, '{lang share_copylink}')" />{lang share_im}</a></p>
 			<!--{/if}-->
 			<!--{if $secqaacheck || $seccodecheck}-->
 				<!--{block sectpl}--><sec> <span id="sec<hash>" class="secq" onclick="showMenu({'ctrlid':this.id,'win':'{$_GET[handlekey]}'})"><sec></span><div id="sec<hash>_menu" class="p_pop p_opt" style="display:none"><sec></div><!--{/block}-->

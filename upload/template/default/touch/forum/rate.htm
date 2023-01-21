@@ -49,8 +49,11 @@
 			</label>
 		</ul>
 		<script>
-			$(document).on('change', '.select_change', function(){
-				$('[for="' + $(this).attr('id')+'_change"]').val($(this).find('option:selected').val());
+			qSelA('.select_change').forEach(function(el) {
+				el.addEventListener('change', function() {
+					var changeEl = qSel('[for="' + this.id + '_change"]');
+					changeEl.value = this.options[this.selectedIndex].value;
+				});
 			});
 		</script>
 		<button name="ratesubmit" type="submit" value="true" class="pn pnc"><span>{lang confirms}</span></button>

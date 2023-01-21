@@ -36,9 +36,9 @@
 				var dailyprice = $group[dailyprice];
 				function change_credits_need(daynum) {
 					if(!isNaN(parseInt(daynum))) {
-						$('credits_need').innerHTML = parseInt(daynum) * dailyprice;
+						getID('credits_need').innerHTML = parseInt(daynum) * dailyprice;
 					} else {
-						$('credits_need').innerHTML = '0';
+						getID('credits_need').innerHTML = '0';
 					}
 				}
 				change_credits_need($group[minspan]);

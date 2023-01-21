@@ -58,9 +58,14 @@
 
 <script type="text/javascript">
 	(function() {
-		$('.pay-channel-list .dzcell-item').click(function() {
-			$(this).find('input').prop('checked', true);
-		});
+		var payChannelList = document.getElementsByClassName('pay-channel-list')[0];
+		var dzcellItem = payChannelList.getElementsByClassName('dzcell-item');
+		for (var i = 0; i < dzcellItem.length; i++) {
+			dzcellItem[i].addEventListener('click', function() {
+				var input = this.querySelector('input');
+				input.checked = true;
+			});
+		}
 	})();
 </script>
 

@@ -13,6 +13,8 @@ $_G['setting']['seohead']
 <script type="text/javascript">var STYLEID = '{STYLEID}', STATICURL = '{STATICURL}', IMGDIR = '{IMGDIR}', VERHASH = '{VERHASH}', charset = '{CHARSET}', discuz_uid = '{$_G['uid']}', cookiepre = '{$_G['config']['cookie']['cookiepre']}', cookiedomain = '{$_G['config']['cookie']['cookiedomain']}', cookiepath = '{$_G['config']['cookie']['cookiepath']}', showusercard = '{$_G['setting']['showusercard']}', attackevasive = '{$_G['config']['security']['attackevasive']}', disallowfloat = '{$_G['setting']['disallowfloat']}', creditnotice = '<!--{if $_G['setting']['creditnotice']}-->$_G['setting']['creditnames']<!--{/if}-->', defaultstyle = '$_G['style']['defaultextstyle']', REPORTURL = '$_G['currenturl_encode']', SITEURL = '$_G['siteurl']', JSPATH = '$_G['setting']['jspath']';</script>
 <link rel="stylesheet" href="{STATICURL}image/mobile/style.css?{VERHASH}" type="text/css" media="all">
 <link rel="stylesheet" href="{STATICURL}image/mobile/font/dzmicon.css?{VERHASH}" type="text/css" media="all">
+<!-- jQuery 1.12.4 已经不再维护并存在安全风险, 目前正在替换所有 jQuery 调用为原生调用, 请主线开发者使用原生 JavaScript 撰写新增代码. -->
+<!-- 此处的 jQuery 为版本兼容和附件上传而保留, 后续版本有可能删除. 请插件开发者尽量使用原生 JavaScript 撰写代码, 如果依赖 jQuery 请自行携带并避免冲突. -->
 <script src="{STATICURL}js/mobile/jquery.min.js?{VERHASH}"></script>
 <script src="{STATICURL}js/mobile/common.js?{VERHASH}" charset="{CHARSET}"></script>
 <script src="{STATICURL}js/swiper/swiper-bundle.min.js?{VERHASH}"></script>

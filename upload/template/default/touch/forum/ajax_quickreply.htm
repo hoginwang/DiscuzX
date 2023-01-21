@@ -49,13 +49,13 @@
 		x.get('forum.php?mod=ajax&action=getpost&inajax=1&tid='+values.tid+'&fid='+values.fid+'&pid='+values.pid, function(s){
 			newli = document.createElement("li");
 			newli.innerHTML = s;
-			var ulObj = $('newreply_'+values.tid+'_{$_GET['feedid']}');
+			var ulObj = qSel('newreply_'+values.tid+'_{$_GET['feedid']}');
 			ulObj.insertBefore(newli, ulObj.firstChild);
-			$('postmessage_{$_GET['tid']}_{$_GET['feedid']}').value = '';
+			qSel('postmessage_{$_GET['tid']}_{$_GET['feedid']}').value = '';
 			if(values.sechash) {
 				updatesecqaa(values.sechash);
 				updateseccode(values.sechash);
-				$('seccodeverify_'+values.sechash).value='';
+				qSel('seccodeverify_'+values.sechash).value='';
 			}
 		});
 		
