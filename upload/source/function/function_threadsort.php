@@ -386,7 +386,7 @@ function threadsortshow($sortid, $tid) {
 	if($sortoptionarray) {
 
 		foreach(C::t('forum_typeoptionvar')->fetch_all_by_tid_optionid($tid) as $option) {
-			$optiondata[$option['optionid']]['value'] = $option['value'];
+			$optiondata[$option['optionid']]['value'] = stripslashes($option['value']);
 			$optiondata[$option['optionid']]['expiration'] = $option['expiration'] && $option['expiration'] <= TIMESTAMP ? 1 : 0;
 			$sortdataexpiration = $option['expiration'];
 		}
@@ -617,7 +617,7 @@ function threadsort_optiondata($pid, $sortid, $sortoptionarray, $templatearray) 
 
 	if($id) {
 		foreach(C::t('forum_typeoptionvar')->fetch_all_by_tid_optionid($id) as $option) {
-			$_G['forum_optiondata'][$option['optionid']] = $option['value'];
+			$_G['forum_optiondata'][$option['optionid']] = stripslashes($option['value']);
 			$_G['forum_optiondata']['expiration'] = $option['expiration'];
 		}
 	}
