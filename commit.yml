@@ -3,33 +3,18 @@ branches: {
   }
 fileChange:
   /upload:
-    newFile: !uuid '6aae9430048661001151d88ff693681376d85f98'
-    oldFile: !uuid 'f425fd2af01679e88f6f1607d97c0c574591c898'
+    newFile: !uuid '5e3e121bf65301b1082a7f1d8c18b895bfef783f'
+    oldFile: !uuid '6aae9430048661001151d88ff693681376d85f98'
   /upload/source:
-    newFile: !uuid 'efc97b31adad086c0c98dca8318ad6ae57c6364d'
-    oldFile: !uuid '2e98c9c4f4f33460736be2b49d81aaa959a4b520'
-  /upload/source/plugin:
-    newFile: !uuid '8507a29d74d1bddae6698149790c29717bd87e53'
-    oldFile: !uuid 'ecd43ae0d691b3ab929c685a564e1090827f6d47'
-  /upload/source/plugin/mobile:
-    newFile: !uuid '89f3a3460552214719082bcf5d3d0181c950c42f'
-    oldFile: !uuid 'c503b3dd6e91d284eff53cbe0753ac62c059f414'
-  /upload/source/plugin/mobile/template:
-    newFile: !uuid 'dd1757e2b7bc023bb39fc7200da215f8c430ef8e'
-    oldFile: !uuid '07ed82661a4048d197feaec2d4924c5048ae3b29'
-  /upload/source/plugin/mobile/template/touch:
-    newFile: !uuid 'f6915af755fa818b24585477cea6d63b2b9bf515'
-    oldFile: null
-  /upload/source/plugin/mobile/template/touch/discuzcode.htm:
-    newFile: !uuid '764b7388a394c83c46ce46c892c9440548d195d5'
-    oldFile: null
-  /upload/source/plugin/mobile/template/touch/index.htm:
-    newFile: !uuid 'e69de29bb2d1d6434b8b29ae775ad8c2e48c5391'
-    oldFile: null
-  /upload/source/plugin/mobile/template/touch/register.htm:
-    newFile: !uuid '63587ad63c6d9a18957fcde39580db9b40a95e8d'
-    oldFile: null
-gitCommitId: !uuid 'c0fb4106abcad00418d91d167f9829e4a0361431'
+    newFile: !uuid '59ed5b69e37da9396e8e9a8e575b7e95a9693da2'
+    oldFile: !uuid 'efc97b31adad086c0c98dca8318ad6ae57c6364d'
+  /upload/source/admincp:
+    newFile: !uuid 'c2cd87e0c2a3eacd1f37d5d2c2e39fc092228c36'
+    oldFile: !uuid 'e275ddfadb253362d3659c14acb4673099366f79'
+  /upload/source/admincp/admincp_portalcategory.php:
+    newFile: !uuid 'de8a4089ed4773abe26ae6e2024d7fe5803e72ac'
+    oldFile: !uuid '95863187942f311092f55681c76240335c057e5f'
+gitCommitId: !uuid '94de249f86592ba9dc66c0256f739628b8332b29'
 renames: {
   }
-revisionId: 970
+revisionId: 971
