@@ -3,21 +3,33 @@ branches: {
   }
 fileChange:
   /upload:
-    newFile: !uuid 'f425fd2af01679e88f6f1607d97c0c574591c898'
-    oldFile: !uuid 'f73e1d91741b65ecc8fd1fe70fa11596ded6ef81'
-  /upload/install:
-    newFile: !uuid 'a0b687a39a53f7cef35c7500042e4ee4d31c80c5'
-    oldFile: !uuid '14bacb164d7b2454a20b13d80945ef5687d69e30'
-  /upload/install/include:
-    newFile: !uuid '86e9040bd3de93b7bc7ecbf75aa9bb2a2d2c3bf2'
-    oldFile: !uuid 'cee91307c3952084617dc9d0789380f037ef84d2'
-  /upload/install/include/install_function.php:
-    newFile: !uuid '1bb373416d8bcb4ce149a555f31ac2baa8c4a554'
-    oldFile: !uuid '32b6dcab816dea61f7ab9bac24440e31fb351351'
-  /upload/install/index.php:
-    newFile: !uuid '40b916fd09c274bb061c33fa41506fc76f8936eb'
-    oldFile: !uuid 'c5d9f4990c5ce123179cacfce387b952973a872e'
-gitCommitId: !uuid '07b714093ab7e68ed11adc3ce70868f288623d83'
+    newFile: !uuid '6aae9430048661001151d88ff693681376d85f98'
+    oldFile: !uuid 'f425fd2af01679e88f6f1607d97c0c574591c898'
+  /upload/source:
+    newFile: !uuid 'efc97b31adad086c0c98dca8318ad6ae57c6364d'
+    oldFile: !uuid '2e98c9c4f4f33460736be2b49d81aaa959a4b520'
+  /upload/source/plugin:
+    newFile: !uuid '8507a29d74d1bddae6698149790c29717bd87e53'
+    oldFile: !uuid 'ecd43ae0d691b3ab929c685a564e1090827f6d47'
+  /upload/source/plugin/mobile:
+    newFile: !uuid '89f3a3460552214719082bcf5d3d0181c950c42f'
+    oldFile: !uuid 'c503b3dd6e91d284eff53cbe0753ac62c059f414'
+  /upload/source/plugin/mobile/template:
+    newFile: !uuid 'dd1757e2b7bc023bb39fc7200da215f8c430ef8e'
+    oldFile: !uuid '07ed82661a4048d197feaec2d4924c5048ae3b29'
+  /upload/source/plugin/mobile/template/touch:
+    newFile: !uuid 'f6915af755fa818b24585477cea6d63b2b9bf515'
+    oldFile: null
+  /upload/source/plugin/mobile/template/touch/discuzcode.htm:
+    newFile: !uuid '764b7388a394c83c46ce46c892c9440548d195d5'
+    oldFile: null
+  /upload/source/plugin/mobile/template/touch/index.htm:
+    newFile: !uuid 'e69de29bb2d1d6434b8b29ae775ad8c2e48c5391'
+    oldFile: null
+  /upload/source/plugin/mobile/template/touch/register.htm:
+    newFile: !uuid '63587ad63c6d9a18957fcde39580db9b40a95e8d'
+    oldFile: null
+gitCommitId: !uuid 'c0fb4106abcad00418d91d167f9829e4a0361431'
 renames: {
   }
-revisionId: 969
+revisionId: 970
