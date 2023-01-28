@@ -241,7 +241,7 @@ if($operation == 'admin') {
 		showtips('styles_home_tips');
 		showformheader('styles');
 		showhiddenfields(array('updatecsscache' => 0));
-		showboxheader();
+		showboxheader('', 'nobottom');
 		echo $stylelist;
 		showboxfooter();
 		showtableheader();

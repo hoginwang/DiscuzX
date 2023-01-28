@@ -54,7 +54,6 @@ if(!submitcheck('modsubmit') && !$_GET['fast']) {
         );
 	showtablefooter();
 	showboxfooter();
-	showtableheader();
 
 	$title = '';
 	if(!empty($_GET['title'])) {
@@ -89,7 +88,11 @@ if(!submitcheck('modsubmit') && !$_GET['fast']) {
 		}
 		$multipage = multi($modcount, $tpp, $page, ADMINSCRIPT."?action=moderate&operation=threads&filter=$filter&modfid=$modfid&dateline={$_GET['dateline']}&username={$_GET['username']}&title={$_GET['title']}&tpp=$tpp&showcensor=$showcensor");
 	}
-	echo '<p class="margintop marginbot"><a href="javascript:;" onclick="expandall();">'.cplang('moderate_all_expand').'</a> &nbsp;<a href="javascript:;" onclick="foldall();">'.cplang('moderate_all_fold').'</a><p>';
+	showtableheader('', 'nobottom');
+	echo '<tr><td><p class="margintop marginbot"><a href="javascript:;" onclick="expandall();">'.cplang('moderate_all_expand').'</a> &nbsp;<a href="javascript:;" onclick="foldall();">'.cplang('moderate_all_fold').'</a></p></td></tr>';
+	showtablefooter();
+
+	showtableheader();
 	loadcache('forums');
 	require_once libfile('function/misc');
 	foreach($threadlist as $thread) {
