@@ -443,7 +443,7 @@ textarea {font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
 .cl:after { content: "."; display: block; height: 0; clear: both; visibility: hidden; }
 .cl { zoom: 1; }
 
-.preview { margin-bottom: 8px; width: 570px; height: 340px; border: 1px solid #09C; box-shadow: 3px 3px 3px #EEE; -moz-box-shadow: 3px 3px 3px #EEE; -webkit-box-shadow: 3px 3px 3px #EEE; -o-box-shadow: 3px 3px 3px #EEE; }
+.preview { margin-bottom: 8px; width: 1270px; height: 440px; border: 1px solid #09C; box-shadow: 3px 3px 3px #EEE; -moz-box-shadow: 3px 3px 3px #EEE; -webkit-box-shadow: 3px 3px 3px #EEE; -o-box-shadow: 3px 3px 3px #EEE; }
 
 
 /*气泡信息 by dfox */
