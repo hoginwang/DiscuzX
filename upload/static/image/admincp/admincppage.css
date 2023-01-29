@@ -220,8 +220,8 @@ textarea {font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
 	.correct, .fixed { padding-bottom: 1px; padding-left:18px; background:url(bg_repno.gif) no-repeat 0 -485px; *background:url(bg_repno.gif) no-repeat 0 -486px; color:#70B759; }
 	span.bignum { display: block; font-size: 36px; }
 		/* crons */
-		.crons{ width:200px; }
-		.crons .txt{ margin-bottom:3px; width:150px; }
+		.crons{ width:300px; }
+		.crons .txt{ margin-bottom:3px; width:250px; }
 
 	/* faqlist & boardlist */
 	.node, .board{ padding-left:55px; background:url(bg_repno.gif) no-repeat -240px -550px; }
