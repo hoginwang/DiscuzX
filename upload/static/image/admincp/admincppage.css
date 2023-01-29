@@ -426,7 +426,7 @@ textarea {font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
 .m_c .o { padding: 8px 10px; height: 50px; text-align: right; border-top: 1px solid #CCC; background: #F5F5F5; }
 .m_c .o .btn { margin: 0; }
 
-.flb { padding: 10px 10px 8px; height: 20px; line-height: 20px; }
+.flb { padding: 10px 10px 8px; height: 20px; line-height: 20px; box-sizing: unset;}
 	.flb em { float: left; font-weight: 700; color: #09C; }
 		.flb em a { text-decoration: none; }
 	.flb span { float: right; color: #999; }
