@@ -3,24 +3,24 @@ branches: {
   }
 fileChange:
   /upload:
-    newFile: !uuid 'b2519d5d176bd18628237fecf3dbd1742a1fde43'
-    oldFile: !uuid '60181035f2801ea643cb716f48734a19968c23e8'
-  /upload/source:
-    newFile: !uuid 'ebce8bb96001f6e6a790a0c23c88381fb554092d'
-    oldFile: !uuid '38d3d581f318f2e18ca2f551a2f6b74ae82a6e6d'
-  /upload/source/admincp:
-    newFile: !uuid '77709db5f6d5018ecc79b3c683dfdd8f1862c1ed'
-    oldFile: !uuid '296815bb0831e6cfe2baa4d4f8636559798f3087'
-  /upload/source/admincp/admincp_logs.php:
-    newFile: !uuid '63c93505d4fbe464666cb4abe1d541ac220eb144'
-    oldFile: !uuid '195909613e6efafcbb5d9f022e9d6d7db08a8ab2'
-  /upload/source/language:
-    newFile: !uuid 'd1565bacf662d9b1bcbfb4024e39d66b428a73bf'
-    oldFile: !uuid '5a03b64dbe465b1f374b5cf8f2156903de96c931'
-  /upload/source/language/lang_admincp.php:
-    newFile: !uuid 'b8215a1af88ab856cb653fc572ac50c56ddcadcd'
-    oldFile: !uuid '2c3cb20bca50567a5b3594fe54bebeb43afeab04'
-gitCommitId: !uuid '83bf3470956360b8fdc1e0a25d495bc6ca70bafb'
+    newFile: !uuid 'c0c05df3aead6ab2361a8bde4ea7607f87d7c363'
+    oldFile: !uuid 'b2519d5d176bd18628237fecf3dbd1742a1fde43'
+  /upload/template:
+    newFile: !uuid 'beb48ff244bd51f012b4a614280833141bca5f44'
+    oldFile: !uuid '988057ca9926792bf0830c950ed4f1d827f0d702'
+  /upload/template/default:
+    newFile: !uuid '0f4a04b189bc54911c63eee4d127dcbd6bf2d7ad'
+    oldFile: !uuid '4ff270387081636dc307eb874a08eabad482bc02'
+  /upload/template/default/touch:
+    newFile: !uuid 'b0a8e1695dac56c3965c1338752b73d9960c7e11'
+    oldFile: !uuid '66a12efb6343b76d6bef7ec705ff3d622774433b'
+  /upload/template/default/touch/member:
+    newFile: !uuid 'ebdf823c9e328acb6530079d3dc293f41d42e97b'
+    oldFile: !uuid 'af3fd71c48bd0da54f97470388d7afe7c7b823ec'
+  /upload/template/default/touch/member/register.htm:
+    newFile: !uuid '846fb19a8466bc894497b2e3b1d7b439fa491166'
+    oldFile: !uuid '74c7ee9c07d2abd144ac6f4aa4e5d7502ff4d5b1'
+gitCommitId: !uuid '015c44a3592bc18a02c5dd4687c11b18c95930f2'
 renames: {
   }
-revisionId: 983
+revisionId: 984
