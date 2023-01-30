@@ -730,7 +730,7 @@ EOD;
 
 } elseif($operation == 'error') {
 
-	showtablerow('class="header"', array('class="td23"', 'class=""'), array(
+	showtablerow('class="header"', array('class="td23" style="box-sizing: unset;"', 'style="box-sizing: unset;"'), array(
 		cplang('time'),
 		cplang('message'),
 	));
@@ -740,9 +740,9 @@ EOD;
 			continue;
 		}
 
-		showtablerow('', array('class="bold"'), array(
+		showtablerow('', array('class="bold" style="box-sizing: unset;"', 'style="box-sizing: unset;"'), array(
 			dgmdate($log[1], 'Y-m-d H:i:s'),
-			$log[2].'<br>'.$log[4].'<br>'.$log[5]
+			str_replace(' -> ', '<br>', $log[2]).'<br>'.$log[4].'<br>'.$log[5]
 		));
 
 	}
