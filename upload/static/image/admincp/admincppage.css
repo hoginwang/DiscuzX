@@ -112,7 +112,6 @@ textarea {font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
 	.tips a:hover, .tips2 a:hover, .tipsblock a:hover{ color:#09C; }
 
 @media (max-width: 575px) {
-	td.tips2 { display: none; }
 	.tb { overflow: auto; }
 }
 .tipbox { /* todo */ }
