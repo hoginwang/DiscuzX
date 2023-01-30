@@ -113,7 +113,7 @@ textarea {font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
 
 @media (max-width: 575px) {
 	td.tips2 { display: none; }
-	.tb { display: block; overflow: auto; }
+	.tb { overflow: auto; }
 }
 .tipbox { /* todo */ }
 .dbox { display: flex; flex-direction: column; background: #fff; margin-bottom: 20px; }
