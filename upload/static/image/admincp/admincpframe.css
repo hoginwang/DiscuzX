@@ -82,11 +82,12 @@ button::-moz-focus-inner { border: none; padding: 0; }
 	.oldlayout #topmenu li { padding-right: 2px; }
 	.oldlayout #frameuinfo>p.greet { max-width: 180px; }
 	.widelayout #frameuinfo>p.greet { max-width: 160px; }
+	.oldlayout #topmenu button { padding: 8px 10px; }
 	.widelayout #topmenu button { padding: 8px 5px; }
 	.widelayout .mainhd form input.txt:focus { width: 120px; }
 }
 @media (max-width: 1399px) {
-	.oldlayout #topmenu button { padding: 8px; }
+	.oldlayout #topmenu button { padding: 6px; }
 	.widelayout #topmenu button { padding: 8px 2px; }
 }
 /* end oldlayout */
