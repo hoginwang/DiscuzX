@@ -472,6 +472,10 @@ class block_thread extends discuz_block {
 		if($messagearr) {
 			foreach($messagearr as $tid => $var) {
 				$thread = $_G['block_thread'][$tid];
+				if($thread['price']) {
+					$language = lang('forum/misc');
+					$var = "[b]{$language['post_sold']}[/b]";
+				}
 				if($nospecial) {
 					$thread['special'] = 0;
 				}

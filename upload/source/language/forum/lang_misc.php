@@ -25,6 +25,7 @@ $lang = array
 	'sort_upload' => '上传',
   	'view_noperm' => '隐藏内容',
 	'post_hidden' => '**** 本内容被作者隐藏 ****',
+	'post_sold' => '**** 本内容购买后可见 ****',
 	'post_banned' => '**** 作者被禁止或删除 内容自动屏蔽 ****',
 	'post_single_banned' => '**** 该帖被屏蔽 ****',
 	'message_ishidden_hiddenreplies' => '此帖仅作者可见',
