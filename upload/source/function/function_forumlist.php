@@ -304,7 +304,7 @@ function recommendupdate($fid, &$modrecommend, $force = '', $position = 0) {
 				}
 			}
 			$recommendlist[] = $recommend;
-			if($recommend['typeid'] && count($recommendimagelist) < $imagenum) {
+			if($recommend['typeid'] && !empty($recommendimagelist)  && count($recommendimagelist) < $imagenum) {
 				$recommendimagelist[] = $recommend;
 			}
 		}
