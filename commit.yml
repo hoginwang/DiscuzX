@@ -3,18 +3,42 @@ branches: {
   }
 fileChange:
   /upload:
-    newFile: !uuid '480aa754579dcb2a871a5936c1ee9da33dd93f95'
-    oldFile: !uuid 'a4a6bed0895ff36e025753903cc5326d72251c1e'
-  /upload/source:
-    newFile: !uuid 'f0b6490ed03fd6bfea1e20a17996df5fe811bd60'
-    oldFile: !uuid '17d6dab3a0fede4ceb3f1cbb90c427a6048699f5'
-  /upload/source/function:
-    newFile: !uuid 'a2e24252162dc665b60b3a3dfd0eeea2ed8e570c'
-    oldFile: !uuid '78d6a6989442921bd7e79689f1d6874b56e135d6'
-  /upload/source/function/function_forumlist.php:
-    newFile: !uuid '2b56fbc8d761561d5ba0920c8499481229a7fe64'
-    oldFile: !uuid '3890e222d250398b00f8e042ca5c3d3b6605d4a8'
-gitCommitId: !uuid 'cf1b015633baa16191e6065c8cd6132f67b61f25'
+    newFile: !uuid '1f4ef80495174183314dbdebf07c9ed1b0525f6f'
+    oldFile: !uuid '480aa754579dcb2a871a5936c1ee9da33dd93f95'
+  /upload/template:
+    newFile: !uuid '8f22075079e96602ea5367dbe197461e30d8178c'
+    oldFile: !uuid '327dfdf838e668f34482ae5eba5af76315690f20'
+  /upload/template/default:
+    newFile: !uuid '376104207c089adbd35fa8a96f6dd473ed0da8d2'
+    oldFile: !uuid '2b6c02d2cf4dd291cd8f40975af09b85b30594b7'
+  /upload/template/default/touch:
+    newFile: !uuid 'dc3576b473ed7dc3e75d725a5c39e7c2e9e9c47a'
+    oldFile: !uuid '55421f5f6f2019d3a6d5953753a30229d88fa872'
+  /upload/template/default/touch/home:
+    newFile: !uuid '659e91ee4a3e50bfd744b20d493af443e422d8b0'
+    oldFile: !uuid '132aaa843df6787c453cc552a9943e1d5dd5946f'
+  /upload/template/default/touch/home/spacecp_credit_base.htm:
+    newFile: !uuid '1ac2d6b4ab4b91cef5d3052400d67682bff931cf'
+    oldFile: !uuid '5d10120d8a056a407565ae6d227107c38542bf56'
+  /upload/template/default/touch/home/spacecp_credit_buy.htm:
+    newFile: !uuid 'aa43fadda7247fd0171a4644be4a916f02026ec9'
+    oldFile: !uuid '97864fe541e89718dde4be3770374058d4ed6634'
+  /upload/template/default/touch/home/spacecp_credit_exchange.htm:
+    newFile: !uuid '25e216d4f14646e4f6cddd45c79c8fd8b05885fb'
+    oldFile: null
+  /upload/template/default/touch/home/spacecp_credit_header.htm:
+    newFile: !uuid 'a2984e3dbe4733f09b387c5cd0d181bbe4294248'
+    oldFile: !uuid 'dbf6f26e911714bd968a8f57efff4952549fc01a'
+  /upload/template/default/touch/home/spacecp_credit_log.htm:
+    newFile: !uuid '12110263aa383e7869b93c12a11832e63eaa5fd1'
+    oldFile: !uuid '8a17a2619725437d63c635389c8f31c776d6219c'
+  /upload/template/default/touch/home/spacecp_credit_rule.htm:
+    newFile: !uuid '652a92e68acc8f116b0162b7449b82bd4ba5bc9a'
+    oldFile: null
+  /upload/template/default/touch/home/spacecp_credit_transfer.htm:
+    newFile: !uuid '395b56de6c0289b1de8783db00d321937adee1e9'
+    oldFile: null
+gitCommitId: !uuid '8a5c588d927d8cef7842685fbd8695252fc839f7'
 renames: {
   }
-revisionId: 1015
+revisionId: 1016
