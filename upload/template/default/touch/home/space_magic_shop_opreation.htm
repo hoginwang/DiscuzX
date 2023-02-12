@@ -130,26 +130,26 @@
 	function compute() {
 		var totalcredit = <!--{echo getuserprofile('extcredits'.$magic['credit'])}-->;
 		var totalweight = $allowweight;
-		var magicprice = $('magicprice').innerHTML;
-		if($('discountprice')) {
-			magicprice = $('discountprice').innerHTML;
+		var magicprice = getID("magicprice").innerHTML;
+		if(getID("discountprice")) {
+			magicprice = getID("discountprice").innerHTML;
 		}
-		if(isNaN(parseInt($('magicnum').value))) {
-			$('magicnum').value = 0;
+		if(isNaN(parseInt(getID("magicnum").value))) {
+			getID("magicnum").value = 0;
 			return;
 		}
-		if(!$('magicnum').value || totalcredit < 1 || totalweight < 1) {
-			$('magicnum').value = 0;
+		if(!getID("magicnum").value || totalcredit < 1 || totalweight < 1) {
+			getID("magicnum").value = 0;
 			return;
 		}
-		var curprice = $('magicnum').value * magicprice;
-		var curweight = $('magicnum').value * $('magicweight').innerHTML;
+		var curprice = getID("magicnum").value * magicprice;
+		var curweight = getID("magicnum").value * getID("magicweight").innerHTML;
 		if(curprice > totalcredit) {
-			$('magicnum').value = parseInt(totalcredit / magicprice);
+			getID("magicnum").value = parseInt(totalcredit / magicprice);
 		} else if(curweight > totalweight) {
-			$('magicnum').value = parseInt(totalweight / $('magicweight').innerHTML);
+			getID("magicnum").value = parseInt(totalweight / getID("magicweight").innerHTML);
 		}
-		$('magicnum').value = parseInt($('magicnum').value);
+		getID("magicnum").value = parseInt(getID("magicnum").value);
 	}
 </script>
 

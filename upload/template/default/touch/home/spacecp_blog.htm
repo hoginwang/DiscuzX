@@ -41,7 +41,7 @@
 		<button type="button" name="btnsubmit" value="true" class="pn pnc" onclick="if(blogAddOption('newsort', '$_GET[oid]'))hideWindow('$_GET[handlekey]');"><strong>{lang create}</strong></button>
 	</p>
 	<script type="text/javascript">
-		$('newsort').focus();
+		getID('newsort').focus();
 	</script>
 
 <!--{elseif $_GET[op] == 'edithot'}-->
@@ -132,7 +132,7 @@
 			<script type="text/javascript">
 				function validate(obj) {
 					<!--{if $_G['setting']['blogcategorystat'] && $_G['setting']['blogcategoryrequired']}-->
-					var catObj = $("catid");
+					var catObj = getID("catid");
 					if(catObj) {
 						if (catObj.value < 1) {
 							alert("{lang select_system_cat}");
@@ -141,7 +141,7 @@
 						}
 					}
 					<!--{/if}-->
-					var makefeed = $('makefeed');
+					var makefeed = getID('makefeed');
 					if(makefeed) {
 						if(makefeed.checked == false) {
 							if(!confirm("{lang no_feed_notice}")) {
@@ -149,14 +149,14 @@
 							}
 						}
 					}
-					if($('seccode')) {
-						var code = $('seccode').value;
+					if(getID('seccode')) {
+						var code = getID('seccode').value;
 						var x = new Ajax();
 						x.get('home.php?mod=spacecp&ac=common&op=seccode&inajax=1&code=' + code, function(s){
 							s = trim(s);
 							if(s.indexOf('succeed') == -1) {
 								alert(s);
-								$('seccode').focus();
+								getID('seccode').focus();
 						   		return false;
 							} else {
 								edit_save();
@@ -176,8 +176,8 @@
 	</div>
 </div>
 <script type="text/javascript">
-if($('subject')) {
-	$('subject').focus();
+if(getID('subject')) {
+	getID('subject').focus();
 }
 </script>
 <!--{/if}-->

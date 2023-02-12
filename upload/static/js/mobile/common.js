@@ -1,6 +1,3 @@
-var supporttouch = "ontouchend" in document;
-!supporttouch && (window.location.href = 'forum.php?mobile=1');
-
 var platform = navigator.platform;
 var ua = navigator.userAgent;
 var ios = /iPhone|iPad|iPod/.test(platform) && ua.indexOf( "AppleWebKit" ) > -1;
@@ -110,49 +107,78 @@ var scrolltop = {
 var img = {
 	init : function(is_err_t) {
 		var errhandle = this.errorhandle;
-		$('img').on('load', function() {
-			var obj = $(this);
-			obj.attr('zsrc', obj.attr('src'));
-			if(obj.width() < 5 && obj.height() < 10 && obj.css('display') != 'none') {
-				return errhandle(obj, is_err_t);
-			}
-			obj.css('display', 'inline');
-			obj.css('visibility', 'visible');
-			if(obj.width() > window.innerWidth) {
-				obj.css('width', window.innerWidth);
-			}
-			obj.parent().find('.loading').remove();
-			obj.parent().find('.error_text').remove();
-		})
-		.on('error', function() {
-			var obj = $(this);
-			obj.attr('zsrc', obj.attr('src'));
-			errhandle(obj, is_err_t);
-		});
+		var images = qSelA("img");
+		for (var i = 0; i < images.length; i++) {
+			images[i].addEventListener("load", function() {
+				var obj = this;
+				obj.setAttribute("zsrc", obj.getAttribute("src"));
+				if (obj.width < 5 && obj.height < 10 && obj.style.display != "none") {
+					return errhandle(obj, is_err_t);
+				}
+				obj.style.display = "inline";
+				obj.style.visibility = "visible";
+				if (obj.width > window.innerWidth) {
+					obj.style.width = window.innerWidth + "px";
+				}
+				var parent = obj.parentNode;
+				var loading = parent.querySelector(".loading");
+				var error_text = parent.querySelector(".error_text");
+				if (loading) {
+					loading.remove();
+				}
+				if (error_text) {
+					error_text.remove();
+				}
+			});
+			images[i].addEventListener("error", function() {
+				var obj = this;
+				obj.setAttribute("zsrc", obj.getAttribute("src"));
+				errhandle(obj, is_err_t);
+			});
+		}
 	},
 	errorhandle : function(obj, is_err_t) {
-		if(obj.attr('noerror') == 'true') {
+		if (obj.getAttribute("noerror") == "true") {
 			return;
 		}
-		obj.css('visibility', 'hidden');
-		obj.css('display', 'none');
-		var parentnode = obj.parent();
-		parentnode.find('.loading').remove();
-		parentnode.append('<div class="loading" style="background:url('+ IMGDIR +'/imageloading.gif) no-repeat center center;width:'+parentnode.width()+'px;height:'+parentnode.height()+'px"></div>');
-		var loadnums = parseInt(obj.attr('load')) || 0;
-		if(loadnums < 3) {
-			obj.attr('src', obj.attr('zsrc'));
-			obj.attr('load', ++loadnums);
+		obj.style.visibility = "hidden";
+		obj.style.display = "none";
+		var parentnode = obj.parentNode;
+		var loading = parentnode.querySelector(".loading");
+		if (loading) {
+			loading.remove();
+		}
+		var error_text = parentnode.querySelector(".error_text");
+		if (error_text) {
+			error_text.remove();
+		}
+		var loadnums = parseInt(obj.getAttribute("load")) || 0;
+		if (loadnums < 3) {
+			obj.setAttribute("src", obj.getAttribute("zsrc"));
+			obj.setAttribute("load", ++loadnums);
 			return false;
 		}
-		if(is_err_t) {
-			var parentnode = obj.parent();
-			parentnode.find('.loading').remove();
-			parentnode.append('<div class="error_text">点击重新加载</div>');
-			parentnode.find('.error_text').one('click', function() {
-				obj.attr('load', 0).find('.error_text').remove();
-				parentnode.append('<div class="loading" style="background:url('+ IMGDIR +'/imageloading.gif) no-repeat center center;width:'+parentnode.width()+'px;height:'+parentnode.height()+'px"></div>');
-				obj.attr('src', obj.attr('zsrc'));
+		if (is_err_t) {
+			var div = document.createElement("div");
+			div.classList.add("loading");
+			div.style.background = "url('" + IMGDIR + "/imageloading.gif') no-repeat center center";
+			div.style.width = parentnode.offsetWidth + "px";
+			div.style.height = parentnode.offsetHeight + "px";
+			parentnode.appendChild(div);
+			var error_text = document.createElement("div");
+			error_text.classList.add("error_text");
+			error_text.textContent = "点击重新加载";
+			parentnode.appendChild(error_text);
+			error_text.addEventListener("click", function() {
+				obj.setAttribute("load", 0);
+				error_text.remove();
+				var div = document.createElement("div");
+				div.classList.add("loading");
+				div.style.background = "url('" + IMGDIR + "/imageloading.gif') no-repeat center center";
+				div.style.width = parentnode.offsetWidth + "px";
+				div.style.height = parentnode.offsetHeight + "px";
+				parentnode.appendChild(div);
+				obj.setAttribute("src", obj.getAttribute("zsrc"));
 			});
 		}
 		return false;
@@ -163,22 +189,24 @@ var POPMENU = new Object;
 var popup = {
 	init : function() {
 		var $this = this;
-		$('.popup').each(function(index, obj) {
-			obj = $(obj);
-			var pop = $(obj.attr('href'));
-			if(pop && pop.attr('popup')) {
-				pop.css({'display':'none'});
-				obj.on('click', function(e) {
+		var popups = qSelA(".popup");
+		for (var i = 0; i < popups.length; i++) {
+			var obj = popups[i];
+			var pop = qSel(obj.getAttribute("href"));
+			if (pop && pop.hasAttribute("popup")) {
+				pop.style.display = "none";
+				obj.addEventListener("click", function(e) {
 					$this.open(pop);
 					return false;
 				});
 			}
-		});
+		}
 		this.maskinit();
 	},
 	maskinit : function() {
 		var $this = this;
-		$('#mask').off().on('click', function() {
+		var mask = qSel("#mask");
+		mask.addEventListener("click", function() {
 			$this.close();
 		});
 	},
@@ -186,83 +214,142 @@ var popup = {
 	open : function(pop, type, url) {
 		this.close();
 		this.maskinit();
-		if(typeof pop == 'string') {
-			$('#ntcmsg').remove();
-			if(type == 'alert') {
-				pop = '<div class="tip"><dt>'+ pop +'</dt><dd><input class="button2" type="button" value="确定" onclick="popup.close();"></dd></div>'
-			} else if(type == 'confirm') {
-				pop = '<div class="tip"><dt>'+ pop +'</dt><dd><a class="button" href="'+ url +'">确定</a> <button onclick="popup.close();" class="button">取消</a></dd></div>'
+		if (typeof pop == "string") {
+			var ntcmsg = qSel("#ntcmsg");
+			if (ntcmsg) {
+				ntcmsg.parentNode.removeChild(ntcmsg);
 			}
-			$('body').append('<div id="ntcmsg" style="display:none;">'+ pop +'</div>');
-			pop = $('#ntcmsg');
+			if (type == "alert") {
+				pop = '<div class="tip"><dt>' + pop + '</dt><dd><input class="button2" type="button" value="确定" onclick="popup.close();"></dd></div>';
+			} else if (type == "confirm") {
+				pop = '<div class="tip"><dt>' + pop + '</dt><dd><a class="button" href="' + url + '">确定</a> <button onclick="popup.close();" class="button">取消</a></dd></div>';
+			}
+			var div = document.createElement("div");
+			div.setAttribute("id", "ntcmsg");
+			div.style.display = "none";
+			div.innerHTML = pop;
+			document.body.appendChild(div);
+			pop = qSel("#ntcmsg");
 		}
-		if(POPMENU[pop.attr('id')]) {
-			$('#' + pop.attr('id') + '_popmenu').html(pop.html()).css({'height':pop.height()+'px', 'width':pop.width()+'px'});
+		if (POPMENU[pop.getAttribute("id")]) {
+			qSel("#" + pop.getAttribute("id") + "_popmenu").innerHTML = pop.innerHTML;
+			if (pop.style.display == 'none') {
+				pop.style.display = '';
+				qSel("#" + pop.getAttribute("id") + "_popmenu").style.height = pop.offsetHeight + "px";
+				qSel("#" + pop.getAttribute("id") + "_popmenu").style.width = pop.offsetWidth + "px";
+				pop.style.display = 'none';
+			} else {
+				qSel("#" + pop.getAttribute("id") + "_popmenu").style.height = pop.offsetHeight + "px";
+				qSel("#" + pop.getAttribute("id") + "_popmenu").style.width = pop.offsetWidth + "px";
+			}
 		} else {
-			pop.parent().append('<div class="dialogbox" id="'+ pop.attr('id') +'_popmenu" style="height:'+ pop.height() +'px;width:'+ pop.width() +'px;">'+ pop.html() +'</div>');
+			var div = document.createElement("div");
+			div.classList.add("dialogbox");
+			div.setAttribute("id", pop.getAttribute("id") + "_popmenu");
+			if (pop.style.display == 'none') {
+				pop.style.display = '';
+				div.style.height = pop.offsetHeight + "px";
+				div.style.width = pop.offsetWidth + "px";
+				pop.style.display = 'none';
+			} else {
+				div.style.height = pop.offsetHeight + "px";
+				div.style.width = pop.offsetWidth + "px";
+			}
+			div.innerHTML = pop.innerHTML;
+			pop.parentNode.appendChild(div);
 		}
-		var popupobj = $('#' + pop.attr('id') + '_popmenu');
-		var left = (window.innerWidth - popupobj.width()) / 2;
-		var top = (document.documentElement.clientHeight - popupobj.height()) / 2;
-		popupobj.css({'display':'block','position':'fixed','left':left,'top':top,'z-index':120,'opacity':1});
-		$('#mask').css({'display':'block','width':'100%','height':'100%','position':'fixed','top':'0','left':'0','background':'black','opacity':'0.2','z-index':'100'});
-		POPMENU[pop.attr('id')] = pop;
+		var popupobj = qSel("#" + pop.getAttribute("id") + "_popmenu");
+		popupobj.style.display = "block";
+		popupobj.style.position = "fixed";
+		// Todo: 这里有没有更好的办法, 直接从 popupobj 取到值, 避免写死带来模板开发不便
+		popupobj.style.left = (document.documentElement.clientWidth - popupobj.children[0].offsetWidth) / 2 + "px";
+		popupobj.style.top = (document.documentElement.clientHeight - popupobj.children[0].offsetHeight) / 2 + "px";
+		popupobj.style.zIndex = "120";
+		popupobj.style.opacity = "1";
+		var mask = qSel("#mask");
+		mask.style.display = "block";
+		mask.style.width = "100%";
+		mask.style.height = "100%";
+		mask.style.position = "fixed";
+		mask.style.top = "0";
+		mask.style.left = "0";
+		mask.style.background = "black";
+		mask.style.opacity = "0.2";
+		mask.style.zIndex = "100";
+		POPMENU[pop.getAttribute("id")] = pop;
 	},
 	close : function() {
-		$('#mask').css('display', 'none');
-		$.each(POPMENU, function(index, obj) {
-			$('#' + index + '_popmenu').css('display','none');
-		});
+		var mask = qSel("#mask");
+		if (typeof(mask) != undefined) {
+			mask.style.display = "none";
+		}
+		for (var key in POPMENU) {
+			var popupobj = qSel("#" + key + "_popmenu");
+			popupobj.style.display = "none";
+		}
 	}
 };
 
 var dialog = {
 	init : function() {
-		$(document).on('click', '.dialog', function() {
-			var obj = $(this);
-			popup.open('<img src="' + IMGDIR + '/imageloading.gif">');
-			$.ajax({
-				type : 'GET',
-				url : obj.attr('href') + '&inajax=1',
-				dataType : 'xml'
-			})
-			.success(function(s) {
-				popup.open(s.lastChild.firstChild.nodeValue);
-				evalscript(s.lastChild.firstChild.nodeValue);
-			})
-			.error(function() {
-				window.location.href = obj.attr('href');
-				popup.close();
-			});
-			return false;
+		document.addEventListener("click", function(e) {
+			var target = e.target;
+			if (target.classList.contains("dialog")) {
+				e.preventDefault();
+				var obj = target;
+				popup.open('<img src="' + IMGDIR + '/imageloading.gif">');
+				var xhr = new XMLHttpRequest();
+				xhr.open("GET", obj.getAttribute("href") + "&inajax=1", true);
+				xhr.onload = function() {
+					if (xhr.status >= 200 && xhr.status < 300) {
+						var s = xhr.responseXML;
+						if (typeof(s) == undefined) {
+							window.location.href = obj.getAttribute("href");
+							popup.close();
+						} else {
+							popup.open(s.lastChild.firstChild.nodeValue);
+							evalscript(s.lastChild.firstChild.nodeValue);
+						}
+					} else {
+						window.location.href = obj.getAttribute("href");
+						popup.close();
+					}
+				};
+				xhr.send();
+			}
 		});
-	},
+	}
 
 };
 
 var formdialog = {
 	init : function() {
-		$(document).on('click', '.formdialog', function() {
-			popup.open('<img src="' + IMGDIR + '/imageloading.gif">');
-			var obj = $(this);
-			var formobj = $(this.form);
-			var isFormData = formobj.find("input[type='file']").length > 0;
-			$.ajax({
-				type:'POST',
-				url:formobj.attr('action') + '&handlekey='+ formobj.attr('id') +'&inajax=1',
-				data:isFormData ? new FormData(formobj[0]) : formobj.serialize(),
-				dataType:'xml',
-				processData:isFormData ? false : true,
-				contentType:isFormData ? false : 'application/x-www-form-urlencoded; charset=UTF-8'
-			})
-			.success(function(s) {
-				popup.open(s.lastChild.firstChild.nodeValue);
-				evalscript(s.lastChild.firstChild.nodeValue);
-			})
-			.error(function() {
-				popup.open('表单提交异常，无法完成您的请求', 'alert');
-			});
-			return false;
+		document.addEventListener("click", function(e) {
+			var target = e.target;
+			if (target.classList.contains("formdialog")) {
+				e.preventDefault();
+				popup.open('<img src="' + IMGDIR + '/imageloading.gif">');
+				var obj = target;
+				var formobj = obj.form;
+				var isFormData = formobj.querySelectorAll("input[type='file']").length > 0;
+				var xhr = new XMLHttpRequest();
+				xhr.open("POST", formobj.getAttribute("action") + "&handlekey=" + formobj.getAttribute("id") + "&inajax=1", true);
+				xhr.onload = function() {
+					if (xhr.status >= 200 && xhr.status < 300) {
+						var s = xhr.responseXML;
+						if (typeof(s) == undefined) {
+							popup.open("数据返回异常，无法完成您的请求", "alert");
+						} else {
+							popup.open(s.lastChild.firstChild.nodeValue);
+							evalscript(s.lastChild.firstChild.nodeValue);
+						}
+					} else {
+						popup.open("表单提交异常，无法完成您的请求", "alert");
+					}
+				};
+				xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded; charset=UTF-8');
+				xhr.send(isFormData ? new FormData(formobj[0]) : new URLSearchParams(new FormData(formobj)).toString());
+			}
 		});
 	}
 };
@@ -271,40 +358,70 @@ var DISMENU = new Object;
 var display = {
 	init : function() {
 		var $this = this;
-		$('.display').each(function(index, obj) {
-			obj = $(obj);
-			var dis = $(obj.attr('href'));
-			if(dis && dis.attr('display')) {
-				dis.css({'display':'none'});
-				dis.css({'z-index':'102'});
-				DISMENU[dis.attr('id')] = dis;
-				obj.on('click', function(e) {
-					if(in_array(e.target.tagName, ['A', 'IMG', 'INPUT'])) return;
+		var nodes = qSelA('.display');
+		for (var i = 0; i < nodes.length; i++) {
+			var obj = nodes[i];
+			var dis = qSel(obj.getAttribute('href'));
+			if (dis && dis.hasAttribute('display')) {
+				dis.style.display = 'none';
+				dis.style.zIndex = '102';
+				DISMENU[dis.getAttribute('id')] = dis;
+				obj.addEventListener('click', function(e) {
+					if (['A', 'IMG', 'INPUT'].indexOf(e.target.tagName) !== -1) return;
 					$this.maskinit();
-					if(dis.attr('display') == 'true') {
-						dis.css('display', 'block');
-						dis.attr('display', 'false');
-						$('#mask').css({'display':'block','width':'100%','height':'100%','position':'fixed','top':'0','left':'0','background':'transparent','z-index':'100'});
+					if (dis.getAttribute('display') == 'true') {
+						dis.style.display = 'block';
+						dis.setAttribute('display', 'false');
+						getID('mask').style = 'display:block;width:100%;height:100%;position:fixed;top:0;left:0;background:transparent;z-index:100;';
 					}
 					return false;
 				});
 			}
-		});
+		}
 	},
 	maskinit : function() {
 		var $this = this;
-		$('#mask').off().on('touchstart', function() {
+		getID('mask').addEventListener('touchstart', function() {
 			$this.hide();
 		});
 	},
 	hide : function() {
-		$('#mask').css('display', 'none');
-		$.each(DISMENU, function(index, obj) {
-			obj.css('display', 'none');
-			obj.attr('display', 'true');
-		});
+		getID('mask').style.display = 'none';
+		for (var key in DISMENU) {
+			DISMENU[key].style.display = 'none';
+			DISMENU[key].setAttribute('display', 'true');
+		}
 	}
 };
+
+var displayswiper = {
+	init : function() {
+		['#dhnav_li', '#dhnavs_li'].forEach(function(nav) {
+			if (document.querySelector(nav) != null) {
+				if (document.querySelector(nav + ' .mon') != null) {
+					var mon = document.querySelector(nav + ' .mon');
+					var offsetLeft = mon.offsetLeft;
+					var width = mon.offsetWidth;
+					var windowWidth = window.innerWidth;
+					var discuz_nav = offsetLeft + width >= windowWidth ? mon.getAttribute('data-index') : 0;
+				} else {
+					var discuz_nav = 0;
+				}
+				mySwiper = new Swiper(nav, {
+					freeMode: true,
+					slidesPerView: 'auto',
+					initialSlide: discuz_nav,
+					onTouchMove: function(swiper) {
+						Discuz_Touch_on = 0;
+					},
+					onTouchEnd: function(swiper) {
+						Discuz_Touch_on = 1;
+					},
+				});
+			}
+		});
+	}
+}
 
 function getID(id) {
 	return !id ? null : document.getElementById(id);
@@ -470,56 +587,7 @@ function browserVersion(types) {
 }
 
 function AC_FL_RunContent() {
-	var str = '';
-	var ret = AC_GetArgs(arguments, "clsid:d27cdb6e-ae6d-11cf-96b8-444553540000", "application/x-shockwave-flash");
-	if(BROWSER.ie && !BROWSER.opera) {
-		str += '<object ';
-		for (var i in ret.objAttrs) {
-			str += i + '="' + ret.objAttrs[i] + '" ';
-		}
-		str += '>';
-		for (var i in ret.params) {
-			str += '<param name="' + i + '" value="' + ret.params[i] + '" /> ';
-		}
-		str += '</object>';
-	} else {
-		str += '<embed ';
-		for (var i in ret.embedAttrs) {
-			str += i + '="' + ret.embedAttrs[i] + '" ';
-		}
-		str += '></embed>';
-	}
-	return str;
-}
-
-function AC_GetArgs(args, classid, mimeType) {
-	var ret = new Object();
-	ret.embedAttrs = new Object();
-	ret.params = new Object();
-	ret.objAttrs = new Object();
-	for (var i = 0; i < args.length; i = i + 2){
-		var currArg = args[i].toLowerCase();
-		switch (currArg){
-			case "classid":break;
-			case "pluginspage":ret.embedAttrs[args[i]] = 'http://www.macromedia.com/go/getflashplayer';break;
-			case "src":ret.embedAttrs[args[i]] = args[i+1];ret.params["movie"] = args[i+1];break;
-			case "codebase":ret.objAttrs[args[i]] = 'http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=9,0,0,0';break;
-			case "onafterupdate":case "onbeforeupdate":case "onblur":case "oncellchange":case "onclick":case "ondblclick":case "ondrag":case "ondragend":
-			case "ondragenter":case "ondragleave":case "ondragover":case "ondrop":case "onfinish":case "onfocus":case "onhelp":case "onmousedown":
-			case "onmouseup":case "onmouseover":case "onmousemove":case "onmouseout":case "onkeypress":case "onkeydown":case "onkeyup":case "onload":
-			case "onlosecapture":case "onpropertychange":case "onreadystatechange":case "onrowsdelete":case "onrowenter":case "onrowexit":case "onrowsinserted":case "onstart":
-			case "onscroll":case "onbeforeeditfocus":case "onactivate":case "onbeforedeactivate":case "ondeactivate":case "type":
-			case "id":ret.objAttrs[args[i]] = args[i+1];break;
-			case "width":case "height":case "align":case "vspace": case "hspace":case "class":case "title":case "accesskey":case "name":
-			case "tabindex":ret.embedAttrs[args[i]] = ret.objAttrs[args[i]] = args[i+1];break;
-			default:ret.embedAttrs[args[i]] = ret.params[args[i]] = args[i+1];
-		}
-	}
-	ret.objAttrs["classid"] = classid;
-	if(mimeType) {
-		ret.embedAttrs["type"] = mimeType;
-	}
-	return ret;
+	return '';
 }
 
 function appendstyle(url) {
@@ -537,55 +605,12 @@ function detectHtml5Support() {
 
 function detectPlayer(randomid, ext, src, width, height) {
 	var h5_support = new Array('aac', 'flac', 'mp3', 'm4a', 'wav', 'flv', 'mp4', 'm4v', '3gp', 'ogv', 'ogg', 'weba', 'webm');
-	var trad_support = new Array('mp3', 'wma', 'mid', 'wav', 'ra', 'ram', 'rm', 'rmvb', 'swf', 'asf', 'asx', 'wmv', 'avi', 'mpg', 'mpeg', 'mov');
 	if (in_array(ext, h5_support) && detectHtml5Support()) {
 		html5Player(randomid, ext, src, width, height);
-	} else if (in_array(ext, trad_support)) {
-		tradionalPlayer(randomid, ext, src, width, height);
 	} else {
 		document.getElementById(randomid).style.width = '100%';
 		document.getElementById(randomid).style.height = height + 'px';
 	}
-}
-
-function tradionalPlayer(randomid, ext, src, width, height) {
-	switch(ext) {
-		case 'mp3':
-		case 'wma':
-		case 'mid':
-		case 'wav':
-			height = 64;
-			html = '<object classid="clsid:6BF52A52-394A-11d3-B153-00C04F79FAA6" width="' + width + '" height="' + height + '"><param name="invokeURLs" value="0"><param name="autostart" value="0" /><param name="url" value="' + src + '" /><embed src="' + src + '" autostart="0" type="application/x-mplayer2" width="' + width + '" height="' + height + '"></embed></object>';
-			break;
-		case 'ra':
-		case 'ram':
-			height = 32;
-			html = '<object classid="clsid:CFCDAA03-8BE4-11CF-B84B-0020AFBBCCFA" width="' + width + '" height="' + height + '"><param name="autostart" value="0" /><param name="src" value="' + src + '" /><param name="controls" value="controlpanel" /><param name="console" value="' + randomid + '_" /><embed src="' + src + '" autostart="0" type="audio/x-pn-realaudio-plugin" controls="ControlPanel" console="' + randomid + '_" width="' + width + '" height="' + height + '"></embed></object>';
-			break;
-		case 'rm':
-		case 'rmvb':
-			html = '<object classid="clsid:CFCDAA03-8BE4-11cf-B84B-0020AFBBCCFA" width="' + width + '" height="' + height + '"><param name="autostart" value="0" /><param name="src" value="' + src + '" /><param name="controls" value="imagewindow" /><param name="console" value="' + randomid + '_" /><embed src="' + src + '" autostart="0" type="audio/x-pn-realaudio-plugin" controls="imagewindow" console="' + randomid + '_" width="' + width + '" height="' + height + '"></embed></object><br /><object classid="clsid:CFCDAA03-8BE4-11CF-B84B-0020AFBBCCFA" width="' + width + '" height="32"><param name="src" value="' + src +'" /><param name="controls" value="controlpanel" /><param name="console" value="' + randomid + '_" /><embed src="' + src + '" autostart="0" type="audio/x-pn-realaudio-plugin" controls="controlpanel" console="' + randomid + '_" width="' + width + '" height="32"></embed></object>';
-			break;
-		case 'swf':
-			html = AC_FL_RunContent('width', width, 'height', height, 'allowNetworking', 'internal', 'allowScriptAccess', 'never', 'src', encodeURI(src), 'quality', 'high', 'bgcolor', '#ffffff', 'wmode', 'transparent', 'allowfullscreen', 'true');
-			break;
-		case 'asf':
-		case 'asx':
-		case 'wmv':
-		case 'avi':
-		case 'mpg':
-		case 'mpeg':
-			html = '<object classid="clsid:6BF52A52-394A-11d3-B153-00C04F79FAA6" width="' + width + '" height="' + height + '"><param name="invokeURLs" value="0"><param name="autostart" value="0" /><param name="url" value="' + src + '" /><embed src="' + src + '" autostart="0" type="application/x-mplayer2" width="' + width + '" height="' + height + '"></embed></object>';
-			break;
-		case 'mov':
-			html = '<object classid="clsid:02BF25D5-8C17-4B23-BC80-D3488ABDDC6B" width="' + width + '" height="' + height + '"><param name="autostart" value="false" /><param name="src" value="' + src + '" /><embed src="' + src + '" autostart="false" type="video/quicktime" controller="true" width="' + width + '" height="' + height + '"></embed></object>';
-			break;
-		default:
-			break;
-	}
-	document.getElementById(randomid).style.width = '100%';
-	document.getElementById(randomid).style.height = height + 'px';
-	document.getElementById(randomid + '_container').innerHTML = html;
 }
 
 function html5Player(randomid, ext, src, width, height) {
@@ -674,42 +699,43 @@ function html5DPlayer(randomid, ext, src, width, height) {
 	}
 }
 
-$(document).ready(function() {
-
+document.addEventListener("DOMContentLoaded", function() {
 	if(qSel('div.pg')) {
 		page.converthtml();
 	}
 	if(qSel('.scrolltop')) {
 		scrolltop.init(qSel('.scrolltop'));
 	}
-	if($('img').length > 0) {
+	if(qSelA('img').length > 0) {
 		img.init(1);
 	}
-	if($('.popup').length > 0) {
+	if(qSelA('.popup').length > 0) {
 		popup.init();
 	}
-	if($('.display').length > 0) {
+	if(qSelA('.display').length > 0) {
 		display.init();
 	}
 	dialog.init();
 	formdialog.init();
+	displayswiper.init();
 });
 
 function ajaxget(url, showid, waitid, loading, display, recall) {
-	var url = url + '&inajax=1&ajaxtarget=' + showid;
-	$.ajax({
-		type : 'GET',
-		url : url,
-		dataType : 'xml',
-	}).success(function(s) {
-		$('#'+showid).html(s.lastChild.firstChild.nodeValue);
-		$("[ajaxtarget]").off('click').on('click', function(e) {
-			var id = $(this);
-			ajaxget(id.attr('href'), id.attr('ajaxtarget'));
-			return false;
-		});
-	});
-	return false;
+	var xhr = new XMLHttpRequest();
+	xhr.open("GET", url + '&inajax=1&ajaxtarget=' + showid);
+	xhr.onreadystatechange = function() {
+		if (xhr.readyState === 4 && xhr.status === 200) {
+			getID(showid).innerHTML = xhr.responseText;
+			var target = qSelA("[ajaxtarget]");
+			for (var i = 0; i < target.length; i++) {
+				target[i].addEventListener("click", function(e) {
+					e.preventDefault();
+					ajaxget(this.href, this.getAttribute("ajaxtarget"));
+				});
+			}
+		}
+	};
+	xhr.send();
 }
 
 function getHost(url) {
@@ -753,22 +779,9 @@ function Ajax(recvType, waitId) {
 		aj.waitId = typeof waitid == 'object' ? waitid : $(waitid);
 	};
 	aj.createXMLHttpRequest = function() {
-		var request = false;
-		if(window.XMLHttpRequest) {
-			request = new XMLHttpRequest();
-			if(request.overrideMimeType) {
-				request.overrideMimeType('text/xml');
-			}
-		} else if(window.ActiveXObject) {
-			var versions = ['Microsoft.XMLHTTP', 'MSXML.XMLHTTP', 'Microsoft.XMLHTTP', 'Msxml2.XMLHTTP.7.0', 'Msxml2.XMLHTTP.6.0', 'Msxml2.XMLHTTP.5.0', 'Msxml2.XMLHTTP.4.0', 'MSXML2.XMLHTTP.3.0', 'MSXML2.XMLHTTP'];
-			for(var i=0; i<versions.length; i++) {
-				try {
-					request = new ActiveXObject(versions[i]);
-					if(request) {
-						return request;
-					}
-				} catch(e) {}
-			}
+		var request = new XMLHttpRequest();
+		if(request.overrideMimeType) {
+			request.overrideMimeType('text/xml');
 		}
 		return request;
 	};

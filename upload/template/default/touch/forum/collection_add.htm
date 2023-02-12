@@ -52,17 +52,17 @@
 <script type="text/javascript">
 var titlelimit = '$titlelimit';
 var desclimit = '$desclimit';
-  function checklen() {
-    if(mb_strlen($("formtitle").value) > titlelimit) {
-      showError({lang collection_title_exceed});
-      return false;
-    }
-    if(mb_strlen($("formdesc").value) > desclimit) {
-      showError({lang collection_desc_exceed});
-      return false;
-    }
-    return true;
-  }
+function checklen() {
+	if (mb_strlen(getID("formtitle").value) > titlelimit) {
+		showError({lang collection_title_exceed});
+		return false;
+	}
+	if (mb_strlen(getID("formdesc").value) > desclimit) {
+		showError({lang collection_desc_exceed});
+		return false;
+	}
+	return true;
+}
 </script>
 
 <!--{eval $nofooter = true;}-->

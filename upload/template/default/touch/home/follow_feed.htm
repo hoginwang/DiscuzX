@@ -45,7 +45,7 @@
 						function succeedhandle_attachpay(url, msg, values) {
 							hideWindow('attachpay');
 							window.location.href = url;
-							//$('downloadframe').src = url;
+							//getID('downloadframe').src = url;
 						}
 					</script>
 					<!--{if is_array($list['feed']) && count($list['feed']) > 19 && ($archiver || $primary)}-->
@@ -53,12 +53,12 @@
 							var scrollY = 0;
 							var page = 2;
 							var feedInfo = {scrollY: 0, archiver: $archiver, primary: $primary, query: true, scrollNum:1};
-							var loadingfeed = $('#loadingfeed');
+							var loadingfeed = getID("loadingfeed");
 
-                            function loadmore() {
-                                var currentScroll = document.documentElement.scrollTop || document.body.scrollTop;
-                                var sHeight = document.documentElement.scrollHeight;
-                                if(currentScroll >= scrollY && currentScroll > (sHeight/5-5) && (feedInfo.primary ||feedInfo.archiver) && feedInfo.query) {
+							function loadmore() {
+								var currentScroll = document.documentElement.scrollTop || document.body.scrollTop;
+								var sHeight = document.documentElement.scrollHeight;
+								if(currentScroll >= scrollY && currentScroll > (sHeight/5-5) && (feedInfo.primary ||feedInfo.archiver) && feedInfo.query) {
 									feedInfo.query = false;
 									var archiver = 0;
 									if(feedInfo.primary) {
@@ -68,13 +68,12 @@
 									}
 									var url = 'home.php?mod=spacecp&ac=follow&op=getfeed&archiver='+archiver+'&page='+page+'&inajax=1'<!--{if $do == 'feed'}-->+'&viewtype=$view'<!--{elseif $do == 'view'}-->+'&uid=$uid&banavatar=1'<!--{/if}-->;
 
-									$.ajax({
-										url : url,
-										data : null,
-										dataType : "xml",
-										cache: false,
-										success : function(s) {
-											if($.trim(s.childNodes[0].textContent) == 'false') {
+									var xhr = new XMLHttpRequest();
+									xhr.open("GET", url, true);
+									xhr.onreadystatechange = function() {
+										if (xhr.readyState === 4 && xhr.status === 200) {
+											var s = xhr.responseXML;
+											if (typeof(s) != undefined && s.childNodes[0].textContent.trim() == 'false') {
 												if(!archiver) {
 													feedInfo.primary = false;
 													loadmore();
@@ -84,30 +83,32 @@
 													page = 1;
 												}
 											} else {
-												$('#followlist').append($.trim(s.childNodes[0].textContent));
+												var followlist = getID("followlist");
+												followlist.innerHTML += s.childNodes[0].textContent.trim();
 											}
 
 											if(!feedInfo.primary && !feedInfo.archiver) {
-												loadingfeed.removeClass('flw_more');
-												loadingfeed.html('');
+												loadingfeed.classList.remove("flw_more");
+												loadingfeed.innerHTML = "";
 											}
 
 											feedInfo.query = true;
 										}
-									});
+									};
+									xhr.send();
 									page++;
 									if(feedInfo.scrollNum) {
 										feedInfo.scrollNum--;
 									} else if(!feedInfo.scrollNum) {
 										window.onscroll = null;
 									}
-                                }
+								}
 
-                                    scrollY = currentScroll;
-                                }
+								scrollY = currentScroll;
+							}
 
 							window.onload = function() {
-								scrollY =  document.documentElement.scrollTop || document.body.scrollTop;
+								scrollY = document.documentElement.scrollTop || document.body.scrollTop;
 								window.onscroll = loadmore;
 							}
 						</script>
@@ -232,53 +233,53 @@
 </div>
 
 <script type="text/javascript">
-    var boxflag = {};
-    var parentReplyId = '';
-    function quickreply(fid, tid, feedid) {
-        $('#relaybox_'+feedid).css('display','none');
-        var replyboxid = 'replybox_'+feedid;
-        if(parentReplyId && parentReplyId != feedid) {
-            var oldbox = $('#replybox_'+parentReplyId);
-            oldbox.html = '';
-            oldbox.css('display','none');
-        }
-        if($(replyboxid).css('display') == 'block' && boxflag[replyboxid]) {
-            $('#replybox_'+feedid).css('display','none');
-        } else {
-            boxflag[replyboxid] = true;
-            ajaxget('forum.php?mod=ajax&action=quickreply&tid='+tid+'&fid='+fid+'&handlekey=qreply_'+feedid+'&feedid='+feedid, replyboxid);
-            $('#replybox_'+feedid).css('display','block');
-        }
-        parentReplyId = feedid;
-    }
+var boxflag = {};
+var parentReplyId = '';
+function quickreply(fid, tid, feedid) {
+	getID('relaybox_' + feedid).style.display = 'none';
+	var replyboxid = 'replybox_' + feedid;
+	if (parentReplyId && parentReplyId != feedid) {
+		var oldbox = getID('replybox_' + parentReplyId);
+		oldbox.innerHTML = '';
+		oldbox.style.display = 'none';
+	}
+	if (getID(replyboxid).style.display == 'block' && boxflag[replyboxid]) {
+		getID('replybox_' + feedid).style.display = 'none';
+	} else {
+		boxflag[replyboxid] = true;
+		ajaxget('forum.php?mod=ajax&action=quickreply&tid=' + tid + '&fid=' + fid + '&handlekey=qreply_' + feedid + '&feedid=' + feedid, replyboxid);
+		getID('replybox_' + feedid).style.display = 'block';
+	}
+	parentReplyId = feedid;
+}
 
-    function quickrelay(feedid, tid) {
-        $('#replybox_'+feedid).css('display', 'none');
-        var replyboxid = 'relaybox_'+feedid;
+function quickrelay(feedid, tid) {
+	getID('replybox_' + feedid).style.display = 'none';
+	var replyboxid = 'relaybox_' + feedid;
 
-        if($(replyboxid).css('display') == 'block') {
-            $('#relaybox_'+feedid).css('display','none');
-        } else {
-            ajaxget('home.php?mod=spacecp&ac=follow&op=relay&feedid='+feedid+'&tid='+tid+'&handlekey=qrelay_'+feedid, replyboxid);
-            $('#relaybox_'+feedid).css('display','block');
-        }
-    }
+	if (getID(replyboxid).style.display == 'block') {
+		getID('relaybox_' + feedid).style.display = 'none';
+	} else {
+		ajaxget('home.php?mod=spacecp&ac=follow&op=relay&feedid=' + feedid + '&tid=' + tid + '&handlekey=qrelay_' + feedid, replyboxid);
+		getID('relaybox_' + feedid).style.display = 'block';
+	}
+}
 
-    function replybox_close(feedid) {
-        $('#'+feedid).css('display','none');
-    }
+function replybox_close(feedid) {
+	getID(feedid).style.display = 'none';
+}
 
-    function changefeed(tid, pid, flag, obj) {
-        var o = obj.parentNode;
-        for(var i = 0; i < 4; i++) {
-            if(o.id.indexOf('original_content_') == -1) {
-                o = o.parentNode;
-            } else {
-                break;
-            }
-        }
-        ajaxget('forum.php?mod=ajax&action=getpostfeed&inajax=1&tid='+tid+'&pid='+pid+'&type=changefeed&flag='+flag, o.id);
-    }
+function changefeed(tid, pid, flag, obj) {
+	var o = obj.parentNode;
+	for (var i = 0; i < 4; i++) {
+		if (o.id.indexOf('original_content_') == -1) {
+			o = o.parentNode;
+		} else {
+			break;
+		}
+	}
+	ajaxget('forum.php?mod=ajax&action=getpostfeed&inajax=1&tid=' + tid + '&pid=' + pid + '&type=changefeed&flag=' + flag, o.id);
+}
 </script>
 
 

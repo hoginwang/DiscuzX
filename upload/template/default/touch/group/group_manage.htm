@@ -27,25 +27,6 @@
 		</div>
 	</div>
 </div>
-<script>
-	if($("#dhnavs_li .mon").length > 0) {
-		var discuz_nav = $("#dhnavs_li .mon").offset().left + $("#dhnavs_li .mon").width() >= $(window).width() ? $("#dhnavs_li .mon").index() : 0;
-	}else{
-		var discuz_nav = 0;
-	}	
-	new Swiper('#dhnavs_li', {
-		freeMode : true,
-		slidesPerView : 'auto',
-		initialSlide : discuz_nav,
-		onTouchMove: function(swiper){
-			Discuz_Touch_on = 0;
-		},
-		onTouchEnd: function(swiper){
-			Discuz_Touch_on = 1;
-		},
-	});
-</script>
-
 <!--{if $_GET['op'] == 'group'}-->
 <form enctype="multipart/form-data" action="forum.php?mod=group&action=manage&op=group&fid={$_G['fid']}" name="manage" method="post" autocomplete="off" accept-charset="utf-8" onsubmit="document.charset='utf-8';">
 	<input type="hidden" value="{FORMHASH}" name="formhash" id="formhash" />
@@ -336,8 +317,8 @@
 <!--{elseif $_GET['op'] == 'manageuser'}-->
 <script type="text/javascript" id="script_groupManageUser">
 	function groupManageUser(targetlevel_val) {
-		document.getElementById('targetlevel').value = targetlevel_val;
-		document.getElementById('manageuser').submit();
+		getID('targetlevel').value = targetlevel_val;
+		getID('manageuser').submit();
 	}
 	gmu_nav = 0;
 	new Swiper('#group_manage_userlist', {
@@ -361,19 +342,20 @@
 			alert('{lang group_threadtype_limit_1}'+typenumlimit+'{lang group_threadtype_limit_2}');
 		}else{
 			var row ='<li class="flex-box cl"><div class="tit"><input type="checkbox" disabled="disabled" /></div><div class="tit"><input type="checkbox" name="newenable[]" checked="checked" value="1" /></div><div class="tit"><input type="text" name="newdisplayorder[]" value="0" style="width:40px;" /></div><div class="flex"><input type="text" name="newname[]" placeholder="{lang threadtype_name}"/></div></li>';
-			$('#'+id).append(row);
+			getID(id).innerHTML += row;
 			addrowdirect++;
 		}
 	}
 	function setstatus(){
-		if($("#status").attr("checked") == 'checked'){
-			$("#status").attr("checked",false);
-			$("#threadtypest").css({'display':'none'});
-			$("#threadtypes").css({'display':'none'});
+		var checkbox = getID("status");
+		if(checkbox.checked == true){
+			checkbox.checked = false;
+			getID("threadtypest").style.display = "none";
+			getID("threadtypes").style.display = "none";
 		}else{
-			$("#status").attr("checked","checked");
-			$("#threadtypest").css({'display':''});
-			$("#threadtypes").css({'display':''});
+			checkbox.checked = true;
+			getID("threadtypest").style.display = "";
+			getID("threadtypes").style.display = "";
 		}
 	}
 </script>

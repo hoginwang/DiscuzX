@@ -126,10 +126,10 @@
 			var picObj = {{$ids}};
 			function succeedhandle_setpichk(url, msg, values) {
 				for(var id in picObj) {
-					$('a_picid_' + picObj[id]).innerHTML = "{lang set_to_conver}";
+					getID('a_picid_' + picObj[id]).innerHTML = "{lang set_to_conver}";
 				}
 				if(values['picid']) {
-					$('a_picid_' + values['picid']).innerHTML = "{lang cover_pic}";
+					getID('a_picid_' + values['picid']).innerHTML = "{lang cover_pic}";
 				}
 			}
 		</script>
@@ -190,7 +190,7 @@
 	</form>
 	<script type="text/javascript">
 		function succeedhandle_$_GET['handlekey'] (url, message, values) {
-			$('$_GET['handlekey']').innerHTML = values['title'];
+			getID('$_GET['handlekey']').innerHTML = values['title'];
 		}
 	</script>
 <!--{elseif $_GET[op] == 'edithot'}-->

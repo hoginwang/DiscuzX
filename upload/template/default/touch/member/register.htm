@@ -76,7 +76,7 @@
 <!--{/if}-->
 <!--{if $this->showregisterform}-->
 	function showBBRule() {
-		var bbruletxt = $("#layer_bbruletxt").html();
+		var bbruletxt = getID("layer_bbruletxt").innerHTML;
 		popup.open(bbruletxt,'alert');
 	}
 <!--{/if}-->

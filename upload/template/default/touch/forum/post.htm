@@ -145,74 +145,56 @@
 			needsubject = needmessage = true;
 		<!--{/if}-->
 		<!--{if $_GET['action'] == 'newthread' || ($_GET['action'] == 'edit' && $isfirstpost)}-->
-		$('#needsubject').on('keyup input', function() {
-			var obj = $(this);
-			if(obj.val()) {
+		qSel('#needsubject').addEventListener('keyup', function() {
+			var obj = this;
+			if(obj.value) {
 				needsubject = true;
 				if(needmessage == true) {
-					$('.btn_pn').removeClass('btn_pn_grey').addClass('btn_pn_blue');
-					$('.btn_pn').attr('disable', 'false');
+					qSel('.btn_pn').classList.remove('btn_pn_grey');
+					qSel('.btn_pn').classList.add('btn_pn_blue');
+					qSel('.btn_pn').setAttribute('disable', 'false');
 				}
 			} else {
 				needsubject = false;
-				$('.btn_pn').removeClass('btn_pn_blue').addClass('btn_pn_grey');
-				$('.btn_pn').attr('disable', 'true');
+				qSel('.btn_pn').classList.remove('btn_pn_blue');
+				qSel('.btn_pn').classList.add('btn_pn_grey');
+				qSel('.btn_pn').setAttribute('disable', 'true');
 			}
 		});
 		<!--{/if}-->
-		$('#needmessage').on('keyup input', function() {
-			var obj = $(this);
-			if(obj.val()) {
+		qSel('#needmessage').addEventListener('keyup', function() {
+			var obj = this;
+			if(obj.value) {
 				needmessage = true;
 				if(needsubject == true) {
-					$('.btn_pn').removeClass('btn_pn_grey').addClass('btn_pn_blue');
-					$('.btn_pn').attr('disable', 'false');
+					qSel('.btn_pn').classList.remove('btn_pn_grey');
+					qSel('.btn_pn').classList.add('btn_pn_blue');
+					qSel('.btn_pn').setAttribute('disable', 'false');
 				}
 			} else {
 				needmessage = false;
-				$('.btn_pn').removeClass('btn_pn_blue').addClass('btn_pn_grey');
-				$('.btn_pn').attr('disable', 'true');
+				qSel('.btn_pn').classList.remove('btn_pn_blue');
+				qSel('.btn_pn').classList.add('btn_pn_grey');
+				qSel('.btn_pn').setAttribute('disable', 'true');
 			}
 		});
-		$('#needmessage').on('scroll', function() {
-			var obj = $(this);
-			if(obj.scrollTop() > 0) {
-				obj.attr('rows', parseInt(obj.attr('rows'))+2);
+		qSel('#needmessage').addEventListener('scroll', function() {
+			var obj = this;
+			if(obj.scrollTop > 0) {
+				obj.setAttribute('rows', parseInt(obj.getAttribute('rows'))+2);
 			}
-		}).scrollTop($(document).height());
-	 })();
-	(function($){
-        $.fn.extend({
-            insertAtCaret: function(myValue){
-                var t = $(this)[0];
-                if (document.selection) {
-                    this.focus();
-                    sel = document.selection.createRange();
-                    sel.text = myValue;
-                    this.focus();
-                }
-                else
-                if (t.selectionStart || t.selectionStart == '0') {
-                    var startPos = t.selectionStart;
-                    var endPos = t.selectionEnd;
-                    var scrollTop = t.scrollTop;
-                    t.value = t.value.substring(0, startPos) + myValue + t.value.substring(endPos, t.value.length);
-                    this.focus();
-                    t.selectionStart = startPos + myValue.length;
-                    t.selectionEnd = startPos + myValue.length;
-                    t.scrollTop = scrollTop;
-                }
-                else {
-                    this.value += myValue;
-                    this.focus();
-                }
-            }
-        })
-    })(jQuery);
+		});
+		qSel('#needmessage').scrollTop = document.body.scrollHeight;
+	})();
 	function addsmilies(a){
-		$('#needmessage').insertAtCaret(a);
+		var textArea = qSel('#needmessage');
+		var caretPos = textArea.selectionStart;
+		var text = textArea.value;
+		textArea.value = text.substring(0, caretPos) + a + text.substring(caretPos);
 	}
 </script>
+<!-- 由于 ajaxfileupload.js 包含了太多的 jQuery Event 因此需要重构才能去除 jQuery 依赖 -->
+<!-- 考虑到是大版本内更新, 因此暂时保留附件上传功能对 jQuery 的依赖, 后续需要重构附件上传功能 -->
 <script type="text/javascript" src="{STATICURL}js/mobile/ajaxfileupload.js?{VERHASH}"></script>
 <script type="text/javascript" src="{STATICURL}js/mobile/buildfileupload.js?{VERHASH}"></script>
 <script type="text/javascript">
@@ -234,7 +216,7 @@
 		'12' : '{lang uploadstatusmsg12}',
 		'13' : '{lang uploadstatusmsg13}'
 	};
-	var form = $('#postform');
+	var form = qSel('#postform');
 	$(document).on('change', '#filedata', function() {
 			popup.open('<img src="' + IMGDIR + '/imageloading.gif">');
 			uploadsuccess = function(data) {
@@ -352,44 +334,45 @@
 				}
 			});
 	});
-	$('#postsubmit').on('click', function() {
-		var obj = $(this);
-		if(obj.attr('disable') == 'true') {
+	qSel('#postsubmit').addEventListener('click', function() {
+		var obj = this;
+		if (obj.getAttribute('disable') == 'true') {
 			return false;
 		}
-		obj.attr('disable', 'true').removeClass('btn_pn_blue').addClass('btn_pn_grey');
+		obj.setAttribute('disable', 'true');
+		obj.classList.remove('btn_pn_blue');
+		obj.classList.add('btn_pn_grey');
 		popup.open('<img src="' + IMGDIR + '/imageloading.gif">');
 		var postlocation = '';
 		if(geo.errmsg === '' && geo.loc) {
 			postlocation = geo.longitude + '|' + geo.latitude + '|' + geo.loc;
 		}
-		$.ajax({
-			type:'POST',
-			url:form.attr('action') + '&geoloc=' + postlocation + '&handlekey='+form.attr('id')+'&inajax=1',
-			data:form.serialize(),
-			dataType:'xml'
-		})
-		.success(function(s) {
-			popup.open(s.lastChild.firstChild.nodeValue);
-		})
-		.error(function() {
-			popup.open('{lang networkerror}', 'alert');
-		});
+		var xhr = new XMLHttpRequest();
+		xhr.open("POST", form.getAttribute('action') + '&geoloc=' + postlocation + '&handlekey=' + form.getAttribute('id') + '&inajax=1', true);
+		xhr.send(new FormData(form));
+		xhr.onreadystatechange = function() {
+			if (xhr.readyState === 4 && xhr.status === 200) {
+				popup.open(xhr.responseText.lastChild.firstChild.nodeValue);
+			} else {
+				popup.open('{lang networkerror}', 'alert');
+			}
+		}
 		return false;
 	});
-	$(document).on('click', '.del', function() {
-		var obj = $(this);
-		$.ajax({
-			type:'GET',
-			url:'forum.php?mod=ajax&action=deleteattach&inajax=yes&aids[]=' + obj.attr('aid') + (obj.attr('up') == 1 ? '&tid={$postinfo['tid']}&pid={$postinfo['pid']}&formhash={FORMHASH}' : ''),
-		})
-		.success(function(s) {
-			obj.parent().remove();
-		})
-		.error(function() {
-			popup.open('{lang networkerror}', 'alert');
+	document.addEventListener('DOMSubtreeModified', function(event) {
+		qSelA('.del').forEach(function(elem) {
+			elem.addEventListener('click', function() {
+				var obj = this;
+				var xhr = new XMLHttpRequest();
+				xhr.open("GET", 'forum.php?mod=ajax&action=deleteattach&inajax=yes&aids[]=' + obj.getAttribute('aid') + (obj.getAttribute('up') == 1 ? '&tid={$postinfo['tid']}&pid={$postinfo['pid']}&formhash={FORMHASH}': ''), true);
+				xhr.send();
+				xhr.onreadystatechange = function() {
+					if (xhr.readyState === 4 && xhr.status === 200) {
+						obj.parentNode.remove();
+					}
+				}
+			});
 		});
-		return false;
 	});
 </script>
 <!--{eval $nofooter = true;}-->

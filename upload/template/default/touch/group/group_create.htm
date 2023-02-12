@@ -65,31 +65,42 @@
 </div>
 
 <script type="text/javascript">
-  function preview(id){
-    var file=$('#'+id).val();
-    var arr=file.split('\\');
-    var name=arr[arr.length-1];
-    $('#'+id+'_name').html(name);
-  }
-  function show(id){
-    if($('#'+id).css('display')=='none'){
-      $('#'+id).css('display', '');
-    }else{
-      $('#'+id).css('display', 'none');
-    }
-  }
-  function group_ajaxget(url) {
-    $.ajax({
-      type:'GET',
-      url: url + '&inajax=1' ,
-      dataType:'xml',
-    }).success(function(s) {
-		var sencondgroup = s.lastChild.firstChild.nodeValue.replace("class=\"ps\"", "class=\"sort_sel\"");
-		$('#linkage').html(sencondgroup);
-		$('#secondgroup').css('display', '');
-		return;
-    });
-  }
+function preview(id) {
+	var file = getID(id).value;
+	var arr = file.split('\\');
+	var name = arr[arr.length - 1];
+	getID(id + '_name').innerHTML = name;
+}
+
+function show(id) {
+	var element = getID(id);
+	if (element.style.display === 'none') {
+		element.style.display = '';
+	} else {
+		element.style.display = 'none';
+	}
+}
+
+function group_ajaxget(url) {
+	var xhr = new XMLHttpRequest();
+	xhr.onreadystatechange = function() {
+		if (this.readyState == 4 && this.status == 200) {
+			var s = xhr.responseXML;
+			if (typeof(s) != undefined) {
+				var sencondgroup = s.lastChild.firstChild.nodeValue.replace("class=\"ps\"", "class=\"sort_sel\"");
+				getID("linkage").innerHTML = sencondgroup;
+				getID("secondgroup").style.display = '';
+			} else {
+				popup.open('{lang networkerror}', 'alert');
+			}
+			return;
+		} else {
+			popup.open('{lang networkerror}', 'alert');
+		}
+	};
+	xhr.open("GET", url + "&inajax=1", true);
+	xhr.send();
+}
 </script>
 
 <!--{eval $nofooter = true;}-->

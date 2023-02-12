@@ -8,7 +8,7 @@
 		</div>
 	</div>
 <!--{else}-->
-<form id="pmform_{$pmid}" name="pmform_{$pmid}" method="post" autocomplete="off" action="home.php?mod=spacecp&ac=pm&op=send&touid=$touid&pmid=$pmid&mobile=2" >
+<form id="pmform_{$pmid}" name="pmform_{$pmid}" method="post" autocomplete="off" action="home.php?mod=spacecp&ac=pm&op=send&touid=$touid&pmid=$pmid&mobile=2&formhash={FORMHASH}" >
 	<input type="hidden" name="referer" value="{echo dreferer();}" />
 	<input type="hidden" name="pmsubmit" value="true" />
 	<input type="hidden" name="formhash" value="{FORMHASH}" />
@@ -30,37 +30,38 @@
 </form>
 <script type="text/javascript">
 	(function() {
-		$('#sendmessage').on('keyup input', function() {
-			var obj = $(this);
-			if(obj.val()) {
-				$('.btn_pn').removeClass('mgrey').addClass('mblue');
-				$('.btn_pn').attr('disable', 'false');
+		qSel("#sendmessage").addEventListener("keyup", function() {
+			var obj = this;
+			if(obj.value) {
+				qSel(".btn_pn").classList.remove("mgrey");
+				qSel(".btn_pn").classList.add("mblue");
+				qSel(".btn_pn").setAttribute("disable", "false");
 			} else {
-				$('.btn_pn').removeClass('mblue').addClass('mgrey');
-				$('.btn_pn').attr('disable', 'true');
+				qSel(".btn_pn").classList.remove("mblue");
+				qSel(".btn_pn").classList.add("mgrey");
+				qSel(".btn_pn").setAttribute("disable", "true");
 			}
 		});
-		var form = $('#pmform_{$pmid}');
-		$('#pmsubmit_btn').on('click', function() {
-			var obj = $(this);
-			if(obj.attr('disable') == 'true') {
+		var form = qSel("#pmform_{$pmid}");
+		qSel("#pmsubmit_btn").addEventListener("click", function() {
+			var obj = this;
+			if(obj.getAttribute("disable") == "true") {
 				return false;
 			}
-			$.ajax({
-				type:'POST',
-				url:form.attr('action') + '&handlekey='+form.attr('id')+'&inajax=1',
-				data:form.serialize(),
-				dataType:'xml'
-			})
-			.success(function(s) {
-				popup.open(s.lastChild.firstChild.nodeValue);
-			})
-			.error(function() {
-				popup.open('{lang networkerror}', 'alert');
-			});
+			var xhr = new XMLHttpRequest();
+			xhr.open("POST", form.getAttribute("action") + '&handlekey='+form.getAttribute("id")+'&inajax=1');
+			xhr.onreadystatechange = function() {
+				if (xhr.readyState === 4 && xhr.status === 200) {
+					var s = xhr.responseXML;
+					if (typeof(s) != undefined) {
+						popup.open(s.lastChild.firstChild.nodeValue);
+					}
+				}
+			};
+			xhr.send(new FormData(form));
 			return false;
-			});
-	 })();
+		});
+	})();
 </script>
 <!--{/if}-->
 <!--{template common/footer}-->
