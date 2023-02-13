@@ -19,3 +19,4 @@ class helper_invite {
 	}
 
 }
+?>
