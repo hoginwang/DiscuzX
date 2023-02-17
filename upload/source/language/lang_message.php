@@ -10,6 +10,8 @@
  */
 
 $lang = array (
+  'continue' => '继续访问',
+  'goback' => '返回上一页',
   'undefined_action' => '未定义操作',
   'plugin_nonexistence' => '插件不存在或已关闭',
   'profile_username_protect' => '用户名包含被系统屏蔽的字符',
