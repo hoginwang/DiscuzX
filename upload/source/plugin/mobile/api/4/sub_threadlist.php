@@ -40,7 +40,9 @@ foreach ($_G['forum_threadlist'] as $k => $thread) {
 	$userids[] = $thread['authorid'];
     // get message one by one?
     $firstpost = C::t('forum_post')->fetch_threadpost_by_tid_invisible($thread['tid']);
-    if($firstpost['invisible'] == 0){
+	// also need to check the access
+
+    if($thread['readperm'] < $_G['group']['readaccess'] && $firstpost['invisible'] == 0){
         // the post is visible to users
         // compile the message
         $firstPostMessage = $firstpost['message'];
@@ -52,7 +54,7 @@ foreach ($_G['forum_threadlist'] as $k => $thread) {
 
         $aidList = array();
         foreach ($matches as $i => $match){
-            // only allow a maximum of 3 attachment
+			// only allow a maximum of 3 attachment
             if($cnt > 3){
                 break;
             }

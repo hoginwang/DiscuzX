@@ -30,7 +30,7 @@ class mobile_api {
 		    // check them one by one
             $tid = $thread['tid'];
             $firstpost = C::t('forum_post')->fetch_threadpost_by_tid_invisible($thread['tid']);
-            if($firstpost['invisible'] == 0) {
+            if($thread['readperm'] < $_G['group']['readaccess']  && $firstpost['invisible'] == 0) {
                 // the post is visible to users
                 // compile the message
                 $firstPostMessage = $firstpost['message'];
