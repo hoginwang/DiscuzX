@@ -27,6 +27,7 @@ if(!$searchindex) {
 $keywords = trim($_GET['keywords']);
 $kws = explode(' ', $keywords);
 $kws = array_map('trim', $kws);
+$kws = array_filter($kws);
 $keywords = implode(' ', $kws);
 
 $result = $html = array();
