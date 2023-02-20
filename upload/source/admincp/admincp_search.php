@@ -55,7 +55,7 @@ if($_GET['searchsubmit'] && $keywords) {
 			$tkeys = array_unique($tkeys);
 			foreach($tkeys as $tkey) {
 				if(isset($lang[$searchindex[$skey]['text'][$tkey]])) {
-					$texts[] = '<li><span s="1">'.strip_tags($lang[$searchindex[$skey]['text'][$tkey]]).'</span><span class="lightfont">('.$searchindex[$skey]['text'][$tkey].')</span></li>';
+					$texts[] = '<li><span s="1">'.strip_tags($lang[$searchindex[$skey]['text'][$tkey]]).'</span><span s="1" class="lightfont">('.$searchindex[$skey]['text'][$tkey].')</span></li>';
 				} else {
 					$texts[] = '<li><span s="1">'.$searchindex[$skey]['text'][$tkey].'</span></li>';
 				}
