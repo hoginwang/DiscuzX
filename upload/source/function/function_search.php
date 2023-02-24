@@ -39,7 +39,7 @@ function searchkey($keyword, $field, $returnsrchtxt = 0) {
 function highlight($text, $words, $prepend) {
 	$text = str_replace('\"', '"', $text);
 	foreach($words AS $key => $replaceword) {
-		$text = str_replace($replaceword, '<highlight>'.$replaceword.'</highlight>', $text);
+		$text = str_ireplace($replaceword, '<highlight>'.$replaceword.'</highlight>', $text);
 	}
 	return "$prepend$text";
 }
