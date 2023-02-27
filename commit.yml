@@ -3,39 +3,21 @@ branches: {
   }
 fileChange:
   /upload:
-    newFile: !uuid 'd8317ac96022539ebabbd1b749663af9ba94a004'
-    oldFile: !uuid 'df5c681f8d01d4c58ee8656d7ad29b29d4f681a1'
-  /upload/template:
-    newFile: !uuid '055a869069face54ea9c1f53cc9026df76376c01'
-    oldFile: !uuid '6dc00111c25b54c7e4be205906d3268984bc40d8'
-  /upload/template/default:
-    newFile: !uuid '827867d80c49057d3b48ee904d049f8141407bef'
-    oldFile: !uuid '78249162720f15cccd8c8e40110f037d949ebd9d'
-  /upload/template/default/touch:
-    newFile: !uuid 'ae0a874f0bee47efa44ea76d39547f2b07f9f15f'
-    oldFile: !uuid 'd9ab5f825e9574416cf4c119136785d228c8c3ff'
-  /upload/template/default/touch/forum:
-    newFile: !uuid 'd3461719a99965b14b9007c6706dad1be79a3734'
-    oldFile: !uuid 'cad79658d3338ad4b8c2d0eab3a7a582973a64fb'
-  /upload/template/default/touch/forum/collection_select.htm:
-    newFile: !uuid 'f73cd2843cc63c051601372d2bd813f220e9c1b2'
-    oldFile: null
-  /upload/template/default/touch/forum/rate.htm:
-    newFile: !uuid '024c99fc4a1f178c71bffe2a07800a3b2c7d178e'
-    oldFile: !uuid '03b9b4b3ae2492ba89bdbf1caf0222e2178ba8c7'
-  /upload/template/default/touch/forum/viewthread.htm:
-    newFile: !uuid 'd463b0bc3740036504be8af9b2a08528a4776dc1'
-    oldFile: !uuid 'f21cc1a4f95928896017290d18e495a4dba10875'
-  /upload/template/default/touch/home:
-    newFile: !uuid 'ee7dff3520b3fbbdd2589ad9e45132488731a001'
-    oldFile: !uuid '345365111eed6915a73d4957792d7c3ea314f0f1'
-  /upload/template/default/touch/home/spacecp_follow.htm:
-    newFile: !uuid '0e9fc21c34fccbf960e7974300bb6888a9cc2885'
-    oldFile: !uuid '3e0f5501c2eeb7b00a5fe61e969f9af6c046aa7d'
-  /upload/template/default/touch/home/spacecp_share.htm:
-    newFile: !uuid 'be611a9eea76007e19e24e526f2590f51f5b01e7'
-    oldFile: !uuid '97434f3583b681bfe9f76ac2a037e74f57932ed2'
-gitCommitId: !uuid '79f653f9eb71c62cd230ccb8180dc9131d5b642e'
+    newFile: !uuid '524f3f9c5e2ccea244675ee170987a89af9d9c54'
+    oldFile: !uuid 'd8317ac96022539ebabbd1b749663af9ba94a004'
+  /upload/static:
+    newFile: !uuid '3d4048b16b1449b848be015a66ee9d10ab70b63c'
+    oldFile: !uuid 'd82d49efc00dfd7780ea0b007079becac5041817'
+  /upload/static/image:
+    newFile: !uuid '36fc5d12cbceb41af05a36b6f433c8426a2e7314'
+    oldFile: !uuid 'b05e8013652ffbd09e82047b254ae9f63afc6ed0'
+  /upload/static/image/admincp:
+    newFile: !uuid 'f19e5e7be2270930ae3728641f20b8e79aff1e60'
+    oldFile: !uuid '32ff19089b543105d0a35ee0872231bd455fb1b2'
+  /upload/static/image/admincp/admincpframe.css:
+    newFile: !uuid '3b0414423938b05911bf82db2cc54cc380840f3b'
+    oldFile: !uuid '0534817d1dc20c1d1c79e40c0c88c85579f5cf15'
+gitCommitId: !uuid '341e716129e594c73ac02ca79d5a492620701493'
 renames: {
   }
-revisionId: 1039
+revisionId: 1040
