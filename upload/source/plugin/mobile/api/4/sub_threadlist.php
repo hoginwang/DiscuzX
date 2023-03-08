@@ -1,10 +1,10 @@
 <?php
 
 /**
- *      [Discuz!] (C)2001-2099 Comsenz Inc.
- *      This is NOT a freeware, use is subject to license terms
+ *	  [Discuz!] (C)2001-2099 Comsenz Inc.
+ *	  This is NOT a freeware, use is subject to license terms
  *
- *      $Id: sub_threadlist.php 35068 2014-11-04 02:37:45Z nemohou $
+ *	  $Id: sub_threadlist.php 35068 2014-11-04 02:37:45Z nemohou $
  */
 
 if (!defined('IN_MOBILE_API')) {
@@ -38,51 +38,51 @@ foreach ($_G['forum_threadlist'] as $k => $thread) {
 		$_G['forum_threadlist'][$k]['authorid'] = 0;
 	}
 	$userids[] = $thread['authorid'];
-    // get message one by one?
-    $firstpost = C::t('forum_post')->fetch_threadpost_by_tid_invisible($thread['tid']);
+	// get message one by one?
+	$firstpost = C::t('forum_post')->fetch_threadpost_by_tid_invisible($thread['tid']);
 	// also need to check the access
 
-    if($thread['readperm'] < $_G['group']['readaccess'] && $firstpost['invisible'] == 0){
-        // the post is visible to users
-        // compile the message
-        $firstPostMessage = $firstpost['message'];
-        // how many images are attached here
-        preg_match_all('/\[attach\](\d+)\[\/attach\]/i', $firstPostMessage, $matches, PREG_SET_ORDER);
-        $_G['forum_threadlist'][$k]['attachmentImageNumber'] = count($matches);
-        // start to preview some picture
-        $cnt = 0;
+	if($thread['readperm'] < $_G['group']['readaccess'] && $firstpost['invisible'] == 0){
+		// the post is visible to users
+		// compile the message
+		$firstPostMessage = $firstpost['message'];
+		// how many images are attached here
+		preg_match_all('/\[attach\](\d+)\[\/attach\]/i', $firstPostMessage, $matches, PREG_SET_ORDER);
+		$_G['forum_threadlist'][$k]['attachmentImageNumber'] = count($matches);
+		// start to preview some picture
+		$cnt = 0;
 
-        $aidList = array();
-        foreach ($matches as $i => $match){
+		$aidList = array();
+		foreach ($matches as $i => $match){
 			// only allow a maximum of 3 attachment
-            if($cnt > 3){
-                break;
-            }
-            $cnt += 1;
-            $aidList[] = $match[1];
-        }
-        // then query it
-        $attachmentImageList = array();
-        $attachments = C::t('forum_attachment')->fetch_all($aidList);
+			if($cnt > 3){
+				break;
+			}
+			$cnt += 1;
+			$aidList[] = $match[1];
+		}
+		// then query it
+		$attachmentImageList = array();
+		$attachments = C::t('forum_attachment')->fetch_all($aidList);
 
-        foreach($attachments as $aid => $attach) {
-            $attachment = C::t('forum_attachment_n')->fetch_attachment($attach["tableid"], $attach["aid"], true);
-            $attachmentImageList[] = $attachment;
-        }
-        $_G['forum_threadlist'][$k]['attachmentImagePreviewList'] = $attachmentImageList;
-        // compile attachment placeholder
-        $firstPostMessage = preg_replace('/\[attach\](\d+)\[\/attach\]/i', '【图片】', $firstPostMessage);
-        // further removing pesedo code
-        $firstPostMessage = preg_replace('/<\/*.*?>|&nbsp;|\r\n|\[attachimg\].*?\[\/attachimg\]|\[quote\].*?\[\/quote\]|\[\/*.*?\]/ms', '', $firstPostMessage);
-        // allow a maximum 5000 words
-        $firstPostMessage = trim(messagecutstr($firstPostMessage, 500));
-        // how many images are attached here
+		foreach($attachments as $aid => $attach) {
+			$attachment = C::t('forum_attachment_n')->fetch_attachment($attach["tableid"], $attach["aid"], true);
+			$attachmentImageList[] = $attachment;
+		}
+		$_G['forum_threadlist'][$k]['attachmentImagePreviewList'] = $attachmentImageList;
+		// compile attachment placeholder
+		$firstPostMessage = preg_replace('/\[attach\](\d+)\[\/attach\]/i', '【图片】', $firstPostMessage);
+		// further removing pesedo code
+		$firstPostMessage = preg_replace('/<\/*.*?>|&nbsp;|\r\n|\[attachimg\].*?\[\/attachimg\]|\[quote\].*?\[\/quote\]|\[\/*.*?\]/ms', '', $firstPostMessage);
+		// allow a maximum 5000 words
+		$firstPostMessage = trim(messagecutstr($firstPostMessage, 500));
+		// how many images are attached here
 
-        // give it to user
+		// give it to user
 
-        $_G['forum_threadlist'][$k]['message'] = $firstPostMessage;
+		$_G['forum_threadlist'][$k]['message'] = $firstPostMessage;
 
-    }
+	}
 
 
 }
@@ -126,14 +126,14 @@ if($_G['forum']['icon']) {
 $_G['forum']['threadcount'] = $_G['forum_threadcount'];
 
 $variable = array(
-    'forum' => mobile_core::getvalues($_G['forum'], array('fid', 'fup', 'name', 'threads', 'posts', 'rules', 'autoclose', 'password', 'icon', 'threadcount', 'picstyle', 'description')),
-    'group' => mobile_core::getvalues($_G['group'], array('groupid', 'grouptitle')),
-    'forum_threadlist' => mobile_core::getvalues(array_values(is_array($_G['forum_threadlist']) ? $_G['forum_threadlist'] : array()), array('/^\d+$/'), array('tid', 'author', 'special', 'authorid', 'subject', 'subject', 'dbdateline', 'dateline', 'dblastpost', 'lastpost', 'lastposter', 'attachment', 'replies', 'readperm', 'views', 'digest', 'cover', 'recommend', 'recommend_add', 'reply', 'avatar', 'displayorder', 'coverpath', 'typeid', 'rushreply', 'replycredit', 'price', 'message', 'attachmentImageNumber', 'attachmentImagePreviewList')),
-    'groupiconid' => $groupiconIds,
-    'sublist' => mobile_core::getvalues($GLOBALS['sublist'], array('/^\d+$/'), array('fid', 'name', 'threads', 'todayposts', 'posts', 'icon')),
-    'tpp' => $_G['tpp'],
-    'page' => $GLOBALS['page'],
-    'reward_unit' => $_G['setting']['extcredits'][$_G['setting']['creditstransextra'][2]]['unit'].$_G['setting']['extcredits'][$_G['setting']['creditstransextra'][2]]['title'],
+	'forum' => mobile_core::getvalues($_G['forum'], array('fid', 'fup', 'name', 'threads', 'posts', 'rules', 'autoclose', 'password', 'icon', 'threadcount', 'picstyle', 'description')),
+	'group' => mobile_core::getvalues($_G['group'], array('groupid', 'grouptitle')),
+	'forum_threadlist' => mobile_core::getvalues(array_values(is_array($_G['forum_threadlist']) ? $_G['forum_threadlist'] : array()), array('/^\d+$/'), array('tid', 'author', 'special', 'authorid', 'subject', 'subject', 'dbdateline', 'dateline', 'dblastpost', 'lastpost', 'lastposter', 'attachment', 'replies', 'readperm', 'views', 'digest', 'cover', 'recommend', 'recommend_add', 'reply', 'avatar', 'displayorder', 'coverpath', 'typeid', 'rushreply', 'replycredit', 'price', 'message', 'attachmentImageNumber', 'attachmentImagePreviewList')),
+	'groupiconid' => $groupiconIds,
+	'sublist' => mobile_core::getvalues($GLOBALS['sublist'], array('/^\d+$/'), array('fid', 'name', 'threads', 'todayposts', 'posts', 'icon')),
+	'tpp' => $_G['tpp'],
+	'page' => $GLOBALS['page'],
+	'reward_unit' => $_G['setting']['extcredits'][$_G['setting']['creditstransextra'][2]]['unit'].$_G['setting']['extcredits'][$_G['setting']['creditstransextra'][2]]['title'],
 );
 if (!empty($_G['forum']['threadtypes']) || !empty($_GET['debug'])) {
 	$variable['threadtypes'] = $_G['forum']['threadtypes'];
