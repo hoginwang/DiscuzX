@@ -157,10 +157,6 @@ class mobile_api {
 					$variable['postlist'][$k]['attachlist'] = array_diff($variable['postlist'][$k]['attachlist'],$aids);
 				}
 			}
-			// insert ip address here
-			$variable['postlist'][$k]['ipLocation'] = convertip($variable['postlist'][$k]['useip']);
-			// unset ip address here
-			unset($variable['postlist'][$k]['useip']);
 		}
 
 		if (!empty($GLOBALS['polloptions'])) {
