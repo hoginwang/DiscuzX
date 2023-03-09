@@ -13,7 +13,6 @@ if (!defined('IN_MOBILE_API')) {
 $_GET['mod'] = 'viewthread';
 include_once 'forum.php';
 
-
 class mobile_api {
 
 	public static function common() {
@@ -21,8 +20,6 @@ class mobile_api {
 	}
 
 	public static function output() {
-		// to introduce ipGeolocation in the mobile plugin
-		require_once libfile('function/misc');
 		global $_G, $thread, $postlist, $threadsortshow;
 		if ($GLOBALS['hiddenreplies']) {
 			foreach ($postlist as $k => $post) {
