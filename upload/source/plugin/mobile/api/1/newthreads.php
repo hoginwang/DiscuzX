@@ -1,10 +1,10 @@
 <?php
 
 /**
- *	  [Discuz!] (C)2001-2099 Comsenz Inc.
- *	  This is NOT a freeware, use is subject to license terms
+ *      [Discuz!] (C)2001-2099 Comsenz Inc.
+ *      This is NOT a freeware, use is subject to license terms
  *
- *	  $Id: newthreads.php 34314 2014-02-20 01:04:24Z nemohou $
+ *      $Id: newthreads.php 34314 2014-02-20 01:04:24Z nemohou $
  */
 
 if(!defined('IN_MOBILE_API')) {
