@@ -26,7 +26,6 @@ class mobile_api {
 			$thread['dblastpost'] = $thread['lastpost'];
 			$thread['dateline'] = dgmdate($thread['dateline'], 'u');
 			$thread['lastpost'] = dgmdate($thread['lastpost'], 'u');
-
 			// check them one by one
 			$tid = $thread['tid'];
 			$firstpost = C::t('forum_post')->fetch_threadpost_by_tid_invisible($thread['tid']);
@@ -39,7 +38,6 @@ class mobile_api {
 				$thread['attachmentImageNumber'] = count($matches);
 				// start to preview some picture
 				$cnt = 0;
-
 				$aidList = array();
 				foreach ($matches as $i => $match) {
 					// only allow a maximum of 3 attachment
@@ -52,7 +50,6 @@ class mobile_api {
 				// then query it
 				$attachmentImageList = array();
 				$attachments = C::t('forum_attachment')->fetch_all($aidList);
-
 				foreach ($attachments as $aid => $attach) {
 					$attachment = C::t('forum_attachment_n')->fetch_attachment($attach["tableid"], $attach["aid"], true);
 					$attachmentImageList[] = $attachment;

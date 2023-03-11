@@ -14,7 +14,6 @@ if (!defined('IN_MOBILE_API')) {
 $_G['wechat']['setting'] = dunserialize($_G['setting']['mobilewechat']);
 
 require_once libfile('function/post');
-
 $tids = array();
 foreach ($_G['forum_threadlist'] as $k => $thread) {
 	$tids[] = $_G['forum_threadlist'][$k]['tid'] = $thread['icontid'];
@@ -30,7 +29,6 @@ foreach ($_G['forum_threadlist'] as $k => $thread) {
 			$_G['forum_threadlist'][$k]['reply'] = dunserialize($key['svalue']);
 		}
 	}
-
 	$_G['forum_threadlist'][$k]['dateline'] = strip_tags($thread['dateline']);
 	$_G['forum_threadlist'][$k]['lastpost'] = strip_tags($thread['lastpost']);
 	if(!$thread['authorid'] || !$thread['author']) {
@@ -76,17 +74,13 @@ foreach ($_G['forum_threadlist'] as $k => $thread) {
 		$firstPostMessage = preg_replace('/<\/*.*?>|&nbsp;|\r\n|\[attachimg\].*?\[\/attachimg\]|\[quote\].*?\[\/quote\]|\[\/*.*?\]/ms', '', $firstPostMessage);
 		// allow a maximum 5000 words
 		$firstPostMessage = trim(messagecutstr($firstPostMessage, 500));
-		// how many images are attached here
-
 		// give it to user
-
 		$_G['forum_threadlist'][$k]['message'] = $firstPostMessage;
 
 	}
 
 
 }
-
 
 foreach(C::t('common_member')->fetch_all($userids) as $user) {
 	$groupiconIds[$user['uid']] = mobile_core::usergroupIconId($user['groupid']);
