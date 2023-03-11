@@ -35,7 +35,6 @@ class mobile_api {
 				$GLOBALS['data']['hot']['threadlist'][$tid]['attachmentImageNumber'] = count($matches);
 				// start to preview some picture
 				$cnt = 0;
-
 				$aidList = array();
 				foreach ($matches as $i => $match) {
 					// only allow a maximum of 3 attachment
@@ -48,7 +47,6 @@ class mobile_api {
 				// then query it
 				$attachmentImageList = array();
 				$attachments = C::t('forum_attachment')->fetch_all($aidList);
-
 				foreach ($attachments as $aid => $attach) {
 					$attachment = C::t('forum_attachment_n')->fetch_attachment($attach["tableid"], $attach["aid"], true);
 					$attachmentImageList[] = $attachment;
@@ -61,9 +59,7 @@ class mobile_api {
 				// allow a maximum 5000 words
 				$firstPostMessage = trim(messagecutstr($firstPostMessage, 500));
 				// how many images are attached here
-
 				// give it to user
-
 				$GLOBALS['data']['hot']['threadlist'][$tid]['message'] = $firstPostMessage;
 			}
 		}

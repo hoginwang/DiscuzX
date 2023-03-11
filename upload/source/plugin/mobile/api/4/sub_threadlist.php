@@ -76,10 +76,7 @@ foreach ($_G['forum_threadlist'] as $k => $thread) {
 		$firstPostMessage = trim(messagecutstr($firstPostMessage, 500));
 		// give it to user
 		$_G['forum_threadlist'][$k]['message'] = $firstPostMessage;
-
 	}
-
-
 }
 
 foreach(C::t('common_member')->fetch_all($userids) as $user) {
