@@ -22,7 +22,7 @@ class mobile_api {
 
 	public static function output() {
 		global $_G;
-		
+
 		require_once libfile('function/post');
 		foreach($GLOBALS['data']['hot']['threadlist'] as $tid=>$thread) {
 			$GLOBALS['data']['hot']['threadlist'][$tid]['avatar'] = avatar($thread['authorid'], 'big', true);
