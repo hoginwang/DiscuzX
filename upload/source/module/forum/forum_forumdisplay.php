@@ -483,11 +483,17 @@ if(($_G['forum']['status'] != 3 && $_G['forum']['allowside'])) {
 	}
 }
 
+if ($_GET['typeid']) {
+	$forumdisplayadd['page'] = '&typeid='.$_GET['typeid'];
+}
+
+if ($_GET['sortid']) {
+	$forumdisplayadd['page'] = '&sortid='.$sortid;
+}
+
 if($_G['forum']['threadsorts']['types'] && $sortoptionarray && ($_GET['searchoption'] || $_GET['searchsort'])) {
-	$sortid = intval($_GET['sortid']);
 
 	if($_GET['searchoption']){
-		$forumdisplayadd['page'] = '&sortid='.$sortid;
 		foreach($_GET['searchoption'] as $optionid => $option) {
 			$optionid = intval($optionid);
 			$searchoption = '';
