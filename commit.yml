@@ -3,21 +3,18 @@ branches: {
   }
 fileChange:
   /upload:
-    newFile: !uuid '731855232ab765723d37a0c3c09e06b697c68b04'
-    oldFile: !uuid '94d208b7defbb7a4f17115f9cbfcabaaf745443c'
+    newFile: !uuid 'ff85ee4a210b4d19003545625c431a1cf6a02f9a'
+    oldFile: !uuid '731855232ab765723d37a0c3c09e06b697c68b04'
   /upload/source:
-    newFile: !uuid '55f3785b491125f58cd37698814c5a957ac034f6'
-    oldFile: !uuid '17ebca1301078176d51124691410704c06e5b972'
+    newFile: !uuid '011514cf997ddb3f9f9447791f2678e27e67f712'
+    oldFile: !uuid '55f3785b491125f58cd37698814c5a957ac034f6'
   /upload/source/language:
-    newFile: !uuid '7e68075c5632cf8c361f177f4bbc1454515cd812'
-    oldFile: !uuid '7156129cca3671f1a56b3ce29698d6718a1a35cf'
-  /upload/source/language/touch:
-    newFile: !uuid '5d699b6d9fc626b212bbfa91aa55cfbdf81123a3'
-    oldFile: !uuid 'd7999e53caabb02287675de345e53ff7fe659c5f'
-  /upload/source/language/touch/lang_template.php:
-    newFile: !uuid 'e5a46fc6ba9a21e047d84e34f55980a6e80f192e'
-    oldFile: !uuid 'b170586fe87bfa3d7c2fb7338b31fd3b7e37feb7'
-gitCommitId: !uuid '7e3cd42c753a98f4d7962b7796075bd33ace1429'
+    newFile: !uuid '6ade9656083e58c1b5d266b1202a02c38c64756f'
+    oldFile: !uuid '7e68075c5632cf8c361f177f4bbc1454515cd812'
+  /upload/source/language/lang_admincp_login.php:
+    newFile: !uuid 'b7627db35edcba4675c1dd6e86770fcf069a692e'
+    oldFile: !uuid 'ddf87cd25d2082efa385a5c8c5067d00433d9ca1'
+gitCommitId: !uuid '59a5796692ab402b296db5bc7d3dbfef7f7c69a8'
 renames: {
   }
-revisionId: 1060
+revisionId: 1061
