@@ -3,33 +3,24 @@ branches: {
   }
 fileChange:
   /upload:
-    newFile: !uuid 'abfbae7eed0fd953406937f78b8581758b198531'
-    oldFile: !uuid '824d25e69f9c528994e54b2aceafb2352d02ed61'
-  /upload/template:
-    newFile: !uuid '8e1ab615bfec6cd5ec376aadee76b3d56c91a99f'
-    oldFile: !uuid '16366a82517ad1cdc75b669028e23a6ce7cfa23a'
-  /upload/template/default:
-    newFile: !uuid '6e30cb6def9e1e37f1beda1863e90a418a24a5e4'
-    oldFile: !uuid '181ce352a4e3c66544e92e81ea9f272cc9298c26'
-  /upload/template/default/touch:
-    newFile: !uuid '2de331992673f285e044744f7d11134b6feb9efd'
-    oldFile: !uuid '6352e547b7feff94cda57a9141198303b0a5f54a'
-  /upload/template/default/touch/forum:
-    newFile: !uuid 'e2c02b3ffeefbd6b95596defe86e2a23f6f2219b'
-    oldFile: !uuid 'e91489f8c1e4ee478f052bf7fd111cbd05499138'
-  /upload/template/default/touch/forum/debate_umpire.htm:
-    newFile: !uuid 'bc4a0ee4637c32f48584bfcd59fc6f978f2c4aee'
-    oldFile: null
-  /upload/template/default/touch/forum/post_debate.htm:
-    newFile: !uuid '5a1bd3204c121f366a2f074c395f408b436697b0'
-    oldFile: null
-  /upload/template/default/touch/forum/viewthread.htm:
-    newFile: !uuid '81b558d904842fca01f9c6c0e2cd1a6a9b6fcb04'
-    oldFile: !uuid '878e958554dd9ac9c409542c908a37fdbd311f80'
-  /upload/template/default/touch/forum/viewthread_debate.htm:
-    newFile: !uuid 'cfd314cccdde43c99a091753acf28d0b3ee91bac'
-    oldFile: !uuid '2204ab65d925981d839df9a65eee31d9da393101'
-gitCommitId: !uuid 'b7e55e671ced7048c6063ee149cb5efa31fd8d62'
+    newFile: !uuid 'e8669ecd3c5310b8ac0e631ad80a8675f4ef2a00'
+    oldFile: !uuid 'abfbae7eed0fd953406937f78b8581758b198531'
+  /upload/install:
+    newFile: !uuid 'bf00b97b156646cc0994348893b112b19c536d51'
+    oldFile: !uuid '3c3bcfe5e907392e5c7188accea10a024ab731ac'
+  /upload/install/include:
+    newFile: !uuid 'd9a38f7a2cd242c943caed1974d56dbad8bb98ac'
+    oldFile: !uuid '5a9a0388c895192d93227cb7b1b05c99cb94fd78'
+  /upload/install/include/install_function.php:
+    newFile: !uuid 'f4880da01d6e339c408f70bd0bb5016e5e06ddbb'
+    oldFile: !uuid '1bb373416d8bcb4ce149a555f31ac2baa8c4a554'
+  /upload/install/include/install_lang.php:
+    newFile: !uuid 'd39653b5c11e5e14b68b049397a030dcea3b4344'
+    oldFile: !uuid 'f163f64a3147eff6d4c32c60519eba513f0fba2d'
+  /upload/install/index.php:
+    newFile: !uuid 'a700ab526cb820854686d772680caf2fed5739fd'
+    oldFile: !uuid '40b916fd09c274bb061c33fa41506fc76f8936eb'
+gitCommitId: !uuid '75bb7e9e4928e84625ea635dc85988cfe590daa7'
 renames: {
   }
-revisionId: 1054
+revisionId: 1055
