@@ -3,45 +3,24 @@ branches: {
   }
 fileChange:
   /upload:
-    newFile: !uuid '3bd47b8fb4d73c4d3d6305c01404d62564a8561c'
-    oldFile: !uuid 'f217f9cb32605a51190d85543a69d876c7c0bf62'
-  /upload/install:
-    newFile: !uuid '3aff8eebc7c9ef721f354333c3e13ebf88d3410c'
-    oldFile: !uuid 'ebe0715a4f90ffb0e0965bbb7d0dedeff4a7a12a'
-  /upload/install/include:
-    newFile: !uuid 'af05d8bb1a04f019e30309ad9168829506f87535'
-    oldFile: !uuid 'c29932768ee2680b762e45cef6a055766b81bbba'
-  /upload/install/include/install_lang.php:
-    newFile: !uuid 'eaa09017c991c9ad264cf449c8378b6270c61e02'
-    oldFile: !uuid 'ab2711c71ff3c7f9d34cfd083bacd334467f7d2b'
+    newFile: !uuid '458cf5645c51013b92e8c36220536d75dcded6c6'
+    oldFile: !uuid '3bd47b8fb4d73c4d3d6305c01404d62564a8561c'
   /upload/source:
-    newFile: !uuid '37c3289a46288c9a47c48c02d1b4d374aa64ef6b'
-    oldFile: !uuid '011514cf997ddb3f9f9447791f2678e27e67f712'
+    newFile: !uuid '7fb1b19b463e0afed1be63ca969988eb1f2083d0'
+    oldFile: !uuid '37c3289a46288c9a47c48c02d1b4d374aa64ef6b'
+  /upload/source/admincp:
+    newFile: !uuid 'cbb3abc459e519282ed61d7766a4d0d8cbc6f70d'
+    oldFile: !uuid '2c9aa21b00aa933645f17ebdf2e3e13d370680ef'
+  /upload/source/admincp/admincp_index.php:
+    newFile: !uuid '6cd163b61653a00279eb99a48fc49ab6ce4c75f4'
+    oldFile: !uuid '6442713a9f3a162325afda8771aa5d8d914eb01f'
   /upload/source/language:
-    newFile: !uuid '8b5f424ded6170de10e6377c0b1069bafb6eb0c2'
-    oldFile: !uuid '6ade9656083e58c1b5d266b1202a02c38c64756f'
+    newFile: !uuid 'f88d2307a8132fba52c4ea8ea1599faab5722f26'
+    oldFile: !uuid '8b5f424ded6170de10e6377c0b1069bafb6eb0c2'
   /upload/source/language/lang_template.php:
-    newFile: !uuid 'df522a3b89e7f26e4c3af57c3c83f6b1a8e5915e'
-    oldFile: !uuid '3f8e008afce5f2e7a9b300eaecb67940f138ceb4'
-  /upload/uc_server:
-    newFile: !uuid '26451f3adb34f75e8b28ddbb50307bd2c6d8375c'
-    oldFile: !uuid '1eecd67bdaef1eeb11c9db8158496547186a41ca'
-  /upload/uc_server/install:
-    newFile: !uuid '466c9ef17885cebceb8e7b99466b48b8f85e5bd0'
-    oldFile: !uuid '74fa7331deae233b661b48fdef48c29ff124c281'
-  /upload/uc_server/install/lang.inc.php:
-    newFile: !uuid '23ea36960f7e2b29f887ffce0eb57d85fd60ac24'
-    oldFile: !uuid '1e6110d99e2e6bfe9df30142c888933604e8e606'
-  /upload/uc_server/view:
-    newFile: !uuid 'b64fbcc9ef3206787bfe36e9c2266df5a60ce945'
-    oldFile: !uuid '96c2d44439af9cba60107579cb506b036d9fcab4'
-  /upload/uc_server/view/default:
-    newFile: !uuid 'efbcbe1e96a38c0d2b825fc1520c8e702310477e'
-    oldFile: !uuid '1ab16bf214a67ae26ed62e94aa5c7e5ab82399d6'
-  /upload/uc_server/view/default/templates.lang.php:
-    newFile: !uuid '7bc09839e6ff1c11bd21b720fcf5481882c4db3f'
-    oldFile: !uuid 'f511b329420818a06932797fa0ffe6bf2d546b87'
-gitCommitId: !uuid '42312c5eb8d237e8c83a66777a586eebcdad9c7f'
+    newFile: !uuid 'da39fa262c4d574752b503a100c8dd06c77032d2'
+    oldFile: !uuid 'df522a3b89e7f26e4c3af57c3c83f6b1a8e5915e'
+gitCommitId: !uuid '3d07823351a799a0fadaa3296b58ba268c642ad3'
 renames: {
   }
-revisionId: 1063
+revisionId: 1064
