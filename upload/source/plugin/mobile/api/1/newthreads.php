@@ -55,10 +55,14 @@ class mobile_api {
 					$attachmentImageList[] = $attachment;
 				}
 				$thread['attachmentImagePreviewList'] = $attachmentImageList;
+				$attach_words = '['.lang('forum/misc', 'attach_img').']';
 				// compile attachment placeholder
-				$firstPostMessage = preg_replace('/\[attach\](\d+)\[\/attach\]/i', '【图片】', $firstPostMessage);
+				$attach_img_text = lang('forum/misc', 'attach_img');
+				$attach_words = '['.$attach_img_text.']';
+				// compile attachment placeholder
+				$firstPostMessage = preg_replace('/\[attach\](\d+)\[\/attach\]/i', $attach_words, $firstPostMessage);
 				// further removing pesedo code
-				$firstPostMessage = preg_replace('/<\/*.*?>|&nbsp;|\r\n|\[attachimg\].*?\[\/attachimg\]|\[quote\].*?\[\/quote\]|\[\/*.*?\]/ms', '', $firstPostMessage);
+				$firstPostMessage = preg_replace('/<\/*.*?>|&nbsp;|\r\n|\[attachimg\].*?\[\/attachimg\]|\[quote\].*?\[\/quote\]|\[(?!'.$attach_words.')\/*.*?\]/ms', '', $firstPostMessage);
 				// allow a maximum 5000 words
 				$firstPostMessage = trim(messagecutstr($firstPostMessage, 500));
 				// how many images are attached here
