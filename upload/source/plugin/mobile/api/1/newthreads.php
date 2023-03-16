@@ -64,7 +64,7 @@ class mobile_api {
 				// further removing pesedo code
 				$firstPostMessage = preg_replace('/<\/*.*?>|&nbsp;|\r\n|\[attachimg\].*?\[\/attachimg\]|\[quote\].*?\[\/quote\]|\[(?!'.$attach_words.')\/*.*?\]/ms', '', $firstPostMessage);
 				// allow a maximum 5000 words
-				$firstPostMessage = trim(messagecutstr($firstPostMessage, 500));
+				$firstPostMessage = trim(threadmessagecutstr($thread, $firstPostMessage, 500));
 				// how many images are attached here
 				// give it to user
 				$thread['message'] = $firstPostMessage;
