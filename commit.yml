@@ -3,18 +3,36 @@ branches: {
   }
 fileChange:
   /upload:
-    newFile: !uuid 'f0e76004d678bfc80b4d06c61ce90d59825a0396'
-    oldFile: !uuid '59a874aec0c2d7f2bd1a3e58edaac87cceb50d2b'
-  /upload/install:
-    newFile: !uuid 'ff5ca77f648401e765b0a0fdee82832a7bc2773b'
-    oldFile: !uuid '3aff8eebc7c9ef721f354333c3e13ebf88d3410c'
-  /upload/install/include:
-    newFile: !uuid 'c27442e7792be0c6603048abc76cebfb56c38985'
-    oldFile: !uuid 'af05d8bb1a04f019e30309ad9168829506f87535'
-  /upload/install/include/install_lang.php:
-    newFile: !uuid '6a91c213276f46e2201b4dc78166d0811e1f2a7c'
-    oldFile: !uuid 'eaa09017c991c9ad264cf449c8378b6270c61e02'
-gitCommitId: !uuid 'd03008d7e0526c671dec0d9cd2d17bde2245483e'
+    newFile: !uuid '52e052c2c8ab6d9ff2164b3dfe7fb0f59c7a07d1'
+    oldFile: !uuid 'f0e76004d678bfc80b4d06c61ce90d59825a0396'
+  /upload/static:
+    newFile: !uuid '5ab93819e88e1b31a360b924c95403ed0019af2d'
+    oldFile: !uuid '9cf20e5bf5d6b9910dccc286b618759faca91926'
+  /upload/static/image:
+    newFile: !uuid '2e359a88ea54587864dff34f9e89adb745230eed'
+    oldFile: !uuid 'c6799e07dddc5f6ff7938183f0377aaa6e4fa170'
+  /upload/static/image/mobile:
+    newFile: !uuid '55eb39216440bb14173de9581decd7e10a9ad805'
+    oldFile: !uuid '16e1aaac687318bbe57077948625a8872d43fd4d'
+  /upload/static/image/mobile/style.css:
+    newFile: !uuid '8a418962f5a270f2100a6961e40954ffffddda7b'
+    oldFile: !uuid '8c5fcf6e0040b86e5267cbaa72b3f2259375fe25'
+  /upload/template:
+    newFile: !uuid '3e364f522fc4b5beb00fbd69bc7b1d868486d5a1'
+    oldFile: !uuid '441f8f1c6bdfdb0600e78e69a2a0bc3ec75027ec'
+  /upload/template/default:
+    newFile: !uuid '8b2a5bba61a52f40babe9a3dc09ae59363974a24'
+    oldFile: !uuid 'ec71df21596f7e97c13df7bd9f9f4abaab9d7e6e'
+  /upload/template/default/touch:
+    newFile: !uuid 'e41f65255e1914224ac812a5452ed6eecf780a8b'
+    oldFile: !uuid '7d239e3778834682cf9f2589c0735688f0b9b860'
+  /upload/template/default/touch/forum:
+    newFile: !uuid 'b469a0bb2496dcb15416befcdefbe47c85a624ca'
+    oldFile: !uuid '781cc053a3e9c145ba1700113dbbf6bb4d9347ca'
+  /upload/template/default/touch/forum/discuzcode.htm:
+    newFile: !uuid '24200f5a83fc888e6c915ad4480f34da73d6a20f'
+    oldFile: !uuid 'd5286cb88a1783b9b36e35d32c40d07532821929'
+gitCommitId: !uuid 'e9ce87b0b8d4c8930312147054ba9b5c2fabb147'
 renames: {
   }
-revisionId: 1069
+revisionId: 1070
