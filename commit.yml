@@ -3,18 +3,36 @@ branches: {
   }
 fileChange:
   /upload:
-    newFile: !uuid '489126588a60fcf66589632cfe665ae2bd6d242d'
-    oldFile: !uuid '91746b4dac86b852b0ded8ae22317e62bb1f1543'
-  /upload/source:
-    newFile: !uuid '6409a85f93c3cb3678e2aa06c676bc1cc9f4a59b'
-    oldFile: !uuid '4ad4f08c5103470b735ed14a7d0de7f979a2f309'
-  /upload/source/language:
-    newFile: !uuid '8d5018f53a8d4883f23da73d52fcf5cb5214cad8'
-    oldFile: !uuid '3556cfdfe50c437528b3b1c59b1a15356ffa2a41'
-  /upload/source/language/lang_admincp.php:
-    newFile: !uuid '4b34e40d94b30f63026f4485b8748dd00bbca667'
-    oldFile: !uuid '95cc1b2c349ea6116ba884535cd85d88cd5d396e'
-gitCommitId: !uuid 'bb6db88dbda1c1258db964cb11621a8b15a327ea'
+    newFile: !uuid 'ecf8d7d8ea36fbd6740d19b299eafb978210a0dd'
+    oldFile: !uuid '489126588a60fcf66589632cfe665ae2bd6d242d'
+  /upload/static:
+    newFile: !uuid '62e6fa20f424cf571c651cc604993bb92f8e4616'
+    oldFile: !uuid '393b1790508198782c3e79a40878e173f6f48608'
+  /upload/static/image:
+    newFile: !uuid '7d876c28d8368f45c9d7ec935e2abf747a9643a1'
+    oldFile: !uuid '2f6f13b88cdc52583d986f2e1755f917d6134de0'
+  /upload/static/image/mobile:
+    newFile: !uuid '6808968258361af143301d83cd1bf98827e5c8f2'
+    oldFile: !uuid '8bb0676b7842c9c18092a2d91b79fb5f3c2ce09a'
+  /upload/static/image/mobile/style.css:
+    newFile: !uuid '7c8e0da733ac3795ae5a56f04185e73af56f9818'
+    oldFile: !uuid 'bddb995fc6d217f707c5bef45f1fd20eb7a49877'
+  /upload/template:
+    newFile: !uuid '28041675bda2abcc60aa125b19c561673a81a169'
+    oldFile: !uuid '7f9f110fafbea9db8a3b8c40171a46e69f85e703'
+  /upload/template/default:
+    newFile: !uuid 'ee3db7333f89b63269a36c587a0967d651b90e1f'
+    oldFile: !uuid 'd505d52f7dbc07d5732f2a816a3423731b0cd473'
+  /upload/template/default/touch:
+    newFile: !uuid '9a35e4607dc4410f37edd848952599accbbcca35'
+    oldFile: !uuid 'de87458b7587fe27bcf327b06b2c4ed363ca4bd2'
+  /upload/template/default/touch/forum:
+    newFile: !uuid '487a3eb7603cf6efc8fe96f474d6c0116d3edd33'
+    oldFile: !uuid 'f8aaaeeb5fe83c98a0e863a3013a99b28c36fd64'
+  /upload/template/default/touch/forum/comment.htm:
+    newFile: !uuid 'dc8f72d4d05780d92f2766738e9987637f9d8ed9'
+    oldFile: !uuid '35f963da5357ea4756d90489da05fa69d6f5360f'
+gitCommitId: !uuid '3c2309ccf034ae797c4b2582b2a964d62f315d84'
 renames: {
   }
-revisionId: 1078
+revisionId: 1079
