@@ -3,36 +3,21 @@ branches: {
   }
 fileChange:
   /upload:
-    newFile: !uuid 'c04c4df513a3172575a8ffbdd15bfa0b602ffc30'
-    oldFile: !uuid '453427ceb3ef15dd2404c9af9d31bdd416c9fb54'
-  /upload/template:
-    newFile: !uuid 'b7d4f333afe33a231b18c2bb3baa0ed9874e49c6'
-    oldFile: !uuid 'cce2cb8e1a743f28d60f266e12af7d707a56414d'
-  /upload/template/default:
-    newFile: !uuid 'd1f7c44928d82bb25b71268aa30993aa44bd28f9'
-    oldFile: !uuid '47fa5f09b14a9e7afa6c78efd913e66750882344'
-  /upload/template/default/touch:
-    newFile: !uuid 'ae384f6f18fb826c9547e2ff2b9af377af0ff6f6'
-    oldFile: !uuid 'e6ff22f6e55014ad795afd1ce7830ecb56b80ab0'
-  /upload/template/default/touch/portal:
-    newFile: !uuid '292ad5fbc09850621ad39f9dbef62caeb5d3ebed'
-    oldFile: !uuid '00912c4303112661d6e2160976651ffa069b9455'
-  /upload/template/default/touch/portal/comment.htm:
-    newFile: !uuid '2162435c01db0cf05e336f9c27de9dbdcaa6a69c'
-    oldFile: null
-  /upload/template/default/touch/portal/comment_li.htm:
-    newFile: !uuid 'cd18e5224e093cf28d585ebd52baf9229740ea1c'
-    oldFile: null
-  /upload/template/default/touch/portal/portal_comment.htm:
-    newFile: !uuid '45f30749ce59eccf0dcf9ecce07ed0b1ff402ec0'
-    oldFile: null
-  /upload/template/default/touch/portal/portalcp_comment.htm:
-    newFile: !uuid '91d3626737eabd3bb577f4bbeac5cecee3b907b6'
-    oldFile: null
-  /upload/template/default/touch/portal/view.htm:
-    newFile: !uuid '37cbc2de8a624b84e39e177362d479e6b4207683'
-    oldFile: !uuid 'b4aff91997f902ead77b828c6d92dfc5ddb510e5'
-gitCommitId: !uuid '08dc213b8353a4593b236bfe3590dd0de141bf1f'
+    newFile: !uuid '855f7a7e3b7e38c9b9b0eb8e769c9ccb305a8e94'
+    oldFile: !uuid 'c04c4df513a3172575a8ffbdd15bfa0b602ffc30'
+  /upload/source:
+    newFile: !uuid '7ba16e60d0ed55aacf1e115191750e34d0e82daf'
+    oldFile: !uuid 'e338049df92bbb9e28467d792d62a3d5bfd82046'
+  /upload/source/module:
+    newFile: !uuid '482af54b016a1414a98c60f419c3a01d301355c1'
+    oldFile: !uuid '9bcbfc039db91aff54e70ac10d36a187f5a6aab1'
+  /upload/source/module/home:
+    newFile: !uuid '7c5c9af46ae1e36cf6a41d6c078b99edfc603955'
+    oldFile: !uuid 'cd14dcbb004e0d07fae34aa57bc278e65a37ad7d'
+  /upload/source/module/home/home_editor.php:
+    newFile: !uuid '758d987398b3eb22497207bc21ea94024df51e08'
+    oldFile: !uuid '7a3a1622b66823f6c1dee87c74672d786e97c16f'
+gitCommitId: !uuid '6d9805f13dfcc12a29c76b1b82c29bd6065c8649'
 renames: {
   }
-revisionId: 1085
+revisionId: 1086
