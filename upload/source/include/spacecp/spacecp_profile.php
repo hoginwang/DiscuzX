@@ -192,58 +192,59 @@ if(submitcheck('profilesubmit')) {
 			}
 			unset($setarr[$key]);
 		}
+		if($_FILES && $field['formtype'] == 'file') {
+			$upload = new discuz_upload();
+			foreach($_FILES as $key => $file) {
+				if(!isset($_G['cache']['profilesetting'][$key])) {
+					continue;
+				}
+				$field = $_G['cache']['profilesetting'][$key];
+				if((!empty($file) && $file['error'] == 0) || (!empty($space[$key]) && empty($_GET['deletefile'][$key]))) {
+					$value = '1';
+				} else {
+					$value = '';
+				}
+				if(!profile_check($key, $value, $space)) {
+					profile_showerror($key);
+				} elseif($field['size'] && $field['size']*1024 < $file['size']) {
+					profile_showerror($key, lang('spacecp', 'filesize_lessthan').$field['size'].'KB');
+				} elseif($_G['cache']['profilesetting'][$key]['unchangeable'] && !empty($space[$key])){
+					profile_showerror($key);
+				}
+				$upload->init($file, 'profile');
+				$attach = $upload->attach;
+
+				if(!$upload->error()) {
+					$upload->save();
+
+					if(!$upload->get_image_info($attach['target'])) {
+						@unlink($attach['target']);
+						continue;
+					}
+					$setarr[$key] = '';
+					$attach['attachment'] = dhtmlspecialchars(trim($attach['attachment']));
+					if($vid && $verifyconfig['available'] && isset($verifyconfig['field'][$key])) {
+						if(isset($verifyinfo['field'][$key])) {
+							$verifyarr[$key] = $attach['attachment'];
+						}
+						continue;
+					}
+					if(isset($setarr[$key]) && $_G['cache']['profilesetting'][$key]['needverify']) {
+						$verifyarr[$key] = $attach['attachment'];
+						continue;
+					}
+					$setarr[$key] = $attach['attachment'];
+				}
+
+			}
+		}
 	}
 	if($_GET['deletefile'] && is_array($_GET['deletefile'])) {
 		foreach($_GET['deletefile'] as $key => $value) {
 			if(isset($_G['cache']['profilesetting'][$key]) && $_G['cache']['profilesetting'][$key]['formtype'] == 'file') {
 				$verifyarr[$key] = $setarr[$key] = '';
+				@unlink(getglobal('setting/attachdir').'./profile/'.$space[$key]);
 			}
-		}
-	}
-	if($_FILES && $field['formtype'] == 'file') {
-		$upload = new discuz_upload();
-		foreach($_FILES as $key => $file) {
-			if(!isset($_G['cache']['profilesetting'][$key])) {
-				continue;
-			}
-			$field = $_G['cache']['profilesetting'][$key];
-			if((!empty($file) && $file['error'] == 0) || (!empty($space[$key]) && empty($_GET['deletefile'][$key]))) {
-				$value = '1';
-			} else {
-				$value = '';
-			}
-			if(!profile_check($key, $value, $space)) {
-				profile_showerror($key);
-			} elseif($field['size'] && $field['size']*1024 < $file['size']) {
-				profile_showerror($key, lang('spacecp', 'filesize_lessthan').$field['size'].'KB');
-			} elseif($_G['cache']['profilesetting'][$key]['unchangeable'] && !empty($space[$key])){
-				profile_showerror($key);
-			}
-			$upload->init($file, 'profile');
-			$attach = $upload->attach;
-
-			if(!$upload->error()) {
-				$upload->save();
-
-				if(!$upload->get_image_info($attach['target'])) {
-					@unlink($attach['target']);
-					continue;
-				}
-				$setarr[$key] = '';
-				$attach['attachment'] = dhtmlspecialchars(trim($attach['attachment']));
-				if($vid && $verifyconfig['available'] && isset($verifyconfig['field'][$key])) {
-					if(isset($verifyinfo['field'][$key])) {
-						$verifyarr[$key] = $attach['attachment'];
-					}
-					continue;
-				}
-				if(isset($setarr[$key]) && $_G['cache']['profilesetting'][$key]['needverify']) {
-					$verifyarr[$key] = $attach['attachment'];
-					continue;
-				}
-				$setarr[$key] = $attach['attachment'];
-			}
-
 		}
 	}
 	if($vid && !empty($verifyinfo['field']) && is_array($verifyinfo['field'])) {
@@ -641,7 +642,6 @@ if($operation == 'password') {
 			}
 		}
 	}
-
 }
 
 include template("home/spacecp_profile");
