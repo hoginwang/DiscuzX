@@ -1343,7 +1343,9 @@ function hookscript($script, $hscript, $type = 'funcs', $param = array(), $func 
 							}
 						} else {
 							foreach($return as $k => $v) {
-								$_G['setting']['pluginhooks'][$hookkey][$k] = $v;
+								if($v) {
+									$_G['setting']['pluginhooks'][$hookkey][$k] = $v;
+								}
 							}
 						}
 					} else {
