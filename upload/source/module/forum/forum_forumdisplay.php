@@ -974,6 +974,8 @@ if($_G['forum']['status'] == 3) {
 	write_groupviewed($_G['fid']);
 	$template = 'diy:group/group:'.$_G['fid'];
 }
+
+$threadlist_data = array();
 if (defined ('IN_MOBILE') && $_G['forum_threadcount']) {
 	$threadlist_data = get_attach($_G ['forum_threadlist']);
 }
