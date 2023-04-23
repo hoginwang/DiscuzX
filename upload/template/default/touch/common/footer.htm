@@ -4,17 +4,17 @@
 <!--{if !$nofooter}-->
 <div class="foot_height"></div>
 <div class="foot flex-box">
-	<a href="index.php" class="flex{if strpos($_SERVER['REQUEST_URI'], $_G['setting']['defaultindex']) || strpos($_SERVER['REQUEST_URI'], 'index.php')} mon{/if}">
+	<a href="index.php" class="flex{if strpos($_SERVER['REQUEST_URI'], (string)$_G['setting']['defaultindex']) || strpos($_SERVER['REQUEST_URI'], 'index.php')} mon{/if}">
 		<span class="foot-ico"><em class="ma"></em></span>
 		<span class="foot-txt">{lang mobhome}</span>
 	</a>
-	<!--{if strpos('forum.php', $_G['setting']['defaultindex']) === false}-->
+	<!--{if strpos('forum.php', (string)$_G['setting']['defaultindex']) === false}-->
 	<a href="<!--{if $_G['setting']['mobile']['forum']['index'] > 1}-->forum.php<!--{elseif $_G['setting']['mobile']['forum']['index'] == 1}-->forum.php?mod=guide&view=newthread<!--{else}-->forum.php?forumlist=1<!--{/if}-->" class="flex{if $_G['basescript'] == 'forum' && $_GET['mod'] != 'find' && (CURMODULE == 'index' || $_GET['forumlist'] == 1 || CURMODULE == 'forumdisplay' || CURMODULE == 'viewthread' || CURMODULE == 'guide')} mon{/if}">
 		<span class="foot-ico"><em class="mb"></em></span>
 		<span class="foot-txt">{$_G['setting']['navs'][2]['navname']}</span>
 	</a>
 	<!--{/if}-->
-	<!--{if strpos('forum.php', $_G['setting']['defaultindex']) === 0}-->
+	<!--{if strpos('forum.php', (string)$_G['setting']['defaultindex']) === 0}-->
 		<!--{if helper_access::check_module('portal')}-->
 		<a href="portal.php" class="flex{if $_G['basescript'] == 'portal'} mon{/if}">
 			<span class="foot-ico"><em class="mb"></em></span>
@@ -47,7 +47,7 @@
 	</a>
 	<a href="{if $_G['uid']}home.php?mod=space&uid={$_G['uid']}&do=profile&mycenter=1{else}member.php?mod=logging&action=login{/if}" class="flex{if $_G['basescript'] == 'home' && CURMODULE == 'space' && $_GET['mycenter'] == 1} mon{/if}">
 		<span class="foot-ico"><em class="me">
-			<!--{if strpos('forum.php', $_G['setting']['defaultindex']) === false || helper_access::check_module('portal') || helper_access::check_module('group') || helper_access::check_module('feed')}-->
+			<!--{if strpos('forum.php', (string)$_G['setting']['defaultindex']) === false || helper_access::check_module('portal') || helper_access::check_module('group') || helper_access::check_module('feed')}-->
 			<!--{if $_G['uid'] && ($_G['member']['newpm'] || $_G['member']['newprompt'])}--><i class="ico_msg"></i><!--{/if}-->
 			<!--{/if}-->
 		</em></span>
