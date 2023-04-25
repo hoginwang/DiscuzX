@@ -3,27 +3,21 @@ branches: {
   }
 fileChange:
   /upload:
-    newFile: !uuid '74b10af0b65a20eeaee7ac19205ab077690fd6d7'
-    oldFile: !uuid '6bd9f728c9efedaa9e4b73b15a4441c7b60f8603'
+    newFile: !uuid 'a1d84e201ba74e66f530ee66325124a223580673'
+    oldFile: !uuid '74b10af0b65a20eeaee7ac19205ab077690fd6d7'
   /upload/source:
-    newFile: !uuid 'b2a62015cd43d43deb8f42c6ba5b4b7355451fb2'
-    oldFile: !uuid 'ad38446112e2ae4015a054efe75aeeb2c7545df2'
-  /upload/source/function:
-    newFile: !uuid '53d36d3ab6eedf6d2b1844a4d9ea177b97b3720f'
-    oldFile: !uuid '322489fd6518b75967a11fe1afdac60474b0a7ba'
-  /upload/source/function/function_core.php:
-    newFile: !uuid '25f8d83ae3714c878cca94a4d382828885e7bd33'
-    oldFile: !uuid 'cef59aaad6a78afe19e8585fa0bbcf17ff6a2f14'
-  /upload/source/include:
-    newFile: !uuid 'eeb8ace02e8d94dca549149b025446f398a850db'
-    oldFile: !uuid 'c3a51a1ec5f4c4e9b29cb90774167a4e6e6a855f'
-  /upload/source/include/post:
-    newFile: !uuid 'c12812eeae41aa02a913c659b4a16c142a203a9d'
-    oldFile: !uuid '37c96c6a2a72f47715f7fc3b92eaa820a1764d4c'
-  /upload/source/include/post/post_newthread.php:
-    newFile: !uuid 'd63e92a839f2a68ae3f10d4dd234cfef3a691376'
-    oldFile: !uuid '0cd0cc7586d6d3bee00141b8e48e6d3ffcbbd634'
-gitCommitId: !uuid 'ee0bf38bda617692528048a6ef170aa1c946a57d'
+    newFile: !uuid 'c5dc8eef935977e04ffc40894aa902e0e9688420'
+    oldFile: !uuid 'b2a62015cd43d43deb8f42c6ba5b4b7355451fb2'
+  /upload/source/admincp:
+    newFile: !uuid '1c503c35b3f98a2966b121d50b7122ed888b8005'
+    oldFile: !uuid '728f4e1b8898108283ad774ced09169beaa49b4a'
+  /upload/source/admincp/moderate:
+    newFile: !uuid '72dfa098d0b4d5c069b5df7aea1cb28099b18b57'
+    oldFile: !uuid '14e054412afb6c35668eea2d39ee311b5c6614c4'
+  /upload/source/admincp/moderate/moderate_thread.php:
+    newFile: !uuid 'cbc8e2e762ac6fc9c86f93375d94a38b3ce951fb'
+    oldFile: !uuid '716c1623e7086b8de18e05694604e909242c29b1'
+gitCommitId: !uuid '36f3859470add369752e1410ecc1f657e016c736'
 renames: {
   }
-revisionId: 1103
+revisionId: 1104
