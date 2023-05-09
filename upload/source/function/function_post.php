@@ -561,6 +561,7 @@ function postfeed($feed) {
 }
 
 function messagesafeclear($message) {
+	global $_G;
 	if(strpos($message, '[/password]') !== FALSE) {
 		$message = '';
 	}
@@ -584,6 +585,11 @@ function messagesafeclear($message) {
 	}
 	$language = lang('forum/misc');
 	$message = preg_replace(array($language['post_edithtml_regexp'],$language['post_editnobbcode_regexp'],$language['post_edit_regexp']), '', $message);
+	if($_G['setting']['plugins']['func'][HOOKTYPE]['discuzcode']) {
+		$_G['discuzcodemessage'] = & $message;
+		$param = func_get_args();
+		hookscript('discuzcode', 'global', 'funcs', array('param' => $param, 'caller' => 'messagesafeclear'), 'discuzcode');
+	}
 	return $message;
 }
 
