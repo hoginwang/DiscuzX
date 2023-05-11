@@ -3,21 +3,30 @@ branches: {
   }
 fileChange:
   /upload:
-    newFile: !uuid '13d8c1f892255162699acff5293f5419caeed2fd'
-    oldFile: !uuid '72bcf2c5e27578f0b3bee7c8fffa64d06a1d9e8d'
-  /upload/source:
-    newFile: !uuid 'c6b65c416c200564b929b9172d5b29ba4867b875'
-    oldFile: !uuid 'ae4ed48a5b5dddd86112d235012fb19f49754289'
-  /upload/source/class:
-    newFile: !uuid 'bae2bba25380bf9dfb9dda0cccbb58549b5e6fc0'
-    oldFile: !uuid '40cbb9949d91844453e4ccbc539177e36a8c12ce'
-  /upload/source/class/discuz:
-    newFile: !uuid '52d884891cce88d3f63750b404f8cb1297bdf302'
-    oldFile: !uuid 'c24bffee80fd2e00efdf1fe6ae4be42ccb851ffc'
-  /upload/source/class/discuz/discuz_error.php:
-    newFile: !uuid '74689bd4129e4f0c6fba0e2a67bfe5871867e068'
-    oldFile: !uuid '422303ac329984dbd0252c35491a567c0c89943d'
-gitCommitId: !uuid '6172ab4ecc85773abf06d5600e8e61f69795a822'
+    newFile: !uuid '3d891dbc33cd0669d0cd02bd044e35307bd513f2'
+    oldFile: !uuid '13d8c1f892255162699acff5293f5419caeed2fd'
+  /upload/template:
+    newFile: !uuid 'ba72b342c31094dc466aa797f2caa9447a0df91c'
+    oldFile: !uuid 'e0b49b24e33c036f80de4e95e8706effbb88f448'
+  /upload/template/default:
+    newFile: !uuid 'b39f97876fc9a9940ac5816dd09b5891fd1f06c8'
+    oldFile: !uuid 'e19b8bb1d1db982022027ddbc9927fb8e1843562'
+  /upload/template/default/touch:
+    newFile: !uuid 'bfdf3cf3e47ddeacecc69f59ff837a92ab308651'
+    oldFile: !uuid 'c780b681e84f2af2dd55fc14a910d889fb6d81ec'
+  /upload/template/default/touch/home:
+    newFile: !uuid '12f402def8cf23cb1ff9760a13ee5b9f482eea21'
+    oldFile: !uuid '87eb1bb6468a3ea09160e1e3be405b6748880c8a'
+  /upload/template/default/touch/home/space_comment_li.htm:
+    newFile: !uuid '38ab749843a393b81c90b0f2ddaccd4cfee2d112'
+    oldFile: !uuid '24240b170347a31a12e32d639c25ce29fdf3cdb6'
+  /upload/template/default/touch/home/space_wall.htm:
+    newFile: !uuid '13f0ca2a1388bc53484290fdaf7af04d51f4802b'
+    oldFile: !uuid 'a0e9b42e7e4983173b2080c24f8fa2cb7e72c881'
+  /upload/template/default/touch/home/spacecp_magic.htm:
+    newFile: !uuid 'ef85a1dd64067f43854ab42ac7c024f73b34b2a6'
+    oldFile: null
+gitCommitId: !uuid '7f3381a1673db8da54bafe921bbd5ce08ff1279a'
 renames: {
   }
-revisionId: 1121
+revisionId: 1122
