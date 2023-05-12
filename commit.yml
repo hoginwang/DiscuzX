@@ -3,30 +3,27 @@ branches: {
   }
 fileChange:
   /upload:
-    newFile: !uuid '3d891dbc33cd0669d0cd02bd044e35307bd513f2'
-    oldFile: !uuid '13d8c1f892255162699acff5293f5419caeed2fd'
+    newFile: !uuid '5b422d9ea9e9afab305ff522a46ac60e31cdb37e'
+    oldFile: !uuid '3d891dbc33cd0669d0cd02bd044e35307bd513f2'
   /upload/template:
-    newFile: !uuid 'ba72b342c31094dc466aa797f2caa9447a0df91c'
-    oldFile: !uuid 'e0b49b24e33c036f80de4e95e8706effbb88f448'
+    newFile: !uuid 'ff38b286f62bfc13755bae7b043db2d813f9048f'
+    oldFile: !uuid 'ba72b342c31094dc466aa797f2caa9447a0df91c'
   /upload/template/default:
-    newFile: !uuid 'b39f97876fc9a9940ac5816dd09b5891fd1f06c8'
-    oldFile: !uuid 'e19b8bb1d1db982022027ddbc9927fb8e1843562'
+    newFile: !uuid '8516d4aed78bf14afb0f877cd814975aacfd7ede'
+    oldFile: !uuid 'b39f97876fc9a9940ac5816dd09b5891fd1f06c8'
   /upload/template/default/touch:
-    newFile: !uuid 'bfdf3cf3e47ddeacecc69f59ff837a92ab308651'
-    oldFile: !uuid 'c780b681e84f2af2dd55fc14a910d889fb6d81ec'
+    newFile: !uuid '36ff8502e20d00faa611a1856da8075490693a81'
+    oldFile: !uuid 'bfdf3cf3e47ddeacecc69f59ff837a92ab308651'
   /upload/template/default/touch/home:
-    newFile: !uuid '12f402def8cf23cb1ff9760a13ee5b9f482eea21'
-    oldFile: !uuid '87eb1bb6468a3ea09160e1e3be405b6748880c8a'
-  /upload/template/default/touch/home/space_comment_li.htm:
-    newFile: !uuid '38ab749843a393b81c90b0f2ddaccd4cfee2d112'
-    oldFile: !uuid '24240b170347a31a12e32d639c25ce29fdf3cdb6'
-  /upload/template/default/touch/home/space_wall.htm:
-    newFile: !uuid '13f0ca2a1388bc53484290fdaf7af04d51f4802b'
-    oldFile: !uuid 'a0e9b42e7e4983173b2080c24f8fa2cb7e72c881'
-  /upload/template/default/touch/home/spacecp_magic.htm:
-    newFile: !uuid 'ef85a1dd64067f43854ab42ac7c024f73b34b2a6'
-    oldFile: null
-gitCommitId: !uuid '7f3381a1673db8da54bafe921bbd5ce08ff1279a'
+    newFile: !uuid 'f8fe2b4249984e65a688f886f92c8cdd64d72cd0'
+    oldFile: !uuid '12f402def8cf23cb1ff9760a13ee5b9f482eea21'
+  /upload/template/default/touch/home/space_home.htm:
+    newFile: !uuid '23a81704d5e6cf77d64fa08b6aa346fdc16a3d83'
+    oldFile: !uuid '288f89776d12c5d0cff8bb2984c4d9915e0131d6'
+  /upload/template/default/touch/home/space_profile.htm:
+    newFile: !uuid '6e298d587eb291e1d865d76bccc08d31296b8671'
+    oldFile: !uuid 'e7505720df6bb2b11605119b36924c3d3bf53b1c'
+gitCommitId: !uuid '746a081d9359f3401e1ac0b7cb66ae22c759cb5f'
 renames: {
   }
-revisionId: 1122
+revisionId: 1123
