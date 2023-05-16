@@ -597,8 +597,7 @@ function messagecutstr($str, $length = 0, $dot = ' ...') {
 			"/\[url=?.*?\](.+?)\[\/url\]/si",
 			"/\[($bbcodesclear)=?.*?\].+?\[\/\\1\]/si",
 			"/\[($bbcodes)=?.*?\]/i",
-			"/\[\/($bbcodes)\]/i",
-			"/\\\\u/i"
+			"/\[\/($bbcodes)\]/i"
 		), array(
 			"[b]$language[post_hidden][/b]",
 			'',
@@ -606,8 +605,7 @@ function messagecutstr($str, $length = 0, $dot = ' ...') {
 			'\\1',
 			'',
 			'',
-			'',
-		        '%u'
+			''
 		), $str));
 	if($length) {
 		$str = cutstr($str, $length, $dot);
