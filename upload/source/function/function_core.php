@@ -293,7 +293,8 @@ function getcookie($key) {
 }
 
 function fileext($filename) {
-	return addslashes(strtolower(substr(strrchr($filename, '.'), 1, 10)));
+	$filename=str_replace(array('?','&'),'#',substr(strrchr($filename, '.'), 1, 10).'#');
+	return addslashes(strtolower(substr($filename,0,strpos($filename,'#'))));
 }
 
 function formhash($specialadd = '') {
