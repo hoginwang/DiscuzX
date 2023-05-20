@@ -365,7 +365,7 @@ function pasteWord(str) {
 	var mstest = /<\w[^>]* class="?[MsoNormal|xl]"?/gi;
 	if(mstest.test(str)){
 		str = str.replace(/<!--\[if[\s\S]+?<!\[endif\]-->/gi, "");
-		str = str.replace(/<(\w[^>]*) class=([^ |>]*)([^>]*)/gi, "<$1$3");
+		str = str.replace(/<(\w[^>]*) class=([^>]*)([^>]*)/gi, "<$1$3");
 		str = str.replace(/<(\w[^>]*) style="([^"]*)"([^>]*)/gi, function ($1, $2, $3, $4) {
 			var style = '';
 			re = new RegExp('(^|[;\\s])color:\\s*([^;]+);?', 'ig');
@@ -388,7 +388,7 @@ function pasteWord(str) {
 			}
 			return '<' + $2 + style + $4;
 		});
-		str = str.replace(/<(\w[^>]*) lang=([^ |>]*)([^>]*)/gi, "<$1$3");
+		str = str.replace(/<(\w[^>]*) lang=([^>]*)([^>]*)/gi, "<$1$3");
 		str = str.replace(/<\\?\?xml[^>]*>/gi, "");
 		str = str.replace(/<\/?\w+:[^>]*>/gi, "");
 		str = str.replace(/&nbsp;/, " ");
