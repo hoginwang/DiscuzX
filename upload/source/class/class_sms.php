@@ -61,7 +61,7 @@ class sms {
 		if($seccode == $lastsend['content'] && !$lastsend['verify'] && time() - $lastsend['dateline'] < $smstimelimit) {
 			$result = self::DISCUZ_CLASS_SMS_VERIFY_PASS;
 		}
-		if($updateverify) {
+		if($updateverify && $result == self::DISCUZ_CLASS_SMS_VERIFY_PASS) {
 			C::t('common_smslog')->update($lastsend['smslogid'], array('verify' => 1));
 		}
 		return $result;
