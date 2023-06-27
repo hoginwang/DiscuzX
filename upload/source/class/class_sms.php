@@ -42,9 +42,10 @@ class sms {
 	const DISCUZ_CLASS_SMS_ERROR_SMSGWERR = -9;
 
 	// DISCUZ_CLASS_SMS_VERIFY 代表短信验证结果
-	// 未通过校验为 0, 通过校验为 1
+	// 未通过校验为 0, 通过校验为 1, 验证码验证超过5次则失效为 -1
 	const DISCUZ_CLASS_SMS_VERIFY_FAIL = 0;
 	const DISCUZ_CLASS_SMS_VERIFY_PASS = 1;
+    const DISCUZ_CLASS_SMS_VERIFY_INVALID = -1;
 
 	// DISCUZ_CLASS_SMSGW_GWTYPE 代表网关类型
 	// 消息短信为 1 , 模板短信为 0
@@ -58,11 +59,14 @@ class sms {
 		$smstimelimit = $smstimelimit > 0 ? $smstimelimit : 86400;
 		$lastsend = C::t('common_smslog')->get_lastsms_by_uumm($uid, $svctype, $secmobicc, $secmobile);
 		$result = self::DISCUZ_CLASS_SMS_VERIFY_FAIL;
-		if($seccode == $lastsend['content'] && !$lastsend['verify'] && time() - $lastsend['dateline'] < $smstimelimit) {
+		if($seccode == $lastsend['content'] && $lastsend['verify'] < 5 && time() - $lastsend['dateline'] < $smstimelimit) {
 			$result = self::DISCUZ_CLASS_SMS_VERIFY_PASS;
 		}
-		if($updateverify) {
-			C::t('common_smslog')->update($lastsend['smslogid'], array('verify' => 1));
+        if($lastsend['verify'] >= 5) {
+            $result = self::DISCUZ_CLASS_SMS_VERIFY_INVALID;
+        }
+		if($updateverify && $result != self::DISCUZ_CLASS_SMS_VERIFY_INVALID) {
+			C::t('common_smslog')->update($lastsend['smslogid'], array('verify' => $lastsend['verify'] + 1));
 		}
 		return $result;
 	}
