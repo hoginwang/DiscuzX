@@ -2,310 +2,67 @@
 branches: {
   }
 fileChange:
+  /.gitee:
+    newFile: !uuid '50a79b13b5ee3954cadd80f34fe1391546de3445'
+    oldFile: !uuid '0c2f00ef0fe6d525a8eea4adc6bae847f21fd544'
+  /.gitee/ISSUE_TEMPLATE:
+    newFile: !uuid '681a090d2e398fb2f94af2bd020aa8c000eaf8a7'
+    oldFile: null
+  /.gitee/ISSUE_TEMPLATE/bug.yaml:
+    newFile: !uuid '8ec71d84833dfa7b8b2a4cf31f1ac056d18ad77a'
+    oldFile: null
+  /.gitee/ISSUE_TEMPLATE/config.yaml:
+    newFile: !uuid 'c2f7a6d24bbdb56b5316ced399a69875700e863f'
+    oldFile: null
+  /.gitee/ISSUE_TEMPLATE/feature.yml:
+    newFile: !uuid '968ab61d746ef31a84f1e893b6c65738b0033928'
+    oldFile: null
   /upload:
-    newFile: !uuid '081f91e88de115ce02be2df9e8f1541f90179cea'
-    oldFile: !uuid 'f4f8ee931e822600eaa2df2e8b212b570a47eb31'
+    newFile: !uuid '38939e02d3eb885d538c64e577a7fe8815cfa048'
+    oldFile: !uuid '081f91e88de115ce02be2df9e8f1541f90179cea'
   /upload/source:
-    newFile: !uuid '28d1002afa82748c185d8687097fb509dee8c0e0'
-    oldFile: !uuid '577f513a8e6386207fa9a6c56d141fc351cad59a'
-  /upload/source/plugin:
-    newFile: !uuid '859bbf27a2ac8e8c538aef12417c3910a69bba6a'
-    oldFile: !uuid '82ad4e6cadb51d7e9983dfe46d146658b73a51b6'
-  /upload/source/plugin/wechat:
-    newFile: null
-    oldFile: !uuid '70829c5e2ce8dde481f9bd0c250dc72f8ef1a43a'
-  /upload/source/plugin/wechat/access.inc.php:
-    newFile: null
-    oldFile: !uuid 'd0d8ef2c7000c8ae30729150bee0db02b02f6189'
-  /upload/source/plugin/wechat/api_setting.inc.php:
-    newFile: null
-    oldFile: !uuid '19315854f0ca89b4c237e67f06d6b0b50c619b7c'
-  /upload/source/plugin/wechat/bind.inc.php:
-    newFile: null
-    oldFile: !uuid 'ad9970425f6a956a10d609e9701b45a906f7071c'
-  /upload/source/plugin/wechat/connect.inc.php:
-    newFile: null
-    oldFile: !uuid 'f47b6f33401ae30f17d942c4c9cd23bbb1badf5a'
-  /upload/source/plugin/wechat/discuz_plugin_wechat.xml:
-    newFile: null
-    oldFile: !uuid '76e5e51a69348096528ef5ce11933eff1ed68303'
-  /upload/source/plugin/wechat/image:
-    newFile: null
-    oldFile: !uuid '92c23378337c5b7a31c3c586c6dad4424c32cb91'
-  /upload/source/plugin/wechat/image/discuz_qr.jpg:
-    newFile: null
-    oldFile: !uuid '1d1eb93450678578629bc2e991a0ec447d42675e'
-  /upload/source/plugin/wechat/image/index.htm:
-    newFile: null
-    oldFile: !uuid 'e69de29bb2d1d6434b8b29ae775ad8c2e48c5391'
-  /upload/source/plugin/wechat/image/share.png:
-    newFile: null
-    oldFile: !uuid '980be927b44c1575148870808c9abc6192868e7d'
-  /upload/source/plugin/wechat/image/wechat_bind.png:
-    newFile: null
-    oldFile: !uuid '324517643b3286670d52a43587c4e98204f3880f'
-  /upload/source/plugin/wechat/image/wechat_login.png:
-    newFile: null
-    oldFile: !uuid '6bf89d5ce98067293d616ec46a1d5e7625bd1a7e'
-  /upload/source/plugin/wechat/image/wsq.png:
-    newFile: null
-    oldFile: !uuid 'f69e582311d77ce19f83a383958c0a4fdd15290e'
-  /upload/source/plugin/wechat/index.htm:
-    newFile: null
-    oldFile: !uuid 'e69de29bb2d1d6434b8b29ae775ad8c2e48c5391'
-  /upload/source/plugin/wechat/install:
-    newFile: null
-    oldFile: !uuid '4f47abb08787f3a7ac94f4f47f4f68ee04558978'
-  /upload/source/plugin/wechat/install.php:
-    newFile: null
-    oldFile: !uuid '630a0487353494a11537e0fad6fcd442b5501249'
-  /upload/source/plugin/wechat/install/checkupdate.inc.php:
-    newFile: null
-    oldFile: !uuid '46e34a1c89807e8cb6518af293c0e62cd6af1b72'
-  /upload/source/plugin/wechat/install/index.htm:
-    newFile: null
-    oldFile: !uuid 'e69de29bb2d1d6434b8b29ae775ad8c2e48c5391'
-  /upload/source/plugin/wechat/install/update.func.php:
-    newFile: null
-    oldFile: !uuid '0827d76a58b50d37bf3a97847c0c025fd1f4bbf9'
-  /upload/source/plugin/wechat/js:
-    newFile: null
-    oldFile: !uuid 'ae1b7112a2b533aa42f5c8add88284bce12e0851'
-  /upload/source/plugin/wechat/js/highcharts.js:
-    newFile: null
-    oldFile: !uuid '1d69a8621a832f8b4ba312c0d5c242ea943a19ee'
-  /upload/source/plugin/wechat/js/index.htm:
-    newFile: null
-    oldFile: !uuid 'e69de29bb2d1d6434b8b29ae775ad8c2e48c5391'
-  /upload/source/plugin/wechat/js/jquery.min.js:
-    newFile: null
-    oldFile: !uuid 'e2c80017c6c8d2dae54c286b61a9dc215aad0fcb'
-  /upload/source/plugin/wechat/login.inc.php:
-    newFile: null
-    oldFile: !uuid 'f212ab7a19a198b5e582423f46057929a6422a28'
-  /upload/source/plugin/wechat/masssend_setting.inc.php:
-    newFile: null
-    oldFile: !uuid '82e44e360cbb22dbf8cc300b4801f70c42aa6044'
-  /upload/source/plugin/wechat/menu_setting.inc.php:
-    newFile: null
-    oldFile: !uuid '73a34ec88e99c3ffc534518e150637f8338d0306'
-  /upload/source/plugin/wechat/qrcode.inc.php:
-    newFile: null
-    oldFile: !uuid '9f5d9f497fc3756bf33c1af8d2efe040e0ba069d'
-  /upload/source/plugin/wechat/resource_setting.inc.php:
-    newFile: null
-    oldFile: !uuid '8bb9090484cdfe96764d6e5a2d6180b5bc6ffa9e'
-  /upload/source/plugin/wechat/resourcepush.inc.php:
-    newFile: null
-    oldFile: !uuid 'f5733f6a1f2399513abfd1fd0df3cd3b7c0e20d7'
-  /upload/source/plugin/wechat/response.class.php:
-    newFile: null
-    oldFile: !uuid '8163496b21e687899b8e85b004d91e6f8c169a7e'
-  /upload/source/plugin/wechat/response_setting.inc.php:
-    newFile: null
-    oldFile: !uuid '0dd8b3135eeec667e8d2001c377d95f1a8b3b0c2'
-  /upload/source/plugin/wechat/setting.class.php:
-    newFile: null
-    oldFile: !uuid 'c820fec0cc47c24551d8171e6bd0d916cfe2cea9'
-  /upload/source/plugin/wechat/showactivity_setting.inc.php:
-    newFile: null
-    oldFile: !uuid '62eda87eebcf8a08b6f302f283d71a05aa16eddc'
-  /upload/source/plugin/wechat/spacecp.inc.php:
-    newFile: null
-    oldFile: !uuid 'e1da2151c54e56b067d74cf9bcaabe9c1dd0d900'
-  /upload/source/plugin/wechat/table:
-    newFile: null
-    oldFile: !uuid '1d528070931a5cb0511effa245fa1e9d59a4b6ea'
-  /upload/source/plugin/wechat/table/index.htm:
-    newFile: null
-    oldFile: !uuid 'e69de29bb2d1d6434b8b29ae775ad8c2e48c5391'
-  /upload/source/plugin/wechat/table/table_common_member_wechat.php:
-    newFile: null
-    oldFile: !uuid 'e236a58fbd5e510d299d6c6aea33fbb36aee4914'
-  /upload/source/plugin/wechat/table/table_common_member_wechatmp.php:
-    newFile: null
-    oldFile: !uuid 'ffc4152ac8ed3022cb7c179975bbeabb59841699'
-  /upload/source/plugin/wechat/table/table_mobile_wechat_authcode.php:
-    newFile: null
-    oldFile: !uuid '4b6c0451c95e2829038db550f4009bfcadcc7b57'
-  /upload/source/plugin/wechat/table/table_mobile_wechat_masssend.php:
-    newFile: null
-    oldFile: !uuid '3596db328e7741b8fb4235beb6a6db18f595d1c4'
-  /upload/source/plugin/wechat/table/table_mobile_wechat_resource.php:
-    newFile: null
-    oldFile: !uuid 'cedf422e1fbfd7c010f1a94685c9f4539578c016'
-  /upload/source/plugin/wechat/template:
-    newFile: null
-    oldFile: !uuid '79971bd56c802cf1665f0c0d94a67ee0c82fbb52'
-  /upload/source/plugin/wechat/template/extend_module.css:
-    newFile: null
-    oldFile: !uuid '95ca36749e197f67ef8ce187ec236bbbea9e3e25'
-  /upload/source/plugin/wechat/template/index.htm:
-    newFile: null
-    oldFile: !uuid 'e69de29bb2d1d6434b8b29ae775ad8c2e48c5391'
-  /upload/source/plugin/wechat/template/mobile:
-    newFile: null
-    oldFile: !uuid 'b22f434831d271630728a456a316b438e9d4f647'
-  /upload/source/plugin/wechat/template/mobile/arrow_top.png:
-    newFile: null
-    oldFile: !uuid '98c29c78a39fb425d738183a848fb64bcedbce40'
-  /upload/source/plugin/wechat/template/mobile/common.js:
-    newFile: null
-    oldFile: !uuid '2055ea1fdf8b5b5dd12e2dc773a817ecb7a4ca29'
-  /upload/source/plugin/wechat/template/mobile/icon_arrow.png:
-    newFile: null
-    oldFile: !uuid 'cbd26938dcfea3137dfac218a070d7c8e01c22ff'
-  /upload/source/plugin/wechat/template/mobile/icon_close.png:
-    newFile: null
-    oldFile: !uuid '1f7391046bc4e6d48006b85800d1c6152ce45de0'
-  /upload/source/plugin/wechat/template/mobile/index.htm:
-    newFile: null
-    oldFile: !uuid 'e69de29bb2d1d6434b8b29ae775ad8c2e48c5391'
-  /upload/source/plugin/wechat/template/mobile/jquery-1.8.3.min.js:
-    newFile: null
-    oldFile: !uuid '83589daa707a25a1fb3e4112075d382e9a1611ab'
-  /upload/source/plugin/wechat/template/mobile/login.png:
-    newFile: null
-    oldFile: !uuid '62bd99f5fdc967cf6f0f6a7ff3db29d7f12a0500'
-  /upload/source/plugin/wechat/template/mobile/login_on.png:
-    newFile: null
-    oldFile: !uuid '4ad1d4888dc3bac889ad97737c7f4ec540350c3a'
-  /upload/source/plugin/wechat/template/mobile/pic_bg.jpg:
-    newFile: null
-    oldFile: !uuid 'ad65c41f6d98d67d6dd6d53253651c81e048d947'
-  /upload/source/plugin/wechat/template/mobile/qqlogin.png:
-    newFile: null
-    oldFile: !uuid '6254d517097c8779c55df4681f359df2dd11aa5d'
-  /upload/source/plugin/wechat/template/mobile/qqlogin_on.png:
-    newFile: null
-    oldFile: !uuid 'e9b3d64b1f67d282c288baeffbd9cfbe4f3057b6'
-  /upload/source/plugin/wechat/template/mobile/qqlogintext.png:
-    newFile: null
-    oldFile: !uuid '1a8b5e917f0693fe663fe50d2c3ad2efd15a7301'
-  /upload/source/plugin/wechat/template/mobile/style.css:
-    newFile: null
-    oldFile: !uuid 'f73853252476d37af44e3e2f15bd9e573ffb38b5'
-  /upload/source/plugin/wechat/template/mobile/wechat_bind.htm:
-    newFile: null
-    oldFile: !uuid '82c4d6f973077d15d3023a0230893fb397af4daf'
-  /upload/source/plugin/wechat/template/mobile/wechat_bind_confirm.htm:
-    newFile: null
-    oldFile: !uuid 'd65f1b1ee4c2756722e6ce3a0ed7e4e744248219'
-  /upload/source/plugin/wechat/template/mobile/wechat_header.htm:
-    newFile: null
-    oldFile: !uuid '9aabfdaed816f431409943c6258b381f1b529890'
-  /upload/source/plugin/wechat/template/module.htm:
-    newFile: null
-    oldFile: !uuid '498e983f8d831ae4d8ca4da69d44860b387412b8'
-  /upload/source/plugin/wechat/template/spacecp.htm:
-    newFile: null
-    oldFile: !uuid 'bbfaf59d424657377df4568ad5422514fe14a3c1'
-  /upload/source/plugin/wechat/template/touch:
-    newFile: null
-    oldFile: !uuid '337c2efdc5130712f2ff545e17b4d5f7bdd4f877'
-  /upload/source/plugin/wechat/template/touch/index.htm:
-    newFile: null
-    oldFile: !uuid 'e69de29bb2d1d6434b8b29ae775ad8c2e48c5391'
-  /upload/source/plugin/wechat/template/touch/wechat_bind.htm:
-    newFile: null
-    oldFile: !uuid '2443bc71b9c798c595961d59e8bd3b9d56d4a50e'
-  /upload/source/plugin/wechat/template/touch/wechat_bind_confirm.htm:
-    newFile: null
-    oldFile: !uuid 'd65f1b1ee4c2756722e6ce3a0ed7e4e744248219'
-  /upload/source/plugin/wechat/template/touch/wechat_header.htm:
-    newFile: null
-    oldFile: !uuid '9452d5539c159d799e7b344d302888ac4b0c2566'
-  /upload/source/plugin/wechat/template/wechat_bind.htm:
-    newFile: null
-    oldFile: !uuid '0519ecba6ea913e21689ec692e81e9e4973fbf73'
-  /upload/source/plugin/wechat/template/wechat_bind_confirm.htm:
-    newFile: null
-    oldFile: !uuid '0519ecba6ea913e21689ec692e81e9e4973fbf73'
-  /upload/source/plugin/wechat/template/wechat_qrcode.htm:
-    newFile: null
-    oldFile: !uuid 'b2d865becc0d8cc56beef1b3670644807b879519'
-  /upload/source/plugin/wechat/template/wechat_threadqr.htm:
-    newFile: null
-    oldFile: !uuid 'a11a218652a8697a614aff9cf1bf2811b3d3fca7'
-  /upload/source/plugin/wechat/wechat.class.php:
-    newFile: null
-    oldFile: !uuid '817d575fb2f00473e5294e18d2efe906b2082c34'
-  /upload/source/plugin/wechat/wechat.inc.php:
-    newFile: null
-    oldFile: !uuid '8b18781068ef73ef2cd813e0622e8c21c39c54b2'
-  /upload/source/plugin/wechat/wechat.lib.class.php:
-    newFile: null
-    oldFile: !uuid '9e00b903531abe2d7a1aac0a3eed161df9229345'
-  /upload/source/plugin/wechat/wechat_setting.inc.php:
-    newFile: null
-    oldFile: !uuid '923021321100db77e0f04ab2930b5ba9fb455046'
-  /upload/source/plugin/wechat/wsq.class.php:
-    newFile: null
-    oldFile: !uuid 'b5b276c86136749b4230ed5a1935a47124f3cd73'
-  /upload/source/plugin/wechat/wsq_app.inc.php:
-    newFile: null
-    oldFile: !uuid '598ef945db48185b5a83d6a143de64e04887fd48'
-  /upload/source/plugin/wechat/wsq_setting.inc.php:
-    newFile: null
-    oldFile: !uuid '6f1cfaa9306f6832a6eb69bc41e715007ccccbff'
-  /upload/source/plugin/wechat/wsq_stat.inc.php:
-    newFile: null
-    oldFile: !uuid 'c1d4261044c8dd9f1f2cfceef66134ce6d2a1bb9'
-  /upload/source/plugin/wechat/wsqapi.class.php:
-    newFile: null
-    oldFile: !uuid '46cccf4bc7ebba6e12adca1eb22a7916c57849dc'
-  /upload/source/plugin/witframe_api:
-    newFile: !uuid '2bfb6872b1173c4878baeb237c564a27479efd00'
-    oldFile: null
-  /upload/source/plugin/witframe_api/api.inc.php:
-    newFile: !uuid '6164746d9b11fd82935b0c092d45ee8b1484e966'
-    oldFile: null
-  /upload/source/plugin/witframe_api/class:
-    newFile: !uuid '5be385995edbd36cf159ecfe821b8e44f4dfe621'
-    oldFile: null
-  /upload/source/plugin/witframe_api/class/remote.class.php:
-    newFile: !uuid '60b43aa98ad2af5c2bbd0f0a4483a7a1d4bcd5fb'
-    oldFile: null
-  /upload/source/plugin/witframe_api/core.php:
-    newFile: !uuid '315bd36217e1de7edc447c6553a242149e7f50f8'
-    oldFile: null
-  /upload/source/plugin/witframe_api/discuz_plugin_witframe_api.xml:
-    newFile: !uuid 'c326b8fbf3f0efdfc190fec6bb775c4b49742819'
-    oldFile: null
-  /upload/source/plugin/witframe_api/install.php:
-    newFile: !uuid '78d0fa371835dd80f34106fb8ab3dfcd66092bcb'
-    oldFile: null
-  /upload/source/plugin/witframe_api/lib:
-    newFile: !uuid 'afeaba89be246a2c3966ecf4b769c463e771caa0'
-    oldFile: null
-  /upload/source/plugin/witframe_api/lib/api.php:
-    newFile: !uuid '929cb79d4bd3392881b077228a2e27b1bf0f0ce2'
-    oldFile: null
-  /upload/source/plugin/witframe_api/lib/apis.php:
-    newFile: !uuid 'a6b4945470014ebf2effa8a6889589ae0b8383fe'
-    oldFile: null
-  /upload/source/plugin/witframe_api/lib/crypt.php:
-    newFile: !uuid '0a4c62ff2e47c1d51557b94ee345a1d9c931b28a'
-    oldFile: null
-  /upload/source/plugin/witframe_api/lib/remote.php:
-    newFile: !uuid 'c51e7491b564ad3ce19ff1d8f7f7b0aa9164a305'
-    oldFile: null
-  /upload/source/plugin/witframe_api/lib/site.php:
-    newFile: !uuid '26fe2fe8335a9a69375f8ce986c97cdb398626cb'
-    oldFile: null
-  /upload/source/plugin/witframe_api/location.inc.php:
-    newFile: !uuid '626859f218546cb44a2323c09c29f0391bf6a5f9'
-    oldFile: null
-  /upload/source/plugin/witframe_api/page.remote.php:
-    newFile: !uuid '35763a15a62fe94ae35100ccdb2e4035f82d7544'
-    oldFile: null
-  /upload/source/plugin/witframe_api/remote.class.php:
-    newFile: !uuid '932f58151cd9524debbb431485f3ff170ba35dac'
-    oldFile: null
-  /upload/source/plugin/witframe_api/test.inc.php:
-    newFile: !uuid 'e3e2963ca55e61667c5086b140b3dbef0c699141'
-    oldFile: null
-gitCommitId: !uuid '7fb49dc78390e75b92d734182ab4a13553c59564'
+    newFile: !uuid 'ad08e56e734a23f96505fb903f9cf5f8f7db1b27'
+    oldFile: !uuid '28d1002afa82748c185d8687097fb509dee8c0e0'
+  /upload/source/admincp:
+    newFile: !uuid '2725b6065567be9e61f5ace3854e7b591c545f44'
+    oldFile: !uuid '85b8335b3ebba44775f14e63e8e6f0d8a976767b'
+  /upload/source/admincp/admincp_misc.php:
+    newFile: !uuid '095be8f4f70dfc1d240050eeda79f1830b736c28'
+    oldFile: !uuid '822cb123ee281201458105ec43851d534b8f68df'
+  /upload/source/class:
+    newFile: !uuid '3758649a6ebd13e6a119f3f786ae4756a6cd1ada'
+    oldFile: !uuid '2195d0f556946fcfd3f7a0b818b831577250fba5'
+  /upload/source/class/helper:
+    newFile: !uuid '433d85c587020b18caaedd7026c7133cbd7dca23'
+    oldFile: !uuid '27a96c7b3e011581184d8bd2ca155ba86380aa26'
+  /upload/source/class/helper/helper_form.php:
+    newFile: !uuid '1520d2774359c0da19b8c2747ac537f3e085101d'
+    oldFile: !uuid '68db9c603538a3efdfe88d7d5f17ad6ff702d481'
+  /upload/source/class/helper/helper_mobile.php:
+    newFile: !uuid '91b58882fbb2a0c1f091b5f9fab39e9cd894591c'
+    oldFile: !uuid '54e496639fccbb2ca25ac21d2a7be64463617e95'
+  /upload/source/include:
+    newFile: !uuid 'e64d2cefa32b0d40b02e9428fcd9f88f8fd5f11a'
+    oldFile: !uuid '36c7a28566ae186728929a5157f9806124a9201e'
+  /upload/source/include/spacecp:
+    newFile: !uuid 'ee158f97a9c394a9eedadb4e930ee8af43452c09'
+    oldFile: !uuid '73a968f2b0950f49f029f14b82292e15d53d61fe'
+  /upload/source/include/spacecp/spacecp_album.php:
+    newFile: !uuid 'd79b5f185eb4696d6ddf1e138c9ab739cae6763e'
+    oldFile: !uuid '882f6a309036786d6bbf563b01921da9964d9450'
+  /upload/template:
+    newFile: !uuid '59783678565e90d15754cb1fafd29d3edb70224b'
+    oldFile: !uuid 'b4cd54b9c1f0bff1c3056a1d9ce52840ebff0a88'
+  /upload/template/default:
+    newFile: !uuid 'c25f4e1fcc5396ac086881940bc22ed2233e8e32'
+    oldFile: !uuid '5f26a6f4b39993fe9dbdf62e748d028c25caf4dc'
+  /upload/template/default/common:
+    newFile: !uuid 'fa909ca704b398f186cb394759d7472778e86648'
+    oldFile: !uuid '70f0db77a37cc10bf2c2641db2500299c3def6e3'
+  /upload/template/default/common/module.css:
+    newFile: !uuid 'a6fdea68d00f78765fed2a6a0679fb95aeef9457'
+    oldFile: !uuid '7774002e62a2827d58821a5927cfb86bf25065f2'
+gitCommitId: !uuid '2967a1255effc7314d85e0c22c60833688aa5703'
 renames: {
   }
-revisionId: 1150
+revisionId: 1151
