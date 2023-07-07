@@ -118,7 +118,7 @@ class notemodel {
 		}
 		$this->base->load('misc');
 		$apifilename = isset($app['apifilename']) && $app['apifilename'] ? $app['apifilename'] : 'uc.php';
-		if(UC_STANDALONE && @include UC_ROOT.'./extend_client.php') {
+		if(defined('IN_DISCUZ') && @include UC_ROOT.'./extend_client.php') {
 			$uc_note = new uc_note_handler();
 			$method = $note['operation'];
 			if(is_string($method) && !empty($method)) {
