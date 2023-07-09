@@ -3,45 +3,21 @@ branches: {
   }
 fileChange:
   /upload:
-    newFile: !uuid '6f9293fbcb387fc0fab0784baf4c001e20f1e249'
-    oldFile: !uuid '43bc49ad75e1c46bd2d51d2ee865e018fa7b63e3'
-  /upload/source:
-    newFile: !uuid 'c17ee9445d18d9a34de34e03f9ab4bf8bfb91a35'
-    oldFile: !uuid 'ad08e56e734a23f96505fb903f9cf5f8f7db1b27'
-  /upload/source/class:
-    newFile: !uuid '2756bc22db01a9487009588b004c1a7cd1426176'
-    oldFile: !uuid '3758649a6ebd13e6a119f3f786ae4756a6cd1ada'
-  /upload/source/class/model:
-    newFile: !uuid '3e6ddc0e94908d74f4f563277256c0127c491ee7'
-    oldFile: !uuid 'e2b9ce40257d4e8e89507530299eca1da04a6d2b'
-  /upload/source/class/model/model_forum_post.php:
-    newFile: !uuid 'cbbb245983ddb681c7085c741d21a2bdff5c0639'
-    oldFile: !uuid '94e3c383a02d5647d97b95796c2f8700ab6acca2'
+    newFile: !uuid 'd2fa8512f9d249e57b2a9162e42addaa8b8f0e22'
+    oldFile: !uuid '6f9293fbcb387fc0fab0784baf4c001e20f1e249'
   /upload/static:
-    newFile: !uuid '31dad5dda9aed138897c625836d1892445212269'
-    oldFile: !uuid '425399dc716b01d0c4cd24eee77563cb5ee02bea'
-  /upload/static/js:
-    newFile: !uuid '6b86cafe0731c5aea7dcb04e62982856951159b8'
-    oldFile: !uuid 'fbc7529653d91cb19b8c1a979e5677964fb52542'
-  /upload/static/js/forum_viewthread.js:
-    newFile: !uuid 'b1fdadabc63ada6b4aa78f3d187496bd4316acc2'
-    oldFile: !uuid 'f6848ffa173af006c200a3685c8d10c1e6333160'
-  /upload/template:
-    newFile: !uuid '2d8f7ee1d9a0a4553e893f38a631b7dd5f86873e'
-    oldFile: !uuid '21a407c57d47b73a7d42bb3a3b06de51acc36810'
-  /upload/template/default:
-    newFile: !uuid 'facb6144ae07bc2403b480c5cb19f4b981069f9c'
-    oldFile: !uuid 'ebb9c7ee42dd61e14f32d4a9fa40bc3317a2cc6b'
-  /upload/template/default/touch:
-    newFile: !uuid '13fce3cb53bf3a715c718db7254a6896ccf5fff3'
-    oldFile: !uuid '5980539264c15365466dbbf2b54804effd7b7817'
-  /upload/template/default/touch/forum:
-    newFile: !uuid '73294adffda8d21152f0738057f2a77a47d9629c'
-    oldFile: !uuid '1b22f9b473b8d38ca6387cb4171b883a78dbcaf3'
-  /upload/template/default/touch/forum/forumdisplay_fastpost.htm:
-    newFile: !uuid 'bc143da797be32687474ffc405485443acb266a7'
-    oldFile: !uuid 'cdf2245bbb58a4b3c6525f29aa2d53fe36798666'
-gitCommitId: !uuid '5ce1d81f522db36c0bef7858ffb3036c62b18d5b'
+    newFile: !uuid '8f83c1956d8ae73b44f4936791ea71463418aa51'
+    oldFile: !uuid '31dad5dda9aed138897c625836d1892445212269'
+  /upload/static/image:
+    newFile: !uuid 'b655250a030984eaf64724f5d612f6912805a182'
+    oldFile: !uuid '7ab96416fccd0a2c8fae59f8adfbd82dc5267368'
+  /upload/static/image/mobile:
+    newFile: !uuid '87ce882de29a77c8ef523607a1faacb4b2d3bfa4'
+    oldFile: !uuid 'e7d29bfa65fbaba2add49791ab0b46c8eb265908'
+  /upload/static/image/mobile/style.css:
+    newFile: !uuid '0506364e549dab2a2ed63429128f5b00fdf5b9f6'
+    oldFile: !uuid '6a8e1c1cf660d87f502a4fc597bb1a8aa8407d6f'
+gitCommitId: !uuid 'f6339a6b595169ce5c7189fd9329175bb881a73d'
 renames: {
   }
-revisionId: 1153
+revisionId: 1154
