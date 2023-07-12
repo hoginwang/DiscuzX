@@ -3,21 +3,18 @@ branches: {
   }
 fileChange:
   /upload:
-    newFile: !uuid '06cc146c9336380ec16aed62a6a58e7e7a7866ac'
-    oldFile: !uuid '3836f1d0e4ab173453f9ed3473fc32366ba145a8'
-  /upload/static:
-    newFile: !uuid '55f16850770bab86a290b75f9a6549cee7ab82dc'
-    oldFile: !uuid '8f83c1956d8ae73b44f4936791ea71463418aa51'
-  /upload/static/js:
-    newFile: !uuid '8dba8554436d10196f9d7c32d4f3267605bae8f2'
-    oldFile: !uuid '6b86cafe0731c5aea7dcb04e62982856951159b8'
-  /upload/static/js/echarts:
-    newFile: !uuid 'bc89d6c80a416af7291cb69f821ddc68f7e15cb9'
-    oldFile: !uuid 'f04c97610bd52810095bb575d49f8b2d91b37ada'
-  /upload/static/js/echarts/echarts.common.min.js:
-    newFile: !uuid 'fbcc595ea2c6e1f94a5837a22dd01e5adf2f02b9'
-    oldFile: !uuid 'c47604e15fff1249d5310ac41c122c8e8292e9db'
-gitCommitId: !uuid 'bd855b0d3d12a6627431c9eb2ced8d0430026394'
+    newFile: !uuid '157920301ab7559cce3ce04f5d591a79bd0e23eb'
+    oldFile: !uuid '06cc146c9336380ec16aed62a6a58e7e7a7866ac'
+  /upload/install:
+    newFile: !uuid '8fa201b5a447df5534aeec97e7c828355b1585b3'
+    oldFile: !uuid '9d8cbf85acb0a20ca2fb15dc67e3683e28afc8e3'
+  /upload/install/data:
+    newFile: !uuid 'db2e9223b8f6fc6baf88738a793f8a5b5e177035'
+    oldFile: !uuid '78e109f0e2e4e07495caef6b527c7cbf1a3ede40'
+  /upload/install/data/install_data.sql:
+    newFile: !uuid '5caeac688ecedc0daeb23e45b7eaf9205bea8ba5'
+    oldFile: !uuid '4da1ebd1833a67bf4a1874bc01355d91e1249fd9'
+gitCommitId: !uuid 'a10a61681e161531fa117d667c936d9b474854c1'
 renames: {
   }
-revisionId: 1156
+revisionId: 1157
