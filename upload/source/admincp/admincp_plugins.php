@@ -344,19 +344,34 @@ if(!$operation) {
 		$pluginarray['var'][] = $var;
 	}
 	$modules = dunserialize($pluginarray['plugin']['modules']);
-	if($modules['extra']['langexists'] && file_exists($file = DISCUZ_ROOT.'./data/plugindata/'.$pluginarray['plugin']['identifier'].'.lang.php')) {
-		include $file;
+	if($modules['extra']['langexists']) {
+		if(file_exists($file = DISCUZ_ROOT.'./data/plugindata/'.$pluginarray['plugin']['identifier'].'.lang.php')){
+			include $file;
+		} else {
+			loadcache('pluginlanguage_script');
+			loadcache('pluginlanguage_template');
+			loadcache('pluginlanguage_install');
+			loadcache('pluginlanguage_system');
+		}
 		if(!empty($scriptlang[$pluginarray['plugin']['identifier']])) {
 			$pluginarray['language']['scriptlang'] = $scriptlang[$pluginarray['plugin']['identifier']];
+		} elseif(!empty($_G['cache']['pluginlanguage_script'][$pluginarray['plugin']['identifier']])) {
+			$pluginarray['language']['scriptlang'] = $_G['cache']['pluginlanguage_script'][$pluginarray['plugin']['identifier']];
 		}
 		if(!empty($templatelang[$pluginarray['plugin']['identifier']])) {
 			$pluginarray['language']['templatelang'] = $templatelang[$pluginarray['plugin']['identifier']];
+		} elseif(!empty($_G['cache']['pluginlanguage_template'][$pluginarray['plugin']['identifier']])) {
+			$pluginarray['language']['templatelang'] = $_G['cache']['pluginlanguage_template'][$pluginarray['plugin']['identifier']];
 		}
 		if(!empty($installlang[$pluginarray['plugin']['identifier']])) {
 			$pluginarray['language']['installlang'] = $installlang[$pluginarray['plugin']['identifier']];
+		} elseif(!empty($_G['cache']['pluginlanguage_install'][$pluginarray['plugin']['identifier']])) {
+			$pluginarray['language']['installlang'] = $_G['cache']['pluginlanguage_install'][$pluginarray['plugin']['identifier']];
 		}
 		if(!empty($systemlang[$pluginarray['plugin']['identifier']])) {
 			$pluginarray['language']['systemlang'] = $systemlang[$pluginarray['plugin']['identifier']];
+		} elseif(!empty($_G['cache']['pluginlanguage_system'][$pluginarray['plugin']['identifier']])) {
+			$pluginarray['language']['systemlang'] = $_G['cache']['pluginlanguage_system'][$pluginarray['plugin']['identifier']];
 		}
 	}
 	unset($modules['extra']);
@@ -1246,9 +1261,6 @@ if(!$operation) {
 				if($plugin || !ispluginkey($identifiernew)) {
 					cpmsg('plugins_edit_identifier_invalid', '', 'error');
 				}
-			}
-			if($_GET['langexists'] && !file_exists($langfile = DISCUZ_ROOT.'./data/plugindata/'.$identifiernew.'.lang.php')) {
-				cpmsg('plugins_edit_language_invalid', '', 'error', array('langfile' => $langfile));
 			}
 			$plugin['modules']['extra']['langexists'] = $_GET['langexists'];
 			C::t('common_plugin')->update($pluginid, array(
