@@ -43,7 +43,7 @@ function build_cache_styles() {
 		}
 		$data['searchimg'] = empty($data['searchimg']) ? $data['imgdir'].'/logo.svg' : (preg_match('/^(https?:)?\/\//i', $data['searchimg']) || file_exists($data['searchimg']) ? '' : (file_exists($data['styleimgdir'].'/'.$data['searchimg']) ? $data['styleimgdir'].'/' : $data['imgdir'].'/')).$data['searchimg'];
 		$data['searchlogo'] = "<img src=\"{$data['searchimg']}\" alt=\"".$_G['setting']['bbname']."\" class=\"searchlogo\" id=\"searchlogo\" border=\"0\" />";
-		$data['touchimg'] = empty($data['touchimg']) ? $data['imgdir'].'/logo.svg' : (preg_match('/^(https?:)?\/\//i', $data['touchimg']) || file_exists($data['touchimg']) ? '' : (file_exists($data['styleimgdir'].'/'.$data['touchimg']) ? $data['styleimgdir'].'/' : $data['imgdir'].'/')).$data['touchimg'];
+		$data['touchimg'] = empty($data['touchimg']) ? $data['imgdir'].'/logo_m.svg' : (preg_match('/^(https?:)?\/\//i', $data['touchimg']) || file_exists($data['touchimg']) ? '' : (file_exists($data['styleimgdir'].'/'.$data['touchimg']) ? $data['styleimgdir'].'/' : $data['imgdir'].'/')).$data['touchimg'];
 		$data['touchlogo'] = "<img src=\"{$data['touchimg']}\" alt=\"".$_G['setting']['bbname']."\" class=\"touchlogo\" id=\"touchlogo\" border=\"0\" />";
 		$data['bold'] = $data['nobold'] ? 'normal' : 'bold';
 		$contentwidthint = intval($data['contentwidth']);
