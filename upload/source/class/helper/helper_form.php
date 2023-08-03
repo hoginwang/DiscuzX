@@ -54,21 +54,21 @@ class helper_form {
 				cpmsg(lang('message', 'word_banned'), '', 'error', array('wordbanned' => $wordbanned));
 			}
 		}
-		if($_G['group']['allowposturl'] == 0) {
+		if($_G['group']['allowposturl'] == 0 || $_G['group']['allowposturl'] == 2) {
 			$urllist = self::get_url_list($message);
-			if(is_array($urllist[1])) {
-				foreach($urllist[1] as $key => $val) {
-					if(!$val = trim($val)) continue;
-					if(!iswhitelist($val)) {
+			if(is_array($urllist[1])) foreach($urllist[1] as $key => $val) {
+				if(!$val = trim($val)) continue;
+				if(!iswhitelist($val)) {
+					if($_G['group']['allowposturl'] == 0) {
 						if($return) {
 							return array('message' => 'post_url_nopermission');
 						}
 						showmessage('post_url_nopermission');
+					} elseif($_G['group']['allowposturl'] == 2) {
+						$message = preg_replace("/\[url(=((https?|ftp|gopher|news|telnet|rtsp|mms|callto|bctp|thunder|qqdl|synacast){1}:\/\/|www\.|mailto:|tel:|magnet:)?([^\r\n\[\"']+?))?\](.+?)\[\/url\]/is", '\\5', $message);
 					}
 				}
 			}
-		} elseif($_G['group']['allowposturl'] == 2) {
-			$message = preg_replace("/\[url(=((https?|ftp|gopher|news|telnet|rtsp|mms|callto|bctp|thunder|qqdl|synacast){1}:\/\/|www\.|mailto:|tel:|magnet:)?([^\r\n\[\"']+?))?\](.+?)\[\/url\]/is", '\\5', $message);
 		}
 		return $message;
 	}
