@@ -1273,7 +1273,7 @@ function showEditorMenu(tag, params) {
 				break;
 			case 'fls':
 				if($(ctrlid + '_param_2').value && $(ctrlid + '_param_3').value) {
-					insertText('[flash=' + parseInt($(ctrlid + '_param_2').value) + ',' + parseInt($(ctrlid + '_param_3').value) + ']' + squarestrip($(ctrlid + '_param_1').value) + '[/flash]', 7, 8, false, sel);
+					insertText('[flash=' + parseInt($(ctrlid + '_param_2').value > 0 ? $(ctrlid + '_param_2').value : 500) + ',' + parseInt($(ctrlid + '_param_3').value > 0 ? $(ctrlid + '_param_3').value : 375) + ']' + squarestrip($(ctrlid + '_param_1').value) + '[/flash]', 7, 8, false, sel);
 				} else {
 					insertText('[flash]' + squarestrip($(ctrlid + '_param_1').value) + '[/flash]', 7, 8, false, sel);
 				}
@@ -1302,7 +1302,7 @@ function showEditorMenu(tag, params) {
 						ext = 'rtsp';
 					}
 				}
-				var str = '[media=' + ext + ',' + $(ctrlid + '_param_2').value + ',' + $(ctrlid + '_param_3').value + ']' + squarestrip(mediaUrl) + '[/media]';
+				var str = '[media=' + ext + ',' + parseInt($(ctrlid + '_param_2').value > 0 ? $(ctrlid + '_param_2').value : 500) + ',' + parseInt($(ctrlid + '_param_3').value > 0 ? $(ctrlid + '_param_3').value : 375) + ']' + squarestrip(mediaUrl) + '[/media]';
 				insertText(str, str.length, 0, false, sel);
 				break;
 			case 'image':
