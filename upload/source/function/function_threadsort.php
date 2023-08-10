@@ -260,15 +260,8 @@ function showsorttemplate($sortid, $fid, $sortoptionarray, $templatearray, $thre
 
 	if($templatearray && $sortthreadlist) {
 		foreach($threadlist as $thread) {
-			$thread['digest'] = $thread['digest'] ? '&nbsp;<img src="'.$_G['style']['imgdir'].'/digest_'.$thread['digest'].'.gif" class="vm" alt="" title="" />' : '';
-			if($thread['highlight']) {
-				$thread['subject'] = '<span '.$thread['highlight'].'>'.$thread['subject'].'</span>';
-			}
-			if($thread['digest']) {
-				$thread['subject'] .= ' '.$thread['digest'];
-			}
 			$sortdata[$thread['tid']]['subject'] = !$sortmode ? '<a href="forum.php?mod=viewthread&tid='.$thread['tid'].'">'.$thread['subject'].'</a>' : $thread['subject'];
-			$sortdata[$thread['tid']]['author'] = '<a href="home.php?mod=space&uid='.$thread['authorid'].'" target="_blank">'.$thread['author'].'</a>';
+			$sortdata[$thread['tid']]['author'] = !$sortmode ? '<a href="home.php?mod=space&uid='.$thread['authorid'].'" target="_blank">'.$thread['author'].'</a>' : $thread['author'];
 		}
 
 		foreach($sortoptionarray as $sortid => $optionarray) {
