@@ -166,7 +166,6 @@ function announcement() {
             this.announcementScrollnext(this.annrows[this.annrowcount]);
         }
     }
-    ;
     ann.announcementScrollnext = function(targetTop) {
         $('anc').scrollTop = this.annScrollTopBegin + this.anncount;
         this.anncount++;
@@ -181,7 +180,6 @@ function announcement() {
             }, this.anndelay);
         }
     }
-    ;
     ann.announcementScroll();
 }
 
