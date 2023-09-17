@@ -3,24 +3,24 @@ branches: {
   }
 fileChange:
   /upload:
-    newFile: !uuid 'b42836e926201d2740422e3c8b80774db2109cb9'
-    oldFile: !uuid 'c6da1c92b6afa5e44c8b9bdbc35ee8255420dc17'
-  /upload/template:
-    newFile: !uuid '811150014dc62edc1f9cb67e7153e51d83537238'
-    oldFile: !uuid 'e115fbc5af10e19dd1c6b3f9907dc428ad6b6617'
-  /upload/template/default:
-    newFile: !uuid '6b031b57e9d3ce1159006c859d341b17d3dd8a1c'
-    oldFile: !uuid 'dcf5902a4bd660f428ad1b94e56c4165f09ec454'
-  /upload/template/default/touch:
-    newFile: !uuid 'ae9fec428439bb2040cf9421b9536863d228eea5'
-    oldFile: !uuid '8897c385bb8d660170468b05f445773d826cd08f'
-  /upload/template/default/touch/home:
-    newFile: !uuid 'a2016430451982f2bc9675458dc2af44daf93d80'
-    oldFile: !uuid '6164176c8785ffed5285541efcdef9fdcebcc3b2'
-  /upload/template/default/touch/home/spacecp_credit_header.htm:
-    newFile: !uuid '9aa377b33f075c5c84b05ffb8d8f607a6e5e4fa3'
-    oldFile: !uuid 'a2984e3dbe4733f09b387c5cd0d181bbe4294248'
-gitCommitId: !uuid '5678348856d1a952d52cd6efddfb5a359b685d62'
+    newFile: !uuid 'bc10e9fb83d7a66e3f494de2414d08559b4d1eda'
+    oldFile: !uuid 'b42836e926201d2740422e3c8b80774db2109cb9'
+  /upload/source:
+    newFile: !uuid 'd6205e2866c7de92ab98144288dd00198c44ad2a'
+    oldFile: !uuid '3673287b60ca217bcbaffd1eecd3fdc8e4530e23'
+  /upload/source/class:
+    newFile: !uuid '4ad7cb810ab206c17d434725481d0827325765ef'
+    oldFile: !uuid 'bc933cd12bc2768f09e47a254fe32ca6c43a6f8b'
+  /upload/source/class/block:
+    newFile: !uuid 'a6047ede9515bbc2cf90c73183bc355d7d8833b0'
+    oldFile: !uuid '4da278b3965c5177f5285a67908653195dcf37f4'
+  /upload/source/class/block/forum:
+    newFile: !uuid 'b390795931b29fc4945e5329497a8daae3cca34d'
+    oldFile: !uuid '6d1893bd3243ce7bb3e9b6f71cef705a8f800106'
+  /upload/source/class/block/forum/block_activity.php:
+    newFile: !uuid 'a6c38f535953fa7a6317ae11611bb374be295c98'
+    oldFile: !uuid '3005028b179d99d828bf131e34c3da5a213aecf0'
+gitCommitId: !uuid 'c29916aa7d49e7df655b8a52e08e454eeace7a62'
 renames: {
   }
-revisionId: 1196
+revisionId: 1197
