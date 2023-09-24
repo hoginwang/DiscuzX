@@ -3,24 +3,24 @@ branches: {
   }
 fileChange:
   /upload:
-    newFile: !uuid 'dc9daca99cbef86d62aa8006bfd3018f20b4448e'
-    oldFile: !uuid 'bc10e9fb83d7a66e3f494de2414d08559b4d1eda'
+    newFile: !uuid '11f11d0dec29d25fd577ab67bdd9ad152c73b334'
+    oldFile: !uuid 'dc9daca99cbef86d62aa8006bfd3018f20b4448e'
   /upload/source:
-    newFile: !uuid '7725b8ecbfb768e902c59be89d05a04eede8b373'
-    oldFile: !uuid 'd6205e2866c7de92ab98144288dd00198c44ad2a'
-  /upload/source/class:
-    newFile: !uuid '2e899090572be29724e5e624e1f305235b83e2c0'
-    oldFile: !uuid '4ad7cb810ab206c17d434725481d0827325765ef'
-  /upload/source/class/block:
-    newFile: !uuid '5d5c22830b34a4b3ccf3ebca3800deedfb0d0363'
-    oldFile: !uuid 'a6047ede9515bbc2cf90c73183bc355d7d8833b0'
-  /upload/source/class/block/forum:
-    newFile: !uuid '53e0cdd95ed395c33b8b434e8d47ba70a749b4d9'
-    oldFile: !uuid 'b390795931b29fc4945e5329497a8daae3cca34d'
-  /upload/source/class/block/forum/block_trade.php:
-    newFile: !uuid '19fbf3a41c90f5faa741d80bca2e6ecc60f78b9d'
-    oldFile: !uuid 'bbbb576574d54b8497c92fe20a00cfc93b313702'
-gitCommitId: !uuid '59a5a3179e224b463e2bd06d37e2df80d0d6c650'
+    newFile: !uuid '53a365bb88f30ae12a11c2ac82d52d659cb1c474'
+    oldFile: !uuid '7725b8ecbfb768e902c59be89d05a04eede8b373'
+  /upload/source/plugin:
+    newFile: !uuid '89541f066282b3596fd8cadfae32ec3a4d4f8fa5'
+    oldFile: !uuid '108063abc651643060356c12888d0b4dd385e08c'
+  /upload/source/plugin/witframe_api:
+    newFile: !uuid '00ad264979b0dd60fc0ffe3d215c8433d8eebeee'
+    oldFile: !uuid '30639b7321d18772b1ca8e0bfd5e89997ce7bcdf'
+  /upload/source/plugin/witframe_api/discuz_plugin_witframe_api.xml:
+    newFile: !uuid '03fc1d3a2514b94b839e8d24cbc43a0ebba95cd9'
+    oldFile: !uuid '6c6f5a5b3d083e55bf4510e3fbda490bb2118951'
+  /upload/source/plugin/witframe_api/setting.inc.php:
+    newFile: !uuid '7d0d619adaee890411a204d716f31e209a82f02b'
+    oldFile: null
+gitCommitId: !uuid '0a7570105d65836de7667af7edeae59c0a7ca239'
 renames: {
   }
-revisionId: 1198
+revisionId: 1199
