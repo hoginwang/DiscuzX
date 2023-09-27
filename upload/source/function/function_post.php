@@ -602,6 +602,7 @@ function messagecutstr($message, $length = 0, $dot = ' ...') {
 	$bbcodesclear = 'email|code|free|table|tr|td|img|swf|flash|attach|media|audio|groupid|payto'.(!empty($_G['cache']['bbcodes_display'][$_G['groupid']]) ? '|'.implode('|', array_keys($_G['cache']['bbcodes_display'][$_G['groupid']])) : '');
 	$str = strip_tags(preg_replace(array(
 			"/\[hide=?\d*\](.*?)\[\/hide\]/is",
+            "/\[i=s\](.*?)\[\/i\](\n\n|<br \/><br \/>)/i",
 			"/\[quote](.*?)\[\/quote]/si",
 			$language['post_edit_regexp'],
 			"/\[url=?.*?\](.+?)\[\/url\]/si",
@@ -611,6 +612,7 @@ function messagecutstr($message, $length = 0, $dot = ' ...') {
 			"/\\\\u/i"
 		), array(
 			$language['post_hidden'],
+            '',
 			'',
 			'',
 			'\\1',
