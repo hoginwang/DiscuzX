@@ -677,9 +677,9 @@ foreach($postarr as $post) {
 			}
 			$_G['forum_firstpid'] = $post['pid'];
 			if($_G['forum_thread']['price']) {
-				$summary = str_replace(array("\r", "\n"), '', messagecutstr(strip_tags($thread['freemessage']), 160));
+				$summary = str_replace(array("\r", "\n"), '', strip_tags(messagecutstr($thread['freemessage'], 160)));
 			} else {
-				$summary = str_replace(array("\r", "\n"), '', messagecutstr(strip_tags($post['message']), 160));
+				$summary = str_replace(array("\r", "\n"), '', strip_tags(messagecutstr($post['message'], 160)));
 			}
 			$tagarray_all = $posttag_array = array();
 			$tagarray_all = explode("\t", $post['tags']);
