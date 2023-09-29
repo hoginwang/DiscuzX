@@ -3,24 +3,21 @@ branches: {
   }
 fileChange:
   /upload:
-    newFile: !uuid '11f11d0dec29d25fd577ab67bdd9ad152c73b334'
-    oldFile: !uuid 'dc9daca99cbef86d62aa8006bfd3018f20b4448e'
+    newFile: !uuid 'f166037d26d1985dc9729b68c26568ac7069c0fa'
+    oldFile: !uuid '11f11d0dec29d25fd577ab67bdd9ad152c73b334'
   /upload/source:
-    newFile: !uuid '53a365bb88f30ae12a11c2ac82d52d659cb1c474'
-    oldFile: !uuid '7725b8ecbfb768e902c59be89d05a04eede8b373'
-  /upload/source/plugin:
-    newFile: !uuid '89541f066282b3596fd8cadfae32ec3a4d4f8fa5'
-    oldFile: !uuid '108063abc651643060356c12888d0b4dd385e08c'
-  /upload/source/plugin/witframe_api:
-    newFile: !uuid '00ad264979b0dd60fc0ffe3d215c8433d8eebeee'
-    oldFile: !uuid '30639b7321d18772b1ca8e0bfd5e89997ce7bcdf'
-  /upload/source/plugin/witframe_api/discuz_plugin_witframe_api.xml:
-    newFile: !uuid '03fc1d3a2514b94b839e8d24cbc43a0ebba95cd9'
-    oldFile: !uuid '6c6f5a5b3d083e55bf4510e3fbda490bb2118951'
-  /upload/source/plugin/witframe_api/setting.inc.php:
-    newFile: !uuid '7d0d619adaee890411a204d716f31e209a82f02b'
-    oldFile: null
-gitCommitId: !uuid '0a7570105d65836de7667af7edeae59c0a7ca239'
+    newFile: !uuid '1d3434b00b3c08d37ef5949b2d0d6459861f920c'
+    oldFile: !uuid '53a365bb88f30ae12a11c2ac82d52d659cb1c474'
+  /upload/source/admincp:
+    newFile: !uuid '2843e37214c4850ec3bc5e24cb5038ac69c441c2'
+    oldFile: !uuid 'fe339468f281f00f1e5ceac928754505862706a0'
+  /upload/source/admincp/moderate:
+    newFile: !uuid '7cb99fa779e53cf482ba0ee19abce11738c7268c'
+    oldFile: !uuid '72dfa098d0b4d5c069b5df7aea1cb28099b18b57'
+  /upload/source/admincp/moderate/moderate_blog.php:
+    newFile: !uuid 'e29aa8f77ccfdf118bb456a887b93ef9f5918a2d'
+    oldFile: !uuid '0bb4019834433c702c94c2e9ea9cb16f436322f6'
+gitCommitId: !uuid '75ddbf6d47ddf204812c1c22809726a9ed7a61fe'
 renames: {
   }
-revisionId: 1199
+revisionId: 1200
