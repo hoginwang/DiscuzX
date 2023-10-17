@@ -192,16 +192,16 @@ function emailMenuOp(op, e, id) {
 		}, 500);
 	} else if(op == 4) {
 	       	e = e ? e : window.event;
-                var obj = $(id);
-        	if(e.keyCode == 13 && obj.value.indexOf('@') == -1) {
-                        obj.value = obj.value + '@' + emaildomains[emailMenui];
-                        doane(e);
-        	}
+				var obj = $(id);
+			if(e.keyCode == 13 && obj.value.indexOf('@') == -1) {
+						obj.value = obj.value + '@' + emaildomains[emailMenui];
+						doane(e);
+			}
 	} else if(op == 5) {
-                var as = $('emailmore_menu').getElementsByTagName('a');
-                for(i = 0;i < as.length;i++){
-                        as[i].className = '';
-                }
+				var as = $('emailmore_menu').getElementsByTagName('a');
+				for(i = 0;i < as.length;i++){
+						as[i].className = '';
+				}
 	}
 }
 
@@ -210,8 +210,8 @@ function emailMenu(e, id) {
 		return;
 	}
 	e = e ? e : window.event;
-        var obj = $(id);
-	if(obj.value.indexOf('@') != -1) {
+	var obj = $(id);
+	if(obj.value.indexOf('@') != -1 && $('emailmore_menu')) {
 		$('emailmore_menu').style.display = 'none';
 		return;
 	}
@@ -222,7 +222,7 @@ function emailMenu(e, id) {
 		return;
 	}
 
-        if(value == 40) {
+	if(value == 40) {
 		emailMenui++;
 		if(emailMenui >= emaildomains.length) {
 			emailMenui = 0;
@@ -233,10 +233,10 @@ function emailMenu(e, id) {
 			emailMenui = emaildomains.length - 1;
 		}
 	} else if(value == 13) {
-  		$('emailmore_menu').style.display = 'none';
-  		return;
- 	}
-        if(!$('emailmore_menu')) {
+		$('emailmore_menu').style.display = 'none';
+		return;
+	}
+		if(!$('emailmore_menu')) {
 		menu = document.createElement('div');
 		menu.id = 'emailmore_menu';
 		menu.style.display = 'none';
