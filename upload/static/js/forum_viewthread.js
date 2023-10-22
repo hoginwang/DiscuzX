@@ -31,7 +31,7 @@ function attachimgshow(pid, onlyinpost) {
 			aimgcomplete++; 
 			continue;
 		}        
-		if(onlyinpost && obj.getAttribute('inpost') || !onlyinpost) {
+		if(onlyinpost && obj.getAttribute('inpost')) {
 			if(!obj.status) {
 				obj.status = 1;
 				if(obj.getAttribute('file')) obj.src = obj.getAttribute('file');
