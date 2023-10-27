@@ -911,7 +911,12 @@ if($_G['forum_cachepid']) {
 	}
 
 	if($_G['forum_cachepid'] && $_G['setting']['commentnumber']) {
-		list($comments, $postcache, $commentcount, $totalcomment) = C::t('forum_postcomment')->fetch_postcomment_by_pid($_G['forum_cachepid'], $postcache, $commentcount, $totalcomment, $_G['setting']['commentnumber']);
+		$tmppostcomment = C::t('forum_postcomment')->fetch_postcomment_by_pid($_G['forum_cachepid'], $postcache, $commentcount, $totalcomment, $_G['setting']['commentnumber']);
+		$comments = array_merge($comments, $tmppostcomment[0]);
+		$postcache = array_merge($postcache, $tmppostcomment[1]);
+		$commentcount = array_merge($commentcount, $tmppostcomment[2]);
+		$totalcomment = array_merge($totalcomment, $tmppostcomment[3]);
+		unset($tmppostcomment);
 	}
 
 	foreach($postcache as $pid => $data) {
