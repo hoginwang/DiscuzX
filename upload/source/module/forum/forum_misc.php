@@ -715,7 +715,7 @@ if($_GET['action'] == 'votepoll' && submitcheck('pollsubmit', 1)) {
 							$sub_self_credit[$id] = -abs($score);
 						}
 						$rate += $score;
-						$ratetimes += ceil(max(abs($rating['min']), abs($rating['max'])) / 5);
+						$ratetimes++;
 					}
 				} else {
 					showmessage('thread_rate_ctrl');
@@ -843,7 +843,7 @@ if($_GET['action'] == 'votepoll' && submitcheck('pollsubmit', 1)) {
 			foreach(C::t('forum_ratelog')->fetch_all_by_pid($_GET['pid']) as $ratelog) {
 				if(in_array($ratelog['uid'].' '.$ratelog['extcredits'].' '.$ratelog['dateline'], $_GET['logidarray'])) {
 					$rate += $ratelog['score'] = -$ratelog['score'];
-					$ratetimes += ceil(max(abs($rating['min']), abs($rating['max'])) / 5);
+					$ratetimes--;
 					updatemembercount($post['authorid'], array($ratelog['extcredits'] => $ratelog['score']));
 					C::t('common_credit_log')->delete_by_uid_operation_relatedid($post['authorid'], 'PRC', $_GET['pid']);
 					C::t('forum_ratelog')->delete_by_pid_uid_extcredits_dateline($_GET['pid'], $ratelog['uid'], $ratelog['extcredits'], $ratelog['dateline']);
