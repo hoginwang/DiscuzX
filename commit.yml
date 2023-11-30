@@ -3,24 +3,54 @@ branches: {
   }
 fileChange:
   /upload:
-    newFile: !uuid 'e2ec30b4346259b6cce3074546c71bb01150c64e'
-    oldFile: !uuid '2843517e74fcc2d8662ab482a08106e7c676b78f'
+    newFile: !uuid '7198096bb5ed9e2984131e44a699d934aa599927'
+    oldFile: !uuid 'e2ec30b4346259b6cce3074546c71bb01150c64e'
+  /upload/static:
+    newFile: !uuid '4d7b87889d14cea7ad4d686fce7713530c4308f5'
+    oldFile: !uuid '20caabdf2e709411bc43cf08d2de8f6d04387f12'
+  /upload/static/avatar:
+    newFile: !uuid '4463833fee42f474a9a046f2d2880eb543e5b509'
+    oldFile: !uuid '66a4f484606024dee410bf7bfb25c8bdc02f192b'
+  /upload/static/avatar/avatar.css:
+    newFile: !uuid '2ab3c9425700c94313d8992879b58f602db89027'
+    oldFile: !uuid 'f48a576c9985e241df7675823df51b0bbddcf646'
+  /upload/static/avatar/avatar_mobile.js:
+    newFile: !uuid '26a55a71ddbf61f8450e1fc85d126bf070f72e82'
+    oldFile: null
+  /upload/static/avatar/hammer.min.js:
+    newFile: !uuid 'edadee1596a8d2098b9d73b823097bef282a63f4'
+    oldFile: null
+  /upload/static/avatar/iscroll-zoom.min.js:
+    newFile: !uuid 'eec370321b977325d312f83dfaf0b2d5ffe7228c'
+    oldFile: null
+  /upload/static/avatar/jquery.photoClip.min.js:
+    newFile: !uuid 'e570ce30fb3a5a804e381b709c29bf7637c5667b'
+    oldFile: null
+  /upload/static/avatar/lrz.all.bundle.js:
+    newFile: !uuid '6118e1c76c5711347a81ec8e9b486f9ea92564e0'
+    oldFile: null
   /upload/template:
-    newFile: !uuid 'c92a79651749f7c95018767a13150b0fbd22b2cb'
-    oldFile: !uuid 'ab98c43051bc89b2ade312adb7dbfc34d5b6b7e9'
+    newFile: !uuid 'aa8aa280e58579012e8029fff9dca6d516fbf0e8'
+    oldFile: !uuid 'c92a79651749f7c95018767a13150b0fbd22b2cb'
   /upload/template/default:
-    newFile: !uuid 'bc3433b823d560c67404d1ac4800423a35ecacd9'
-    oldFile: !uuid '6ba0704122c195e1275a682a74891fa7d1187c25'
+    newFile: !uuid '5c399305317a2db20f55fa95a28dab78317105f3'
+    oldFile: !uuid 'bc3433b823d560c67404d1ac4800423a35ecacd9'
   /upload/template/default/touch:
-    newFile: !uuid '10811d2fcbb49be7f8ff7cd82a831946d3691e7a'
-    oldFile: !uuid '4adef1461a7106fc39d29984415db5c496fd91fc'
-  /upload/template/default/touch/forum:
-    newFile: !uuid '68140e190cd9d76c2393258ca1349ab1cfbe894d'
-    oldFile: !uuid '381084ee5caeb0bd096bbd194cd46458c358e8d5'
-  /upload/template/default/touch/forum/viewthread.htm:
-    newFile: !uuid 'edc68a52b44a4b88639385e7bc01ade5f20b9ed3'
-    oldFile: !uuid '8b34a594de02ed36977e53d1d00da348255fd33f'
-gitCommitId: !uuid '95d82a66fad7b689ad51459eafb55a0aa20855d1'
+    newFile: !uuid '220877c7ed1d2390c438bc2dc7cd27504486905c'
+    oldFile: !uuid '10811d2fcbb49be7f8ff7cd82a831946d3691e7a'
+  /upload/template/default/touch/home:
+    newFile: !uuid 'e977d5c738834552733d98e1390b009a2182a475'
+    oldFile: !uuid 'a2016430451982f2bc9675458dc2af44daf93d80'
+  /upload/template/default/touch/home/spacecp_avatar.htm:
+    newFile: !uuid 'c0afabe49ee14ae7ada57767c68609478bc5d943'
+    oldFile: null
+  /upload/template/default/touch/home/spacecp_avatar_body.htm:
+    newFile: !uuid 'ae1016394a5478b6d63c6fba193235206599d6b2'
+    oldFile: null
+  /upload/template/default/touch/home/spacecp_footer.htm:
+    newFile: !uuid 'adab1f3504409cc4e95fedb3d61094f9f3a6170f'
+    oldFile: !uuid '4730ac06cc2d1384148d0c648af607235fe3d62d'
+gitCommitId: !uuid 'd1684521f14afcfe63703a1386980963d83ccff5'
 renames: {
   }
-revisionId: 1226
+revisionId: 1227
