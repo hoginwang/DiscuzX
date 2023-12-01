@@ -3,54 +3,21 @@ branches: {
   }
 fileChange:
   /upload:
-    newFile: !uuid '7198096bb5ed9e2984131e44a699d934aa599927'
-    oldFile: !uuid 'e2ec30b4346259b6cce3074546c71bb01150c64e'
-  /upload/static:
-    newFile: !uuid '4d7b87889d14cea7ad4d686fce7713530c4308f5'
-    oldFile: !uuid '20caabdf2e709411bc43cf08d2de8f6d04387f12'
-  /upload/static/avatar:
-    newFile: !uuid '4463833fee42f474a9a046f2d2880eb543e5b509'
-    oldFile: !uuid '66a4f484606024dee410bf7bfb25c8bdc02f192b'
-  /upload/static/avatar/avatar.css:
-    newFile: !uuid '2ab3c9425700c94313d8992879b58f602db89027'
-    oldFile: !uuid 'f48a576c9985e241df7675823df51b0bbddcf646'
-  /upload/static/avatar/avatar_mobile.js:
-    newFile: !uuid '26a55a71ddbf61f8450e1fc85d126bf070f72e82'
-    oldFile: null
-  /upload/static/avatar/hammer.min.js:
-    newFile: !uuid 'edadee1596a8d2098b9d73b823097bef282a63f4'
-    oldFile: null
-  /upload/static/avatar/iscroll-zoom.min.js:
-    newFile: !uuid 'eec370321b977325d312f83dfaf0b2d5ffe7228c'
-    oldFile: null
-  /upload/static/avatar/jquery.photoClip.min.js:
-    newFile: !uuid 'e570ce30fb3a5a804e381b709c29bf7637c5667b'
-    oldFile: null
-  /upload/static/avatar/lrz.all.bundle.js:
-    newFile: !uuid '6118e1c76c5711347a81ec8e9b486f9ea92564e0'
-    oldFile: null
+    newFile: !uuid '541510c99af1d6bfaa1224ec81515d46cfc21e60'
+    oldFile: !uuid '7198096bb5ed9e2984131e44a699d934aa599927'
   /upload/template:
-    newFile: !uuid 'aa8aa280e58579012e8029fff9dca6d516fbf0e8'
-    oldFile: !uuid 'c92a79651749f7c95018767a13150b0fbd22b2cb'
+    newFile: !uuid 'bb984a6c601821d639ded2021f4f33d2deef24a9'
+    oldFile: !uuid 'aa8aa280e58579012e8029fff9dca6d516fbf0e8'
   /upload/template/default:
-    newFile: !uuid '5c399305317a2db20f55fa95a28dab78317105f3'
-    oldFile: !uuid 'bc3433b823d560c67404d1ac4800423a35ecacd9'
-  /upload/template/default/touch:
-    newFile: !uuid '220877c7ed1d2390c438bc2dc7cd27504486905c'
-    oldFile: !uuid '10811d2fcbb49be7f8ff7cd82a831946d3691e7a'
-  /upload/template/default/touch/home:
-    newFile: !uuid 'e977d5c738834552733d98e1390b009a2182a475'
-    oldFile: !uuid 'a2016430451982f2bc9675458dc2af44daf93d80'
-  /upload/template/default/touch/home/spacecp_avatar.htm:
-    newFile: !uuid 'c0afabe49ee14ae7ada57767c68609478bc5d943'
-    oldFile: null
-  /upload/template/default/touch/home/spacecp_avatar_body.htm:
-    newFile: !uuid 'ae1016394a5478b6d63c6fba193235206599d6b2'
-    oldFile: null
-  /upload/template/default/touch/home/spacecp_footer.htm:
-    newFile: !uuid 'adab1f3504409cc4e95fedb3d61094f9f3a6170f'
-    oldFile: !uuid '4730ac06cc2d1384148d0c648af607235fe3d62d'
-gitCommitId: !uuid 'd1684521f14afcfe63703a1386980963d83ccff5'
+    newFile: !uuid '97eba2ee4ae6593d6c385f99eb2a7233e3adf1c2'
+    oldFile: !uuid '5c399305317a2db20f55fa95a28dab78317105f3'
+  /upload/template/default/home:
+    newFile: !uuid '0369c79877d28002ce53edafbea01eb602642693'
+    oldFile: !uuid '2b6caf366a196b87653dc2743222de04a7d10019'
+  /upload/template/default/home/spacecp_credit_log.htm:
+    newFile: !uuid '88efb3018229812f58af0b90685ee754fc8d3a47'
+    oldFile: !uuid 'ca7a65e57d4fa9fa5110e6a79cee2eeae440a0c6'
+gitCommitId: !uuid '4d09c94036d91992cc362a54b93fdea0a8e0a86d'
 renames: {
   }
-revisionId: 1227
+revisionId: 1228
