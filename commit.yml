@@ -3,24 +3,30 @@ branches: {
   }
 fileChange:
   /upload:
-    newFile: !uuid '29fc101f6426ee7f02af895b9742ea5252453b66'
-    oldFile: !uuid 'b9d624e87e219d24493dd088bab64eaf91945c9d'
+    newFile: !uuid '8abea1d24283584af4de9ddc02bceb34915c1c21'
+    oldFile: !uuid '29fc101f6426ee7f02af895b9742ea5252453b66'
+  /upload/static:
+    newFile: !uuid '7ce43537f795154afda33ddece385d47fa2152e1'
+    oldFile: !uuid 'da2c6304c465728d29e72f70ba4c75d2378ff818'
+  /upload/static/js:
+    newFile: !uuid '16129350589adfb8afea5561939f8aadff5af6bd'
+    oldFile: !uuid '399e87ec42d57a9e8591be4e8e4a545ba38a9aa3'
+  /upload/static/js/calendar.js:
+    newFile: !uuid 'e7225c45e7669fdf046e7a2c7f0a1fb992568225'
+    oldFile: !uuid '2f1f2ed96040650099a8999471cd6cf8e0bec853'
   /upload/template:
-    newFile: !uuid 'd9826fbf52adc6255d88569871bdd5b9be4a00f4'
-    oldFile: !uuid 'bb984a6c601821d639ded2021f4f33d2deef24a9'
+    newFile: !uuid 'f1543fa184020f2e6de3a8eae5debc41c6eb5595'
+    oldFile: !uuid 'd9826fbf52adc6255d88569871bdd5b9be4a00f4'
   /upload/template/default:
-    newFile: !uuid '9e9a98118919ebdcb2d2d982cd190dd585348a59'
-    oldFile: !uuid '97eba2ee4ae6593d6c385f99eb2a7233e3adf1c2'
-  /upload/template/default/touch:
-    newFile: !uuid '2e8919460dab899ece8e788e90d53b620cbd9d16'
-    oldFile: !uuid '220877c7ed1d2390c438bc2dc7cd27504486905c'
-  /upload/template/default/touch/forum:
-    newFile: !uuid 'dbd5ca2f53e851b5ccc2b11979ea588b58d83c54'
-    oldFile: !uuid '68140e190cd9d76c2393258ca1349ab1cfbe894d'
-  /upload/template/default/touch/forum/post.htm:
-    newFile: !uuid 'd50377f54e3165a62e678585f48595e0febcd0fd'
-    oldFile: !uuid '6104906cc0bccc8a1a4007f7e83b682efd35505c'
-gitCommitId: !uuid 'aff546db865322b394ec2e18ceed6b19544cf84e'
+    newFile: !uuid 'd8b328dc2ec71d6dcdd3940aef6c408bb423abd8'
+    oldFile: !uuid '9e9a98118919ebdcb2d2d982cd190dd585348a59'
+  /upload/template/default/common:
+    newFile: !uuid 'c4e262c794ee1e83b1d0f8a13a1fec8c949105f4'
+    oldFile: !uuid '9ea31b2b5a62316dc7fd9632a57467ecc7e79234'
+  /upload/template/default/common/forum_calendar.css:
+    newFile: !uuid '5a7d88a4430c6f038a9c7dd87df5ee8d9c0558b6'
+    oldFile: !uuid 'a81906c77186d1092a189bde559730395951dbcd'
+gitCommitId: !uuid 'a47e30c3e9f5e86f565c43a051681e56b95fc3b5'
 renames: {
   }
-revisionId: 1231
+revisionId: 1232
