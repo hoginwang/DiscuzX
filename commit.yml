@@ -3,30 +3,18 @@ branches: {
   }
 fileChange:
   /upload:
-    newFile: !uuid '8abea1d24283584af4de9ddc02bceb34915c1c21'
-    oldFile: !uuid '29fc101f6426ee7f02af895b9742ea5252453b66'
-  /upload/static:
-    newFile: !uuid '7ce43537f795154afda33ddece385d47fa2152e1'
-    oldFile: !uuid 'da2c6304c465728d29e72f70ba4c75d2378ff818'
-  /upload/static/js:
-    newFile: !uuid '16129350589adfb8afea5561939f8aadff5af6bd'
-    oldFile: !uuid '399e87ec42d57a9e8591be4e8e4a545ba38a9aa3'
-  /upload/static/js/calendar.js:
-    newFile: !uuid 'e7225c45e7669fdf046e7a2c7f0a1fb992568225'
-    oldFile: !uuid '2f1f2ed96040650099a8999471cd6cf8e0bec853'
-  /upload/template:
-    newFile: !uuid 'f1543fa184020f2e6de3a8eae5debc41c6eb5595'
-    oldFile: !uuid 'd9826fbf52adc6255d88569871bdd5b9be4a00f4'
-  /upload/template/default:
-    newFile: !uuid 'd8b328dc2ec71d6dcdd3940aef6c408bb423abd8'
-    oldFile: !uuid '9e9a98118919ebdcb2d2d982cd190dd585348a59'
-  /upload/template/default/common:
-    newFile: !uuid 'c4e262c794ee1e83b1d0f8a13a1fec8c949105f4'
-    oldFile: !uuid '9ea31b2b5a62316dc7fd9632a57467ecc7e79234'
-  /upload/template/default/common/forum_calendar.css:
-    newFile: !uuid '5a7d88a4430c6f038a9c7dd87df5ee8d9c0558b6'
-    oldFile: !uuid 'a81906c77186d1092a189bde559730395951dbcd'
-gitCommitId: !uuid 'a47e30c3e9f5e86f565c43a051681e56b95fc3b5'
+    newFile: !uuid '3d02fda99368d38d71f36ff6a4c37048c2d086b3'
+    oldFile: !uuid '8abea1d24283584af4de9ddc02bceb34915c1c21'
+  /upload/install:
+    newFile: !uuid '7d247814f5ed0ab9338411040191deee69874bbb'
+    oldFile: !uuid 'f168fbed554656830dfefab5ecf419db5822e129'
+  /upload/install/data:
+    newFile: !uuid 'f2472d897d292c863f5c5a7e69a48a62d0d626f7'
+    oldFile: !uuid '885b2a411a0d0f92b23816432e50189304362cb4'
+  /upload/install/data/install.sql:
+    newFile: !uuid '1a3c6f6a8f5d59a6462a75d94587a086ded306dc'
+    oldFile: !uuid '1e097bbd5a335101baf8e719044161ae6bb3c78d'
+gitCommitId: !uuid '5d6c291fc46e4d9e3231ccf76884879ecdd21938'
 renames: {
   }
-revisionId: 1232
+revisionId: 1233
