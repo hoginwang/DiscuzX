@@ -23,7 +23,7 @@ h1 { font-size: 24px; margin-bottom: 20px; color: #999; }
 	<hr noshade size="2" width="100%" color="#808080">
 	<b>{lang author}: </b><!--{if $post['author'] && !$post['anonymous']}-->$post[author]<!--{else}-->{$_G['setting']['anonymoustext']}<!--{/if}-->&nbsp; &nbsp; <b>{lang time}: </b>$post[dateline]
 	<br />
-	<!--{if $_G['adminid'] != 1 && $_G['setting']['bannedmessages'] && (($post['authorid'] && !$userinfo[$post[authorid]]['username']) || ($userinfo[$post[authorid]]['groupid'] == 4 || $userinfo[$post[authorid]]['groupid'] == 5))}-->
+	<!--{if $_G['adminid'] != 1 && intval($_G['setting']['bannedmessages']) && (($post['authorid'] && !$userinfo[$post[authorid]]['username']) || ($userinfo[$post[authorid]]['groupid'] == 4 || $userinfo[$post[authorid]]['groupid'] == 5))}-->
 		{lang message_banned}
 	<!--{elseif $_G['adminid'] != 1 && $post['status'] & 1}-->
 		{lang message_single_banned}

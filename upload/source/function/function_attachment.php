@@ -108,7 +108,7 @@ function parseattach($attachpids, $attachtags, &$postlist, $skipaids = array()) 
 		$attach['url'] = ($attach['remote'] ? $_G['setting']['ftp']['attachurl'] : $_G['setting']['attachurl']).'forum/';
 		$attach['dbdateline'] = $attach['dateline'];
 		$attach['dateline'] = dgmdate($attach['dateline'], 'u');
-		$hideattachs = $_G['adminid'] != 1 && $_G['setting']['bannedmessages'] & 1 && (($postlist[$attach['pid']]['authorid'] && !$postlist[$attach['pid']]['username'])
+		$hideattachs = $_G['adminid'] != 1 && intval($_G['setting']['bannedmessages']) & 1 && (($postlist[$attach['pid']]['authorid'] && !$postlist[$attach['pid']]['username'])
 				|| ($postlist[$attach['pid']]['groupid'] == 4 || $postlist[$attach['pid']]['groupid'] == 5) || $postlist[$attach['pid']]['status'] == -1 || $postlist[$attach['pid']]['memberstatus'])
 				|| $_G['adminid'] != 1 && $postlist[$attach['pid']]['status'] & 1 || $postlist[$attach['pid']]['first'] && $_G['forum_threadpay'];
 		if(!$hideattachs) {

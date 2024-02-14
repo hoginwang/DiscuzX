@@ -20,7 +20,7 @@ include loadarchiver('common/header');
 		<?php echo lang('forum/archiver', 'post_time') . ' ' . $post['dateline']; ?>
 	</p>
 	<?php if($_G['forum_threadpay'] && $post['first']): include template('forum/viewthread_pay'); ?>
-	<?php elseif(!$_G['forum']['ismoderator'] && $_G['setting']['bannedmessages'] & 1 && (($post['authorid'] && !$post['username']) || ($_G['thread']['digest'] == 0 && ($post['groupid'] == 4 || $post['groupid'] == 5 || $post['memberstatus'] == '-1')))): ?>
+	<?php elseif(!$_G['forum']['ismoderator'] && intval($_G['setting']['bannedmessages']) & 1 && (($post['authorid'] && !$post['username']) || ($_G['thread']['digest'] == 0 && ($post['groupid'] == 4 || $post['groupid'] == 5 || $post['memberstatus'] == '-1')))): ?>
 	<?php elseif($post['status'] & 1): ?>
 	<?php else: ?>
 		<h3><?php echo $post['subject']; ?></h3>
