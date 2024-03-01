@@ -3,18 +3,30 @@ branches: {
   }
 fileChange:
   /upload:
-    newFile: !uuid '1f68f3b697ff7071513b5870c617cee5fd13a09a'
-    oldFile: !uuid '3e538de999a8c0328a9704f467cb903a9d8f038c'
-  /upload/static:
-    newFile: !uuid 'c383b64cae3169056e25b01807f9624b6dbbaa97'
-    oldFile: !uuid '7ce43537f795154afda33ddece385d47fa2152e1'
-  /upload/static/js:
-    newFile: !uuid '2dfe37c30eee7adf2a861196850465ff683bb419'
-    oldFile: !uuid '16129350589adfb8afea5561939f8aadff5af6bd'
-  /upload/static/js/portal.js:
-    newFile: !uuid 'becbcb86cdb99519aae649212c01ef41bdd72fd4'
-    oldFile: !uuid '6f26f8887807a5eb04e05f3b071e8e81289b5799'
-gitCommitId: !uuid 'ebf3ce07320206359f4ed382e2969e146fac68fa'
+    newFile: !uuid '00394890bbeef7d08c61efb5bc1e268cec167325'
+    oldFile: !uuid '1f68f3b697ff7071513b5870c617cee5fd13a09a'
+  /upload/source:
+    newFile: !uuid 'c2166cadac1bc9fb227305be2f491bcd9e54d232'
+    oldFile: !uuid '46a11a913c2070f4f1d5a8dc362f77b970c0276c'
+  /upload/source/class:
+    newFile: !uuid '03c3c09f1c0aec9be1fa60520cedd13fb624536e'
+    oldFile: !uuid '2bd801aa64cf7be8e6b9e6360232a56c7c5590be'
+  /upload/source/class/table:
+    newFile: !uuid 'c32bdfbac6d9ea7f7bab618983da5d3e4715a207'
+    oldFile: !uuid 'e0d491f404196bac0a80af559a063264b195cd9f'
+  /upload/source/class/table/table_forum_post.php:
+    newFile: !uuid '3292787d68312f7f927fa1fc690ffbe4cb96543a'
+    oldFile: !uuid '90bffb5f35cc9437b82de80d3310556f667fc8d3'
+  /upload/source/include:
+    newFile: !uuid 'b60dab8a624c4c6f51792999de47afbd08f4a152'
+    oldFile: !uuid '6331fd5c442b4b7acc2485fe0a6f27462ad9f851'
+  /upload/source/include/thread:
+    newFile: !uuid '8196fb2fc30fe017e8a489e6259eefe944f9e87c'
+    oldFile: !uuid '23172f403dd81bb0b9d75d76afafdfcf3c4c3813'
+  /upload/source/include/thread/thread_album.php:
+    newFile: !uuid '291a80ce0be3f1177d96667862983ed0720ea846'
+    oldFile: !uuid 'fd30506ecdc599f5a8391ea7b8c43907f158551e'
+gitCommitId: !uuid '2ddbcb500adcfc87c4bfe68c5dfb20feec51c641'
 renames: {
   }
-revisionId: 1244
+revisionId: 1245
