@@ -206,5 +206,22 @@ function switchframedmvalue(ifdark, ifauto) {
 		if(e.target === this){
 			this.classList.remove('show')
 		}
-	})
+	});
+	iframeURLChange(document.getElementsByTagName('iframe')[0],changeURL);
 })()
+function changeURL(url){
+	window.history.replaceState(null,"", url);
+}
+function iframeURLChange(iframe, callback) {
+    var unloadHandler = function () {
+        setTimeout(function () {
+            callback(iframe.contentWindow.location.href);
+        }, 10);
+    };
+    function attachUnload() {
+        iframe.contentWindow.removeEventListener("unload", unloadHandler);
+        iframe.contentWindow.addEventListener("unload", unloadHandler);
+    }
+    iframe.addEventListener("load", attachUnload);
+    attachUnload();
+}
