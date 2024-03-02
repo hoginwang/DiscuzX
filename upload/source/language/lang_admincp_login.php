@@ -46,7 +46,9 @@ $lang = array
 	'login_ip_noaccess' => '<a href="https://www.dismall.com/thread-17514-1-1.html" target="_blank">IP变动可能导致登录失败，查看解决办法</a>',
 	'noaccess' => '后台管理权限(或此项操作)尚未对您开放，请联系站点管理员',
 
-
+	'enter_password' => '请输入密码！',
+	'must_enter_qa' => '必须输入安全提问及答案！',
+	'wrong_password_n_times' => '您已输错密码 %u 次！',
 );
 
 ?>

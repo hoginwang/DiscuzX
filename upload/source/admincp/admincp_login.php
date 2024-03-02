@@ -15,10 +15,20 @@ if($this->core->var['inajax']) {
 	ajaxshowheader();
 	ajaxshowfooter();
 }
+
+$alertMsg='';
+if($this->cpaccess == 2 && empty($_POST['admin_password']) && !empty($_POST['formhash'])){
+	$alertMsg = lang('admincp_login', 'enter_password');
+}elseif($this->cpaccess == 2 && !empty($_POST['admin_password'])  && (empty($_POST['admin_questionid']) || empty($_POST['admin_answer'])) && (getglobal('config/admincp/forcesecques')|| getglobal('group/forcesecques'))){
+	$alertMsg = lang('admincp_login', 'must_enter_qa');
+}elseif ($this->get_errorCount()){
+	$alertMsg = sprintf(lang('admincp_login', 'wrong_password_n_times'),$this->get_errorCount());
+}
+
 if($this->cpaccess == -2 || $this->cpaccess == -3) {
-	html_login_header(false);
+	html_login_header($alertMsg, false);
 } else {
-	html_login_header();
+	html_login_header($alertMsg);
 }
 
 if($this->cpaccess == -5) {
@@ -41,7 +51,7 @@ if($this->cpaccess == -5) {
 
 html_login_footer();
 
-function html_login_header($form = true) {
+function html_login_header($alertMsg = '', $form = true) {
 	global $_G;
 	$charset = CHARSET;
 	$cptitle = lang('admincp_login', 'admincp_title');
@@ -92,6 +102,7 @@ EOT;
 <div class="intro">
 <h3>$cptitle</h3>
 <p>$tips</p>
+<div id="alertMsg">$alertMsg</div>
 </div>
 EOT;
 	}
