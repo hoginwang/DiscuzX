@@ -28,6 +28,7 @@ class discuz_admincp
 	var $cpsetting = array();
 
 	var $cpaccess = 0;
+	var $errorcount = 0;
 
 	var $sessionlife = 1800;
 	var $sessionlimit = 0;
@@ -86,7 +87,7 @@ class discuz_admincp
 			} else {
 				$session = C::t('common_admincp_session')->fetch_session($this->adminuser['uid'], $this->panel);
 			}
-
+			$this->errorcount = $session['errorcount'];
 			if(empty($session)) {
 				$this->cpaccess = $this->isfounder ? 1 : -2;
 
@@ -153,7 +154,7 @@ class discuz_admincp
 
 	function check_admin_login() {
 		global $_G;
-		if((empty($_POST['admin_questionid']) || empty($_POST['admin_answer'])) && ($_G['config']['admincp']['forcesecques'] || $_G['group']['forcesecques'])) {
+		if((empty($_POST['admin_questionid']) || empty($_POST['admin_answer'])) && (!empty($_G['config']['admincp']['forcesecques']) || !empty($_G['group']['forcesecques']))) {
 			$this->do_user_login();
 		}
 		loaducenter();
@@ -162,7 +163,7 @@ class discuz_admincp
 			C::t('common_admincp_session')->update_session($this->adminuser['uid'], $this->panel, array('dateline' => TIMESTAMP, 'ip' => $this->core->var['clientip'], 'errorcount' => -1));
 			dheader('Location: '.ADMINSCRIPT.'?'.cpurl('url', array('sid')));
 		} else {
-			$errorcount = $this->adminsession['errorcount'] + 1;
+			$this->errorcount = $errorcount = $this->adminsession['errorcount'] + 1;
 			C::t('common_admincp_session')->update_session($this->adminuser['uid'], $this->panel, array('dateline' => TIMESTAMP, 'ip' => $this->core->var['clientip'], 'errorcount' => $errorcount));
 		}
 	}
@@ -308,5 +309,9 @@ class discuz_admincp
 			cpheader();
 			cpmsg('action_noaccess', '', 'error');
 		}
+	}
+	
+	function get_errorCount(){
+		return $this->errorcount;
 	}
 }
