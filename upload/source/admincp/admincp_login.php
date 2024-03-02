@@ -25,7 +25,7 @@ if($this->cpaccess == -5) {
 	echo  '<div class="loginbox">'.lang('admincp_login', 'login_cp_guest').'</div>';
 
 }elseif($this->cpaccess == -2 || $this->cpaccess == -3) {
-	echo  '<div class="container loginbox"><span>'.lang('admincp_login', 'login_cp_noaccess').'</span>';
+	echo  '<div class="container loginbox"><span>'.lang('admincp_login', 'login_cp_noaccess').'</span></div>';
 
 }elseif($this->cpaccess == -1) {
 	$ltime = $this->sessionlife - (TIMESTAMP - $this->adminsession['dateline']);
