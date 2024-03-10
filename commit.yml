@@ -3,21 +3,27 @@ branches: {
   }
 fileChange:
   /upload:
-    newFile: !uuid '4bb976897e703d3c3ce08d8dbc38859cd908d08e'
-    oldFile: !uuid '00394890bbeef7d08c61efb5bc1e268cec167325'
-  /upload/source:
-    newFile: !uuid 'b603819b8d709c3db0d5c1274e23630a413fad2a'
-    oldFile: !uuid 'c2166cadac1bc9fb227305be2f491bcd9e54d232'
-  /upload/source/module:
-    newFile: !uuid '66d3c4657d2e718920ff877b278bac8c12c27124'
-    oldFile: !uuid '566ff93fc87ec33cc8b8f2e42ea2bb026e6004e6'
-  /upload/source/module/forum:
-    newFile: !uuid 'a47387819ab081a2c1821b0762675080bb12d8e3'
-    oldFile: !uuid 'c1487c01743c7b8ef39250b274647d662d10bcd3'
-  /upload/source/module/forum/forum_viewthread.php:
-    newFile: !uuid '3e30708e10440e8b94e8a8d3cf642ccbc7370d8d'
-    oldFile: !uuid '03b3c3f92e450d957d66b646c9d695936a47c320'
-gitCommitId: !uuid 'b826c93534b3c3a6d37d460925ac948b8a53e3e5'
+    newFile: !uuid '7a20f2d3118a175392b7e3149872e9a9b8f8d24d'
+    oldFile: !uuid '4bb976897e703d3c3ce08d8dbc38859cd908d08e'
+  /upload/template:
+    newFile: !uuid '51998d9418b656861030db0df585e94fa1cdcbaf'
+    oldFile: !uuid '668d63fe1fddf9ac2585a2aae3d864af4a0dfa4e'
+  /upload/template/default:
+    newFile: !uuid 'f00fbaa11a750da4744a56353557a198e22b2692'
+    oldFile: !uuid 'f380a18031583acaafe9190a8848cf148c48767b'
+  /upload/template/default/common:
+    newFile: !uuid 'bd310375a2fe6c5653c160d83f38533fe7276727'
+    oldFile: !uuid 'c4e262c794ee1e83b1d0f8a13a1fec8c949105f4'
+  /upload/template/default/common/buyinvitecode.htm:
+    newFile: !uuid '9489f951cc1395611ce8da42b1ce58ef9fc62121'
+    oldFile: !uuid 'f11e4a2c4adfb6999d86f862da635ed095882d3d'
+  /upload/template/default/member:
+    newFile: !uuid '423460d5dbc4b2baad3c71e11acbe94964a5b86a'
+    oldFile: !uuid 'd664b17fd0e10fd8129b65bdae2ef6319b843b68'
+  /upload/template/default/member/register.htm:
+    newFile: !uuid '0e4f18e0548949123135a6c656f2b3e0b8d25117'
+    oldFile: !uuid 'e9b2bcfcac82a23d791240c08ed18808fe407b36'
+gitCommitId: !uuid 'fbe70f7f3084c3cf3f433306a5058354825172ea'
 renames: {
   }
-revisionId: 1246
+revisionId: 1247
