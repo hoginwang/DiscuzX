@@ -60,7 +60,7 @@ class mobile_api {
 			$variable['threadsortshow'] = $threadsortshowvar;
 		}
 		foreach($variable['postlist'] as $k => $post) {
-			if(!$_G['forum']['ismoderator'] && $_G['setting']['bannedmessages'] & 1 && (($post['authorid'] && !$post['username']) || ($_G['thread']['digest'] == 0 && ($post['groupid'] == 4 || $post['groupid'] == 5 || $post['memberstatus'] == '-1')))) {
+			if(!$_G['forum']['ismoderator'] && intval($_G['setting']['bannedmessages']) & 1 && (($post['authorid'] && !$post['username']) || ($_G['thread']['digest'] == 0 && ($post['groupid'] == 4 || $post['groupid'] == 5 || $post['memberstatus'] == '-1')))) {
 				$message = lang('forum/template', 'message_banned');
 			} elseif(!$_G['forum']['ismoderator'] && $post['status'] & 1) {
 				$message = lang('forum/template', 'message_single_banned');
