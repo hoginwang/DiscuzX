@@ -120,7 +120,11 @@ class ip_v6wry {
 		return $output;
 	}
 	public function convert($ip) {
-		return '- '.diconv(implode(' ',$this->getipaddr($ip)),'utf-8');
+        $ipAddr = $this->getipaddr($ip);
+        if (!is_array($ipAddr)) {
+            $ipAddr = [$ipAddr];
+        }
+        return '- ' . diconv(implode(' ', $ipAddr), 'utf-8');
 	}
 }
 ?>
