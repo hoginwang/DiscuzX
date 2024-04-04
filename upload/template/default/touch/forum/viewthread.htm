@@ -221,7 +221,7 @@
 									<h4>$_G['forum']['threadsorts']['types'][$_G['forum_thread']['sortid']]</h4>
 								<!--{loop $threadsortshow['optionlist'] $option}-->
 									<!--{if $option['type'] != 'info'}-->
-										$option['title']: <!--{if $option['value']}-->$option['value'] $option['unit']<!--{else}--><span class="fc-s">--</span><!--{/if}--><br />
+										<span>$option['title']: </span><!--{if $option['value']}--><!--{if $option['type'] == 'image'}--><img src="$option['value']" style="display: inline-block; max-width: 300px; vertical-align: middle;"><!--{else}-->$option['value'] $option['unit']<!--{/if}--><!--{else}--><span class="fc-s">--</span><!--{/if}--><br />
 									<!--{/if}-->
 								<!--{/loop}-->
 								</div>
