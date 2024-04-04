@@ -219,11 +219,22 @@
 							<!--{else}-->
 								<div class="box_ex2 viewsort b_b mb10">
 									<h4>$_G['forum']['threadsorts']['types'][$_G['forum_thread']['sortid']]</h4>
-								<!--{loop $threadsortshow['optionlist'] $option}-->
-									<!--{if $option['type'] != 'info'}-->
-										$option['title']: <!--{if $option['value']}-->$option['value'] $option['unit']<!--{else}--><span class="fc-s">--</span><!--{/if}--><br />
-									<!--{/if}-->
-								<!--{/loop}-->
+									<table>
+									<!--{loop $threadsortshow['optionlist'] $option}-->
+									    <!--{if $option['type'] != 'info'}-->
+									    <tr>
+									        <td>$option['title']: </td>
+									        <td>
+									        <!--{if $option['value']}-->
+									            <!--{if $option['type'] == 'image'}--><img src="$option['value'] $option['unit']" style="max-width: 300px;"><!--{else}-->$option['value'] $option['unit']<!--{/if}-->
+									        <!--{else}-->
+									            <span class="fc-s">--</span>
+									        <!--{/if}-->
+									        </td>
+									    </tr>
+									    <!--{/if}-->
+									<!--{/loop}-->
+									</table>
 								</div>
 							<!--{/if}-->
 						<!--{/if}-->
