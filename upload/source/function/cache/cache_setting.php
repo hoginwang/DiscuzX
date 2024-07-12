@@ -564,6 +564,14 @@ function get_cachedata_setting_plugin($method = '') {
 			$data['plugins']['version'][$plugin['identifier']] = $plugin['version'];
 		}
 		$plugin['directory'] = $plugin['directory'].((!empty($plugin['directory']) && substr($plugin['directory'], -1) != '/') ? '/' : '');
+		if(!isplugindir($plugin['directory'])) {
+			if(ispluginkey($plugin['identifier'])) {
+				$plugin['directory'] = $plugin['identifier'].'/';
+				C::t('common_plugin')->update($plugin['pluginid'], array('directory' => $plugin['directory']));
+			} else {
+				continue;
+			}
+		}
 		if(is_array($plugin['modules'])) {
 			unset($plugin['modules']['extra']);
 			foreach($plugin['modules'] as $k => $module) {
