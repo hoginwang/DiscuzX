@@ -465,6 +465,15 @@
 		});
 		return false;
 	});
+    $(document).ready(function(){
+        $('body').on('input', 'input[name="seccodeverify"]', function(){
+            var obj = $(this);
+            var btn = $('#postsubmit');
+            if (btn.attr('disable') === 'true' && obj.val().length > 0){
+                btn.attr('disable','false');
+            }
+        });
+    });
 	$(document).on('click', '.del', function() {
 		var obj = $(this);
 		$.ajax({
