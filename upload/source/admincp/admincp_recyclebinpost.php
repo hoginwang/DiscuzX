@@ -144,6 +144,7 @@ EOT;
 
 		showtagheader('div', 'postlist', $searchsubmit);
 		showformheader('recyclebinpost&operation=search&frame=no', 'target="rbframe"', 'rbform');
+        showhiddenfields(array('posttableid' => $posttableid));
 		showtableheader(cplang('recyclebinpost_result').' '.$postlistcount.' <a href="#" onclick="$(\'postlist\').style.display=\'none\';$(\'postsearch\').style.display=\'\';" class="act lightlink normal">'.cplang('research').'</a>', 'fixpadding');
 
 		if($postlistcount && recyclebinpostshowpostlist($inforum, $authors, $pstarttime, $pendtime, $keywords, $start_limit, $lpp)) {
