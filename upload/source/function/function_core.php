@@ -719,7 +719,7 @@ function template($file, $templateid = 0, $tpldir = '', $gettplfile = 0, $primal
 				$file = $primaltpl ? $primaltpl : $oldfile;
 			}
 			$tplrefresh = $_G['config']['output']['tplrefresh'];
-			if($indiy && ($tplrefresh ==1 || ($tplrefresh > 1 && !($_G['timestamp'] % $tplrefresh))) && filemtime($diypath.$file.'.htm') < filemtime(DISCUZ_ROOT.$_G['style']['tpldirectory'].'/'.($primaltpl ? $primaltpl : $oldfile).'.htm')) {
+			if($indiy && ($tplrefresh ==1 || ($tplrefresh > 1 && !($_G['timestamp'] % $tplrefresh)))) {
 				if (!updatediytemplate($file, $_G['style']['tpldirectory'])) {
 					unlink($diypath.$file.'.htm');
 					$tpldir = '';
