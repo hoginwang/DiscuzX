@@ -154,7 +154,7 @@ if(!submitcheck('modsubmit')) {
 	} else {
 		$images = array();
 		foreach($operations as $operation) {
-            $stampstatus = 0;
+			$stampstatus = 0;
 			$updatemodlog = TRUE;
 			if($operation == 'stick') {
 				$sticklevel = intval($_GET['sticklevel']);
