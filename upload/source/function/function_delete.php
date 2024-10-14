@@ -339,8 +339,8 @@ function deletethread($tids, $membercount = false, $credit = false, $ponly = fal
 					}
 				}
 			}
-            $feed_counts = C::t('home_follow_feed')->delete_by_uid_tid($post['authorid'], $arrtids);
-			if($post['authorid'] > 0) {
+			if($post['authorid'] > 0 && $post['first']) {
+				$feed_counts = C::t('home_follow_feed')->delete_by_uid_tid($post['authorid'], $post['tid']);
 				C::t('common_member_count')->increase($post['authorid'], array('feeds'=>-$feed_counts));
 			}
 		}
