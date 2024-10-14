@@ -102,7 +102,7 @@ class table_home_follow_feed extends discuz_table
 		return $delnum;
 	}
 
-    public function delete_by_uid_tid($uid, $tid) { //delete feed while deleting thread
+	public function delete_by_uid_tid($uid, $tid) { //delete feed while deleting thread
 		$condition = array();
 		$delnum = 0;
 		if($uid && $tid) {
