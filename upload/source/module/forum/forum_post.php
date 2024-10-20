@@ -77,6 +77,11 @@ space_merge($space, 'field_home');
 
 if($_GET['action'] == 'reply') {
 	$addfeedcheck = !empty($space['privacy']['feed']['newreply']) ? 'checked="checked"': '';
+	if ($_GET['cid']) {
+	    $comment = C::t('forum_postcomment')->fetch($_GET['cid']);
+	    $comment['comment'] = preg_replace("/&quot;.*&quot;/is", '', $comment['comment']);
+	    $_GET['message'] = "@".$comment['author']." : ".$_GET['message'];
+	}
 } else {
 	$addfeedcheck = !empty($space['privacy']['feed']['newthread']) ? 'checked="checked"': '';
 }

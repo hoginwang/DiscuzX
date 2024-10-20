@@ -21,6 +21,7 @@
 				<span class="xg1">
 					{lang poston} $comment[dateline]
 					<!--{if $comment['useip'] && $_G['group']['allowviewip']}-->&nbsp;IP:$comment[useip]{if $comment[port]}:$comment[port]{/if}<!--{/if}-->
+					<a href="forum.php?mod=misc&action=comment&tid=$comment[tid]&pid=$comment[pid]&cid=$comment[id]&extra=$_GET[extra]&page=$page{if $_G['forum_thread']['special'] == 127}&special=$specialextra{/if}" onclick="showWindow('comment', this.href, 'get', 0);">{lang reply}</a>
 					<!--{if $_G['forum']['ismoderator'] && $_G['group']['allowdelpost']}-->&nbsp;<a href="javascript:;" onclick="modaction('delcomment', $comment[id])">{lang delete}</a><!--{/if}-->
 				</span>
 			</div>
