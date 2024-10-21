@@ -107,6 +107,19 @@ if($_G['setting']['commentnumber'] && !empty($_GET['comment'])) {
 			'commentmsg' => cutstr(str_replace(array('[b]', '[/b]', '[/color]'), '', preg_replace("/\[color=([#\w]+?)\]/i", "", $comment)), 200)
 		));
 	}
+	if ($_GET['cid']) {
+	  $comment = C::t('forum_postcomment')->fetch($_GET['cid']);
+	  if(!empty($_G['uid']) && $_G['uid'] != $comment['authorid']) {
+	    notification_add($comment['authorid'], 'pcomment', 'comment_reply', array(
+	      'tid' => $_G['tid'],
+	      'pid' => $_GET['pid'],
+	      'subject' => $thread['subject'],
+	      'from_id' => $_G['tid'],
+	      'from_idtype' => 'pcomment',
+	      'commentmsg' => cutstr(str_replace(array('', '', ''), '', preg_replace("/\[color=([#\w]+?)\]/i", "", $comment)), 200)
+	    ));
+	  }
+	}
 	update_threadpartake($post['tid']);
 	$pcid = C::t('forum_postcomment')->fetch_standpoint_by_pid($_GET['pid']);
 	$pcid = $pcid['id'];
