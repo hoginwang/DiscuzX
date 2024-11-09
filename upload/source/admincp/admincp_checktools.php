@@ -519,7 +519,7 @@ if($operation == 'filecheck') {
 		$rule['{apache2}'] .= 'RewriteCond %{QUERY_STRING} ^(.*)$'."\n".'RewriteRule ^'.$rulepath.$v.'$ '.$rulepath.$rewritedata['rulereplace'][$k]."&%1\n";
 		$rule['{iis}'] .= 'RewriteRule ^(.*)/'.$rulepath.$v.'(\?(.*))*$ $1/'.$rulepath.addcslashes(pvadd($rewritedata['rulereplace'][$k]).'&$'.($pvmaxv + 1), '.?')."\n";
 		$rule['{iis7}'] .= "\t\t".'&lt;rule name="'.$k.'"&gt;'."\n\t\t\t".'&lt;match url="^(.*/)*'.$rulepath.str_replace('\.', '.', $v).'\?*(.*)$" /&gt;'."\n\t\t\t".'&lt;action type="Rewrite" url="{R:1}/'.str_replace(array('&', 'page\%3D'), array('&amp;amp;', 'page%3D'), $rulepath.addcslashes(pvadd($rewritedata['rulereplace'][$k], array('{R:', '}')).'&{R:'.$pvmaxv.'}', '?')).'" /&gt;'."\n\t\t".'&lt;/rule&gt;'."\n";
-		$rule['{nginx}'] .= 'rewrite ^([^\.]*)/'.$rulepath.$v.'$ $1/'.$rulepath.stripslashes(pvadd($rewritedata['rulereplace'][$k]))." last;\n";
+        $rule['{nginx}'] .= 'rewrite "^([^\.]*)/'.$rulepath.$v.'$" "$1/'.$rulepath.stripslashes(pvadd($rewritedata['rulereplace'][$k])).'" last;'."\n";
 		$rule['{lighttpd}'] .= '"(.*)/'.$rulepath.$v.'\?*(.*)$" =&gt; "$1/'.$rulepath.pvadd($rewritedata['rulereplace'][$k]).'&$'.$pvmaxv.'",'."\n";
 		$rule['{caddy}'] .= '@'.$k.' path_regexp '.$k.' ^(.*)/'.$rulepath.$v."$\n".'rewrite @'.$k.' {re.'.$k.'.1}/'.$rulepath.pvadd($rewritedata['rulereplace'][$k], array('{re.'.$k.'.', '}')).'&{query}'."\n";
 	}
