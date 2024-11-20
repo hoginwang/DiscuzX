@@ -3,21 +3,21 @@ branches: {
   }
 fileChange:
   /upload:
-    newFile: !uuid '7463122d28193f94b41a5f98f180dbecb6ea42fe'
-    oldFile: !uuid '385a42d3e720b8c1ab72952773a62c589c6f59ac'
-  /upload/template:
-    newFile: !uuid 'c134290de932bbe17a03a5aad3f26023fde93241'
-    oldFile: !uuid '887d7dd1bacaee0ff00e12a2441056b98245a626'
-  /upload/template/default:
-    newFile: !uuid '84f84afd709e293fe425fc2879ea757ab270fb39'
-    oldFile: !uuid 'e4bba900ff13750d0a3a6aadd685205d3444f155'
-  /upload/template/default/common:
-    newFile: !uuid '7b476f99dc2554806580169cd87b92ecdc5de277'
-    oldFile: !uuid '7231c3f6602a77200f4d1d560e94e1b5a789b25e'
-  /upload/template/default/common/buyinvitecode.htm:
-    newFile: !uuid '7f524f588e87eb20fee7264f94741fc6be2f52d6'
-    oldFile: !uuid '9489f951cc1395611ce8da42b1ce58ef9fc62121'
-gitCommitId: !uuid 'dfd1f4eddaaba611554a43abcf4361a2a7c12f99'
+    newFile: !uuid 'd78c96871472d9bedb784d6d0cee555cd00488d2'
+    oldFile: !uuid '7463122d28193f94b41a5f98f180dbecb6ea42fe'
+  /upload/source:
+    newFile: !uuid '351e22805a711f6fe9501eb503459a4cd84a8d41'
+    oldFile: !uuid 'fc98570413ab8ec849809001c7b0f555840b1d01'
+  /upload/source/class:
+    newFile: !uuid '0f205f7b76efb6977b43d63ba0ab5ebae4650f86'
+    oldFile: !uuid '8940bbafe2cdd754f81672ed15b4280ec2002ed2'
+  /upload/source/class/memory:
+    newFile: !uuid 'bb1791ae577faaab31925e90f94ac35bf594cce3'
+    oldFile: !uuid '97be31162e139a7d0f70d2e3e31ff01a22a0ac41'
+  /upload/source/class/memory/memory_setting_array.php:
+    newFile: !uuid 'b9efb2a81e15d2664e610457907fdf352ca33b51'
+    oldFile: !uuid 'a47e1a55fe6e0f9ea3e8a4863bd85b359d923364'
+gitCommitId: !uuid '07a3f4e17a01ac48bd3314eeb62719ec46c522dd'
 renames: {
   }
-revisionId: 1321
+revisionId: 1322
