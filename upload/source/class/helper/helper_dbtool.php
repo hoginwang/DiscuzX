@@ -27,6 +27,8 @@ class helper_dbtool {
 	}
 
 	public static function gettablestatus($tablename, $formatsize = true) {
+        DB::query("ANALYZE TABLE $tablename");//如果表的内容有大量插入、更新或删除操作，InnoDB 的统计信息可能未及时更新。这时，ANALYZE TABLE 会重新生成统计信息，使查询优化器能更准确地选择执行计划。
+        //sleep(3); //根据需要可加可不加
 		$status = DB::fetch_first("SHOW TABLE STATUS LIKE '".str_replace('_', '\_', $tablename)."'");
 
 		if($formatsize) {
