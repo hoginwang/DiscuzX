@@ -298,6 +298,7 @@ if($_GET['action'] == 'checkusername') {
 		$forum_field = daddslashes($forum_field);
 		$todaytime = strtotime(dgmdate(TIMESTAMP, 'Ymd'));
 		foreach(C::t('forum_thread')->fetch_all_by_fid_lastpost($fid, $time, TIMESTAMP) as $thread) {
+			if($thread['lastpost'] > TIMESTAMP) continue; //ignore promoted threads
 			$thread['icontid'] = $thread['forumstick'] || !$thread['moved'] && $thread['isgroup'] != 1 ? $thread['tid'] : $thread['closed'];
 			if(!$thread['forumstick'] && ($thread['isgroup'] == 1 || $thread['fid'] != $_G['fid'])) {
 				$thread['icontid'] = $thread['closed'] > 1 ? $thread['closed'] : $thread['tid'];
