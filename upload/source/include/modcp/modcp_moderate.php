@@ -309,7 +309,9 @@ if($op == 'replies') {
 				$postlist[] = $post;
 			}
 			$threadlist = C::t('forum_thread')->fetch_all($tids);
+			$fids = array();
 			foreach($postlist as $post) {
+				$fids[] = $post['fid'];
 				$post['lastpost'] = $threadlist[$post['tid']]['lastpost'];
 				$repliesmod ++;
 				$pidarray[] = $post['pid'];
@@ -352,6 +354,11 @@ if($op == 'replies') {
 			}
 			if($_G['fid']) {
 				updateforumcount($_G['fid']);
+			} elseif (!empty($fids)) {
+				$fids = array_unique($fids);
+				foreach ($fids as $f) {
+					updateforumcount($f);
+				}
 			} else {
 				$fids = array_keys($modforums['list']);
 				foreach($fids as $f) {
