@@ -281,7 +281,8 @@ class discuz_memory extends discuz_base
 				$should_load = true;
 			} else {
 				if (!$this->memory->scriptexists($sha)) { // 重启redis后，有可能sha-key存在，但script已经不存在了
-					$should_load = true;
+					if (!$script) return false;
+                    $should_load = true;
 				}
 			}
 			if ($should_load) {
