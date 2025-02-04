@@ -2,19 +2,16 @@
 branches: {
   }
 fileChange:
-  /upload:
-    newFile: !uuid 'e1f50984fc728296e8e8b3998adba27d14fed7f2'
-    oldFile: !uuid '8b2f20b1c6922177dbadc0615ba847f3f4d2e3f2'
-  /upload/source:
-    newFile: !uuid 'eb7aec0857abbe22d7fe66adc0505d0028ca22ef'
-    oldFile: !uuid '5a0dc26c669c85692aa141dd041003a09dfa6b9f'
-  /upload/source/class:
-    newFile: !uuid 'fbf18834efa76a0a360f08b975f2412d928f6577'
-    oldFile: !uuid '067e41a906b7beeaba9e6357e137c270f253975c'
-  /upload/source/class/class_membersearch.php:
-    newFile: !uuid 'e7f1dae36ad62f21b730d67c7f491141c077e310'
-    oldFile: !uuid '9d14e662d6021f4ccf9178c8e67246f87e272b16'
-gitCommitId: !uuid '6ac89e55f96fc346db5d8d97c2cba41f8fe15cf3'
+  /.gitee:
+    newFile: !uuid '8943f77ddccb85ce225e9c7e21cc73be3148c3d4'
+    oldFile: !uuid '50a79b13b5ee3954cadd80f34fe1391546de3445'
+  /.gitee/ISSUE_TEMPLATE:
+    newFile: !uuid '96f4f1fc05683ef1e7a3c3f63b2ac12bc7824fea'
+    oldFile: !uuid '681a090d2e398fb2f94af2bd020aa8c000eaf8a7'
+  /.gitee/ISSUE_TEMPLATE/bug.yaml:
+    newFile: !uuid '6bdbd3fb61e8a65507f6acc8f819051db08d9372'
+    oldFile: !uuid '8ec71d84833dfa7b8b2a4cf31f1ac056d18ad77a'
+gitCommitId: !uuid 'ff5651094c1fc9a77af93d5932d3290cd91d5339'
 renames: {
   }
-revisionId: 1324
+revisionId: 1325
