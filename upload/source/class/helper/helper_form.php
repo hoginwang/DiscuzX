@@ -54,21 +54,30 @@ class helper_form {
 				cpmsg(lang('message', 'word_banned'), '', 'error', array('wordbanned' => $wordbanned));
 			}
 		}
-		if($_G['group']['allowposturl'] == 0) {
+		if ($_G['group']['allowposturl'] == 0 || $_G['group']['allowposturl'] == 2) {
 			$urllist = self::get_url_list($message);
-			if(is_array($urllist[1])) {
-				foreach($urllist[1] as $key => $val) {
-					if(!$val = trim($val)) continue;
-					if(!iswhitelist($val)) {
-						if($return) {
-							return array('message' => 'post_url_nopermission');
+			if (is_array($urllist[1])) {
+				foreach ($urllist[1] as $key => $val) {
+					if (!$val = trim($val)) {
+						continue;
+					}
+					if (!iswhitelist($val)) {
+						if ($_G['group']['allowposturl'] == 0) {
+							if ($return) {
+								return array('message' => 'post_url_nopermission');
+							}
+							showmessage('post_url_nopermission');
+						} elseif ($_G['group']['allowposturl'] == 2) {
+							if ($urllist[3][$key]) {
+								$message = str_replace($urllist[2][$key], $urllist[3][$key], $message);
+							} else {
+								$replace_reg = "/\[url(=((https?|ftp|gopher|news|telnet|rtsp|mms|callto|bctp|thunder|qqdl|synacast){1}:\/\/|www\.|mailto:|tel:|magnet:)?([^\r\n\[\"']+?))?\]((.+?)" . preg_quote($urllist[0][$key], '/') . "(.+?))\[\/url\]/is";
+								$message = preg_replace($replace_reg, '\\5', $message);
+							}
 						}
-						showmessage('post_url_nopermission');
 					}
 				}
 			}
-		} elseif($_G['group']['allowposturl'] == 2) {
-			$message = preg_replace("/\[url(=((https?|ftp|gopher|news|telnet|rtsp|mms|callto|bctp|thunder|qqdl|synacast){1}:\/\/|www\.|mailto:|tel:|magnet:)?([^\r\n\[\"']+?))?\](.+?)\[\/url\]/is", '\\5', $message);
 		}
 		return $message;
 	}
@@ -99,21 +108,35 @@ class helper_form {
 
 	public static function get_url_list($message) {
 		$return = array();
+		$urlreg = "/\[url(=((https?|ftp|gopher|news|telnet|rtsp|mms|callto|bctp|thunder|qqdl|synacast){1}:\/\/|www\.|mailto:|tel:|magnet:)?([^\r\n\[\"']+?))?\](.+?)\[\/url\]/i";
+		if (preg_match_all($urlreg, $message, $match)) {
+			foreach ($match[0] as $key => $urlval) {
+				self::extract_urls($return, $urlval, $match[5][$key]);
+			}
+			$message = preg_replace($urlreg, '', $message);
+		}
+		$message = preg_replace("/\[(img|flash)[^\]]*\]\s*([^\[\<\r\n]+?)\s*\[\/\1\]/is", '', $message);
+		self::extract_urls($return, $message);
+		return $return;
+	}
 
-		(strpos($message, '[/img]') || strpos($message, '[/flash]')) && $message = preg_replace("/\[img[^\]]*\]\s*([^\[\<\r\n]+?)\s*\[\/img\]|\[flash[^\]]*\]\s*([^\[\<\r\n]+?)\s*\[\/flash\]/is", '', $message);
-		if(preg_match_all("/((https?|ftp|gopher|news|telnet|rtsp|mms|callto|bctp|thunder|qqdl|synacast){1}:\/\/|www\.)[^ \[\]\"']+/i", $message, $urllist)) {
-			foreach($urllist[0] as $key => $val) {
+	public static function extract_urls(&$return, $message, $replace = '') {
+		$linkreg = "/((https?|ftp|gopher|news|telnet|rtsp|mms|callto|bctp|thunder|qqdl|synacast){1}:\/\/|www\.)[^ \[\]\"']+/i";
+		if (preg_match_all($linkreg, $message, $urllist)) {
+			foreach ($urllist[0] as $val) {
 				$val = trim($val);
-				$return[0][$key] = $val;
-				if(!preg_match('/^https?:\/\//is', $val)) $val = 'http://'.$val;
+				$return[0][] = $val;
+				if (!preg_match('/^https?:\/\//is', $val))
+					$val = 'http://' . $val;
 				$tmp = parse_url($val);
-				$return[1][$key] = $tmp['host'];
-				if($tmp['port']){
-					$return[1][$key] .= ":{$tmp['port']}";
+				$return[1][] = $tmp['host'];
+				if (!empty($tmp['port'])) {
+					$return[1][] .= ":{$tmp['port']}";
 				}
+				$return[2][] = $message;
+				$return[3][] = empty($replace) ? '' : $replace;
 			}
 		}
-		return $return;
 	}
 
 	public static function updatemoderate($idtype, $ids, $status = 0) {
