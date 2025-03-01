@@ -35,6 +35,15 @@ if(!empty($_G['cache']['posttable_info']) && is_array($_G['cache']['posttable_in
 	$posttableselect .= '</select>';
 }
 
+loadcache(array('forums', 'threadtable_info'));
+if(!empty($_G['cache']['threadtable_info']) && is_array($_G['cache']['threadtable_info'])) {
+	$threadtableselect = '<select name="archiveid" id="archiveid" class="ps" style="display:none">';
+	foreach($_G['cache']['threadtable_info'] as $threadtableid => $data) {
+		$threadtableselect .= '<option value="'.$threadtableid.'"'.($_GET['threadtableid'] == $threadtableid ? ' selected="selected"' : '').'>'.($data['memo'] ? $data['memo'] : 'thread_'.$threadtableid).'</option>';
+	}
+	$threadtableselect .= '</select>';
+}
+
 $srchmod = 2;
 
 $cachelife_time = 300;		// Life span for cache of searching in specified range of time
@@ -42,7 +51,16 @@ $cachelife_text = 3600;		// Life span for cache of text searching
 
 $srchtype = empty($_GET['srchtype']) ? '' : trim($_GET['srchtype']);
 $searchid = isset($_GET['searchid']) ? intval($_GET['searchid']) : 0;
+$srcharchive = empty($_GET['srcharchive']) ? '' : trim($_GET['srcharchive']);
 $seltableid = intval(getgpc('seltableid'));
+$archiveid = intval(getgpc('archiveid')) ? intval(getgpc('archiveid')) : 0;
+
+if($srcharchive == 'archive') {
+	$threadtable = C::t("forum_thread") -> get_table_name($archiveid);
+} else {
+	$threadtable = 'forum_thread';
+}
+
 
 if($srchtype != 'title' && $srchtype != 'fulltext') {
 	$srchtype = '';
@@ -97,6 +115,8 @@ if(!submitcheck('searchsubmit', 1)) {
 		$index['searchtype'] = $searchstring[0];//preg_replace("/^([a-z]+)\|.*/", "\\1", $index['searchstring']);
 		$searchstring[2] = base64_decode($searchstring[2]);
 		$srchuname = $searchstring[4];
+		$archiveid = $searchstring[12] ? intval($searchstring[12]) : 0;
+		
 		$modfid = 0;
 		if($keyword) {
 			$modkeyword = str_replace(' ', ',', $keyword);
@@ -114,7 +134,7 @@ if(!submitcheck('searchsubmit', 1)) {
 			}
 		}
 		$threadlist = $posttables = array();
-		foreach(C::t('forum_thread')->fetch_all_by_tid_fid_displayorder(explode(',',$index['ids']), null, 0, $orderby, $start_limit, $_G['tpp'], '>=', $ascdesc) as $thread) {
+		foreach(C::t('forum_thread')->fetch_all_by_tid_fid_displayorder(explode(',',$index['ids']), null, 0, $orderby, $start_limit, $_G['tpp'], '>=', $ascdesc, $archiveid) as $thread) {
 			$thread['subject'] = bat_highlight($thread['subject'], $keyword);
 			$thread['realtid'] = $thread['isgroup'] == 1 ? $thread['closed'] : $thread['tid'];
 			$threadlist[$thread['tid']] = procthread($thread, 'dt');
@@ -193,7 +213,7 @@ if(!submitcheck('searchsubmit', 1)) {
 		$specials = $special ? implode(',', $special) : '';
 		$srchfilter = in_array(getgpc('srchfilter'), array('all', 'digest', 'top')) ? $_GET['srchfilter'] : 'all';
 
-		$searchstring = 'forum|'.$srchtype.'|'.base64_encode($srchtxt).'|'.intval($srchuid).'|'.$srchuname.'|'.addslashes($fids).'|'.intval($srchfrom).'|'.intval($before).'|'.$srchfilter.'|'.$specials.'|'.$specialpluginstr.'|'.$seltableid;
+		$searchstring = 'forum|'.$srchtype.'|'.base64_encode($srchtxt).'|'.intval($srchuid).'|'.$srchuname.'|'.addslashes($fids).'|'.intval($srchfrom).'|'.intval($before).'|'.$srchfilter.'|'.$specials.'|'.$specialpluginstr.'|'.$seltableid.'|'.$archiveid;
 		$searchindex = array('id' => 0, 'dateline' => '0');
 
 		foreach(C::t('common_searchindex')->fetch_all_search($_G['setting']['search']['forum']['searchctrl'], $_G['clientip'], $_G['uid'], $_G['timestamp'], $searchstring, $srchmod) as $index) {
@@ -342,14 +362,14 @@ if(!submitcheck('searchsubmit', 1)) {
 
 					$searchfrom = $before ? '<=' : '>=';
 					$searchfrom .= TIMESTAMP - $srchfrom;
-					$sqlsrch = "FROM ".DB::table('forum_thread')." t WHERE $digestltd t.fid IN ($fids) $topltd AND t.lastpost$searchfrom";
+					$sqlsrch = "FROM ".DB::table($threadtable)." t WHERE $digestltd t.fid IN ($fids) $topltd AND t.lastpost$searchfrom";
 					$expiration = TIMESTAMP + $cachelife_time;
 					$keywords = '';
 
 				} else {
 					$sqlsrch = $srchtype == 'fulltext' ?
-					"FROM ".DB::table(getposttable($seltableid))." p, ".DB::table('forum_thread')." t WHERE $digestltd t.fid IN ($fids) $topltd AND p.tid=t.tid AND p.invisible='0'" :
-					"FROM ".DB::table('forum_thread')." t WHERE $digestltd t.fid IN ($fids) $topltd";
+					"FROM ".DB::table(getposttable($seltableid))." p, ".DB::table($threadtable)." t WHERE $digestltd t.fid IN ($fids) $topltd AND p.tid=t.tid AND p.invisible='0'" :
+					"FROM ".DB::table($threadtable)." t WHERE $digestltd t.fid IN ($fids) $topltd";
 					if($srchuname) {
 						$srchuid = array_keys(C::t('common_member')->fetch_all_by_like_username($srchuname, 0, 50));
 						if(!$srchuid) {

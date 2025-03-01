@@ -41,6 +41,7 @@ $lang = array (
   'search_allforum' => '全部版块',
   'search_any_date' => '全部时间',
   'search_fulltext' => '全文',
+  'search_archive' => '存档主题',
   'search_newer' => '以内',
   'search_older' => '以前',
   'search_orderby' => '排序类型',
