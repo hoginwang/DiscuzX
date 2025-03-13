@@ -329,7 +329,7 @@ function checkrobot($useragent = '') {
 
 	$useragent = strtolower(empty($useragent) ? $_SERVER['HTTP_USER_AGENT'] : $useragent);
 	if(dstrpos($useragent, $kw_spiders)) return true;
-	if(strpos($useragent, 'http://') === false && dstrpos($useragent, $kw_browsers)) return false;
+	if(strpos($useragent, 'https://') === false && dstrpos($useragent, $kw_browsers)) return false;
 	return false;
 }
 function checkmobile() {
