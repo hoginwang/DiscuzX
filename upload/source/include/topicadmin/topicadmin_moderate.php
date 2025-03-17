@@ -739,6 +739,7 @@ function set_stamp($typeid, $stampaction, &$threadlist, $expiration) {
 		return false;
 	}
 	if(array_key_exists($typeid, $_G['cache']['stamptypeid'])) {
+		C::t('forum_threadmod')->update_by_tid_action($moderatetids, array('SPA','SPD'), array('status' => 0)); // 与覆盖置顶等保持一致，取消之前所有的限时操作
 		if($stampaction == 'SPD') {
 			C::t('forum_thread')->update($moderatetids, array('stamp'=>-1), true);
 		} else {
