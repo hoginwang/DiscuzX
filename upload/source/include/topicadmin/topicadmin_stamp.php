@@ -28,6 +28,7 @@ if(!submitcheck('modsubmit')) {
 	$reason = checkreasonpm();
 
 	C::t('forum_thread')->update($_G['tid'], array('moderated'=>1, 'stamp'=>$_GET['stamp']));
+	C::t('forum_threadmod')->update_by_tid_action($_G['tid'], array('SPA','SPD'), array('status' => 0)); // // 与覆盖置顶等保持一致，取消之前所有的限时操作
 	if($modaction == 'SPA' && $_G['cache']['stamps'][$_GET['stamp']]['icon']) {
 		C::t('forum_thread')->update($_G['tid'], array('icon'=>$_G['cache']['stamps'][$_GET['stamp']]['icon']));
 		C::t('forum_threadhidelog')->delete_by_tid($_G['tid']);
