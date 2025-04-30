@@ -621,7 +621,6 @@ class model_forum_post extends discuz_model {
 				$postreplycredit = $postreplycredit['replycredit'];
 				if($postreplycredit) {
 					table_forum_post::t()->update_post('tid:'.$this->thread['tid'], $this->post['pid'], ['replycredit' => 0]);
-					updatemembercount($this->post['authorid'], [$replycredit_rule['extcreditstype'] => '-'.$postreplycredit]);
 				}
 			}
 		}
