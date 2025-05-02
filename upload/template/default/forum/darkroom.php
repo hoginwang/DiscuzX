@@ -1,6 +1,12 @@
 <?php exit('Access Denied');?>
 <!--{template common/header}-->
 <div id="pt" class="bm cl">
+	<div style="float:right; margin-top: 5px; margin-right: 10px;">
+		<form id="darkroomSearchForm" onsubmit="return false;" style="display:flex;">
+		<input type="text" id="searchUsername" placeholder="{lang darkroom_search_placeholder}" style="padding:2px 6px;" required />
+		<button type="submit" onclick="searchDarkroomUser();" style="margin-left:5px;">{lang darkroom_search}</button>
+		</form>
+	</div>
 	<div class="z">
 		<a href="./" class="nvhm" title="{lang homepage}">$_G[setting][bbname]</a> <em>&rsaquo;</em>
 		<a href="forum.php?mod=misc&action=showdarkroom">{lang darkroom}</a>
