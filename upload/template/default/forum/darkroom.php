@@ -1,6 +1,12 @@
 <?php exit('Access Denied');?>
 <!--{template common/header}-->
 <div id="pt" class="bm cl">
+	<div style="float:right; margin-top: 5px; margin-right: 10px;">
+		<form id="darkroomSearchForm" onsubmit="return false;" style="display:flex;">
+		<input type="text" id="searchUsername" placeholder="{lang darkroom_search_placeholder}" style="padding:2px 6px;" required />
+		<button type="submit" onclick="searchDarkroomUser();" style="margin-left:5px;">{lang darkroom_search}</button>
+		</form>
+	</div>
 	<div class="z">
 		<a href="./" class="nvhm" title="{lang homepage}">$_G[setting][bbname]</a> <em>&rsaquo;</em>
 		<a href="forum.php?mod=misc&action=showdarkroom">{lang darkroom}</a>
@@ -81,6 +87,36 @@
 		};
 	 }
 	 })();
+	 function searchDarkroomUser() {
+		var username = $('searchUsername').value.trim();
+		if(!username) return;
+
+		var url = 'forum.php?mod=misc&action=showdarkroom&search=1&username=' + encodeURIComponent(username) + '&ajaxdata=json';
+		var table = $('darkroomtable');
+
+		var x = new Ajax('JSON');
+		x.getJSON(url, function(s) {
+			if(s && s.data) {
+				// 清空旧数据
+				for(var i = table.rows.length - 1; i > 0; i--) {
+					table.deleteRow(i);
+				}
+
+				var list = s.data;
+				for(var i in list) {
+					var crime = list[i];
+					var newtr = table.insertRow(-1);
+					if(i % 2 == 0) newtr.className = 'alt';
+					newtr.id = 'darkroomuid_' + crime.uid;
+					newtr.insertCell(0).innerHTML = '<a href="home.php?mod=space&uid=' + crime.uid + '" target="_blank">' + crime.username + '</a>';
+					newtr.insertCell(1).innerHTML = crime.action;
+					newtr.insertCell(2).innerHTML = crime.groupexpiry;
+					newtr.insertCell(3).innerHTML = crime.dateline;
+					newtr.insertCell(4).innerHTML = crime.reason;
+				}
+			}
+		});
+	}
 </script>
 
 <!--{template common/footer}-->
