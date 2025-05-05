@@ -1,6 +1,12 @@
 <?php exit('Access Denied');?>
 <!--{template common/header}-->
 <div id="pt" class="bm cl">
+	<div style="float:right; margin-top: 5px; margin-right: 10px;">
+		<form id="darkroomSearchForm" onsubmit="return false;">
+		<input type="text" id="searchUsername" placeholder="{lang darkroom_search_placeholder}" class="px vm" required />
+		<button type="submit" onclick="searchDarkroomUser();" class="pn pnc">{lang darkroom_search}</button>
+		</form>
+	</div>
 	<div class="z">
 		<a href="./" class="nvhm" title="{lang homepage}">$_G[setting][bbname]</a> <em>&rsaquo;</em>
 		<a href="forum.php?mod=misc&action=showdarkroom">{lang darkroom}</a>
@@ -81,6 +87,46 @@
 		};
 	 }
 	 })();
+	 function searchDarkroomUser() {
+		var username = $('searchUsername').value.trim();
+		if(!username) return;
+
+		var url = 'forum.php?mod=misc&action=showdarkroom&search=1&username=' + encodeURIComponent(username) + '&ajaxdata=json';
+		var table = $('darkroomtable');
+
+		var x = new Ajax('JSON');
+		x.getJSON(url, function(s) {
+			// 先删掉除表头外的所有行
+			for(var i = table.rows.length - 1; i > 0; i--) {
+				table.deleteRow(i);
+			}
+
+			var list = s.data || [];
+			if(list.length === 0) {
+				// 无结果，插入“无用户”提示行
+				var newtr = table.insertRow(-1);
+				var td = document.createElement('td');
+				td.colSpan = 6;
+				td.align = 'center';
+				td.innerHTML = '{lang darkroom_no_search_result}';
+				newtr.appendChild(td);
+				return;
+			}
+
+			// 有结果，逐行渲染
+			for(var idx = 0; idx < list.length; idx++) {
+				var crime = list[idx];
+				var newtr = table.insertRow(-1);
+				if(idx % 2 === 0) newtr.className = 'alt';
+				newtr.id = 'darkroomuid_' + crime.uid;
+				newtr.insertCell(0).innerHTML = '<a href="home.php?mod=space&uid=' + crime.uid + '" target="_blank">' + crime.username + '</a>';
+				newtr.insertCell(1).innerHTML = crime.action;
+				newtr.insertCell(2).innerHTML = crime.groupexpiry;
+				newtr.insertCell(3).innerHTML = crime.dateline;
+				newtr.insertCell(4).innerHTML = crime.reason;
+			}
+		});
+	 }
 </script>
 
 <!--{template common/footer}-->
