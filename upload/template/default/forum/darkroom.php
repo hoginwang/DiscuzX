@@ -1,6 +1,14 @@
 <?php exit('Access Denied');?>
 <!--{template common/header}-->
 <div id="pt" class="bm cl">
+	<div style="float:right; margin-top: 5px; margin-right: 10px;">
+		<form id="darkroomSearchForm" method="get" action="forum.php">
+			<input type="hidden" name="mod" value="misc" />
+			<input type="hidden" name="action" value="showdarkroom" />
+			<input type="text" id="searchUsername" name="username" placeholder="{lang darkroom_search_placeholder}" class="px vm" required />
+			<button type="submit" class="pn pnc">{lang darkroom_search}</button>
+		</form>
+	</div>
 	<div class="z">
 		<a href="./" class="nvhm" title="{lang homepage}">$_G[setting][bbname]</a> <em>&rsaquo;</em>
 		<a href="forum.php?mod=misc&action=showdarkroom">{lang darkroom}</a>
@@ -16,6 +24,11 @@
 		<th class="xw1" style="width:155px;">{lang crime_dateline}</th>
 		<th class="xw1">{lang crime_reason}</th>
 	</tr>
+<!--{if isset($search_no_result) && $search_no_result == 1}-->
+	<tr>
+		<td colspan="6" align="center">{lang darkroom_no_search_result}</td>
+	</tr>
+<!--{else}-->
 <!--{if $crimelist}-->
 	<!--{eval $i = 0;}-->
 	<!--{loop $crimelist $crime}-->
@@ -39,6 +52,7 @@
 		<td colspan="6" align="center">{lang darkroom_no_users}</td>
 	</tr>
 </table>
+<!--{/if}-->
 <!--{/if}-->
 </div>
 
