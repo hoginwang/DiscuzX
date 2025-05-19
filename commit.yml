@@ -3,36 +3,24 @@ branches: {
   }
 fileChange:
   /upload:
-    newFile: !uuid 'eab5e5a24686d3f342fb663847f1871c1901cddc'
-    oldFile: !uuid '0ec2919214b58e7736377be7ecd88ed96a15806d'
-  /upload/static:
-    newFile: !uuid '387969a37b4353fe65a3f0f91035f6f1d3f47e1c'
-    oldFile: !uuid '4f59c7d525f36daee954dca66a1fa77edca3aea4'
-  /upload/static/js:
-    newFile: !uuid '05b6e0e08987b54e27243b8de7fcc3799e94d7c3'
-    oldFile: !uuid '11a18ab7d0bd323e5ee74e60386f0d77faedea64'
-  /upload/static/js/mobile:
-    newFile: !uuid 'ca5c0894aff0069892e9652c5388e2cc01b2706f'
-    oldFile: !uuid 'fce13d02c07a61e2bad814d5720bea4caf5e4b69'
-  /upload/static/js/mobile/common.js:
-    newFile: !uuid '81aeb6b01bf30a46d386a345b2540eb72ed83b27'
-    oldFile: !uuid '8bc8a102ab15cb1455aadf2d16df0818d4d17981'
+    newFile: !uuid '818a66c03525ab6842cafcabca45fdfcf3771257'
+    oldFile: !uuid 'eab5e5a24686d3f342fb663847f1871c1901cddc'
   /upload/template:
-    newFile: !uuid 'c39b582e801a02c914d967f187b3e7b57447def9'
-    oldFile: !uuid '7cf4e656f15f09870478ad16bdb548b8b19d81e6'
+    newFile: !uuid '26bb1132f2eeed78826652f45893d1fe73f1e1ab'
+    oldFile: !uuid 'c39b582e801a02c914d967f187b3e7b57447def9'
   /upload/template/default:
-    newFile: !uuid 'a160d0157afa9179d10019d0177683d93214c45c'
-    oldFile: !uuid 'c45de43e951a3d419d8d62d0610b89491d62b2e4'
+    newFile: !uuid '2906a3b0942ed7c00cc618e335870493d5aea3f9'
+    oldFile: !uuid 'a160d0157afa9179d10019d0177683d93214c45c'
   /upload/template/default/touch:
-    newFile: !uuid 'af13f5433227103217b6b3de20618308afb3a455'
-    oldFile: !uuid 'ba42c3d9a63a5f788d087707f5ea60970fa03477'
-  /upload/template/default/touch/forum:
-    newFile: !uuid 'eccd46e96e578e6276056bfe101cb941840191ba'
-    oldFile: !uuid '3dd2240fd92a75f8151239507fbcc7ecb3101ab7'
-  /upload/template/default/touch/forum/viewthread.htm:
-    newFile: !uuid 'c17ff3d8dda3a374eb48ec2b42518ce266bae67a'
-    oldFile: !uuid '7ee280dadb84c80ec57a9274479d78584355fe17'
-gitCommitId: !uuid '6090b8e9a408bcc2a6337127c7f4e08f571ce5a4'
+    newFile: !uuid 'b6d615bcd87db2ded9753d50b18f787799bedf88'
+    oldFile: !uuid 'af13f5433227103217b6b3de20618308afb3a455'
+  /upload/template/default/touch/common:
+    newFile: !uuid '2b3e9c5ebf5d7cf6ea178c307705142745fd1e57'
+    oldFile: !uuid '93d3b69fc8b7bd6c4390cb27d1c381c502a1e2d7'
+  /upload/template/default/touch/common/showmessage.htm:
+    newFile: !uuid '3da91093795fa8079b6784455b662d2be04be35e'
+    oldFile: !uuid '41c468a2b2bbe3ed0d1cecbce1c305d20ac18d36'
+gitCommitId: !uuid '7d28e29c221c492e070e883ef2ad2da468dd0e23'
 renames: {
   }
-revisionId: 1348
+revisionId: 1349
