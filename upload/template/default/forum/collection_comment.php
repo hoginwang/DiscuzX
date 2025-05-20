@@ -72,12 +72,10 @@
 			    <input type="hidden" name="formhash" id="formhash" value="{FORMHASH}" />
 				<button type="submit" class="pn pnc"><span>{lang delete}</span></button>
 				<!--{/if}-->
-				<!--{if $multipage}-->$multipage<!--{/if}-->
 			</div>
 			<!--{if $permission}--></form><!--{/if}-->
-			
-			<div class="pgs mtm cl"></div>
 		</div>
+		<!--{if $multipage}--><div class="pgs mtm cl">$multipage</div><!--{/if}-->
 		<!--{/if}-->
 
 		<!--{if $_G['group']['allowcommentcollection']}-->
