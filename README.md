@@ -27,7 +27,7 @@ Discuz! X5.0 开发者预览版官方 Git (https://gitee.com/Discuz/DiscuzX/tree
 - 全面拥抱 OAuth2.0 的 RESTful API 接口，开发者可随意自定义自己的接口
 - 基于 WitFrame® 云平台的云插件体系
 - 内核级第三方登录接入、内核级支付接入、内核级多国语言接入
-- [点击了解更多...](https://www.dismall.com/thread-18472-1-1.html)
+- [点击了解更多....](https://www.dismall.com/thread-18472-1-1.html)
 
 ### X5 特性应用列表
 - [插件](https://addon.dismall.com/plugins/list-2-210-0-0-1.html)
