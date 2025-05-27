@@ -858,8 +858,10 @@ if(!empty($threadids)) {
 	$indexlist = array_flip($threadids);
 	foreach(C::t('forum_threadaddviews')->fetch_all($threadids) as $tidkey => $value) {
 		$index = $indexlist[$tidkey];
-		$threadlist[$index]['views'] += $value['addviews'];
-		$_G['forum_threadlist'][$index]['views'] += $value['addviews'];
+		$threadlist[$index]['views'] = (int)$threadlist[$index]['views'];
+		$_G['forum_threadlist'][$index]['views'] = (int)$_G['forum_threadlist'][$index]['views'];
+		$threadlist[$index]['views'] += (int)$value['addviews'];
+		$_G['forum_threadlist'][$index]['views'] += (int)$value['addviews'];
 	}
 }
 
