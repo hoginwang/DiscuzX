@@ -3,36 +3,24 @@ branches: {
   }
 fileChange:
   /upload:
-    newFile: !uuid 'f92022a3a2cc056e276b449e13ee406e328b4fb0'
-    oldFile: !uuid '6586c27083e5f0958a6fbb39fd11ec5c81c7d421'
-  /upload/static:
-    newFile: !uuid '904b43ae82e8b2e4e794a477fcf569814184530a'
-    oldFile: !uuid '387969a37b4353fe65a3f0f91035f6f1d3f47e1c'
-  /upload/static/image:
-    newFile: !uuid '9289320a3c7194ff43770045b90e1bf7d75d5cf2'
-    oldFile: !uuid 'f8d9a7b2472e6bfd28d7352cf478dd3a11a038e1'
-  /upload/static/image/mobile:
-    newFile: !uuid 'a637c586445c3058037195489ef38cf83223dde3'
-    oldFile: !uuid '7881ef87d299558aea7bf1e6e10794f13f45dfd7'
-  /upload/static/image/mobile/style.css:
-    newFile: !uuid '19fe05ac1589f289be1b70f6d93f5e4f9f7ca2df'
-    oldFile: !uuid 'f9832cce2ece91754f53b3a385c2d31cfe19ab51'
-  /upload/template:
-    newFile: !uuid '97f6d944fb0bda6f48ee3b930824232fa590b01c'
-    oldFile: !uuid '4618b3b8a0de2b499678048f1370b7e29e07f0ce'
-  /upload/template/default:
-    newFile: !uuid 'e681b5fe850bfbc957f27ba79d0792cb90beedc0'
-    oldFile: !uuid '9085ce9b45e44992a018e51c5f2ec811cc84210f'
-  /upload/template/default/touch:
-    newFile: !uuid '18f1c5ce8bb61452d4ee967b28d168726850dd5b'
-    oldFile: !uuid 'b6d615bcd87db2ded9753d50b18f787799bedf88'
-  /upload/template/default/touch/home:
-    newFile: !uuid '1a03402f95c1d3cad537d4ac539fb23f1eca444c'
-    oldFile: !uuid 'a3ced01c426b642be4f0abfcb1d8a17557436851'
-  /upload/template/default/touch/home/space_magic_mybox_opreation.htm:
-    newFile: !uuid '5566c3efe50add5fda1f3ee90effd3a5f0bc7d16'
-    oldFile: !uuid 'd61ece6f9fa738c49a7f839ca81282f95ca24e42'
-gitCommitId: !uuid 'cb2ba43a9dc701d49d76dbf4e701a11591cf8017'
+    newFile: !uuid '84842dab1a530e5ceb8eaec2c0e5735056ee752e'
+    oldFile: !uuid 'f92022a3a2cc056e276b449e13ee406e328b4fb0'
+  /upload/api:
+    newFile: !uuid '654ea223ca19f2d543d3889b359fb3584618f2bd'
+    oldFile: !uuid 'd36d9cd9746ecbcbdf71cc52f011b7f7754ba544'
+  /upload/api/addons:
+    newFile: !uuid '2d05528b4a63b9a5edd6562e5e4e3a3d246bd39f'
+    oldFile: !uuid 'd26d896998c3fa5100c6e3813e6fb38a6fe5539f'
+  /upload/api/addons/zendcheck.php:
+    newFile: null
+    oldFile: !uuid 'de63dcbe1860630a665eac55badf7376a1f15f60'
+  /upload/api/addons/zendcheck52.php:
+    newFile: null
+    oldFile: !uuid 'c9d378cbc05e9ebcceb56a607bf4c3100e283366'
+  /upload/api/addons/zendcheck53.php:
+    newFile: null
+    oldFile: !uuid '0c2e73a6dab7f4e3e276cf8cc93b5fba33487fd3'
+gitCommitId: !uuid '095ef79b818eb8127adffe756dbc104e217bd5ae'
 renames: {
   }
-revisionId: 1352
+revisionId: 1353
