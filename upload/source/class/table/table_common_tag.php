@@ -20,10 +20,9 @@ class table_common_tag extends discuz_table {
 	}
 
 	public function __construct() {
-
 		$this->_table = 'common_tag';
 		$this->_pk = 'tagid';
-
+		$this->_pre_cache_key = 'common_tag_';
 		parent::__construct();
 	}
 
@@ -31,7 +30,7 @@ class table_common_tag extends discuz_table {
 		return DB::fetch_first('SELECT * FROM %t WHERE tagid=%d', [$this->_table, $tagid]);
 	}
 
-	public function fetch_all_by_status($status = NUll, $tagname = '', $startlimit = 0, $count = 0, $returncount = 0, $order = '') {
+	public function fetch_all_by_status($status = NULL, $tagname = '', $startlimit = 0, $count = 0, $returncount = 0, $order = '') {
 		if($status === NULL) {
 			$statussql = 'status<>3';
 		} else {
@@ -61,7 +60,7 @@ class table_common_tag extends discuz_table {
 		return DB::fetch_all("SELECT * FROM %t WHERE$sql ORDER BY ".DB::order('tagid', $order). ' ' .DB::limit($startlimit, $count), $data);
 	}
 
-	public function fetch_all_by_cid_and_status($cid = '', $status = NUll, $startlimit = 0, $count = 0, $returncount = 0, $order = 'ASC') {
+	public function fetch_all_by_cid_and_status($cid = '', $status = NULL, $startlimit = 0, $count = 0, $returncount = 0, $order = 'ASC') {
 		$data = [$this->_table];
 		$sql = ' 1=1 ';
 		if($cid) {
@@ -98,12 +97,8 @@ class table_common_tag extends discuz_table {
 		}
 	}
 
-	public function insert_newtag($data) {
-		return DB::insert($this->_table, $data);
-	}
-
 	public function insert_tag($tagname, $status = 0) {
-		DB::query('INSERT INTO %t (tagname, status) VALUES (%s, %d)', [$this->_table, $tagname, $status]);
+		DB::query('INSERT INTO %t (tagname, status, related_count, hot_score, created_at) VALUES (%s, %d, 0, 0, %d)', [$this->_table, $tagname, $status, TIMESTAMP]);
 		return DB::insert_id();
 	}
 
@@ -137,7 +132,7 @@ class table_common_tag extends discuz_table {
 		if($tagname) {
 			$addsql .= $sqlglue.' '.DB::field('tagname', $tagname);
 		}
-		return DB::fetch_first('SELECT tagid,tagname,status FROM ' .DB::table('common_tag')." WHERE $addsql");
+		return DB::fetch_first('SELECT tagid,tagname,status,related_count,hot_score FROM ' .DB::table('common_tag')." WHERE $addsql");
 	}
 
 	public function delete_byids($ids) {
@@ -149,5 +144,56 @@ class table_common_tag extends discuz_table {
 		}
 		return DB::query('DELETE FROM %t WHERE tagid IN (%n)', [$this->_table, $ids]);
 	}
-}
 
+	/**
+	 * 按热度排序获取标签列表
+	 *
+	 * @param int $status 标签状态
+	 * @param int $startlimit 起始位置
+	 * @param int $count 返回数量
+	 * @param string $order 排序方式
+	 * @return array 标签列表
+	 */
+	public function fetch_all_by_hot($status = NULL, $startlimit = 0, $count = 0, $order = 'DESC') {
+		if($status === NULL) {
+			$statussql = 'status<>3';
+		} else {
+			$statussql = 'status='.intval($status);
+		}
+		return DB::fetch_all("SELECT * FROM %t WHERE $statussql ORDER BY ".DB::order('hot_score', $order). ' ' .DB::limit($startlimit, $count), [$this->_table]);
+	}
+
+	/**
+	 * 批量获取标签热度
+	 *
+	 * @param array $tagids 标签ID数组
+	 * @return array 标签热度信息
+	 */
+	public function fetch_hot_by_tagids($tagids) {
+		if(empty($tagids)) {
+			return [];
+		}
+		return DB::fetch_all('SELECT tagid, hot_score FROM %t WHERE tagid IN (%n)', [$this->_table, $tagids], 'tagid');
+	}
+
+	/**
+	 * 增加关联数据
+	 *
+	 * @param array $tagids 标签ID数组
+	 * @param array $setarr 更新的字段数组
+	 */
+	public function increase($tagids, $setarr) {
+		$tagids = array_map('intval', (array)$tagids);
+		$sql = [];
+		$allowkey = ['related_count'];
+		foreach($setarr as $key => $value) {
+			if(($value = intval($value)) && in_array($key, $allowkey)) {
+				$sql[] = "`$key`=`$key`+'$value'";
+			}
+		}
+		if(!empty($sql)) {
+			DB::query('UPDATE ' .DB::table($this->_table). ' SET ' .implode(',', $sql). ' WHERE tagid IN (' .dimplode($tagids). ')', 'UNBUFFERED');
+			$this->increase_cache($tagids, $setarr);
+		}
+	}
+}
