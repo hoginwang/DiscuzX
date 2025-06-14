@@ -6594,6 +6594,7 @@ URL转换绝对网址：<pre>
 	'counter_blog_replynum' => '重建日志回复数',
 	'counter_friendnum' => '重建空间好友数',
 	'counter_album_picnum' => '重建相册图片数',
+	'counter_tagitemnum' => '重建标签关联数',
 	'counter_thread_cover' => '重建主题封面',
 	'counter_thread_cover_settime' => '主题最后回复时间范围',
 	'counter_thread_heat' => '重建热点主题',
