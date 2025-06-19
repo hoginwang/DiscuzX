@@ -195,13 +195,18 @@ class table_common_tag extends discuz_table {
 	 * @param string $order 排序方式，默认DESC
 	 * @return array 标签列表
 	 */
-	public function fetch_all_by_hot($status = NULL, $startlimit = 0, $count = 0, $order = 'DESC') {
+	public function fetch_all_by_hot($status = NULL, $startlimit = 0, $count = 0, $order = 'DESC', $order_by = 'hot_score') {
 		if($status === NULL) {
 			$statussql = 'status<>3';
 		} else {
 			$statussql = 'status='.intval($status);
 		}
-		return DB::fetch_all("SELECT * FROM %t WHERE $statussql ORDER BY ".DB::order('hot_score', $order). ' ' .DB::limit($startlimit, $count), [$this->_table]);
+		if($order_by == 'rand'){
+			$ordersql = " ORDER BY rand()";
+		}else{
+			$ordersql = " ORDER BY ".DB::order($order_by, $order);
+		}
+		return DB::fetch_all("SELECT * FROM %t WHERE $statussql $ordersql" .DB::limit($startlimit, $count), [$this->_table]);
 	}
 
 	/**
