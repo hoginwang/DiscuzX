@@ -363,6 +363,7 @@ if($op == 'replies') {
 				$pidarray[] = 0;
 				$repliesmod = C::t('forum_post')->update_post($posttableid, $pidarray, array('invisible' => '0'), true);
 				updatemodworks('MOD', $repliesmod);
+				array_pop($pidarray);
 				updatemoderate('pid', $pidarray, 2);
 			} else {
 				updatemodworks('MOD', 1);
