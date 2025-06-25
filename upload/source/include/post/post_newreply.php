@@ -339,8 +339,9 @@ if(!submitcheck('replysubmit', 0, $seccodecheck, $secqaacheck)) {
 		$bfmethods[] = array('class' => 'extend_thread_trade', 'method' => 'before_newreply');
 	}
 
-
-
+	@header("Expires: -1");
+	@header("Cache-Control: no-store, private, post-check=0, pre-check=0, max-age=0", FALSE);
+	@header("Pragma: no-cache");
 
 	$attentionon = empty($_GET['attention_add']) ? 0 : 1;
 	$attentionoff = empty($attention_remove) ? 0 : 1;
