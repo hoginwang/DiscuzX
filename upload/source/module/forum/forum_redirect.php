@@ -105,7 +105,10 @@ if($_GET['goto'] == 'findpost') {
 
 	$authoridurl = $authorid ? '&authorid='.$authorid : '';
 	$ordertypeurl = $ordertype ? '&ordertype='.$ordertype : '';
-	header("HTTP/1.1 301 Moved Permanently");
+	header("Cache-Control: no-cache, must-revalidate");
+	header("Pragma: no-cache");
+	header("Expires: 0");
+	header("HTTP/1.1 302 Found");
 	dheader("Location: forum.php?mod=viewthread&tid=$tid&page=$page$authoridurl$ordertypeurl".(isset($_GET['modthreadkey']) && ($modthreadkey = modauthkey($tid)) ? "&modthreadkey=$modthreadkey": '')."#pid$pid");
 }
 
