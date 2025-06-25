@@ -169,6 +169,11 @@ if(!submitcheck('topicsubmit', 0, $seccodecheck, $secqaacheck)) {
 			table_forum_forum::t()->update_commoncredits(intval($mygroupid[0]));
 		}
 	}
+
+	@header("Expires: -1");
+	@header("Cache-Control: no-store, private, post-check=0, pre-check=0, max-age=0", FALSE);
+	@header("Pragma: no-cache");
+
 	$modthread = C::m('\forum\model_thread');
 	$bfmethods = $afmethods = [];
 
