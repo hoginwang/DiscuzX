@@ -327,6 +327,10 @@ if(!submitcheck('replysubmit', 0, $seccodecheck, $secqaacheck)) {
 	$modpost = C::m('\forum\model_post', $_G['tid']);
 	$bfmethods = $afmethods = [];
 
+	@header("Expires: -1");
+	@header("Cache-Control: no-store, private, post-check=0, pre-check=0, max-age=0", FALSE);
+	@header("Pragma: no-cache");
+
 	if(!empty($content) && $content != '{}') {
 		$summary = '';
 		$ctmp = json_decode($content, true);
