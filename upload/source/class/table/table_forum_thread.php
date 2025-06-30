@@ -1090,7 +1090,7 @@ class table_forum_thread extends discuz_table
 			foreach((array)$fid as $delfid) {
 				$this->clear_cache($delfid, 'forumdisplay_');
 			}
-			C::t('forum_newthread')->delete_by_tids($fid);
+			C::t('forum_newthread')->delete_by_fids($fid);
 			return DB::delete($this->get_table_name($tableid), DB::field('fid', $fid), $limit, $unbuffered);
 		}
 		return 0;
