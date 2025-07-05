@@ -311,6 +311,11 @@ if(!submitcheck('replysubmit', 0, $seccodecheck, $secqaacheck)) {
 	getgpc('infloat') ? include template('forum/post_infloat') : include template('forum/post');
 
 } else {
+	if(empty($_G['inajax'])) {
+		@header("Expires: -1");
+		@header("Cache-Control: no-store, private, post-check=0, pre-check=0, max-age=0", FALSE);
+		@header("Pragma: no-cache");
+	}
 
 	$modpost = C::m('forum_post', $_G['tid']);
 	$bfmethods = $afmethods = array();

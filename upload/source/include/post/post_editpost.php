@@ -307,6 +307,11 @@ if(!submitcheck('editsubmit')) {
 			$message .= '[groupid='.intval($mygid).']'.$mygname.'[/groupid]';
 		}
 	}
+	if(empty($_G['inajax'])) {
+		@header("Expires: -1");
+		@header("Cache-Control: no-store, private, post-check=0, pre-check=0, max-age=0", FALSE);
+		@header("Pragma: no-cache");
+	}
 	$modpost = C::m('forum_post', $_G['tid'], $pid);
 
 	$modpost->param('redirecturl', "forum.php?mod=viewthread&tid={$_G['tid']}&page={$_GET['page']}&extra=$extra".($vid && $isfirstpost ? "&vid=$vid" : '')."#pid$pid");
