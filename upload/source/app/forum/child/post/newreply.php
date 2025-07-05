@@ -323,6 +323,11 @@ if(!submitcheck('replysubmit', 0, $seccodecheck, $secqaacheck)) {
 	}
 
 } else {
+	if(empty($_G['inajax'])) {
+		@header("Expires: -1");
+		@header("Cache-Control: no-store, private, post-check=0, pre-check=0, max-age=0", FALSE);
+		@header("Pragma: no-cache");
+	}
 
 	$modpost = C::m('\forum\model_post', $_G['tid']);
 	$bfmethods = $afmethods = [];
