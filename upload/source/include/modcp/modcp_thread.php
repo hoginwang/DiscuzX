@@ -216,14 +216,31 @@ if($op == 'post') {
 			require_once libfile('function/post');
 			require_once libfile('function/delete');
 			$forums = C::t('forum_forum')->fetch_all($prune['forums']);
+			$batch_tids = array();
+			$batch_pids = array();
 			foreach($pidsdelete as $fid => $pids) {
+				$recyclebin = isset($forums[$fid]['recyclebin']) ? $forums[$fid]['recyclebin'] : 0;
 				foreach($pids as $pid) {
 					if(!$tidsdelete[$pid]) {
-						$deletedposts = deletepost(array($pid), 'pid', !getgpc('nocredit'), $posttableid, $forums[$fid]['recyclebin']);
-						updatemodlog($pids_tids[$pid], 'DLP');
+						$batch_pids[$fid][$recyclebin][] = $pid;
 					} else {
-						$deletedthreads = deletethread(array($tidsdelete[$pid]), false, !getgpc('nocredit'), $forums[$fid]['recyclebin']);
-						updatemodlog($tidsdelete[$pid], 'DEL');
+						$batch_tids[$fid][$recyclebin][] = $tidsdelete[$pid];
+					}
+				}
+			}
+			foreach($batch_pids as $fid => $recyclebin_pids) {
+				foreach($recyclebin_pids as $recyclebin => $pids) {
+					$deletedposts = deletepost($pids, 'pid', !getgpc('nocredit'), $posttableid, $recyclebin);
+					foreach($pids as $pid) {
+						updatemodlog($pids_tids[$pid], 'DLP');
+					}
+				}
+			}
+			foreach($batch_tids as $fid => $recyclebin_tids) {
+				foreach($recyclebin_tids as $recyclebin => $tids) {
+					$deletedthreads = deletethread($tids, false, !getgpc('nocredit'), $recyclebin);
+					foreach($tids as $tid) {
+						updatemodlog($tid, 'DEL');
 					}
 				}
 			}
