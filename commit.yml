@@ -3,21 +3,33 @@ branches: {
   }
 fileChange:
   /upload:
-    newFile: !uuid '74fca6a56666eec646a70c63f9bcb0907c37e7dd'
-    oldFile: !uuid '3e6ca33c15bc338fe072b9bba4860d4ea464e5c3'
-  /upload/template:
-    newFile: !uuid '58ab240a7e23beaa51782fd6a6d0468a6c44657a'
-    oldFile: !uuid 'a5e56f1c1006580d99e40b9ce0db0128edacf0ab'
-  /upload/template/default:
-    newFile: !uuid 'fa03733d5462716ed3b6e2df97cf64aa833002a5'
-    oldFile: !uuid '62651cdf16bf8cdf508e6ae78f718e3c4de3fc1d'
-  /upload/template/default/common:
-    newFile: !uuid '4a4f082cd4a30a0d78cb17bbea4c3132a4aeeaef'
-    oldFile: !uuid '7b476f99dc2554806580169cd87b92ecdc5de277'
-  /upload/template/default/common/widthauto.css:
-    newFile: !uuid '6b7b3a5b1b7f4749da7f006d4252fdcdfe909754'
-    oldFile: !uuid 'f3c90fcd5b3b70188a4f4a634694640437553b88'
-gitCommitId: !uuid '8197fd2579110febd9806d06309c45a6e9113a0e'
+    newFile: !uuid '59f7a4f771adf5fb83fa09ea362a9657afaeb6f9'
+    oldFile: !uuid '74fca6a56666eec646a70c63f9bcb0907c37e7dd'
+  /upload/source:
+    newFile: !uuid '46f26b0e11092e9aabf37774181d106df750a734'
+    oldFile: !uuid 'ad6ccaa6bc31378120a6e5967f9326581c6d9054'
+  /upload/source/class:
+    newFile: !uuid '45e73ece1bde48044f2a8c15bdbdb9ecd0ae5bbe'
+    oldFile: !uuid '1d7300fb549686d5a02b5d27ec148db9b45bf268'
+  /upload/source/class/discuz:
+    newFile: !uuid 'd8d521a694260ddb79b23192b69da3f17fa54c94'
+    oldFile: !uuid '65c7c3e368934daa1744f53ee30824802712610c'
+  /upload/source/class/discuz/discuz_application.php:
+    newFile: !uuid '8561db52c4da88b729da0a893890f55398343e57'
+    oldFile: !uuid 'e1645d9de1b3413f3d62d224cd8251d961fe1bdc'
+  /upload/source/class/memory:
+    newFile: !uuid '9cccb1d4a305397c90ad31d0fec99c854111ae52'
+    oldFile: !uuid 'bb1791ae577faaab31925e90f94ac35bf594cce3'
+  /upload/source/class/memory/memory_setting_array.php:
+    newFile: null
+    oldFile: !uuid 'b9efb2a81e15d2664e610457907fdf352ca33b51'
+  /upload/source/class/table:
+    newFile: !uuid '036afe736a71a575f58bfcba4cfc2060a67ee582'
+    oldFile: !uuid '36fed9a16f3e7ffb38e419b4ae59dc9959dfa888'
+  /upload/source/class/table/table_common_syscache.php:
+    newFile: !uuid 'bc148d8fc7cee1c3cab49c201fbc8d0f0583e628'
+    oldFile: !uuid '785de1eab16806b63f127e0951559032706f20f4'
+gitCommitId: !uuid 'd74e9f7dcb5a7ef15947a3e2a87526ca7fd24741'
 renames: {
   }
-revisionId: 1364
+revisionId: 1365
