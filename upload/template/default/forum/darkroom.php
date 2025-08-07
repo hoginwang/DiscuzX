@@ -10,7 +10,7 @@
 			<!--{else}-->
 			<input type="text" id="searchUsername" name="username" placeholder="{lang darkroom_search_placeholder}" class="px vm"/>
 			<!--{/if}-->
-			<button type="submit" class="pn pnc" style="width: 40px">{lang darkroom_search}</button>
+			<button type="submit" class="pn pnc">{lang darkroom_search}</button>
 		</form>
 	</div>
 	<div class="z">
