@@ -192,6 +192,15 @@ class discuz_application extends discuz_base{
 		}
 		$_G['isHTTPS'] = $this->_is_https();
 		$_G['scheme'] = 'http'.($_G['isHTTPS'] ? 's' : '');
+        $host = $_SERVER['HTTP_X_FORWARDED_HOST'] ?? $_SERVER['HTTP_HOST'];
+        $port = $_SERVER['HTTP_X_FORWARDED_PORT'] ?? $_SERVER['SERVER_PORT'];
+        
+        // 如果 HTTP_X_FORWARDED_HOST 已经带端口，就不用再加
+        if (strpos($host, ':') === false && !in_array($port, [80, 443])) {
+            $host .= ':' . $port;
+        }
+        $_SERVER['HTTP_HOST'] = $host;
+        $_SERVER['SERVER_PORT'] = $port;
 		$_G['siteurl'] = dhtmlspecialchars($_G['scheme'].'://'.$_SERVER['HTTP_HOST'].$sitepath.'/');
 
 		$url = parse_url($_G['siteurl']);
