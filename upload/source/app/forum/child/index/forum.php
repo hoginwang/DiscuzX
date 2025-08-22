@@ -80,6 +80,8 @@ foreach($forums as $forum) {
 				$forumlist[$forum['fup']]['subforums'][] = $subforum;
 			}
 		}
+        
+	} else {
 
 		if($forum['moderators']) {
 			$forum['moderators'] = moddisplay($forum['moderators'], 'flat');
