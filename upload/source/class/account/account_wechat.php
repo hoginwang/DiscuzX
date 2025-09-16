@@ -29,7 +29,7 @@ class account_wechat extends account_base {
 	}
 
 	public function inEnv() {
-		return isset($_SERVER['HTTP_USER_AGENT']) && strpos($_SERVER['HTTP_USER_AGENT'], 'MicroMessenger') && !strpos($_SERVER['HTTP_USER_AGENT'], 'wxwork');
+		return isset($_SERVER['HTTP_USER_AGENT']) && str_contains($_SERVER['HTTP_USER_AGENT'], 'MicroMessenger') && !str_contains($_SERVER['HTTP_USER_AGENT'], 'wxwork');
 	}
 
 	public function hideInCp() {

@@ -190,7 +190,7 @@ class ucclient_db {
 	function parse_query($sql, $key = [], $value = []) {
 		$list = '';
 		$array = [];
-		if(strpos($sql, '?')) {// 如果SQL存在问号则使用传统匹配方式，KEY顺序与?的顺序保持一致
+		if(str_contains($sql, '?')) {// 如果SQL存在问号则使用传统匹配方式，KEY顺序与?的顺序保持一致
 			foreach($key as $k => $v) {
 				if(in_array($v, ['i', 'd', 's', 'b'])) {
 					$list .= $v;

@@ -907,7 +907,7 @@ function template($file, $templateid = 0, $tpldir = '', $gettplfile = 0, $primal
 	$file == 'common/header' && defined('CURMODULE') && CURMODULE && $file = 'common/header_'.$_G['basescript'].'_'.CURMODULE;
 
 	if((constant('HOOKTYPE') == 'hookscriptmobile' && defined('IN_MOBILE') && !defined('TPL_DEFAULT')) || defined('IN_PREVIEW')) {
-		if(strpos($tpldir, 'plugin')) {
+		if(str_contains($tpldir, 'plugin')) {
 			if(!tplfile::file_exists($tpldir.'/'.$file.'.htm') && !tplfile::file_exists($tpldir.'/'.$file.'.php')) {
 				$url = $_SERVER['REQUEST_URI'].(strexists($_SERVER['REQUEST_URI'], '?') ? '&' : '?').'mobile=no';
 				showmessage('mobile_template_no_found', '', ['url' => $url]);
@@ -919,7 +919,7 @@ function template($file, $templateid = 0, $tpldir = '', $gettplfile = 0, $primal
 			}
 		}
 		empty($mobiletplfile) && $mobiletplfile = $file.'.htm';
-		if(strpos($tpldir, 'plugin') && (tplfile::file_exists(DISCUZ_TEMPLATE($mobiletplfile)) || tplfile::file_exists(substr(DISCUZ_TEMPLATE($mobiletplfile), 0, -4).'.php'))) {
+		if(str_contains($tpldir, 'plugin') && (tplfile::file_exists(DISCUZ_TEMPLATE($mobiletplfile)) || tplfile::file_exists(substr(DISCUZ_TEMPLATE($mobiletplfile), 0, -4).'.php'))) {
 			$tplfile = $mobiletplfile;
 		} elseif(!$clonefile && !tplfile::file_exists(DISCUZ_TEMPLATE($tpldir.'/'.$mobiletplfile)) &&
 			!tplfile::file_exists(substr(DISCUZ_TEMPLATE($tpldir.'/'.$mobiletplfile), 0, -4).'.php') &&
@@ -1106,8 +1106,8 @@ function dgmdate($timestamp, $format = 'dt', $timeoffset = 9999, $uformat = '') 
 }
 
 function dmktime($date) {
-	if(strpos($date, '-')) {
-		if(strpos($date, ' ')) {
+	if(str_contains($date, '-')) {
+		if(str_contains($date, ' ')) {
 			$_time = explode(' ', $date);
 			$time = explode('-', $_time[0]);
 			$time2 = explode(':', $_time[1]);
@@ -2015,7 +2015,7 @@ function dreferer($default = '') {
 	$_G['referer'] = !empty($_GET['referer']) ? $_GET['referer'] : $_SERVER['HTTP_REFERER'];
 	$_G['referer'] = str_ends_with($_G['referer'], '?') ? substr($_G['referer'], 0, -1) : $_G['referer'];
 
-	if(strpos($_G['referer'], 'member.php?mod=logging')) {
+	if(str_contains($_G['referer'], 'member.php?mod=logging')) {
 		$_G['referer'] = $default;
 	}
 

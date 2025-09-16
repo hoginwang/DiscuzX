@@ -81,9 +81,9 @@ function getBrowser() {
 function getOs() {
 	$agent = $_SERVER['HTTP_USER_AGENT'];
 	$os = false;
-	if(preg_match('/win/i', $agent) && strpos($agent, '95')) {
+	if(preg_match('/win/i', $agent) && str_contains($agent, '95')) {
 		$os = 'Windows 95';
-	} else if(preg_match('/win 9x/i', $agent) && strpos($agent, '4.90')) {
+	} else if(preg_match('/win 9x/i', $agent) && str_contains($agent, '4.90')) {
 		$os = 'Windows ME';
 	} else if(preg_match('/win/i', $agent) && preg_match('/98/i', $agent)) {
 		$os = 'Windows 98';
@@ -147,19 +147,19 @@ function getOs() {
 //get device
 function getDevice() {
 	$device = $_SERVER['HTTP_USER_AGENT'];
-	if(strpos($device, 'Windows NT')) {
+	if(str_contains($device, 'Windows NT')) {
 		$device = 'PC';
-	} elseif(strpos($device, 'iPhone')) {
+	} elseif(str_contains($device, 'iPhone')) {
 		$device = 'iPhone';
-	} elseif(strpos($device, 'Android')) {
+	} elseif(str_contains($device, 'Android')) {
 		$device = 'Android Mobile';
-	} elseif(strpos($device, 'iPad')) {
+	} elseif(str_contains($device, 'iPad')) {
 		$device = 'iPad';
-	} elseif(strpos($device, 'iPod')) {
+	} elseif(str_contains($device, 'iPod')) {
 		$device = 'iPod';
-	} elseif(strpos($device, 'Mac OS X')) {
+	} elseif(str_contains($device, 'Mac OS X')) {
 		$device = 'Mac';
-	} elseif(strpos($device, 'Windows Phone OS')) {
+	} elseif(str_contains($device, 'Windows Phone OS')) {
 		$device = 'Windows Phone Mobile';
 	} else {
 		$device = 'Unknow Device';

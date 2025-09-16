@@ -168,7 +168,7 @@ if(submitcheck('uploadsubmit')) {
 		}
 	}
 
-	$tourl = empty($_POST['gobackurl']) || strpos($_POST['gobackurl'], 'op=add') || strpos($_POST['gobackurl'], '&diy=yes') ?
+	$tourl = empty($_POST['gobackurl']) || str_contains($_POST['gobackurl'], 'op=add') || str_contains($_POST['gobackurl'], '&diy=yes') ?
 		str_replace('&diy=yes', '', $_SERVER['HTTP_REFERER']) : $_POST['gobackurl'];
 
 	$tourl = preg_replace('/[\?|&]preview=yes/', '', $tourl);

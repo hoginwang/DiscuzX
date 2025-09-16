@@ -61,12 +61,12 @@ if(!submitcheck('editsubmit')) {
 
 } else {
 
-	if(strpos($_GET['starttimenew'], '-')) {
+	if(str_contains($_GET['starttimenew'], '-')) {
 		$starttimenew = strtotime($_GET['starttimenew']);
 	} else {
 		$starttimenew = 0;
 	}
-	if(strpos($_GET['endtimenew'], '-')) {
+	if(str_contains($_GET['endtimenew'], '-')) {
 		$endtimenew = strtotime($_GET['endtimenew']);
 	} else {
 		$endtimenew = 0;

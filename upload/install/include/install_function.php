@@ -1638,8 +1638,8 @@ function show_setting($setname, $varname = '', $value = '', $type = 'text|passwo
 		echo "\n".'<label class="tbopt" for="inst_'.$varname.'">'.(empty($setname) ? '' : lang($setname).':')."</label>\n";
 		$value = dhtmlspecialchars($value);
 		echo "<input type=\"$type\" id=\"inst_{$varname}\" name=\"$varname\" value=\"$value\" class=\"txt\">";
-	} elseif(strpos($type, 'submit') !== FALSE) {
-		if(strpos($type, 'oldbtn') !== FALSE) {
+	} elseif(str_contains($type, 'submit')) {
+		if(str_contains($type, 'oldbtn')) {
 			echo "<input type=\"button\" name=\"oldbtn\" value=\"".lang('old_step')."\" class=\"btn oldbtn\" onclick=\"history.back();\">\n";
 		}
 		$value = empty($value) ? 'new_step' : $value;
@@ -2303,7 +2303,7 @@ function dhtmlspecialchars($string) {
 		}
 	} else {
 		$string = str_replace(array('&', '"', '<', '>'), array('&amp;', '&quot;', '&lt;', '&gt;'), $string);
-		if(strpos($string, '&amp;#') !== false) {
+		if(str_contains($string, '&amp;#')) {
 			$string = preg_replace('/&amp;((#(\d{3,5}|x[a-fA-F0-9]{4}));)/', '&\\1', $string);
 		}
 	}
