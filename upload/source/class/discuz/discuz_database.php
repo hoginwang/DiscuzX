@@ -597,7 +597,7 @@ class discuz_database_safecheck {
 			}
 		}
 
-		if(self::$config['dlikehex'] && strpos($clean, 'like0x')) {
+		if(self::$config['dlikehex'] && str_contains($clean, 'like0x')) {
 			return '-2';
 		}
 

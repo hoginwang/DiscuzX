@@ -184,8 +184,7 @@ class core {
 		$pathfile = null;
 		$class = strtolower($class);
 		if(str_contains($class, '_')) {
-			$_p = strpos($class, '\\');
-			if($_p === false) {
+			if(!str_contains($class, '\\')) {
 				[$folder] = explode('_', $class);
 				$file = 'class/'.$folder.'/'.substr($class, strlen($folder) + 1);
 			} else {

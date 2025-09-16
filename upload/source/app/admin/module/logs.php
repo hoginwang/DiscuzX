@@ -118,8 +118,7 @@ EOD;
 
 $file = childfile('logs/'.$operation);
 if(!file_exists($file)) {
-	$p = strpos($operation, ':');
-	if($p !== false) {
+	if(str_contains($operation, ':')) {
 		list($pluginid, $f) = explode(':', $operation);
 		if(!ispluginkey($pluginid) || !preg_match('/^\w+$/', $f) || !file_exists($file = DISCUZ_PLUGIN($pluginid).'/log/log_'.$f.'.php')) {
 			cpmsg('undefined_action');

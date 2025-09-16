@@ -29,7 +29,7 @@ class account_sample extends account_base {
 
 	// 用于自动登录，判断是否在环境中
 	public function inEnv() {
-		return isset($_SERVER['HTTP_USER_AGENT']) && strpos($_SERVER['HTTP_USER_AGENT'], 'xxx');
+		return isset($_SERVER['HTTP_USER_AGENT']) && str_contains($_SERVER['HTTP_USER_AGENT'], 'xxx');
 	}
 
 	// 登录(绑定)跳转

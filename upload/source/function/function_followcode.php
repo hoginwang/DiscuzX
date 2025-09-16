@@ -27,7 +27,7 @@ function followcode($message, $tid = 0, $pid = 0, $length = 0, $allowimg = true)
 	$message = strip_tags($message);
 	$message = messagesafeclear($message);
 
-	if((strpos($message, '[/code]') || strpos($message, '[/CODE]')) !== FALSE) {
+	if((str_contains($message, '[/code]') || str_contains($message, '[/CODE]'))) {
 		$message = preg_replace('/\s?\[code\](.+?)\[\/code\]\s?/is', '', $message);
 	}
 
@@ -169,7 +169,7 @@ function followcode($message, $tid = 0, $pid = 0, $length = 0, $allowimg = true)
 			$message = substr($message, 0, $sppos);
 		}
 		$checkstr = cutstr($message, $length, '');
-		if(strpos($checkstr, '[') && !str_contains(strrchr($checkstr, '['), ']')) {
+		if(str_contains($checkstr, '[') && !str_contains(strrchr($checkstr, '['), ']')) {
 			$length = strpos($message, ']', strrpos($checkstr, strrchr($checkstr, '[')));
 		}
 		$message = cutstr($message, $length + 1, ' <a href="javascript:;" class="flw_readfull xi2 xs1"'.$extra.'>'.lang('space', 'follow_view_fulltext').'</a>');
