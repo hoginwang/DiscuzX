@@ -42,6 +42,19 @@ if(!$metakeywords) {
 	$metakeywords = $navtitle;
 }
 
+$is_direct_forum_access = basename($_SERVER['SCRIPT_NAME']) === 'forum.php';
+
+if($is_direct_forum_access) {
+	if(@in_array('forum_index', $_G['setting']['rewritestatus'])) {
+		$canonical = rewriteoutput('forum_index', 1, '', '', '', '', '');
+	} else {
+		$canonical = 'forum.php';
+	}
+	$_G['setting']['seohead'] .= '<link href="'.$_G['siteurl'].$canonical.'" rel="canonical" />';
+} else {
+	$_G['setting']['seohead'] .= '<link href="'.$_G['siteurl'].'" rel="canonical" />';
+}
+
 if($_G['setting']['indexhot']['status'] && $_G['cache']['heats']['expiration'] < TIMESTAMP) {
 	require_once libfile('function/cache');
 	updatecache('heats');
