@@ -25,6 +25,13 @@ if(!$metadescription) {
 	$metadescription = $_G['setting']['navs'][1]['navname'];
 }
 
+if(@in_array('portal_index', $_G['setting']['rewritestatus'])) {
+	$canonical = rewriteoutput('portal_index', 1, '', '', '', '', '');
+} else {
+	$canonical = 'portal.php';
+}
+$_G['setting']['seohead'] .= '<link href="'.$_G['siteurl'].$canonical.'" rel="canonical" />';
+
 if(isset($_G['makehtml'])){
 	helper_makehtml::portal_index();
 }

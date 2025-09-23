@@ -42,6 +42,13 @@ if(!$metakeywords) {
 	$metakeywords = $navtitle;
 }
 
+if(@in_array('forum_index', $_G['setting']['rewritestatus'])) {
+	$canonical = rewriteoutput('forum_index', 1, '', '', '', '', '');
+} else {
+	$canonical = 'forum.php';
+}
+$_G['setting']['seohead'] .= '<link href="'.$_G['siteurl'].$canonical.'" rel="canonical" />';
+
 if($_G['setting']['indexhot']['status'] && $_G['cache']['heats']['expiration'] < TIMESTAMP) {
 	require_once libfile('function/cache');
 	updatecache('heats');
