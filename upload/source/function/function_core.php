@@ -1180,10 +1180,7 @@ function libfile($libname, $folder = '') {
 	} else {
 		$path = "{$libpath}/{$libname}";
 	}
-	if($isPlugin) {
-		return $path.'.php';
-	}
-	return preg_match('/^[\w\d\/_]+$/i', $path) ? realpath(DISCUZ_ROOT.$path.'.php') : false;
+	return preg_match('/^[\w\d\/_]+$/i', $path) ? realpath( ($isPlugin ? '' : DISCUZ_ROOT).$path.'.php') : false;
 }
 
 function childfile($childname, $path = null, $allowplugin = true) {
