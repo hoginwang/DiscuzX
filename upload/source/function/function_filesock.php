@@ -18,6 +18,7 @@ function _dfsockopen($url, $limit = 0, $post = '', $cookie = '', $bysocket = FAL
 		'post' => $post,
 		'cookie' => $cookie,
 		'ip' => $ip,
+        'timeout' => $timeout,
 		'block' => $block,
 		'encodetype' => $encodetype,
 		'allowcurl' => $allowcurl,
