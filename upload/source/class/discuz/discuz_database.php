@@ -16,8 +16,11 @@ class discuz_database {
 
 	public static $driver;
 
-	public static function init($driver, $config) {
+	public static $ispdo;
+
+	public static function init($driver, $config, $db_driver = 'mysqli') {
 		self::$driver = $driver;
+		self::$ispdo = $db_driver == 'pdo';
 		self::$db = new $driver;
 		self::$db->set_config($config);
 		self::$db->connect();
@@ -37,17 +40,9 @@ class discuz_database {
 			return false;
 		} elseif(is_array($condition)) {
 			if(count($condition) == 2 && isset($condition['where']) && isset($condition['arg'])) {
-				if(!self::is_pdo()) {
-					$where = self::format($condition['where'], $condition['arg']);
-				} else {
-					$where = self::format_prepared($condition['where'], $condition['arg']);
-				}
+				$where = self::$ispdo ? self::format_prepared($condition['where'], $condition['arg']) : self::format($condition['where'], $condition['arg']);
 			} else {
-				if(!self::is_pdo()) {
-					$where = self::implode_field_value($condition, ' AND ');
-				} else {
-					$where = self::implode_field_value_prepared($condition, $arg, ' AND ');
-				}
+				$where = self::$ispdo ? self::implode_field_value_prepared($condition, $arg, ' AND ') : self::implode_field_value($condition, ' AND ');
 			}
 		} else {
 			$where = $condition;
@@ -58,7 +53,7 @@ class discuz_database {
 	}
 
 	public static function insert($table, $data, $return_insert_id = false, $replace = false, $silent = false) {
-		if(!self::is_pdo()) {
+		if(!self::$ispdo) {
 			$sql = 'SET '.self::implode($data);
 			$arg = null;
 		} else {
@@ -75,7 +70,7 @@ class discuz_database {
 	}
 
 	public static function update($table, $data, $condition = '', $unbuffered = false, $low_priority = false) {
-		if(!self::is_pdo()) {
+		if(!self::$ispdo) {
 			$sql = self::implode($data);
 			$arg = null;
 		} else {
@@ -92,11 +87,7 @@ class discuz_database {
 		if(empty($condition)) {
 			$where = '1';
 		} elseif(is_array($condition)) {
-			if(!self::is_pdo()) {
-				$where = self::implode($condition, ' AND ');
-			} else {
-				$where = self::implode_prepared($condition, $arg, ' AND ');
-			}
+			$where = self::$ispdo ? self::implode_prepared($condition, $arg, ' AND ') : self::implode($condition, ' AND ');
 		} else {
 			$where = $condition;
 		}
@@ -154,11 +145,7 @@ class discuz_database {
 	public static function query($sql, $arg = [], $silent = false, $unbuffered = false) {
 		if(!empty($arg)) {
 			if(is_array($arg)) {
-				if(!self::is_pdo()) {
-					$sql = self::format($sql, $arg);
-				} else {
-					$sql = self::format_prepared($sql, $arg);
-				}
+				$sql = self::$ispdo ? self::format_prepared($sql, $arg) : self::format($sql, $arg);
 			} elseif($arg === 'SILENT') {
 				$silent = true;
 				$arg = [];
@@ -169,7 +156,7 @@ class discuz_database {
 		}
 		self::checkquery($sql);
 
-		$ret = self::$db->query(!self::is_pdo() ? $sql : [$sql, $arg], $silent, $unbuffered);
+		$ret = self::$db->query(self::$ispdo ? [$sql, $arg] : $sql, $silent, $unbuffered);
 		if(!$unbuffered && $ret) {
 			$cmd = trim(strtoupper(substr($sql, 0, strpos($sql, ' '))));
 			if($cmd === 'SELECT') {
@@ -315,7 +302,7 @@ class discuz_database {
 	}
 
 	public static function is_pdo() {
-		return getglobal('db_driver') == 'pdo';
+		return self::$ispdo;
 	}
 
 	public static function implode($array, $glue = ',') {

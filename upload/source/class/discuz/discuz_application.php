@@ -510,7 +510,7 @@ class discuz_application extends discuz_base {
 			}
 
 			$this->var['mysql_driver'] = $driver;
-			DB::init($driver, $this->config['db']);
+			DB::init($driver, $this->config['db'], $this->var['db_driver']);
 		}
 	}
 
