@@ -160,6 +160,11 @@
 .bui .imicn a {margin-right:6px}
 /**end**/
 
+/** group::viewthread **/
+.posthead .plc {padding: 20px;}
+.posthead .pls {padding: 20px 0; line-height: 22px;}
+/**end**/
+
 /** forum::modcp,forum::post,group::post,home::spacecp,portal::portalcp **/
 .pg_post #postform #ct {background:none}
 .pg_post #postform #ct div.bm {padding:10px 20px;background:var(--dz-bgf) !important}
