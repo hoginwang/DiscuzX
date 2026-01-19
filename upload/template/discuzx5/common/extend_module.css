@@ -160,6 +160,13 @@
 .bui .imicn a {margin-right:6px}
 /**end**/
 
+
+/** group::group **/
+.sd .bm .tb_h {background-color: white;}
+.sd .bm .tb_h  li { padding: 10px 0 0px 0;}
+.ct2 .sd .bm_c { clear: both;}
+/** end **/
+
 /** forum::modcp,forum::post,group::post,home::spacecp,portal::portalcp **/
 .pg_post #postform #ct {background:none}
 .pg_post #postform #ct div.bm {padding:10px 20px;background:var(--dz-bgf) !important}
