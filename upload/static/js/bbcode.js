@@ -37,9 +37,27 @@ function bbcode2html(str) {
 		parsetype = 0;
 	}
 
-	if(!fetchCheckbox('bbcodeoff') && allowbbcode && parsetype != 1) {
-		str = str.replace(/\[code\]([\s\S]+?)\[\/code\]/ig, function($1, $2) {return parsecode($2);});
+	// 在编辑模式下，保存代码块标记，避免被后续转义
+	var codeBlocks = [];
+	if(parsetype == 1) {
+		str = str.replace(/\[\tDISCUZ_CODE_\d+\t\]/g, '');
+		if(!fetchCheckbox('bbcodeoff') && allowbbcode) {
+			str = str.replace(/\[code(?:=(.+?))?\]([\s\S]+?)\[\/code\]/ig, function($1, $2, $3) {
+				var codeType = $2 ? $2 : '';
+				var codeHeaderHtml = codeType ? '<div class="codeheader"><div class="codetype">' + codeType + '</div></div>' : '';
+				var codeHtml = '<div class="blockcode"' + (codeType ? ' data-codetype="' + codeType + '"' : '') + '>' + codeHeaderHtml + '<div class="codecontent">' + htmlspecialchars($3) + '</div></div>';
+				var placeholder = '###CODEBLOCK_' + codeBlocks.length + '###';
+				codeBlocks.push(codeHtml);
+				return placeholder;
+			});
+		}
+	} else {
+		// 在非编辑模式下，如果存在[code]标签，才进行转换
+		if(!fetchCheckbox('bbcodeoff') && allowbbcode) {
+			str = str.replace(/\[code(?:=(.+?))?\]([\s\S]+?)\[\/code\]/ig, function($1, $2, $3) {return parsecode($3, $2);});
+		}
 	}
+
 
 	if(fetchCheckbox('allowimgurl')) {
 		str = str.replace(/([^>=\]"'\/]|^)((((https?|ftp):\/\/)|www\.)([\w\-]+\.)*[\w\-\u4e00-\u9fa5]+\.([\.a-zA-Z0-9]+|\u4E2D\u56FD|\u7F51\u7EDC|\u516C\u53F8)((\?|\/|:)+[\w\.\/=\?%\-&~`@':+!]*)+\.(jpg|gif|png|bmp|webp))/ig, '$1[img]$2[/img]');
@@ -50,6 +68,13 @@ function bbcode2html(str) {
 		str = str.replace(/>/g, '&gt;');
 		if(!fetchCheckbox('parseurloff')) {
 			str = parseurl(str, 'html', false);
+		}
+	}
+
+	// 在编辑模式下，恢复代码块
+	if(parsetype == 1 && codeBlocks.length > 0) {
+		for(var i = 0; i < codeBlocks.length; i++) {
+			str = str.replace('###CODEBLOCK_' + i + '###', codeBlocks[i]);
 		}
 	}
 
@@ -304,6 +329,11 @@ function getoptionvalue(option, text) {
 
 function html2bbcode(str) {
 
+	// 在编辑模式下，直接清除所有DISCUZ_CODE_标签
+	if(typeof(parsetype) != 'undefined' && parsetype == 1) {
+		str = str.replace(/\[\tDISCUZ_CODE_\d+\t\]/g, '');
+	}
+
 	if((allowhtml && fetchCheckbox('htmlon')) || trim(str) == '') {
 		for(i in EXTRAFUNC['html2bbcode']) {
 			EXTRASTR = str;
@@ -311,7 +341,7 @@ function html2bbcode(str) {
 				eval('str = ' + EXTRAFUNC['html2bbcode'][i] + '()');
 			} catch(e) {}
 		}
-		str = str.replace(/<img[^>]+smilieid=(["']?)(\d+)(\1)[^>]*>/ig, function($1, $2, $3) {return smileycode($3);});
+		str = str.replace(/<img[^>]+smilieid=("'?)(\d+)(\1)[^>]*>/ig, function($1, $2, $3) {return smileycode($3);});
 		str = str.replace(/<img([^>]*aid=[^>]*)>/ig, function($1, $2) {return imgtag($2);});
 		return str;
 	}
@@ -322,7 +352,15 @@ function html2bbcode(str) {
 		str = str.replace(/<\/div>((<br[^>]*>){1,})<div>/ig, '$1');
 	}
 
-	str = str.replace(/<div\sclass=["']?blockcode["']?>[\s\S]*?<blockquote>([\s\S]+?)<\/blockquote>[\s\S]*?<\/div>/ig, function($1, $2) {return codetag($2);});
+	str = str.replace(/<div\s[^>]*class=["']?blockcode["']?[^>]*data-codetype=["']?([^"']*)["']?[^>]*data-codecontent=["']?([^"']*)["']?[^>]*>[\s\S]*?<\/div>/ig, function($1, $2, $3) {
+		var codeType = $2;
+		var codeContent = $3.replace(/&quot;/g, '"');
+		return '[code' + (codeType ? '=' + codeType : '') + ']' + codeContent + '[/code]';
+	});
+	str = str.replace(/<div\sclass=["']?blockcode["']?\sdata-codetype=["']?([^"']*)["']?[^>]*>[\s\S]*?<div\sclass=["']?codecontent["']?>([\s\S]+?)<\/div>[\s\S]*?<\/div>/ig, function($1, $2, $3) {
+		return '[code=' + $2 + ']' + $3 + '[/code]';
+	});
+	str = str.replace(/<div\sclass=["']?blockcode["']?>[\s\S]*?<div\sclass=["']?codecontent["']?>([\s\S]+?)<\/div>[\s\S]*?<\/div>/ig, function($1, $2) {return codetag($2);});
 
 	if(!fetchCheckbox('bbcodeoff') && allowbbcode) {
 		var postbg = '';
@@ -504,11 +542,16 @@ function litag(listoptions, text) {
 	return '[*]' + text.replace(/(\s+)$/g, '') + '\n';
 }
 
-function parsecode(text) {
+function codetag(text) {
+	return '[code]' + text + '[/code]';
+}
+
+function parsecode(text, codeType) {
 	DISCUZCODE['num']++;
 	text = text.replace(/\$/ig, '$$$$');
-	DISCUZCODE['html'][DISCUZCODE['num']] = '<div class="blockcode"><blockquote>' + htmlspecialchars(text) + '</blockquote></div>';
-	return "[\tDISCUZ_CODE_" + DISCUZCODE['num'] + "\t]";
+	var codeTypeHtml = codeType ? '<div class="code-type">' + codeType + '</div>' : '';
+	DISCUZCODE['html'][DISCUZCODE['num']] = '<div class="blockcode">' + codeTypeHtml + '<blockquote>' + htmlspecialchars(text) + '</blockquote></div>';
+	return "\tDISCUZ_CODE_" + DISCUZCODE['num'] + "\t";
 }
 
 function parsestyle(tagoptions, prepend, append) {
