@@ -230,7 +230,7 @@ function editorresize(e, op) {
 		document.onmousemove = function(e) {try{editorresize(e, 2);}catch(err){}};
 		document.onmouseup = function(e) {try{editorresize(e, 3);}catch(err){}};
 		doane(e);
-	}else if(op == 2 && editorsizepos !== []) {
+	}else if(op == 2 && editorsizepos && editorsizepos.length !== 0) {
 		var dragnow = e.clientY;
 		editorsize('', editorsizepos[1] + dragnow - editorsizepos[0]);
 		doane(e);
@@ -623,6 +623,11 @@ function wrapTags(tagname, useoption, selection) {
 		}
 	}
 
+	// 如果没有选中文本，不执行插入操作
+	if(trim(selection) === '') {
+		return;
+	}
+
 	if(useoption !== false) {
 		var opentag = '[' + tagname + '=' + useoption + ']';
 	} else {
@@ -637,6 +642,11 @@ function wrapTags(tagname, useoption, selection) {
 
 function applyFormat(cmd, dialog, argument) {
 	if(wysiwyg) {
+		// 检查是否有选中文本
+		var selection = getSel();
+		if(selection === false || trim(selection) === '') {
+			return;
+		}
 		editdoc.execCommand(cmd, (isUndefined(dialog) ? false : dialog), (isUndefined(argument) ? true : argument));
 		return;
 	}
@@ -1031,6 +1041,27 @@ function showEditorMenu(tag, params) {
 					opentag = '<div class="blockcode"><blockquote>';
 					closetag = '</blockquote></div><br />';
 				}
+				if(selection) {
+					return insertText((opentag + selection + closetag), strlen(opentag), strlen(closetag), true, sel);
+				}
+				str += $L('input_code') + ':<br /><select id="' + ctrlid + '_param_2" class="ps">' +
+					'<option value="">无</option>' +
+					'<option value="bash">Bash</option>' +
+					'<option value="c">C</option>' +
+					'<option value="cpp">C++</option>' +
+					'<option value="csharp">C#</option>' +
+					'<option value="css">CSS</option>' +
+					'<option value="html">HTML</option>' +
+					'<option value="java">Java</option>' +
+					'<option value="javascript">JavaScript</option>' +
+					'<option value="json">JSON</option>' +
+					'<option value="php">PHP</option>' +
+					'<option value="python">Python</option>' +
+					'<option value="ruby">Ruby</option>' +
+					'<option value="sql">SQL</option>' +
+					'<option value="xml">XML</option>' +
+				'</select><br /><textarea id="' + ctrlid + '_param_1" style="width: 98%" cols="50" rows="5" class="txtarea"></textarea>';
+				break;
 			case 'quote':
 				if(wysiwyg && tag == 'quote') {
 					opentag = '<div class="quote"><blockquote>';
@@ -1041,7 +1072,7 @@ function showEditorMenu(tag, params) {
 				if(selection) {
 					return insertText((opentag + selection + closetag), strlen(opentag), strlen(closetag), true, sel);
 				}
-				var lang = {'quote' : $L('input_quote'), 'code' : $L('input_code'), 'hide' : $L('input_hide'), 'free' : $L('input_free')};
+				var lang = {'quote' : $L('input_quote'), 'hide' : $L('input_hide'), 'free' : $L('input_free')};
 				str += lang[tag] + ':<br /><textarea id="' + ctrlid + '_param_1" style="width: 98%" cols="50" rows="5" class="txtarea"></textarea>' +
 					(tag == 'hide' ? '<br /><label><input type="radio" name="' + ctrlid + '_radio" id="' + ctrlid + '_radio_1" class="pc" checked="checked" />' + $L('hide_tip_1') + '</label><br /><label><input type="radio" name="' + ctrlid + '_radio" id="' + ctrlid + '_radio_2" class="pc" />' + $L('hide_tip_2') + '</label> <input type="text" size="3" id="' + ctrlid + '_param_2" class="px pxs" /> ' + $L('hide_tip_3') + '<br /><br /><label>' + $L('valid_days') + ':</label> <input type="text" size="3" id="' + ctrlid + '_param_3" class="px pxs" /> <br />' + $L('valid_days_tip') : '');
 				break;
@@ -1163,47 +1194,57 @@ function showEditorMenu(tag, params) {
 				}
 				break;
 			case 'code':
-				if(wysiwyg) {
-					var isCodeTag = 1 ;
-					opentag = '<div class="blockcode"><blockquote>';
-					closetag = '</blockquote></div><br />';
-					selection = selection ? selection : '\n';
-				}
-			case 'quote':
-				if(wysiwyg && tag == 'quote') {
-					opentag = '<div class="quote"><blockquote>';
-					closetag = '</blockquote></div><br />';
-					selection = selection ? selection : '\n';
-				}
-			case 'hide':
-			case 'free':
-				if(tag == 'hide') {
-					var mincredits = parseInt($(ctrlid + '_param_2').value);
-					var expire = parseInt($(ctrlid + '_param_3').value);
-					if(expire > 0 || (mincredits > 0 && $(ctrlid + '_radio_2').checked)) {
-						opentag = '[hide=';
-						if(expire > 0) {
-							opentag += 'd'+expire;
+						var codeType = $(ctrlid + '_param_2').value;
+						str = $(ctrlid + '_param_1') && $(ctrlid + '_param_1').value ? $(ctrlid + '_param_1').value : (selection ? selection : '');
+						if(wysiwyg) {
+							var codeTypeDisplay = codeType ? '<div class="codetype">' + codeType + '</div>' : '';
+							var codeContent = str.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/\n/g, '<br />');
+							str = '<div class="blockcode" data-codetype="' + (codeType || '') + '" data-codecontent="' + str.replace(/"/g, '&quot;') + '">' + 
+								'<div class="codeheader">' + codeTypeDisplay + '</div>' + 
+								'<div class="codecontent">' + codeContent + '</div></div><br />';
+							insertText(str, 0, 0, false, sel);
+						} else {
+							opentag = '[code' + (codeType ? '=' + codeType : '') + ']';
+							closetag = '[/code]';
+							str = opentag + str + closetag;
+							insertText(str, strlen(opentag), strlen(closetag), false, sel);
 						}
-						if(mincredits > 0 && $(ctrlid + '_radio_2').checked) {
-							opentag += (expire > 0 ? ',' : '')+mincredits;
+						break;
+					case 'quote':
+						if(wysiwyg && tag == 'quote') {
+							opentag = '<div class="quote"><blockquote>';
+							closetag = '</blockquote></div><br />';
+							selection = selection ? selection : '\n';
 						}
-						opentag += ']';
-					} else {
-						opentag = '[hide]';
-					}
-				}
-				str = $(ctrlid + '_param_1') && $(ctrlid + '_param_1').value ? $(ctrlid + '_param_1').value : (selection ? selection : '');
-				if(wysiwyg) {
-					if(typeof isCodeTag != 'undefined') {
-						str = str.replace(/&/g, '&amp;');
-					}
-					str = preg_replace(['<', '>'], ['&lt;', '&gt;'], str);
-					str = str.replace(/\r?\n/g, '<br />');
-				}
-				str = opentag + str + closetag;
-				insertText(str, strlen(opentag), strlen(closetag), false, sel);
-				break;
+					case 'hide':
+					case 'free':
+						if(tag == 'hide') {
+							var mincredits = parseInt($(ctrlid + '_param_2').value);
+							var expire = parseInt($(ctrlid + '_param_3').value);
+							if(expire > 0 || (mincredits > 0 && $(ctrlid + '_radio_2').checked)) {
+								opentag = '[hide=';
+								if(expire > 0) {
+									opentag += 'd'+expire;
+								}
+								if(mincredits > 0 && $(ctrlid + '_radio_2').checked) {
+									opentag += (expire > 0 ? ',' : '')+mincredits;
+								}
+								opentag += ']';
+							} else {
+								opentag = '[hide]';
+							}
+						}
+						str = $(ctrlid + '_param_1') && $(ctrlid + '_param_1').value ? $(ctrlid + '_param_1').value : (selection ? selection : '');
+						if(wysiwyg) {
+							if(typeof isCodeTag != 'undefined') {
+								str = str.replace(/&/g, '&amp;');
+							}
+							str = preg_replace(['<', '>'], ['&lt;', '&gt;'], str);
+							str = str.replace(/\r?\n/g, '<br />');
+						}
+						str = opentag + str + closetag;
+						insertText(str, strlen(opentag), strlen(closetag), false, sel);
+						break;
 			case 'password':
 				str = $(ctrlid + '_param_1') && $(ctrlid + '_param_1').value ? $(ctrlid + '_param_1').value : (selection ? selection : '');
 				str = opentag + str + closetag;
