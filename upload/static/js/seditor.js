@@ -45,19 +45,37 @@ function seditor_menu(seditorkey, tag) {
 			case 'url':
 				str = $L('input_link_href') + ':<br /><input type="text" id="' + ctrlid + '_param_1" sautocomplete="off" style="width: 98%" value="" class="px" />' +
 					'<br />' + $L('input_link_text') + ':<br /><input type="text" id="' + ctrlid + '_param_2" style="width: 98%" value="" class="px" />';
-				submitstr = "$('" + ctrlid + "_param_2').value !== '' ? seditor_insertunit('" + seditorkey + "', '[url='+seditor_squarestrip($('" + ctrlid + "_param_1').value)+']'+$('" + ctrlid + "_param_2').value, '[/url]', null, 1) : seditor_insertunit('" + seditorkey + "', '[url]'+$('" + ctrlid + "_param_1').value, '[/url]', null, 1);hideMenu();";
+				submitstr = '$(\'' + ctrlid + '_param_2\').value !== "" ? seditor_insertunit(\'' + seditorkey + '\', \'[url=\' + seditor_squarestrip($(\'' + ctrlid + '_param_1\')).value + \']\' + $(\'' + ctrlid + '_param_2\').value, \'[/url]\', null, 1) : seditor_insertunit(\'' + seditorkey + '\', \'[url]\' + $(\'' + ctrlid + '_param_1\').value, \'[/url]\', null, 1);hideMenu();';
 				break;
 			case 'code':
+				str = $L('input_code') + ':<br /><select id="' + ctrlid + '_param_2" class="ps">' +
+					'<option value="">无</option>' +
+					'<option value="bash">Bash</option>' +
+					'<option value="c">C</option>' +
+					'<option value="cpp">C++</option>' +
+					'<option value="csharp">C#</option>' +
+					'<option value="css">CSS</option>' +
+					'<option value="html">HTML</option>' +
+					'<option value="java">Java</option>' +
+					'<option value="javascript">JavaScript</option>' +
+					'<option value="json">JSON</option>' +
+					'<option value="php">PHP</option>' +
+					'<option value="python">Python</option>' +
+					'<option value="ruby">Ruby</option>' +
+					'<option value="sql">SQL</option>' +
+					'<option value="xml">XML</option>' +
+				'</select><br /><textarea id="' + ctrlid + '_param_1" style="width: 98%" cols="50" rows="5" class="txtarea"></textarea>';
+				submitstr = 'var codeType = $(\'' + ctrlid + '_param_2\').value; var codeText = $(\'' + ctrlid + '_param_1\').value; seditor_insertunit(\'' + seditorkey + '\', \'[code\' + (codeType ? \'=\' + codeType : \'\') + \']\' + codeText, \'[/code]\', null, 1);hideMenu();';
+				break;
 			case 'quote':
-				var tagl = {'quote' : $L('input_quote'), 'code' : $L('input_code')};
-					str = tagl[tag] + ':<br /><textarea id="' + ctrlid + '_param_1" style="width: 98%" cols="50" rows="5" class="txtarea"></textarea>';
-				submitstr = "seditor_insertunit('" + seditorkey + "', '[" + tag + "]'+$('" + ctrlid + "_param_1').value, '[/" + tag + "]', null, 1);hideMenu();";
+				str = $L('input_quote') + ':<br /><textarea id="' + ctrlid + '_param_1" style="width: 98%" cols="50" rows="5" class="txtarea"></textarea>';
+				submitstr = 'seditor_insertunit(\'' + seditorkey + '\', \'[quote]\' + $(\'' + ctrlid + '_param_1\').value, \'[/quote]\', null, 1);hideMenu();';
 				break;
 			case 'img':
 				str = $L('input_img') + ':<br /><input type="text" id="' + ctrlid + '_param_1" style="width: 98%" value="" class="px" onchange="loadimgsize(this.value, \'' + seditorkey + '\',\'' + tag + '\')" />' +
 					'<p class="mtm">' + $L('width') + '(' + $L('optional') + '): <input type="text" id="' + ctrlid + '_param_2" style="width: 15%" value="" class="px" /> &nbsp;' +
                     $L('height') + '(' + $L('optional') + '): <input type="text" id="' + ctrlid + '_param_3" style="width: 15%" value="" class="px" /></p>';
-				submitstr = "seditor_insertunit('" + seditorkey + "', '[img' + ($('" + ctrlid + "_param_2').value !== '' && $('" + ctrlid + "_param_3').value !== '' ? '='+$('" + ctrlid + "_param_2').value+','+$('" + ctrlid + "_param_3').value : '')+']'+seditor_squarestrip($('" + ctrlid + "_param_1').value), '[/img]', null, 1);hideMenu();";
+				submitstr = 'seditor_insertunit(\'' + seditorkey + '\', \'[img\' + ($(\'' + ctrlid + '_param_2\').value !== "" && $(\'' + ctrlid + '_param_3\').value !== "" ? \'=\' + $(\'' + ctrlid + '_param_2\').value + \',\' + $(\'' + ctrlid + '_param_3\').value : \'\') + \']\' + seditor_squarestrip($(\'' + ctrlid + '_param_1\')).value, \'[/img]\', null, 1);hideMenu();';
 				break;
 		}
 		var menu = document.createElement('div');
@@ -66,7 +84,7 @@ function seditor_menu(seditorkey, tag) {
 		menu.className = 'p_pof upf';
 		menu.style.width = '270px';
 		$('append_parent').appendChild(menu);
-		menu.innerHTML = '<span class="y"><a onclick="hideMenu()" class="flbc" href="javascript:;">' + $L('close') + '</a></span><div class="p_opt cl"><form onsubmit="' + submitstr + ';return false;" autocomplete="off"><div>' + str + '</div><div class="pns mtn"><button type="submit" id="' + ctrlid + '_submit" class="pn pnc"><strong>' + $L('submit') + '</strong></button><button type="button" onClick="hideMenu()" class="pn"><em>' + $L('cancel') + '</em></button></div></form></div>';
+		menu.innerHTML = '<span class="y"><a onclick="hideMenu()" class="flbc" href="javascript:;">' + $L('close') + '</a></span><div class="p_opt cl"><form onsubmit="try{' + submitstr + '}catch(e){}return false;" autocomplete="off"><div>' + str + '</div><div class="pns mtn"><button type="submit" id="' + ctrlid + '_submit" class="pn pnc"><strong>' + $L('submit') + '</strong></button><button type="button" onClick="hideMenu()" class="pn"><em>' + $L('cancel') + '</em></button></div></form></div>';
 	}
 	showMenu({'ctrlid':ctrlid,'evt':'click','duration':3,'cache':0,'drag':1});
 }
@@ -82,11 +100,11 @@ function seditor_insertunit(key, text, textend, moveend, selappend) {
 		$(key + 'message').focus();
 	}
 	textend = isUndefined(textend) ? '' : textend;
-	moveend = isUndefined(textend) ? 0 : moveend;
+	moveend = isUndefined(moveend) ? 0 : moveend;
 	selappend = isUndefined(selappend) ? 1 : selappend;
 	startlen = strlen(text);
 	endlen = strlen(textend);
-	if(!isUndefined($(key + 'message').selectionStart)) {
+	if($(key + 'message') && !isUndefined($(key + 'message').selectionStart)) {
 		if(selappend) {
 			var opn = $(key + 'message').selectionStart + 0;
 			if(textend != '') {
@@ -101,7 +119,7 @@ function seditor_insertunit(key, text, textend, moveend, selappend) {
 			text = text + textend;
 			$(key + 'message').value = $(key + 'message').value.substr(0, $(key + 'message').selectionStart) + text + $(key + 'message').value.substr($(key + 'message').selectionEnd);
 		}
-	} else if(document.selection && document.selection.createRange) {
+	} else if($(key + 'message') && document.selection && document.selection.createRange) {
 		var sel = document.selection.createRange();
 		if(!sel.text.length && $(key + 'message').sel) {
 			sel = $(key + 'message').sel;
@@ -120,9 +138,9 @@ function seditor_insertunit(key, text, textend, moveend, selappend) {
 		} else {
 			sel.text = text + textend;
 		}
-	} else {
-		$(key + 'message').value += text;
-	}
+	} else if($(key + 'message')) {
+			$(key + 'message').value += text;
+		}
 	hideMenu(2);
 }
 
