@@ -155,10 +155,11 @@ function updateattach($modnewthreads, $tid, $pid, $attachnew, $attachupdate = []
 				$newattachfile[$attach['aid']] = $attach['attachment'];
 			}
 		}
-		if($_G['setting']['watermarkstatus'] && empty($_G['forum']['disablewatermark']) || !$_G['setting']['thumbdisabledmobile']) {
-			require_once libfile('class/image');
-			$image = new image;
-		}
+		$attachfilename_fullpath = $_G['setting']['attachdir'].'/forum/'.$newattachfile[$aid];
+        if($_G['setting']['watermarkstatus'] && empty($_G['forum']['disablewatermark']) && is_file($attachfilename_fullpath) ) {
+            $image->Watermark($attachfilename_fullpath, '', 'forum');
+            $update['filesize'] = $image->imginfo['size'];
+        }
 		if(!empty($_GET['albumaid'])) {
 			array_unshift($_GET['albumaid'], '');
 			$_GET['albumaid'] = array_unique($_GET['albumaid']);
@@ -210,10 +211,11 @@ function updateattach($modnewthreads, $tid, $pid, $attachnew, $attachupdate = []
 					$thumbfile = 'image/'.$dir1.'/'.$dir2.'/'.$dir3.'/'.substr($_daid, -2).'_'.$dw.'_'.$dh.'.jpg';
 					$image->Thumb($_G['setting']['attachdir'].'/forum/'.$newattachfile[$aid], $thumbfile, $dw, $dh, 'fixwr');
 				}
-				if($_G['setting']['watermarkstatus'] && empty($_G['forum']['disablewatermark'])) {
-					$image->Watermark($_G['setting']['attachdir'].'/forum/'.$newattachfile[$aid], '', 'forum');
-					$update['filesize'] = $image->imginfo['size'];
-				}
+				$attachfilename_fullpath = $_G['setting']['attachdir'].'/forum/'.$attach['attachment'];
+                if($attach['isimage'] && $_G['setting']['watermarkstatus'] && empty($_G['forum']['disablewatermark']) && is_file($attachfilename_fullpath)) {
+                    $image->Watermark($attachfilename_fullpath, '', 'forum');
+                    $update['filesize'] = $image->imginfo['size'];
+                }
 			}
 			if(!empty($_GET['albumaid']) && isset($albumattach[$aid])) {
 				$newalbum = 0;
