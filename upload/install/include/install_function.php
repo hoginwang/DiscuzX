@@ -1645,7 +1645,7 @@ function check_adminuser($username, $password, $email) {
 	list($tmp['uid'], $tmp['username'], $tmp['password'], $tmp['email']) = uc_addslashes($ucresult);
 	$ucresult = $tmp;
 	if($ucresult['uid'] <= 0) {
-		$uid = uc_user_register($username, $password, $email);
+		$uid = uc_user_register($username, $password, $email, '', '', '', '', '', false);
 		if($uid == -1 || $uid == -2) {
 			$error = 'admin_username_invalid';
 		} elseif($uid == -4 || $uid == -5 || $uid == -6) {
