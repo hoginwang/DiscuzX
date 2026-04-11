@@ -644,8 +644,6 @@ class restful {
 		return call_user_func_array([$this->_m, $method], $params);
 	}
 
-	// for Developer
-
 	private function _getApiParam_Developer($api, $ver) {
 		$xml = ROOT_PATH.'./data/discuz_restful.xml';
 		require_once ROOT_PATH.'./source/class/class_xml.php';

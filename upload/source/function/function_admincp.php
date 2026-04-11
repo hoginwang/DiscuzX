@@ -307,7 +307,7 @@ function frame_cpmsg($message, $succeed = false, $url = '') {
 	} else {
 		$url = $url ? "'".$url."'" : 'parent.location';
 		echo "<script>
-			if(typeof parent.cpmsgHook == 'undefined') {	
+			if(typeof parent.cpmsgHook == 'undefined') {
 				parent.showDialog('<div class=infotitle2 style=\"padding:5px 10px\">".$message."</div>', 'info', '".cplang('frame_cpmsg_title')."');
 				setTimeout(function() {parent.location = $url;}, 3000);
                         } else {
@@ -1008,14 +1008,6 @@ function showsetting($setname, $varname, $value, $type = 'radio', $disabled = ''
 			$_G['setting_JS'] .= 'var ss = new Array();';
 			$_G['showsetting_multijs'] = 1;
 		}
-		/*
-		if($_G['showsetting_multi'] == 0) {
-			showtablerow('', array('class="td27"'), array('<div id="D'.$setid.'"></div>'));
-			$_G['setting_JS'] .= 'ss[\'D'.$setid.'\'] = new Array();';
-		}
-		$name = preg_replace("/\r\n|\n|\r/", '\n', addcslashes($name, "'\\"));
-		$_G['setting_JS'] .= 'ss[\'D'.$setid.'\'] += \'<div class="multicol">'.$name.'</div>\';';
-		*/
 	}
 	if(!$nocomment && ($type != 'omcheckbox' || $varname[2] != 'isfloat')) {
 		if(!isset($_G['showsetting_multi'])) {

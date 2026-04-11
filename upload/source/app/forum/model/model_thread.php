@@ -131,7 +131,6 @@ class model_thread extends discuz_model {
 
 		$this->param['publishdate'] = !$this->param['modnewthreads'] ? $this->param['publishdate'] : TIMESTAMP;
 
-		// 更新摘要
 		$summary = '';
 		if($this->param['contentType'] == 'json' && $this->param['contentEditor'] == 'jsonEditor'
 			&& is_valid_non_empty_json($this->param['content'], true)) {
@@ -340,7 +339,7 @@ class model_thread extends discuz_model {
 					'subject' => "<a href=\"forum.php?mod=viewthread&tid={$this->tid}\">{$this->param['subject']}</a>",
 					'message' => threadmessagecutstr($this->param, $message, 150)
 				];
-				if(getglobal('forum_attachexist')) {//					$firstaid = DB::result_first("SELECT aid FROM ".DB::table(getattachtablebytid($tid))." WHERE pid='$pid' AND dateline>'0' AND isimage='1' ORDER BY dateline LIMIT 1");
+				if(getglobal('forum_attachexist')) {
 					$imgattach = table_forum_attachment_n::t()->fetch_max_image('tid:'.$this->tid, 'pid', $this->pid);
 					$firstaid = $imgattach['aid'];
 					unset($imgattach);

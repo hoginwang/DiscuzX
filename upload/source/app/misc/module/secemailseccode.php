@@ -30,18 +30,12 @@ if($_GET['action'] == 'send') {
 		$length = $setting_mail['emailcodedefaultlength'] ? $setting_mail['emailcodedefaultlength'] : 6;
 		$secemailseccode = random($length, 1);
 
-		// 验证码发送前先校验安全邮箱是否正确, 避免错误安全邮箱送往短信网关
 		if(empty($email) || !preg_match('/^[\-\.\w]+@[\.\-\w]+(\.\w+)+$/', $email)) {
 			showmessage('profile_email_illegal');
 		}
 
-		// 用户 UID : $_G['uid'], 短信类型: 验证类短信, 服务类型: $svctype
-		// 邮箱: $email, 内容: $secemailseccode, 强制发送: false
 		$result = mailcode::send($_G['uid'], 0, $svctype, $email, $secemailseccode, 0);
 
-		// 当前步骤正常返回 0
-		// 发送时间短于设置返回 -1, 单邮箱发送次数风控规则不通过返回 -2,  全局风控规则不通过返回 -4,
-		// 邮箱验证码功能已被关闭返回 -8, 邮箱验证码私有异常返回 -9
 		if(is_string($result)) {
 			showmessage('secemailseccode_send_failure', '', [$result]);
 		} else if($result >= 0) {
@@ -56,7 +50,6 @@ if($_GET['action'] == 'send') {
 	} else {
 		$handlekey = 'sendemailseccode';
 
-		// 邮件验证码发送前先校验邮箱是否已经填写或格式是否正确
 		if(empty($email) || !preg_match('/^[\-\.\w]+@[\.\-\w]+(\.\w+)+$/', $email)) {
 			showmessage('profile_email_illegal');
 		}

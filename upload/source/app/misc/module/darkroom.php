@@ -33,7 +33,6 @@ if($_G['setting']['darkroom']) {
 			$search_no_result = 1;
 		}
 
-		// 加载模板并显示结果
 		include_once template('misc/darkroom');
 		exit;
 	}

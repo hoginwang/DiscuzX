@@ -62,7 +62,6 @@ class table_home_doing_attachment extends discuz_table
 
 	public function insert($data, $return_insert_id = false, $replace = false, $silent = false, $null = false)
 	{
-		// $null 需要在取消兼容层后删除
 		if (defined('DISCUZ_DEPRECATED')) {
 			throw new Exception('UnsupportedOperationException');
 		} else {
@@ -72,7 +71,6 @@ class table_home_doing_attachment extends discuz_table
 
 	public function fetch($id, $force_from_db = false, $null = false)
 	{
-		// $null 需要在取消兼容层后删除
 		if (defined('DISCUZ_DEPRECATED')) {
 			throw new Exception('UnsupportedOperationException');
 		} else {
@@ -82,7 +80,6 @@ class table_home_doing_attachment extends discuz_table
 
 	public function fetch_all($ids, $force_from_db = false, $null1 = false, $null2 = false)
 	{
-		// $null 1~n 需要在取消兼容层后删除
 		if (defined('DISCUZ_DEPRECATED')) {
 			throw new Exception('UnsupportedOperationException');
 		} else {
@@ -159,7 +156,6 @@ class table_home_doing_attachment extends discuz_table
 			if ($orderby) {
 				$orderby = 'ORDER BY ' . $orderby;
 			} else {
-				// 按displayorder字段排序，实现自定义排序
 				$orderby = 'ORDER BY displayorder ASC, dateline ASC';
 			}
 			$isimage = $isimage === false ? '' : ' AND ' . DB::field('isimage', $isimage);
@@ -202,12 +198,12 @@ class table_home_doing_attachment extends discuz_table
 		}
 		return $attachsize;
 	}
-	public function update_by_aid($aids, $data) 
+	public function update_by_aid($aids, $data)
 	{
 		if (empty($aids) || empty($data)) {
 			return false;
 		}
-		
+
 		return DB::update($this->_table, $data, DB::field($this->_pk, $aids));
 	}
 }

@@ -38,7 +38,7 @@ if($op == 'ignore') {
 	if(!$_G['setting']['ranklist']['membershow']) {
 		exit('Access Denied');
 	}
-	$showinfo = table_home_show::t()->fetch($_G['uid']); //DB::fetch_first("SELECT credit, unitprice FROM ".DB::table('home_show')." WHERE uid='{$_G['uid']}'");
+	$showinfo = table_home_show::t()->fetch($_G['uid']);
 	if(submitcheck('modifysubmit')) {
 		$unitprice = intval($_POST['unitprice']);
 		if($unitprice < 1) {

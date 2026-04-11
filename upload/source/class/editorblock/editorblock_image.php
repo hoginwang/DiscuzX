@@ -14,13 +14,13 @@ class editorblock_image {
 
 	var $version = '1.2.2';
 	var $name = '图片';
-	var $available = 1; // 默认启用状态 0:不启用 1:启用
-	var $columns = 1; //  默认是否支持多列 0:不支持 1:支持
+	var $available = 1;
+	var $columns = 1;
 	var $identifier = 'image';
 	var $description = '图片区块';
 	var $filename = 'image';
 	var $copyright = '<a href="https://addon.dismall.com/developer-32563.html" target="_blank">云诺</a>';
-	var $type = '1'; // 0:数据类型 1:图片类型 2:附件类型 3:视频类型 4:音频类型 5:文件类型
+	var $type = '1';
 
 	function __construct() {
 
@@ -56,16 +56,6 @@ class editorblock_image {
 EOF;
 	}
 
-	/*
-	 * 结构(左顶头)：
-	 * 	{
-	 * 		tools_$identifier: {
-	 * 			$identifier: {
-	 * 				...
-	 * 			}
-	 * 		}
-	 * 	}
-	 */
 	function getConfig() {
 		return <<<EOF
 {
@@ -124,7 +114,6 @@ EOF;
     margin-bottom: 20px;
 }
 .ce-block__content,.ce-toolbar__content {
-	/* max-width:calc(100% - 50px) */
 	margin-left: auto;
     margin-right: auto;
 }
@@ -233,12 +222,6 @@ EOF;
 
   .image-tool--loading .cdx-button {
       display: none;
-    }
-
-  /**
-   * Tunes
-   * ----------------
-   */
 
   .image-tool--withBorder .image-tool__image {
       border: 1px solid #e8e8eb;

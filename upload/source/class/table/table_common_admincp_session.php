@@ -36,7 +36,6 @@ class table_common_admincp_session extends discuz_table {
 	}
 
 	public function delete($val, $unbuffered = false, $null = 3600) {
-		// $null 需要在取消兼容层后删除
 		if(defined('DISCUZ_DEPRECATED')) {
 			throw new Exception('NotImplementedException');
 			return parent::delete($val, $unbuffered);

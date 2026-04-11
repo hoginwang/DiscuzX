@@ -139,8 +139,6 @@ class class_core {
 	function writecplog() {
 		global $_G;
 		$extralog = implodearray(['GET' => $_GET, 'POST' => $_POST], ['formhash', 'submit', 'addsubmit', 'admin_password', 'sid', 'action']);
-		//writelog('cplog', implode("\t", clearlogstring(array($_G['timestamp'], $_G['username'], $_G['adminid'], $_G['clientip'], getgpc('action'), $extralog))));
-		// logger start
 		if(!empty($_G['setting']['log']['cp'])) {
 			$errorlog = [
 				'timestamp' => TIMESTAMP,
@@ -153,7 +151,6 @@ class class_core {
 			$member_log = $_G['member'];
 			logger('cp', $member_log, $_G['member']['uid'], $errorlog);
 		}
-		// logger end
 	}
 
 	function check_cpaccess() {

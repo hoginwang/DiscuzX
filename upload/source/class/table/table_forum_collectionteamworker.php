@@ -79,7 +79,6 @@ class table_forum_collectionteamworker extends discuz_table {
 	}
 
 	public function update($val, $data, $unbuffered = false, $low_priority = false, $null = false) {
-		// $null 需要在取消兼容层后删除
 		if(defined('DISCUZ_DEPRECATED')) {
 			throw new Exception('NotImplementedException');
 			return parent::update($val, $data, $unbuffered, $low_priority);

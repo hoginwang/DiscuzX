@@ -61,7 +61,7 @@ if($_GET['op'] == 'delete') {
 	} elseif($doid) {
 		$updo = table_home_doing::t()->fetch($doid);
 	}
-	
+
 	if(empty($updo)) {
 		showmessage('docomment_error');
 	}
@@ -85,75 +85,57 @@ if($_GET['op'] == 'delete') {
 	$has_more = false;
 
 	if(empty($_GET['close'])) {
-		// 获取顶级评论总数
 		$top_comment_count = intval(table_home_docomment::t()->count_top_by_doid($doid));
-		
-		// 1. 获取分页的顶级评论
+
 		$top_comments = table_home_docomment::t()->fetch_all_top_by_doid($doid, $comment_start, $comment_perpage);
 		$top_ids = array_column($top_comments, 'id');
-		
-		// 检查是否有更多评论（只有在列表页通过AJAX加载时才显示更多链接）
-		// 在单条动态详情页，通过URL参数判断，应该显示分页而不是更多链接
-		// 列表页AJAX请求：不包含page_c参数，显示"更多"链接
-		// 单条动态详情页AJAX请求：包含page_c参数，显示分页，不显示"更多"链接
 		$is_ajax_list = isset($_GET['inlist']);
 		$has_more = $is_ajax_list && $top_comment_count > $comment_perpage;
-		
-		// 2. 获取所有子评论
+
 		$child_comments = table_home_docomment::t()->fetch_all_child_by_doid($doid);
-		
-		// 3. 合并评论
+
 		$all_comments = array_merge($top_comments, $child_comments);
-		
-		// 4. 构建评论映射表
+
 		$comment_map = [];
 		$root_comments = [];
-		
+
 		foreach($all_comments as $comment) {
 			if(!empty($comment['ip'])) {
 				$comment['ip'] = ip::to_display($comment['ip']);
 				$comment['iplocation'] = $_G['setting']['showiplocation'] ? ip::convert($comment['ip'], true) : '';
 			}
 			$comment_map[$comment['id']] = $comment;
-			
+
 			if($comment['upid'] == 0) {
 				$root_comments[] = $comment;
 			}
-			
+
 			$count++;
 		}
-		
-		// 5. 构建评论树结构
+
 		$comment_tree = [];
 		foreach($comment_map as $comment_id => $comment) {
 			$parent_id = $comment['upid'];
 			if($parent_id == 0) {
-				// 根评论
 				$comment_tree[$comment_id] = $comment;
 				$comment_tree[$comment_id]['children'] = [];
 			} else {
-				// 子评论，添加到顶级评论的children数组中，形成扁平的二级结构
 				if(isset($comment_map[$parent_id])) {
 					$parent_comment = $comment_map[$parent_id];
-					
-					// 找到顶级父评论
+
 					$top_parent_id = $parent_id;
 					while($top_parent_id > 0 && isset($comment_map[$top_parent_id]) && $comment_map[$top_parent_id]['upid'] > 0) {
 						$top_parent_id = $comment_map[$top_parent_id]['upid'];
 					}
-					
-					// 只有当顶级父评论是前10条根评论时，才显示当前子评论
+
 					if(in_array($top_parent_id, $top_ids)) {
 						$comment_tree[$top_parent_id]['children'][] = $comment;
 					}
 				}
 			}
 		}
-		
-		// 6. 遍历评论树，生成评论列表
+
 		foreach($comment_tree as $root_id => $root_comment) {
-			
-			// 显示根评论
 			$root_comment['layer'] = 0;
 			$root_comment['style'] = "padding-left:0em;";
 			$root_comment['class'] = '';
@@ -162,24 +144,16 @@ if($_GET['op'] == 'delete') {
 			$root_comment['reply_uid'] = 0;
 			$root_comment['avatar'] = avatar($root_comment['uid'], 'small', true);
 			$root_comment['dateline_formatted'] = dgmdate($root_comment['dateline'], 'u');
-			// 判断是否可以删除评论
 			$root_comment['can_delete'] = ($root_comment['uid'] == $_G['uid'] || $doing_info['uid'] == $_G['uid'] || checkperm('managedoing'));
-			
-			// 移除高亮逻辑，因为$highlight和$space变量未初始化
-			// if($root_comment['id'] == $highlight && $root_comment['uid'] == $space['uid']) {
-			// 	$root_comment['style'] .= 'color:#F60;';
-			// }
-			
+
 			$list[] = $root_comment;
-			
-			// 显示子评论，只显示前3条，超过则提供展开/折叠功能
+
 			if(!empty($root_comment['children'])) {
 				$child_count = count($root_comment['children']);
 				$show_child_count = 3;
 				$show_children = array_slice($root_comment['children'], 0, $show_child_count);
 				$hide_children = array_slice($root_comment['children'], $show_child_count);
-				
-				// 显示前3条子评论
+
 				foreach($show_children as $child_comment) {
 					$child_comment['layer'] = 2;
 					$child_comment['style'] = "padding-left:4em;";
@@ -188,28 +162,23 @@ if($_GET['op'] == 'delete') {
 					$child_comment['is_hidden'] = false;
 					$child_comment['avatar'] = avatar($child_comment['uid'], 'small', true);
 					$child_comment['dateline_formatted'] = dgmdate($child_comment['dateline'], 'u');
-					// 判断是否可以删除评论
 					$child_comment['can_delete'] = ($child_comment['uid'] == $_G['uid'] || $doing_info['uid'] == $_G['uid'] || checkperm('managedoing'));
-					
-					// 设置回复信息：只有当回复的是其他子评论时，才显示回复信息
+
 					$child_comment['reply_to_user'] = '';
 					$child_comment['reply_uid'] = 0;
-					
+
 					if($child_comment['upid'] > 0 && isset($comment_map[$child_comment['upid']])) {
 						$parent_comment = $comment_map[$child_comment['upid']];
-						// 只有当父评论也是子评论时，才显示回复信息
 						if($parent_comment['upid'] > 0) {
 							$child_comment['reply_to_user'] = $parent_comment['username'];
 							$child_comment['reply_uid'] = $parent_comment['uid'];
 						}
 					}
-					
+
 					$list[] = $child_comment;
 				}
-				
-				// 如果有隐藏的子评论，显示展开按钮
+
 				if(!empty($hide_children)) {
-					// 添加展开/折叠按钮
 					$toggle_comment = array(
 						'id' => "toggle_{$root_id}",
 						'doid' => $root_comment['doid'],
@@ -228,8 +197,7 @@ if($_GET['op'] == 'delete') {
 						'can_delete' => false
 					);
 					$list[] = $toggle_comment;
-					
-					// 添加隐藏的子评论
+
 					foreach($hide_children as $child_comment) {
 						$child_comment['layer'] = 2;
 						$child_comment['style'] = "padding-left:2em; display: none;";
@@ -239,67 +207,52 @@ if($_GET['op'] == 'delete') {
 						$child_comment['root_id'] = $root_id;
 						$child_comment['avatar'] = avatar($child_comment['uid'], 'small', true);
 						$child_comment['dateline_formatted'] = dgmdate($child_comment['dateline'], 'u');
-						// 判断是否可以删除评论
 						$child_comment['can_delete'] = ($child_comment['uid'] == $_G['uid'] || $doing_info['uid'] == $_G['uid'] || checkperm('managedoing'));
-						
-						// 设置回复信息：只有当回复的是其他子评论时，才显示回复信息
+
 						$child_comment['reply_to_user'] = '';
 						$child_comment['reply_uid'] = 0;
-						
+
 						if($child_comment['upid'] > 0 && isset($comment_map[$child_comment['upid']])) {
 							$parent_comment = $comment_map[$child_comment['upid']];
-							// 只有当父评论也是子评论时，才显示回复信息
 							if($parent_comment['upid'] > 0) {
 								$child_comment['reply_to_user'] = $parent_comment['username'];
 								$child_comment['reply_uid'] = $parent_comment['uid'];
 							}
 						}
-						
+
 						$list[] = $child_comment;
 					}
 				}
 			}
 		}
 	}
-	
-	// 生成评论分页链接（只有在单条动态详情页AJAX请求时才显示）
+
 	$comment_multi = array();
 	if (isset($_GET['page_c'])) {
 		if($top_comment_count > $comment_perpage) {
-			// 生成AJAX分页链接，指向当前的getcomment接口
 			$comment_url = "home.php?mod=spacecp&ac=doing&op=getcomment&doid=$doid&key=$key&page_c={page}";
 			$comment_multi[$doid] = multi($top_comment_count, $comment_perpage, $comment_page, $comment_url);
-			
-			// 修改分页链接的onclick事件，使其异步加载
-			// 使用正则表达式匹配并替换每个分页链接，处理包含ajaxtarget属性的情况
-			// 匹配所有分页链接，包括page_c=数字、page_c=空和没有page_c参数的情况
+
 			preg_match_all('/<a\s+href="([^"]*?)"[^>]*>/', $comment_multi[$doid], $matches);
 			if(!empty($matches[0])) {
 				foreach($matches[0] as $index => $full_match) {
 					$href = $matches[1][$index];
-					// 解析页码，处理不同情况：page_c=数字、page_c=空、没有page_c参数
-					$page_num = 1; // 默认第一页
+					$page_num = 1;
 					if(preg_match('/page_c=(\d+)/', $href, $page_match)) {
-						// 有明确的页码，如page_c=2
 						$page_num = $page_match[1];
 					} elseif(strpos($href, 'page_c=') !== false) {
-						// page_c后面为空，如page_c=
 						$page_num = 1;
 					}
-					// 生成新的链接，使用javascript:;和onclick事件，移除原有的href和ajaxtarget属性
 					$new_link = '<a href="javascript:;" onclick="docomment_get_page('.$doid.', \''.$key.'\', '.$page_num.');" data-page="'.$page_num.'">';
 					$comment_multi[$doid] = str_replace($full_match, $new_link, $comment_multi[$doid]);
 				}
 			}
-			
-			// 处理当前页的链接（通常是<span>标签）
+
 			$comment_multi[$doid] = preg_replace('/<span[^>]*>(\d+)<\/span>/', '<span data-page="$1">$1</span>', $comment_multi[$doid]);
 		}
 	}
-	
-	// 检查是否是移动端请求，返回JSON数据
+
 	if (defined('IN_MOBILE')) {
-		// 返回JSON数据，包含分页信息而非HTML
 		$response = array(
 			'list' => $list,
 			'count' => $count,
@@ -310,17 +263,14 @@ if($_GET['op'] == 'delete') {
 			'total_comments' => $top_comment_count
 		);
 
-		// 设置响应头为JSON
 		header('Content-Type: application/json; charset=utf-8');
 		echo json_encode($response);
 		dexit();
 	} else {
-		// 输出评论列表
 		include template('home/space_doing_comment_li');
 		dexit();
 	}
 } elseif($_GET['op'] == 'recommend') {
-	// 处理点赞请求
 	$doid = intval($_GET['doid']);
 	$uid = $_G['uid'];
 
@@ -336,12 +286,10 @@ if($_GET['op'] == 'delete') {
 	$exists = table_home_doing_recomend_log::t()->fetch_by_doid_uid($doid, $uid);
 
 	if($exists) {
-		// 取消点赞
 		table_home_doing::t()->update_recommendnum_by_doid(-1, $doid);
 		table_home_doing_recomend_log::t()->delete_by_doid_uid($doid, $uid);
 		$status = 0;
 	} else {
-		// 添加点赞
 		table_home_doing::t()->update_recommendnum_by_doid(1, $doid);
 		table_home_doing_recomend_log::t()->insert(array(
 			'doid' => $doid,
@@ -351,7 +299,6 @@ if($_GET['op'] == 'delete') {
 		$status = 1;
 	}
 
-	// 重新获取点赞数
 	$doing = table_home_doing::t()->fetch($doid);
 	$recomends = $doing['recomends'];
 
@@ -359,7 +306,6 @@ if($_GET['op'] == 'delete') {
 		showmessage('doing_recommend_success', '', array(), array('status' => $status,'count' => $recomends));
 		exit();
 	}else{
-		// 直接返回JSON格式数据
 		header('Content-Type: application/json');
 		echo json_encode(array(
 			'message' => 'doing_recommend_success',
@@ -390,7 +336,7 @@ if($_GET['op'] == 'delete') {
 			$value = $f['Filedata'];
 			if (is_array($value) && $value['attachment']) {
 				if (isset($value['isimage']) && $value['isimage'] == 1) {
-					$temp_doid = 0; 
+					$temp_doid = 0;
 					$aid = table_home_doing_attachment::t()->insert_attachment([
 						'doid' => $temp_doid,
 						'uid' => $_G['uid'],
@@ -408,7 +354,7 @@ if($_GET['op'] == 'delete') {
 					if($value['remote']) {
 						$image_url = getglobal('setting/ftp/attachurl').'doing/'.$value['attachment'];
 					}
-					
+
 					$image = [
 						'aid' => $aid,
 						'filename' => $value['name'],
@@ -423,7 +369,7 @@ if($_GET['op'] == 'delete') {
 			}
 		}
 
-		// 构建结果
+
 		if ($image) {
 			$result = [
 				'status' => 'success',
@@ -433,9 +379,9 @@ if($_GET['op'] == 'delete') {
 			$result = [
 				'status' => 'error',
 				'message' => 'Upload failed or no valid image found',
-				'debug_info' => $f // 仅用于调试，实际部署时应移除
+				'debug_info' => $f
 			];
-			
+
 			if(defined('IN_RESTFUL')) {
 				showmessage('upload_failed', '', array(), array('result' => $result));
 			} else {
@@ -654,7 +600,7 @@ if($_GET['op'] == 'delete') {
 			break;
 
 		case 'thread':
-			//此段如果修改，须对应修改source/app/forum/extend/extend_thread_doing.php
+
 			$feed_hash_data = "tid{$id}";
 
 			$thread = table_forum_thread::t()->fetch_thread($id);
@@ -736,7 +682,7 @@ if($_GET['op'] == 'delete') {
 				'username' => $sdoing['username'],
 				'dateline' => dgmdate($sdoing['dateline']),
 			];
-			// 查询记录对应的附件信息
+
 			$attachment = table_home_doing_attachment::t()->fetch_max_image(0, 'doid', $id);
 			if($attachment) {
 				$arr['image'] = $arr['body_data']['image'] = getdiscuzimg('doing', $attachment['aid'], 0, 140, 140);
@@ -780,25 +726,21 @@ if($_GET['op'] == 'delete') {
 			$doing_status = 0;
 		}
 
-		// AT功能处理
 		if($_G['group']['allowat']) {
 			$atlist = parse_at_user($message);
 			if($atlist) {
-				// 处理AT标签，生成链接
 				$atsearch = [];
 				$atreplace = [];
 				foreach($atlist as $atuid => $atusername) {
 					$atsearch[] = '/@'.preg_quote($atusername, '/').' /i';
 					$atreplace[] = '<a href="home.php?mod=space&uid='.$atuid.'" class="atuser" target="_blank" c="1">@'.$atusername.'</a> ';
 
-					// 匹配新格式：@[用户名]（带方括号）
 					$atsearch[] = '/@\['.preg_quote($atusername, '/').'\]/i';
 					$atreplace[] = '<a href="home.php?mod=space&uid='.$atuid.'" class="atuser" target="_blank" c="1">@'.$atusername.'</a> ';
 				}
 				$updated_message = preg_replace($atsearch, $atreplace, $message.' ', 1);
 				$updated_message = substr($updated_message, 0, strlen($updated_message) - 1);
-				
-				// 存储AT信息到fields字段
+
 				$updatefields['at'] = $atlist;
 				$message = $updated_message;
 			}
@@ -821,14 +763,13 @@ if($_GET['op'] == 'delete') {
 		];
 		$newdoid = table_home_doing::t()->insert($setarr, 1);
 
-		// 标签提取和处理
 		$class_tag = new tag();
 		$tags = '';
-		// 从消息中提取标签（假设标签格式为#标签名#）
+
 		preg_match_all('/#([^#]+)#/', $message, $matches);
 		if (!empty($matches[1])) {
 			$tags = implode(',', $matches[1]) . ',';
-			// 添加标签关联
+
 			if($tags) {
 				$tagsarr = $class_tag->add_tag($tags, $newdoid, 'doid',true);
 			}
@@ -837,7 +778,7 @@ if($_GET['op'] == 'delete') {
 			$updatefields['tags'] = $tagsarr;
 		}
 		if($atlist) {
-			// 发送通知给被AT的用户
+
 			foreach($atlist as $atuid => $atusername) {
 				notification_add($atuid, 'at', 'at_doing', array('from_id' => $newdoid, 'from_idtype' => 'at', 'buyerid' => $_G['uid'], 'buyer' => $_G['username'], 'doid' => $newdoid));
 			}
@@ -855,8 +796,8 @@ if($_GET['op'] == 'delete') {
 		if (!empty($_POST['imageaids'])) {
 			$imageaids = explode(',', $_POST['imageaids']);
 			$imageaids = array_map('intval', $imageaids);
-			$imageaids = array_filter($imageaids); 
-			
+			$imageaids = array_filter($imageaids);
+
 			if (!empty($imageaids)) {
 				table_home_doing_attachment::t()->update_by_aid($imageaids, ['doid' => $newdoid]);
 			}
@@ -865,25 +806,19 @@ if($_GET['op'] == 'delete') {
 			$upload = new upload('doing');
 			$f = $upload->upload();
 
-			// 检查上传结果
 			$photos = [];
 			if (!empty($f['photos'])) {
-				// 处理多图上传情况
 				if (isset($f['photos'][0])) {
-					// 多图数组
 					$photos = $f['photos'];
 				} else {
-					// 单图情况
 					$photos[] = $f['photos'];
 				}
 			}
 
-			// 保存图片信息到数据库
 			if (!empty($photos)) {
 				foreach ($photos as $key => $value) {
 					if (!$value['attachment']) continue;
 
-					// 保存图片信息
 					table_home_doing_attachment::t()->insert_attachment([
 						'doid' => $newdoid,
 						'uid' => $_G['uid'],
@@ -1036,7 +971,7 @@ if($_GET['op'] == 'delete') {
 			}
 			$magvalues['type'] = $commentcable[$type];
 		}
-		
+
 		if(helper_access::check_module('feed') && ckprivacy('doing', 'feed') && $doing_status == '0') {
 			$feedarr = [
 				'icon' => 'doing',
@@ -1136,7 +1071,7 @@ if($_GET['op'] == 'delete') {
 
 		$replyUid = $updo['uid'];
 		$replyUsername = $updo['username'];
-		
+
 		$setarr = [
 			'doid' => $updo['doid'],
 			'upid' => $updo['id'],

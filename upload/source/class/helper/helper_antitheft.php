@@ -81,7 +81,7 @@ class helper_antitheft {
 		$codes[$replace] = "$replace = 'replace';";
 		$codes[$assign] = "$assign = 'assign';";
 		$codes['getname'] = 'function getName(){var caller=getName.caller;if(caller.name){return caller.name} var str=caller.toString().replace(/[\s]*/g,"");var name=str.match(/^function([^\(]+?)\(/);if(name && name[1]){return name[1];} else {return \'\';}}';
-		$jskeywords = ['for' => '', 'case' => '', 'if' => '', 'else' => '', 'try' => '', 'new' => '', 'eval' => '', 'var' => '']; //js关键字
+		$jskeywords = ['for' => '', 'case' => '', 'if' => '', 'else' => '', 'try' => '', 'new' => '', 'eval' => '', 'var' => ''];
 		$methods = [1, 2, 3, 4, 5, 6, 7];
 		$lenths = [2, 2, 3, 4];
 		for($i = 0, $l = strlen($url); $i < $l; $i++) {

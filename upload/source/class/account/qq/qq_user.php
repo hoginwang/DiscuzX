@@ -10,10 +10,6 @@ if(!defined('IN_DISCUZ')) {
 	exit('Access Denied');
 }
 
-/**
- * QQ
- * 成员管理
- */
 class qq_user {
 	private $token;
 	private $tools;
@@ -23,16 +19,10 @@ class qq_user {
 		$this->tools = new qq_tools();
 	}
 
-	/**
-	 * 设置token
-	 */
 	public function setToken($token = NULL) {
 		$this->token = $token;
 	}
 
-	/**
-	 * 获取token
-	 */
 	public function getToken() {
 		return $this->token;
 	}
@@ -41,10 +31,6 @@ class qq_user {
 		return 'https://graph.qq.com/oauth2.0/authorize?'.http_build_query($query_data);
 	}
 
-	/**
-	 * 获取访问用户身份
-	 * @return array|mixed
-	 */
 	public function getOpenid() {
 		$url = 'https://graph.qq.com/oauth2.0/me';
 		$data = ['access_token' => $this->token['access_token'], 'fmt' => 'json'];
@@ -53,10 +39,6 @@ class qq_user {
 		return $result ?? [];
 	}
 
-	/**
-	 * 获取访问用户身份
-	 * @return array|mixed
-	 */
 	public function getAuthUser($openid) {
 		$url = 'https://graph.qq.com/user/get_user_info';
 		$data = ['access_token' => $this->token['access_token'], 'oauth_consumer_key' => $openid['client_id'], 'openid' => $openid['openid'], 'fmt' => 'json'];
@@ -76,4 +58,4 @@ class qq_user {
 	}
 
 }
-/* End of file  */
+

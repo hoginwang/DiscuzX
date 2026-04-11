@@ -20,12 +20,12 @@ class discuz_memory extends discuz_base {
 	public $enable = false;
 	public $debug = [];
 
-	public $gotset = false; // 是否支持Set数据类型
-	public $gothash = false; // 是否支持Hash数据类型
-	public $goteval = false; // 是否支持lua脚本eval
-	public $gotsortedset = false; // 是否支持SortedSet
-	public $gotcluster = false; // 是否是集群环境
-	public $gotpipeline = false; // 是否支持pipeline
+	public $gotset = false;
+	public $gothash = false;
+	public $goteval = false;
+	public $gotsortedset = false;
+	public $gotcluster = false;
+	public $gotpipeline = false;
 
 	public function __construct() {
 	}
@@ -257,11 +257,6 @@ class discuz_memory extends discuz_base {
 		return $this->memory->hget($this->_key($key), $field);
 	}
 
-	/*
-	 * 如果设置了sha_key，将脚本load，然后将sha保存在$prefix_$sha_key中
-	 * 如果sha_key中有sha，则执行evalSha
-	 * 如果没有sha_key，则eval脚本
-	 */
 	public function evalscript($script, $argv, $sha_key, $prefix = '') {
 		if(!$this->enable || !$this->goteval) {
 			return false;

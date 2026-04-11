@@ -68,14 +68,11 @@ class extend_thread_doing extends extend_thread_base {
 				'status' => $doing_status,
 			];
 			$newdoid = table_home_doing::t()->insert($setarr, 1);
-			// 标签提取和处理
 			$class_tag = new tag();
 			$tags = '';
-			// 从消息中提取标签（假设标签格式为#标签名#）
 			preg_match_all('/#([^#]+)#/', $message, $matches);
 			if (!empty($matches[1])) {
 				$tags = implode(',', $matches[1]) . ',';
-				// 添加标签关联
 				if($tags) {
 					$tagsarr = $class_tag->add_tag($tags, $newdoid, 'doid',true);
 				}

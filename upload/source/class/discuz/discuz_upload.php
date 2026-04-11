@@ -125,7 +125,6 @@ class discuz_upload {
 		} elseif($imageinfo = @getimagesize($target)) {
 			list($width, $height, $type) = !empty($imageinfo) ? $imageinfo : ['', '', ''];
 			$size = $width * $height;
-			// Imagick 不受最大大小限制, GD 限制值从数据库读取
 			if((!getglobal('setting/imagelib') && $size > (getglobal('setting/gdlimit') ? getglobal('setting/gdlimit') : 16777216)) || $size < 16) {
 				return false;
 			} elseif($ext == 'swf' && $type != 4 && $type != 13) {
@@ -174,7 +173,6 @@ class discuz_upload {
 	public static function get_target_dir($type, $extid = '', $check_exists = true, $subdir = '', $dirtype = 1) {
 
 		$dir = $subdir1 = $subdir2 = '';
-		// $dirtype == 0 表示不需要子目录
 		if($dirtype == 1) {
 			if($type == 'group' || $type == 'common') {
 				$dir = $subdir1 = substr(md5($extid), 0, 2).'/';

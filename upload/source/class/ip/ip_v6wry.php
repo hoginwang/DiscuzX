@@ -10,9 +10,6 @@ if(!defined('IN_DISCUZ')) {
 	exit('Access Denied');
 }
 
-/**
- * Modified from class IPDBv6 ( popcorner, MIT License )
- */
 class ip_v6wry extends ip_base {
 	private static $instance = null;
 	public $ipdb, $firstIndex, $indexCount, $offlen;

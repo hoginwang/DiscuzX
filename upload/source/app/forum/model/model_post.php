@@ -57,7 +57,7 @@ class model_post extends discuz_model {
 
 	protected function _init_parameters($parameters) {
 		$varname = [
-			'member', 'group', 'forum', 'thread', 'extramessage', 'special',//'nauthorid' 'modnewreplies' 'tid'
+			'member', 'group', 'forum', 'thread', 'extramessage', 'special',
 			'message', 'content', 'clientip', 'invisible', 'isanonymous', 'usesig',
 			'htmlon', 'bbcodeoff', 'smileyoff', 'parseurloff', 'pstatus',
 			'noticetrimstr', 'noticeauthor', 'from', 'sechash', 'geoloc',
@@ -473,7 +473,6 @@ class model_post extends discuz_model {
 			}
 			table_forum_thread::t()->update($this->thread['tid'], $this->param['threadupdatearr'], true);
 
-			// 更新摘要
 			$summary = '';
 			if($this->param['contentType'] == 'json' && $this->param['contentEditor'] == 'jsonEditor'
 				&& is_valid_non_empty_json($this->param['content'], true)) {

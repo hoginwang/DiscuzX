@@ -159,7 +159,6 @@ if($script != 'log') {
 	require_once libfile('function/misc');
 
 	$extralog = implodearray(['GET' => $_GET, 'POST' => $_POST], ['cppwd', 'formhash', 'submit', 'addsubmit']);
-	// logger start
 	if($_G['setting']['log']['modcp']) {
 		$errorlog = [
 			'timestamp' => TIMESTAMP,
@@ -174,7 +173,6 @@ if($script != 'log') {
 		$member_log = getuserbyuid($_G['adminid']);
 		logger('modcp', $member_log, $_G['member']['uid'], $errorlog);
 	}
-	// logger end
 }
 
 require childfile($script);

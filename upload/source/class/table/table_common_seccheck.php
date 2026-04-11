@@ -41,7 +41,6 @@ class table_common_seccheck extends discuz_table {
 				memory('rm', $ssid.'_code', $this->_pre_cache_key);
 				memory('rm', $ssid.'_dateline', $this->_pre_cache_key);
 			}
-			// 其它情况，由cache自己处理过期
 		} else {
 			if($ssid) {
 				$ssid = dintval($ssid);
@@ -67,21 +66,16 @@ class table_common_seccheck extends discuz_table {
 		}
 		memory('inc', $ssid.'_verified', 1, 0, $this->_pre_cache_key);
 		memory('inc', $ssid.'_succeed', 1, 0, $this->_pre_cache_key);
-		return 1; // simulate 1 row changed
+		return 1;
 	}
 
 	public function truncate() {
 		if($this->_allowmem) {
-			// 由Cache自己处理过期
 		} else {
 			DB::query('TRUNCATE %t', [$this->_table]);
 		}
 	}
 
-	/*
-	 * 用一个单独的common_seccheck_pk生成唯一ID
-	 * 所有的值按common_seccheck_$id_$key的格式记录
-	 */
 	public function insert($data, $return_insert_id = false, $replace = false, $silent = false) {
 		if(!$this->_allowmem) {
 			return parent::insert($data, $return_insert_id, $replace, $silent);

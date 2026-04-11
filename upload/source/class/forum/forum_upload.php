@@ -88,7 +88,6 @@ class forum_upload {
 			}
 		}
 
-		// 修复敏感词拦截无明确提示的问题
 		$filename = censor($upload->attach['name'], NULL, TRUE);
 		if(is_array($filename)) {
 			return $this->uploadmsg(12);
@@ -102,7 +101,6 @@ class forum_upload {
 			$imageinfo = @getimagesize($upload->attach['tmp_name']);
 			list($width, $height, $type) = !empty($imageinfo) ? $imageinfo : [0, 0, 0];
 			$size = $width * $height;
-			// 新增 GD 图片像素点上限服务器侧拦截
 			if((!getglobal('setting/imagelib') && $size > (getglobal('setting/gdlimit') ? getglobal('setting/gdlimit') : 16777216)) || $size < 16) {
 				return $this->uploadmsg(13);
 			}

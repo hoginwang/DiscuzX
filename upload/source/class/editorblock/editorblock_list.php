@@ -14,13 +14,13 @@ class editorblock_list {
 
 	var $version = '1.0.7';
 	var $name = '列表';
-	var $available = 1; // 默认启用状态 0:不启用 1:启用
-	var $columns = 1; //  默认是否支持多列 0:不支持 1:支持
+	var $available = 1;
+	var $columns = 1;
 	var $identifier = 'list';
 	var $description = '列表区块';
 	var $filename = 'list';
 	var $copyright = '<a href="https://addon.dismall.com/developer-32563.html" target="_blank">云诺</a>';
-	var $type = '0'; // 0:数据类型 1:图片类型 2:附件类型 3:视频类型 4:音频类型 5:文件类型
+	var $type = '0';
 
 	function __construct() {
 
@@ -46,22 +46,12 @@ class editorblock_list {
             "unordered"
         ]
     },
-    "id": "ZT8S70Q34G", // 区块id
-    "type": "list" // 区块类型
+    "id": "ZT8S70Q34G",
+    "type": "list"
 }
 EOF;
 	}
 
-	/*
-	 * 结构(左顶头)：
-	 * 	{
-	 * 		tools_$identifier: {
-	 * 			$identifier: {
-	 * 				...
-	 * 			}
-	 * 		}
-	 * 	}
-	 */
 	function getConfig() {
 		return <<<EOF
 {
@@ -113,7 +103,6 @@ EOF;
     margin-bottom: 20px;
 }
 .ce-block__content,.ce-toolbar__content {
-	/* max-width:calc(100% - 50px) */
 	margin-left: auto;
     margin-right: auto;
 }
@@ -150,7 +139,6 @@ EOF;
   display: flex;
 }
 .cdx-list-ordered .cdx-list__item:before {
-	/* content:counters(item,".",numeric) "." */
 }
 .cdx-list-ordered {
 	list-style-type: none;

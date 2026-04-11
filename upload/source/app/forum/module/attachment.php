@@ -52,7 +52,6 @@ if($_G['setting']['attachexpire']) {
 				dheader('location: '.$_G['siteurl'].'static/image/common/none.gif');
 			} else {
 				if(!$requestmode) {
-					// 生成链接的用户是当前用户则可以直接获取新链接, 否则引导用户去原贴处理
 					if($sameuser) {
 						showmessage('attachment_expired', '', ['aid' => aidencode($aid, 0, $attach['tid']), 'pid' => $attach['pid'], 'tid' => $attach['tid']]);
 					} else {
@@ -87,7 +86,6 @@ if(!$requestmode && $_G['setting']['attachrefcheck'] && $_SERVER['HTTP_REFERER']
 
 periodscheck('attachbanperiods');
 
-// 获取 thread 分表
 loadcache('threadtableids');
 $threadtableids = !empty($_G['cache']['threadtableids']) ? $_G['cache']['threadtableids'] : [];
 if(!in_array(0, $threadtableids)) {
@@ -95,7 +93,6 @@ if(!in_array(0, $threadtableids)) {
 }
 $archiveid = in_array($_GET['archiveid'], $threadtableids) ? intval($_GET['archiveid']) : 0;
 
-// 检查附件 aid 数据记录，取得附件和主题信息
 $attachexists = FALSE;
 if(!empty($aid) && is_numeric($aid)) {
 	$attach = table_forum_attachment_n::t()->fetch_attachment($tableid, $aid);
@@ -166,7 +163,7 @@ function getlocalfile($filename, $readmod = 2, $range_start = 0, $range_end = 0)
 }
 
 function send_file_by_chunk($fp, $limit = PHP_INT_MAX) {
-	static $CHUNK_SIZE = 65536; // 每次最大读 64KB
+	static $CHUNK_SIZE = 65536;
 	$count = 0;
 	while(!feof($fp)) {
 		$size_to_read = $CHUNK_SIZE;

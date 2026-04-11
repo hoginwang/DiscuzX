@@ -180,11 +180,9 @@ class pay_wechat extends pay_base {
 	}
 
 	public function v3_wechat_support() {
-		// ext-sodium (default installed on >= PHP 7.2)
 		if(function_exists('sodium_crypto_aead_aes256gcm_is_available') && sodium_crypto_aead_aes256gcm_is_available()) {
 			return true;
 		}
-		// openssl (PHP >= 7.1 support AEAD)
 		if(in_array('aes-256-gcm', openssl_get_cipher_methods())) {
 			return true;
 		}
@@ -510,11 +508,9 @@ class pay_wechat extends pay_base {
 			return false;
 		}
 
-		// ext-sodium (default installed on >= PHP 7.2)
 		if(function_exists('sodium_crypto_aead_aes256gcm_is_available') && sodium_crypto_aead_aes256gcm_is_available()) {
 			return sodium_crypto_aead_aes256gcm_decrypt($ciphertext, $associateddata, $noncestr, $this->settings['v3_key']);
 		}
-		// openssl (PHP >= 7.1 support AEAD)
 		if(in_array('aes-256-gcm', openssl_get_cipher_methods())) {
 			$ctext = substr($ciphertext, 0, -16);
 			$authTag = substr($ciphertext, -16);

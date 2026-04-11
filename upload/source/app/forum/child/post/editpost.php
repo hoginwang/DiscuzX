@@ -456,16 +456,13 @@ if(!submitcheck('editsubmit')) {
 		if($isfirstpost && $isorigauthor && $_G['group']['allowreplycredit']) {
 			$param['replycredit_rule'] = $replycredit_rule;
 		}
-		// 原创声明 0未声明、1声明原创、-1非原创
 		if(!empty($original)) {
 			$param['original'] = $original;
 		}
-		// 文章来源
 		if(!empty($source)) {
 			$param['source'] = $source;
 		}
 
-		// cover start
 		if($cover_aid) {
 			convertunusedattach($cover_aid, $_G['tid'], $pid);
 			$threadimage = table_forum_attachment_n::t()->fetch_attachment('aid:'.$cover_aid, $cover_aid);
@@ -478,9 +475,7 @@ if(!submitcheck('editsubmit')) {
 				]);
 			}
 		}
-		// cover end
 
-		// 开始处理json编辑器内容中的图片、视频等附件
 		if(is_valid_non_empty_json($param['content'], true)) {
 			$blocksData = json_decode($param['content'], true);
 
@@ -503,7 +498,6 @@ if(!submitcheck('editsubmit')) {
 				}
 			}
 		}
-		// 结束处理json编辑器内容中的图片、视频等附件
 
 		$modpost->editpost($param);
 

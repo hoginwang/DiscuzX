@@ -28,7 +28,6 @@ class table_common_session extends discuz_table {
 	}
 
 	public function fetch($id, $force_from_db = false, $null = false) {
-		// $null 需要在取消兼容层后删除
 		if(defined('DISCUZ_DEPRECATED')) {
 			throw new Exception('NotImplementedException');
 			return parent::fetch($id, $force_from_db);
@@ -85,13 +84,9 @@ class table_common_session extends discuz_table {
 		$guestspan = time() - $guestspan;
 
 		$session = daddslashes($session);
-		//当前用户的sid
 		$condition = " sid='{$session['sid']}' ";
-		//过期的 session
 		$condition .= " OR lastactivity<$onlinehold ";
-		//频繁的同一ip游客
 		$condition .= " OR (uid='0' AND ".DB::field('ip', $session['ip'])." AND lastactivity>$guestspan) ";
-		//当前用户的uid
 		$condition .= $session['uid'] ? " OR (uid='{$session['uid']}') " : '';
 		DB::delete('common_session', $condition);
 	}

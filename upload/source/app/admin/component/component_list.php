@@ -12,21 +12,6 @@ if(!defined('IN_DISCUZ')) {
 	exit('Access Denied');
 }
 
-/*
-扩充设置范例：
-[
- {"type": "text", "field": "f1", "name": "text1", "width": 80, "maxlen": "2,4"},
- {"type": "radio", "field": "f2", "name": "radio1"},
- {"type": "mradio", "field": "f3", "name": "radio2", "options": [{"name":"A","value":"a","default":true},{"name":"B","value":"b"}]},
- {"type": "checkbox", "field": "f4", "name": "checkbox", "options": [{"name":"C","value":"c","default":true},{"name":"D","value":"d"}]},
- {"type": "select", "field": "f5", "name": "select", "width": 80, "options": [{"name":"C","value":"c"},{"name":"D","value":"d","default":true}]},
- {"type": "select", "field": "f6", "name": "group", "width": 150, "optionstype": "groups"},
- {"type": "select", "field": "f7", "name": "forum", "width": 150, "optionstype": "forums"},
- {"type": "select", "field": "f8", "name": "portalcat", "width": 150, "optionstype": "portalcat"},
- {"type": "select", "field": "f9", "name": "extcredit", "width": 80, "optionstype": "extcredit"}
-]
-*/
-
 class component_list {
 
 	var $name = '自定义列表';

@@ -10,20 +10,6 @@ if(!defined('IN_DISCUZ')) {
 	exit('Access Denied');
 }
 
-/**
- * upload 上传类
- *
- * $upload = new upload(
- *      path:     data/attachment 的子目录名,
- *      filekey:  $_FILES 的 key，留空时上传 $_FILES 的所有文件
- *      base64:   base64 编码的文件内容，留空时解析 $_FILES
- * );
- *
- * $upload->getInfo();                  // 用于上传前判断获取文件信息，返回上传前的文件信息
- * $upload->upload();                   // 开始上传，返回上传后的文件信息
- * $upload->delete(attachment: 文件名);  // 删除上传的文件
- * $upload->getUrl(attachment: 文件名);  // 获取上传文件的 URL, attachment参数为空时获取存储目录路径
- */
 class upload {
 
 	public function __construct($target, $filekey = [], $base64 = '') {

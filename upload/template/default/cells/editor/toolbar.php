@@ -4,11 +4,6 @@ if(!defined('IN_DISCUZ')) {
 	exit('Access Denied');
 }
 
-/*
- * 编辑器工具栏的细胞模板
- * 模板调用方法：{cells editor/toolbar}
- */
-
 class editor_toolbar {
 
 	public static $name = '编辑器工具栏';

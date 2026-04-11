@@ -179,14 +179,11 @@ function authcode_numeric($string, $operation = 'DECODE', $key = '') {
 	$result = '';
 	$box = range(0, 9);
 
-	// 产生密钥簿
 	$rndkey = [];
 	for($i = 0; $i < 10; $i++) {
 		$rndkey[$i] = ord($key[$i % $key_length]);
 	}
 
-	// 打乱密钥簿, 增加随机性
-	// 类似 AES 算法中的 SubBytes 步骤
 	for($j = $i = 0; $i < 10; $i++) {
 		$j = ($j + $box[$i] + $rndkey[$i]) % 10;
 		$tmp = $box[$i];
@@ -195,7 +192,6 @@ function authcode_numeric($string, $operation = 'DECODE', $key = '') {
 	}
 
 	$mask = 0;
-	// 从密钥簿得出密钥进行异或，再转成字符
 	for($a = $j = $i = 0; $i < $string_length; $i++) {
 		$a = ($a + 1) % 10;
 		$j = ($j + $box[$a]) % 10;
@@ -212,7 +208,6 @@ function authcode_numeric($string, $operation = 'DECODE', $key = '') {
 		}
 		$result .= $v;
 	}
-	// 最后一位为校验位
 	if($operation == 'ENCODE') {
 		$result .= $mask % 10;
 	} elseif($mask % 10 != $check_mask) {
@@ -222,33 +217,25 @@ function authcode_numeric($string, $operation = 'DECODE', $key = '') {
 }
 
 function authcode($string, $operation = 'DECODE', $key = '', $expiry = 0, $ckey_length = 4) {
-	// 动态密钥长度, 通过动态密钥可以让相同的 string 和 key 生成不同的密文, 提高安全性
 	$key = md5($key != '' ? $key : getglobal('authkey'));
-	// a参与加解密, b参与数据验证, c进行密文随机变换
 	$keya = md5(substr($key, 0, 16));
 	$keyb = md5(substr($key, 16, 16));
 	$keyc = $ckey_length ? ($operation == 'DECODE' ? substr($string, 0, $ckey_length) : substr(md5(microtime()), -$ckey_length)) : '';
 
-	// 参与运算的密钥组
 	$cryptkey = $keya.md5($keya.$keyc);
 	$key_length = strlen($cryptkey);
 
-	// 前 10 位用于保存时间戳验证数据有效性, 10 - 26位保存 $keyb , 解密时通过其验证数据完整性
-	// 如果是解码的话会从第 $ckey_length 位开始, 因为密文前 $ckey_length 位保存动态密匙以保证解密正确 
 	$string = $operation == 'DECODE' ? base64_decode(substr($string, $ckey_length)) : sprintf('%010d', $expiry ? $expiry + time() : 0).substr(md5($string.$keyb), 0, 16).$string;
 	$string_length = strlen($string);
 
 	$result = '';
 	$box = range(0, 255);
 
-	// 产生密钥簿
 	$rndkey = [];
 	for($i = 0; $i <= 255; $i++) {
 		$rndkey[$i] = ord($cryptkey[$i % $key_length]);
 	}
 
-	// 打乱密钥簿, 增加随机性
-	// 类似 AES 算法中的 SubBytes 步骤
 	for($j = $i = 0; $i < 256; $i++) {
 		$j = ($j + $box[$i] + $rndkey[$i]) % 256;
 		$tmp = $box[$i];
@@ -256,7 +243,6 @@ function authcode($string, $operation = 'DECODE', $key = '', $expiry = 0, $ckey_
 		$box[$j] = $tmp;
 	}
 
-	// 从密钥簿得出密钥进行异或，再转成字符 
 	for($a = $j = $i = 0; $i < $string_length; $i++) {
 		$a = ($a + 1) % 256;
 		$j = ($j + $box[$a]) % 256;
@@ -267,16 +253,12 @@ function authcode($string, $operation = 'DECODE', $key = '', $expiry = 0, $ckey_
 	}
 
 	if($operation == 'DECODE') {
-		// 这里按照算法对数据进行验证, 保证数据有效性和完整性
-		// $result 01 - 10 位是时间, 如果小于当前时间或为 0 则通过
-		// $result 10 - 26 位是加密时的 $keyb , 需要和入参的 $keyb 做比对
 		if(((int)substr($result, 0, 10) == 0 || (int)substr($result, 0, 10) - time() > 0) && substr($result, 10, 16) === substr(md5(substr($result, 26).$keyb), 0, 16)) {
 			return substr($result, 26);
 		} else {
 			return '';
 		}
 	} else {
-		// 把动态密钥保存在密文里, 并用 base64 编码保证传输时不被破坏
 		return $keyc.str_replace('=', '', base64_encode($result));
 	}
 
@@ -455,7 +437,7 @@ function checkmobile() {
 	}
 	if(($v = dstrpos($useragent, $wmlbrowser_list))) {
 		$_G['mobile'] = $v;
-		return '3'; //wml版
+		return '3';
 	}
 	$brower = ['mozilla', 'chrome', 'safari', 'opera', 'm3gate', 'winwap', 'openwave'];
 	if(dstrpos($useragent, $brower)) return false;
@@ -504,7 +486,6 @@ function random($length, $numeric = 0) {
 }
 
 function secrandom($length, $numeric = 0, $strong = false) {
-	// Thank you @popcorner for your strong support for the enhanced security of the function.
 	$chars = $numeric ? ['A', 'B', '+', '/', '='] : ['+', '/', '='];
 	$num_find = str_split('CDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz');
 	$num_repl = str_split('01234567890123456789012345678901234567890123456789');
@@ -515,9 +496,6 @@ function secrandom($length, $numeric = 0, $strong = false) {
 			return random_bytes($length);
 		};
 	} elseif(extension_loaded('openssl') && function_exists('openssl_random_pseudo_bytes')) {
-		// for lower than PHP 7.0, Please Upgrade ASAP.
-		// openssl_random_pseudo_bytes() does not appear to cryptographically secure
-		// https://github.com/paragonie/random_compat/issues/5
 		$isstrong = true;
 		$random_bytes = function($length) {
 			$rand = openssl_random_pseudo_bytes($length, $secure);
@@ -534,7 +512,7 @@ function secrandom($length, $numeric = 0, $strong = false) {
 	$retry_times = 0;
 	$return = '';
 	while($retry_times < 128) {
-		$getlen = $length - strlen($return); // 33% extra bytes
+		$getlen = $length - strlen($return);
 		$bytes = $random_bytes(max($getlen, 12));
 		if($bytes === false) {
 			return false;
@@ -590,7 +568,7 @@ function avatar($uid, $size = 'middle', $returnsrc = 0, $real = FALSE, $static =
 	$dynavt = intval($_G['setting']['dynavt']);
 
 	$ossavatar = false;
-	if(!empty($_G['setting']['ftp']['on']) && $_G['setting']['ftp']['on'] == 2 && $_G['setting']['oss']['oss_avatar']) {//企飞版
+	if(!empty($_G['setting']['ftp']['on']) && $_G['setting']['ftp']['on'] == 2 && $_G['setting']['oss']['oss_avatar']) {
 		$avatarurl = $_G['setting']['ftp']['attachurl'].'avatar';
 		$staticavatar = 1;
 		$ossavatar = true;
@@ -837,7 +815,7 @@ function template($file, $templateid = 0, $tpldir = '', $gettplfile = 0, $primal
 			$indiy = false;
 			$_G['style']['tpldirectory'] = $tpldir ? $tpldir : (defined('TPLDIR') ? TPLDIR : '');
 			$_G['style']['prefile'] = '';
-			$diypath = DISCUZ_DATA.'./diy/'.$_G['style']['tpldirectory'].'/'; //DIY模板文件目录
+			$diypath = DISCUZ_DATA.'./diy/'.$_G['style']['tpldirectory'].'/';
 			$preend = '_diy_preview';
 			$_GET['preview'] = !empty($_GET['preview']) ? $_GET['preview'] : '';
 			$curtplname = $oldfile;
@@ -855,7 +833,7 @@ function template($file, $templateid = 0, $tpldir = '', $gettplfile = 0, $primal
 				$tpldir = 'data/diy/'.$_G['style']['tpldirectory'].'/';
 				!$gettplfile && $_G['style']['tplsavemod'] = $tplsavemod;
 				$curtplname = $file;
-				if(isset($_GET['diy']) && $_GET['diy'] == 'yes' || isset($_GET['diy']) && $_GET['preview'] == 'yes') { //DIY模式或预览模式下做以下判断
+				if(isset($_GET['diy']) && $_GET['diy'] == 'yes' || isset($_GET['diy']) && $_GET['preview'] == 'yes') {
 					$flag = file_exists($diypath.$file.$preend.'.htm');
 					if($_GET['preview'] == 'yes') {
 						$file .= $flag ? $preend : '';
@@ -1493,7 +1471,6 @@ function output() {
 			$temp_md5 = md5(substr($_G['timestamp'], 0, -3).substr($_G['config']['security']['authkey'], 3, -3));
 			$temp_formhash = substr($temp_md5, 8, 8);
 			$content = preg_replace('/(name=[\'|\"]formhash[\'|\"] value=[\'\"]|formhash=)('.constant('FORMHASH').')/ismU', '${1}'.$temp_formhash, $content);
-			//避免siteurl伪造被缓存
 			$temp_siteurl = 'siteurl_'.substr($temp_md5, 16, 8);
 			$content = preg_replace('/("|\')('.preg_quote($_G['siteurl'], '/').')/ismU', '${1}'.$temp_siteurl, $content);
 			$content = empty($content) ? ob_get_contents() : $content;
@@ -1732,7 +1709,7 @@ function checkformulasyntax($formula, $operators, $tokens, $values = '', $funcs 
 
 function formula_tokenize($formula, $operators, $tokens, $values, $funcs) {
 	$fexp = token_get_all('<?php '.$formula);
-	$prevseg = 1; // 1左括号2右括号3变量4运算符5函数
+	$prevseg = 1;
 	$isclose = 0;
 	$tks = implode('|', $tokens);
 	$op1 = $op2 = [];
@@ -1746,7 +1723,6 @@ function formula_tokenize($formula, $operators, $tokens, $values, $funcs) {
 	foreach($fexp as $k => $val) {
 		if(is_array($val)) {
 			if(in_array($val[0], [T_VARIABLE, T_CONSTANT_ENCAPSED_STRING, T_LNUMBER, T_DNUMBER])) {
-				// 是变量
 				if(!in_array($prevseg, [1, 4])) {
 					return false;
 				}
@@ -1758,15 +1734,12 @@ function formula_tokenize($formula, $operators, $tokens, $values, $funcs) {
 					return false;
 				}
 			} elseif($val[0] == T_STRING && in_array($val[1], $funcs)) {
-				// 是函数
 				if(!in_array($prevseg, [1, 4])) {
 					return false;
 				}
 				$prevseg = 5;
 			} elseif($val[0] == T_WHITESPACE || ($k == 0 && $val[0] == T_OPEN_TAG)) {
-				// 空格或文件头，忽略
 			} elseif(in_array($val[1], $op2)) {
-				// 是运算符
 				if(!in_array($prevseg, [2, 3])) {
 					return false;
 				}
@@ -1776,14 +1749,12 @@ function formula_tokenize($formula, $operators, $tokens, $values, $funcs) {
 			}
 		} else {
 			if($val === '(') {
-				// 是左括号
 				if(!in_array($prevseg, [1, 4, 5])) {
 					return false;
 				}
 				$prevseg = 1;
 				$isclose++;
 			} elseif($val === ')') {
-				// 是右括号
 				if(!in_array($prevseg, [2, 3])) {
 					return false;
 				}
@@ -1793,7 +1764,6 @@ function formula_tokenize($formula, $operators, $tokens, $values, $funcs) {
 					return false;
 				}
 			} elseif(in_array($val, $op1)) {
-				// 是运算符
 				if(!in_array($prevseg, [2, 3]) && $val !== '-') {
 					return false;
 				}
@@ -2319,28 +2289,14 @@ function lmemory($cmd, $key = '', $value = '', $ttl = 0) {
 	};
 }
 
-/*
- * 以下命令，$value传入的是prefix，其它命令prefix都是最后一个参数
- * 		get, rm, scard, smembers, hgetall, zcard, exists
- * eval 时，传入参数如下：
- * 		$cmd = 'eval', $key = script, $value = argv, 
- * 		$ttl = 用于存储script hash的key, $prefix 会自动成为脚本的第一个参数，其余参数序号顺延
- * zadd 时，参数如下：
- * 		$cmd = 'zadd', $key = key, $value = member, $ttl = score
- * zincrby 时，参数如下：
- * 		$cmd = 'zincrby', $key = key, $value = member, $ttl = value to increase
- * zrevrange 和 zrevrangewithscore 时，参数如下；
- * 		$cmd = 'zrevrange', $key = key, $value = start, $ttl = end
- * inc, dec, incex 的 $ttl 无效
- */
 function memory($cmd, $key = '', $value = '', $ttl = 0, $prefix = '') {
 	static $supported_command = [
 		'set', 'add', 'get', 'rm', 'inc', 'dec', 'exists',
-		'incex', /* 存在时才inc */
+		'incex',
 		'sadd', 'srem', 'scard', 'smembers', 'sismember',
 		'hmset', 'hgetall', 'hexists', 'hget',
 		'eval',
-		'zadd', 'zcard', 'zrem', 'zscore', 'zrevrange', 'zincrby', 'zrevrangewithscore' /* 带score返回 */,
+		'zadd', 'zcard', 'zrem', 'zscore', 'zrevrange', 'zincrby', 'zrevrangewithscore' ,
 		'pipeline', 'commit', 'discard',
 		'info', 'expire'
 	];
@@ -2371,13 +2327,13 @@ function memory($cmd, $key = '', $value = '', $ttl = 0, $prefix = '') {
 				return C::memory()->add($key, $value, $ttl, $prefix);
 				break;
 			case 'get':
-				return C::memory()->get($key, $value/*prefix*/);
+				return C::memory()->get($key, $value);
 				break;
 			case 'rm':
-				return C::memory()->rm($key, $value/*prefix*/);
+				return C::memory()->rm($key, $value);
 				break;
 			case 'exists':
-				return C::memory()->exists($key, $value/*prefix*/);
+				return C::memory()->exists($key, $value);
 				break;
 			case 'inc':
 				return C::memory()->inc($key, $value ? $value : 1, $prefix);
@@ -2395,10 +2351,10 @@ function memory($cmd, $key = '', $value = '', $ttl = 0, $prefix = '') {
 				return C::memory()->srem($key, $value, $prefix);
 				break;
 			case 'scard':
-				return C::memory()->scard($key, $value/*prefix*/);
+				return C::memory()->scard($key, $value);
 				break;
 			case 'smembers':
-				return C::memory()->smembers($key, $value/*prefix*/);
+				return C::memory()->smembers($key, $value);
 				break;
 			case 'sismember':
 				return C::memory()->sismember($key, $value, $prefix);
@@ -2407,19 +2363,19 @@ function memory($cmd, $key = '', $value = '', $ttl = 0, $prefix = '') {
 				return C::memory()->hmset($key, $value, $prefix);
 				break;
 			case 'hgetall':
-				return C::memory()->hgetall($key, $value/*prefix*/);
+				return C::memory()->hgetall($key, $value);
 				break;
 			case 'hexists':
-				return C::memory()->hexists($key, $value/*field*/, $prefix);
+				return C::memory()->hexists($key, $value, $prefix);
 				break;
 			case 'hget':
-				return C::memory()->hget($key, $value/*field*/, $prefix);
+				return C::memory()->hget($key, $value, $prefix);
 				break;
 			case 'eval':
-				return C::memory()->evalscript($key/*script*/, $value/*args*/, $ttl/*sha key*/, $prefix);
+				return C::memory()->evalscript($key, $value, $ttl, $prefix);
 				break;
 			case 'zadd':
-				return C::memory()->zadd($key, $value, $ttl/*score*/, $prefix);
+				return C::memory()->zadd($key, $value, $ttl, $prefix);
 				break;
 			case 'zrem':
 				return C::memory()->zrem($key, $value, $prefix);
@@ -2428,16 +2384,16 @@ function memory($cmd, $key = '', $value = '', $ttl = 0, $prefix = '') {
 				return C::memory()->zscore($key, $value, $prefix);
 				break;
 			case 'zcard':
-				return C::memory()->zcard($key, $value/*prefix*/);
+				return C::memory()->zcard($key, $value);
 				break;
 			case 'zrevrange':
-				return C::memory()->zrevrange($key, $value/*start*/, $ttl/*end*/, $prefix);
+				return C::memory()->zrevrange($key, $value, $ttl, $prefix);
 				break;
 			case 'zrevrangewithscore':
-				return C::memory()->zrevrange($key, $value/*start*/, $ttl/*end*/, $prefix, true);
+				return C::memory()->zrevrange($key, $value, $ttl, $prefix, true);
 				break;
 			case 'zincrby':
-				return C::memory()->zincrby($key, $value/*member*/, $ttl ? $ttl : 1/*to increase*/, $prefix);
+				return C::memory()->zincrby($key, $value, $ttl ? $ttl : 1, $prefix);
 				break;
 			case 'pipeline':
 				return C::memory()->pipeline();
@@ -2756,8 +2712,6 @@ function strhash($string, $operation = 'DECODE', $key = '') {
 }
 
 function dunserialize($data) {
-	// 由于 Redis 驱动侧以序列化保存 array, 取出数据时会自动反序列化（导致反序列化了非Redis驱动序列化的数据），因此存在参数入参为 array 的情况.
-	// 考虑到 PHP 8 增强了类型体系, 此类数据直接送 unserialize 会导致 Fatal Error, 需要通过代码层面对此情况进行规避.
 	if(is_array($data)) {
 		$ret = $data;
 	} elseif(($ret = @unserialize($data)) === false) {
@@ -2858,27 +2812,15 @@ function restfulAuthSign() {
 	return urlencode($restful->getAuthSign());
 }
 
-/**
- * @param string $salt
- *
- * @return string
- */
 function uuid($salt) {
 	return md5($salt.uniqid(md5(microtime(true)), true));
 }
 
-// 获取毫秒级时间戳
 function getMillisecond() {
-	[$microsecond, $time] = explode(' ', microtime()); //' '中间是一个空格
+	[$microsecond, $time] = explode(' ', microtime());
 	return (float)sprintf('%.0f', (floatval($microsecond) + floatval($time)) * 1000);
 }
 
-/**
- * 判断url是否以http://或者https://开头
- * @param string $url
- *
- * @return boolean
- */
 function isHttpOrHttps($url) {
 	if(str_starts_with($url, 'http://') || str_starts_with($url, 'https://')) {
 		return true;
@@ -2886,48 +2828,36 @@ function isHttpOrHttps($url) {
 	return false;
 }
 
-// 生成不重复的随机数字字符串
 function generateRandomNumbers($length) {
 	$numbers = range(0, 9);
 	shuffle($numbers);
 	return implode('', array_slice($numbers, 0, $length));
 }
 
-// 生成不重复的随机大小写字母字符串
 function generateRandomLetters($length) {
 	$letters = array_merge(range('a', 'z'), range('A', 'Z'));
 	shuffle($letters);
 	return implode('', array_slice($letters, 0, $length));
 }
 
-// 生成不重复的随机数字大小写字母混合字符串
 function generateRandomAlphanumeric($length) {
 	$characters = array_merge(range(0, 9), range('a', 'z'), range('A', 'Z'));
 	shuffle($characters);
 	return implode('', array_slice($characters, 0, $length));
 }
 
-/**
- * 对比两个json的结构是否一致
- * @param $json1
- * @param $json2
- * @return bool
- */
 function compareJsonStructures($json1, $json2) {
 	$data1 = json_decode($json1, true);
 	$data2 = json_decode($json2, true);
 
-	// 检查 $data1 和 $data2 是否都是数组或对象
 	if(!is_array($data1) && !is_object($data1) || !is_array($data2) && !is_object($data2)) {
 		return false;
 	}
 
-	// 如果类型不同，则结构不同
 	if(gettype($data1) !== gettype($data2)) {
 		return false;
 	}
 
-	// 如果都是数组，则递归比较键和子结构
 	if(is_array($data1)) {
 		if(count($data1) !== count($data2)) {
 			return false;
@@ -2943,7 +2873,6 @@ function compareJsonStructures($json1, $json2) {
 		}
 	}
 
-	// 如果都是对象，则递归比较属性和子结构
 	if(is_object($data1)) {
 		$data1 = get_object_vars($data1);
 		$data2 = get_object_vars($data2);
@@ -2963,7 +2892,6 @@ function compareJsonStructures($json1, $json2) {
 		}
 	}
 
-	// 所有检查都通过，结构相同
 	return true;
 }
 
@@ -2977,7 +2905,6 @@ function getimportfilename($fn) {
 	}
 }
 
-// 获取最近使用的标签
 function recent_use_tag($idtype = 'tid') {
 	$tagarray = $stringarray = [];
 	$string = '';
@@ -3001,14 +2928,6 @@ function recent_use_tag($idtype = 'tid') {
 	return $tagarray;
 }
 
-/**
- * 生成内容发布格式的JSON响应
- * @param string $type 类型，默认：text
- * @param string $editor 编辑器类型，默认：default
- * @param mixed $content 内容，默认空字符串，可以是任意类型
- * @param array $extend 扩展字段，JSON类型，默认空数组
- * @return string JSON格式的字符串
- */
 function generate_content_json($type = 'text', $editor = 'default', $content = '', $extend = []) {
 
 	$data = [
@@ -3021,47 +2940,32 @@ function generate_content_json($type = 'text', $editor = 'default', $content = '
 	return json_encode($data, JSON_UNESCAPED_UNICODE);
 }
 
-/**
- * 判断传入内容是否为有效JSON格式且不为空JSON对象
- * @param mixed $content 要检查的内容
- * @param bool $check_null_empty 是否单独验证null或空字符串，默认true
- * @param bool $return_decode_assoc 是否返回decode后的数组，默认false
- * @return bool 是有效的非空JSON返回true，否则返回false
- */
 function is_valid_non_empty_json($content, $check_null_empty = true, $return_decode_assoc = false) {
-	// 如果开启了null和空字符串检查
 	if($check_null_empty) {
-		// 检查是否为null
 		if($content === null) {
 			return false;
 		}
 
-		// 检查是否为空字符串
 		if(is_string($content) && trim($content) === '') {
 			return false;
 		}
 	}
 
-	// 确保内容是字符串类型
 	if(!is_string($content)) {
 		return false;
 	}
 
-	// 去除首尾空白字符
 	$content = trim($content);
 
-	// 检查是否为空字符串
 	if(empty($content)) {
 		return false;
 	}
 
-	// 检查是否为有效的JSON格式
 	json_decode($content);
 	if(json_last_error() !== JSON_ERROR_NONE) {
 		return false;
 	}
 
-	// 检查是否为JSON对象且不为空
 	if(strpos($content, '{') === 0 && strrpos($content, '}') === strlen($content) - 1) {
 		$decoded = json_decode($content, true);
 		if(is_array($decoded) && empty($decoded)) {
@@ -3069,7 +2973,6 @@ function is_valid_non_empty_json($content, $check_null_empty = true, $return_dec
 		}
 	}
 
-	// 通过所有检查，是有效的非空JSON
 	if($return_decode_assoc) {
 		$decoded = json_decode($content, true);
 		return $decoded;
@@ -3089,7 +2992,6 @@ function jsonMsg($return) {
 	exit(json_encode($return));
 }
 
-// 检查 URL 是否为视频文件
 function isVideoUrl($url) {
 	$video_extensions = ['rm', 'rmvb', 'flv', 'swf', 'asf', 'asx', 'wmv', 'avi', 'mpg', 'mpeg', 'mp4', 'm4v', '3gp', 'ogv', 'webm', 'mov', 'mkv'];
 	$url_parts = parse_url($url);
@@ -3100,7 +3002,6 @@ function isVideoUrl($url) {
 	return false;
 }
 
-// 检查 URL 是否为音频文件
 function isAudioUrl($url) {
 	$audio_extensions = ['aac', 'flac', 'ogg', 'mp3', 'm4a', 'weba', 'wma', 'mid', 'wav', 'ra', 'ram'];
 	$url_parts = parse_url($url);
@@ -3111,20 +3012,13 @@ function isAudioUrl($url) {
 	return false;
 }
 
-/**
- * 解析格式@[用户名]的@用户文本（定界符为[]），适配含空格的用户名
- * @param string $content 帖子/评论原始内容
- * @return array 匹配到的用户列表 [用户名 => UID]（Discuz需UID关联用户）
- */
 function parse_at_user($content) {
 	global $_G;
 	$atlist = $allUsernames = [];
 
-	// 如果用户组不允许@功能，直接返回空数组
 	if(!$_G['group']['allowat']) {
 		return $atlist;
 	}
-	// 1. 匹配新格式：@[用户名]（支持含空格的用户名）
 	preg_match_all('/@\[([^\]]+)\]/i', $content, $matches);
 	if (isset($matches[1])) {
 		foreach ($matches[1] as $match) {
@@ -3135,7 +3029,6 @@ function parse_at_user($content) {
 		}
 	}
 
-	// 2. 匹配旧格式：@用户名（兼容无空格的旧格式）
 	preg_match_all('/@([^\s\@\[\]]+)/i', $content.' ', $oldMatches);
 	if (isset($oldMatches[1])) {
 		foreach ($oldMatches[1] as $oldName) {
@@ -3146,13 +3039,11 @@ function parse_at_user($content) {
 	$uniqueUsernames = array_slice(array_unique($allUsernames), 0, $_G['group']['allowat']);
 	if(!empty($uniqueUsernames)) {
 		if(!$_G['setting']['at_anyone']) {
-			// 先查询关注的人
 			$followList = table_home_follow::t()->fetch_all_by_uid_fusername($_G['uid'], $uniqueUsernames);
 			foreach($followList as $row) {
 				$atlist[$row['followuid']] = $row['fusername'];
 			}
 
-			// 如果关注的人不够，查询好友
 			if(count($atlist) < $_G['group']['allowat']) {
 				$friendList = table_home_friend::t()->fetch_all_by_uid_username($_G['uid'], $uniqueUsernames);
 				foreach($friendList as $row) {
@@ -3160,7 +3051,6 @@ function parse_at_user($content) {
 				}
 			}
 		} else {
-			// 允许at任何人时，直接查询所有用户
 			$userList = table_common_member::t()->fetch_all_by_username($uniqueUsernames);
 			foreach($userList as $row) {
 				$atlist[$row['uid']] = $row['username'];

@@ -366,11 +366,9 @@ if(!submitcheck('replysubmit', 0, $seccodecheck, $secqaacheck)) {
 		'repid' => getgpc('reppid'),
 	];
 
-	// 原创声明 0未声明、1声明原创、-1非原创
 	if(!empty($original)) {
 		$params['original'] = $original;
 	}
-	// 文章来源
 	if(!empty($source)) {
 		$params['source'] = $source;
 	}
@@ -379,8 +377,6 @@ if(!submitcheck('replysubmit', 0, $seccodecheck, $secqaacheck)) {
 		$bfmethods[] = ['class' => 'forum\extend_thread_trade', 'method' => 'before_newreply'];
 	}
 
-
-	// 开始处理json编辑器内容中的图片、视频等附件
 	if(is_valid_non_empty_json($params['content'], true)) {
 		$blocksData = json_decode($params['content'], true);
 
@@ -403,7 +399,6 @@ if(!submitcheck('replysubmit', 0, $seccodecheck, $secqaacheck)) {
 			}
 		}
 	}
-	// 结束处理json编辑器内容中的图片、视频等附件
 
 
 	$attentionon = empty($_GET['attention_add']) ? 0 : 1;

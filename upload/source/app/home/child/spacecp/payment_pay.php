@@ -35,7 +35,6 @@ if(submitcheck('paysubmit')) {
 		showmessage('payment_type_no_exist', $_G['siteurl'].'home.php?mod=spacecp&ac=payment&op=pay&order_id='.$order_id, [], ['showdialog' => true, 'locationtime' => 3]);
 	}
 
-	// QQ 钱包 JSAPI 支付
 	if($pay_channel == 'qpay' && checkmobile() && str_contains($_SERVER['HTTP_USER_AGENT'], ' QQ') && str_contains($_SERVER['HTTP_USER_AGENT'], 'MQQBrowser')) {
 		$ec_qpay = table_common_setting::t()->fetch_setting('ec_qpay', true);
 		if($ec_qpay['jsapi']) {

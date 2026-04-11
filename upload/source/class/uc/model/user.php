@@ -44,17 +44,10 @@ class usermodel {
 	function check_username($username) {
 		$charset = strtolower(UC_CHARSET);
 		if($charset === 'utf-8') {
-			// \xE3\x80\x80: utf-8 全角空格
-			// \xE6\xB8\xB8\xE5\xAE\xA2: utf-8 游客
-			// \xE9\x81\x8A\xE5\xAE\xA2: utf-8 遊客
 			$guestexp = '\xE3\x80\x80|\xE6\xB8\xB8\xE5\xAE\xA2|\xE9\x81\x8A\xE5\xAE\xA2';
 		} elseif($charset === 'gbk') {
-			// \xA1\xA1: GBK 全角空格
-			// \xD3\xCE\xBF\xCD: GBK 游客
 			$guestexp = '\xA1\xA1|\xD3\xCE\xBF\xCD';
 		} elseif($charset === 'big5') {
-			// \xA1\x40: BIG5 全角空格
-			// \xB9\x43\xAB\xC8: BIG5 遊客
 			$guestexp = '\xA1\x40|\xB9\x43\xAB\xC8';
 		} else {
 			return FALSE;
@@ -149,7 +142,6 @@ class usermodel {
 		} elseif(!$this->verify_password($password, $user['password'], $user['salt'])) {
 			return -2;
 		}
-		// 密码升级作为附属流程, 失败与否不影响登录操作
 		$this->upgrade_password($username, $password, $user['password'], $user['salt']);
 		return $user['uid'];
 	}
@@ -183,7 +175,6 @@ class usermodel {
 		}
 
 		$sqladd = $newpw ? "password='".$this->generate_password($newpw)."', salt=''" : '';
-		//空字符串代表没传递这个参数，传递0时，代表清空这个数据
 		$sqladd .= $email !== '' ? ($sqladd ? ',' : '').(!empty($email) ? " email='$email'" : " email=''") : '';
 		$sqladd .= $secmobicc !== '' ? ($sqladd ? ',' : '').(!empty($secmobicc) ? " secmobicc='$secmobicc'" : " secmobicc=''") : '';
 		$sqladd .= $secmobile !== '' ? ($sqladd ? ',' : '').(!empty($secmobile) ? " secmobile='$secmobile'" : " secmobile=''") : '';
@@ -281,9 +272,6 @@ class usermodel {
 	}
 
 	function can_do_login($username, $ip = '') {
-
-		// check_times 代表允许用户登录失败次数，该变量的值为 0 为不限制，正数为次数
-		// 由于历史 Bug ，系统配置内原有用于代表无限制的 0 值必须代表正常值 5 ，因此只能在这里进行映射，负数映射为 0 ，正数正常， 0 映射为 5 。
 		$check_times = $this->base->settings['login_failedtime'] > 0 ? $this->base->settings['login_failedtime'] : ($this->base->settings['login_failedtime'] < 0 ? 0 : 5);
 
 		if($check_times == 0) {
@@ -364,16 +352,11 @@ class usermodel {
 	function generate_password($password) {
 		$algo = $this->get_passwordalgo();
 		$options = $this->get_passwordoptions();
-		// 当用户配置有问题时, password_hash 可能返回 false 或无法校验通过的密码, 此时使用 BCRYPT 备份方案生成密码, 保证上游应用正常
-		// 密码散列算法会在部分出错情况下返回 NULL 并报 Warning, 在此特殊处理
 		$hash = password_hash($password, $algo, $options);
 		return ($hash === false || $hash === null || !password_verify($password, $hash)) ? password_hash($password, PASSWORD_BCRYPT) : $hash;
 	}
 
 	function verify_password($password, $hash, $salt = '') {
-		// salt 为空说明是新算法, 直接根据 password_verify 出结果
-		// 否则如 strlen(salt) == 6 说明是老算法, 适用老算法匹配
-		// 均不符合则为第三方转换算法, 如符合命名规则则根据 salt 匹配第三方文件
 		if(empty($salt)) {
 			return password_verify($password, $hash);
 		} else if(strlen($salt) == 6) {

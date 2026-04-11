@@ -11,16 +11,9 @@ class ucip {
 	function __construct() {
 	}
 
-	/*
-	 * 验证IP是否合法，支持v4和v6
-	 */
 	public static function validate_ip($ip) {
 		return filter_var($ip, FILTER_VALIDATE_IP) !== false;
 	}
-
-	/*
-	 * 以下三个函数，检查$requestIp是否在$ip给出的cidr范围内
-	 */
 
 	public static function check_ip($requestIp, $ips) {
 		if(!self::validate_ip($requestIp)) {

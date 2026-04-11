@@ -149,7 +149,6 @@ if(!submitcheck('topicsubmit', 0, $seccodecheck, $secqaacheck)) {
 			getgpc('infloat') ? include template('forum/post_infloat') : include template('forum/post');
 		}
 
-		//getgpc('infloat') ? include template('forum/jsoneditor_infloat') : include template('forum/jsoneditor');
 	} else {
 		getgpc('infloat') ? include template('forum/post_infloat') : include template('forum/post');
 	}
@@ -234,11 +233,9 @@ if(!submitcheck('topicsubmit', 0, $seccodecheck, $secqaacheck)) {
 
 	$params['typeexpiration'] = getgpc('typeexpiration');
 
-	// 原创声明 0未声明、1声明原创、-1非原创
 	if(!empty($original)) {
 		$params['original'] = $original;
 	}
-	// 文章来源
 	if(!empty($source)) {
 		$params['source'] = $source;
 	}
@@ -261,8 +258,6 @@ if(!submitcheck('topicsubmit', 0, $seccodecheck, $secqaacheck)) {
 
 	$params['geoloc'] = diconv(getgpc('geoloc'), 'UTF-8');
 
-
-	// 开始处理json编辑器内容中的图片、视频等附件
 	if(is_valid_non_empty_json($params['content'], true)) {
 		$blocksData = json_decode($params['content'], true);
 
@@ -285,7 +280,6 @@ if(!submitcheck('topicsubmit', 0, $seccodecheck, $secqaacheck)) {
 			}
 		}
 	}
-	// 结束处理json编辑器内容中的图片、视频等附件
 
 
 	if(getgpc('rushreply')) {
@@ -329,8 +323,6 @@ if(!submitcheck('topicsubmit', 0, $seccodecheck, $secqaacheck)) {
 		$modthread->feed();
 	}
 
-
-	// cover start
 	if($cover_aid) {
 		convertunusedattach($cover_aid, $tid, $pid);
 		$threadimage = table_forum_attachment_n::t()->fetch_attachment('aid:'.$cover_aid, $cover_aid);
@@ -343,7 +335,6 @@ if(!submitcheck('topicsubmit', 0, $seccodecheck, $secqaacheck)) {
 			]);
 		}
 	}
-	// cover end
 
 
 	if(rewriterulecheck('forum_viewthread')) {

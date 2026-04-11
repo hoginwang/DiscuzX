@@ -37,16 +37,10 @@ class ip_system {
 
 	private $memoryCacheTTL = 86400;
 
-	/**
-	 * 构造函数
-	 */
 	public function __construct() {
 		$this->loadData(DISCUZ_ROOT.'./source/data/ip/ipdb.dat', DISCUZ_ROOT.'./source/i18n/'.currentlang().'/lang_ipdb.php');
 	}
 
-	/**
-	 * 析构函数
-	 */
 	public function __destruct() {
 		if($this->filePointer !== null) {
 			fclose($this->filePointer);

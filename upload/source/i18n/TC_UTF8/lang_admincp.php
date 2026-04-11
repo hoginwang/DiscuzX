@@ -548,7 +548,6 @@ $lang =
 	'nav_logs_restful' => 'RESTful 接口',
 	'nav_logs_plugin' => '其他記錄',
 
-	// IconFont 預覽相關
 	'misc_iconfont_title' => 'IconFont 預覽',
 	'misc_iconfont_tips' => '本工具可用於解析字體文件中的圖標，支持woff格式。系統已自動掃描模板目錄中的字體文件，您也可以手動輸入在線字體文件鏈接。',
 	'misc_iconfont_scanned_files' => '系統掃描到的字體文件',
@@ -626,7 +625,7 @@ $lang =
 	'nav_mmebersplit_manage' => '分表管理',
 
 	'nav_custommenu' => '編輯常用操作',
-		
+
 	'nav_qrcodelogin' => '掃碼登錄',
 	'nav_qrcodelogin_list' => '賬號列表',
 	'nav_qrcodelogin_setting' => '設置',
@@ -1479,7 +1478,7 @@ $lang =
 			東華門街道
 			東四街道
 		西城區
-			什剎海街道	
+			什剎海街道
 </pre></li>',
 	'district_choose' => '選擇地區',
 	'district_birthcity' => '<input type="checkbox" name="birthcitychkall" onclick="checkAll(\'prefix\', this.form, \'birthcity\', \'birthcitychkall\')" class="checkbox">出生地',
@@ -7845,7 +7844,6 @@ url.rewrite-once = (
 	'discuz_git' => '項目地址',
 	'discuz_qrcode' => '官方公眾號',
 
-	// 企飛版
 	'setting_attach_remote_ftp' => 'FTP',
 	'setting_attach_remote_cos' => '對象存儲',
 	'setting_attach_remote_oss_type' => '選擇 OSS 服務商',
@@ -8102,7 +8100,7 @@ function getSign(nonce, t, secret) {
     let sha256 = CryptoJS.SHA256(nonce + t + secret).toString();
     let base64_sign = CryptoJS.enc.Base64.stringify(CryptoJS.enc.Utf8.parse(sha256));
     return base64_sign;
-}					
+}
 </pre>
 				</p>',
 	'restful_token' => '獲取 Token',

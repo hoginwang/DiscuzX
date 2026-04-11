@@ -10,7 +10,7 @@ if(!defined('IN_DISCUZ') && !defined('IN_API')) {
 	exit('Access Denied');
 }
 const DISCUZ_LOG_FUNCTION = true;
-//get ip
+
 function getClientIp() {
 	global $_G;
 	if(isset($_G['clientip']) and !empty($_G['clientip'])) {
@@ -32,7 +32,6 @@ function getClientIp() {
 	}
 }
 
-//get browser
 function getBrowser() {
 	$browser = $_SERVER['HTTP_USER_AGENT'];
 	if(str_contains($browser, '360SE')) {
@@ -77,7 +76,6 @@ function getBrowser() {
 	return $browser;
 }
 
-//get os
 function getOs() {
 	$agent = $_SERVER['HTTP_USER_AGENT'];
 	$os = false;
@@ -139,12 +137,10 @@ function getOs() {
 		$os = 'offline';
 	} else {
 		$os = 'Unknow OS';
-		// $os = get_device_type();
 	}
 	return $os;
 }
 
-//get device
 function getDevice() {
 	$device = $_SERVER['HTTP_USER_AGENT'];
 	if(strpos($device, 'Windows NT')) {
@@ -167,18 +163,15 @@ function getDevice() {
 	return $device;
 }
 
-//get useragent
 function getUseragent() {
 	return $_SERVER['HTTP_USER_AGENT'];
 }
 
-//get port
 function getPort() {
 	global $_G;
 	return !empty($_G['remoteport']) ? $_G['remoteport'] : ($_SERVER['REMOTE_PORT'] ? $_SERVER['REMOTE_PORT'] : 0);
 }
 
-//get log info
 function getLogInfo() {
 	$loginfo = [];
 

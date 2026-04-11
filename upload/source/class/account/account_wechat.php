@@ -108,7 +108,6 @@ class account_wechat extends account_base {
 		$param = $paramBase;
 		$account = new account($param);
 		$account->userBind($uid);
-		// 注册时同步头像
 		$avatarRegisterAuto = $account->getSwitch('avatarRegisterAuto');
 		if(in_array('wechat', $avatarRegisterAuto)) {
 			if($uid && $_G['cookie']['accountHeadImg']) {
@@ -142,7 +141,6 @@ class account_wechat extends account_base {
 	public function getLoginUser() {
 		global $_G;
 		$account = new account();
-		// 是否关联了微信开放平台
 		$_type = ($this->conf['openweixin'] && $_G['setting']['weixin']['allow'] && $this->inEnv()) ? 'weixin' : 'wechat';
 		$_atype = ($this->conf['openweixin'] && $_G['setting']['weixin']['allow'] && $this->inEnv()) ? account::aType_weixin : account::aType_wechatOpenid;
 
@@ -169,7 +167,6 @@ class account_wechat extends account_base {
 		}
 		$user = new wechat_user($this->token);
 
-		//获取访问用户身份
 		$userInfo = $user->getAuthUser();
 		if(!$userInfo) {
 			dheader('Location: '.(!empty($_GET['referer_url']) ? $_GET['referer_url'] : $_G['siteurl']), true, 302);
@@ -178,7 +175,6 @@ class account_wechat extends account_base {
 			showmessage($userInfo['errmsg']);
 		}
 
-		// 是否关联了微信开放平台
 		$_account = ($this->conf['openweixin'] && $_G['setting']['weixin']['allow'] && $this->inEnv()) ? $userInfo['unionid'] : $userInfo['openid'];
 
 		$paramBase = ['type' => $_type, 'atype' => $_atype, 'account' => $_account, 'bindname' => $userInfo['nickname'], 'authcode' => $_GET['authcode']];
@@ -190,7 +186,6 @@ class account_wechat extends account_base {
 				}
 				$account->userBind($_G['uid'], $paramBase);
 
-				// 绑定时同步头像
 				$avatarBindAuto = $account->getSwitch('avatarBindAuto');
 				if(in_array('wechat', $avatarBindAuto)) {
 					if($_G['uid'] && $userInfo['headimgurl']) {
@@ -229,7 +224,6 @@ class account_wechat extends account_base {
 			}
 
 			$username = $userInfo['nickname'];
-			// $email = random(5).'@wechat.com';
 			$email = '';
 			$param = $paramBase + [
 					'username' => $username,
@@ -246,7 +240,6 @@ class account_wechat extends account_base {
 				}
 				showmessage($msg);
 			}
-			// 注册时同步头像
 			$avatarRegisterAuto = $account->getSwitch('avatarRegisterAuto');
 			if(in_array('wechat', $avatarRegisterAuto)) {
 				if($_G['uid'] && $userInfo['headimgurl']) {
@@ -273,7 +266,6 @@ class account_wechat extends account_base {
 				showmessage('account_bind_other_exists', (!empty($_GET['referer_url']) ? $_GET['referer_url'] : $_G['siteurl']));
 			} else {
 				$account->userLogin();
-				// 登录时同步头像
 				$avatarLoginAuto = $account->getSwitch('avatarLoginAuto');
 				if(in_array('wechat', $avatarLoginAuto)) {
 					if($_G['uid'] && $userInfo['headimgurl']) {
@@ -302,7 +294,6 @@ class account_wechat extends account_base {
 			dheader('Location: '.$_G['siteurl'].'misc.php?mod=wechat&ac=confirm&authcode='.$confirm_authcode);
 		}
 
-		// 如果关联了微信开放平台，补充绑定 openid
 		if($this->conf['openweixin'] && $_G['setting']['weixin']['allow'] && $this->inEnv()) {
 			$_account_tmp = table_common_member_account::t()->fetch_by_account($this->token['openid'], account::aType_wechatOpenid);
 			if(!$_account_tmp) {
@@ -313,7 +304,6 @@ class account_wechat extends account_base {
 			}
 		}
 
-		// 如果关联了微信开放平台，并且未启用开放平台登录，补充绑定 Unionid
 		if($this->conf['openweixin'] && !$_G['setting']['weixin']['allow'] && !empty($this->token['unionid'])) {
 			$_account_tmp = table_common_member_account::t()->fetch_by_account($this->token['unionid'], account::aType_weixin);
 			if(!$_account_tmp) {

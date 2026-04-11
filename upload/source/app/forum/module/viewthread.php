@@ -536,7 +536,6 @@ foreach($postarr as $post) {
 
 		$post['incurpage'] = in_array($post['pid'], $curpagepids);
 		$postusers[$post['authorid']] = [];
-		// 开始解析json编辑器内容
 		if(is_valid_non_empty_json($post['content'], true)) {
 			$content = json_decode($post['content'], true);
 			if($content['type'] == 'json' && $content['editor'] == 'jsonEditor' && !empty($content['content'])) {
@@ -564,7 +563,6 @@ foreach($postarr as $post) {
 				}
 			}
 		}
-		// 结束解析json编辑器内容
 		if($post['first']) {
 			if($ordertype == 1 && $page != 1) {
 				continue;
@@ -717,7 +715,6 @@ if($_G['forum_attachpids'] && !defined('IN_ARCHIVER')) {
 	}
 	parseattach($_G['forum_attachpids'], $_G['forum_attachtags'], $postlist, $skipaids);
 }
-// 开始将json编辑器中的图片从未使用列表中移除
 foreach($postlist as $pid => $post) {
 	if(!empty($post) && is_valid_non_empty_json($post['content'], true)) {
 		$content = json_decode($post['content'], true);
@@ -728,13 +725,11 @@ foreach($postlist as $pid => $post) {
 			$postlist[$pid] = $post;
 		}
 	}
-	//支持IP省级地理信息
 	if($_G['setting']['showiplocation']) {
 		$post['iplocation'] = ip::convert($post['useip'], true);
 		$postlist[$pid] = $post;
 	}
 }
-// 结束将json编辑器中的图片从未使用列表中移除
 
 if(empty($postlist)) {
 	if($thread['closed'] > 1 && $thread['isgroup'] != 1) {
@@ -840,7 +835,6 @@ if(empty($_GET['viewpid'])) {
 		$_G['widthauto'] = 0;
 		$sufix = '_album';
 		$post = &$postlist[$_G['forum_firstpid']];
-		// 暂不确认对于 JS 类内容是否都需要添加 ignore_js_op 标签供 _relatedlinks 和只看大图模式正文摘要过滤用
 		$post['message'] = cutstr(strip_tags(preg_replace('/(<ignore_js_op>.*<\/ignore_js_op>)/is', '', $post['message'])), 200);
 		require_once childfile('album', 'forum/thread');;
 	}
@@ -1082,7 +1076,6 @@ function viewthread_procpost($post, $lastvisit, $ordertype, $maxposition = 0) {
 			$_G['forum_posthtml']['header'][$post['pid']] .= '<div id="threadindex"></div><script type="text/javascript" reload="1">show_threadindex(0, '.($_GET['from'] == 'preview' ? '1' : '0').');</script>';
 		}
 		if(!$imgcontent) {
-			// 开始json编辑器的处理
 			$htmlon_jsonContent = false;
 			if(is_valid_non_empty_json($post['content'], true)) {
 				$content = json_decode($post['content'], true);
@@ -1090,7 +1083,6 @@ function viewthread_procpost($post, $lastvisit, $ordertype, $maxposition = 0) {
 					$htmlon_jsonContent = true;
 				}
 			}
-			// 结束json编辑器的处理
 			$post['message'] = discuzcode($post['message'], $post['smileyoff'], $post['bbcodeoff'], ($post['htmlon'] || $htmlon_jsonContent) & 1, $_G['forum']['allowsmilies'], $forum_allowbbcode, ($_G['forum']['allowimgcode'] && $_G['setting']['showimages'] ? 1 : 0), $_G['forum']['allowhtml'] || $htmlon_jsonContent, ($_G['forum']['jammer'] && $post['authorid'] != $_G['uid'] ? 1 : 0), 0, $post['authorid'], $_G['cache']['usergroups'][$post['groupid']]['allowmediacode'] && $_G['forum']['allowmediacode'], $post['pid'], getglobal('setting/lazyload'), $post['dbdateline'], $post['first'], (!empty($post['content']) && $post['content'] != '{}') & 1);
 			if($post['first']) {
 				$_G['relatedlinks'] = '';
@@ -1137,14 +1129,14 @@ function viewthread_procpost($post, $lastvisit, $ordertype, $maxposition = 0) {
 
 function viewthread_loadcache() {
 	global $_G;
-	$_G['thread']['livedays'] = ceil((TIMESTAMP - $_G['thread']['dateline']) / 86400);        // 本贴子存在了多少天，最少是1天
-	$_G['thread']['lastpostdays'] = ceil((TIMESTAMP - $_G['thread']['lastpost']) / 86400);        // 最后发帖天数，最少1天
+	$_G['thread']['livedays'] = ceil((TIMESTAMP - $_G['thread']['dateline']) / 86400);
+	$_G['thread']['lastpostdays'] = ceil((TIMESTAMP - $_G['thread']['lastpost']) / 86400);
 
 	$threadcachemark = 100 - (
-			$_G['thread']['digest'] * 20 +                                                        // 精华，占20分
-			min($_G['thread']['views'] / max($_G['thread']['livedays'], 10) * 2, 50) +        // 阅读数与天数关系，占50分。阅读越多分越高，天数越久分越低
-			max(-10, (15 - $_G['thread']['lastpostdays'])) +                                // 最后回复时间，占15分，超过15天开始倒扣分，最多扣10分
-			min($_G['thread']['replies'] / $_G['setting']['postperpage'] * 1.5, 15));        // 帖子页数，占15分，10页以上就是满分
+			$_G['thread']['digest'] * 20 +
+			min($_G['thread']['views'] / max($_G['thread']['livedays'], 10) * 2, 50) +
+			max(-10, (15 - $_G['thread']['lastpostdays'])) +
+			min($_G['thread']['replies'] / $_G['setting']['postperpage'] * 1.5, 15));
 	if($threadcachemark < $_G['forum']['threadcaches']) {
 
 		$threadcache = getcacheinfo($_G['tid']);

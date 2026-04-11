@@ -14,13 +14,13 @@ class editorblock_embed {
 
 	var $version = '1.0.3';
 	var $name = '多媒体资源嵌入';
-	var $available = 1; // 默认启用状态 0:不启用 1:启用
-	var $columns = 0; //  默认是否支持多列 0:不支持 1:支持
+	var $available = 1;
+	var $columns = 0;
 	var $identifier = 'embed';
 	var $description = '支持外部媒体资源嵌入，在段落中粘贴视频页面链接，自动转换为iframe嵌入方式。暂不支持多列使用。可在配置文件中自定义解析规则，目前内置支持：Bilibili、优酷、腾讯视频';
 	var $filename = 'embed';
 	var $copyright = '<a href="https://addon.dismall.com/developer-32563.html" target="_blank">云诺</a>';
-	var $type = '0'; // 0:数据类型 1:图片类型 2:附件类型 3:视频类型 4:音频类型 5:文件类型
+	var $type = '0';
 
 	function __construct() {
 
@@ -53,16 +53,6 @@ class editorblock_embed {
 EOF;
 	}
 
-	/*
-	 * 结构(左顶头)：
-	 * 	{
-	 * 		tools_$identifier: {
-	 * 			$identifier: {
-	 * 				...
-	 * 			}
-	 * 		}
-	 * 	}
-	 */
 	function getConfig() {
 		return <<<EOF
 {
@@ -113,7 +103,7 @@ EOF;
                                   return ids[2];
                                 },
                           }
-                          
+
             }
          },
          tunes: ['anchorTune', 'hideTune']
@@ -137,7 +127,6 @@ EOF;
     margin-bottom: 20px;
 }
 .ce-block__content,.ce-toolbar__content {
-	/* max-width:calc(100% - 50px) */
 	margin-left: auto;
     margin-right: auto;
 }

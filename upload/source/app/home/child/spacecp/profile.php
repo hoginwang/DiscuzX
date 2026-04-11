@@ -276,7 +276,6 @@ if(submitcheck('profilesubmit')) {
 		$setarr['zodiac'] = get_zodiac($_POST['birthyear']);
 	}
 	if($setarr) {
-		// 用户信息变更记录
 		if($_G['setting']['profilehistory']) {
 			table_common_member_profile_history::t()->insert(array_merge(table_common_member_profile::t()->fetch($_G['uid']), ['dateline' => time()]));
 		}
@@ -374,12 +373,10 @@ if(submitcheck('profilesubmit')) {
 		showmessage('profile_secmobile_not_change', '', [], ['return' => true]);
 	}
 
-	// 如果输入了安全手机号但国际电话区号留空, 则默认为站点默认国际电话区号
 	if($secmobiccnew === '' && $secmobilenew !== '' && preg_match('#^(\d){1,12}$#', $secmobilenew)) {
 		$secmobiccnew = $_G['setting']['smsdefaultcc'];
 	}
 
-	//空字符串代表没传递这个参数，传递0时，代表清空这个数据
 	if($secmobiccnew === '') {
 		$secmobiccnew = 0;
 	} elseif(!preg_match('#^(\d){1,3}$#', $secmobiccnew)) {
@@ -421,17 +418,12 @@ if(submitcheck('profilesubmit')) {
 			dsetcookie('newemail', "{$space['uid']}\t$emailnew\t{$_G['timestamp']}", 31536000);
 		}
 	}
-	// 如果开启了短信验证, 输入了安全手机号却没有输入验证码, 就尝试发送验证码
 	if($_G['setting']['smsstatus'] && (strcmp($secmobiccnew, $_G['member']['secmobicc']) != 0 || strcmp($secmobilenew, $_G['member']['secmobile']) != 0) && empty($secmobseccode)) {
 		$length = $_G['setting']['smsdefaultlength'] ? $_G['setting']['smsdefaultlength'] : 4;
-		// 用户 UID : $_G['uid'], 短信类型: 验证类短信, 服务类型: 系统级手机号码验证业务
-		// 国际电话区号: $secmobiccnew, 手机号: $secmobilenew, 内容: $secmobseccode, 强制发送: false
 		sms::send($_G['uid'], 0, 1, $secmobiccnew, $secmobilenew, random($length, 1), 0);
 	}
-	// 如果保存时未输入验证码就把用户切换至未验证状态, 下次提交验证通过后才能切回正常状态
 	$setarr['secmobicc'] = $secmobiccnew == 0 ? '' : $secmobiccnew;
 	$setarr['secmobile'] = $secmobilenew == 0 ? '' : $secmobilenew;
-	// 修改了手机号才涉及到手机号认证状态变更
 	if(strcmp($secmobiccnew, $_G['member']['secmobicc']) != 0 || strcmp($secmobilenew, $_G['member']['secmobile']) != 0) {
 		$setarr['secmobilestatus'] = sms::verify($_G['uid'], 1, $secmobiccnew, $secmobilenew, $secmobseccode);
 	}
@@ -465,7 +457,6 @@ if(submitcheck('profilesubmit')) {
 		manage_addnotify('verifyuser');
 	}
 
-	// 给邮箱发送重置或修改密码的邮件
 	if(!empty($_GET['newpassword'])) {
 		if(!function_exists('sendmail')) {
 			include libfile('function/mail');
@@ -486,7 +477,6 @@ if(submitcheck('profilesubmit')) {
 		}
 	}
 
-	// 给邮箱发送修改安全手机号的邮件
 	if((strcmp($secmobiccnew, $_G['member']['secmobicc']) != 0 || strcmp($secmobilenew, $_G['member']['secmobile']) != 0) && (!$_G['setting']['smsstatus'] || $setarr['secmobilestatus'])) {
 		if(!function_exists('sendmail')) {
 			include libfile('function/mail');

@@ -38,7 +38,6 @@ function getblockhtml($blockname, $parameters = []) {
 			$privacy = $space['privacy']['profile'] ? $space['privacy']['profile'] : [];
 
 			foreach($_G['cache']['profilesetting'] as $fieldid => $field) {
-				// 个人空间内不展现个人信息
 				if($_G['setting']['nsprofiles']) {
 					break;
 				}

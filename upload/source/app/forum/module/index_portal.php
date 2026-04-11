@@ -22,7 +22,6 @@ if(empty($_G['setting']['forumportal']['navList']) || !is_array($_G['setting']['
 
 $tpp = !empty($_G['setting']['forumportal']['setting']['tpp']) ? $_G['setting']['forumportal']['setting']['tpp'] : $_G['tpp'];
 
-//获取可见的导航列表
 $portalNavList = [];
 foreach($_G['setting']['forumportal']['navList'] as $navId => $row) {
 	if(!$row['allow']) {
@@ -39,7 +38,6 @@ if(!$portalNavList) {
 	showmessage('forumportal_no_setting');
 }
 
-//获取当前的navId
 if(!isset($_GET['navId'])) {
 	$curNavId = array_keys($portalNavList)[0];
 } else {
@@ -50,10 +48,8 @@ if(!isset($_GET['navId'])) {
 }
 $setting = $_G['setting']['forumportal']['navList'][$curNavId];
 
-//生成过滤参数
 require_once childfile('filter');
 
-//查询
 $_G['forum_threadcount'] = table_forum_thread::t()->count_search($filterarr, 0);
 $_G['forum_threadimage'] = !empty($_G['setting']['forumportal']['setting']['image']) ? $_G['setting']['forumportal']['setting']['image'] : [];
 

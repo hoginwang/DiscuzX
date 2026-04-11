@@ -24,7 +24,7 @@ class ucclient_db {
 	var $goneaway = 5;
 
 	function connect($dbhost, $dbuser, $dbpw, $dbname = '', $dbcharset = '', $pconnect = 0, $tablepre = '', $time = 0) {
-		if(intval($pconnect) === 1) $dbhost = 'p:'.$dbhost; // 前面加p:，表示persistent connection
+		if(intval($pconnect) === 1) $dbhost = 'p:'.$dbhost;
 		$this->dbhost = $dbhost;
 		$this->dbuser = $dbuser;
 		$this->dbpw = $dbpw;
@@ -124,7 +124,6 @@ class ucclient_db {
 		}
 		$this->querynum++;
 		$this->histories[] = $parse[0];
-		// SELECT 指令返回数组供其他方法使用, 其他情况返回 SQL 执行结果
 		return strncasecmp('SELECT', $sql, 6) ? $query : $stmt->get_result();
 	}
 
@@ -190,14 +189,14 @@ class ucclient_db {
 	function parse_query($sql, $key = [], $value = []) {
 		$list = '';
 		$array = [];
-		if(strpos($sql, '?')) {// 如果SQL存在问号则使用传统匹配方式，KEY顺序与?的顺序保持一致
+		if(strpos($sql, '?')) {
 			foreach($key as $k => $v) {
 				if(in_array($v, ['i', 'd', 's', 'b'])) {
 					$list .= $v;
 					$array = array_merge($array, (array)$value[$k]);
 				}
 			}
-		} else {// 不存在问号则使用模拟PDO模式，允许在SQL内指定变量名
+		} else {
 			preg_match_all('/:([A-Za-z0-9]*?)( |$)/', $sql, $matches);
 			foreach($matches[1] as $match) {
 				if(in_array($key[$match], ['i', 'd', 's', 'b'])) {

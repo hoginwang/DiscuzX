@@ -15,9 +15,6 @@ class ip {
 	function __construct() {
 	}
 
-	/*
-	 * 将IPv6地址外面加方括号，用于显示
-	 */
 	public static function to_display($ip) {
 		if(filter_var($ip, FILTER_VALIDATE_IP, FILTER_FLAG_IPV6)) {
 			return '['.$ip.']';
@@ -25,14 +22,9 @@ class ip {
 		return $ip;
 	}
 
-	/*
-	 * 将各种显示格式的IPv6地址处理回标准IPv6格式
-	 * [::1] -> ::1
-	 * [::1]/16 -> ::1/16
-	 */
 	public static function to_ip($ip) {
 		if(strlen($ip) == 0) return $ip;
-		if(preg_match('/(.*?)\[((.*?:)+.*)\](.*)/', $ip, $m)) { // [xx:xx:xx]格式
+		if(preg_match('/(.*?)\[((.*?:)+.*)\](.*)/', $ip, $m)) {
 			if(filter_var($m[2], FILTER_VALIDATE_IP, FILTER_FLAG_IPV6)) {
 				$ip = $m[1].$m[2].$m[4];
 			}
@@ -40,22 +32,10 @@ class ip {
 		return $ip;
 	}
 
-	/*
-	 * 验证IP是否合法，支持v4和v6
-	 */
 	public static function validate_ip($ip) {
 		return filter_var($ip, FILTER_VALIDATE_IP) !== false;
 	}
 
-	/*
-	 * 验证是否是合法的CIDR:
-	 * 	- 包含 /
-	 * 	- / 后面大于0
-	 * 	- / 前面是合法的IP
-	 * 返回值：
-	 * 	- TRUE，表示是合法的CIDR，$new_str为处理过的CIDR(IP部分调用了to_ip)
-	 * 	- FALSE, 不是合法的CIDR
-	 */
 	public static function validate_cidr($str, &$new_str) {
 		if(str_contains($str, '/')) {
 			[$newip, $mask] = explode('/', $str);
@@ -76,14 +56,6 @@ class ip {
 		return FALSE;
 	}
 
-	/*
-	 * 给一个ipv4或v6的cidr，计算最小IP和最大IP
-	 * 如果输入的是一个IP，那最大最小IP都等于其自身
-	 * $as_hex = true
-	 * 	返回值为 二进制表达的字符串格式
-	 * $as_hex = false
-	 * 	返回值可用inet_ntop轮换为IP字符串表达式 
-	 */
 	public static function calc_cidr_range($str, $as_hex = false) {
 		if(self::validate_cidr($str, $str)) {
 			[$ip, $prefix] = explode('/', $str);
@@ -132,9 +104,6 @@ class ip {
 		return FALSE;
 	}
 
-	/*
-	 * 将一个IP地址转为16进制表达的字符串
-	 */
 	public static function ip_to_hex_str($ip) {
 		if(!self::validate_ip($ip)) {
 			return false;
@@ -147,9 +116,6 @@ class ip {
 		return unpack('H*hex', join(array_map('chr', $ip_bytes)))['hex'];
 	}
 
-	/*
-	 * 以下三个函数，检查$requestIp是否在$ip给出的cidr范围内
-	 */
 
 	public static function check_ip($requestIp, $ips) {
 		if(!self::validate_ip($requestIp)) {
@@ -215,9 +181,6 @@ class ip {
 		return 0 === substr_compare(sprintf('%032b', ip2long($requestIp)), sprintf('%032b', ip2long($address)), 0, $netmask);
 	}
 
-	/*
-	 * 将IP转为位置，支持传入CIDR
-	 */
 	public static function convert($ip, $simple = false) {
 		$return = '';
 		require childfile('ip', 'global/core');

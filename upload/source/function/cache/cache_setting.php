@@ -22,7 +22,7 @@ function build_cache_setting() {
 		'infosidestatus', 'uc', 'indexhot', 'relatedtag', 'sitemessage', 'uchome', 'heatthread', 'recommendthread',
 		'disallowfloat', 'allowviewuserthread', 'advtype', 'click', 'card', 'rewritestatus', 'rewriterule', 'privacy', 'focus',
 		'forumkeys', 'article_tags', 'verify', 'seotitle', 'seodescription', 'seokeywords', 'domain', 'ranklist', 'my_search_data',
-		'seccodedata', 'inviteconfig', 'advexpiration', 'allowpostcomment', /*(IN_MOBILE)*/
+		'seccodedata', 'inviteconfig', 'advexpiration', 'allowpostcomment',
 		'mobile', 'connect', 'upgrade', 'patch', 'strongpw',
 		'posttable_info', 'threadtable_info', 'profilegroup', 'antitheft', 'makehtml', 'guestviewthumb', 'grid', 'guesttipsinthread', 'accountguard',
 		'security_usergroups_white_list', 'security_forums_white_list', 'account', 'oss', 'chgusername', 'cells', 'forumportal', 'log', 'upgroup_name',
@@ -438,7 +438,7 @@ function build_cache_setting() {
 	}
 
 	$defaultcurhost = empty($_G['setting']['domain']['app']['default']) ? '{CURHOST}' : $_G['setting']['domain']['app']['default'];
-	$output = ['str' => [], 'preg' => []]; //str为二级域名的查找和替换，preg为rewrite和默认域名的查找和替换
+	$output = ['str' => [], 'preg' => []];
 	$_G['domain'] = [];
 	if(is_array($_G['setting']['domain']['app'])) {
 		$apps = $_G['setting']['domain']['app'];
@@ -541,8 +541,6 @@ function build_cache_setting() {
 
 	$data['minsubjectsize'] = empty($data['minsubjectsize']) ? 1 : $data['minsubjectsize'];
 
-	// 如果站点做过用户分表, 需要在更新缓存时判定一下用户分表是否存在, 不存在的话需要加上.
-	// 修复因站点自身问题导致用户分表丢失导致程序出错的问题.
 	if($data['membersplit']) {
 		table_common_member_archive::t()->check_table();
 	}
@@ -802,7 +800,6 @@ function get_cachedata_setting_plugin($method = '') {
 									if($hscript == 'home' && in_array($curscript, ['space', 'spacecp'])) {
 										$curscript .= '_'.$v[1];
 									}
-									// If $funcname include __ , then before __ is $curscript.
 									if(str_contains($funcname, '__')) {
 										$curscript = current(explode('__', $funcname));
 									}

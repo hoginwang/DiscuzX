@@ -385,21 +385,6 @@ class payment {
 		global $_G;
 		require_once libfile('function/misc');
 
-		/*
-		writelog('pmtlog', implode("\t", clearlogstring(array(
-			$_G['timestamp'],
-			$channel,
-			$status,
-			$order_id,
-			$uid,
-			$_G['clientip'],
-			$_G['remoteport'],
-			$error,
-			is_array($data) ? json_encode($data) : $data
-		))));
-		*/
-
-		// logger start
 		if($_G['setting']['log']['pmt']) {
 			$errorlog = [
 				'dateline' => $_G['timestamp'],
@@ -415,6 +400,5 @@ class payment {
 			$member_log = getuserbyuid($uid);
 			logger('pmt', $member_log, $uid, $errorlog);
 		}
-		// logger end
 	}
 }

@@ -28,7 +28,7 @@ function getstatvars($type) {
 		case 'modworks':
 		case 'memberlist':
 		case 'forumstat':
-			$statvars = call_user_func('getstatvars_'.$type, ($type == 'forumstat' ? getgpc('fid') : ''));//getstatvars_forumstat($_GET['fid']);
+			$statvars = call_user_func('getstatvars_'.$type, ($type == 'forumstat' ? getgpc('fid') : ''));
 			break;
 	}
 	return $statvars;

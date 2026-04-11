@@ -77,7 +77,6 @@ class table_forum_groupuser extends discuz_table {
 	}
 
 	public function insert($data, $return_insert_id = false, $replace = false, $silent = false, $null1 = 0, $null2 = 0) {
-		// $null 1~n 需要在取消兼容层后删除
 		if(defined('DISCUZ_DEPRECATED')) {
 			throw new Exception('NotImplementedException');
 			return parent::insert($data, $return_insert_id, $replace, $silent);

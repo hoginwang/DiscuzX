@@ -15,7 +15,7 @@ if(!$attach['remote'] && !is_readable($filename)) {
 	showmessage('attachment_nonexistence');
 }
 
-$readmod = 2;//read local file's function: 1=fread 2=readfile 3=fpassthru 4=fpassthru+multiple
+$readmod = 2;
 $range = 0;
 if($readmod == 4 && !empty($_SERVER['HTTP_RANGE'])) {
 	list($range) = explode('-', (str_replace('bytes=', '', $_SERVER['HTTP_RANGE'])));
@@ -26,11 +26,8 @@ if($attach['remote'] && !$_G['setting']['ftp']['hideurl'] && $attach['isimage'])
 }
 
 $filesize = $attach['filesize'];
-// 遵循RFC 6266国际标准，按照RFC 5987中的规则对文件名进行编码
 $filenameencode = strtolower(CHARSET) == 'utf-8' ? rawurlencode($attach['filename']) : rawurlencode(diconv($attach['filename'], CHARSET, 'UTF-8'));
 
-// 连2011年发布的国际标准都没能正确支持的浏览器厂商的黑名单列表
-// 目前包括：UC，夸克，搜狗，百度
 $rfc6266blacklist = strexists($_SERVER['HTTP_USER_AGENT'], 'UCBrowser') || strexists($_SERVER['HTTP_USER_AGENT'], 'Quark') || strexists($_SERVER['HTTP_USER_AGENT'], 'SogouM') || strexists($_SERVER['HTTP_USER_AGENT'], 'baidu');
 
 dheader('Date: '.gmdate('D, d M Y H:i:s', $attach['dateline']).' GMT');
@@ -51,4 +48,3 @@ if($readmod == 4) {
 }
 
 $attach['remote'] ? getremotefile($attach['attachment']) : getlocalfile($filename, $readmod, $range);
-	

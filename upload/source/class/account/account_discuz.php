@@ -74,7 +74,6 @@ class account_discuz extends account_base {
 			showmessage('account_api_error', '', ['message' => ': '.$ret['ret'].', /authtoken']);
 		}
 
-		//获取访问用户身份
 		$ret = $this->_request('/profile', array('uid' => $ret['data']['uid']));
 		if(!$ret || $ret['ret'] > 0) {
 			showmessage('account_api_error', '', ['message' => ': '.$ret['ret'].', /profile']);

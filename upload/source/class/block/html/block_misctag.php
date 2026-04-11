@@ -6,13 +6,6 @@
  * https://license.discuz.vip
  */
 
-/**
- *      [Discuz!] (C)2001-2099 Comsenz Inc.
- *      This is NOT a freeware, use is subject to license terms
- *
- *      $Id: block_activity.php 25525 2011-11-14 04:39:11Z zhangguosheng $
- */
-
 if(!defined('IN_DISCUZ')) {
 	exit('Access Denied');
 }
@@ -115,12 +108,10 @@ class block_misctag extends discuz_block {
 		return ['html' => '', 'data' => $list];
 	}
 	private function process_tags_by_hot_score($tags) {
-		// 检查是否有标签数据
 		if (empty($tags)) {
 			return [];
 		}
 
-		// 找出最大和最小的hot_score值
 		$maxHotScore = PHP_INT_MIN;
 		$minHotScore = PHP_INT_MAX;
 
@@ -130,7 +121,6 @@ class block_misctag extends discuz_block {
 			$minHotScore = min($minHotScore, $hotScore);
 		}
 
-		// 如果所有标签的hot_score都相同，将它们都设为中等大小和颜色
 		if ($maxHotScore == $minHotScore) {
 			foreach ($tags as &$tag) {
 				$tag['size_level'] = 3;
@@ -139,15 +129,12 @@ class block_misctag extends discuz_block {
 			return $tags;
 		}
 
-		// 计算每个等级的区间宽度
 		$range = $maxHotScore - $minHotScore;
 		$interval = $range / 5;
 
-		// 为每个标签分配等级
 		foreach ($tags as &$tag) {
 			$hotScore = (int)$tag['hot_score'];
 
-			// 根据hot_score确定等级 (1-5)
 			if ($hotScore >= $minHotScore && $hotScore < $minHotScore + $interval) {
 				$level = 1;
 			} elseif ($hotScore < $minHotScore + $interval * 2) {
@@ -160,7 +147,6 @@ class block_misctag extends discuz_block {
 				$level = 5;
 			}
 
-			// 添加等级信息到标签数据
 			$tag['size_level'] = $level;
 			$tag['color_level'] = $level;
 		}

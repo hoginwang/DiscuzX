@@ -127,7 +127,6 @@ if(empty($_GET['do']) || $_GET['do'] == 'tradeinfo') {
 			$online = $sessioninfo = C::app()->session->fetch_by_uid($post['authorid']) && empty($sessioninfo['invisible']) ? 1 : 0;
 		}
 
-		// 开始解析json编辑器内容
 		if($post['content'] && !in_array($post['content'], ['{}', null, 'null', ''])) {
 			list($parserData, $styleData) = editor::parser($post['content']);
 			if($_G['setting']['editor_global_css']) {
@@ -147,7 +146,6 @@ if(empty($_GET['do']) || $_GET['do'] == 'tradeinfo') {
 				$post['style'] = $styleData;
 			}
 		}
-		// 结束解析json编辑器内容
 
 		include template('forum/trade_info');
 		exit;

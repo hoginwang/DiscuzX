@@ -19,7 +19,6 @@ class helper_form {
 		} else {
 			global $_G;
 			$formhashChecked = !empty($_GET['formhash']) && $_GET['formhash'] == formhash();
-			// 新增 $allowget = 2 时，验证formhash参数
 			if(defined('IN_RESTFUL') && $formhashChecked ||
 				($allowget && ($allowget !== 2 || $formhashChecked)) ||
 				($_SERVER['REQUEST_METHOD'] == 'POST' && $formhashChecked && empty($_SERVER['HTTP_X_FLASH_VERSION']) &&
@@ -47,8 +46,6 @@ class helper_form {
 		global $_G;
 		$censor = discuz_censor::instance();
 		$censor->check($message, $modword);
-		// 新增对仅支持禁止关键词的模块在遇到审核关键词时禁止发布相关内容
-		// $modasban 用于指示是否支持审核, 支持审核的模块需要设置为 FALSE
 		if(($censor->modbanned() && empty($_G['group']['ignorecensor'])) || (($modasban && !empty($_G['setting']['modasban'])) && $censor->modmoderated() && empty($_G['group']['ignorecensor']))) {
 			$wordbanned = implode(', ', $censor->words_found);
 			if($return) {

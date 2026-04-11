@@ -14,13 +14,13 @@ class editorblock_attaches {
 
 	var $version = '1.3.3';
 	var $name = '附件';
-	var $available = 1; // 默认启用状态 0:不启用 1:启用
-	var $columns = 1; //  默认是否支持多列 0:不支持 1:支持
+	var $available = 1;
+	var $columns = 1;
 	var $identifier = 'attaches';
 	var $description = '附件上传区块';
 	var $filename = 'attaches';
 	var $copyright = '<a href="https://addon.dismall.com/developer-32563.html" target="_blank">云诺</a>';
-	var $type = '2'; // 0:数据类型 1:图片类型 2:附件类型 3:视频类型 4:音频类型 5:文件类型
+	var $type = '2';
 
 	function __construct() {
 
@@ -56,16 +56,6 @@ class editorblock_attaches {
 EOF;
 	}
 
-	/*
-	 * 结构(左顶头)：
-	 * 	{
-	 * 		tools_$identifier: {
-	 * 			$identifier: {
-	 * 				...
-	 * 			}
-	 * 		}
-	 * 	}
-	 */
 	function getConfig() {
 		return <<<EOF
 {
@@ -119,7 +109,6 @@ EOF;
     margin-bottom: 20px;
 }
 .ce-block__content,.ce-toolbar__content {
-	/* max-width:calc(100% - 50px) */
 	margin-left: auto;
     margin-right: auto;
 }
@@ -203,7 +192,6 @@ EOF;
         border-radius: 3px;
         font-size: 10px;
         font-weight: bold;
-        /* box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.22); */
         font-family: ui-monospace,SFMono-Regular,SF Mono,Menlo,Consolas,Liberation Mono,monospace;
         letter-spacing: 0.02em;
       }

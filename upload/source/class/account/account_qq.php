@@ -62,7 +62,6 @@ class account_qq extends account_base {
 		$param = $paramBase;
 		$account = new account($param);
 		$account->userBind($uid);
-		// 注册时同步头像
 		$avatarRegisterAuto = $account->getSwitch('avatarRegisterAuto');
 		if(in_array('qq', $avatarRegisterAuto)) {
 			if($uid && $_G['cookie']['accountHeadImg']) {
@@ -100,7 +99,6 @@ class account_qq extends account_base {
 		if(!$openid) {
 			dheader('Location: '.(!empty($_G['cookie']['qq_referer']) ? $_G['cookie']['qq_referer'] : $_G['siteurl']), true, 302);
 		}
-		//获取访问用户身份
 		$userInfo = $user->getAuthUser($openid);
 		if(!$userInfo) {
 			dheader('Location: '.(!empty($_G['cookie']['qq_referer']) ? $_G['cookie']['qq_referer'] : $_G['siteurl']), true, 302);
@@ -114,7 +112,6 @@ class account_qq extends account_base {
 					showmessage('account_bind_exists');
 				}
 				$account->userBind($_G['uid'], $paramBase);
-				// 绑定时同步头像
 				$avatarBindAuto = $account->getSwitch('avatarBindAuto');
 				if(in_array('qq', $avatarBindAuto)) {
 					if($_G['uid'] && $userInfo['figureurl_2']) {
@@ -147,7 +144,6 @@ class account_qq extends account_base {
 			}
 
 			$username = $userInfo['nickname'];
-			// $email = random(9).'@qqlogin.com';
 			$email = '';
 			$param = $paramBase + [
 					'username' => $username,
@@ -164,7 +160,6 @@ class account_qq extends account_base {
 				}
 				showmessage($msg);
 			}
-			// 注册时同步头像
 			$avatarRegisterAuto = $account->getSwitch('avatarRegisterAuto');
 			if(in_array('qq', $avatarRegisterAuto)) {
 				if($_G['uid'] && $userInfo['figureurl_2']) {
@@ -190,7 +185,6 @@ class account_qq extends account_base {
 				showmessage('account_bind_other_exists', (!empty($_G['cookie']['qq_referer']) ? $_G['cookie']['qq_referer'] : $_G['siteurl']));
 			} else {
 				$account->userLogin();
-				// 登录时同步头像
 				$avatarLoginAuto = $account->getSwitch('avatarLoginAuto');
 				if(in_array('qq', $avatarLoginAuto)) {
 					if($_G['uid'] && $userInfo['figureurl_2']) {

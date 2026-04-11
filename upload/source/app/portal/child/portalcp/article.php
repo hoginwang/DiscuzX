@@ -216,7 +216,6 @@ if(submitcheck('articlesubmit', 0, $seccodecheck, $secqaacheck)) {
 		updatemoderate('aid', $aid);
 		manage_addnotify('verifyarticle');
 	}
-	//标签处理
 	$_POST['tags'] = dhtmlspecialchars(trim($_POST['tags']));
 	$_POST['tags'] = getstr($_POST['tags'], 500);
 	$_POST['tags'] = censor($_POST['tags']);

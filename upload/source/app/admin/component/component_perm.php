@@ -12,12 +12,6 @@ if(!defined('IN_DISCUZ')) {
 	exit('Access Denied');
 }
 
-/**
- * showcomponent('setname', 'varname', $value, 'component_perm', 'comment', [
- *      'permtype' => ['group', 'verify', 'account', 'tag', 'org', 'plugin'],    //显示的权限类型，留空为显示全部权限类型
- *      'formula' => true    //按照权限公式表达式方式显示
- * ]);
- */
 class component_perm {
 
 	var $name = '权限选择器';

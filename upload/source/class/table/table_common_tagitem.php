@@ -49,7 +49,6 @@ class table_common_tagitem extends discuz_table {
 	}
 
 	public function delete($val, $unbuffered = false, $null = '') {
-		// $null 需要在取消兼容层后删除
 		if(defined('DISCUZ_DEPRECATED')) {
 			throw new Exception('NotImplementedException');
 			return parent::delete($val, $unbuffered);
@@ -105,24 +104,10 @@ class table_common_tagitem extends discuz_table {
 		return DB::result_first('SELECT count(*) FROM ' .DB::table('common_tagitem')." WHERE tagid='".intval($tagid)."'");
 	}
 
-	/**
-	 * 获取指定时间后的标签关联记录
-	 *
-	 * @param int $tagid 标签ID
-	 * @param int $time 时间戳
-	 * @return array 关联记录
-	 */
 	public function fetch_all_by_tagid_and_time($tagid, $time) {
 		return DB::fetch_all('SELECT * FROM %t WHERE tagid=%d AND created_at>=%d ORDER BY created_at DESC', [$this->_table, $tagid, $time]);
 	}
 
-	/**
-	 * 获取指定时间窗口内的热门标签
-	 *
-	 * @param int $time 时间窗口起始时间戳
-	 * @param int $limit 返回数量
-	 * @return array 热门标签ID及关联数量
-	 */
 	public function fetch_hot_tags($time, $limit = 20) {
 		return DB::fetch_all('SELECT tagid, COUNT(*) AS count FROM %t WHERE created_at>=%d GROUP BY tagid ORDER BY count DESC LIMIT %d', [$this->_table, $time, $limit]);
 	}

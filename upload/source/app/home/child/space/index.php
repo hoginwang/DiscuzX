@@ -27,7 +27,6 @@ if($_GET['op'] == 'getmusiclist') {
 	if($reauthcode == $_GET['hash']) {
 		space_merge($space, 'field_home');
 		$userdiy = getuserdiydata($space);
-		// 后端直接返回, 由前端负责将原始数据调整为所需格式
 		helper_output::json($userdiy['parameters']['music']);
 	}
 	exit();

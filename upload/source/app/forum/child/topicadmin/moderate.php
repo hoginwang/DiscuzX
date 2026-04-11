@@ -706,7 +706,6 @@ if(!submitcheck('modsubmit')) {
 				set_stamp($stampstatus, $stampaction, $threadlist, $expiration);
 			}
 
-			// 当进行管理操作后, 更新相关板块的板块缓存
 			$fidarr = [];
 			foreach($threadlist as $thread) {
 				$fidarr[] = $thread['fid'];

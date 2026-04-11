@@ -14,13 +14,13 @@ class editorblock_audio {
 
 	var $version = '1.1.0';
 	var $name = '音频';
-	var $available = 1; // 默认启用状态 0:不启用 1:启用
-	var $columns = 1; //  默认是否支持多列 0:不支持 1:支持
+	var $available = 1;
+	var $columns = 1;
 	var $identifier = 'audio';
 	var $description = '音频区块';
 	var $filename = 'audio';
 	var $copyright = '<a href="https://addon.dismall.com/developer-32563.html" target="_blank">云诺</a>';
-	var $type = '4'; // 0:数据类型 1:图片类型 2:附件类型 3:视频类型 4:音频类型 5:文件类型
+	var $type = '4';
 
 	function __construct() {
 
@@ -56,16 +56,6 @@ class editorblock_audio {
 EOF;
 	}
 
-	/*
-	 * 结构(左顶头)：
-	 * 	{
-	 * 		tools_$identifier: {
-	 * 			$identifier: {
-	 * 				...
-	 * 			}
-	 * 		}
-	 * 	}
-	 */
 	function getConfig() {
 		return <<<EOF
 {
@@ -132,7 +122,6 @@ EOF;
     margin-bottom: 20px;
 }
 .ce-block__content,.ce-toolbar__content {
-	/* max-width:calc(100% - 50px) */
 	margin-left: auto;
     margin-right: auto;
 }
@@ -164,16 +153,14 @@ EOF;
             width: 100%;
             height: 280px;
             border-radius: 8px;
-            object-fit: cover; /* 保持封面比例填充 */
+            object-fit: cover;
             margin-bottom: 16px;
             box-shadow: 0 2px 8px rgba(0,0,0,0.15);
         }
-        /* 原生音频控件美化（适配主流浏览器） */
     .audio-tool__audio audio {
             width: 100%;
             outline: none;
         }
-        /* 标题样式 */
         .audio-title {
             text-align: center;
             font-size: 18px;
@@ -239,11 +226,6 @@ EOF;
   .audio-tool--loading .cdx-button {
       display: none;
     }
-
-  /**
-   * Tunes
-   * ----------------
-   */
 
   .audio-tool--withBorder .audio-tool__audio {
       border: 1px solid #e8e8eb;

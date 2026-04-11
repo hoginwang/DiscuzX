@@ -4,14 +4,6 @@ if(!defined('IN_DISCUZ')) {
 	exit('Access Denied');
 }
 
-/*
- * 主题列表可自定义的细胞模板
- * 模板调用方法：{cells forum/portal/threadlist threadlist}
- * PHP 部分准备的数据：
-
-$threadlist = C::t('forum_thread')->fetch_all_search($filterarr, 0, 0, $_G['tpp'], $_order, '');
-
- */
 class forum_portal_threadlist {
 
 	public static $name = '主题列表';

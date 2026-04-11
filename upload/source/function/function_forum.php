@@ -447,7 +447,7 @@ function loadforum($fid = null, $tid = null) {
 	if(isset($_G['forum']['fid']) && $_G['forum']['fid'] == $fid || isset($_G['thread']['tid']) && $_G['thread']['tid'] == $tid) {
 		return null;
 	}
-	if(!empty($_GET['archiver'])) {//X1.5的Archiver兼容
+	if(!empty($_GET['archiver'])) {
 		if($fid) {
 			dheader('location: archiver/?fid-'.$fid.'.html');
 		} elseif($tid) {
@@ -874,7 +874,6 @@ function insertpost($data) {
 	if(isset($data['tid'])) {
 		$thread = table_forum_thread::t()->fetch_thread($data['tid']);
 		$tableid = $thread['posttableid'];
-		// 第三方插件和系统内普遍直接用 insertpost 插入回复, 因此改为在这里处理
 		if(!$data['first'] && $thread['replies'] <= 0 && table_forum_sofa::t()->fetch($thread['tid'])) {
 			table_forum_sofa::t()->delete($thread['tid']);
 		}

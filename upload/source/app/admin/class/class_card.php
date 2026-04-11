@@ -74,9 +74,7 @@ class class_card {
 					} else {
 						$num = $i - 1;
 					}
-				}/* else {
-					DB::halt($sqlerror, $sql);
-				}*/
+				}
 			} else {
 				$this->succeed += intval(DB::affected_rows());
 				$this->cardlist[] = $card;

@@ -14,7 +14,6 @@ if($_G['setting']['log']['clearlogstypes']) {
 	$clearlogstypes = dunserialize($_G['setting']['log']['clearlogstypes']);
 	$clearlogstypes = array_unique($clearlogstypes);
 	foreach($clearlogstypes as $type) {
-		//$_G['setting']['log']['clearlogsdays'][$type] = $_G['setting']['log']['clearlogsdays'][$type] ?? $_G['setting']['log']['clearlogstime'];
 		if(empty($_G['setting']['log']['clearlogsdays'][$type]) || $_G['setting']['log']['clearlogsdays'][$type] < 0) {
 			continue;
 		}

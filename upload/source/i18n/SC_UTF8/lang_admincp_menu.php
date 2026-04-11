@@ -225,7 +225,6 @@ $lang =
 
 	'admincp_title' => $_G['setting']['bbname'].' 管理中心',
 
-	// 企飞版
 	'header_corp' => '企业',
 	'menu_setting_login' => '第三方登录',
 	'menu_setting_wechat' => '微信(服务号)',
@@ -234,7 +233,6 @@ $lang =
 	'menu_setting_ucenter' => 'UCenter',
 	'menu_founder_restful' => 'RESTful 接口',
 
-	// 企业平台参数信息
 	'menu_setting_enterprise' => '企业平台参数',
 
 	'menu_lang' => '语言包',

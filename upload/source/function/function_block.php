@@ -387,13 +387,13 @@ function block_template($bid) {
 			foreach($fields as $key => $field) {
 				$replacevalue = $blockitem[$key];
 				$field['datatype'] = !empty($field['datatype']) ? $field['datatype'] : '';
-				if($field['datatype'] == 'int') {// int
+				if($field['datatype'] == 'int') {
 					$replacevalue = intval($replacevalue);
 				} elseif($field['datatype'] == 'string') {
 					$replacevalue = preg_quote($replacevalue);
 				} elseif($field['datatype'] == 'date') {
 					$replacevalue = dgmdate($replacevalue, $block['dateuformat'] ? 'u' : $block['dateformat'], '9999', $block['dateuformat'] ? $block['dateformat'] : '');
-				} elseif($field['datatype'] == 'title') {//title
+				} elseif($field['datatype'] == 'title') {
 					$searcharr[] = '{title-title}';
 					$replacearr[] = preg_quote(!empty($blockitem['fields']['fulltitle']) ? $blockitem['fields']['fulltitle'] : dhtmlspecialchars($replacevalue));
 					$searcharr[] = '{alt-title}';
@@ -402,7 +402,7 @@ function block_template($bid) {
 					if($blockitem['showstyle'] && ($style = block_showstyle($blockitem['showstyle'], 'title'))) {
 						$replacevalue = '<font style="'.$style.'">'.$replacevalue.'</font>';
 					}
-				} elseif($field['datatype'] == 'summary') {//summary
+				} elseif($field['datatype'] == 'summary') {
 					$replacevalue = preg_quote($replacevalue);
 					if($blockitem['showstyle'] && ($style = block_showstyle($blockitem['showstyle'], 'summary'))) {
 						$replacevalue = '<font style="'.$style.'">'.$replacevalue.'</font>';
@@ -447,7 +447,7 @@ function block_template($bid) {
 								$ftp = &discuz_ftp::instance();
 								$ftp->connect();
 								if($ftp->connectid && $ftp->ftp_size($thumbpath) > 0) {
-									$picflag = 1; //common_block_pic表中的picflag标识（0本地，1远程）
+									$picflag = 1;
 									$_G['block_makethumb'] = true;
 									@unlink($_G['setting']['attachdir'].'./'.$thumbpath);
 									table_common_block_item::t()->update($itemid, ['picflag' => 2]);
@@ -456,19 +456,19 @@ function block_template($bid) {
 									$image->Thumb($replacevalue, $thumbpath, $block['picwidth'], $block['picheight'], 2);
 									if(file_exists($_G['setting']['attachdir'].'./'.$thumbpath)) {
 										if(ftpperm(fileext($thumbpath), filesize($_G['setting']['attachdir'].'./'.$thumbpath)) && $ftp->upload($_G['setting']['attachdir'].'/'.$thumbpath, $thumbpath)) {
-											$picflag = 1; //common_block_pic表中的picflag标识（0本地，1远程）
+											$picflag = 1;
 											$_G['block_makethumb'] = true;
 											@unlink($_G['setting']['attachdir'].'./'.$thumbpath);
 											table_common_block_item::t()->update($itemid, ['picflag' => 2]);
 											$replacevalue = (preg_match('/^https?:\/\//is', $thumbpath) ? '' : $_G['setting']['ftp']['attachurl']).$thumbpath;
 										} else {
-											$picflag = 0; //common_block_pic表中的picflag标识（0本地，1远程）
+											$picflag = 0;
 											$_G['block_makethumb'] = true;
 										}
 									}
 								}
 							} elseif(file_exists($_G['setting']['attachdir'].'./'.$thumbpath) || ($return = $image->Thumb($replacevalue, $thumbpath, $block['picwidth'], $block['picheight'], 2))) {
-								$picflag = 0; //common_block_pic表中的picflag标识（0本地，1远程）
+								$picflag = 0;
 								$_G['block_makethumb'] = true;
 							}
 							if($_G['block_makethumb']) {
@@ -500,7 +500,7 @@ function block_template($bid) {
 					$dynamicparts[$rkey[$k]] = [$rpattern[$k], $rvalue[$k]];
 				}
 			}
-		}// foreach($block['itemlist'] as $itemid=>$blockitem) {
+		}
 
 		foreach($dynamicparts as $value) {
 			$template = preg_replace($value[0], $value[1], $template);
@@ -739,7 +739,7 @@ function block_updateitem($bid, $items = []) {
 			$curitem['displayorder'] = $i;
 
 			$curitem['makethumb'] = 0;
-			if($block['picwidth'] && $block['picheight'] && $curitem['picflag']) { //picflag=0为url地址
+			if($block['picwidth'] && $block['picheight'] && $curitem['picflag']) {
 				$thumbpath = empty($curitem['thumbpath']) ? block_thumbpath($block, $curitem) : $curitem['thumbpath'];
 				if($_G['setting']['ftp']['on'] && !empty($_G['setting']['ftp']['host'])) {
 					if(empty($ftp)) {

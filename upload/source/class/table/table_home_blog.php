@@ -39,7 +39,6 @@ class table_home_blog extends discuz_table {
 	}
 
 	public function range($start = 0, $limit = 0, $sort = '', $null1 = 'dateline', $null2 = null, $null3 = null, $null4 = null, $null5 = null) {
-		// $null 1~n 需要在取消兼容层后删除
 		if(defined('DISCUZ_DEPRECATED')) {
 			throw new Exception('NotImplementedException');
 			return parent::range($start, $limit, $sort);
@@ -64,7 +63,6 @@ class table_home_blog extends discuz_table {
 	}
 
 	public function fetch_all($ids, $force_from_db = false, $null1 = '', $null2 = 0, $null3 = 0) {
-		// $null 1~n 需要在取消兼容层后删除
 		if(defined('DISCUZ_DEPRECATED')) {
 			throw new Exception('NotImplementedException');
 			return parent::fetch_all($ids, $force_from_db);

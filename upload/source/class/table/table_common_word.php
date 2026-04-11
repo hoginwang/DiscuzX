@@ -36,7 +36,6 @@ class table_common_word extends discuz_table {
 	}
 
 	public function fetch_all($ids = [], $force_from_db = false) {
-		// $ids = array() 需要在取消兼容层后删除
 		if(defined('DISCUZ_DEPRECATED')) {
 			throw new Exception('NotImplementedException');
 			return parent::fetch_all($ids, $force_from_db);

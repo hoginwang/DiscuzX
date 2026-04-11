@@ -57,7 +57,6 @@ if(!empty($setting['laspost'])) {
 	$filterarr['lastpostmore'] = TIMESTAMP - $setting['laspost'];
 }
 
-//生成排序规则
 if(!empty($setting['order_before'])) {
 	$field = '';
 	switch($setting['order_before']) {

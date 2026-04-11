@@ -34,7 +34,6 @@ $uchidden = getgpc('uchidden');
 if(in_array($method, ['app_reg', 'ext_info'])) {
 	$isHTTPS = is_https();
 	$PHP_SELF = $_SERVER['PHP_SELF'] ? $_SERVER['PHP_SELF'] : $_SERVER['SCRIPT_NAME'];
-	// $bbserver使用的端口，不能来自于SERVER_PORT，因为dz的服务器端口不一定是用户访问的端口(比如在负载均衡后面)
 	$bbserver = 'http'.($isHTTPS ? 's' : '').'://'.$_SERVER['HTTP_HOST'];
 	$default_ucapi = $bbserver.'/ucenter';
 	$default_appurl = $bbserver.substr($PHP_SELF, 0, strrpos($PHP_SELF, '/') - 8);
@@ -115,7 +114,7 @@ if($method == 'show_license') {
 
 	if($submit) {
 
-		$app_type = 'DISCUZX'; // Only For Discuz!
+		$app_type = 'DISCUZX';
 
 		$app_name = $sitename ? $sitename : SOFT_NAME;
 		$app_url = $siteurl ? $siteurl : $default_appurl;
@@ -439,7 +438,6 @@ if($method == 'show_license') {
 
 	$db->query("REPLACE INTO {$tablepre}common_member (uid, loginname, username, password, adminid, groupid, email, regdate, timeoffset) VALUES ('$uid', '$username', '$username', '$password', '1', '1', '$email', '".time()."', '9999');");
 
-	// UID 是变量, 不做适配会导致积分操作等异常
 	if($uid) {
 		$db->query("REPLACE INTO {$tablepre}common_member_count SET uid='$uid';");
 		$db->query("REPLACE INTO {$tablepre}common_member_status SET uid='$uid';");
@@ -487,7 +485,6 @@ if($method == 'show_license') {
 	$data = addslashes(serialize($userstats));
 	$db->query("REPLACE INTO {$tablepre}common_syscache (cname, ctype, dateline, data) VALUES ('userstats', '$ctype', '".time()."', '$data')");
 
-	//自动登录前台
 	$saltkey = random(8);
 	$authkey = md5($_config['security']['authkey'].$saltkey);
 	$cookiepre = $_config['cookie']['cookiepre'].substr(md5($_config['cookie']['cookiepath'].'|'.$_config['cookie']['cookiedomain']), 0, 4).'_';

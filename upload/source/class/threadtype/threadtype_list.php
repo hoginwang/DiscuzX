@@ -10,23 +10,12 @@ if(!defined('IN_DISCUZ')) {
 	exit('Access Denied');
 }
 
-/*
-扩充设置范例：
-[
- {"type": "text", "field": "f1", "name": "text1", "width": 80, "maxlen": "2,4"},
- {"type": "radio", "field": "f3", "name": "radio2", "options": [{"name":"A","value":"a","default":true},{"name":"B","value":"b"}]},
- {"type": "checkbox", "field": "f4", "name": "checkbox", "options": [{"name":"C","value":"c","default":true},{"name":"D","value":"d"}]},
- {"type": "select", "field": "f5", "name": "select", "width": 80, "options": [{"name":"C","value":"c"},{"name":"D","value":"d","default":true}]}
- {"template": {"global": "{f1} - {f2} - {f3} - {f4} - {f5}<br>", "viewthread": "{f1} - {f2} - {f3} - {f4} - {f5}<br>"}}
-]
-*/
-
 class threadtype_list {
 
 	var $name = '自定义列表';
 
 	var $desc = '
-<pre>	
+<pre>
 [
 	{
 		"type": "类型", "field": "字段名", "name": "显示名称", "options": [

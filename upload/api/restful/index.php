@@ -34,10 +34,8 @@ if($api[0] == 'token') {
 	$discuz->init_session = false;
 	$discuz->init();
 
-	//检测 appid 的有效性
 	$_ENV['restful']->checkSign();
 
-	//生成 token
 	if($_ENV['restful']->isRefreshToken()) {
 		$tokenData = $_ENV['restful']->refreshTokenData();
 	}
@@ -105,7 +103,6 @@ if($api[0] == 'token') {
 	if(!$data) {
 		$_ENV['restful']->error(-119);
 	} else {
-		// token校验
 		$_ENV['restful']->checkToken();
 
 		require_once libfile('function/member');
@@ -128,22 +125,15 @@ if($api[0] == 'token') {
 } else {
 	define('IN_RESTFUL_API', true);
 
-	//检测 appid 的有效性
 	$_ENV['restful']->checkSign();
 
-	// token校验
 	$_ENV['restful']->checkToken();
 
-	// 初始化接口参数
 	$_ENV['restful']->initParam($api, $ver);
 	$_ENV['restful']->validate($_body);
-	// 接口频率控制
 	$_ENV['restful']->apiFreqCheck();
-	// 接口权限校验
 	$_ENV['restful']->apiPermCheck();
-	// script校验
 	$script = $_ENV['restful']->scriptCheck();
-	// 释放 GPC
 	$_GET = $_ENV['restful']->paramDecode('get');
 	$_POST = $_ENV['restful']->paramDecode('post');
 	$_COOKIE = $_ENV['restful']->sessionDecode();
@@ -177,9 +167,7 @@ if($api[0] == 'token') {
 	}
 
 	if(!defined('IN_RESTFUL_DEBUG')) {
-		// 准备输出
 		[$shutdownFunc, $output] = $_ENV['restful']->getShutdownFunc();
-		// 运行 script
 		register_shutdown_function([$_ENV['restful'], $shutdownFunc], $output);
 	}
 

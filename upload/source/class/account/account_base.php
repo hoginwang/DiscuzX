@@ -11,27 +11,21 @@ if(!defined('IN_DISCUZ')) {
 }
 
 class account_base {
-	// 支持的所有类型
 	const Interfaces = ['wechat', 'qq', 'discuz', 'ucenter'];
-	// 为当前站点启用的类型
 	const Interfaces_Used = ['wechat', 'qq', 'discuz', 'ucenter'];
-	// 类型代码
 	const Interfaces_aType = [
 		'wechat' => account::aType_wechatOpenid,
 		'qq' => account::aType_qq,
 		'discuz' => account::aType_discuz,
 		'ucenter' => account::aType_ucenter,
 	];
-	// 类型ICON
 	const Interfaces_iconId = [
 		'wechat' => 'icon-weixin',
 		'qq' => 'icon-social-qq',
 		'discuz' => 'icon-discuz',
 		'ucenter' => 'icon-ucenter',
 	];
-	// 不支持账号管理中绑定的类型
 	const Interfaces_noBind = [];
-	// 不支持自动同步头像的类型
 	const Interfaces_noAutoAvatar = ['discuz', 'ucenter'];
 
 	public bool $interface_loginAuto = true;

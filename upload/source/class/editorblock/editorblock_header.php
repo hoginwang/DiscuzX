@@ -14,13 +14,13 @@ class editorblock_header {
 
 	var $version = '2.7.7';
 	var $name = '标题区块 Header';
-	var $available = 1; // 默认启用状态 0:不启用 1:启用
-	var $columns = 1; //  默认是否支持多列 0:不支持 1:支持
+	var $available = 1;
+	var $columns = 1;
 	var $identifier = 'header';
 	var $description = '用于添加标题类区块，如 h1、h2、h3等。';
 	var $filename = 'editorjs-header-with-alignment';
 	var $copyright = '<a href="https://addon.dismall.com/developer-32563.html" target="_blank">云诺</a>';
-	var $type = '0'; // 0:数据类型 1:图片类型 2:附件类型 3:视频类型 4:音频类型 5:文件类型
+	var $type = '0';
 
 	function __construct() {
 
@@ -39,26 +39,16 @@ class editorblock_header {
 		return <<<EOF
 {
     "data": {
-        "alignment": "left", // 对齐方式
-        "level": 5, // h1、h2...h6
-        "text": "content" // 内容
+        "alignment": "left",
+        "level": 5,
+        "text": "content"
     },
-    "id": "0co08uxJK4", // 区块id
-    "type": "header" // 区块类型
+    "id": "0co08uxJK4",
+    "type": "header"
 }
 EOF;
 	}
 
-	/*
-	 * 结构(左顶头)：
-	 * 	{
-	 * 		tools_$identifier: {
-	 * 			$identifier: {
-	 * 				...
-	 * 			}
-	 * 		}
-	 * 	}
-	 */
 	function getConfig() {
 		return <<<EOF
 {
@@ -92,13 +82,9 @@ EOF;
     margin-bottom: 20px;
 }
 .ce-block__content,.ce-toolbar__content {
-	/* max-width:calc(100% - 50px) */
 	margin-left: auto;
     margin-right: auto;
 }
-/**
- * Plugin styles
- */
 .ce-header {
   position: relative;
   padding: 1px 0px 1px 15px;
@@ -124,9 +110,6 @@ EOF;
 	-moz-border-radius: 3px;
 	border-radius: 3px;
 }
-/**
- * Styles for Plugin icon in Toolbar
- */
 .ce-header__icon {
 }
 
@@ -146,7 +129,6 @@ EOF;
 .ce-header[contentEditable="true"][data-placeholder]:empty:focus::before {
   display: none;
 }
-/* FontSize */
 h1.ce-header {
     font-size: 2.0em;
 }
@@ -165,7 +147,6 @@ h5.ce-header {
 h6.ce-header {
     font-size: 0.8em;
 }
-/* Alignment*/
 .ce-header--right {
   text-align: right;
 }

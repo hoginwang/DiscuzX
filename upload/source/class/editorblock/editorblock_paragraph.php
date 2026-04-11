@@ -14,13 +14,13 @@ class editorblock_paragraph {
 
 	var $version = '1.1.8';
 	var $name = '文本段落(增强版)';
-	var $available = 1; // 默认启用状态 0:不启用 1:启用
-	var $columns = 1; //  默认是否支持多列 0:不支持 1:支持
+	var $available = 1;
+	var $columns = 1;
 	var $identifier = 'paragraph';
 	var $description = '文本段落(增强版)内容区块，启用后会自动覆盖默认文本段落区块，支持配置输入指定Markdown标识切换到指定区块';
 	var $filename = 'paragraph';
 	var $copyright = '<a href="https://addon.dismall.com/developer-32563.html" target="_blank">云诺</a>';
-	var $type = '0'; // 0:数据类型 1:图片类型 2:附件类型 3:视频类型 4:音频类型 5:文件类型
+	var $type = '0';
 
 	function __construct() {
 
@@ -39,26 +39,15 @@ class editorblock_paragraph {
 		return <<<EOF
 {
     "data": {
-        "alignment": "left", // 对齐方式
-        "text": "content" // 内容
+        "alignment": "left",
+        "text": "content"
     },
-    "id": "ZT8S70Q34G", // 区块id
-    "type": "paragraph" // 区块类型
+    "id": "ZT8S70Q34G",
+    "type": "paragraph"
 }
 EOF;
 	}
 
-	/*
-	 * 结构(左顶头)：
-	 * 	{
-	 * 		tools_$identifier: {
-	 * 			$identifier: {
-	 * 				...
-	 * 			}
-	 * 		}
-	 * 	}
-	 */
-	// 历史配置项（废弃）：clickToShowInlineToolbar: true,
 	function getConfig() {
 		return <<<EOF
 {
@@ -71,82 +60,82 @@ EOF;
             enableClearFormattingBtn: true,
             markdown: false,
             markdownRules: [
-	            { 
-	                regex: /\*\*(.+?)\*/g, 
-	                type: 'bold', 
-	                data: {}, 
+	            {
+	                regex: /\*\*(.+?)\*/g,
+	                type: 'bold',
+	                data: {},
 	                skip: true,
-	                replacement: '<b>$1</b>' 
+	                replacement: '<b>$1</b>'
 	            },
-	            { 
-	                regex: /__(.+?)_/g, 
-	                type: 'bold', 
-	                data: {}, 
+	            {
+	                regex: /__(.+?)_/g,
+	                type: 'bold',
+	                data: {},
 	                skip: true,
-	                replacement: '<b>$1</b>' 
+	                replacement: '<b>$1</b>'
 	            },
-	            { 
-	                regex: /~~(.+?)~/g, 
-	                type: 'del', 
-	                data: {}, 
+	            {
+	                regex: /~~(.+?)~/g,
+	                type: 'del',
+	                data: {},
 	                skip: true,
-	                replacement: '<del>$1</del>' 
+	                replacement: '<del>$1</del>'
 	            },
-	            { 
-	                regex: /\*\*(.+?)\*\*/g, 
-	                type: 'bold', 
-	                data: {}, 
+	            {
+	                regex: /\*\*(.+?)\*\*/g,
+	                type: 'bold',
+	                data: {},
 	                skip: false,
-	                replacement: '<b>$1</b>' 
+	                replacement: '<b>$1</b>'
 	            },
-	            { 
-	                regex: /__(.+?)__/g, 
-	                type: 'bold', 
-	                data: {}, 
+	            {
+	                regex: /__(.+?)__/g,
+	                type: 'bold',
+	                data: {},
 	                skip: false,
-	                replacement: '<b>$1</b>' 
+	                replacement: '<b>$1</b>'
 	            },
-	            { 
-	                regex: /\*(.+?)\*/g, 
-	                type: 'italic', 
-	                data: {}, 
+	            {
+	                regex: /\*(.+?)\*/g,
+	                type: 'italic',
+	                data: {},
 	                skip: false,
-	                replacement: '<i>$1</i>' 
+	                replacement: '<i>$1</i>'
 	            },
-	            { 
-	                regex: /_(.+?)_/g, 
-	                type: 'italic', 
-	                data: {}, 
+	            {
+	                regex: /_(.+?)_/g,
+	                type: 'italic',
+	                data: {},
 	                skip: false,
-	                replacement: '<i>$1</i>' 
+	                replacement: '<i>$1</i>'
 	            },
-	            { 
-	                regex: /~~(.+?)~~/g, 
-	                type: 'del', 
-	                data: {}, 
+	            {
+	                regex: /~~(.+?)~~/g,
+	                type: 'del',
+	                data: {},
 	                skip: false,
-	                replacement: '<del>$1</del>' 
+	                replacement: '<del>$1</del>'
 	            },
-	            { 
-	                regex: /==(.+?)==/g, 
-	                type: 'mark', 
-	                data: {}, 
+	            {
+	                regex: /==(.+?)==/g,
+	                type: 'mark',
+	                data: {},
 	                skip: false,
-	                replacement: '<mark style="background-color: #ffe500;">$1</mark>' 
+	                replacement: '<mark style="background-color: #ffe500;">$1</mark>'
 	            },
-	            { 
-	              regex: /`(.+?)`/g, 
-	              type: 'inline-code', 
-	              data: {}, 
+	            {
+	              regex: /`(.+?)`/g,
+	              type: 'inline-code',
+	              data: {},
 	              skip: false,
-	              replacement: '<code class="inline-code">$1</code>' 
+	              replacement: '<code class="inline-code">$1</code>'
 	            },
-	            { 
-	                regex: /___(.+?)___/g, 
-	                type: 'underline', 
-	                data: {}, 
+	            {
+	                regex: /___(.+?)___/g,
+	                type: 'underline',
+	                data: {},
 	                skip: false,
-	                replacement: '<u class="cdx-underline">$1</u>' 
+	                replacement: '<u class="cdx-underline">$1</u>'
 	            }
 	    ],
             markdownSetting: [
@@ -271,7 +260,6 @@ EOF;
     margin-bottom: 20px;
 }
 .ce-block__content,.ce-toolbar__content {
-	/* max-width:calc(100% - 50px) */
 	margin-left: auto;
     margin-right: auto;
 }
@@ -305,7 +293,6 @@ EOF;
   opacity: 0;
 }
 
-/** Show placeholder at the first paragraph if Editor is empty */
 .codex-editor--empty .ce-block:first-child .ce-paragraph[data-placeholder]:empty::before {
   opacity: 1;
 }

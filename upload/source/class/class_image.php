@@ -139,7 +139,7 @@ class image {
 			$this->tmpfile = $source = tempnam($_G['setting']['attachdir'].'./temp/', 'tmpimg_');
 			$oss = null;
 			$oss_config = getglobal('setting/oss');
-			if(!$data && $source !== FALSE && $_G['setting']['ftp']['on'] == 2) { //如果读取不了文件内容，并且是第三方云存储,那么对方可能设置了防盗链，直接下载文件内容再试一把。
+			if(!$data && $source !== FALSE && $_G['setting']['ftp']['on'] == 2) {
 				$oss_config['oss_key'] = authcode($oss_config['oss_key'], 'DECODE', md5(getglobal('config/security/authkey')));
 				$oss = oss::loadOSS($oss_config);
 				$object = str_starts_with($parse['path'], '/') ? substr($parse['path'], 1) : $parse['path'];

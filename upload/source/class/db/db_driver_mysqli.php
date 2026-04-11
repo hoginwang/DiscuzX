@@ -79,7 +79,7 @@ class db_driver_mysqli {
 
 	function _dbconnect($dbhost, $dbuser, $dbpw, $dbcharset, $dbname, $pconnect, $dbport = 3306, $dbcompress = 1, $halt = true) {
 		mysqli_report(MYSQLI_REPORT_OFF);
-		if(intval($pconnect) === 1) $dbhost = 'p:'.$dbhost; // 前面加p:，表示persistent connection
+		if(intval($pconnect) === 1) $dbhost = 'p:'.$dbhost;
 		$link = new mysqli();
 		if(intval($dbcompress) === 1) {
 			$compress = MYSQLI_CLIENT_COMPRESS;

@@ -16,8 +16,8 @@ class oss {
 
 	public static function loadOSS($param) {
 		$type = $param['oss_type'];
-		$param['oss_id'] = trim($param['oss_id']);//Access Key ID
-		$param['oss_key'] = trim($param['oss_key']);//Access Key Secret
+		$param['oss_id'] = trim($param['oss_id']);
+		$param['oss_key'] = trim($param['oss_key']);
 		$param['oss_bucket_url'] = self::_formaturl($param['oss_bucket_url']);
 		$param['oss_url'] = self::_formaturl($param['oss_url']);
 

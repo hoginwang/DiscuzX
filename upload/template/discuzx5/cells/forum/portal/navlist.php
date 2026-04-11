@@ -4,11 +4,6 @@ if(!defined('IN_DISCUZ')) {
 	exit('Access Denied');
 }
 
-/*
- * 聚合主题导航的细胞模板
- * 模板调用方法：{cells forum/portal/navlist portalnav}
- */
-
 class forum_portal_navlist {
 
 	public static $name = '聚合首页导航';

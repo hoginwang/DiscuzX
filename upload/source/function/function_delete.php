@@ -719,32 +719,27 @@ function deletedoings($ids) {
 
 	if(empty($doings)) return [];
 
-	// 获取并处理附件
 	include_once libfile('function/home');
 	$all_attachments = table_home_doing_attachment::t()->fetch_all_by_id(0, 'doid', $newdoids);
 
-	// 分组附件并计算大小
 	$attach_by_doid = [];
 	foreach($all_attachments as $attach) {
 		$attach_by_doid[$attach['doid']][] = $attach;
 		$attachments[] = $attach;
 	}
 
-	// 删除物理文件
 	foreach($attachments as $attach) {
 		if($attach['isimage']) {
 			pic_delete($attach['attachment'], 'doing', 0, $attach['remote']);
 		}
 	}
 
-	// 删除附件记录
 	table_home_doing_attachment::t()->delete_by_id('doid', $newdoids);
 	table_home_doing::t()->delete($newdoids);
 	table_home_docomment::t()->delete_by_doid_uid($newdoids);
 	table_home_feed::t()->delete_by_id_idtype($newdoids, 'doid');
 	table_common_moderate::t()->delete_moderate($newdoids, 'doid');
 
-	// 删除点赞记录
 	foreach($newdoids as $doid) {
 		table_home_doing_recomend_log::t()->delete_by_doid($doid);
 	}

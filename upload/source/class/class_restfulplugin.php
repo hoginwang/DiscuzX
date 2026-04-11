@@ -316,7 +316,6 @@ class restfulplugin {
 			return;
 		}
 
-		// unset($data[$key]['password']);
 		$forum_favorite = C::t('home_favorite')->fetch_by_id_idtype($_G['forum']['fid'], 'fid', $_G['uid']);
 		if($forum_favorite['favid'] > 0) {
 			$data[$key]['isfavorite'] = 1;
@@ -331,7 +330,6 @@ class restfulplugin {
 			return;
 		}
 
-		// unset($data[$key]['password']);
 		$data[$key]['icon'] = self::_f_siteurl($data[$key]['icon']);
 		$data[$key]['banner'] = self::_f_siteurl($data[$key]['banner']);
 	}
@@ -359,7 +357,6 @@ class restfulplugin {
 		if($recommendav_add['recommenduid'] > 0) {
 			$data[$key]['isrecommendav'] = 1;
 		}
-		//投票帖
 		if($data[$key]['special'] == 1 && !empty($data['polloptions'])) {
 			$options = $data['polloptions'];
 			foreach($data['polloptions'] as $k => $v) {
@@ -383,7 +380,6 @@ class restfulplugin {
 			unset($data['isimagepoll'], $data['voterscount'], $data['maxchoices'], $data['multiple']);
 		}
 
-		//悬赏帖
 		if($data[$key]['special'] == 3) {
 			$data['bestpost']['authoravatar'] = self::_f_siteurl(avatar($data['bestpost']['authorid'], 'middle', 1));
 			$data['bestpost']['dateline'] = self::_f_gmdate($data['bestpost']['dateline']);
@@ -396,14 +392,12 @@ class restfulplugin {
 			unset($data['rewardprice'], $data['bestpost']);
 		}
 
-		//活动帖
 		if($data[$key]['special'] == 4) {
 			$data['activityoptions'] = $GLOBALS['activity'];
 			$data['activityoptions']['thumb'] = $data['activityoptions']['thumb'] ? self::_f_siteurl($data['activityoptions']['thumb']) : '';
 			$data['activityoptions']['attachurl'] = $data['activityoptions']['attachurl'] ? self::_f_siteurl($data['activityoptions']['attachurl']) : '';
 		}
 
-		//辩论帖
 		if($data[$key]['special'] == 5) {
 			$data['debateoptions'] = $GLOBALS['debate'];
 		}
@@ -727,11 +721,9 @@ class restfulplugin {
 		if(empty($data[$key])) {
 			return;
 		}
-		// 按照模板逻辑处理 magiccredits
 		if(!empty($data['magiccredits']) && is_array($data['magiccredits'])) {
 			$magiccredits = [];
 			foreach($data['magiccredits'] as $id => $value) {
-				// 获取用户对应积分的余额
 				$magiccredits[$id] = getuserprofile('extcredits'.$id);
 			}
 			$data['magiccredits'] = $magiccredits;
@@ -838,14 +830,13 @@ class restfulplugin {
 			if(!empty($v['message'])) {
 				$data[$key][$k]['message'] = preg_replace_callback('/<img[^>]*src=["\']([^"\']+)["\'][^>]*>/i', function($matches) {
 					$src = $matches[1];
-					// 如果不是完整的 URL，则添加站点 URL 前缀
 					if (!preg_match('/^(http|https):\/\//', $src)) {
 						$src = self::_f_siteurl($src);
 					}
 					return str_replace($matches[1], $src, $matches[0]);
 				}, $v['message']);
 			}
-			
+
 			if (!empty($v['uid'])) {
 				$data[$key][$k]['authoravatar'] = self::_f_siteurl(avatar($v['uid'], 'middle', 1));
 			}
@@ -861,7 +852,7 @@ class restfulplugin {
 						}else {
 							$data[$key][$k]['attachments'][$kk]['attachment'] = self::_f_siteurl($_G['setting']['attachurl'].'doing/'.$attachment['attachment']);
 						}
-						
+
 					}
 				}
 			}
@@ -869,7 +860,7 @@ class restfulplugin {
 	}
 	public static function doingUpload(&$data, $param) {
 		global $_G;
-		
+
 		$key = $param[0];
 		if(empty($data[$key])) {
 			return;
@@ -880,7 +871,7 @@ class restfulplugin {
 	}
 	public static function shareinfo(&$data, $param) {
 		global $_G;
-		
+
 		$key = $param[0];
 		if(empty($data[$key])) {
 			return;
@@ -891,7 +882,7 @@ class restfulplugin {
 		if (!empty($data[$key]['image']) && is_array($data[$key]['image'])) {
 			$data[$key]['image'] = self::_f_siteurl($data[$key]['image']);
 		}
-		
+
 	}
 	public static function clist(&$data, $param) {
 		$key = $param[0];
@@ -900,21 +891,17 @@ class restfulplugin {
 		}
 		foreach($data[$key] as $parentKey => $comments) {
 			if (!is_array($comments)) continue;
-			
 			foreach($comments as $k => $v) {
-				// 处理消息中的图片 URL
 				if(!empty($v['message'])) {
 					$data[$key][$parentKey][$k]['message'] = preg_replace_callback('/<img[^>]*src=["\']([^"\']+)["\'][^>]*>/i', function($matches) {
 						$src = $matches[1];
-						// 如果不是完整的 URL，则添加站点 URL 前缀
 						if (!preg_match('/^(http|https):\/\//', $src)) {
 							$src = self::_f_siteurl($src);
 						}
 						return str_replace($matches[1], $src, $matches[0]);
 					}, $v['message']);
 				}
-				
-				// 如果有作者头像，也处理一下
+
 				if (!empty($v['uid'])) {
 					$data[$key][$parentKey][$k]['authoravatar'] = self::_f_siteurl(avatar($v['uid'], 'middle', 1));
 				}
@@ -930,14 +917,13 @@ class restfulplugin {
 			if(!empty($v['message'])) {
 				$data[$key][$k]['message'] = preg_replace_callback('/<img[^>]*src=["\']([^"\']+)["\'][^>]*>/i', function($matches) {
 					$src = $matches[1];
-					// 如果不是完整的 URL，则添加站点 URL 前缀
 					if (!preg_match('/^(http|https):\/\//', $src)) {
 						$src = self::_f_siteurl($src);
 					}
 					return str_replace($matches[1], $src, $matches[0]);
 				}, $v['message']);
 			}
-			
+
 			if (!empty($v['authorid'])) {
 				$data[$key][$k]['authoravatar'] = self::_f_siteurl(avatar($v['authorid'], 'middle', 1));
 			}
@@ -951,23 +937,18 @@ class restfulplugin {
 			return;
 		}
 
-		// 处理 new.threadlist 数据
 		if(!empty($data[$key]['new']['threadlist']) && is_array($data[$key]['new']['threadlist'])) {
 			foreach($data[$key]['new']['threadlist'] as $k => $thread) {
-				// 处理匿名用户
 				if($thread['authorid'] > 0 && $thread['author'] === '') {
 					$data[$key]['new']['threadlist'][$k]['author'] = $_G['setting']['anonymoustext'];
 					$data[$key]['new']['threadlist'][$k]['authorid'] = $thread['authorid'] = 0;
 				}
 
-				// 添加用户头像
 				$data[$key]['new']['threadlist'][$k]['authoravatar'] = self::_f_siteurl(avatar($thread['authorid'], 'middle', 1));
 
-				// 格式化时间
 				$data[$key]['new']['threadlist'][$k]['dateline'] = self::_f_gmdate($thread['dateline']);
 				$data[$key]['new']['threadlist'][$k]['lastpost'] = self::_f_gmdate($thread['lastpost']);
 
-				// 处理图片附件
 				if(!empty($thread['images'])) {
 					foreach($thread['images'] as $_k => $_v) {
 						$data[$key]['new']['threadlist'][$k]['images'][$_k] = $_G['siteurl'].$_v;
@@ -976,23 +957,18 @@ class restfulplugin {
 			}
 		}
 
-		// 处理 hot.threadlist 数据
 		if(!empty($data[$key]['hot']['threadlist']) && is_array($data[$key]['hot']['threadlist'])) {
 			foreach($data[$key]['hot']['threadlist'] as $k => $thread) {
-				// 处理匿名用户
 				if($thread['authorid'] > 0 && $thread['author'] === '') {
 					$data[$key]['hot']['threadlist'][$k]['author'] = $_G['setting']['anonymoustext'];
 					$data[$key]['hot']['threadlist'][$k]['authorid'] = $thread['authorid'] = 0;
 				}
 
-				// 添加用户头像
 				$data[$key]['hot']['threadlist'][$k]['authoravatar'] = self::_f_siteurl(avatar($thread['authorid'], 'middle', 1));
 
-				// 格式化时间
 				$data[$key]['hot']['threadlist'][$k]['dateline'] = self::_f_gmdate($thread['dateline']);
 				$data[$key]['hot']['threadlist'][$k]['lastpost'] = self::_f_gmdate($thread['lastpost']);
 
-				// 处理图片附件
 				if(!empty($thread['images'])) {
 					foreach($thread['images'] as $_k => $_v) {
 						$data[$key]['hot']['threadlist'][$k]['images'][$_k] = $_G['siteurl'].$_v;
@@ -1001,23 +977,18 @@ class restfulplugin {
 			}
 		}
 
-		// 处理 digest.threadlist 数据（如果存在）
 		if(!empty($data[$key]['digest']['threadlist']) && is_array($data[$key]['digest']['threadlist'])) {
 			foreach($data[$key]['digest']['threadlist'] as $k => $thread) {
-				// 处理匿名用户
 				if($thread['authorid'] > 0 && $thread['author'] === '') {
 					$data[$key]['digest']['threadlist'][$k]['author'] = $_G['setting']['anonymoustext'];
 					$data[$key]['digest']['threadlist'][$k]['authorid'] = $thread['authorid'] = 0;
 				}
 
-				// 添加用户头像
 				$data[$key]['digest']['threadlist'][$k]['authoravatar'] = self::_f_siteurl(avatar($thread['authorid'], 'middle', 1));
 
-				// 格式化时间
 				$data[$key]['digest']['threadlist'][$k]['dateline'] = self::_f_gmdate($thread['dateline']);
 				$data[$key]['digest']['threadlist'][$k]['lastpost'] = self::_f_gmdate($thread['lastpost']);
 
-				// 处理图片附件
 				if(!empty($thread['images'])) {
 					foreach($thread['images'] as $_k => $_v) {
 						$data[$key]['digest']['threadlist'][$k]['images'][$_k] = $_G['siteurl'].$_v;
@@ -1025,23 +996,18 @@ class restfulplugin {
 				}
 			}
 		}
-		// 处理 sofa.threadlist 数据（如果存在）
 		if(!empty($data[$key]['sofa']['threadlist']) && is_array($data[$key]['sofa']['threadlist'])) {
 			foreach($data[$key]['sofa']['threadlist'] as $k => $thread) {
-				// 处理匿名用户
 				if($thread['authorid'] > 0 && $thread['author'] === '') {
 					$data[$key]['sofa']['threadlist'][$k]['author'] = $_G['setting']['anonymoustext'];
 					$data[$key]['sofa']['threadlist'][$k]['authorid'] = $thread['authorid'] = 0;
 				}
 
-				// 添加用户头像
 				$data[$key]['sofa']['threadlist'][$k]['authoravatar'] = self::_f_siteurl(avatar($thread['authorid'], 'middle', 1));
 
-				// 格式化时间
 				$data[$key]['sofa']['threadlist'][$k]['dateline'] = self::_f_gmdate($thread['dateline']);
 				$data[$key]['sofa']['threadlist'][$k]['lastpost'] = self::_f_gmdate($thread['lastpost']);
 
-				// 处理图片附件
 				if(!empty($thread['images'])) {
 					foreach($thread['images'] as $_k => $_v) {
 						$data[$key]['sofa']['threadlist'][$k]['images'][$_k] = $_G['siteurl'].$_v;
@@ -1049,23 +1015,18 @@ class restfulplugin {
 				}
 			}
 		}
-		// 处理 newthread.threadlist 数据（如果存在）
 		if(!empty($data[$key]['newthread']['threadlist']) && is_array($data[$key]['newthread']['threadlist'])) {
 			foreach($data[$key]['newthread']['threadlist'] as $k => $thread) {
-				// 处理匿名用户
 				if($thread['authorid'] > 0 && $thread['author'] === '') {
 					$data[$key]['newthread']['threadlist'][$k]['author'] = $_G['setting']['anonymoustext'];
 					$data[$key]['newthread']['threadlist'][$k]['authorid'] = $thread['authorid'] = 0;
 				}
 
-				// 添加用户头像
 				$data[$key]['newthread']['threadlist'][$k]['authoravatar'] = self::_f_siteurl(avatar($thread['authorid'], 'middle', 1));
 
-				// 格式化时间
 				$data[$key]['newthread']['threadlist'][$k]['dateline'] = self::_f_gmdate($thread['dateline']);
 				$data[$key]['newthread']['threadlist'][$k]['lastpost'] = self::_f_gmdate($thread['lastpost']);
 
-				// 处理图片附件
 				if(!empty($thread['images'])) {
 					foreach($thread['images'] as $_k => $_v) {
 						$data[$key]['newthread']['threadlist'][$k]['images'][$_k] = $_G['siteurl'].$_v;

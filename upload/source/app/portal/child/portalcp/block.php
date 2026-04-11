@@ -653,12 +653,12 @@ if($op == 'block') {
 				table_forum_thread::t()->update($item['id'], $data);
 			}
 			if($_POST['icflag'] && !(table_common_block_pic::t()->count_by_bid_pic($block['bid'], $thumbpath))) {
-				$picflag = 0; //common_block_pic表中的picflag标识（0本地，1远程）
+				$picflag = 0;
 				if($_G['setting']['ftp']['on'] && !empty($_G['setting']['ftp']['host'])) {
 					$ftp = &discuz_ftp::instance();
 					$ftp->connect();
 					if(($ftp->connectid && $ftp->ftp_size($thumbpath) > 0) || (ftpperm(fileext($thumbpath), filesize($_G['setting']['attachdir'].'./'.$thumbpath)) && $ftp->upload($_G['setting']['attachurl'].'/'.$thumbpath, $thumbpath))) {
-						$picflag = 1; //common_block_pic表中的picflag标识（0本地，1远程）
+						$picflag = 1;
 						@unlink($_G['setting']['attachdir'].'./'.$thumbpath);
 					}
 				}

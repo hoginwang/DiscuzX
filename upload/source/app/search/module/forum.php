@@ -36,8 +36,8 @@ if(!empty($_G['cache']['posttable_info']) && is_array($_G['cache']['posttable_in
 
 $srchmod = 2;
 
-$cachelife_time = 300;                // Life span for cache of searching in specified range of time
-$cachelife_text = 3600;                // Life span for cache of text searching
+$cachelife_time = 300;
+$cachelife_text = 3600;
 
 $srchtype = empty($_GET['srchtype']) ? '' : trim($_GET['srchtype']);
 $searchid = isset($_GET['searchid']) ? intval($_GET['searchid']) : 0;
@@ -93,7 +93,7 @@ if(!submitcheck('searchsubmit', 1)) {
 
 		$index['keywords'] = rawurlencode($index['keywords']);
 		$searchstring = explode('|', $index['searchstring']);
-		$index['searchtype'] = $searchstring[0];//preg_replace("/^([a-z]+)\|.*/", "\\1", $index['searchstring']);
+		$index['searchtype'] = $searchstring[0];
 		$searchstring[2] = base64_decode($searchstring[2]);
 		$srchuname = $searchstring[4];
 		$modfid = 0;
@@ -354,9 +354,7 @@ if(!submitcheck('searchsubmit', 1)) {
 						if(!$srchuid) {
 							$sqlsrch .= ' AND 0';
 						}
-					}/* elseif($srchuid) {
-						$srchuid = "'$srchuid'";
-					}*/
+					}
 
 					if($srchtxt) {
 						$srcharr = $srchtype == 'fulltext' ? searchkey($keyword, "(p.message LIKE '%{text}%' OR p.subject LIKE '%{text}%')", true) : searchkey($keyword, "t.subject LIKE '%{text}%'", true);

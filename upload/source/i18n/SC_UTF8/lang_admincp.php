@@ -548,7 +548,6 @@ $lang =
 	'nav_logs_restful' => 'RESTful 接口',
 	'nav_logs_plugin' => '其他记录',
 
-	// IconFont 预览相关
 	'misc_iconfont_title' => 'IconFont 预览',
 	'misc_iconfont_tips' => '本工具可用于解析字体文件中的图标，支持woff格式。系统已自动扫描模板目录中的字体文件，您也可以手动输入在线字体文件链接。',
 	'misc_iconfont_scanned_files' => '系统扫描到的字体文件',
@@ -1479,7 +1478,7 @@ $lang =
 			东华门街道
 			东四街道
 		西城区
-			什刹海街道	
+			什刹海街道
 </pre></li>',
 	'district_choose' => '选择地区',
 	'district_birthcity' => '<input type="checkbox" name="birthcitychkall" onclick="checkAll(\'prefix\', this.form, \'birthcity\', \'birthcitychkall\')" class="checkbox">出生地',
@@ -7844,7 +7843,6 @@ url.rewrite-once = (
 	'discuz_git' => '项目地址',
 	'discuz_qrcode' => '官方公众号',
 
-	// 企飞版
 	'setting_attach_remote_ftp' => 'FTP',
 	'setting_attach_remote_cos' => '对象存储',
 	'setting_attach_remote_oss_type' => '选择 OSS 服务商',
@@ -8101,7 +8099,7 @@ function getSign(nonce, t, secret) {
     let sha256 = CryptoJS.SHA256(nonce + t + secret).toString();
     let base64_sign = CryptoJS.enc.Base64.stringify(CryptoJS.enc.Utf8.parse(sha256));
     return base64_sign;
-}					
+}
 </pre>
 				</p>',
 	'restful_token' => '获取 Token',

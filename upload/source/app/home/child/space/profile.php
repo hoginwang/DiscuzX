@@ -110,7 +110,6 @@ if($_G['setting']['verify']['enabled']) {
 	space_merge($space, 'verify');
 }
 foreach($_G['cache']['profilesetting'] as $fieldid => $field) {
-	// 个人空间内不展现个人信息
 	if($_G['setting']['nsprofiles']) {
 		break;
 	}
@@ -191,7 +190,7 @@ if(!getglobal('privacy')) {
 	} else {
 		$_GET['do'] = 'card';
 		if(helper_access::check_module('follower')) {
-			$follow = table_home_follow::t()->fetch_by_uid_followuid($_G['uid'], $space['uid']);//是否收听对方
+			$follow = table_home_follow::t()->fetch_by_uid_followuid($_G['uid'], $space['uid']);
 		}
 		include_once template('home/space_card');
 	}

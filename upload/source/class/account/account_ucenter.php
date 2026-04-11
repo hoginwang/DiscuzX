@@ -73,7 +73,6 @@ class account_ucenter extends account_base {
 			showmessage('account_api_error', '', ['message' => ': '.$ret['ret'].', /user/check_code']);
 		}
 
-		//获取访问用户身份
 		$ret = $this->_request('/user/get_user', array('username' => $ret['data']['uid'], 'isuid' => 1));
 		if(!$ret || $ret['ret'] > 0) {
 			showmessage('account_api_error', '', ['message' => ': '.$ret['ret'].', /user/get_user']);

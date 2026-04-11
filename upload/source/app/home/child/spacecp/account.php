@@ -144,7 +144,6 @@ if($operation == 'list') {
 	$need_security_verify = false;
 	$verify = '';
 
-	//
 	$need_chg_security_verify = true;
 	if($_G['uid'] && getgpc('idstring_v') && getgpc('sign_v') === make_sign($_G['uid'], getgpc('idstring_v'))) {
 		$uid = $_G['uid'];
@@ -165,14 +164,12 @@ if($operation == 'list') {
 			if(empty($verify)) {
 				$security_verify_tmp = $security_verify;
 				if(empty($_G['member']['secmobile'])) {
-					// 手机号为空，销毁手机验证方式
 					$secmobile_index = array_search('secmobile', $security_verify);
 					if($secmobile_index != '' && $secmobile_index >= 0) {
 						unset($security_verify[$secmobile_index]);
 					}
 				}
 				if(empty($_G['member']['email'])) {
-					// 邮箱为空，销毁邮箱验证方式
 					$email_index = array_search('email', $security_verify);
 					if($email_index != '' && $email_index >= 0) {
 						unset($security_verify[$email_index]);
@@ -227,14 +224,12 @@ if($operation == 'list') {
 				if(empty($secmobseccode)) {
 					showmessage('message_secmobseccode_null_err');
 				}
-				// 短信发送前先校验安全手机号是否正确, 避免错误安全手机号送往短信网关
 				if(empty($secmobicc) || !preg_match('#^(\d){1,3}$#', $secmobicc)) {
 					showmessage('profile_secmobicc_illegal');
 				} else if(empty($secmobile) || !preg_match('#^(\d){1,12}$#', $secmobile)) {
 					showmessage('profile_secmobile_illegal');
 				}
 
-				// 短信验证码验证, 未通过校验为 0, 通过校验为 1, 验证码验证超过有效验证次数则失效为 -1
 				$secmobseccode_verify_result = sms::verify($_G['uid'], 1, $secmobicc, $secmobile, $secmobseccode);
 				if($secmobseccode_verify_result == 0) {
 					showmessage('message_secmobseccode_verify_err');
@@ -263,12 +258,10 @@ if($operation == 'list') {
 				if(empty($seccode)) {
 					showmessage('message_seccode_null_err');
 				}
-				// 短信发送前先校验安全手机号是否正确, 避免错误安全手机号送往短信网关
 				if(empty($email) || !preg_match('/^[\-\.\w]+@[\.\-\w]+(\.\w+)+$/', $email)) {
 					showmessage('profile_email_illegal');
 				}
 
-				// 邮件验证码验证, 未通过校验为 0, 通过校验为 1, 验证码验证超过有效验证次数则失效为 -1
 				$secemailseccode_verify_result = mailcode::verify($_G['uid'], 1, $email, $seccode);
 				if($secemailseccode_verify_result == 0) {
 					showmessage('message_seccode_verify_err');
@@ -404,7 +397,6 @@ function bindmobile($secprofile) {
 		'mobile' => $secprofile['secmobile'],
 	]);
 
-	// 将安全手机号同步给account表
 	table_common_member_account::t()->insert([
 		'uid' => $_G['uid'],
 		'atype' => account::aType_phone,
@@ -441,7 +433,6 @@ function unbindmobile($secprofile) {
 		'mobile' => '',
 	]);
 
-	// 将安全手机号绑定从account表删除
 	libfile('class/account');
 	table_common_member_account::t()->delete_by_uid($_G['uid'], account::aType_phone);
 

@@ -202,7 +202,7 @@ class discuz_error {
 	    font-size: 12px;
 	    line-height: 160%;
 	    margin-bottom: 10px;
-	    padding: 4px 8px;	  
+	    padding: 4px 8px;
 	}
 	.info svg { width: 40%; min-width: 200px; display: block; margin: auto; margin-bottom: 30px; fill: #999; }
 	.info svg .xicon { fill: #d31f0d; }
@@ -328,7 +328,6 @@ EOT;
 	public static function write_error_log($message) {
 		global $_G;
 		$message = discuz_error::clear($message);
-		//$file =  DISCUZ_DATA.'./log/'.date("Ym").'_errorlog.php';
 		$hash = md5($message);
 
 		$uid = $_G['uid'] ?? 0;
@@ -336,10 +335,6 @@ EOT;
 
 		$user = '<b>User:</b> uid='.intval($uid).'; IP='.$ip.'; RIP:'.$_SERVER['REMOTE_ADDR'];
 		$uri = 'Request: '.htmlspecialchars(discuz_error::clear($_SERVER['REQUEST_URI']));
-		/*
-		$message = "<?PHP exit;?>\t{$time}\t$message\t$hash\t$user $uri\n";
-		*/
-		// logger start
 		if(!empty($_G['setting']['log']['error'])) {
 			$errorlog = [
 				'timestamp' => TIMESTAMP,
@@ -352,28 +347,6 @@ EOT;
 			$member_log = getuserbyuid($uid);
 			logger('error', $member_log, $uid, $errorlog);
 		}
-		// logger end
-		/*
-		if($fp = @fopen($file, 'rb')) {
-			$lastlen = 50000;
-			$maxtime = 60 * 10;
-			$offset = filesize($file) - $lastlen;
-			if($offset > 0) {
-				fseek($fp, $offset);
-			}
-			if($data = fread($fp, $lastlen)) {
-				$array = explode("\n", $data);
-				if(is_array($array)) foreach($array as $key => $val) {
-					$row = explode("\t", $val);
-					if($row[0] != '<?PHP exit;?>') continue;
-					if($row[3] == $hash && ($row[1] > $time - $maxtime)) {
-						return;
-					}
-				}
-			}
-		}
-		error_log($message, 3, $file);
-		*/
 		return $hash;
 	}
 

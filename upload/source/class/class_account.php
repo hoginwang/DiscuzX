@@ -67,7 +67,6 @@ class account {
 		$userinfo = getuserbyuid($this->user['uid']);
 		setloginstatus($userinfo, $cookieTime);
 
-		// logger start
 		if($_G['setting']['log']['login']) {
 			$log = [
 				'timestamp' => TIMESTAMP,
@@ -78,7 +77,6 @@ class account {
 			];
 			logger('login', $userinfo, $userinfo['uid'], $log);
 		}
-		// logger end
 
 		return true;
 	}

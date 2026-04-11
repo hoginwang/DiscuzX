@@ -14,13 +14,13 @@ class editorblock_checklist {
 
 	var $version = '1.5.6';
 	var $name = '多选列表';
-	var $available = 1; // 默认启用状态 0:不启用 1:启用
-	var $columns = 1; //  默认是否支持多列 0:不支持 1:支持
+	var $available = 1;
+	var $columns = 1;
 	var $identifier = 'checklist';
 	var $description = '用于添加多选类区块。';
 	var $filename = 'checklist';
 	var $copyright = '<a href="https://addon.dismall.com/developer-32563.html" target="_blank">云诺</a>';
-	var $type = '0'; // 0:数据类型 1:图片类型 2:附件类型 3:视频类型 4:音频类型 5:文件类型
+	var $type = '0';
 
 	function __construct() {
 
@@ -50,22 +50,12 @@ class editorblock_checklist {
             }
         ]
     },
-    "id": "UbEUIk82tj", // 区块id
-    "type": "checklist" // 区块类型
+    "id": "UbEUIk82tj",
+    "type": "checklist"
 }
 EOF;
 	}
 
-	/*
-	 * 结构(左顶头)：
-	 * 	{
-	 * 		tools_$identifier: {
-	 * 			$identifier: {
-	 * 				...
-	 * 			}
-	 * 		}
-	 * 	}
-	 */
 	function getConfig() {
 		return <<<EOF
 {
@@ -93,7 +83,6 @@ EOF;
     margin-bottom: 20px;
 }
 .ce-block__content,.ce-toolbar__content {
-	/* max-width:calc(100% - 50px) */
 	margin-left: auto;
     margin-right: auto;
 }

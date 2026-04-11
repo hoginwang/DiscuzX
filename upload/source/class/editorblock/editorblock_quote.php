@@ -14,13 +14,13 @@ class editorblock_quote {
 
 	var $version = '1.0.5';
 	var $name = '引言';
-	var $available = 1; // 默认启用状态 0:不启用 1:启用
-	var $columns = 1; //  默认是否支持多列 0:不支持 1:支持
+	var $available = 1;
+	var $columns = 1;
 	var $identifier = 'quote';
 	var $description = '引言';
 	var $filename = 'quote';
 	var $copyright = '<a href="https://addon.dismall.com/developer-32563.html" target="_blank">云诺</a>';
-	var $type = '0'; // 0:数据类型 1:图片类型 2:附件类型 3:视频类型 4:音频类型 5:文件类型
+	var $type = '0';
 
 	function __construct() {
 
@@ -43,22 +43,12 @@ class editorblock_quote {
         "caption" : "引言描述",
         "alignment" : "left"
     }
-    "id": "ZT8S70Q34G", // 区块id
-    "type": "quote" // 区块类型
+    "id": "ZT8S70Q34G",
+    "type": "quote"
 }
 EOF;
 	}
 
-	/*
-	 * 结构(左顶头)：
-	 * 	{
-	 * 		tools_$identifier: {
-	 * 			$identifier: {
-	 * 				...
-	 * 			}
-	 * 		}
-	 * 	}
-	 */
 	function getConfig() {
 		return <<<EOF
 {

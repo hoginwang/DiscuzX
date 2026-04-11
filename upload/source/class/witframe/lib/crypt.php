@@ -40,16 +40,13 @@ class Crypt {
 
 	public static function encode($key, $hash, $data, $output = self::STRING) {
 
-		// set the key
 		if(!isset($key) || empty($key)) {
 			throw new Exception('provided key is null or empty');
 		}
 		self::$_key = $key;
 
-		// set the hash
 		self::_setHashAlgorithm($hash);
 
-		// perform hashing and return
 		return self::_hash($data, $output);
 	}
 

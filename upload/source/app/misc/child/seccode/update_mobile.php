@@ -10,7 +10,6 @@ if(!defined('IN_DISCUZ')) {
 	exit('Access Denied');
 }
 
-//移动端和PC端验证码功能拉齐
 $message = '';
 $showid = 'seccode_'.$idhash;
 $rand = random(5, 1);
@@ -66,4 +65,3 @@ if(document.getElementById('$showid')) {
 	$htmlcode
 }
 EOF;
-	
