@@ -110,6 +110,7 @@ CREATE TABLE uc_settings
 	PRIMARY KEY (k)
 ) ENGINE=InnoDB;
 
+REPLACE INTO uc_settings(k, v) VALUES ('suggestemail','');
 REPLACE INTO uc_settings(k, v) VALUES ('accessemail','');
 REPLACE INTO uc_settings(k, v) VALUES ('censoremail','');
 REPLACE INTO uc_settings(k, v) VALUES ('censorusername','');

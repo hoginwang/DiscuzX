@@ -52,9 +52,7 @@ function addFormEvent(formid, focus){
 	};
 	checkPwdComplexity(formNode[stmp[1]], formNode[stmp[2]]);
 	try {
-		if(!ignoreEmail) {
-			addMailEvent(formNode[stmp[3]]);
-		}
+		addMailEvent(formNode[stmp[3]]);
 	} catch(e) {}
 
 	try {
@@ -96,6 +94,7 @@ function checkPwdComplexity(firstObj, secondObj, modify) {
 }
 
 function addMailEvent(mailObj) {
+	emaildomains = (typeof suggestdomains !== "undefined") ? suggestdomains : emaildomains;
 
 	mailObj.onclick = function (event) {
 		emailMenu(event, mailObj.id);

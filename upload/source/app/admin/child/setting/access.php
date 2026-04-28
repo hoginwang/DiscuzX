@@ -160,9 +160,14 @@ if(submitcheck('settingsubmit')) {
 
 	showsetting('setting_access_register_regclosemessage', 'settingnew[regclosemessage]', $setting['regclosemessage'], 'textarea');
 	showsetting('setting_access_register_name', 'settingnew[regname]', $setting['regname'], 'text');
-	showsetting('setting_access_register_regemail', 'settingnew[regemail]', $setting['regemail'], 'radio');
+	showsetting('setting_access_register_regemail', ['settingnew[regemail]', [
+		[1, $lang['optional']],
+		[2, $lang['required']],
+		[0, $lang['no']]
+	]], $setting['regemail'], 'mradio');
 	if(UC_STANDALONE) {
 		showsetting('uc_setting_doublee', 'ucsettingnew[doublee]', $ucsetting['doublee'], 'radio');
+		showsetting('uc_setting_suggestemail', 'ucsettingnew[suggestemail]', $ucsetting['suggestemail'], 'textarea');
 		showsetting('uc_setting_accessemail', 'ucsettingnew[accessemail]', $ucsetting['accessemail'], 'textarea');
 		showsetting('uc_setting_censoremail', 'ucsettingnew[censoremail]', $ucsetting['censoremail'], 'textarea');
 	}

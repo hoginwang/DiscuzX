@@ -367,8 +367,6 @@ class register_ctl {
 	function on_register() {
 		global $_G;
 
-		$_G['setting']['forgeemail'] = true;
-
 		if(!empty($_G['setting']['account']['registerRedirect']) || !empty($_G['setting']['account']['registerRedirectDefault'])) {
 			if((empty($_GET['fromAccount']) || $_GET['fromAccount'] != formhash()) && empty($_G['cookie']['accountUDAuth'])) {
 				$url = account::method_registerRedirect();
@@ -483,6 +481,16 @@ class register_ctl {
 		}
 		$gethash = $_GET['hash'] ?? $param['hash'];
 		$email = $_GET['email'] ?? $param['email'];
+		$suggestemail = array_filter(array_unique(explode("\n", uc_get_settings()['suggestemail'] ?? '')));
+		foreach($suggestemail as $k => $v) {
+			$suggestemail[$k] = trim($v);
+			if(strpos($suggestemail[$k], '@') !== false) {
+				$suggestemail[$k] = substr($suggestemail[$k], strpos($suggestemail[$k], '@') + 1);
+			}
+		}
+		$suggestemail = array_filter($suggestemail);
+		if($suggestemail[0] ?? faLse) $suggestemail = implode('\', \'', $suggestemail);
+		 else $suggestemail = '';
 		$sendurl = (bool)$this->setting['sendregisterurl'];
 		if($sendurl) {
 			if(!empty($gethash)) {

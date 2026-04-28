@@ -162,8 +162,8 @@
 							<div class="rfm">
 								<table>
 									<tr>
-										<th><!--{if !$_G['setting']['forgeemail']}--><span class="rq">*</span><!--{/if}--><label for="{$this->setting['reginput']['email']}">{lang email}:</label></th>
-										<td><input type="text" id="{$this->setting['reginput']['email']}" name="" autocomplete="off" size="25" class="px" value="$hash[0]" {if !$_G['setting']['forgeemail']}required{/if} /><br /><em id="emailmore">&nbsp;</em></td>
+										<th><!--{if $this->setting['regemail'] == 2}--><span class="rq">*</span><!--{/if}--><label for="{$this->setting['reginput']['email']}">{lang email}:</label></th>
+										<td><input type="text" id="{$this->setting['reginput']['email']}" name="" autocomplete="off" size="25" class="px" value="$hash[0]" {if $this->setting['regemail'] == 2}required{/if} /><br /><em id="emailmore">&nbsp;</em></td>
 										<td class="tipcol"><i id="tip_{$this->setting['reginput']['email']}" class="p_tip">{lang register_email_tips}</i><kbd id="chk_{$this->setting['reginput']['email']}" class="p_chk"></kbd></td>
 									</tr>
 								</table>
@@ -282,7 +282,10 @@
 </div>
 
 <script type="text/javascript">
-var ignoreEmail = <!--{if $_G['setting']['forgeemail']}-->true<!--{else}-->false<!--{/if}-->;
+var ignoreEmail = <!--{if !$_G['setting']['regemail']}-->true<!--{else}-->false<!--{/if}-->;
+<!--{if $suggestemail}-->
+	var suggestdomains = ['{$suggestemail}'];
+<!--{/if}-->
 <!--{if $bbrules && $bbrulesforce}-->
 	showBBRule();
 <!--{/if}-->

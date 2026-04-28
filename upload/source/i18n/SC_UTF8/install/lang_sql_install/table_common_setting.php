@@ -1903,6 +1903,15 @@ discuz',
     'skey' => 'submitlock',
     'svalue' => '0',
   ],[
+    'skey' => 'suggestemail',
+    'svalue' => 'qq.com
+163.com
+sina.com
+sohu.com
+yahoo.com
+gmail.com
+hotmail.com',
+  ],[
     'skey' => 'switchwidthauto',
     'svalue' => '1',
   ],[

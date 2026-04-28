@@ -230,6 +230,7 @@ $lang =
 	'hour' => '小时制',
 	'hourtime' => '小时',
 	'required' => '必填',
+	'optional' => '选填',
 	'unchangeable' => '不可修改',
 	'norecords' => '暂无相关记录！',
 	'lastmodified' => '最后修改时间',
@@ -953,6 +954,8 @@ $lang =
 	'setting_access_access_domainwhitelist_affectimg' => '不解析此名单外的远程图片',
 
 	'uc_setting_doublee' => '是否允许同一邮箱注册多个用户',
+	'uc_setting_suggestemail' => '建议邮箱域名',
+	'uc_setting_suggestemail_comment' => '注册时显示的建议邮箱域名，每行一个域名，例如 @qq.com',
 	'uc_setting_accessemail' => '允许的邮箱地址',
 	'uc_setting_accessemail_comment' => '只允许使用这些域名结尾的邮箱地址注册，每行一个域名，例如 @qq.com',
 	'uc_setting_censoremail' => '禁止的邮箱地址',
