@@ -481,11 +481,22 @@ class register_ctl {
 		}
 		$gethash = $_GET['hash'] ?? $param['hash'];
 		$email = $_GET['email'] ?? $param['email'];
+		$censoremail = array_filter(array_unique(explode("\n", uc_get_settings()['censoremail'] ?? '')));
+		foreach($censoremail as $k => $v) {
+			$censoremail[$k] = trim($v);
+			if(strpos($censoremail[$k], '@') !== false) {
+				$censoremail[$k] = substr($censoremail[$k], strpos($censoremail[$k], '@') + 1);
+			}
+		}
+		$censoremail = array_filter($censoremail);
 		$suggestemail = array_filter(array_unique(explode("\n", uc_get_settings()['suggestemail'] ?? '')));
 		foreach($suggestemail as $k => $v) {
 			$suggestemail[$k] = trim($v);
 			if(strpos($suggestemail[$k], '@') !== false) {
 				$suggestemail[$k] = substr($suggestemail[$k], strpos($suggestemail[$k], '@') + 1);
+			}
+			if(in_array($suggestemail[$k], $censoremail)) {
+				unset($suggestemail[$k]);
 			}
 		}
 		$suggestemail = array_filter($suggestemail);

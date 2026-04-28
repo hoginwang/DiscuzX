@@ -955,7 +955,7 @@ $lang =
 
 	'uc_setting_doublee' => '是否允许同一邮箱注册多个用户',
 	'uc_setting_suggestemail' => '建议邮箱域名',
-	'uc_setting_suggestemail_comment' => '注册时显示的建议邮箱域名，每行一个域名，例如 @qq.com',
+	'uc_setting_suggestemail_comment' => '注册时显示的建议邮箱域名，每行一个域名，例如 @qq.com。如果域名同时在禁止列表中，则不会显示',
 	'uc_setting_accessemail' => '允许的邮箱地址',
 	'uc_setting_accessemail_comment' => '只允许使用这些域名结尾的邮箱地址注册，每行一个域名，例如 @qq.com',
 	'uc_setting_censoremail' => '禁止的邮箱地址',
